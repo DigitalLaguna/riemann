@@ -1,0 +1,665 @@
+An Elementary Problem Equivalent to the Riemann Hypothesis
+Jeffrey C. Lagarias
+
+arXiv:math/0008177v2 [math.NT] 6 May 2001
+
+(May 5, 2001 version)
+
+ABSTRACT. The problem is: Let Hn =
+
+n
+P
+1
+
+j=1
+
+n ≥ 1, that
+X
+
+j
+
+be the n-th harmonic number. Show, for each
+
+d ≤ Hn + exp(Hn ) log(Hn ),
+
+d|n
+
+with equality only for n = 1.
+AMS Subject Classification (2000): Primary 11M26, Secondary 11A25
+Keywords: Riemann hypothesis, colossally abundant numbers
+
+1. Introduction
+We consider the following problem.
+Problem E.
+
+Let Hn =
+
+n
+P
+1
+
+j=1
+
+j . Show that, for each n ≥ 1,
+
+X
+
+d ≤ Hn + exp(Hn ) log(Hn ),
+
+(1.1)
+
+d|n
+
+with equality only for n = 1.
+P
+The function σ(n) = d|n d is the sum of divisors function, so for example σ(6) = 12. The
+number Hn is called the n-th harmonic number by Knuth, Graham and Patashnik [9, Sect. 6.3],
+who detail various properties of harmonic numbers.
+The ‘E’ in Problem E might stand for either ‘easy’ or ‘elementary’. Perhaps ‘H’ for ‘hard’
+would be a better letter to use, since our object is to show the following equivalence.
+Theorem 1.1 Problem E is equivalent to the Riemann hypothesis.
+The Riemann hypothesis, stated by Riemann [17] in 1859, concerns the complex zeros of the
+Riemann zeta function. The Riemann zeta function ζ(s) is defined by the Dirichlet series
+ζ(s) =
+
+∞
+X
+
+n−s ,
+
+n=1
+
+which converges for ℜ(s) > 1, and it has an analytic continuation to the complex plane with one
+singularity, a simple pole with residue 1 at s = 1. The Riemann hypothesis states that the nonreal
+zeros of the Riemann zeta function ζ(s) all lie on the line ℜ(s) = 21 . One reason for the great
+interest in the Riemann hypothesis, regarded by many as the most important unsolved problem
+
+in pure mathematics, is its connection with the distribution of prime numbers, described below.
+More significantly, the Riemann hypothesis is a special case of questions concerning generalizations
+of the zeta function (L-functions) and their connections with problems in number theory, algebraic
+geometry, topology, representation theory and perhaps even physics, see Berry and Keating [3],
+Katz and Sarnak [8] and Murty[11].
+The connection of the Riemann hypothesis with prime numbers was the original question studied
+by Riemann [17]. Let π(x) count the number of primes p with 1 < p ≤ x. C. F. Gauss noted
+empirically that π(x) is well approximated by the logarithmic integral
+Z x
+dt
+,
+Li(x) =
+2 log t
+which itself satisfies
+Li(x) =
+
+x
+x
++ O(
+).
+log x
+(log x)2
+
+The Riemann hypothesis is equivalent to the assertion that for each ǫ > 0 there is a positive
+constant Cǫ such that
+|π(x) − Li(x)| ≤ Cǫ x1/2+ǫ
+for all x ≥ 2, see Edwards [5, p. 90]. The force of the Riemann hypothesis lies in the small size of
+the error term. The strongest form known of the Prime Number Theorem with error term asserts
+that
+|π(x) − Li(x)| ≤ C1 x exp(−C2 (log x)3/5−ǫ ),
+for any positive ǫ, for certain positive constants C1 and C2 depending on ǫ; this result is due to
+Vinogradov and Korobov in 1958.
+Problem E encodes a modification of a criterion of Guy Robin [18] for the Riemann hypothesis.
+Robin’s criterion states that the Riemann hypothesis is true if and only if
+σ(n) < eγ n log log n for all n ≥ 5041,
+
+(1.2)
+
+where γ ≈ 0.57721 is Euler’s constant. This criterion is related to the density of primes, as
+explained in §2. Our aim was to obtain a problem statement as elementary as possible, containing
+no undefined constants. However the hard work underlying the equivalence resides in the results
+of Robin stated in §3, where we give a proof of Theorem 1.1.
+Before coming to the proof, in the next section we describe how the Riemann hypothesis is
+related to the sum of divisors function. The connection traces back to Ramanujan’s work on highly
+composite numbers, and involves several results of Erdős with coauthors.
+
+2. Colossally Abundant Numbers
+The Riemann hypothesis is encoded in the criterion of Theorem 1.1 in terms of the very thin set
+of values of σ(n) that are “large.” The sum of divisors function is given by
+σ(n) =
+
+Y
+
+(1 + p + p2 + ... + pa ) = n
+
+pa ||n
+
+Y
+
+(1 +
+
+pa ||n
+
+1
+1
++ ... + a ),
+p
+p
+
+(2.1)
+
+where the product is taken over all primes p dividing n and the notation pa ||n, means pa divides n
+but pa+1 does not divide n. Most values of σ(n) are on the order of Cn. The average size of σ(n)
+was essentially found by Dirichlet in 1849, and is given by the following result of Bachmann, cf.
+Hardy and Wright [7, Theorem 324].
+2
+
+2
+
+Theorem 2.1 (Bachmann) The average order of σ(n) is π6 n. More precisely,
+n
+X
+
+σ(j) =
+
+j=1
+
+π2 2
+n + O(n log n)
+12
+
+as n → ∞.
+The maximal order of σ(n) is somewhat larger, and was determined by Gronwall in 1913, see
+Hardy and Wright [7, Theorem 323, Sect. 18.3 and 22.9].
+Theorem 2.2 (Gronwall) The asymptotic maximal size of σ(n) satisfies
+lim sup
+n→∞
+
+σ(n)
+= eγ ,
+n log log n
+
+where γ is Euler’s constant.
+This result can be deduced from Mertens’ theorem, which asserts that
+Y
+
+eγ
+1
+.
+(1 − ) ∼
+p
+log x
+
+p≤x
+
+as x → ∞. A much more refined version of the asymptotic upper bound, due to Robin [18, Theorem
+2], asserts (unconditionally) that for all n ≥ 3,
+σ(n) < eγ n log log n + 0.6482
+
+n
+.
+log log n
+
+(2.2)
+
+In §3 we will show that
+Hn + exp(Hn ) log(Hn ) ≤ eγ n log log n +
+
+7n
+,
+log n
+
+the right side of which is only slightly smaller than that of (2.2). Comparing this bound with (2.2)
+shows that the inequality (1.1), if ever false, cannot be false by very much.
+The study of extremal values of functions of the divisors of n is a branch of number theory
+with a long history. Let d(n) count the number of divisors of n (including 1 and n itself). Highly
+composite numbers are those positive integers n such that
+d(n) > d(k)
+
+for
+
+1 ≤ k ≤ n − 1.
+
+Superior highly composite numbers are those positive integers for which there is a positive exponent
+ǫ such that
+d(k)
+d(n)
+≥ ǫ
+for all
+k > 1,
+ǫ
+n
+k
+so that they maximize d(n)
+nǫ over all n; these form a subset of the highly composite numbers. The
+study of these numbers was initiated by Ramanujan. One can formulate similar extrema for the
+sum of divisors function. Superabundant numbers are those positive integers n such that
+σ(k)
+σ(n)
+>
+n
+k
+
+for
+
+3
+
+1 ≤ k ≤ n − 1.
+
+n
+2
+6
+12
+60
+120
+360
+2520
+5040
+55440
+720720
+1441440
+4324320
+21621600
+367567200
+6983776800
+160626866400
+321253732800
+9316358251200
+288807105787200
+2021649740510400
+6064949221531200
+224403121196654400
+
+Factorization of n
+2
+2·3
+22 · 3
+22 · 3 · 5
+23 · 3 · 5
+23 · 32 · 5
+23 · 32 · 5 · 7
+24 · 32 · 5 · 7
+24 · 32 · 5 · 7 · 11
+24 · 32 · 5 · 7 · 11 · 13
+25 · 32 · 5 · 7 · 11 · 13
+25 · 33 · 5 · 7 · 11 · 13
+25 · 33 · 52 · 7 · 11 · 13
+25 · 33 · 52 · 7 · 11 · 13 · 17
+25 · 33 · 52 · 7 · 11 · 13 · 17 · 19
+25 · 33 · 52 · 7 · · · 23
+26 · 33 · 52 · 7 · · · 23
+26 · 33 · 52 · 7 · · · 29
+26 · 33 · 52 · 7 · · · 31
+26 · 33 · 52 · 72 · 11 · · · 31
+26 · 34 · 52 · 72 · 11 · · · 31
+26 · 34 · 52 · 72 · 11 · · · 37
+
+σ(n)
+n
+
+1.500
+2.000
+2.333
+2.800
+3.000
+3.250
+3.714
+3.838
+4.187
+4.509
+4.581
+4.699
+4.855
+5.141
+5.412
+5.647
+5.692
+5.888
+6.078
+6.187
+6.238
+6.407
+
+Table 1: Colossally abundant numbers up to 1018 .
+Colossally abundant numbers are those numbers n for which there is a positive exponent ǫ such
+that
+σ(k)
+σ(n)
+≥ 1+ǫ
+for all
+k > 1.
+1+ǫ
+n
+k
+so that n attains the maximum value of kσ(k)
+1+ǫ over all k. The set of colossally abundant numbers
+is infinite. They form a subset of the superabundant numbers, a fact which can be deduced from
+the definition. Table 1 gives the colossally abundant numbers up to 1018 , as given in [1]. Robin
+showed that if the Riemann hypothesis is false, there will necessarily exist a counterexample to
+the inequality (1.2) which is a colossally abundant number, cf. [18, Proposition 1 of Section 3];
+the same property can be established for counterexamples to (1.1). (There could potentially exist
+other counterexamples as well.)
+Superabundant and colossally abundant numbers were studied1 in detail by Alaoglu and Erdős [1]
+in 1944. As evidenced in the table, colossally abundant numbers consist of a product of all the
+small primes up to some bound, with exponents which are nonincreasing as the prime increases.
+The values of these exponents have a characteristic smooth shape which can be almost completely
+described (see (2.3) below). In fact these classes of numbers had been studied earlier, by Ramanujan, in his 1915 work on highly composite numbers [14]. The notes in Ramanjuan’s Collected
+Papers report: “The London Mathematical Society was in some financial difficulty at the time, and
+Ramanujan suppressed part of what he had written in order to save expense.” [14, p. 339]. Only
+the first 52 of 75 sections were printed. The manuscript of the unpublished part was eventually rediscovered among the papers of G. N. Watson, in “Ramanujan’s Lost Notebook” (see Andrews [2]
+1
+
+Alaoglu and Erdős [1] use a slightly stronger definition of colossally abundant number; they impose the additional
+σ(k)
+requirement that nσ(n)
+1+ǫ > k1+ǫ must hold for 1 ≤ k < n. With their definition the colossally abundant numbers are
+exactly those given by (2.3) below.
+
+4
+
+and Ramanujan [15, pp. 280–308]) and finally published in 1997, in [16]. In it superabundant
+and colossally abundant numbers are considered in Section 59, as special cases of the concepts of
+generalised highly composite numbers and superior generalised highly composite numbers, for the
+parameter value s = 1. Ramanujan derived upper and lower bounds for the maximal order of generalised highly composite numbers in Section 71, assuming the Riemann hypothesis. (The Riemann
+hypothesis was assumed from Section 40 onward in his paper.) His bounds imply, assuming the
+Riemann hypothesis, that (1.2) holds for all sufficiently large n.
+The results of Alaoglu and Erdős in their 1944 paper are unconditional, and mainly concerned
+the exponents of primes occurring in highly composite and superabundant numbers. In considering the exponents of primes appearing in colossally abundant numbers, they raised the following
+question, which is still unsolved.
+Conjecture. (Alaoglu and Erdős) If p and q are both primes, is it true that px and q x are both
+rational only if x is an integer?
+This conjecture would follow as a consequence2 of the four exponentials conjecture in transcendental
+number theory, which asserts that if a1 , a2 form a pair of complex numbers, linearly independent
+over the rationals Q, and b1 , b2 is another such pair, also linearly independent over the rationals,
+then at least one of the four exponentials {eai bj : i, j = 1 or 2} is transcendental, see Lang [10, pp.
+8-11]. Alaoglu and Erdős [1, Theorem 10] showed that for “generic” values of ǫ there is exactly one
+maximizing integer n , and the exponent ap (ǫ) of each prime p in it is
+ap (ǫ) = ⌊
+
+log(p1+ǫ − 1) − log(pǫ − 1)
+⌋ − 1;
+log p
+
+(2.3)
+
+furthermore for all ǫ > 0 this value of n is maximizing. However for a discrete set of ǫ there will be
+more than one maximizing integer. Erdős and Nicolas [6, p. 70] later showed that for a given value
+of ǫ there will be exactly one, two or four integers n that attain the maximum value of kσ(k)
+1+ǫ . If
+the conjecture of Alaoglu and Erdős above has a positive answer, then no values of ǫ will have four
+extremal integers. This would imply that the ratio of two consecutive colossally abundant numbers,
+the larger divided by the smaller, will always be a prime, and that every colossally abundant number
+has a factorization (2.3) for some nonempty open interval of “generic” values of ǫ.
+Now we can explain the relevance of the Riemann hypothesis to the extremal size of σ(n).
+Colossally abundant numbers are products of all the small primes raised to powers that are a
+smoothly decreasing function of their size. Fluctuations in the distribution of primes will be reflected
+in fluctuations in the growth rate of σ(n)
+n taken over the set of colossally abundant numbers. Recall
+that the Riemann hypothesis is equivalent to the assertion that for each ǫ > 0,
+|π(x) − Li(x)| < x1/2+ǫ
+holds for all sufficiently large x. It is also known that if the Riemann hypothesis is false, then there
+will exist a specific positive constant δ such that the one-sided inequality
+π(x) > Li(x) + x1/2+δ
+is true for an infinite set of values with x → ∞. Heuristically, if we choose a value of x where such an
+excess of primes over Li(x) occurs, and then take a product of all primes up to this bound, choosing
+2
+
+For non-rational x consider a1 = log p, a2 = log q, b1 = 1 and b2 = x in the four exponentials conjecture. For
+non-integer rational x a direct argument is used.
+
+5
+
+appropriate exponents, one may hope to construct numbers n with σ(n) exceeding eγ n log log n by
+a small amount. If the Riemann hypothesis holds, there is a smaller upper bound for excess of the
+number of primes above Li(x), and from this one can deduce a slighly better upper bound for σ(n).
+The analysis of Robin [18] gives a quantitative version of this, as formulated in Propositions 3.1
+and 3.2 below.
+One can prove unconditionally that the inequality (1.1) holds for nearly all integers. Even if
+the Riemann hypothesis is false, the set of exceptions to the inequality (1.1) will form a very sparse
+set. Furthermore, if there exists any counterexample to (1.1), the value of n will be very large.
+
+3. Proofs
+The proof of Theorem 1.1 is based on the following two results of Robin [18].
+Proposition 3.1 (Robin) If the Riemann hypothesis is true, then for each n ≥ 5041,
+X
+d ≤ eγ n log log n ,
+
+(3.1)
+
+d|n
+
+where γ is Euler’s constant.
+Proof.
+
+This is Theorem 1 of Robin [18].
+
+Proposition 3.2 (Robin) If the Riemann hypothesis is false, then there exist constants
+0 < β < 21 and C > 0 such that
+X
+
+d ≥ eγ n log log n +
+
+d|n
+
+Cn log log n
+(log n)β
+
+(3.2)
+
+holds for infinitely many n.
+Proof. This appears in Proposition 1 of Section 4 of Robin [18]. The constant β can be chosen
+to take any value 1 − b < β < 21 , where b = ℜ(ρ) for some zero ρ of ζ(s) with ℜ(ρ) > 12 , and C > 0
+must be chosen sufficiently small, depending on ρ. The proof uses ideas from a result of Nicolas
+[12], [13, Proposition 3], which itself uses a method of Landau.
+We prove two preliminary lemmas.
+Lemma 3.1 For n ≥ 3,
+exp(Hn ) log(Hn ) ≥ eγ n log log n .
+Proof.
+
+(3.3)
+
+Letting ⌊t⌋ denote the integer part of t and {t} the fractional part of t, we have
+Z ∞
+1
+
+⌊t⌋
+dt =
+t2
+
+Thus
+Hn = 1 +
+
+X
+
+Z ∞
+
+1≤r≤t≤n 1
+
+Z n
+1
+
+n
+dt X 1 1
+( − ) = Hn − 1.
+=
+t2
+r n
+r=1
+
+t − {t}
+dt = log n + 1 −
+t2
+
+6
+
+Z n
+1
+
+{t}
+dt.
+t2
+
+(3.4)
+
+From this we obtain
+Hn = log n + γ +
+
+Z ∞
+n
+
+where we have set
+γ := 1 −
+
+Z ∞
+1
+
+{t}
+dt,
+t2
+
+(3.5)
+
+{t}
+dt.
+t2
+
+This is Euler’s constant γ = 0.57721 . . . , since letting n → ∞ yields
+γ = lim (Hn − log n),
+n→∞
+
+which is its usual definition. Now (3.5) gives
+Hn > log n + γ,
+which on exponentiating yields
+exp(Hn ) ≥ eγ n.
+
+(3.6)
+
+Finally Hn ≥ log n so log(Hn ) ≥ log log n > 0 for n ≥ 3. Combining this with (3.6) yields (3.3).
+Lemma 3.2 For n ≥ 20,
+7n
+.
+log n
+
+(3.7)
+
+1
+.
+log(n + 1)
+
+(3.8)
+
+Hn + exp(Hn ) log(Hn ) ≤ eγ n log log n +
+Proof.
+
+The formula (3.4) implies, for n ≥ 3,
+log Hn ≤ log(log n + 1) ≤ log log n +
+
+Next, (3.5) yields
+
+
+Z ∞
+{t}
+dt
+exp(Hn ) = exp log n + γ +
+t2
+Z ∞  n
+dt
+≤ eγ n exp
+t2
+ n
+1
+= eγ n exp
+.
+n
+
+(3.9)
+
+Since
+exp(x) ≤ 1 + 2x
+
+for 0 ≤ x ≤ 1 ,
+
+we obtain from (3.9) that
+
+
+2
+exp(Hn ) ≤ e n 1 +
+n
+γ
+
+
+
+.
+
+Combining this bound with (3.8) yields
+eγ n
++ 2eγ (log log n + 1)
+log(n + 1)
+6n
+≤ er n log log n +
+log n
+
+exp(Hn ) log(Hn ) ≤ eγ n log log n +
+
+for n ≥ 10. Using Hn ≤ log n + 1 and logn n ≥ log n + 1 for n ≥ 20 yields (3.7).
+7
+
+(3.10)
+
+Proof of Theorem 1.1
+⇐ Suppose the Riemann hypothesis is true. Then Proposition 3.1 and Lemma 3.1 together
+give, for n ≥ 5041,
+X
+d ≤ eγ n log log n < Hn + exp(Hn ) log Hn .
+d|n
+
+For 1 ≤ n ≤ 5040 one verifies (1.1) directly by computer, the only case of equality being n = 1.
+⇒ Suppose (1.1) holds for all n. We argue by contradiction, and suppose that the Riemann
+hypothesis is false. Then Proposition 3.2 applies. However its lower bound, valid for infinitely
+many n, contradicts the upper bound of Lemma 3.2 for sufficiently large n. We conclude that the
+Riemann hypothesis must be true.
+Acknowledgements. I thank Michel Balazard for bringing Robin’s criterion to my attention,
+and J.-L. Nicolas for references, particularly concerning Ramanujan, Eric Rains for checking (1.1)
+for 1 ≤ n ≤ 5040 on the computer, and Jim Reeds for corrections. I thank the reviewers for
+simplifications of the proofs of Lemmas 3.1 and 3.2.
+
+References
+[1] L. Alaoglu and P. Erdős, On Highly Composite and Similar Numbers, Trans. Amer. Math.
+Soc. 56 (1944), 448–469.
+[2] G. E. Andrews, An Introduction to Ramanujan’s Lost Notebook, Amer. Math. Monthly 86
+(1979), 89–108.
+[3] M. V. Berry and J. P. Keating, The Riemann zeros and eigenvalue asymptotics, SIAM Review
+41 (1999), 236–266.
+[4] M. Davis, Hilbert’s Tenth Problem: Aspects of a negative solution, in: Mathematical Developments arising from Hilbert Problems, Proc. Symp. Pure Math. No. XXVIII, American Math.
+Society: Provindence 1976, pp. 323–378.
+[5] H. E. Edwards, Riemann’s Zeta Function, Academic Press: New York 1974.
+[6] P. Erdős and J.-L. Nicolas, Répartition des nombres superabondants, Bull. Math. Soc. France
+103 (1975), 65–90.
+[7] G. H. Hardy and E. M. Wright, An Introduction to the Theory of Numbers. Fifth Edition.
+Oxford Univ. Press: Oxford 1979.
+[8] N. Katz and P. Sarnak, Zeros of zeta functions and symmetry, Bull. Amer. Math. Soc. 36
+(1999), 1–26.
+[9] D. Knuth, R. L. Graham and O. Patashnik, Concrete Mathematics (Second Edition), AddisonWesley: Reading, MA 1994.
+[10] S. Lang, Transcendental Number Theory, Addison-Wesley: Reading, Mass. 1966.
+[11] M. R. Murty, A motivated introduction to the Langlands program, in: Advances in Number
+Theory, Oxford U. Press: New York 1993, pp. 37–66.
+
+8
+
+[12] J. L. Nicolas, Petites valeurs de la fonction d’Euler et hypothèse de Riemann, Seminar on
+number theory, Paris 1981-82 (Parius 1981/1982), Birkhäuser, Boston 1983, pp. 207–218.
+[13] J. L. Nicolas, Petites valeurs de la fonction d’Euler, J. Number Theory 17 (1983), 375–388.
+[14] S. Ramanujan, Highly composite numbers, Proc. London Math. Soc. 14 (1915), 347–407. (Also,
+S. Ramanujan, Collected Papers,, Chelsea 1962, pp. 78–129, notes pp. 338-339.)
+[15] S. Ramanujan, The Lost notebook and other unpublished papers. With an introduction by
+George E. Andrews, Narosa: New Delhi and Springer-Verlag: Berlin-New York 1988.
+[16] S. Ramanujan, Highly composite numbers. Annotated and with a foreword by J.-L. Nicholas
+and G. Robin, Ramanujan J. 1 (1997), 119–153.
+[17] G. F. B. Riemann, Ueber die Anzahl der Primzahlen unter einer gegebenen Grösse, Monatsber.
+Akad. Berlin (1859), 671–680. (Also in: G. F. B. Riemann, Gesammelte Mathematische Werke
+(Ed. H. Weber), Dover reprint 1953.) [English translation in: Edwards (1974), pp. 299-305.]
+[18] G. Robin, Grandes valeurs de la fonction somme des diviseurs et hypothèse de Riemann, J.
+Math. Pures Appl. 63 (1984), 187–213.
+AT&T Labs–Research, Florham Park, NJ 07932-0971, USA
+email address: jcl@research.att.com
+
+9
+
+

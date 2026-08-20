@@ -1,5 +1,5 @@
 # Track D seed reading list (background counterexample and extremal search)
-gate: CLOSED
+gate: OPEN
 
 Seeds must be fetched and carded before this track opens.
 

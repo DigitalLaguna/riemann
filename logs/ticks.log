@@ -1,1 +1,4 @@
 2026-08-20T13:38:55.926425+00:00 tick 1 model=qwen3.8-27b steps=25 wall=466s next=Card lean-zulip-pnt (last Track A seed): try Zulip API without auth or a
+2026-08-20T14:09:49.983202+00:00 tick 2 model=qwen3.8-27b steps=25 wall=285s next=Card lean-zulip-pnt (last Track A seed): try Zulip API without auth or a
+2026-08-20T14:40:49.989934+00:00 tick 3 ERROR 'utf-8' codec can't decode byte 0x89 in position 967: invalid start byte steps=4
+2026-08-20T15:08:06+00:00 tick 4 model=qwen3.8-27b steps=65 wall=1880s next=Track B: re-implement Polymath15 heat-flow numerics in Arb to 2 sig figs (week-4 kill criterion); pre-registered falsification vs arXiv 1904.12438 Fig 1

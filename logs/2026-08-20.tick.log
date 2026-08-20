@@ -28,3 +28,40 @@ notes:
     finished at tick start.
 next: card lean-zulip-pnt (last Track A seed; needs Zulip fetch method) or move
   to Track B seeds (polymath15-2019 arXiv fetch is the cheapest).
+
+## tick 4 (2026-08-20) — carding campaign completion: all five gates OPEN
+attempt: card the remaining 8 seeds (track D: lagarias-2002, odlyzko-teriele-1985,
+  odlyzko-zeros; track E: bombieri-clay, conrey-2003, broughan-2017,
+  turnage-butterbaugh-2026 — these four were done pre-tick-4 in the same session —
+  and track A: lean-zulip-pnt). Not in DEAD_ENDS.md: each was an un-attempted seed;
+  the only prior trap (gate.py keyword quirk) is now A-001.
+prior-art pre-flight (logged queries):
+  - conrey-2003: ams.org Notices 200306 full-issue PDF was the WRONG issue (June/July,
+    p. 640+); design-doc page range 244-256 is wrong; correct source is the March 2003
+    issue (ams.org/notices/200303/200303FullIssue.pdf, 116 pp, scanned+OCR), article at
+    pp. 341-353 per the issue's own TOC. Quotes verified against pdftotext -layout.
+  - odlyzko-zeros: S2 search 429'd twice; Crossref found no Math.Comp 1987 DOI; resolved
+    instead to the successor paper "The 10^22-nd zero of the Riemann zeta function"
+    (Contemp. Math. 290, 2001, pp. 139-144, MR 1868473, doi 10.1090/conm/290/04578);
+    full chapter PDF behind LibLynx login — landing page carded, full text PENDING.
+  - broughan-2017: design-doc title "Riemann Hypothesis: A New Approach" does not exist;
+    Crossref resolved to the actual book: Broughan, "Equivalents of the Riemann
+    Hypothesis", Cambridge UP 2017 (2 vols, ENMA 164), doi 10.1017/9781108178228 /
+    10.1017/9781108178266; author is Kevin Broughan (Waikato).
+  - lean-zulip-pnt: thread resolved via PNT+ README (in-repo) to
+    leanprover.zulipchat.com channel 423402 "PrimeNumberTheorem+"; Zulip web UI is
+    JS-only (21KB shell), no public API key, guest registration needs auth; blueprint
+    TOC page fetched as fetched doc (alexkontorovich.github.io/PrimeNumberTheoremAnd/blueprint/).
+machine said (verbatim):
+$(cat /tmp/tick4-machine.txt | sed '1,2d')
+notes:
+  - tick 3 (16:40) ERRORed at step 4: "'utf-8' codec can't decode byte 0x89 in
+    position 967" — a PNG was read as text (0x89 = 2nd byte of the PNG signature).
+    Logged as A-002; keep binaries out of `read`.
+  - All verbatim quotes in the 4 new cards were checked against the fetched
+    documents with a python substring test before the card was written.
+  - gate.py flip run for a,d,e (b,c already OPEN): all five gate lines now OPEN.
+next: first real work on an open track. Recommended: track B (6/6 carded, Arb-based,
+  no build dependency) — re-implement the Polymath15 heat-flow numerics to 2
+  significant figures (week-4 kill criterion depends on it). Track A: claim a first
+  XS Lean issue from the 39 open PNT+ issues (snapshot at lit/text/pnt-plus-issues.json).

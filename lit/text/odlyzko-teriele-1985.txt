@@ -1,0 +1,1877 @@
+Disproof of the Mertens conjecture
+By A. M. Odlyzko at Murray Hill and H.J. J. te Riele at Amsterdam
+
+1. Introduction
+Let µ(n) denote the Mobius function, so that
+1, n= 1,
+k
+
+µ(n) = ( -1)\
+
+n= TIP;,
+
+P; distinct pnmes,
+
+i=l
+
+0, p 2 \n for some prime p,
+and let
+M(x) = 2: µ(n).
+
+(1. 1)
+
+Then M(x) is the difference between the number of squarefree positive integers n ~ x
+with an even number of prime factors and of those with an odd number of prime factors.
+1
+
+In 1885, T. J. Stieltjes claimed in a letter to Hermite [43] to have a proof that M(x) x - 2
+always stays between two fixed bounds, no matter how large x may be. In parentheses,
+Stieltjes added that one could probably take + 1 and -1 for these bounds. Stieltjes
+never published his "proof," but his claim to have it was apparently known to quite a
+few mathematicians, as were the important consequences that would follow from it.
+Thus, for example, Hadamard in his paper proving the Prime Number Theorem [16]
+mentioned that Stieltjes had much stronger results than Hadamard on the zeros of the
+zeta function, but that the new results of Hadamard might still be of interest because
+of their simpler proofs! In retrospect it seems likely that Stieltjes was wrong in his
+assertion, since, as will be explained later, it seems very probable that
+1
+
+(1. 2)
+
+lim sup IM(x)lx - 2 = w.
+
+This conjecture remains unproved.
+The motivation for Stieltjes' work on M(x) was that, as will be explained in
+Section 2, the size of M (x) is closely connected to the distribution of the non-trivial zeros
+_.1
+
+of the Riemann zeta function, and the boundedness of M(x) x 2 would imply the
+Riemann hypothesis. This same motivation inspired the work of other mathematicians
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+139
+
+(cf. [9]) and it led Mertens to publish in 1897 a paper [27] with a 50-page table of
+µ(n) and M(n) for n=1, 2, ... , 10000. On the basis of the evidence in the table, Mertens
+concluded that the inequality
+1
+
+(1. 3)
+
+IM(x)I <x2 ,
+
+x> 1,
+
+is "very probable." The inequality (1. 3), which was first conjectured in the letter of
+Stieltjes we mentioned above, is now known as the Mertens conjecture.
+In a series of papers [39]-[42], von Sterneck published additional values of
+
+M(n) for n ~ 5 x 10 6 , and on the basis of that evidence he conjectured that
+1
+
+x2
+
+(1. 4)
+
+IM(x)l<l
+
+for
+
+x>200.
+
+He stated [42] that (1. 4) is a "yet unproved, but extremely probable number-theoretic
+law." However, in 1960 W. Jurkat [19], [20] found a disproof of (1. 4) that involved
+very little computation. Jurkat's method, which did not produce a specific counterexample to (1. 4), is described in Section 2. The first counterexample to (1. 4) that was
+found is due to Neubauer [29], who computed all M(n) for n ~ 10 8 and for various
+values of n in the interval (10 8 , 1010 ). Near 7.77 x 10 9 he found values of n for which
+1
+
+n2
+
+M(n) > 2 . However, Neubauer's computations as well as the later ones of Yorinaga
+[45] (who computed M(n) for all n ~4 x 108 ) and of Cohen and Dress [8] (who
+1
+
+computed M(n)
+
+for all n ~ 7.8x109
+
+n2
+
+and found that the smallest n for which M(n) > 2 is
+
+n = 7,725,038,629 with M (7,725,038,629) =43947) did not find any values of n for which
+1
+
+the Mertens conjecture is violated. The inequality IM(n)I < 0.6 n2 holds for all the values
+of n for which M(n) has been computed.
+In this paper we will disprove the Mertens conjecture by showing that
+_1
+
+lim sup M(x) x
+
+2
+
+> 1.06,
+
+1
+
+lim inf M(x) x - 2 < -1.009.
+x-+co
+
+1
+
+Our disproof is indirect, and does not produce any single value of x for which IM(x)I >x2 .
+In fact, we suspect that there are no counterexamples to the Mertens conjecture for
+x ~ 1020 or perhaps even 10 30 . (Section 5 explains the reasons for this belief.)
+The disproof of the Mertens conjecture closes off another possible road to proving
+the Riemann hypothesis. The Riemann hypothesis would also follow from any inequality
+1
+
+of the form IM(x)I ~ cx 2 for any fixed c. Our disproof provides some additional evidence
+that no such inequality holds, and that (1. 2) is correct, since our method can undoubtedly
+_.!
+
+be used to produce larger values for lim sup IM(x)I x
+computer time.
+
+2
+
+than 1.06 with the use of more
+
+While the Mertens conjecture was known to imply the Riemann hypothesis, the
+converse is definitely not the case. Hence our disproof of the Mertens conjecture does
+· not imply anything about the possible falsity of the Riemann hypothesis (which has
+just been verified for the first 1.5 x 109 zeros [26]). In fact, as is explained in Section 2,
+the Mertens conjecture has been expected to be false for a long time.
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+140
+
+No good conjectures about the rate of growth of M(x) are known. Certainly
+1
+
+M(x) x - 2 is expected to be unbounded, and the Riemann hypothesis is known [44] to
+1
+
+be equivalent to IM (x) I = 0 (x2 +') for every e > 0. The assumption of certain random
+features in the behavior of the sequence {µ (n)} led Good and Churchhouse [13] to
+conjecture that
+lim sup IM(x)j(x log log x)
+
+_l
+2
+
+x~ r.:i.J
+
+1112
+
+=-,
+TC
+
+and a similar remark was made by Paul Levy in a comment on a paper by Saffari [37].
+However, these conjectures seem quite questionable, since, as will be explained in
+Section 2, the behavior of M(x) is determined by the zeros of the zeta function. Various
+rigorous results about sign changes of M(x), for example, can be found in [31] and the
+references listed there.
+Conjectures analogous to the Mertens conjecture, but for coefficients of cusp forms,
+have also been made [12]. Many instances of those conjectures have been disproved by
+indirect methods [1], [15], but the analogues of the conjecture (1. 2) remain unproved.
+In Section 2 we survey previous work on the Mertens conjecture, and in particular
+the reasons why it was thought to be false and the possible methods of disproving it.
+Section 3 describes the lattice basis reduction algorithm of Lenstra, Lenstra, and Lovasz
+[25], which was the main new ingredient that allowed us to obtain much stronger results
+than those of previous authors. Section 4 describes the numerical computations used
+in our disproof, which consisted mainly of computing the first 2000 zeros of the zeta
+function to about 100 significant decimal digits and of applying the lattice basis reduction
+algorithm. Finally, Section 5 concludes with some remarks about the possible locations
+of counterexamples to the Mertens conjecture, the complexity of computing M (x), the
+random behavior of zeros of the zeta function, and possible extensions of our work.
+
+2. The Mertens conjecture and diophantine
+approximation properties of zeros of the zeta function
+It is easy to see that the Mertens conjecture implies the Riemann hypothesis. For
+rJ = Re(s) > 1, we have
+_1_= ~ µ(n) = ~
+
+((s)
+
+n=l
+
+ns
+
+M(n)-M(n-1)
+
+n•
+
+n=l
+
+}
+
+1
+
+1
+
+n+l
+
+sdx
+
+- ( +i)s = :L M(n) J s+T
+:L M(n) 5
+n x
+n=l
+n
+n
+n=l
+{
+
+OC)
+
+(2. 1)
+
+=
+
+OC)
+
+_; n+Jt M(x) dx = J M(x) dx
+00
+
+S L.
+
+n= 1
+
+n
+
+X
+
+s+l
+
+S
+
+1
+
+,,.s+l
+.\
+
+'
+
+since M(x) is constant on each interval [n, n+ 1). If the Mertens conjecture were true,
+then the last integral in (2. 1) would define a function analytic in a>_!__, and this would
+2
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+141
+
+1
+f 1
+.
+.
+.
+In particular, this would imply that
+give an ana Iytic continuation o -r- to a> 2
+"'(s)
+1
+Re (s) > 2-, which is exactly the statement of the Riemann
+( (s) has no zeros in
+
+a=
+
+hypothesis. Furthermore, the integral representation (2. 1) would then show that for
+1
+
+a>2,
+1
+
+I
+
+1.
+
+J x2 dx
+
+\s[
+
+00
+
+I ((s) ~\s\1 x"+1
+
+(2. 2)
+
+1 .
+
+a-2
+
+This would imply that the zeta function does not have any multiple zeros, since if
+1
+2 + were a zero of multiplicity k, then for some constant a> 0,
+
+iy
+
+a=
+
+l((~+u+iy)l"'auk as u~o+,
+which is inconsistent with (2. 2) for k ~ 2.
+The above proof that the Mertens conjecture implies both the Riemann hypothesis
+and. the simplicity of the zeros of the zeta function does not depend in any way on the
+1
+
+constant in the conjecture; the assumption that [M(x)[ ~Ax2 for any fixed A and all
+x~ 1 would have sufficed. Furthermore, it has been shown [18], [44] that the Riemann
+hypothesis and the simplicity of the zeros, as well as some other results, follow from
+any one of the following three weaker hypotheses:
+1
+
+i)
+
+Jim sup M(x) x - 2 ~A
+
+for some constant A ;
+
+x _, 00
+1
+
+ii)
+
+Jim inf M(x) x - 2 ~ -A
+
+iii)
+
+JM(x) 2 x- 2 dx=O(logy)
+
+for some constant A;
+
+x- 00
+
+y
+
+as y~ oo.
+
+1
+
+The Riemann hypothesis and the simplicity of the zeros of the zeta function are
+quite widely expected to hold, so the fact that they follow from the Mertens conjecture
+did not cast any special doubt on the latter. What did raise overwhelming skepticism
+about the truth of the Mertens conjecture was a series of completely unexpected results
+about the zeros of the zeta function that were deduced from it. We next explain
+these results.
+The "exact formulas" of prime number theory, which express functions such as
+n(x) in terms of zeros of the zeta function, are well known. Titchmarsh [44] has obtained a similar formula for M (x). He showed that if the Riemann hypothesis holds and
+if there are no multiple zeros of the zeta function, then there is a sequence Tk,
+k ~ Tk ~k + 1, such that
+(-1)"-1 (-2n_)2n
+
+(2. 3)
+
+M 0 (x) = Jim
+
+k .... 00
+
+~
+jyj<Tk
+
+71
+
+Journal ftir Mathematik. Band 357
+
+x
+2
+[p('(p)[- + n~1 -(2-n-)!-n-((-'-2-n-'+-1)-,
+~
+
+00
+
+O d Iy z k o and t e R i e I e, Disproof of the Mertens conjecture
+
+142
+
+.
+1
+.
+µ(x)
+where M 0 (x)=M(x)- T if xEl+ and M0 (x)=M(x) otherwise, and p=2+zy runs
+over the nontrivial zeros of the zeta function. The formula (2. 3) has to be .modified if
+there are multiple zeros of the zeta function, but since we are interested m the consequences of the Mertens conjecture, we will be assuming from now on that all the
+nontrivial zeros are simple and on the critical line
+
+(p = ~ + iy).
+
+The second series on the right side of (2. 3) converges very rapidly. That is not
+the case with the first series. In fact, since M 0 (x) has jump discontinuities at the squarefree integers, we must have
+
+L:
+
+(2. 4)
+
+p
+
+1
+lp('(p)I
+
+=00.
+
+Aside from (2. 4), very little is known (cf. [43]) about the sizes of the p('(p), whether the
+Mertens conjecture is assumed or not. Write
+(2. 5)
+
+X = eY,
+
+-
+
+00 < J < 00,
+
+and note that with this notation (neglecting for the moment the question of convergence
+of the series involved),
+eiyy
+1'.
+xP
+
+~p('(p)=e2 ~ p('(p)'
+
+which (aside from the exp (
+define
+(2. 6)
+
+~) factor) looks like a general harmonic series. If we
+
+m(y) = M(x) x
+
+_l
+2
+
+_l,
+
+= M(eY) e 2
+
+then (2. 3) shows that if
+(2. 7)
+
+then
+_1_
+
+(2. 8)
+
+m(y)=h(y)+O (min(1, e 2 )).
+
+To prove that lim sup m (y) >A as y -- oo, it therefore suffices to prove that
+lim sup h (y) >A as y -- oo. Unfortunately we just don't know enough about the series
+(2. 7) defining h (y) to do this directly.
+Ingham [18] reduced the problem of the behavior of h(y) to that of a somewhat
+more tractable function. (For other applications of Ingham's method to number theoretic
+conjectures see, for example, [3].) The problem with the series in (2. 7) is that it is
+infinite, and very little is known about the sizes of the coefficients. Ingham's solution
+was to study finite series of that kind. In engineering language, in order to remove
+particular frequency components from a signal (such as h (y)), one passes the signal
+through an appropriate filter, which corresponds to convolving the signal with another
+function. More precisely, if K (y) is a suitably behaved function, and
+00
+
+(2. 9)
+
+k(t)=
+
+J K(y)e-itydy,
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+143
+
+the~'. neglecti~g qu.estions about the convergence of the series (2. 7) for h (y) and the
+validity of vanous mterchanges of summation and integration below, we obtain
+eiyy oo
+oo
+(2. 10)
+hK(Y)= f h(y-t)K(t) dt=L,--- f K(t)e-iyrdt
+-oo
+
+p
+
+p('(p) -oo
+
+e;yy
+= ~ k(y) p(' (p)
+If K (y) is chosen such that k(t) is of bounded support, then the last sum in (2. 10) is
+finite, and there are no problems about its convergence. That sum no longer gives us
+h (y), but hx (y), which is a weighted average of h (y). However, if hK (y0 ) is large, then
+h (y) must be large for some value of y;
+f
+
+(2. 11)
+
+f IK(t)ldt~lhK(Yo)I.
+
+sup lh(y)I
+
+- 00
+
+y
+
+In fact, if K (t) ~ 0 for all t and k ( - y) = k (y) is real, so that hK (y) is real, then we even
+obtain
+00
+
+(2. 12)
+
+J K(t) dt ~ hK (y0 ),
+
+sup h (y)
+y
+
+- 00
+00
+
+(2. 13)
+
+f K(t)dt~hK(y0 ).
+
+infh(y)
+y
+
+- 00
+
+Given any y 0 , one can actually draw conclusions stronger than (2. 12)-(2. 13).
+The function hK (y) is almost-periodi c in the sense of Bohr: it follows that given any
+Yo and any e > 0 there is an unbounded sequence of values of y such that
+
+In our case, where the sum in (2. 10) that equals hK (y) is finite, this result follows
+almost trivially from Kronecker's theorem about simultaneous diophantine approximations, since that result implies that for any 6 > 0, we can find arbitrarily large values
+of y* such that
+(2. 14)
+for some my E Z and all y such that k(y) ::j:: 0, and then y =Yo+ y* gives the desired result
+if 1> is small enough. Therefore we find that
+00
+
+(2. 15)
+
+lim sup h(y)
+y~co
+
+f K(t) dt~hK(y0 ),
+
+-co
+00
+
+(2. 16)
+
+liminfh(y)
+y- 00
+
+f K(t)dt~hK(Yo).
+
+- 00
+
+Of course, we really wish to study m (y), not h (y). However, (2. 8) shows that we can
+replace h (y) by m (y) in (2. 15) and (2. 16) and still obtain a valid result.
+The above discussion was only meant to provide a heuristic explanation of the
+Ingham method. The technical difficulties involved in carrying out these ideas can be
+overcome in several ways [18], [20], [21], and it is possible to obtain the following
+result.
+
+144
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+Theorem.
+
+Suppose that K(y) E C 2 ( - co, co), K(y) ~O, K(-y) = K(y),
+K(y)=0((1 +y 2 )- 1 )
+
+as y~co, and that k(t), defined by (2.9), satisfies k(t)=Ofor ltl~T for some T, and
+k(O) = 1. If the zeros p = f3 + iy of the zeta function with 0 < f3 < 1 and IYI < T satisfy
+1
+
+f3 =-and are simple, then for any y 0 ,
+2
+
+(2. 17)
+
+lim sup m (y) ~ hx (YoL
+
+(2. 18)
+
+lim inf m (y) ~hx(y0 ),
+y .... 00
+
+where
+eirY
+
+hx(Y) = ~ k(y) p('(p)'
+
+Perhaps the simplest function k (t) that satisfies the conditions of the theorem is
+the Fejer kernel used by Ingham:
+(2.19)
+
+k(t)=
+
+1-.i!l lti<T
+='
+
+1 T'
+0,
+
+ltl>T.
+
+(Later on we will use a somewhat better kernel.) For this choice
+hx(Y)=
+
+eiyy
+L: ( 1 -IYI)
+- --
+
+T
+
+lrl<T
+
+p('(p)
+
+(2. 20)
+
+L: (
+
+y
+
+= 1 O<y<T l --y
+
+cos (yy -1/Jy)
+lp('(p)I
+,
+
+where
+(2. 21)
+
+lf;r =Arg p('(p).
+
+Since the sum of all the lp('(p)i- 1 diverges, we can make the sum of the coefficients in
+(2. 20) arbitrarily large by choosing T very large. If we could then find values of y such
+that all of the yy- lf;Y were close to integer multiples of 2 n, we could make hx (y)
+arbitrarily large, contradictin g (by the theorem above) the Mertens conjecture. If the
+y's were linearly independent over the rationals, then by Kronecker's theorem for any
+given e > 0, there would even be integer values of y which satisfy
+(2. 22)
+
+for all y E (0, T) and some integers mr. That would show that hx (y) can be made
+arbitrarily large. Furthermor e, it is easy to deduce [18] that even if there are only a
+bounded number of linearly independent relations of the form
+(2. 23)
+
+with only finitely many cY being nonzero, then hx (y) is unbounded. If relations of the
+form (2. 23) do exist, however, the behavior of hK (y) could possibly be quite arbitrary
+(cf. [35]).
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+145
+
+Since there did not seem to be any reasonable explanation as to why the y's
+ought to satisfy any linear relations with integral coefficients, most experts concluded
+from Ingham's observation that the Mertens conjecture was unlikely to be true. Further
+doubt on the validity of the Mertens conjecture, and of the weaker conjecture that
+m (y) is bounded, was generated by the work of Bateman et al. [ 4]. Using a technique
+developed by Bohr and Jessen [6] to prove Kronecker's theorem, they showed that
+if m (y) is bounded, then there exist infinitely many relations among the y's of the form
+(2. 23), where the cY = 0, ± 1, or ± 2, and at most one of the c7 satisfies le)= 2. This
+was even more surprising and helped deepen skepticism about the Mertens conjecture
+even further, especially since Bateman et al. [ 4] looked at linear combinations of the
+first few y's with coefficients of the above form and did not find anything that might
+suggest the existence of linear relations of the required type.
+The Ingham [18] and Bateman et al. [ 4] results not only provided grounds for
+disbelieving in the Mertens conjecture, but in addition suggested ways to disprove it.
+One way to disprove this conjecture, of course, is to simply compute M(x) for various
+values of x until a counterexample is found. This is basically how Neubauer [29]
+disproved the von Sterneck conjecture that Im (y)I < ~ for y ~ 5. 3. However, we suspect
+(for reasons that will be explained in the last section) that there are no counterexamples
+to the Mertens conjecture for x ~ 1030 , so this approach does not look very promising.
+Another way to disprove the Mertens conjecture, which is due to Jurkat [19], [20]
+is to use the second sum in (2. 3),
+
+2rr)2n
+
+(2. 24)
+
+g(x) =
+
+:L
+n=l
+
+c-1r-1 ( x · c2n)! n((2n + 1) .
+
+For example, as x passes 1, M 0 (x) jumps by 1, while g(x) is continuous there. Hence
+1
+h (y) has a jump of 1 at y = 0, and so its absolute value has to be at least
+2 on at least
+one side of x = 1. Then, by using the almost-periodicity of h (y) (or its averages, to be
+1
+rigorous), we find even without any computation that as y--> XJ, lim sup lh (y)I ~ 2'
+which disproves the von Sterneck conjecture. (Anderson [2] has recently shown that
+Jim sup Im (y)I ~-}- as y--> ro by a somewhat different method.) By computing the value
+of g(1 ), J urkat [20] showed by this approach that
+(2. 25)
+
+Jim inf m (y) ~ -0.5054.
+y-+ w
+
+One could hope to obtain results better than (2. 25) by finding very small values of x
+for which g(x) is large, but so far no good way for finding such values of x has been
+proposed. Our computations do produce some candidate values for such x, but they
+require impractically large amounts of computation to test.
+72
+
+Journal fiir Mathematik. Band 357
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+146
+
+Another method for disproving the Mertens conjecture was developed from the
+work of Bateman et al. [4]. It was shown that the Mertens conjecture implies that there
+exist relations of the form (2. 23) in which the er are not too large, and where only
+relatively small y's can have er =l= 0 [10], [14], [36], [37]. This reduces the problem of
+disproving the Mertens conjecture to verifying that none of a finite number of linear
+relations holds. Quantitatively the best result of this kind is due to Grosswald [14],
+who showed that the Mertens conjecture implies that there is a relation of the form
+(2. 23) with all lcrl ;£ 13 and er =l= 0 for no more than the first 75 y's. With presently
+known algorithms, though, it does not seem feasible to disprove the Mertens conjecture
+this way; we would need to show that none of the 27 75 ::::: 10 107 possible relations holds,
+and no method is known for doing this in fewer than about 10 54 operations, which is
+much higher than the 10 10 to 10 15 operations that one can realistically expect to be
+able to perform with present and foreseeable computers. (We do not specify precisely
+what we mean by an operation since it is not very important in the present context,
+given the huge numbers involved.)
+The final method of disproving the Mertens conjecture that we discuss is the one
+that had given the best results in the past and enabled us to carry out the disproof.
+It is based on the Ingham approach and proceeds by finding values of y for which
+hK(Y) is large in absolute value. The simplest way to carry out this idea is to simply
+evaluate hK(y) at various values of y. A slightly more sophisticated approach is to
+start evaluating the series for hK(y), and if the partial sums seem too small, to terminate
+the evaluation and go on to the next value of y. In this way Spira [38] showed that
+lim sup m(y)~0.5355,
+y .... 00
+
+lim inf m (y) ;£ - 0.6027.
+y-+ 00
+
+He used k(t) of the form (2. 19) with T= 1000.
+Jurkat and Peyerimhoff [21] improved on Spira's results by using a more
+sophisticated approach. While we know very little theoretically about the sizes of the
+coefficients (p''(p)t 1 , numerically they appear to be typically on the order of p- 1
+or of (p loglpl)- 1 . In particular, these coefficients decrease quite rapidly, and so the
+size of hK (y) is determined largely by the first few terms. To make the first few terms
+large (and positive, say), one needs to find a y that solves the inhomogeneous diophantine approximation problem of making
+(2. 26)
+
+for the chosen y's, where m1 E1l and e is not too large. Jurkat and Peyerimhoff invented
+an algorithm for finding such values of y. For each value of y produced by this algorithm,
+hK(Y) was evaluated (for K(y) of the kind we will describe later, and with k(t) =0 for
+ltl ~ 900), and the best values gave
+lim sup m (y) ~ 0. 779,
+y-+ co
+
+lim inf m (y) ;£ - 0.638.
+y-+ 00
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+147
+
+The Jurkat-Peyerimhoff computations were carried out on a programmable desk
+calculator. Te Riele [33] implemented the Jurkat-Peyerimhoff algorithm (together with a
+few improvements) on a high speed computer, and proved that
+lim sup m (y) ~ 0.860,
+y-+ 00
+
+lim inf m (y) ~ - 0.843.
+y-+ 00
+
+(The kernel k(t) used in these computations was of the same form as that of Jurkat
+and Peyerimhoff, but it was nonzero at the first 15,000 zeros instead of the first 536.)
+The computations took several hundred hours, and te Riele concluded that with the use
+of the Jurkat-Peyerimhoff algorithm and then current technology, a disproof of the
+Mertens conjecture was unlikely to be achieved.
+Our disproof of the Mertens conjecture is due not to advances in computer
+technology (since we used much less computer time than was used by te Riele in the
+earlier work), but to a major breakthrough in diophantine approximation methods which
+was made recently, and which is described in the next section.
+
+3. Inhomogeneous diophantine approximation
+
+In order to find a y which solves (2. 26) for a subset of small y's, call them
+y1 , y2 ,. .. , Yn (which in general are not the first n y's, in contrast to the notation of
+Section 4. 2) and a small e, we have used a remarkable new algorithm due to Lenstra,
+Lenstra, and Lovasz [25], which we will refer to as the L3 algorithm. This algorithm
+was designed to find short vectors in lattices, and since many computational problems
+can be reduced to finding short vectors in lattices, it has since found widespread
+applications in polynomial factorizations [25] and public key cryptography (cf. [23]).
+The problem of finding the shortest nonzero vector in a lattice appears to be very hard.
+The L3 algorithm is not guaranteed to find the shortest vector, but it does run in polynomial time (in the length of the input) and finds quite short vectors. More precisely,
+if l! 1 ,. .• , l!m is a set of basis vectors of an m-dimensional lattice L in /Rm, then the L 3
+algorithm finds another basis, l!i, . . ., l!!, called reduced [25], which satisfies
+m-1
+
+4 )-2- min Ill! II,
+Ill!! I ~ ( 4u-1
+yeL
+y*Q
+
+[!, M I f ( u~ r~-"
+4
+
+where u E (
+
+!,1)
+
+1
+
+d(L),
+
+is a parameter chosen beforehand, d(L) is the determinant of the
+
+lattice, and Ill! I denotes the euclidean norm of the vector J:. What is perhaps most
+remarkable about the L3 algorithm is that in practice it performs much better than it
+is guaranteed to. This is important in our case because we have used it in situations
+it was not designed to deal with, and so there was no a priori guarantee that it would
+find the desired solution.
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+148
+
+Results of extensive experiments with the L 3 algorithm and descriptions of various
+modifications to it which make it run faster and find better solutions are described in
+[23]. Right now we describe how the problem of finding a y such that each of
+(3. 1)
+
+is small, where
+(3. 2)
+
+was transformed into a problem about short vectors in lattices. The lattice L we used
+to obtain the values of y which make each of the terms in (3. 1) small is generated by
+the columns .}! 1 , . . . , J!n+z of the following (n + 2) x (n + 2) matrix (here [x] means the
+greatest integer ~ x):
+
+-[a 1 t/t 12v]
+
+[a 1 y12v-lOJ
+
+[2na 1 2v]
+
+0
+
+0
+
+-[a 2 t/t 2 2v]
+
+[a 2 y2 2v-lOJ
+
+0
+
+[2na 2 2v]
+
+0
+
+-[ant/tn2v]
+
+[etnYn2v-10J
+
+0
+
+0
+
+2vn4
+
+0
+
+0
+
+0
+
+0
+
+0
+
+(3. 3)
+
+0
+
+where v is an integer (usually 2n ~ v ~ 4n) and
+
+The L 3 algorithm produces a reduced basis yi, ... ,J!:+z for the lattice L. This
+reduced basis usually contains some very short vectors. However, we are actually
+interested in the longest vector in the reduced basis. Since the reduced basis is a basis
+for L, it has to contain at least one vector !'!' which has a nonzero coordinate in the
+(n + 1)-st position. Since that coordinate is a multiple of 2v n4 , it is very large compared to
+all the other entries in the original basis, and this makes )'.!' quite long. Therefore in
+order to obtain a set of short basis vectors, a good basis transformation algorithm
+ought to contain exactly one vector !!! with a nonzero (n + 1)-st coordinate, and that
+coordinate then has to be ± 2v n4 . As it turns out, in all the tests that we ran, the L 3
+algorithm did indeed behave in this desirable fashion. Given that there is a single
+vector !'!' in the reduced basis with nonzero (n + 1)-st coefficient, which we may take
+to be 2'n 4 without loss of generality, its j-th coordinate for 1 ~j ~n equals
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+149
+
+and the (n + 2)-nd coordinate is z, for some integers z, m 1, •.• , mn. To minimize the
+length of!'.!:', these all have to be small which means that all of the
+
+have to be small, so all of the
+
+·1'. -2nmJ.)
+/3J·= aJ.(y.}•v- '1'1
+7
+
+have to be very small, where v = ··---. In practice, the vectors !!:' produced by the L 3
+.
+
+1024
+
+algorithm did indeed have this desired property.
+The reason for the presence of the a"i in the basis is that we wish to make
+n
+
+I: aJ cos (yjy- l/Ji- 2 nm)
+j=l
+
+large. Now if all of the Y/Y - I/Ii - 2 nmi are small, this sum approximately equals
+
+and we wish to have the second sum above small. That, however, corresponds to minimizing the euclidean norm of the vector (/3 1 , ••. , /Jn), which is what the L 3 algorithm
+attempts to do.
+In order to obtain values of y for which the chosen zeros contribute negative
+amounts, so that hK (y) will hopefully be negative, we used similar lattices. The only
+change was that the I/Ii were replaced by I/Ii+ n.
+The above discussion explains why we chose the lattice L the way we did. It is
+clear, though, that the choice was made on heuristic grounds, since the L 3 algorithm
+was not guaranteed to find the solutions we were looking for. In the end, though, that
+algorithm did fulfil! our expectations and enabled us to disprove the Mertens
+conjecture.
+
+4. Numerical computations
+4. 1 Preliminary considerations
+If the first 400, say, of the y's are numbered y1 , y2 , . .. so that the quantities
+jpi('(p)l- 1 for pi=~ +iyi are decreasing, then
+
+2 I: lpj('(pj)l- 1
+j=l
+
+7,
+
+Journal ftir Mathematik. Band 357
+
+150
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+exceeds 1 for n ~ 54 and equals 1.0787 ... for n = 70. This suggested to us that a disproof
+of the Mertens conjecture might be obtained if we could use the L 3 algorithm to find
+a y that made each of the quantities 1'/i in (3. 1) quite small for n = 70. Any such value
+
+n
+
+of y was likely to be quite large, since if we wish to make each of the I11il ~ 10 , for
+example, than under the assumption that the Yi behave like random numbers with
+respect to inhomogeneous diophantine approximation, we can expect that the smallest y
+that has the desired properties is of the order of 10 70 in size. Therefore it was clear that
+the y's had to be known with great accuracy. Moreover, the number T which governs
+the length of the finite sum hK(Y) (cf. (2. 20)) should be so large that the cosine-values
+in that sum which come from the chosen 70 zeros (and so are close to 1) should have a
+weight factor k(y) which is also close to 1. We chose T=2515.286 ... , the height of the
+2000-th zero, and the accuracy of the first 2000 y's to be at least 100 decimal digits. As
+it turned out, we only needed about 75 digit accuracy, and with more careful choice of the
+parameters perhaps even less. Since the running time was not expected to be very high,
+however, we did not attempt to choose the most efficient set of parameters.
+The function k(t) used in our computations is of the form k(t) =g(
+
+~), where
+
+T= 2515.286 ... is the height of the 2000-th zero and
+(4. 1)
+
+g(t) = {
+
+(1 - Iti) cos (nt) + rr- 1 sin (nl tl),
+
+0,
+
+iti ~1,
+
+ltl ~ 1.
+
+This function was introduced into the work on the Mertens conjecture by Jurkat and
+Peyerimhoff [21], and by Odlyzko in the work on discriminants of number fields
+(see [32]). What is needed in both contexts is a function f (t) which has support in
+[ -1, 1], has nonnegative Fourier transform, and is as close to 1 as possible in a
+neighborhood of 0, since it is desired to make the contributions of the initial zeros
+(which are lined up by the inhomogeneous diophantine approximation algorithm) as
+large as possible. Among all such functions f (t) with f (0) = 1, the minimum of - f" (0)
+is attained by f (t) = g(t). This was proved under some smoothness assumptions on
+f (u) by Jurkat and Peyerimhoff [21] and under somewhat different assumptions by
+Poitou [32]. However, this result follows in full generality from the work of Boas and
+Kac [5], who proved that all functions f(t) with support in [ -1, 1], f (0) = 1, and
+nonnegative Fourier transforms satisfy lf(u)i ~w(u) for Jui< 1, where
+(4. 2)
+
+n
+w(u)=cos [iul-1]+1 ·
+
+The bound lf(u)i ~w(u) is best possible in the sense that for every u with Jui< 1,
+there is a function f satisfying all the required properties for which If (u)i = w(u), but
+there is no single function f for which equality holds for all Jui< 1. In applications to
+the disproof of the Mertens conjecture, the function g(t) is somewhat better than the
+Fejer kernel (2. 19) used by Ingham, and not far from the bound w(u). In fact,
+the sum
+(4. 3)
+
+2 2: k(y)JpC(p)J- 1 ,
+peV
+
+, Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+151
+
+where V denotes the 70 zeros of the zeta function out of the first 400 with y > 0 for
+which lp('(p)l- 1 are largest, equals 1.0787... if k(u)= 1, equals 1.0482 ... if
+
+k(u)=1- 2 ~6o' equals 1.0524 ... if k(u)=g(2 ;~), and equals 1.0566 ...
+k (u) = w
+
+if
+
+(-1!__-)
+Thus even if we could find a better function f, this would not by
+2500 .
+
+itself improve our results by more than 0.5 % . Finally, it is conceivable that one could
+obtain a slight improvement by using kernels k (t) for which K (y) is allowed to be
+negative, but that is unlikely, since we would then obtain bounds of the form
+
+li::1-s~p lm(y)l~lhK(Y)I (Jx IK(u)Jdur
+and the fact that
+
+1
+•
+
+JIK(u) Idu> k (0) would be working against us.
+
+4. 2 Computation of the first 2000 y's to at least 100 decimal digits
+Experience with 280-computation (i.e., 28 decimal digit computation) of the )1's
+was gained already in the work described in [33], [34]. The program for those computations, which was written in double precision FORTRAN for a CDC CYBER
+73/173 computer, was converted to multiple-precision for a CDC CYBER 750 computer
+(which is about ten times as fast as the 73/173), with the help of Brent's multipleprecision package MP [7]. The array-length of the multiple-precision numbers corresponding to an accuracy of 100 decimal digits allowed us to obtain a slightly higher
+accuracy of 105 decimal digits, without extra computing costs. The y's were computed
+with the Newton process, starting from the 280 values obtained in [34]. For ( (s),
+we used the Euler-Maclaurin summation formula
+N-1
+
+( (s) = L
+
+(4. 4)
+
+j=1
+
+1
+
+Nl-s
+
+k=I
+
+where
+T.
+
+B
+
+2k-2
+
+(s)=-1!.._N1-s-2 k
+k,N
+(2k) !
+
+( B2 =
+
+M
+
+r· +-2 N-s + s-1 + L T,,,N(s) + EM,N(s),
+0
+
+(s+1·)
+
+j=O
+
+'
+
+~, B = - 310, ... are the Bernoulli numbers) and
+4
+
+(4.5)
+
+s+2M+1
+IEM,N(s)I< TM+1,N(s) Re(s)+2M+1
+
+I
+
+I
+
+for all M ~ 0, N ~ 1, and Re (s) > - (2M + 1). By taking N and M large enough, this
+formula gives ((s) to any desired accuracy. The precise choice of N and M was derived
+from the following heuristic estimate o f the error IEM,N(s).I T he number (2B2M+2
+M + 2) !
+1 .
+for large Mis about 2(211r 2 M- 2 . Moreover, we took s= 2 +zt, replaced
+(s + j) (s + 2M + 1 - j)
+
+by
+
+(s
+
++M+ ~
+
+)2
+
+152
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+1
+
+N2
+
+and assumed that - - < 1. In this way we obtained the approxima te upper bound
+3
+
+M+(
+
+4
+
+M + 1 + t)2M+2
+
+for the error !EM N(s)I in (4. 5). For this to be approxima tely equal
+2nN
+·
+to 10-A, we must have
+A
+
+N~(2n)- 1 10 2 M+ 2 (M
+
+(4. 6)
+
++ 1 + t).
+
+This still leaves freedom to choose one of either Nor M, given t and A. In our program,
+storage has to be reserved for the numbers log U) and j
+
+_1
+2
+
+B2 .
+
+1
+7
+' j- 1' -,.
+.. ' N and (2j)-! '
+
+j = 1, 2, ... , M. N and M were chosen to satisfy (4. 6), given t and A, and such that
+the storage and computing costs were minimal. The precise derivation depends on the
+accountin g formula of the computer used, and will be omitted. In Table 1, we give
+the numbers N and M as they were chosen for various values of t = yj (where yi now
+denotes the j-th zero, in contrast to sections 3 and 4. 1) and A= 105.
+
+Table 1
+Some values of N and M used in the computati on
+
+j
+
+Yi (approx.)
+
+1
+10
+100
+200
+
+14.13
+49.77
+236.5
+396.4
+541.8
+
+300
+500
+1000
+
+M
+
+67
+
+80
+
+82
+
+95
+145
+170
+190
+
+139
+
+183
+220
+284
+418
+
+811.2
+1419.
+1981.
+
+1500
+2000
+
+N
+
+220
+
+275
+
+536
+
+2515.
+
+315
+345
+
+646
+
+Dur~ng the computation of ( ( ~ + iyi) the actual error was checked by computin g
+
+the quantity
+
+NsT.
+
+(4. 7)
+I
+
+(
+
+s+2M-1
+
+M,N s) Re(s)+ 2M -1
+
+I
+
+after the computati on of the right hand side of (4. 4) without, of course, EM N(s).
+Note that TM,N(s) is the last term of the second sum in (4. 4). In view of (4. 5): this
+quantity (4. 7) is a safe upper bound for the error committed in (4. 4). Its value was
+always smaller than 10- 125 .
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+153
+
+The 1OSD approxim ations of yi, j = 1, ... , 2000 were compute d with the following
+Newton process (which used the fact that the zeros of ( to be compute d have
+
+real
+
+part+}
+
+i=O, 1,. . .,
+
+where for yj 0 > we took the (about) 28D-app roximati on of yj from [34]. The value
+of
+the derivativ e of ( was compute d simultan eously with ( from the derivative with respect
+to s of the right hand side of (4. 4). The iteration process was terminat ed as soon
+as
+the absolute value of the Newton correctio n term was smaller than 10- 105 . This
+bound
+was achieved always after three or four iteration s.
+In the first Newton step, the values in (4. 4) of
+j
+
+_l_iy(O)
+_l
+1
+2
+=j 2 {cos(yj0 >Jogj)-
+
+isin(yj° llogj)}, )=1,2,. . .,N,
+
+were compute d with help of the cosine-ro utine MPCOS from [7] and with
+the
+1
+2
+2
+(1 - cos ) -formula (this turned out to be cheaper than using the MPSIN or
+the
+MPCIS- routines !). The cos- and sin-values were stored. In the next Newton-step
+we
+used the fact that already rlJ>l was such a good approxim ation to Yi that bi:= yjl)
+- yj0 >
+satisfies
+(4. 8)
+
+This allowed us to compute cos (yj1 >log (j)) from the formula
+cos (yj1> logj) =cos ((yj°l + 8) log))
+=cos (yj 0 >logj) cos (b)ogj) - sin (yj 0 >logj) sin (8j logj),
+where cos (8i logj) and sin (8)ogj) were very cheaply compute d by using 3 resp. 2
+terms
+of the series expansio ns of the cos- and the sin-funct ions. The sin (yj1> logj)-ter m
+was
+compute d similarly. In this way the time needed for the second, third, etc., Newton
+step was only about ~ of the time needed for the first step.
+5
+The numbers tjli and Jpj('(p)J - 1 were compute d together with Yj·
+The computa tions were carried out on the CDC CYBER 750 compute r system of
+SARA (Academ ic Comput er Centre Amsterd am) and consume d about 40 hours
+CPUtime for the first 2000 zeros of (. All the compute d quantitie s can be obtained on
+tape
+from the second author.
+
+154
+
+Odly zko and te Riele , Disproof of the Merte
+
+ns conjecture
+
+4. 3 Computations with the L 3 algor ithm
+
+The first auth or prog ramm ed the L3 algor
+ithm on the CRAY-1 com pute r at
+AT& T Bell Labo rator ies in Murr ay Hill and
+appli ed it to vario us num bers of zeros y,
+in the way described in Section 3. In Tabl e 2 we
+give 21 values of z ( = z (i), i = 1, 2, .. ·, 21)
+obtai ned with the L 3 algor ithm for various comb
+inati ons of n and v. The fifth colu mn
+gives the total contr ibuti on
+exp
+
+2 I: Re
+peVn
+
+iyz)
+(1024
+
+pi,,"'( p )
+
+where V is the set of n zeros of the zeta funct
+ion out of the first 400 with y > 0 for whic h
+n
+the lp('( pW 1 are largest. The final column show
+.
+s the maxi mum sum that is attam
+able,
+namely
+pEVn
+
+It follows that z(i) for i = 14, 15 and 21 are
+prom ising cand idate s for dispr ovin g the
+Mertens conjecture, the first two on the posit
+ive, the last one on the nega tive side.
+The total time on the CRA Y -1 was abou t 10 hour
+s. Prog ramm ing was in FORTRA N
+using the Brent MP pack age [7].
+Table 2
+z(i)
+
+n
+
+Total
+v Contr ib.
+
+Maxim.
+Possible
+
+1558740347670 20 50 0.654437 0.714787
+2
+1115299674125188040 20 65 0.698869 0.7147
+87
+3
+303808871479397106628 20 75 0.708483 0.7147
+87
+4
+7884496876200 25 50 0.709868 0.780108
+5
+22512628597332611084 25 70 0.754569 0.7801
+08
+6
+30423753191565158754037305 25 90 0.765205
+0.780108
+7
+-35184499366749 30 50 0.685344 0.829928
+8
+-37766814051167995908 30 70 0.768417 0.8299
+28
+9
+30173551610132642824712844 30 90 0.808450
+0.829928
+10
+45811847622307 40 50 0.684944 0.910707
+11
+-27950995863621785302277841555417 40 110
+0.867289 0.910707
+12
+-11547227804089875278215723173686203 40 120
+0.884580 0.910707
+13
+-4948696983958480235838716850780012170210818
+50 150 0.953197 0.977090
+14
+117432209144390977580033152362799186170105379
+30906
+67
+60
+180 0.983071 1.033091
+15 -1438237663292722999991333030952937587445
+8206207784691752925143820823 70 230 1.0486
+46 1.078718
+16
+-64838544414151 25 50 -0.683989 0.780108
+17
+-36925065810626800521 25 70 -0.749338 0.7801
+08
+18
+-6442382518920661025945199 30 90 -0.808116
+0.829928
+19
+-42125186087757776278560297731223425 40 120
+-0.864651 0.910707
+20
+15186801174602568083509602134954646365019863
+50
+150
+-0.942
+832 0.977090
+21 3286735439147279961061376019068037847019
+2276009317440187192649371338 70 230 -1.029
+400 1.078718
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+155
+
+Next, for all these 21 z-values a local maximum of hK(y) with k(t)=g(~) as given
+7
+
+in (4. 1), with yin the neighborhood of 1; 24 , and T= y2000 , was computed. The results
+are given in Table 3.
+
+Table 3
+z(i) )
+
+y ( near i"o:M
+
+1
+1522207370.767659 0.641948
+2
+1089159838012878.942885 0.723633
+3
+296688351054098736.943226 0.757590
+4
+7699703980.663424 0.744898
+5
+21984988864582628.010504 0.753561
+6
+29710696476137850345739.553492 0.752062
+7
+-34359862662.834675 0.735926
+8
+-36881654346843745.996274 0.763238
+9
+29466358994270159008508.638083 0.789869
+10
+44 738132443.656341 0.658563
+11
+-27295894398068149709255704643.959226 0.905585
+12
+-11276589652431518826382542161802.931681 0.939414
+13
+-4832711898396953355311246924589855634971.501850 0.978293
+14
+1146798917425693140430011253542960802442435344815.103296 0. 996988
+15 -14045289680592998046790361630399781127400591999789738039965960762.521505 1.061545
+16
+-63318891029.439972 -0.712989
+17
+-36059634580690234.890490 -0. 740998
+18
+-6291389178633458033149.611855 -0.811204
+19
+-41137877038825953397031540753147 .877254 -0.846405
+20
+14830860522072820394052345834916646840839.710921 -0.925911
+21 32097025772922655869740000186211307099797144540349062682805321651.697419 -1.009749
+
+Consequently, the Mertens conjecture is false, as is shown on the positive side by the
+result on line 15 and on the negative side by the result on line 21.
+
+5. Final Remarks
+5. 1 Behavior of the function hK(y)
+The main reason the Mertens conjecture took so long to be disproved is that the
+functions hK(Y) (and presumably also h(y)) are seldom large. Heuristics suggest that
+the sum
+1
+
+~ IPC(P)l 2
+
+156
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+converges, and numerical evidence suggests it converges to 0.029. Hence we can expect
+that the Lrnorms of h (y) and hK (y) over large intervals might be on the order of
+0.17. In fact, hK (y) is usually of about that size, exceeding even 0.5 very rarely. In
+Figures 1 and 2 we present graphs (on different scales) of hK (y) for y near to the value
+l
+
+in Table 3 for i= 15, which is the value that led to the Jim sup M(x) x - 2 > 1.06 result.
+Figure 1 shows just how atypical large values of hK (y) are.
+
+1_3
+Fig. 1.
+
+-2
+
+-1
+
+0
+
+1
+
+2
+
+3
+
+Graph of the function hK (y0 + t), for y 0 given in the y-entry for i = 15 in Table 3
+
+The function hK (y) for the kernel K(t) that we have been using is derived (at
+l
+
+least for y large and positive) from averaging M (u) u - 2 over an infinite interval, but
+with most of the weight of the average concentrated on
+
+x ( 1-
+
+25~0 ) ~ u ~ x ( 1 + 25~0), x =exp (y).
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+157
+
+00
+
+ci
+
+N
+
+ci
+
+0
+
+ci
+
+N
+
+ci
+
+l.. 0.10
+
+-0.05
+Fig. 2.
+
+0.00
+
+0.05
+
+0.10
+
+Enlargement of the central part of Figure 1
+
+The computations of M (x) by Neubauer [29] and Y orinaga [ 45] show that in the
+y
+
+ranges investigated, every large value of m(y) =M(eY) e - 2 was part of a relatively long
+range of large values of m (y). Therefore we might expect that as long as x =exp (y)
+does not get too big, hK (y) might provide a fairly good approximation to m (y). In
+view of the computations of hK (y) by Spira [38] and Jurkat and Peyerimhoff [21],
+1
+
+we therefore do not expect IM(x) x - 2 1>1 to occur for x < 1020 and maybe not even
+1
+
+for x < 10 30 . For larger values of x, however, the interval over which M(x) x -: 2 is being
+averaged to obtain hK (y) is so broad that our hK (y) may no longer be a good representation of m (y).
+5. 2 Counterexamples to Mertens' Conjecture
+
+Our results do not provide explicit counterexamples to the Mertens conjecture.
+However, since large values of hK (y) come from averages of m (y), our results do
+1
+
+suggest quite strongly that M(x) < -x2 for some x close to exp (t 0 ), where t 0 is given
+by the y-entry for i= 21 in Table 3. Unfortunately we cannot compute any values of
+M(x) in that range. R. S. Lehman [24] found an algorithm for computing M(x) that
+
+158
+
+Odly ::ko and te Riel e, Disproof of
+
+the Mert ens conjecture
+
+takes O (x~ t ' ) bit oper atio ns. A som
+ewhat faster algo rithm can be obta ined
+by adapt_ing
+the Lagarias-Odlyzko algo rithm for
+com puti ng n:(x) [22] , but even that
+met hod requ ires
+on the orde r of O(x~.,.,) bit oper atio ns
+to com pute M(x ). For x on the orde
+r of exp (10 65 ),
+such algorithms are far too slow. It
+is prob ably possible to ada pt the Laga
+rias-O~lyzko
+algo rithm to prod uce appr oxim atio ns
+to M(x ) som ewh at faste r than in
+~ime x 5 , but
+even such vari atio ns appa rent ly wou
+ld have runn ing times that are frac
+tion al pow ers
+of x, and so again would be too slow
+. The refo re to be able to exhi bit a spec
+ific exam ple
+1
+of \Af(x)\ >.Y 2 , we have to find cand
+idat e values of x muc h sma ller than
+exp (10 65 ).
+In the case of P6lya 's conjecture, whic
+h states that the sum mat ory func tion
+L (x)
+of Liouville's function ).(n) is ~ 0 for
+x ~ 2, the first disp roof was achi eved by
+Has elgr ove
+[17] , using lngh am's met hod [18].
+Tha t disp roof did not prov ide a spec
+ific cou nter example, since it basically showed
+that the func tion corr espo ndin g to
+our
+hK (y) (see
+Section 2) is > 0 for some y. The valu
+e of y found by Has elgr ove prob ably
+corr
+espo nds
+to violations of P6ly a's conjecture,
+but it was too large to allo w him
+to com pute
+L(x) = L (exp (y)) directly. Leh man
+[24] later foun d a specific cou nter exam
+ple by find ing
+a muc h smaller value of y for which
+the function anal ogo us to our hK (y)
+was nega tive
+but small and by actually com puti ng
+L(x) for x close to exp (y). A sim
+ilar stra tegy
+might work for the Mer tens conjectu
+re. However, as was men tion ed in
+Sec
+tion 5. 1,
+it appe ars likely that no counterexam
+ples occu r for x < 10 20 and may be
+not even for
+x < 10 30 . The refo re this app roac h is
+not likely to be successful unti l
+muc h fast er
+algorithms for com puti ng M(x ) are
+found.
+
+5. 3 Random behavior of zeros of the zeta
+
+function
+
+Inspection of Tab les 2 and 3 show
+s that in mos t of the case s that wer
+e tried ,
+it was easier to obta in large positive
+values of hK (y) than larg e nega tive
+valu es. Thi s
+situa tion is similar to that in the wor
+k of Jurk at and Pey erim hoff [21]
+and te Riel e
+1
+[33] , who also obta in bett er bou nds
+1
+for Jim sup M(x ) x- 2 than for lim
+inf M(x ) x - 2 .
+Whe ther this phe nom eno n is due to
+chance or not is not clear. It is poss
+ible that ther e
+are some stran ge diop hant ine relations
+amo ng the zero s which mak e it easi
+er to find y
+that makes hK (y) large and positive,
+and that the phe nom eno n we are obse
+rvin
+g is due
+to the influence of such relations. Eve
+n if such rela tion s exist, it is not clea
+r whe ther
+thei r influence would still be noticeab
+le if we were to wor k with muc h larg
+er num bers
+of zeros.
+There is an inte resti ng conjecture abo
+
+ut the rand om beh avio r of the zero
+s of the
+, and mot ivat ed by, the wor k of Mon
+tgom ery [28] , and
+it says that statistically, the zeros
+of the zeta func tion beha ve like eige
+nval ues of a
+rand om herm itian mat rix of unit ary
+type. The re is subs tant ial num eric al
+evid ence in
+favor ~f thi_s conjectur~ [30] . This conj
+ecture does not say muc h abo ut the
+diop han tine
+approx1mat1on prop ertie s of the zero
+s, but since it does pred ict that the spac
+ings betw een
+~he zeros oug ht to be mor e regu
+lar than in the case of num bers draw
+n unif orm ly and
+mdependently from an interval, it mig
+ht help to expl ain why the sum s of
+the form
+L: cry, er E Z, lcrl small,
+that were investigated by Bate man et
+al. [ 4] often were quit e sma ll.
+~eta function. It is derived from
+
+Odlyzko and te Riele, Disproof of the Mertens conjecture
+
+159
+
+5. 4 Possible further extensions
+1
+
+We have shown that lim sup IM(x)lx - 2 > 1.06. What is generally expected, of
+course, is that the true value of this limes superior is + w. The method we use cannot
+in principle yield such a result, but. it can almost certainly be used to improve on the
+1.06 constant. The sum of 21p('(p)l- 1 over the best 100 zeros out of the first 1600
+(i.e., the 100 zeros that give the largest contribution) is 1.18, over the best 200 zeros
+is 1.43, over the best 500 zeros is 1.77, and over the best 1000 zeros is 2.03. It appears
+therefore that with the method we have used we could hope to improve the 1.06 of our
+result to 1.5 with the use of hundreds of hours of time on computers that either already
+exist or are likely to become available in the near future. To reach 2, however, appears
+to require either special purpose processors or better inhomogeneous diophantine
+approximation algorithms.
+References
+[1] R. J. Anderson, On the Mertens conjecture for cusp forms, Mathematika 26 (1979), 236-249 and
+27 (1980), 261.
+[2] R. J. Anderson, A note on the Mobius sum function, in preparation.
+[3] R. J. Anderson and H. M. Stark, Oscillation theorems, in: M. I. Knopp (ed.), Analytic Number Theory,
+Lecture Notes in Math. 899, Berlin-Heidelberg-New York 1981, 79-106.
+[4] P. T. Bateman, J. W. Brown, R. S. Hall, K. E. Kloss and R. M. Stemmler, Linear rylations connecting
+the imaginary parts of the zeros of the zeta function, in: A. 0. L. Atkin and B. J. Birch (editors),
+Computers in Number Theory, New York 1971, 11-19.
+[5] R. P. Boas, Jr., and M. Kac, Inequalities for Fourier transforms of positive functions, Duke Math. J.
+12 (1945), 189-206.
+[6] H. Bohr and B. Jessen, One more proof of Kronecker's Theorem, J. London Math. Soc. 7 (1932),
+274-275.
+[7] R. P. Brent, A Fortran multiple-precision arithmetic package, ACM Trans. Math. Software 4 (1978),
+57-70.
+[8] H. Cohen, Arithmetique et informatique, Asterisque 61 (1979), 57-61.
+[9] C. Couturier, Problem 641, L'Intermediaire des Mathematiciens 2 (1895), 314-315.
+[10] H. G. Diamond, Two oscillation theorems, in: A. A. Gioia and D. L. Goldsmith (editors), The Theory
+of Arithmetic Functions, Lecture Notes in Math. 251, Berlin-Heidelberg-New York 1972, 113-118.
+[11] H. M. Edwards, Riemann's Zeta Function, New York 1974.
+[12] L. J. Goldstein, A necessary and sufficient condition for the Riemann hypothesis for zeta functions
+attached to eigenfunctions of the Hecke operator, Acta Arith. 15 (1968/69), 205-215.
+[13] I. J. Good and R. F. Churchhouse, The Riemann hypothesis and pseudorandom features of the Mobius
+sequence, Math. Comp. 22 (1968), 857- 861.
+[14] E. Grosswald, Oscillation theorems, in: A. A. Gioia and D. L. Goldsmith (editors), The Theory of
+Arithmetic Functions, Lecture Notes in Math. 251, Berlin-Heidelberg-New York 1972, 141-168.
+[15] F. Grupp, On the Mertens conjecture for cusp forms, Mathematika 29 (1982), 213---226.
+[16] J. Hadamard, Sur Ja distribution des zeros de la fonction ( (s) et ses consequences arithmetiques, Bull.
+Soc. Math. France 24 (1896), 199-220.
+[17] C. B. Hase/grove, A disproof of a conjecture of P6lya, Mathematika 5 (1958), 141-145.
+[18] A. E. Ingham, On two conjectures in the theory of numbers, Amer. J. Math. 64 (1942), 313 --319.
+[19] W. B. Jurkat, Eine Bemerkung zur Vermutung von Mertens, Nachrichten der Osterr. Math. Ges.,
+Sondernummer Ber. V. Osterr. Mathematikerkongress, Vienna 1961, 11.
+[20] W. B. Jurkat, On the Mertens conjecture and related general Q-theorems, in: H. Diamond (editor), Analytic
+Number Theory, Providence 1973, 147-158.
+[21] W. Jurkat and A. Peyerimhoff, A constructive approach to Kronecker approximations and its application
+to the Mertens conjecture, J. reine angew. Math. 286/287 (1976), 332~-340.
+[22] J. C. Lagarias and A. M. Odlyzko, Computing n(x): An analytic method, preprint.
+[23] J. C. Lagarias and A. M. Odlyzko, Solving low-density subset sum problems, in: Proc. 24th Found.
+Computer Sci. Symp., New York 1983, 1-10, revised version to appear in J. ACM.
+
+160
+
+Odlyz ko and te Riele, Disproof of the Mertens conject
+ure
+
+[24] R. S. Lehman, On Liouville's function, Math. Comp.,
+14 (1960), 311-3 20.
+[25] A. K. Lenstra, H. W. Lenstra, Jr. and L. Lovasz,
+Factoring polynomials with rationa l coefficients,
+Math. Ann. 261 (1982), 515-5 34.
+[26] J. t'an de Lune and H. J. J. te Riele, On the zeros
+of the Riemann zeta function in the critical strip.
+IV, in preparation.
+(27] F. Mertens, Ober eine zahlentheoretische Funktion,
+Sitzungsberichte Akad. Wiss. Wien Ila 106 (1897),
+761-83 0.
+(28] H. L. Montgomery, On the pair-correlation ofzeros of
+the zeta function, in: H. Diamo nd (editor), Analytic
+Number Theory, Providence 1973, 181-19 4.
+[29] G. Neubauer, Eine empirische Untersuchung zur Merten
+sschen Funktion, Numer. Math. 5 (1963),
+1-13.
+[30] A. M. Odlyzko, Distribution of zeros of the zeta functio
+n, in preparation.
+[31]J. Pint:, Oscillatory properties of M(x)= 2: µ(n). III,
+Acta Arith. 43 (1984), 105-1 13.
+[32] G. Poitou, Sur Jes petits discriminants, Sem. Delange-Pisot
+-Poitou 18 (1976/77), Paris 1977.
+[33] H. J. J. re Riele, Computations concerning the conject
+ure of Mertens, J. reine angew. Math. 311/312
+(1979), 356-3 60.
+[34] H. J. J. te Riele, Tables of the first 15000 zeros of
+the Riemann zeta function to 28 significant digits,
+and related quantities, Math. Centrum Report NW 67/79,
+Amsterdam 1979.
+[35] L. A. Rubel and E. G. Straus, Special trigonometric
+series and the Riemann hypothesis, Math. Scand.
+18 (1966), 35-44 .
+[36] B. Saffari, Sur les oscillations des fonctions somma
+toires des fonctions de Mobius et de Liouville,
+C. R. Acad. Sc. Paris A, 271 (1970), 578-5 80.
+[37] B. Saffari, Sur la faussete de la conjecture de Merten
+s (with comment by Paul Levy), C. R. Acad. Sc.
+Paris A, 271 (1970), 1097-1 101.
+[38] R. Spira, Zeros of sections of the zeta function. II,
+Math. Comp. 22 (1966), 163-1 73.
+(39] R. D. oon Sterneck, Empirische Untersuchung iiber
+den Verlauf der zahlentheoretischen Funkti on u(n)
+im Intervalle von 0 bis 150000, Akad. d. Wiss. Wien, Math.Nat. Cl. Ila 106 (1897), 835--1 024.
+[40] R. D. von Sterneck, Empirische Untersuchung iiber
+den Verlauf der zahlentheoretischen Funkti on u(n)
+im lntervalle 150000 bis 500000, Akad. d. Wiss. Wien, Math.Nat. Cl. Ila 110 (1901), 1053- 1102.
+[41] R. D. von Sterneck, Die zahlentheoretische Funktio
+n a(n) bis zur Grenze 5000000, Akad. d. Wiss.
+Wien. Math.-Nat. Cl. Ila 121 (1912), 1083-1 096.
+[42] R. D. von Sterneck, Neue empirische Daten iiber die
+zahlentheoretischen Funktion u(n), Proc. 5th Int.
+Congress of Math., Cambridge 1913, 341-3 43.
+[43] T. J. Stieltjes, Lettre a Hermite de 11 juillet 1885, Lettre
+79, in: B. Baillaud et H. Bourget, Corres ponda nce
+d'Hermite et Stieltjes. Paris 1905, 160-16 4.
+[44] E. C. Titchmarsh, The Theory of the Riemann Zeta-F
+unction, Oxford 1951.
+[45] M. Yorinaga, Numerical investigation of sums of the
+Mobius function, Math. J. Okaya ma Univ. 21
+(1979), 41-47 .
+
+AT & T Bell Laboratories, Murray Hill, N. J. 07974, USA
+Centre for Mathematics and Computer Science, Kruislaan
+413, NL-1098 SJ Amsterdam
+Eingegangen 19. Juni 1984
+
+

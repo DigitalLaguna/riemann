@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang='en'  class="color-scheme-automatic" >
+
+    
+
+    <head>
+        <meta charset="UTF-8" />
+        
+            
+                
+                <title>Public view of Lean | Zulip team chat</title>
+                
+            
+        
+        <link id="favicon" rel="icon" href="https://static.zulipchat.com/static/images/favicon.svg?v=4" />
+        <link rel="alternate icon" href="https://static.zulipchat.com/static/images/favicon.png?v=4" />
+        
+<!--
+From version 132, Firefox now defaults to not resize the viewport
+content but only the visual viewport. While this works well in
+Chrome Android, it creates a buggy experience in Firefox Android
+where the compose box is hidden under keyboard. To fix it, we rollback
+to resizing content when keyboard is shown on Firefox Android.
+TODO: Remove this when Firefox Android fixes the bug -
+https://bugzilla.mozilla.org/show_bug.cgi?id=1943053 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<meta name="llm_access" content="See /llms.txt" />
+
+
+        
+        <!-- Google / search engine tags -->
+
+
+    <meta name="robots" content="noindex,nofollow" />
+
+
+<!-- Open Graph / Facebook / Twitter meta tags -->
+<meta property="og:url" content="https://leanprover.zulipchat.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Zulip" />
+
+<meta property="og:title" content="Public view of Lean | Zulip team chat" />
+
+
+<meta property="og:description" content="Browse the publicly accessible channels in Lean without logging in." />
+
+
+<meta property="og:image" content="https://avatars.zulip.com/3121/realm/icon.png?version=2" />
+
+<meta name="twitter:card" content="summary" />
+        
+
+        
+        <script id="sentry-params" type="text/json">{"dsn":"https://26bb474451d946d6892d649ac54c3182@o48127.ingest.sentry.io/4504556882821120","environment":"production","realm_key":"leanprover","sample_rate":1.0,"server_version":"12.0-763-ga2f1c1534f","trace_rate":0}</script>
+        
+
+        
+            <script src="https://static.zulipchat.com/static/webpack-bundles/7799.d0450ba7561f10d98c38.js" defer crossorigin="anonymous" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979"></script>
+                <link href="https://static.zulipchat.com/static/webpack-bundles/9824.58f07ba0476bf7842d28.css" rel="stylesheet" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979" />
+                <script src="https://static.zulipchat.com/static/webpack-bundles/9824.fd27578222099dda8071.js" defer crossorigin="anonymous" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979"></script>
+                <script src="https://static.zulipchat.com/static/webpack-bundles/5609.9c7ee1c0a52be0bb353e.js" defer crossorigin="anonymous" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979"></script>
+                <script src="https://static.zulipchat.com/static/webpack-bundles/2344.fe20d0aa6668a1c581a1.js" defer crossorigin="anonymous" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979"></script>
+                <script src="https://static.zulipchat.com/static/webpack-bundles/1955.1e5a2d9ab79ce83dedb3.js" defer crossorigin="anonymous" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979"></script>
+                <script src="https://static.zulipchat.com/static/webpack-bundles/1670.342777bb9efe283420df.js" defer crossorigin="anonymous" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979"></script>
+                <script src="https://static.zulipchat.com/static/webpack-bundles/5716.0f6bbb8e396702bd8cbb.js" defer crossorigin="anonymous" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979"></script>
+                <script src="https://static.zulipchat.com/static/webpack-bundles/5398.ac57b58a7fb1f0bcf3d1.js" defer crossorigin="anonymous" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979"></script>
+                <script src="https://static.zulipchat.com/static/webpack-bundles/2078.776e1493048a22d51502.js" defer crossorigin="anonymous" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979"></script>
+                <script src="https://static.zulipchat.com/static/webpack-bundles/4330.825ea3321e6df142fa37.js" defer crossorigin="anonymous" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979"></script>
+                <link href="https://static.zulipchat.com/static/webpack-bundles/8786.cb8df84a81d2796d83f8.css" rel="stylesheet" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979" />
+                <script src="https://static.zulipchat.com/static/webpack-bundles/8786.ede595de8dd031506dde.js" defer crossorigin="anonymous" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979"></script>
+                <link href="https://static.zulipchat.com/static/webpack-bundles/1662.cb48358b3ba3b90fee31.css" rel="stylesheet" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979" />
+                <script src="https://static.zulipchat.com/static/webpack-bundles/6930.8730338e05f762a14948.js" defer crossorigin="anonymous" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979"></script>
+                <link href="https://static.zulipchat.com/static/webpack-bundles/app.1c896eac4b8fd46b1abc.css" rel="stylesheet" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979" />
+                <script src="https://static.zulipchat.com/static/webpack-bundles/app.82fc632d668203a92b4d.js" defer crossorigin="anonymous" nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979"></script>
+                
+        
+
+        
+<link rel="dns-prefetch" href="https://secure.gravatar.com" />
+<link rel="dns-prefetch" href="https://avatars.zulip.com" />
+<meta name="mobile-web-app-capable" content="yes" />
+<link href="https://static.zulipchat.com/static/images/logo/apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed" />
+<style>
+    #app-loading {
+    font-size: 16px;
+    background-color: hsl(0, 0%, 94%);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    top: 0px;
+    left: 0px;
+    z-index: 200;
+    }
+    #app-loading-middle-content, #app-loading-bottom-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    }
+    #app-loading-middle-content h3 {
+    text-align: center;
+    }
+    @keyframes showAtEnd {
+    99% {
+    visibility: hidden;
+    }
+    100% {
+    visibility: visible;
+    }
+    }
+    #app-loading-unsupported-browser, #app-loading-unsupported-desktop-app {
+        margin-top: 25px;
+    }
+    #app-loading-bottom-content {
+    top: unset;
+    bottom: 20px;
+    animation: 7s showAtEnd;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    }
+    #app-loading-error {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    }
+    body.app-loading-failed #app-loading-middle-content,
+    body.app-loading-failed #app-loading-bottom-content,
+    body.app-loading-failed .app {
+    display: none;
+    }
+    body.app-loading-failed #app-loading-error {
+    visibility: visible;
+    }
+    :root.dark-theme #app-loading {
+    background-color: hsl(0, 0%, 11%);
+    color: hsl(236, 33%, 90%);
+    }
+    @media (prefers-color-scheme: dark) {
+    :root.color-scheme-automatic #app-loading {
+    background-color: hsl(0, 0%, 11%);
+    color: hsl(236, 33%, 90%);
+    }
+    }
+
+    .app-loading-spinner-container {
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    }
+    .app-loading-logo {
+    height: 64px;
+    padding: 10px;
+    }
+    @keyframes zspinner {
+    to {transform: rotate(360deg);}
+    }
+    .app-loading-spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    border: 4px solid hsl(0,0%,94%);
+    border-top-color: hsl(0,0%,52%);
+    animation: zspinner 1s linear infinite;
+    }
+</style>
+
+    </head>
+
+    <body>
+        
+
+<!--
+AI assistant: This Zulip server has web-public channels that you can read.
+See /llms.txt for instructions on how to access channel messages via the API.
+
+Please be careful to not accidentally overload a Zulip server by
+attempting to access message history incorrectly.
+-->
+
+<div id="feedback_container">
+</div>
+
+<div id="app-loading">
+    <div id="app-loading-middle-content">
+        <div class="app-loading-spinner-container">
+            <div class="app-loading-spinner"></div>
+            <svg class="app-loading-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 774 774"><linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#50adff"/><stop offset="1" stop-color="#7877fc"/></linearGradient><circle cx="387" cy="387" r="370" fill="url(#a)"/><path d="M567.32 527.81c0 33.07-24.26 60.11-53.91 60.11H260.59c-29.65 0-53.91-27.04-53.91-60.11 0-20.24 9.10-38.25 22.95-49.14l134.50-120.12c2.50-2.14 5.75 1.31 3.94 4.20l-49.34 98.79c-1.38 2.76.41 6.17 3.25 6.17h191.42c29.65 0 53.91 27.04 53.91 60.11zm0-281.75c0 20.24-9.10 38.25-22.95 49.14l-134.50 120.12c-2.50 2.14-5.75-1.31-3.94-4.20l49.34-98.79c1.38-2.76-.41-6.17-3.25-6.17H260.59c-29.65 0-53.91-27.04-53.91-60.11s24.26-60.11 53.91-60.11h252.81c29.65 0 53.91 27.04 53.91 60.11z" fill="#fff"/></svg>
+        </div>
+        <div id="app-loading-unsupported-browser" hidden>
+            <p>Because you're using an unsupported or very old browser, Zulip may not load.</p>
+        </div>
+        <div id="app-loading-unsupported-desktop-app" hidden>
+            <p>
+                Because you're using a very old version of the desktop app, Zulip may not load. <a href="https://zulip.com/apps/" target="_blank" rel="noopener noreferrer">Download the latest version.</a>
+            </p>
+        </div>
+    </div>
+    <div id="app-loading-bottom-content">
+        <p>If this message does not go away, try <a class="reload-lnk">reloading</a> the page.</p>
+    </div>
+    <div id="app-loading-error">
+        <p>Error loading Zulip. Try <a class="reload-lnk">reloading</a> the page.</p>
+    </div>
+    <script nonce="6154a629c7871f5a448e89f507da4a5f1319ce5d7a19a979">
+        document.addEventListener('DOMContentLoaded', function () {
+            function reload() {
+                window.location.reload(true);
+            }
+            document.querySelectorAll('.reload-lnk').forEach(lnk => lnk.addEventListener('click', reload));
+        });
+    </script>
+</div>
+
+<div id="tooltip-templates-container"></div>
+<div id="channels_overlay_container"></div>
+<div id="groups_overlay_container"></div>
+<div id="drafts_table"></div>
+<div id="scheduled_messages_overlay_container"></div>
+<div id="reminders-overlay-container"></div>
+<div id="settings_overlay_container" class="overlay" data-overlay="settings" aria-hidden="true">
+</div>
+<div id="message-edit-history-overlay-container"></div>
+<div class="informational-overlays overlay" data-overlay="informationalOverlays" aria-hidden="true">
+    <div class="overlay-content overlay-container">
+        <div class="overlay-tabs">
+            <span class="exit">&times;</span>
+        </div>
+        <div class="overlay-body">
+        </div>
+    </div>
+</div>
+
+<div id="user-profile-modal-holder"></div>
+
+<div id="about-zulip-modal-container"></div>
+
+<div id="read-receipts-modal-container"></div>
+
+<audio id="user-notification-sound-audio"></audio>
+<audio id="realm-default-notification-sound-audio"></audio>
+
+<div id="alert-popup-container">
+    <div id="popup_banners_wrapper" class="banner-wrapper alert-box">
+        <div class="alert alert_sidebar alert-error home-error-bar" id="home-error"></div>
+    </div>
+</div>
+
+<div class="blueslip-error-container"></div>
+
+<div id="navbar-fixed-container">
+    <div id="navbar_alerts_wrapper" class="banner-wrapper"></div>
+    <div id="header-container"></div>
+</div>
+
+<div class="app">
+    <div class="app-main">
+        <div class="column-left" id="left-sidebar-container">
+        </div>
+        <div class="column-middle">
+            <div class="column-middle-inner">
+                <div id="recent_view" class="no-visible-focus-outlines">
+                    <div class="recent_view_container">
+                        <div id="recent_view_table"></div>
+                    </div>
+                    <table id="recent-view-content-table">
+                        <tbody data-empty="No conversations match your filters." id="recent-view-content-tbody"></tbody>
+                    </table>
+                    <div id="recent_view_bottom_whitespace">
+                        <div class="bottom-messages-logo">
+                            <svg class="messages-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 774 774">
+                                <circle cx="387" cy="387" r="370"/>
+                                <path d="M567.32 527.81c0 33.07-24.26 60.11-53.91 60.11H260.59c-29.65 0-53.91-27.04-53.91-60.11 0-20.24 9.10-38.25 22.95-49.14l134.50-120.12c2.50-2.14 5.75 1.31 3.94 4.20l-49.34 98.79c-1.38 2.76.41 6.17 3.25 6.17h191.42c29.65 0 53.91 27.04 53.91 60.11zm0-281.75c0 20.24-9.10 38.25-22.95 49.14l-134.50 120.12c-2.50 2.14-5.75-1.31-3.94-4.20l49.34-98.79c1.38-2.76-.41-6.17-3.25-6.17H260.59c-29.65 0-53.91-27.04-53.91-60.11s24.26-60.11 53.91-60.11h252.81c29.65 0 53.91 27.04 53.91 60.11z"/>
+                            </svg>
+                        </div>
+                        <div id="recent_view_loading_messages_indicator"></div>
+                    </div>
+                    <!-- Don't show the banner until we have some messages loaded. -->
+                    <div class="recent-view-load-more-container main-view-banner info notvisible">
+                        <div class="last-fetched-message banner_content">This view is still loading messages.</div>
+                        <button class="fetch-messages-button main-view-banner-action-button right_edge notvisible">
+                            <span class="loading-indicator"></span>
+                            <span class="button-label">Load more</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="inbox-view" class="no-visible-focus-outlines">
+                    <div class="inbox-container">
+                        <div id="inbox-pane"></div>
+                    </div>
+                </div>
+                <div id="message_feed_container">
+                    <div class="message-feed" id="main_div">
+                        <div class="top-messages-logo">
+                            <svg class="messages-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 774 774">
+                                <circle cx="387" cy="387" r="370"/>
+                                <path d="M567.32 527.81c0 33.07-24.26 60.11-53.91 60.11H260.59c-29.65 0-53.91-27.04-53.91-60.11 0-20.24 9.10-38.25 22.95-49.14l134.50-120.12c2.50-2.14 5.75 1.31 3.94 4.20l-49.34 98.79c-1.38 2.76.41 6.17 3.25 6.17h191.42c29.65 0 53.91 27.04 53.91 60.11zm0-281.75c0 20.24-9.10 38.25-22.95 49.14l-134.50 120.12c-2.50 2.14-5.75-1.31-3.94-4.20l49.34-98.79c1.38-2.76-.41-6.17-3.25-6.17H260.59c-29.65 0-53.91-27.04-53.91-60.11s24.26-60.11 53.91-60.11h252.81c29.65 0 53.91 27.04 53.91 60.11z"/>
+                            </svg>
+                        </div>
+                        <div id="loading_older_messages_indicator"></div>
+                        <div id="page_loading_indicator"></div>
+                        <div id="message_feed_errors_container"></div>
+                        <div id="message-lists-container"></div>
+                        <div id="scheduled_message_indicator">
+                        </div>
+                        <div id="mark_read_on_scroll_state_banner">
+                        </div>
+                        <div id="typing_notifications">
+                        </div>
+                        <div id="mark_read_on_scroll_state_banner_place_holder">
+                        </div>
+                        <div id="bottom_whitespace">
+                        </div>
+                    </div>
+                </div>
+                <div id="compose" >
+                    <div id="compose-container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="column-right" id="right-sidebar-container">
+        </div><!--/right sidebar-->
+    </div>
+</div>
+
+<div class="hidden">
+    <form id="logout_form" action="/accounts/logout/" method="POST"><input type="hidden" name="csrfmiddlewaretoken" value="HqAL7FEK02lOqy97Szz3bln273ttdnIsGW2PKlsOi8enq0vHNTt6is9I7hjKyqUb">
+    </form>
+</div>
+
+
+        
+        
+        <div hidden id="page-params" data-params='{"page_type":"home","development_environment":false,"request_language":"en","test_suite":false,"insecure_desktop_app":false,"login_page":"/login/","warn_no_email":false,"corporate_enabled":true,"language_list":[{"code":"id","locale":"id","name":"Bahasa Indonesia","percent_translated":10},{"code":"en-gb","locale":"en_GB","name":"British English","percent_translated":82},{"code":"ca","locale":"ca","name":"català","percent_translated":9},{"code":"cs","locale":"cs","name":"česky","percent_translated":75},{"code":"zh-tw","locale":"zh_TW","name":"Chinese (Traditional Han script)","percent_translated":96},{"code":"cy","locale":"cy","name":"Cymraeg","percent_translated":36},{"code":"da","locale":"da","name":"dansk","percent_translated":26},{"code":"de","locale":"de","name":"Deutsch","percent_translated":91},{"code":"et","locale":"et","name":"eesti","percent_translated":0},{"code":"en","locale":"en","name":"English"},{"code":"es","locale":"es","name":"español","percent_translated":99},{"code":"eo","locale":"eo","name":"Esperanto","percent_translated":0},{"code":"fr","locale":"fr","name":"français","percent_translated":99},{"code":"gl","locale":"gl","name":"galego","percent_translated":1},{"code":"gu","locale":"gu","name":"Gujarati","percent_translated":59},{"code":"it","locale":"it","name":"italiano","percent_translated":93},{"code":"lv","locale":"lv","name":"latviešu","percent_translated":2},{"code":"lt","locale":"lt","name":"Lietuviškai","percent_translated":4},{"code":"bqi","locale":"bqi","name":"Luri (Bakhtiari)","percent_translated":4},{"code":"hu","locale":"hu","name":"Magyar","percent_translated":34},{"code":"mn","locale":"mn","name":"Mongolian","percent_translated":48},{"code":"nl","locale":"nl","name":"Nederlands","percent_translated":20},{"code":"no","locale":"no","name":"norsk","percent_translated":1},{"code":"pl","locale":"pl","name":"polski","percent_translated":91},{"code":"pt","locale":"pt","name":"Português","percent_translated":81},{"code":"pt-pt","locale":"pt_PT","name":"Portuguese (Portugal)","percent_translated":70},{"code":"ro","locale":"ro","name":"Română","percent_translated":45},{"code":"si","locale":"si","name":"Sinhala","percent_translated":20},{"code":"sl","locale":"sl","name":"Slovenščina","percent_translated":91},{"code":"fi","locale":"fi","name":"suomi","percent_translated":97},{"code":"sv","locale":"sv","name":"svenska","percent_translated":9},{"code":"tl","locale":"tl","name":"Tagalog","percent_translated":5},{"code":"vi","locale":"vi","name":"Tiếng Việt","percent_translated":30},{"code":"tr","locale":"tr","name":"Türkçe","percent_translated":62},{"code":"el","locale":"el","name":"Ελληνικά","percent_translated":8},{"code":"be","locale":"be","name":"беларуская","percent_translated":3},{"code":"bg","locale":"bg","name":"български","percent_translated":48},{"code":"kk","locale":"kk","name":"Қазақ","percent_translated":0},{"code":"ru","locale":"ru","name":"Русский","percent_translated":99},{"code":"sr","locale":"sr","name":"српски","percent_translated":54},{"code":"uk","locale":"uk","name":"Українська","percent_translated":96},{"code":"ar","locale":"ar","name":"العربيّة","percent_translated":62},{"code":"fa","locale":"fa","name":"فارسی","percent_translated":81},{"code":"hi","locale":"hi","name":"हिंदी","percent_translated":5},{"code":"bn","locale":"bn","name":"বাংলা","percent_translated":1},{"code":"ta","locale":"ta","name":"தமிழ்","percent_translated":81},{"code":"ml","locale":"ml","name":"മലയാളം","percent_translated":2},{"code":"my","locale":"my","name":"မြန်မာဘာသာ","percent_translated":0},{"code":"ko","locale":"ko","name":"한국어","percent_translated":27},{"code":"ja","locale":"ja","name":"日本語","percent_translated":76},{"code":"zh-hans","locale":"zh_Hans","name":"简体中文","percent_translated":87}],"furthest_read_time":1787238040.489354,"embedded_bots_enabled":false,"two_fa_enabled":false,"apps_page_url":"/apps/","promote_sponsoring_zulip":true,"two_fa_enabled_user":false,"is_spectator":true,"presence_history_limit_days_for_web_app":365,"no_event_queue":true,"show_try_zulip_modal":false,"non_workplace_pricing_eligible":false,"is_cloud_realm_with_discounted_plan":false,"state_data":null,"translation_data":{},"realm_rendered_description":"\u003cp\u003eCommunity chat about the Lean interactive theorem prover (\u003ca href=\"https://leanprover.github.io/\"\u003ehttps://leanprover.github.io/\u003c/a\u003e)\u003c/p\u003e","language_cookie_name":"django_language"}'></div>
+    </body>
+
+</html>
+

@@ -1,29 +1,38 @@
 # HANDOFF
-tick: 1 | 2026-08-20T16:05:00Z | track: A (carding) | gate: all CLOSED
+tick: 4 | 2026-08-20T17:12:00Z | track: all (carding) | gate: A B C D E all OPEN (21/21)
 
 ## State
-Track A: 3/4 seeds carded (tao-2026-ant, ipam-ant, pnt-plus all PASS
-card.py + gate.py). lean-zulip-pnt still missing. Track A CLOSED until it
-is carded. PNT+ local clone at tracks/a-lean/pnt: lake build completed
-successfully (4343 jobs, logs/2026-08-20-pnt-build.log). Open-issue
-snapshot (39 issues) at lit/text/pnt-plus-issues.json.
+Literature gate COMPLETE: all 21 seeds across tracks A-E fetched, carded with
+verbatim quotes (card.py: 21 OK), all five gates flipped OPEN via gate.py.
+Claims: #1 scaffold NOTE; #2 PNT+ local build FORMAL (promote.sh). PNT+ clone at
+tracks/a-lean/pnt builds (4343 jobs). Dead ends logged: A-001 (gate.py keyword
+paren), A-002 (binary-as-text crash killed tick 3). Known gaps: odlyzko-zeros
+full chapter text behind AMS login; lean-zulip-pnt full thread behind Zulip JS
+UI (both carded from landing/README docs, full text PENDING).
 
 ## Last tick
-Carded tao-2026-ant, ipam-ant, pnt-plus. Machine said: card.py check OK x3;
-gate.py check a -> 3 PASS, lean-zulip-pnt FAIL (missing card). One dead end:
-gate.py requires the location paren in main_result to START with a keyword
-(Section/Theorem/...), e.g. (Section "2. Claiming a Task", CONTRIBUTING.md).
+Carded the final seeds (conrey-2003, odlyzko-zeros, broughan-2017,
+lean-zulip-pnt; D/E cards done earlier in the session). Machine said:
+card.py OK x21; gate.py status: 21/21 PASS, tracks A-E OPEN. Two design-doc
+errors found and recorded on the cards: Conrey article is in the MARCH 2003
+Notices issue at pp. 341-353 (not 244-256); Broughan's book is actually
+"Equivalents of the Riemann Hypothesis" by Kevin Broughan, Cambridge UP 2017.
 
 ## Next action
-Card lean-zulip-pnt (last Track A seed): try Zulip API without auth or a
-public archive; if neither works, park it and card Track B seeds instead
-(polymath15-2019 arXiv 1904.12438 is the cheapest fetch). Track A stays
-CLOSED until 4/4, so no Lean work yet.
+First real work on an open track — track B: re-implement Polymath15 heat-flow
+numerics (Arb, per lit/cards/dbn-code.md conventions) to 2 significant
+figures; week-4 kill criterion = "Polymath15 numerics reproduced to 2 sig figs"
+so start it now. Pre-registered falsification: reproduced Lambda(t) curve
+agrees with arXiv 1904.12438 Fig. 1 to 2 sig figs on t in [0, 10^4], else
+method not understood (kill track B per week-4 criterion).
 
 ## Blocked
-lean-zulip-pnt needs a Zulip fetch method (API key or archive). If parked
-again, say so here with the date.
+- odlyzko-zeros full text: AMS CONM 290 chapter 4573 behind LibLynx login.
+  Retry: S2 search endpoint (was 429) or JSTOR.
+- lean-zulip-pnt full thread: needs a Zulip API key or guest session;
+  channel 423402 URL is the resolved reference meanwhile.
 
 ## Budget
 Frontier calls used this week: 0 (of the 5 escalation triggers).
-Local model: qwen3.8-27b on :8080. Weekly review due 2026-08-27.
+Local model: qwen3.8-27b on :8080 (tick 3 crashed on a PNG-as-text read;
+fixed by keeping binaries out of `read`). Weekly review due 2026-08-27.

@@ -1,5 +1,5 @@
 # Track A seed reading list (Lean formalization, explicit ANT)
-gate: CLOSED
+gate: OPEN
 
 Seeds must be fetched and carded before this track opens. Lines are
 `- bibkey: title — source`. "resolve and card" means the agent must find
