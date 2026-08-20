@@ -1,0 +1,2428 @@
+ON THE DE BRUIJN-NEWMAN CONSTANT
+
+Haseo Ki, Young-One Kim and Jungseob Lee
+Abstract. If λ(0) denotes the infimum of the set of real numbers λ such that the entire
+function Ξλ represented by
+Ã
+
+Z ∞
+Ξλ (t) =
+
+e
+
+λ (log x)2 + it log x
+4
+2
+
+5/4
+
+x
+
+0
+
+∞
+X
+¡ 4 2
+¢
+2
+2n π x − 3n2 π e−n πx
+n=1
+
+!
+
+dx
+x
+
+has only real zeros, then the de Bruijn-Newman constant Λ is defined as Λ = 4λ(0) . The
+Riemann hypothesis is equivalent to the inequality Λ ≤ 0. The fact that the non-trivial zeros
+of the Riemann zeta-function ζ lie in the strip {s : 0 < Re s < 1} and a theorem of de Bruijn
+imply that Λ ≤ 1/2. In this paper, we prove that all but a finite number of zeros of Ξλ are
+real and simple for each λ > 0, and consequently that Λ < 1/2.
+
+1. Introduction
+This paper is concerned with the zeros of certain entire functions that are related with
+the Riemann zeta-function.
+Let the functions ψ, ϕ and Φ be defined respectively as
+ψ(x) =
+
+∞
+X
+
+2
+
+e−n πx ,
+
+ϕ(x) = x5/4 (2xψ 00 (x) + 3ψ 0 (x)) ,
+
+¡ ¢
+and Φ(u) = 2ϕ e2u .
+
+n=1
+
+¡
+¢
+2u
+We immediately see that ϕ(x) ∼ 2π 2 x9/4 e−πx for x → ∞ and Φ(u) ∼ 4π 2 exp 9u
+2 − πe
+for u → ∞. The functional equations
+· µ ¶
+¸
+1
+−1/2
+2ψ(x) + 1 = x
+2ψ
++ 1 , ϕ(x) = ϕ(1/x), and Φ(u) = Φ(−u)
+x
+are well known. In fact, the first one is a consequence of the Poisson summation formula;
+the second follows from the first by differentiating it twice and rearranging the terms; and
+the third is equivalent to the second one.
+1991 Mathematics Subject Classification. 30D10, 11M26.
+Key words and phrases. De Bruijn-Newman constant, Riemann hypothesis, Riemann zeta-function,
+Saddle point method.
+H. Ki was supported by the Korea Science and Engineering Foundation (KOSEF) grant funded by the
+Korea government(MOST) (No. R01-2007-000-20018-0).
+Typeset by AMS-TEX
+
+1
+
+2
+
+HASEO KI, YOUNG-ONE KIM AND JUNGSEOB LEE
+
+We define the function Ξλ by
+Z ∞
+(1.1)
+
+Ξλ (t) =
+
+e
+
+2
+it
+λ
+4 (log x) + 2 log x
+
+0
+
+dx
+ϕ(x)
+=
+x
+
+Z ∞
+
+2
+
+eλu Φ(u)eitu du,
+
+−∞
+
+where λ is a constant. The last expression shows that Ξλ is the Fourier transform of an
+even function of u which tends to 0 very rapidly as u → ∞. As a consequence, Ξλ is an
+even entire function of order 1 and maximal type by the Paley-Wiener theorem and [17, pp.
+9–10]. In particular, Ξλ has infinitely many zeros, by Hadamard’s factorization theorem.
+If λ ∈ R, then Ξλ assumes only real values on the real axis, and by Pólya’s criterion [16]
+it has infinitely many real zeros.
+If we put s = 12 + it, then Ξ0 and the Riemann zeta-function ζ are related through
+Ξ0 (t) =
+
+s(s − 1) ³ s ´ −s/2
+Γ
+π
+ζ(s).
+2
+2
+
+It is known that the zeros of Ξ0 lie in the strip {t : |Im t| < 1/2}, and the Riemann
+hypothesis is equivalent to the statement that Ξ0 has only real zeros [18].
+If λ1 < λ2 , then the zeros of Ξλ2 lie closer to the real axis than those of Ξλ1 .
+Proposition A. If λ1 ≤ λ2 , ∆ ≥ 0, and the p
+zeros of Ξλ1 lie in {t : |Im t| ≤ ∆}, then
+e
+e
+those of Ξλ2 lie in {t : |Im t| ≤ ∆}, where ∆ = max{∆2 − 2(λ2 − λ1 ), 0}.
+This proposition is easily proved by applying a theorem of N. G. de Bruijn [1, Theorem
+13] to the integral representation (1.1) of Ξλ . See also Theorem 2.3 below, which generalizes
+de Bruijn’s theorem.
+Since the zeros of Ξ0 lie in {t : |Im t| < 1/2}, Proposition A implies that Ξλ has only real
+zeros when λ ≥ 1/8. It also implies that if λ1 < λ2 and Ξλ1 has only real zeros, then so does
+Ξλ2 . In [14], C. M. Newman proved that Ξλ has non-real zeros for some negative constant
+λ. Consequently, there is a real constant λ(0) ≤ 1/8 such that Ξλ has only real zeros when
+λ(0) ≤ λ but has non-real zeros when λ < λ(0) [14, Theorem 3]. The Riemann hypothesis
+is equivalent to the inequality λ(0) ≤ 0. On the other hand, Newman conjectured the
+opposite inequality 0 ≤ λ(0) , and called his conjecture a quantitative version of the dictum
+that the Riemann hypothesis, if true, is only barely so [14, p. 247].
+The de Bruijn-Newman constant Λ is defined as Λ = 4λ(0) [7]. Thus we have Λ ≤ 1/2,
+and the Riemann hypothesis and Newman’s conjecture are equivalent to the inequalities
+Λ ≤ 0 and 0 ≤ Λ, respectively. The first explicit lower bound for Λ was given by G.
+Csordas, T. S. Norfolk and R. S. Varga in 1988 [7]: They proved that
+−50 < Λ.
+Since then, this lower bound has been greatly improved in favor of Newman’s conjecture
+by many authors [15, Section 1]. However, it seems that no upper bounds for Λ better
+than Λ ≤ 1/2 have been published.
+In this paper, we improve the inequality Λ ≤ 1/2 very slightly.
+
+3
+
+Theorem 1.1. The de Bruijn-Newman constant Λ is less than 1/2.
+It should be remarked that our method of proving this theorem gives no explicit upper
+bound for Λ less than 1/2.
+(m)
+It follows from Hadamard’s factorization theorem that the zeros of Ξ0 lie in the strip
+{t : |Im t| < 1/2} for every m ≥ 0, and that if the Riemann hypothesis were true, then
+(m)
+Ξ0 would have only real zeros for every m ≥ 0. (See Theorems 2.5 and 2.6 below.)
+(m)
+However, it is known that the “proportion” of real zeros of Ξ0 tends to 1 as m → ∞ [4].
+(m)
+(m)
+As we shall see in Section 2, the function Ξλ is obtained by applying to Ξ0 a certain
+differential operator of infinite order, and Proposition A still holds if we replace Ξλ by
+(m)
+Ξλ . Motivated by this observation, we consider the sequence {λ(m) } defined by
+n
+o
+(m)
+λ(m) = inf λ : Ξλ has only real zeros
+
+(m = 0, 1, 2, . . . ).
+
+Theorem 1.2. The sequence {λ(m) } is non-increasing, and its limit is ≤ 0.
+We remark that, by Newman’s theorem [14, Theorem 2], we have −∞ < λ(m) for all m.
+In the course of proving Theorems 1.1 and 1.2, the following theorem plays a crucial role.
+Theorem 1.3. For every λ > 0 all but a finite number of zeros of Ξλ are real and simple.
+Suppose λ > 0. Then Theorem 1.3 states that there is a positive constant Tλ such that
+Ξλ has finitely many zeros in the vertical strip {t : |Re t| < Tλ } and all the zeros of Ξλ
+that lie outside the strip are real and simple. Since Ξλ has infinitely many zeros, we may
+denote the zeros of Ξλ in the closed half plane {t : Re t ≥ Tλ } by
+γ(λ,1) < γ(λ,2) < γ(λ,3) < · · · .
+For T > 0 let Nλ (T ) denote the number of zeros of Ξλ in {t : 0 ≤ Re t ≤ T }.
+Theorem 1.4. If λ > 0, then
+¡
+¢ log γ(λ,n)
+lim γ(λ,n+1) − γ(λ,n)
+=1
+n→∞
+2π
+and
+Nλ (T ) =
+
+T
+T
+T
+λ
+T
+log
+−
++ log
++ O(1)
+2π
+2π 2π
+4
+2π
+
+(T → ∞).
+
+This theorem, in particular, shows that for λ > 0 the distribution of the gaps between
+consecutive real zeros of Ξλ is very different from the generally conjectured one for Ξ0 . On
+the Riemann hypothesis, Montgomery’s pair correlation conjecture [13] implies that
+lim inf (γn+1 − γn )
+n→∞
+
+log γn
+=0
+2π
+
+and
+
+lim sup (γn+1 − γn )
+n→∞
+
+log γn
+= ∞,
+2π
+
+where γ1 , γ2 , γ3 , . . . denote the positive zeros of Ξ0 with γ1 ≤ γ2 ≤ γ3 ≤ · · · . In this sense,
+the functions Ξλ , λ > 0, seem to be quite different from Ξ0 , although Ξλ → Ξ0 as λ → 0
+
+4
+
+HASEO KI, YOUNG-ONE KIM AND JUNGSEOB LEE
+
+uniformly on compact sets in the complex plane. In fact, as we shall see in the sequel, there
+is a one-parameter family {Hλ } of entire functions which is analogous to {Ξλ } and the
+zero-distributions of the functions Hλ , λ > 0, are very different from those of Hλ , λ ≤ 0,
+in respect that the analogues of Theorems 1.1 through 1.4 are all true for the functions
+Hλ , λ > 0, but Hλ has no real zeros at all when λ ≤ 0.
+This paper is composed as follows. In Section 2, we introduce some notations and
+general theorems that are needed in later discussions; and prove that Theorem 1.3 implies
+Theorems 1.1 and 1.2. We prove Theorem 1.3 in Section 3. In proving Theorem 1.3, we
+will require some technical results, namely Propositions 3.3 and 3.4. They are proved in
+Section 4. Section 5 is devoted to proving Theorem 1.4. Finally, in Section 6, we give some
+examples to which our method of obtaining Theorems 1.1 through 1.4 applies. There one
+finds such one-parameter families of entire functions mentioned.
+2. Zeros of Real Entire Functions and Proof of Theorems 1.1 and 1.2
+Suppose µ is a constant and f is an entire function of order less than 2. Then the series
+∞
+X
+µn
+
+n!
+n=0
+
+f (2n)
+
+converges absolutely and uniformly on compact sets in the complex plane [12, Lemma 2.1].
+2
+Hence it represents a new entire function. We denote it by eµD f . In this case, the entire
+2
+functions f and eµD f are of the same order and type, and we have
+³
+´
+2
+2
+2
+eλD eµD f = e(λ+µ)D f
+for every constant λ [12, Lemmas 3.4 and 3.5; 3, Theorem 1.1].
+By an elementary argument, we see that
+(m)
+
+Ξλ
+
+2
+
+(m)
+
+= e−λD Ξ0
+
+holds for every constant λ and for every non-negative integer m. A straightforward calculation leads to the following lemma.
+Lemma 2.1. Let g be an entire function of order less than 2, a a constant, and f (z) =
+2
+(z − a)g(z). If λ is a constant and h = e−λD g, then
+2
+
+e−λD f (z) = (z − a)h(z) − 2λh0 (z).
+If λ 6= 0, then
+µ
+0
+
+(z − a)h(z) − 2λh (z) = −2λ exp
+
+(z − a)2
+4λ
+
+¶
+
+µ
+¶
+d
+(z − a)2
+exp −
+h(z).
+dz
+4λ
+
+An entire function is said to be a real entire function if it assumes only real values on
+the real axis. If f is a real entire function and a is a zero of f , then so is ā. In view of
+the following theorems we know that if f is a real entire function of order less than 2 and
+2
+λ > 0, then the zeros of e−λD f lie closer to the real axis than those of f .
+
+5
+
+Theorem 2.2. If f is a real entire function of order less than 2 and λ > 0, then the
+2
+number of non-real zeros of e−λD f does not exceed that of f .
+Proof. The theorem is an immediate consequence of Theorem 9a of [1] and Proposition
+3.1 of [12]. ¤
+Theorem 2.3. Let λ, ∆ > 0 and f be a real entire function of order less than 2. If the
+2
+e where
+zerosp
+of f lie in {z : |Im z| ≤ ∆}, then those of e−λD f lie in {z : |Im z| ≤ ∆},
+2
+e = max{∆2 − 2λ, 0}. If ∆2 < 2λ, then all the zeros of e−λD f are (real and) simple.
+∆
+Proof. See Section 3 of [12]. See also [5, Theorem 3.10].
+
+¤
+
+Theorem 2.4. Suppose that f is a real entire function of order less than 2, and that for
+every ² > 0 all but a finite number of zeros of f lie in {z : |Im z| ≤ ²}. If λ > 0, then all
+2
+but a finite number of zeros of e−λD f are real and simple.
+Proof. The theorem is a special case of Theorem 2.2 in [12].
+
+¤
+
+A real entire function f is said to be of genus 1∗ if there are a real constant α ≥ 0 and
+2
+a real entire function g of genus at most 1 such that f (z) = e−αz g(z).
+Theorem 2.5 (Jensen’s Theorem). If f is a real entire function of genus 1∗ and z1 is
+a non-real zero of f 0 , then f has a non-real zero z0 such that |z1 − Re z0 | ≤ Im z0 .
+Proof. If c ∈ C is such that |c − Re a| > |Im a| for every non-real zero a of f , then
+Im (f 0 (c)/f (c)) Im c < 0. ¤
+Corollary. Let h be a real entire function of order less than 2, λ > 0, a ∈ R, and
+h1 (z) = (z − a)h(z) − 2λh0 (z). If z1 is a non-real zero of h1 , then h has a non-real zero z0
+such that |z1 − Re z0 | ≤ Im z0 .
+Proof. Since h is of order less than 2, it is of genus at most 1, by Hadamard’s factorization
+theorem. Therefore the result is an immediate consequence of Lemma 2.1 and Theorem
+2.5. ¤
+Theorem 2.6 (The Pólya-Wiman Theorem). Suppose f is a real entire function of
+genus 1∗ and f has finitely many non-real zeros. Then f 0 is again a real entire function
+of genus 1∗ and the number of non-real zeros of f 0 does not exceed that of f . Moreover,
+there is a positive integer N such that f (N ) has only real zeros.
+Proof. See Section 2 of [11]. See also [6] and [10].
+
+¤
+
+2
+
+If λ, ∆ > 0 and f (z) = z 2 + ∆2 , then e−λD f (z) = z 2 + ∆2 − 2λ. Thus Theorem 2.3
+cannot be improved in the general case; however, in a certain case, it is possible.
+Theorem 2.7. Suppose that f is a real entire function of order less than 2, f has finitely
+many non-real zeros, and the number of non-real zeros of f in the upper half plane {z :
+Im z > 0} does not exceed the number of real zeros of f . Suppose also that ∆0 > 0 and
+2
+the zeros of f lie in {z : |Im z| p
+≤ ∆0 }. If 0 < λ < ∆20 /2, then the zeros of e−λD f lie in
+{z : |Im z| ≤ ∆} for some ∆ < ∆20 − 2λ.
+p
+2
+Proof. Suppose 0 < λ < ∆20 /2, and put ∆1 = ∆20 − 2λ. By Theorem 2.2, e−λD f has
+at most a finite number of non-real zeros; and by Theorem 2.3, the non-real zeros lie in
+
+6
+
+HASEO KI, YOUNG-ONE KIM AND JUNGSEOB LEE
+2
+
+{z : |Im z| ≤ ∆1 }. Hence it is enough to show that e−λD f has no zeros on the line
+{z : Im z = ∆1 }.
+Let N denote the number of non-real zeros of f in the upper half plane. From the
+assumption, we may write
+(2.1)
+
+f (z) = (z − a1 ) · · · (z − aN )g(z),
+
+where a1 , . . . , aN are real zeros of f , and g is a real entire function of order less than 2.
+2
+The functions f and g have the same non-real zeros. Hence e−λD g has at most N
+non-real zeros in the upper half plane, and the non-real zeros lie in {z : |Im z| ≤ ∆1 }. Let
+2
+h0 = e−λD g, and define h1 , . . . , hN by
+hn (z) = (z − an )hn−1 (z) − 2λh0n−1 (z)
+
+(n = 1, . . . , N ).
+
+An inductive argument shows that h0 , h1 , . . . , hN are real entire functions of order less
+2
+than 2. By (2.1) and Lemma 2.1, we have hN = e−λD f .
+Suppose, to obtain a contradiction, that hN has a zero zN on the line {z : Im z = ∆1 }.
+Then, by the corollary to Theorem 2.5, there are complex numbers z0 , . . . , zN −1 in the
+upper half plane such that hn (zn ) = 0 and
+(2.2)
+
+|zn+1 − Re zn | ≤ Im zn
+
+for n = 0, 1, . . . , N − 1.
+It follows from (2.2) that Im zn+1 ≤ Im zn , and that Im zn+1 = Im zn if and only if
+2
+zn+1 = zn . Since h0 (z0 ) = 0 and h0 = e−λD g, we have Im z0 ≤ ∆1 , and we are assuming
+that Im zN = ∆1 . Hence z0 = z1 = · · · = zN , and we conclude, by Lemma 2.1, that z0 is a
+zero of h0 whose multiplicity is greater than N . This is the desired contradiction, because
+2
+h0 (=e−λD g) has at most N non-real zeros in the upper half plane. ¤
+Proof of Theorem 1.1. To prove the theorem, it is enough to showq
+that there is a λ1 < 1/8
+such that the zeros of Ξλ1 lie in {t : |Im t| ≤ ∆} for some ∆ <
+
+1
+4 − 2λ1 :
+
+If such a λ1
+1 2
+exists, then Ξλ , with λ = 2 ∆ + λ1 (< 1/8), has only real zeros by Theorem 2.3. In fact,
+we will
+q show that if 0 < λ < 1/8, then the zeros of Ξλ lie in {t : |Im t| ≤ ∆} for some
+∆ < 14 − 2λ.
+q
+
+Suppose 0 < λ < 1/8. Choose λ0 so that 0 < λ0 < λ, and put ∆0 =
+
+1
+4 − 2λ0 .
+
+Since
+
+2
+
+the zeros of Ξ0 lie in {t : |Im t| ≤ 1/2} and Ξλ0 = e−λ0 D Ξ0 , Theorem 2.3 implies that
+the zeros of Ξλ0 lie in {t : |Im t| ≤ ∆0 }. By Theorem 1.3, all but a finite number of
+zeros of Ξλ0 are real; and Ξλ has infinitely many zeros for arbitrary constant λ. Hence
+2
+Theorem 2.7 implies that the zeros
+of Ξλ (= e−(λ−λ0 )D Ξλ0 ) lie in {t : |Im t| ≤ ∆} for
+q
+p
+some ∆ < ∆20 − 2(λ − λ0 ) (= 14 − 2λ). ¤
+It may be remarked that, by Theorems 1.1 and 2.3, all the zeros of Ξ1/8 are real and
+simple.
+
+7
+
+Proof of Theorem 1.2. By Hadamard’s factorization theorem, the functions Ξλ , Ξ0λ , Ξ00λ , . . .
+(m)
+are real entire functions of genus 1∗ whenever λ ∈ R. If λ ∈ R and Ξλ has only real
+(m+1)
+zeros, then so does Ξλ
+, by Theorem 2.6. Thus {λ(m) } is non-increasing. Let λ > 0 be
+arbitrary. By Theorem 1.3, Ξλ has a finite number of non-real zeros; hence, by Theorem
+(m)
+2.6, there is a positive integer m such that Ξλ has only real zeros, so that λ(m) ≤ λ.
+Therefore
+lim λ(m) ≤ 0. ¤
+m→∞
+
+3. Proof of Theorem 1.3
+In this section, we assume that λ is a fixed positive constant and prove the following.
+Proposition 3.1. For every ² > 0 all but a finite number of zeros of Ξλ lie in {t : |Im t| ≤
+²}.
+Since λ is arbitrary, this proposition together with Theorem 2.4 implies Theorem 1.3.
+We need some preparations. First of all, to simplify the expressions, we put
+Z ∞
+H(t) =
+
+2
+
+ϕ(x)eλ(log x) +iπt log x
+
+0
+
+dx
+,
+x
+
+that is, H(t) = Ξ4λ (2πt), and will show that for every ² > 0 all but a finite number of zeros
+Rb
+of H lie in {t : |Im t| ≤ ²}. When a and b are complex numbers, we denote by a f (x)dx
+the integral of f over the path parameterized as x = a + (b − a)u, 0 ≤ u ≤ 1, and by
+R a+∞
+f (x)dx the one over the infinite path parameterized as x = a + u, 0 ≤ u < ∞.
+a
+We define the function ψ (−1) by
+ψ
+
+(−1)
+
+(x) =
+
+∞
+X
+−1
+n=1
+
+Thus
+
+d (−1)
+ψ
+(x) = ψ(x)
+dx
+
+n2 π
+
+2
+
+e−n πx .
+
+(Re x > 0),
+
+ψ (−1) (x) ∼ −π −1 e−πx for Re x → ∞, ψ (−1) is continuous in the closed right half plane
+{x : Re x ≥ 0}, and |ψ (−1) (x)| ≤ π/6 for Re x ≥ 0. If m is a non-negative integer, we put
+Z i+∞
+Im (t) =
+
+2
+
+x−7/4 (log x)m eλ(log x) +iπt log x ψ (−1) (x)dx.
+
+i
+
+Here, log denotes of course the principal branch of the logarithm. By an elementary
+argument, we see that Im is an entire function.
+Define the polynomials P0 , P1 , P2 , . . . , by P0 (u) ≡ 1 and
+Pn+1 (u) = (u − n)Pn (u) + 2λPn0 (u)
+
+(n = 0, 1, 2, . . . ).
+
+8
+
+HASEO KI, YOUNG-ONE KIM AND JUNGSEOB LEE
+
+Let I = {(l, m) : l, m = 0, 1, 2, 3 and l + m ≤ 3}, define the coefficients a(l,m) , (l, m) ∈ I,
+by
+µ
+2P3
+
+5
+2λ log x + iπt +
+4
+
+¶
+
+µ
+¶
+X
+1
+− 3P2 2λ log x + iπt +
+=
+a(l,m) tl (log x)m ,
+4
+(l,m)∈I
+
+and put
+L(t) =
+
+X
+
+a(l,m) tl Im (t).
+
+(l,m)∈I
+
+Proposition 3.2. There is a real polynomial R of degree ≤ 2 such that
+λπ 2
+
+π2
+
+H(t) = R(t)e− 4 − 2 t − L(t) − L(t).
+Proof. Suppose 0 < θ < π/2. Put
+Z eiθ +∞
+Kθ (t) =
+
+2
+
+ϕ(x)eλ(log x) +iπt log x
+
+eiθ
+
+dx
+,
+x
+
+¡
+¢−1
+and denote by γ the path parameterized by x = e−iθ + u
+, 0 ≤ u < ∞. By applying
+Cauchy’s theorem we obtain
+Z
+2
+dx
+H(t) = Kθ (t) − ϕ(x)eλ(log x) +iπt log x ,
+x
+γ
+because ϕ is analytic in the right half plane {x : Re x > 0},
+¡
+¡
+¢¢
+ϕ(x) = 2π 2 x9/4 e−πx 1 + O x−1
+
+(Re x > ²)
+
+ϕ(x) = 2π 2 x−9/4 e−π/x (1 + O (x))
+
+(|x − r| < r)
+
+for every ² > 0, and
+
+for every r > 0. Since ϕ(x) = ϕ(1/x) = ϕ(x), we see that
+Z
+2
+
+ϕ(x)eλ(log x) +iπt log x
+
+−
+γ
+
+dx
+= Kθ (t).
+x
+
+Hence
+H(t) = Kθ (t) + Kθ (t).
+We have defined the function ψ (−1) so that
+d (n)
+ψ (x) = ψ (n+1) (x)
+dx
+
+(Re x > 0)
+
+9
+
+and
+
+ψ (n) (x) ∼ (−π)n e−πx
+
+(Re x → ∞)
+
+hold for every n ≥ −1. The polynomials P0 , P1 , P2 , . . . have the property that
+µ ¶n ³
+´
+2
+2
+d
+xa eλ(log x) +iπt log x = xa−n Pn (2λ log x + iπt + a) eλ(log x) +iπt log x
+dx
+(n = 0, 1, 2 . . . , a ∈ C).
+We express Kθ (t) as
+Z eiθ +∞
+Kθ (t) = 2
+
+2
+
+x5/4 eλ(log x) +iπt log x ψ 00 (x)dx
+
+eiθ
+
+Z eiθ +∞
++3
+
+2
+
+x1/4 eλ(log x) +iπt log x ψ 0 (x)dx,
+
+eiθ
+
+and apply integration by parts three times to the first integral and twice to the second one
+to obtain
+2
+Kθ (t) = Qθ (t)e−λθ −πtθ − Lθ (t),
+where
+Qθ (t) = −2
+
+2
+X
+
+µ
+5
+(−1) e( 4 −n)iθ P
+
+n
+
+n
+
+n=0
+
+−3
+
+1
+X
+
+(−1) e(
+n
+
+Lθ (t) =
+
+X
+
+l
+
+a(l,m) t
+
+(l,m)∈I
+
+Z eiθ +∞
+
+¡ ¢
+ψ (1−n) eiθ
+
+)iθ
+
+1
+4 −n
+
+n=0
+
+and
+
+¶
+
+5
+2λiθ + iπt +
+4
+
+µ
+¶
+¡ ¢
+1
+Pn 2λiθ + iπt +
+ψ (−n) eiθ ,
+4
+
+2
+
+x−7/4 (log x)m eλ(log x) +iπt log x ψ (−1) (x)dx.
+
+eiθ
+
+Since deg Pn = n for all n, Qθ is a polynomial of degree ≤ 2. If we define Rθ by
+Rθ (t) = Qθ (t) + Qθ (t), then Rθ is a real polynomial of degree ≤ 2 and
+2
+
+H(t) = Rθ (t)e−λθ −πtθ − Lθ (t) − Lθ (t).
+On the other hand, we have
+lim Lθ (t) = L(t)
+
+θ→π/2
+
+for every t. Hence there is a real polynomial R of degree ≤ 2 such that
+lim Rθ (t) = R(t)
+
+θ→π/2
+
+for every t, and this proves the proposition. ¤
+
+10
+
+HASEO KI, YOUNG-ONE KIM AND JUNGSEOB LEE
+
+If m ≥ 0 and n ≥ 1 are integers, we put
+Z i+∞
+I(m,n) (t) =
+and
+I˜(m,n) (t) =
+
+2
+
+2
+
+x−7/4 (log x)m eλ(log x) −n πx+iπt log x dx
+
+i
+
+Z i+∞
+i
+
+2
+
+x−7/4 (log x)m eλ(log x) +iπt log x ψn(−1) (x)dx,
+
+where
+
+∞
+X
+−1
+
+ψn(−1) (x) =
+
+k=n
+
+k2 π
+
+2
+
+e−k πx .
+
+For S ∈ R and T > 0 we put
+2
+
+5
+
+π2
+
+F (S, T ) = T − 4 −πS eλ(log T ) − 2 T .
+The following two propositions will be proved in the next section.
+Proposition 3.3. Suppose m ≥ 0 and n ≥ 1 are integers, and ∆ is a positive constant.
+Then there is a positive constant T1 such that
+¯
+¯m
+¯
+¯
+¯
+¯
+¡
+¡
+¢¢
+iT
+2πS
+−4λ
+log
+n
+¯I(m,n) (T + iS)¯ = cn n T
+¯log ¯ F (S, T ) 1 + O T −1 (log T )2
+¯
+¯
+2
+n
+(−∆ ≤ S ≤ ∆, T ≥ T1 ),
+where
+cn =
+
+√
+
+³
+´
+2
+π2
+3/2 λ 4(log n) − 4
+
+2n
+
+e
+
+.
+
+Proposition 3.4. Suppose m ≥ 0 and n ≥ 1 are integers, and ∆ is a positive constant.
+Then there are positive constants C and T1 such that
+¯
+¯m
+¯
+¯
+¯
+¯
+1
+iT
+¯˜
+¯
+−4λ
+log
+n
+¯log ¯ F (S, T )
+(−∆ ≤ S ≤ ∆, T ≥ T1 ).
+¯I(m,n) (T + iS)¯ ≤ CT 2
+¯
+n2 ¯
+Now we prove Proposition 3.1.
+Proof of Proposition 3.1. Let ² > 0 be arbitrary. We must show that H has at most a finite
+number of zeros outside {t : |Im t| ≤ ²}. By Proposition A, there is a positive constant ∆
+1
+(< 4π
+) such that the zeros of H lie in {t : |Im t| ≤ ∆}, because H(t) = Ξ4λ (2πt), λ > 0
+and the zeros of Ξ0 lie in {t : |Im t| < 1/2}. We may assume that 0 < ² < ∆. Since Ξ0 is
+an even real entire function and λ ∈ R, so is H. If a is a zero of H, then so are −a, ā and
+−ā. By Proposition 3.2,
+H(t) = E(t) − L(t) − L(t),
+where
+
+λπ 2
+
+π2
+
+E(t) = R(t)e− 4 − 2 t
+
+11
+
+and R is a polynomial. To prove the proposition, it is enough to show that there is a
+positive constant T0 such that
+(3.1)
+
+|E(T + iS)| + |L(T + iS)| < |L(T − iS)|
+
+(² ≤ S ≤ ∆, T ≥ T0 ).
+
+Suppose S ∈ R and T > 0. Put t = T + iS. Let N be a positive integer such that
+1
+− 4λ log N ≤ −4λ log 2.
+2
+By Propositions 3.3 and 3.4, we can find positive constants C and T0 depending only on
+N and ∆ such that the inequalities
+¯
+¯
+¯ I(m,n) (t) ¯
+¯
+¯ ≤ CT −4λ log n
+(m = 0, 1, 2, 3, n = 2, 3, . . . , N − 1),
+(3.2)
+¯I
+¯
+(t)
+(m,1)
+¯
+¯
+¯ I˜
+¯
+¯ (m,N ) (t) ¯
+¯
+¯ ≤ CT −4λ log 2
+¯ I(m,1) (t) ¯
+
+(3.3)
+
+(m = 0, 1, 2, 3)
+
+and
+¯
+¯
+¯ tl I
+¯
+(t)
+¯ (m,1) ¯
+¯ 3
+¯ ≤ CT −1 log T
+¯ t I(0,1) (t) ¯
+
+(3.4)
+
+((l, m) ∈ I \ {(3, 0)})
+
+hold whenever −∆ ≤ S ≤ ∆ and T ≥ T0 .
+Since
+N
+−1
+X
+1 −n2 πx
+(−1)
+(−1)
+ψ
+(x) = −
+e
++ ψN (x),
+2
+n π
+n=1
+we have, by (3.2) and (3.3),
+(3.5) Im (t) = −
+
+N
+−1
+X
+
+¡
+¡
+¢¢
+1
+˜(m,N ) (t) = −1 I(m,1) (t) 1 + O T −4λ log 2
+I
+(t)
++
+I
+(m,n)
+n2 π
+π
+n=1
+(−∆ ≤ S ≤ ∆, T ≥ T0 ).
+
+Since
+L(t) =
+
+X
+
+a(l,m) tl Im (t)
+
+(l,m)∈I
+
+and a(3,0) = −2iπ 3 , (3.4) and (3.5) imply
+¡
+¡
+¢¢
+L(t) = 2iπ 2 t3 I(0,1) (t) 1 + O T −4λ log 2
+
+(−∆ ≤ S ≤ ∆, T ≥ T0 )
+
+in the case when 4λ log 2 < 1, and
+¡
+¡
+¢¢
+L(t) = 2iπ 2 t3 I(0,1) (t) 1 + O T −1 log T
+
+(−∆ ≤ S ≤ ∆, T ≥ T0 )
+
+12
+
+HASEO KI, YOUNG-ONE KIM AND JUNGSEOB LEE
+2
+
+in the case when 4λ log 2 ≥ 1. If we put A = 23/2 π 2 e−λπ /4 , then, by Proposition 3.3, we
+obtain
+¡
+¢¢
+¡
+2
+7
+π2
+|L(T + iS)| = AT 4 −πS eλ(log T ) − 2 T 1 + O T −4λ log 2
+(−∆ ≤ S ≤ ∆, T ≥ T0 )
+in the case when 4λ log 2 < 1, and
+¡
+¡
+¢¢
+2
+π2
+7
+|L(T + iS)| = AT 4 −πS eλ(log T ) − 2 T 1 + O T −1 (log T )2
+(−∆ ≤ S ≤ ∆, T ≥ T0 )
+in the case when 4λ log 2 ≥ 1. Now, it is clear that if we take T0 sufficiently large, then
+(3.1) holds. ¤
+4. Proof of Propositions 3.3 and 3.4
+We begin this section by introducing some functions which will be used in our proof of
+the propositions.
+The relation ez − 1 − z = 21 u2 defines a unique one-to-one conformal mapping z = g(u)
+from the region
+√
+Ω = {u : Re u > − 2π or |Im u|Re u 6= −2π}
+onto the strip {z : |Im z| < 2π} such that g(0) = 0 and g 0 (0) = 1. If we put
+Ω1 = {u : |Im u|Re u > π},
+then Ω1 ⊂ Ω and g(Ω1 ) = {z : |Im z| < π}. We define the function G by
+G(u) = eg(u) − 1.
+
+(4.1)
+
+The function G is analytic in Ω and one-to-one in Ω1 . We have G(0) = 0, G0 (0) = 1,
+G(Ω1 ) = {w : Re w > −1 or Im w 6= 0}, and
+(4.2)
+
+G(u) − log(1 + G(u)) =
+
+1 2
+u
+2
+
+(u ∈ Ω1 ).
+
+√
+Lemma 4.1. If we put α = e−πi/4 , then there is a constant ρ0 with 0 < ρ0 < 2 π such
+that the inequalities
+¡
+¢
+¡
+¢
+ρ
+≤ (−1)j Re g (−1)j ρα , (−1)j+1 Im g (−1)j ρα ≤ ρ
+2
+hold for 0 ≤ ρ ≤ ρ0 .
+
+(j = 1, 2)
+
+√
+Proof. The result is a consequence of the√facts that g is analytic
+in
+the
+disk
+{u
+:
+|u|
+<
+2
+π},
+√
+0
+g(0) = 0, g (0) = 1, Re α = −Im α = 1/ 2, and 1/2 < 1/ 2 < 1. ¤
+
+13
+
+Now we prove Propositions 3.3 and 3.4. Let m ≥ 0 and n ≥ 1 be fixed integers, and
+λ be a fixed positive constant. Suppose S ∈ R and T > 0. Put t = T + iS, ξ = iT /n2 ,
+2
+(−1)
+h(x) = en πx ψn (x) and
+2
+
+2
+
+U (x) = U (x; t) = x−7/4 (log x)m eλ(log x) −n πx+iπt log x
+2
+
+7
+
+2
+
+= x− 4 −πS (log x)m eλ(log x) −n πx+iπT log x .
+Thus
+
+Z i+∞
+
+I˜(m,n) (t) =
+
+U (x)dx,
+
+I(m,n) (t) =
+
+i
+
+and
+|ξU (ξ)| = 2
+
+−1/2
+
+cn n
+
+2πS
+
+T
+
+1
+2 −4λ log n
+
+Z i+∞
+U (x)h(x)dx,
+i
+
+¯
+¯m
+¯
+¯
+¯log iT ¯ F (S, T ).
+¯
+n2 ¯
+
+To prove Propositions 3.3 and 3.4, it is enough to show that for every ∆ > 0 there is a
+positive constant T1 such that
+¢¢
+¡
+¡
+(4.3)
+I(m,n) (t) = e−πi/4 (T /2)−1/2 ξU (ξ) 1 + O T −1 (log T )2
+and
+|I˜(m,n) (t)| = O (|ξU (ξ)|)
+
+(4.4)
+
+hold for −∆ ≤ S ≤ ∆ and T ≥ T1 .
+The function h is analytic in the right half plane {x : Re x > 0}, continuous in the
+closed right half plane {x : Re x ≥ 0}, and |h(x)| ≤ π/6 for all x in the closed right half
+plane. On the other hand, U is analytic in the region {x : Re x > 0 or Im x 6= 0} which
+properly contains the closed right half plane.
+Let ρ0 be as in Lemma 4.1,
+M = max |g(u)| and
+|u|=1
+
+ρ = min{1/2, ρ0 , (8λM )−1 }.
+
+We put α = e−πi/4 , x1 = ξ(1 + G(−ρα)), x2 = ξ(1 + G(ρα)), and x0 = x1 /|x1 |. By (4.1),
+we have x1 = ξeg(−ρα) and x2 = ξeg(ρα) . If we write x1 = i|x1 |eiθ1 and x2 = i|x2 |eiθ2 , then
+Lemma 4.1 implies that |ξ|e−ρ ≤ |x1 | ≤ |ξ|e−ρ/2 , |ξ|eρ/2 ≤ |x2 | ≤ |ξ|eρ , ρ/2 ≤ θ1 ≤ ρ and
+−ρ ≤ θ2 ≤ −ρ/2. In particular, x0 and x1 lie in the second quadrant {x : x 6= 0 and π/2 <
+arg x < π}, and x2 in the first quadrant {x : x 6= 0 and 0 < arg x < π/2}. By applying
+Cauchy’s theorem, we obtain
+Z i+∞
+
+Z x0
+U (x)dx =
+
+i
+
+Z x1
+U (x)dx +
+
+i
+
+Z x2
+U (x)dx +
+
+x0
+
+Z x2 +∞
+U (x)dx +
+
+x1
+
+U (x)dx
+x2
+
+and
+Z i+∞
+
+Z ξ
+U (x)h(x)dx =
+
+i
+
+Z x2
+U (x)h(x)dx +
+
+i
+
+Z x2 +∞
+U (x)h(x)dx +
+
+ξ
+
+U (x)h(x)dx.
+x2
+
+14
+
+HASEO KI, YOUNG-ONE KIM AND JUNGSEOB LEE
+
+Now, the propositions are proved by a routine application of the saddle point method
+[2], however, for the reader’s convenience, we present a detailed proof. We prove the
+propositions by showing that for every ∆ > 0 there is a T1 > 0 such that the following
+hold for −∆ ≤ S ≤ ∆ and T ≥ T1 :
+Z x2
+¡
+¡
+¢¢
+U (x)dx = α(T /2)−1/2 ξU (ξ) 1 + O T −1 (log T )2 ,
+(4.5)
+x1
+
+Z x0
+(4.6)
+
+³
+´
+7
++π∆+4λ log n −λ(log T )2
+4
+U (x)dx = O |U (ξ)| T
+e
+,
+
+i
+
+Z x1
+(4.7)
+
+³
+´
+2
+U (x)dx = O |U (ξ)| e−πT ρ /2 ,
+
+x0
+
+Z x2 +∞
+(4.8)
+
+³
+´
+2
+U (x)dx = O |U (ξ)| T 2λρ e−πT ρ /2 ,
+
+x2
+
+Z ξ
+(4.9)
+
+U (x)h(x)dx = O (|ξU (ξ)|) ,
+i
+
+Z x2
+(4.10)
+
+³
+U (x)h(x)dx = O |U (ξ)| T
+
+3/4
+
+´
+,
+
+ξ
+
+and
+Z x2 +∞
+(4.11)
+
+³
+´
+2
+U (x)h(x)dx = O |U (ξ)| T 2λρ e−πT ρ /2 .
+
+x2
+
+Thus (4.3) is a consequence of (4.5) through (4.8), and (4.4) is a consequence of (4.9)
+through (4.11).
+In the remainder of this section, we assume that ∆ is a fixed positive constant and that
+−∆ ≤ S ≤ ∆.
+Proof of (4.5) and (4.10). If we put x(u) = ξeg(αu) , then Lemma 4.1 implies that x(u) lies
+in the second quadrant when −ρ ≤ u < 0 and in the first quadrant when 0 < u ≤ ρ. By
+(4.1), we have x(u) = ξ (1 + G(αu)). Hence
+Z ρ
+Z x2
+³
+´
+U (x)dx = αξ
+G0 (αu)U ξeg(αu) du
+x1
+
+and
+
+Z x2
+
+−ρ
+
+Z ρ
+U (x)h(x)dx = αξ
+
+ξ
+
+0
+
+´
+´ ³
+³
+G0 (αu)U ξeg(αu) h ξeg(αu) du.
+
+15
+
+Since ξ = iT /n2 , we have | log ξ| ≥ π/2. In particular, log ξ 6= 0. Hence
+³
+´
+(4.12) U ξeg(αu) =
+¡
+¢m
+2
+2
+7
+U (ξ) 1 + (log ξ)−1 g(αu) e2λg(αu) log ξ+λg(αu) −( 4 +πS )g(αu) e−πT u /2 .
+If we put
+(4.13)
+
+¡
+¢m
+2
+7
+V (u) = V (u; t) = G0 (u) 1 + (log ξ)−1 g(u) e2λg(u) log ξ+λg(u) −( 4 +πS )g(u) ,
+
+√
+then V is analytic in {u : |u| < 2 π},
+Z x2
+(4.14)
+
+Z ρ
+U (x)dx = αξU (ξ)
+
+x1
+
+2
+
+V (αu)e−πT u /2 du
+
+−ρ
+
+and
+Z x2
+(4.15)
+
+Z ρ
+U (x)h(x)dx = αξU (ξ)
+
+ξ
+
+³
+´
+2
+V (αu)h ξeg(αu) e−πT u /2 du.
+
+0
+
+We have
+max |g(u)| ≤ rM
+
+|u|≤r
+
+(0 ≤ r ≤ 1),
+
+because g(0) = 0 and |g(u)| ≤ M for |u| = 1. We also have | log ξ| ≥ π/2 and −∆ ≤ S ≤ ∆.
+Hence there is a positive constant C1 such that
+max |V (u)| ≤ C1 T 2λrM
+
+(4.16)
+
+(0 ≤ r ≤ 1).
+
+|u|≤r
+
+Since ρ = min{1/2, ρ0 , (8λM )−1 }, it follows that |V (u)| ≤ C1 T 1/4 for |u| ≤ ρ, and we have
+seen that |h(x)| ≤ π/6 for Re x ≥ 0. From
+Z ∞
+(4.17)
+
+k −πT u2 /2
+
+u e
+0
+
+1
+du =
+2
+
+µ
+
+πT
+2
+
+¶− k+1
+2
+
+µ
+Γ
+
+k+1
+2
+
+¶
+(k > −1)
+
+and (4.15), we obtain
+¯Z x2
+¯
+Z ρ¯
+³
+´¯
+³
+´
+¯
+¯
+T
+¯
+g(αu) ¯ −πT u2 /2
+3/4
+¯
+¯≤
+U
+(x)h(x)dx
+|U
+(ξ)|
+V
+(αu)h
+ξe
+e
+du
+=
+O
+|U
+(ξ)|
+T
+.
+¯
+¯
+¯
+¯ n2
+ξ
+
+0
+
+This proves (4.10).
+√
+We have g(0) = 0 and G0 (0) = 1. Hence V (0) = 1; and V is analytic in {u : |u| < 2 π}.
+We may express V as
+V (u) = 1 + b1 u + b2 u2 + B(u)u3
+
+√
+(|u| < 2 π),
+
+16
+
+HASEO KI, YOUNG-ONE KIM AND JUNGSEOB LEE
+
+where b1 = V 0 (0), b2 = 12 V 00 (0), and
+Z
+
+1
+B(u) =
+2πi
+
+(4.18)
+
+V (z)
+dz
+3
+|z|=r z (z − u)
+
+√
+(|u| < r < 2 π).
+
+By (4.13), we see that |b2 | ≤ C2 (log T )2 for some positive constant C2 ; and by (4.18), we
+have
+1
+max |B(u)| ≤ 3 max |V (u)|.
+4ρ |u|=2ρ
+|u|≤ρ
+Hence, by (4.16), there is a positive constant C3 such that |B(u)| ≤ C3 T 1/2 for |u| ≤ ρ.
+Thus we obtain (4.5) from (4.14), (4.17),
+Z ρ
+V (αu)e
+
+−πT u2 /2
+
+ρ
+
+Z ∞
+du = 2
+0
+
+Z ∞
+−2
+
+2
+
+e−πT u /2 du
+
+e
+
+−πT u2 /2
+
+Z ρ
+
+2
+
+du + 2α b2
+
+ρ
+
+and
+
+2 −πT u2 /2
+
+u e
+
+du + α
+
+3
+
+Z ρ
+
+0
+
+Z ∞
+
+2
+
+B(u)u3 e−πT u /2 du
+
+−ρ
+
+2
+
+2
+
+e−πT u /2 du < (ρπT )−1 e−πT ρ /2 .
+
+¤
+
+ρ
+
+Proof of (4.6). By straightforward calculation, we obtain
+¡
+¢ 7 +πS
+|U (i)| = |U (ξ)| T /n2 4
+so that
+
+Ã
+
+4
+1+ 2
+π
+
+µ
+
+T
+log 2
+n
+
+¶2 !−m/2
+
+7
+
+|U (i)| ≤ C|U (ξ)|T 4 +π∆+4λ log n e−λ(log T )
+
+2
+
+e−λ(log n2 ) ,
+T
+
+2
+
+for some positive constant C. If we write x0 = ieiθ1 , then ρ/2 ≤ θ1 ≤ ρ (< π/2). Thus
+¯Z x0
+¯ Z π +θ1
+2
+¯
+¯
+¯ ¡ iθ ¢¯
+¯
+¯U e ¯ dθ.
+¯≤
+U
+(x)dx
+¯
+¯
+π
+i
+
+We have
+
+If T ≥
+
+¡ 2m
+π2
+
+2
+
+¯ ¡ ¢¯ m
+d
+log ¯U eiθ ¯ =
+− 2λθ + n2 π sin θ − πT.
+dθ
+θ
+
+¢
++ n2 + π1 , then the right hand side is less than −1 for every θ ≥ π/2, so that
+Z π2 +θ1
+π
+2
+
+and hence (4.6) holds. ¤
+
+¯ ¡ iθ ¢¯
+¯U e ¯ dθ ≤ |U (i)|,
+
+17
+
+Proof of (4.7). Suppose T ≥ n2 e, so that |x1 | > 1. We have | log ξ| ≥ π/2, x1 = ξeg(−ρα) ,
+−ρ ≤ Re g(−ρα) ≤ −ρ/2 and ρ/2 ≤ Im g(−ρα) ≤ ρ. By (4.12), there is a positive constant
+C such that
+2
+|U (x1 )| ≤ C|U (ξ)|e−πT ρ /2 .
+Since x0 = x1 /|x1 |,
+
+¯Z x1
+¯ Z |x1 |
+¯
+¯
+¯
+U (x)dx¯¯ ≤
+|U (rx0 )|dr.
+¯
+x0
+
+1
+
+Let c be a constant such that 0 < c < n2 π sin(ρ/2). If we put x0 = ieiθ1 , then
+µ
+¶
+2λ log r
+d
+7
+m log r
+´+
+log |U (rx0 )| = −
++ πS r−1 + ³
++ n2 π sin θ1
+¡
+¢
+2
+dr
+4
+r
+r (log r)2 + θ1 + π2
+µ
+¶
+ρ
+7
+2
++ π∆ r−1
+(r ≥ 1).
+> n π sin −
+2
+4
+Hence there is a positive constant b1 such that
+Z b
+
+|U (rx0 )|dr ≤ c−1 |U (bx0 )|
+
+(b ≥ b1 ).
+
+1
+
+Since |x1 | > |ξ|e−ρ = n−2 e−ρ T , (4.7) holds whenever T ≥ n2 eρ b1 .
+
+¤
+
+Proof of (4.8) and (4.11). From (4.12),
+2
+
+|U (x2 )| ≤ C1 |U (ξ)|T 2λρ e−πT ρ /2
+for some positive constant C1 . It is clear that
+¯Z x2 +∞
+¯
+¯Z
+¯ Z ∞
+¯
+¯ 6 ¯ x2 +∞
+¯
+¯
+¯,
+¯
+¯≤
+U
+(x)dx
+U
+(x)h(x)dx
+|U (x2 + x)|dx.
+¯
+¯ π¯
+¯
+x2
+x2
+0
+Let
+
+2
+
+U1 (x) = e−n πx+iπT log x
+
+7
+
+2
+
+and U2 (x) = x− 4 −πS (log x)m eλ(log x) ,
+
+so that U (x) = U1 (x)U2 (x).
+Since |x2 | ≥ eρ/2 n−2 T and 0 ≤ π2 − ρ ≤ arg x2 ≤ π2 − ρ2 , we have
+³
+d
+πT Im x2
+ρ´
+2
+−ρ/2
+log |U1 (x2 + x)| = −n2 π +
+≤
+−n
+π
+1
+−
+e
+cos
+dx
+|x2 + x|2
+2
+
+(x ≥ 0).
+
+If |x2 | ≥ e, then
+¯
+¯
+d
+U20 (x2 + x) ¯¯ U20 (x2 + x) ¯¯
+log |U2 (x2 + x)| = Re
+≤
+dx
+U2 (x2 + x) ¯ U2 (x2 + x) ¯
+¶
+µ
+7
+−1
++ π∆ + m + 2λ log |x2 | + λπ
+≤ |x2 |
+4
+
+(x ≥ 0).
+
+18
+
+HASEO KI, YOUNG-ONE KIM AND JUNGSEOB LEE
+
+¡
+¢
+Let c be a constant such that 0 < c < n2 π 1 − e−ρ/2 cos(ρ/2) . Since |x2 | ≥ eρ/2 n−2 T ,
+there is a positive constant T1 such that
+µ
+−1
+
+|x2 |
+
+7
++ π∆ + m + 2λ log |x2 | + λπ
+4
+
+¶
+
+³
+ρ´
+−ρ/2
+≤n π 1−e
+cos
+−c
+2
+2
+
+holds whenever T ≥ T1 . Now, suppose that T ≥ T1 . Then
+d
+d
+d
+log |U (x2 + x)| =
+log |U1 (x2 + x)| +
+log |U2 (x2 + x)| ≤ −c
+dx
+dx
+dx
+so that
+
+Z ∞
+
+(x ≥ 0),
+
+|U2 (x2 + x)|dx ≤ c−1 |U (x2 )|;
+
+0
+
+hence (4.8) and (4.11) hold.
+
+¤
+
+Proof of (4.9). We have
+π
+|U (ir)|
+6
+µ
+¶m/2
+µ
+µ
+¶
+µ 2
+¶¶
+π
+π2
+7
+λπ
+π2
+2
+2
+=
+(log r) +
+exp λ(log r) −
++ πS log r −
++
+T
+6
+4
+4
+4
+2
+
+|U (ir)h(ir)| ≤
+
+¢
+¡
+−1 7
+for r > 0. If T ≥ n2 eλ ( 4 +π∆) , that is, log |ξ| ≥ λ−1 74 + π∆ , then we have
+|U (ir)h(ir)| ≤
+so that
+
+π
+|U (ξ)|
+6
+
+(1 ≤ r ≤ |ξ|),
+
+¯Z
+¯ Z
+¯ ξ
+¯
+|ξ|
+π
+¯
+¯
+U (x)h(x)dx¯ ≤
+|U (ir)h(ir)| dr ≤ (|ξ| − 1) |U (ξ)| ,
+¯
+¯ i
+¯
+6
+1
+
+and hence (4.9) holds. ¤
+5. Proof of Theorem 1.4
+Suppose λ > 0. As in Section 3, we put H(t) = Ξ4λ (2πt). Let L and R be as in
+Proposition 3.2, and put
+λπ 2
+
+π2
+
+H0 (t) = R(t)e− 4 − 2 t − 2L(t),
+so that H(t) = Re H0 (t) for all t ∈ R. Throughout this section, T denotes a positive
+variable, and the asymptotic expressions are understood as T → ∞.
+Since
+X
+L(t) =
+a(l,m) tl Im (t)
+(l,m)∈I
+
+19
+
+and
+
+Z i+∞
+Im (t) =
+
+2
+
+x−7/4 (log x)m eλ(log x) +iπt log x ψ (−1) (x)dx,
+
+i
+
+we have
+
+L0 (t) =
+
+X
+
+¡
+¢
+a(l,m) iπtl Im+1 (t) + ltl−1 Im (t) .
+
+(l,m)∈I
+
+By the same argument as in the proof of Proposition 3.1, we obtain
+H0 (T ) = −4iπ 2 T 3 I(0,1) (T ) (1 + o(1))
+and
+
+H00 (T ) = 4π 3 T 3 I(1,1) (T ) (1 + o(1)) .
+
+If we put
+
+2
+
+U (x) = U (x; T ) = x−7/4 eλ(log x) −πx+iπT log x ,
+then, by (4.3), we have
+I(0,1) (T ) = e−πi/4 (T /2)−1/2 iT U (iT ) (1 + o(1))
+and
+I(1,1) (T ) = (log iT )I(0,1) (T ) (1 + o(1)) .
+In particular, there is a positive constant T0 such that H0 (T ) 6= 0 for T > T0 .
+If we write
+H0 (T ) = |H0 (T )|eiπθ(T ) ,
+then we have
+H(T ) = |H0 (T )| cos πθ(T ).
+We also have
+d
+1
+H 0 (T )
+θ(T ) = Im 0
+,
+dT
+π
+H0 (T )
+
+H00 (T )
+= iπ(log iT ) (1 + o(1))
+H0 (T )
+
+(T > T0 ),
+
+and
+θ(T ) = T log T − T + λ log T + O(1).
+Hence we obtain Theorem 1.4, because H(t) = Ξ4λ (2πt).
+6. Examples
+We begin with a general argument. Suppose {an } is a sequence of real numbers with
+a1 6= 0, and {bn } is a non-decreasing sequence of positive numbers with b1 < b2 such that
+∞
+X
+n=1
+
+|an |b−A
+<∞
+n
+
+20
+
+HASEO KI, YOUNG-ONE KIM AND JUNGSEOB LEE
+
+for some positive constant A. Put
+L(s) =
+
+∞
+X
+
+an b−s
+n
+
+and
+
+ψ(x) =
+
+n=1
+
+∞
+X
+
+an e−bn x .
+
+n=1
+
+Then L is analytic in the half plane {s : Re s > A}, ψ is analytic in the right half plane
+{x : Re x > 0}, ψ(x) = ψ(x) for all x there, and ψ(x) ∼ a1 e−b1 x for Re x → ∞. One can
+find that these two functions are related through
+Z ∞
+dx
+xs ψ(x)
+(6.1)
+Γ(s)L(s) =
+(Re s > A).
+x
+0
+Since a1 6= 0, {bn } is non-decreasing and b1 < b2 , there is a constant B(≥ A) such that L
+has no zeros in the half plane {s : Re s > B}. If we define the functions ψ (−1) , ψ (−2) , . . .
+by
+∞
+X
+(−l)
+ψ
+(x) =
+an (−bn )−l e−bn x
+(l = 1, 2, . . . ),
+n=1
+
+then these functions are analytic in the right half plane, and ψ (−l) is continuous and
+bounded in the closed half plane {x : Re x ≥ 0} whenever l ≥ A.
+Suppose there are constants δ ∈ {0, 1} and k, c0 , . . . , cN ∈ R, with cN 6= 0, such that
+(6.2)
+
+δ k
+
+(−1) x
+
+N
+X
+
+n
+
+cn x ψ
+
+(n)
+
+N
+X
+cn
+
+(x) =
+
+n=0
+
+xn
+
+n=0
+
+If we put
+
+Z ∞
+h(s) =
+
+xs
+
+0
+
+Ã N
+X
+
+ψ
+
+(n)
+
+µ ¶
+1
+x
+!
+
+cn xn ψ (n) (x)
+
+n=0
+
+(Re x > 0).
+
+dx
+,
+x
+
+then h becomes an entire function satisfying the functional equation
+h(s) = (−1)δ h(k − s),
+and, by (6.1), there is a real polynomial P of degree N such that
+(6.3)
+
+h(s) = P (s)Γ(s)L(s)
+
+(Re s > A).
+
+Define the function ϕ by
+k/2
+
+ϕ(x) = x
+
+N
+X
+
+cn xn ψ (n) (x),
+
+n=0
+
+and for arbitrary constant λ define the function Hλ by
+Z ∞
+2
+dx
+δ
+eλ(log x) +it log x ϕ(x) .
+Hλ (t) = i
+x
+0
+
+21
+
+We see that ϕ is analytic in the right half plane, ϕ(x) = ϕ(x) = (−1)δ ϕ(1/x) for all x in
+the right half plane,
+k
+ϕ(x) ∼ Cx 2 +N e−b1 x
+(Re x → ∞)
+¡
+¢
+holds for some constant C 6= 0, H0 (t) = iδ h k2 + it , Hλ is an entire function of order
+1 and maximal type satisfying Hλ (−t) = (−1)δ Hλ (t), and Hλ is a real entire function
+whenever λ ∈ R. Since L has no zeros in the half plane {s : Re s > B}, (6.3) implies that
+the zeros of H0 lie in {t : |Im t| ≤ ∆} for some constant ∆ ≥ 0. There is now no difficulty
+in extending the results of this paper to the functions Hλ , λ > 0.
+Example 1. Let χ be a primitive Dirichlet character modulo q(> 2), and denote the
+Gauss sum by τ (χ):
+q
+X
+τ (χ) =
+χ(n)e2πin/q .
+n=1
+
+We have |τ (χ)| =
+(6.4)
+
+x
+
+√
+
+1
+2 +a
+
+q and
+
+∞
+X
+
+a
+
+n χ(n)e
+
+∞
+
+2
+−1
+(−i)a τ (χ) X a
+=
+n χ(n)e−n πx /q ,
+√
+q
+n=1
+
+−n2 πx/q
+
+n=1
+
+where a = 0 if χ(−1) = 1 and a = 1 otherwise [9, p.85]. Choose a constant ω so that
+√
+(−i)a τ (χ)ω 2 = q and put
+ψ(x) =
+
+∞
+X
+
+2
+
+na Re (ωχ(n))e−n πx/q .
+
+n=1
+
+Then (6.4) implies that
+1
+
+x 2 +a ψ(x) = ψ(1/x).
+Thus (6.2) is satisfied with δ = 0, k = 21 + a and N = 0, and we obtain the analogues of
+Theorems 1.1 through 1.4 for the functions Hλ , λ > 0, defined by
+Z ∞
+Hλ (t) =
+0
+1
+
+2
+
+eλ(log x) +it log x ϕ(x)
+
+dx
+,
+x
+
+a
+
+where ϕ(x) = x 4 + 2 ψ(x).
+√
+If χ is real, that is, χ(n) ∈ R for all n, then it is known that (−i)a τ (χ) = q [9, p.49],
+and hence we may take ω = 1. In this case, H0 and the Dirichlet L-function are related
+through
+H0 (t) = Γ(s)(q/π)s L(2s − a, χ)
+(s = 14 + a2 + it),
+so that the zeros of H0 lie in {t : |Im t| < 1/4}.
+If χ is not real, then H0 may have infinitely many non-real zeros. A concrete example
+is found in Section 10.25 of [18].
+
+22
+
+HASEO KI, YOUNG-ONE KIM AND JUNGSEOB LEE
+
+Example 2. Let the functions Λ and ψ be defined by
+Λ(s) = (2π)−s Γ(s)ζ(s)ζ(s − k + 1)
+
+and
+
+ψ(x) =
+
+∞
+X
+
+σk−1 (n)e−2nπx ,
+
+n=1
+
+where k is an even integer, ζ is the Riemann zeta-function and
+X
+dk−1 .
+σk−1 (n) =
+d|n
+
+These functions are related through
+Z ∞
+dx
+Λ(s) =
+(Re s > max{1, k}).
+xs ψ(x)
+x
+0
+The function Λ is meromorphic in the whole s-plane and has a finite number of poles. The
+poles lie in the set {0, −1, −2, . . . }∪{1, k}, and they are symmetrically located with respect
+to the point s = k/2. The non-real zeros of Λ lie in {s : 0 < Re s < 1 or k − 1 < Re s < k}.
+If k ≤ 4, Λ has no real zeros; otherwise it has exactly k2 − 2 real zeros and they are at the
+odd integers in the interval [3, k − 3]. From well known properties of ζ and Γ, we see that
+Λ satisfies the functional equation
+Λ(s) = (−1)k/2 Λ(k − s),
+and Λ is bounded in the vertical strip {s : a < Re s < b} whenever −∞ < a < b < ∞.
+Let P denote the monic real polynomial of the smallest degree such that P Λ becomes an
+entire function. Then there are constants δ ∈ {0, 1} and c0 , . . . , cN ∈ R, with cN = (−1)N ,
+such that
+!
+Z ∞ ÃX
+N
+dx
+cn xn ψ (n) (x)
+P (s)Λ(s) =
+xs
+(s ∈ C)
+x
+0
+n=0
+and (6.2) hold; hence we obtain the analogues of the results of this paper for the functions
+2
+e−λD H, λ > 0, where
+µ
+¶ µ
+¶
+k
+k
+δ
+(6.5)
+H(t) = i P
++ it Λ
++ it .
+2
+2
+For instance, if k ≥ 4, then we have
+µ
+¶
+µ ¶
+ζ(k)Γ(k)
+ζ(k)Γ(k)
+1
+k/2 k
+(−1) x
++ ψ(x) =
++ψ
+k
+k
+(2πi)
+(2πi)
+x
+
+(Re x > 0)
+
+[8, pp. 10–14], P (s) = s(s − k),
+Z ∞
+¡
+¢ dx
+s(s − k)Λ(s) =
+(s ∈ C),
+xs (k + 1)xψ 0 (x) + x2 ψ 00 (x)
+x
+0
+and
+µ ¶
+µ ¶
+¡
+¢ k+1 0 1
+1 00 1
+k/2 k
+0
+2 00
+(−1) x (k + 1)xψ (x) + x ψ (x) =
+ψ
++ 2ψ
+(Re x > 0).
+x
+x
+x
+x
+Finally, we remark that if k ≤ 4 or k is a multiple of 4, then δ = 0 and the function H
+defined by (6.5) is an even real entire function having no real zeros at all, and hence so are
+2
+the functions e−λD H, λ < 0, by Lemma 3.2 of [12].
+
+23
+
+Acknowledgment. The authors thank Professor A. Ivic for his kind interest and comments. Ki and Kim are grateful to the members of the American Institute of Mathematics
+for their hospitality during the conference stay in the summer of 2007.
+References
+[1]
+[2]
+[3]
+
+N. G. de Bruijn, The roots of trigonometric integrals, Duke Math. J. 17 (1950), 197–226.
+, Asymptotic Methods in Analysis, Dover Publications, New York, 1981.
+Y. Cha, H. Ki and Y.-O. Kim, A note on differential operators of infinite order, J. Math. Anal. Appl.
+290 (2004), 534–541.
+[4] B. Conrey, Zeros of derivatives of Riemann’s ξ-function on the critical line, J. Number Theory 16
+(1983), no. 1, 49–74.
+[5] T. Craven and G. Csordas, Differential operators of infinite order and the distribution of zeros of
+entire functions, J. Math. Anal. Appl. 186 (1994), 799–820.
+[6] T. Craven, G. Csordas and W. Smith, The zeros of derivatives of entire functions and the Pólya–
+Wiman conjecture, Ann. of Math. (2) 125 (1987), 405–431.
+[7] G. Csordas, T. S. Norfolk and R. S. Varga, A lower bound for the de Bruijn-Newman constant Λ,
+Numer. Math. 52 (1988), 483–497.
+[8] H. Iwaniec, Topics in Classical Automorphic Forms, Graduate Studies in Mathematics, 17., American
+Mathematical Society, Providence, RI, 1997.
+[9] H. Iwaniec and E. Kowalski, Analytic Number Theory, American Mathematical Society Colloquium
+Publications, 53. American Mathematical Society, Providence, RI, 2004.
+[10] Y.-O. Kim, A proof of the Pólya–Wiman conjecture, Proc. Amer. Math. Soc. 109 (1990), 1045–1052.
+[11] H. Ki and Y.-O. Kim, On the number of nonreal zeros of real entire functions and the Fourier-Pólya
+conjecture, Duke Math. J. 104 (2000), 45-73.
+[12]
+, De Bruijn’s question on the zeros of Fourier transforms, J. Anal. Math. 91 (2003), 369–387.
+[13] H. L. Montgomery, The pair correlation of zeros of the zeta function, in Analytic Number Theory(St.
+Louis, Mo., 1972), Proc. Sympos. Pure Math. 24, Amer. Math. Soc., Providence 1973, 181–193.
+[14] C. M. Newman, Fourier transforms with only real zeros, Proc. Amer. Math. Soc. 61 (1976), 245–251.
+[15] A. M. Odlyzko, An improved bound for the de Bruijn-Newman constant, Numerical Algorithms 25
+(2000), 293–303.
+[16] G. Pólya, On the zeros of certain trigonometric integrals, J. London Math. Soc. 1 (1926), 98–99.
+, Über trigonometrische Integrale mit nur reellen Nullstellen, J. Reine Angew. Math. 158
+[17]
+(1927), 6–18.
+[18] E. C. Titchmarsh, The Theory of the Riemann Zeta-function, 2nd ed., revised by D. R. Heathbrown,
+Oxford University Press, Oxford, 1986.
+Department of Mathematics, Yonsei University, Seoul 120–749, Korea
+E-mail address: haseo@yonsei.ac.kr
+Department of Mathematical Sciences and Research Institute of Mathematics, Seoul
+National University, Seoul 151–742, Korea
+E-mail address: kimyo@math.snu.ac.kr
+Department of Mathematics, Ajou University, Suwon 442-749, Korea
+E-mail address: jslee@ajou.ac.kr
+
+

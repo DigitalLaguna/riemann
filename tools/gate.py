@@ -42,7 +42,7 @@ def card_ok(bibkey: str) -> tuple[bool, str]:
     problems = []
     if not re.search(rf"^bibkey:\s*{re.escape(bibkey)}\s*$", t, re.M):
         problems.append("bibkey mismatch")
-    if not re.search(r'^main_result:.*"[^"]{10,}".*\((?:Theorem|Lemma|Proposition|Section|sec|p\.|page|eq)[^)]*\)', t, re.M):
+    if not re.search(r'^main_result:.*"[^"]{10,}".*\((?:Theorem|Lemma|Proposition|Corollary|Section|sec|Abstract|post|para|p\.|page|eq|README|CONTRIBUTING|PULL_REQUEST|wiki|fetched)[^)]*\)', t, re.M):
         problems.append("main_result lacks verbatim quote with location")
     if not re.search(r"^fetched:\s*\d{4}-\d{2}-\d{2}\s*$", t, re.M):
         problems.append("no fetched date")

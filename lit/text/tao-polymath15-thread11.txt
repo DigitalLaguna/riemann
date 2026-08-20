@@ -1,0 +1,2517 @@
+Polymath15, eleventh thread: Writing up the results, and exploring negative t | What's new 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ What's new Updates on my research and expository papers, discussion of open problems, and other maths-related topics. By Terence Tao
+
+ 
+
+ 
+ 
+ Home 
+ About 
+ Career advice 
+ On writing 
+ Books 
+ Mastodon+ 
+ Applets 
+ 
+
+ 
+ Subscribe to feed 
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ Polymath15, eleventh thread: Writing up the results, and exploring negative t 
+ 28 December, 2018 in math.NA , math.NT , polymath | Tags: Polymath15 | by Terence Tao 
+
+ 
+ 
+ This is the eleventh research thread of the  Polymath15 project  to upper bound the  de Bruijn-Newman constant   , continuing  this post . Discussion of the project of a non-research nature can continue for now in  the existing proposal thread . Progress will be summarised at  this Polymath wiki page .
+
+ There are currently two strands of activity.  One is writing up the paper describing the combination of theoretical and numerical results needed to obtain the new bound .  The latest version of the writeup may be found here , in this directory .  The theoretical side of things have mostly been written up; the main remaining tasks to do right now are
+
+ 
+ giving a more detailed description and illustration of the two major numerical verifications, namely the barrier verification that establishes a zero-free region for for , and the Dirichlet series bound that establishes a zero-free region for ; and 
+ giving more detail on the conditional results assuming more numerical verification of RH. 
+ 
+ Meanwhile, several of us have been exploring the behaviour of the zeroes of for negative ; this does not directly lead to any new progress on bounding (though there is a good chance that it may simplify the proof of ), but there have been some interesting numerical phenomena uncovered, as summarised in this set of slides .  One phenomenon is that for large negative , many of the complex zeroes begin to organise themselves near the curves
+
+ 
+
+ (An example of the agreement between the zeroes and these curves may be found here .)  We now have a (heuristic) theoretical explanation for this; we should have an approximation
+
+ 
+
+ in this region (where are defined in equations (11), (15), (17) of the writeup , and the above curves arise from (an approximation of) those locations where two adjacent terms , in this series have equal magnitude (with the other terms being of lower order).
+
+ However, we only have a partial explanation at present of the interesting behaviour of the real zeroes at negative t, for instance the surviving zeroes at extremely negative values of appear to lie on the curve where the quantity is close to a half-integer, where
+
+ 
+
+ 
+
+ The remaining zeroes exhibit a pattern in coordinates that is approximately 1-periodic in , where
+
+ 
+
+ A plot of the zeroes in these coordinates (somewhat truncated due to the numerical range) may be found here .
+
+ We do not yet have a total explanation of the phenomena seen in this picture.  It appears that we have an approximation
+
+ 
+
+ where is the non-zero multiplier
+
+ 
+
+ and
+
+ 
+
+ The derivation of this formula may be found in this wiki page .  However our initial attempts to simplify the above approximation further have proven to be somewhat inaccurate numerically (in particular giving an incorrect prediction for the location of zeroes, as seen in this picture ).  We are in the process of using numerics to try to resolve the discrepancies (see this page for some code and discussion).
+
+  
+
+ Share this: 
+ Print (Opens in new window) 
+ Print 
+ 
+ Email a link to a friend (Opens in new window) 
+ Email 
+ More 
+ Share on X (Opens in new window) 
+ X 
+ 
+ Share on Facebook (Opens in new window) 
+ Facebook 
+ 
+ Share on Reddit (Opens in new window) 
+ Reddit 
+ 
+ Share on Pinterest (Opens in new window) 
+ Pinterest 
+ Like Loading... 
+ 
+
+ 
+ 
+
+ 
+
+ Recent Comments 
+ Ziad Baroudi on Solving mathematical problems Vinicius Rodrigues on Palomar – a registry of… Terence Tao on Palomar – a registry of… Anonymous on Palomar – a registry of… Terence Tao on Palomar – a registry of… Anonymous on Palomar – a registry of… Anonymous on Palomar – a registry of… Terence Tao on Palomar – a registry of… Anonymous on A digestion of the proof of Se… Terence Tao on Palomar – a registry of… Anonymous on Palomar – a registry of… Lars Warren Ericson on Palomar – a registry of… Teng Zhang on A digestion of the proof of Se… Terence Tao on Palomar – a registry of… Teng Zhang on A digestion of the proof of Se… 
+ 
+ 
+ 
+ 
+ 
+ Top Posts Palomar - a registry of Lean verified mathematics A digestion of the proof of Sendov's conjecture A digestion of the Jacobian conjecture counterexample Career advice 245A: Problem solving strategies Does one have to be a genius to do maths? Solving mathematical problems 275A, Notes 0: Foundations of probability theory Why global regularity for Navier-Stokes is hard On writing Archives 
+ 
+ August 2026  (3) 
+ July 2026  (9) 
+ June 2026  (3) 
+ May 2026  (1) 
+ March 2026  (4) 
+ February 2026  (3) 
+ January 2026  (4) 
+ December 2025  (5) 
+ November 2025  (5) 
+ September 2025  (1) 
+ August 2025  (3) 
+ July 2025  (1) 
+ June 2025  (2) 
+ May 2025  (5) 
+ April 2025  (2) 
+ March 2025  (1) 
+ February 2025  (3) 
+ January 2025  (1) 
+ December 2024  (3) 
+ November 2024  (4) 
+ October 2024  (1) 
+ September 2024  (4) 
+ August 2024  (3) 
+ July 2024  (3) 
+ June 2024  (1) 
+ May 2024  (1) 
+ April 2024  (5) 
+ March 2024  (1) 
+ December 2023  (2) 
+ November 2023  (2) 
+ October 2023  (1) 
+ September 2023  (3) 
+ August 2023  (3) 
+ June 2023  (8) 
+ May 2023  (1) 
+ April 2023  (1) 
+ March 2023  (2) 
+ February 2023  (1) 
+ January 2023  (2) 
+ December 2022  (3) 
+ November 2022  (3) 
+ October 2022  (3) 
+ September 2022  (1) 
+ July 2022  (3) 
+ June 2022  (1) 
+ May 2022  (2) 
+ April 2022  (2) 
+ March 2022  (5) 
+ February 2022  (3) 
+ January 2022  (1) 
+ December 2021  (2) 
+ November 2021  (2) 
+ October 2021  (1) 
+ September 2021  (2) 
+ August 2021  (1) 
+ July 2021  (3) 
+ June 2021  (1) 
+ May 2021  (2) 
+ February 2021  (6) 
+ January 2021  (2) 
+ December 2020  (4) 
+ November 2020  (2) 
+ October 2020  (4) 
+ September 2020  (5) 
+ August 2020  (2) 
+ July 2020  (2) 
+ June 2020  (1) 
+ May 2020  (2) 
+ April 2020  (3) 
+ March 2020  (9) 
+ February 2020  (1) 
+ January 2020  (3) 
+ December 2019  (4) 
+ November 2019  (2) 
+ September 2019  (2) 
+ August 2019  (3) 
+ July 2019  (2) 
+ June 2019  (4) 
+ May 2019  (6) 
+ April 2019  (4) 
+ March 2019  (2) 
+ February 2019  (5) 
+ January 2019  (1) 
+ December 2018  (6) 
+ November 2018  (2) 
+ October 2018  (2) 
+ September 2018  (5) 
+ August 2018  (3) 
+ July 2018  (3) 
+ June 2018  (1) 
+ May 2018  (4) 
+ April 2018  (4) 
+ March 2018  (5) 
+ February 2018  (4) 
+ January 2018  (5) 
+ December 2017  (5) 
+ November 2017  (3) 
+ October 2017  (4) 
+ September 2017  (4) 
+ August 2017  (5) 
+ July 2017  (5) 
+ June 2017  (1) 
+ May 2017  (3) 
+ April 2017  (2) 
+ March 2017  (3) 
+ February 2017  (1) 
+ January 2017  (2) 
+ December 2016  (2) 
+ November 2016  (2) 
+ October 2016  (5) 
+ September 2016  (4) 
+ August 2016  (4) 
+ July 2016  (1) 
+ June 2016  (3) 
+ May 2016  (5) 
+ April 2016  (2) 
+ March 2016  (6) 
+ February 2016  (2) 
+ January 2016  (1) 
+ December 2015  (4) 
+ November 2015  (6) 
+ October 2015  (5) 
+ September 2015  (5) 
+ August 2015  (4) 
+ July 2015  (7) 
+ June 2015  (1) 
+ May 2015  (5) 
+ April 2015  (4) 
+ March 2015  (3) 
+ February 2015  (4) 
+ January 2015  (4) 
+ December 2014  (6) 
+ November 2014  (5) 
+ October 2014  (4) 
+ September 2014  (3) 
+ August 2014  (4) 
+ July 2014  (5) 
+ June 2014  (5) 
+ May 2014  (5) 
+ April 2014  (2) 
+ March 2014  (4) 
+ February 2014  (5) 
+ January 2014  (4) 
+ December 2013  (4) 
+ November 2013  (5) 
+ October 2013  (4) 
+ September 2013  (5) 
+ August 2013  (1) 
+ July 2013  (7) 
+ June 2013  (12) 
+ May 2013  (4) 
+ April 2013  (2) 
+ March 2013  (2) 
+ February 2013  (6) 
+ January 2013  (1) 
+ December 2012  (4) 
+ November 2012  (7) 
+ October 2012  (6) 
+ September 2012  (4) 
+ August 2012  (3) 
+ July 2012  (4) 
+ June 2012  (3) 
+ May 2012  (3) 
+ April 2012  (4) 
+ March 2012  (5) 
+ February 2012  (5) 
+ January 2012  (4) 
+ December 2011  (8) 
+ November 2011  (8) 
+ October 2011  (7) 
+ September 2011  (6) 
+ August 2011  (8) 
+ July 2011  (9) 
+ June 2011  (8) 
+ May 2011  (11) 
+ April 2011  (3) 
+ March 2011  (10) 
+ February 2011  (3) 
+ January 2011  (5) 
+ December 2010  (5) 
+ November 2010  (6) 
+ October 2010  (9) 
+ September 2010  (9) 
+ August 2010  (3) 
+ July 2010  (4) 
+ June 2010  (8) 
+ May 2010  (8) 
+ April 2010  (8) 
+ March 2010  (8) 
+ February 2010  (10) 
+ January 2010  (12) 
+ December 2009  (11) 
+ November 2009  (8) 
+ October 2009  (15) 
+ September 2009  (6) 
+ August 2009  (13) 
+ July 2009  (10) 
+ June 2009  (11) 
+ May 2009  (9) 
+ April 2009  (11) 
+ March 2009  (14) 
+ February 2009  (13) 
+ January 2009  (18) 
+ December 2008  (8) 
+ November 2008  (9) 
+ October 2008  (10) 
+ September 2008  (5) 
+ August 2008  (6) 
+ July 2008  (7) 
+ June 2008  (8) 
+ May 2008  (11) 
+ April 2008  (12) 
+ March 2008  (12) 
+ February 2008  (13) 
+ January 2008  (17) 
+ December 2007  (10) 
+ November 2007  (9) 
+ October 2007  (9) 
+ September 2007  (7) 
+ August 2007  (9) 
+ July 2007  (9) 
+ June 2007  (6) 
+ May 2007  (10) 
+ April 2007  (11) 
+ March 2007  (9) 
+ February 2007  (4) 
+ 
+
+ Categories 
+ 
+ expository (325)
+ 
+ tricks (13)
+ 
+ 
+ 
+ guest blog (10)
+ 
+ Mathematics (924)
+ 
+ math.AC (9)
+ 
+ math.AG (43)
+ 
+ math.AP (115)
+ 
+ math.AT (17)
+ 
+ math.CA (197)
+ 
+ math.CO (207)
+ 
+ math.CT (9)
+ 
+ math.CV (40)
+ 
+ math.DG (37)
+ 
+ math.DS (90)
+ 
+ math.FA (24)
+ 
+ math.GM (16)
+ 
+ math.GN (21)
+ 
+ math.GR (90)
+ 
+ math.GT (17)
+ 
+ math.HO (14)
+ 
+ math.IT (13)
+ 
+ math.LO (54)
+ 
+ math.MG (48)
+ 
+ math.MP (31)
+ 
+ math.NA (26)
+ 
+ math.NT (213)
+ 
+ math.OA (22)
+ 
+ math.PR (114)
+ 
+ math.QA (6)
+ 
+ math.RA (49)
+ 
+ math.RT (21)
+ 
+ math.SG (4)
+ 
+ math.SP (48)
+ 
+ math.ST (11)
+ 
+ 
+ 
+ non-technical (213)
+ 
+ admin (49)
+ 
+ advertising (82)
+ 
+ diversions (7)
+ 
+ media (14)
+ 
+ journals (3)
+ 
+ 
+ 
+ obituary (15)
+ 
+ 
+ 
+ opinion (37)
+ 
+ paper (272)
+ 
+ book (23)
+ 
+ Companion (13)
+ 
+ update (26)
+ 
+ 
+ 
+ question (128)
+ 
+ polymath (87)
+ 
+ 
+ 
+ talk (69)
+ 
+ DLS (20)
+ 
+ 
+ 
+ teaching (190)
+ 
+ 245A – Real analysis (11)
+ 
+ 245B – Real analysis (22)
+ 
+ 245C – Real analysis (6)
+ 
+ 246A – complex analysis (11)
+ 
+ 246B – complex analysis (5)
+ 
+ 246C – complex analysis (5)
+ 
+ 247B – Classical Fourier Analysis (5)
+ 
+ 254A – analytic prime number theory (19)
+ 
+ 254A – ergodic theory (18)
+ 
+ 254A – Hilbert's fifth problem (12)
+ 
+ 254A – Incompressible fluid equations (5)
+ 
+ 254A – random matrices (14)
+ 
+ 254B – expansion in groups (8)
+ 
+ 254B – Higher order Fourier analysis (9)
+ 
+ 255B – incompressible Euler equations (2)
+ 
+ 275A – probability theory (6)
+ 
+ 285G – poincare conjecture (20)
+ 
+ Logic reading seminar (8)
+ 
+ 
+ 
+ The sciences (1)
+ 
+ travel (26)
+ 
+ 
+
+ additive combinatorics 
+ approximate groups 
+ arithmetic progressions 
+ Artificial Intelligence 
+ Ben Green 
+ Cauchy-Schwarz 
+ Cayley graphs 
+ central limit theorem 
+ Chowla conjecture 
+ compressed sensing 
+ correspondence principle 
+ cosmic distance ladder 
+ distributions 
+ divisor function 
+ eigenvalues 
+ Elias Stein 
+ Emmanuel Breuillard 
+ entropy 
+ equidistribution 
+ Erdos 
+ ergodic theory 
+ Euler equations 
+ exponential sums 
+ finite fields 
+ Fourier transform 
+ Freiman's theorem 
+ Gowers uniformity norm 
+ Gowers uniformity norms 
+ graph theory 
+ Gromov's theorem 
+ GUE 
+ Hilbert's fifth problem 
+ ICM 
+ incompressible Euler equations 
+ inverse conjecture 
+ Joni Teravainen 
+ Kaisa Matomaki 
+ Kakeya conjecture 
+ Lie algebras 
+ Lie groups 
+ Liouville function 
+ Littlewood-Offord problem 
+ Maksym Radziwill 
+ Mobius function 
+ Navier-Stokes equations 
+ nilpotent groups 
+ nilsequences 
+ nonstandard analysis 
+ Paul Erdos 
+ politics 
+ polymath1 
+ polymath8 
+ Polymath15 
+ polynomial method 
+ polynomials 
+ prime gaps 
+ prime numbers 
+ prime number theorem 
+ random matrices 
+ randomness 
+ Ratner's theorem 
+ regularity lemma 
+ Ricci flow 
+ Riemann zeta function 
+ Schrodinger equation 
+ Shannon entropy 
+ sieve theory 
+ structure 
+ Szemeredi's theorem 
+ Tamar Ziegler 
+ ultrafilters 
+ universality 
+ Van Vu 
+ wave maps 
+ Yitang Zhang The Polymath Blog Polymath News and AI Polymath projects 2021 A sort of Polymath on a famous MathOverflow problem Ten Years of Polymath Updates and Pictures Polymath proposal: finding simpler unit distance graphs of chromatic number 5 A new polymath proposal (related to the Riemann Hypothesis) over Tao’s blog Spontaneous Polymath 14 – A success! Polymath 13 – a success! Non-transitive Dice over Gowers’s Blog 
+ 
+
+ 
+
+ 
+
+ 
+ 
+ 78 comments 
+ Comments feed for this article 
+
+ 
+
+ 
+ 
+ 
+ 
+ 28 December, 2018 at 2:37 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ In order to understand the approximation numerical errors, it seems that a sufficiently good upper bound on the approximation error is needed.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 28 December, 2018 at 4:23 pm 
+
+ Jim Cohen 
+
+ 
+
+ 
+ Why is research always in quotes?
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 28 December, 2018 at 7:41 pm 
+
+ Terence Tao 
+
+ 
+
+ 
+ Polymath projects typically have some posts designated as “research” threads and other posts designated as “discussion” threads, though in this case we have not created a dedicated “discussion” thread, using the (very low-traffic) proposal post instead for this purpose. The volume of discussion in the research thread is currently low enough that one is welcome to also have non-technical discussion of the project in this post intermingled with the research, but for some other projects it was useful to keep the two separate. But since the quotes could be misinterpreted, I have now removed them.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 28 December, 2018 at 4:29 pm 
+
+ rudolph01 
+
+ 
+
+ 
+ In above, I believe the exponent in the first factor should be .
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 28 December, 2018 at 4:32 pm 
+
+ rudolph01 
+
+ 
+
+ 
+ Ignore my comment. You dropped the abs(t), and the domain is -t.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 28 December, 2018 at 5:13 pm 
+
+ varjakBaby 
+
+ 
+
+ 
+ Such arbitrary bounds. So interesting.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 28 December, 2018 at 7:57 pm 
+
+ Terence Tao 
+
+ 
+
+ 
+ One can trace the provenance for various of these factors. Following Csordas-Smith-Varga, the function is defined as
+
+ 
+
+ which already explains the 1/8 factor in the multiplier and the presence of the quantity . The Riemann xi function is defined as
+
+ 
+
+ which when combined with the Stirling approximation
+
+ 
+
+ explains the rest of the factor. The Gamma factor decays exponentially in the variable, like (this is ultimately because the logarithm in the Stirling approximation has an imaginary part close to . The effect of this decay when applying the heat flow for time is to essentially recenter the zeta function term from to (and is also responsible for the term in the multiplier). If one formally writes
+
+ 
+
+ one can see the term emerge. As it turns out this sum is concentrated around , so we have renormalised by leading to the various appearances of in the approximation. The heat flow applied to each summand also gives the exponential correction and the Gaussian integral . (The term comes from a contribution of the second derivative of the logarithm of the factor, arising from the fact that is not simply an exponentially decaying weight but also has a phase that is roughly of the form ; this phase is also the source of the Riemann-von Mangoldt formula for the distribution of zeroes of the zeta function).
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 28 December, 2018 at 7:19 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ In the multiplier should both x have tilde?
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 28 December, 2018 at 7:44 pm 
+
+ Terence Tao 
+
+ 
+
+ 
+ No; the factor arises before a certain change of variables is made (which effectively shifts to ), while the term emerges after this change of variables.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 28 December, 2018 at 7:47 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ then Ht318 in https://github.com/km-git-acc/dbn_upper_bound/issues/126 has a mistake
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 29 December, 2018 at 3:59 am 
+
+ rudolph01 
+
+ 
+
+ 
+ Bit confused now. On the Wiki-page the change of variables already occurs in 3.4 and is ‘carved out’ later in 3.8 using the .
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 29 December, 2018 at 10:04 am 
+
+ Terence Tao 
+
+ 
+
+ 
+ Oops, you were right; my previous comment was mistaken. I have corrected the post accordingly.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 29 December, 2018 at 7:42 am 
+
+ BR 
+
+ 
+
+ 
+ These recent observations about zeros at negative t are really interesting. How accurately are the locations of zeros being computed in the graphs on page 8 of the slides (i.e. how many decimal places)? It’s hard to make an eyeball judgement, but considering each family of zeros in isolation, is the spacing between zeros (or real parts of zeros) relatively rigid (like a picket fence, up to renormalization)? By contrast for sufficiently large x, if all the real parts of zeros are considered together, do the gaps between real parts start to resemble poisson type spacings (that is would a histogram have exponential distribution)? 
+
+ Letting x_k(t) be these real parts it could be interesting to make some tables of x_{k+1}-x_k, both along some fixed family (say n=1), and also for all zeros together. (And indeed it may be more natural to consider some nice deformation of x_k, depending on which family the zero lies in…)
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 29 December, 2018 at 11:07 am 
+
+ rudolph01 
+
+ 
+
+ 
+ The zeros on page 8 of the slides have been computed at 4 decimals accuracy. The spacings between the zeros indeed seem rather rigid (esp. on or near the outer curves). Here is the data used. Note that I am not claiming that all zeros have been found exhaustively. 
+
+ To obtain more data points, I am currently establishing the complex roots for a wider range of x (up to 5000) for . Will post the results together with the data once ready.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 14 January, 2019 at 4:30 pm 
+
+ BR 
+
+ 
+
+ 
+ Here is a histogram of (unrenormalized) spacings between the real parts of zeros of H_t (up to x = 5000, with t=-90). 
+
+ 
+
+ This was done using mathematica. Unfortunately the pattern is not so discernible. In blue is the exponential prediction. It may be that the data converges to this pattern very slowly, but there does seem to be a rather long tail…
+
+ (The large number of spacings in the very last bin all have size around 18.13; at first I thought this was a mistake, but this is the spacing between zeros on the first n=1 curve, and is as large a gap as one can have. Note that 4*Pi/log(2) is roughly 18.13, so this is in excellent agreement with the Remark 2.1 in the sharkfin ms the polymath prepared.)
+
+ By comparison, here is a histogram of (unrenormalized) spacings between zeros of H_0, and the Montgomery-Odlyzko prediction (I took the same number of zeros which ends up being up to just x = 3500). The convergence is fairly fast.
+
+ 
+
+ It could also be that spacings between real parts of H_t is not quite the ‘right’ object to look at, since zeros won’t follow a straight trajectory down to the real axis. (I am not sure if there is a rough description of the trajectory, up to some oscillating error term?)
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 
+ 29 December, 2018 at 3:18 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ I tried reproducing this picture and I got this . Green pixels show sign changes of the real part of the 3.18 approximation with multiplier. Red shows sign changes of 3.26 without multiplier. The functions are evaluated only once per pixel so it’s possible that some roots are missed. The 3.18 approximation uses 1000 summation terms and does not account for truncation error.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 30 December, 2018 at 10:55 am 
+
+ rudolph01 
+
+ 
+
+ 
+ Nice! It appears you have gotten a stable evaluation of 3.26 and it fits well with the earlier plots where we found a match with the straight lines. The key thing that still seems to be missing is that the zeros of should also ‘catch’ the curves between these lines. We now know this is still the case at eq. 3.18 however somehow this information gets lost in the next few equations.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 31 December, 2018 at 7:38 am 
+
+ rudolph01 
+
+ 
+
+ 
+ Attached are a few slides in PPT and PDF that aim to visualise the behaviour of the complex zeros of at for . 
+
+ The fit with the curves, I’ve now used the ‘effective model’ formula to compute these more accurately, is excellent especially on the outer (lower ) curves.
+
+ What might be a new phenomenon is that the zeros closer to the real line appear to behave in waves whose frequency increases and amplitude decreases compared to zeros on curves with a lower .
+
+ I have also included a rather “suggestive” visual that illustrates a possible correlation between the values of the curves at and the starts of the straight real zero trajectories at .
+
+ Below are the links to the data used (both in t,x,y csv-format). Again, I am not claiming to have found all complex zeros in this domain, some could have been missed.
+
+ Complex zero data 
+
+ Curve data 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 31 December, 2018 at 10:33 am 
+
+ Terence Tao 
+
+ 
+
+ 
+ Interesting oscillations!
+
+ Given that these curves are largely driven by the first few terms of the series , it may be that one can start isolating some of these curves by plotting the zeroes of various partial sums of this sum. For instance, summing two adjacent terms and plotting the zeroes should already give a good approximation to the n^th curve for small values of n. To explain the oscillations, perhaps adding the neighbouring terms as well will suffice, e.g., . 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 1 January, 2019 at 5:16 am 
+
+ rudolph01 
+
+ 
+
+ 
+ Your predictions are spot on. Here is a plot of the first few terms that almost exactly reproduce the curves and the oscillations.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 
+ 31 December, 2018 at 10:27 am 
+
+ KM 
+
+ 
+
+ 
+ While numerically exploring real zeros at moderately negative t some time back, we had thought all real zeros were born out of a collision of complex zeros, and then drifted apart with increase in t. So in this model, even the zeros which seemed to be on a straight line trajectory would ultimately meet as we lowered t.
+
+But now with data available at much lower t and the possibility that the lines are parallel, non rigorously speaking is there some dynamics phenomenon that doesn’t involve complex zeros?
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 31 December, 2018 at 10:44 am 
+
+ Terence Tao 
+
+ 
+
+ 
+ It was indeed surprising to me that it looks like a sparse set of real zeroes are going to persist forever as despite the fact that the real zeroes are attracted to each other, and once they collide they will escape into the complex plane and never come back (because of the repulsion effect from their complex conjugate). We haven’t yet sorted out the asymptotics in this regime well enough to say for sure what is going on, but it does look like the real zeroes that survive are located where is close to a half-integer. In particular they are quite sparse (only about real zeroes up to height , as opposed to the roughly zeroes one expects overall). It could be that at this range of sparsity, the real zeroes are just too far away from each other to ever collide. (The spacing between each real zero and the next is something like , so the force exerted on each real zero to its neighbour is proportional to – and when cancelled against the attraction to the neighbour on the opposite side, I think the total net velocity contribution of this pair of neighbours drops to about , which is lower order than the total velocity which is close to . This is far too slow for the surviving real zeroes to ever collide with each other. So the dynamical explanation seems to simply be that zeroes stop colliding when they become so sparse that they can’t catch up with their neighbours. Probably the influence of the complex zeroes is a more dominant effect at this point.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 31 December, 2018 at 12:44 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ From the above asymptotic estimate of the number of real zeros of (for large negative ), it follows that the first positive zero should be about (for large negative ) so that (which appears in the above estimate under the square root) should be nonnegative.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 1 January, 2019 at 5:26 am 
+
+ Anonymous 
+
+ 
+
+ 
+ Since the real zeros of are moving away from the imaginary axis with “average speed” of , the zero-free real interval containing the origin for should be about
+
+ for large negative .
+
+So even the remaining sparse set of real zeros should disappear from any finite fixed interval for sufficiently large negative .
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 
+ 31 December, 2018 at 12:48 pm 
+
+ K 
+
+ 
+
+ 
+ I am extremly excited to follow all of your research posts for polymath projects (thats an unique opportunity, for which I am very thankful). I do not want to disturb your research, as I am a non-mathematician. However, I cannot resist to ask — after now so many discussions on properties of zeros at negative time and some apparently surprising properties: Are there concrete connections to the Riemann hypothesis? I mean, is it known or easy to see that – given some hypothetical behaviour of zeros at negative times – one could develope a new tool to tackle the RH? If not, what are other motivations of analysing the negative time solutions in more details? It seems I dont understand the motivation of this (obviously exciting) endevour. Thank you!
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 31 December, 2018 at 4:28 pm 
+
+ Terence Tao 
+
+ 
+
+ 
+ I think any unexpected numerical phenomenon is worth investigating . My feeling is that there is a 99% chance that we will eventually find an explanation of the remaining numerically discovered phenomena using existing facts about the Riemann xi function and its heat flow deformations . But there is always that 1% chance that some of these phenomena are manifestations of some hitherto unrealised property of these functions. In principle it is possible that there is some useful property of waiting to be unearthed that can then lead back to something new to say about (i.e., about the Riemann zeta function). Thus far, though, the causality has always flowed in the opposite direction: we use facts about to deduce information about for non-zero , rather than vice versa. So the overwhelming likelihood is that we do not directly make progress on RH via this project, but we would at least understand a lot better, which may help give some understanding as to how “special” the Riemann zeta function is amongst the class of all zeta-like functions that have a meromorphic continuation and a functional equation. (For instance, the Newman conjecture can be thought of as a statement that RH is at best only “barely” true, because even small perturbations of the zeta function can destroy the property of the zeroes all lying on the critical line.) 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 31 December, 2018 at 3:37 pm 
+
+ sylvainjulien 
+
+ 
+
+ 
+ Is there any physical meaning to Lambda being positive or not ? For example, if we consider a toy model of the universe in general relativity with cosmological constant incidentally also denoted by Lambda equal to the de Bruijn-Newman constant, what would be the observational consequences ?
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 1 January, 2019 at 3:28 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ Your question on a possible connection between RH and some physical constant, reminds Atiyah’s proposed proof of RH using ideas from his proposed evaluation of the fine structure constant.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 4 January, 2019 at 1:30 pm 
+
+ Terence Tao 
+
+ 
+
+ 
+ Just a small update on the explorations into the patterns of the real zeroes of for large negative . We’ve discovered some intriguing patterns while working in the coordinate system
+
+ ;
+
+ see for instance this graphic . We’re getting hints that these asymmetric oscillations around every integer and half-integer value of N have something to do with the Airy function, but we don’t yet have a full explanation. But we’re making progress with a combination of theory and numerics; you can see the ongoing discussion on this at https://github.com/km-git-acc/dbn_upper_bound/issues/126 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 4 January, 2019 at 2:33 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ Is it possible to use “higher order refinments” of the coordinates to get a clearer picture of the patterns (or its governing “main term”)?
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 12 January, 2019 at 9:51 am 
+
+ Terence Tao 
+
+ 
+
+ 
+ After quite a lot of experimental mathematics (documented at the above linked thread), we now have a satisfactory description and heuristic justification of the behaviour of the real zeroes of for large negative t, as measured in (N,u) coordinates. Actually it is convenient to work in coordinates where . Firstly, in the region one should have a zero near every half-integer value of (thus the locus of the equation is close ). For smaller values of , there is a periodic “sharkfin” pattern in the region
+
+ 
+
+ where the zero locus is approximately the solutions to the equation
+
+ 
+
+ See for instance this graphic , with the zeroes of in (N,v) coordinates displayed as the green curves, the region (1) displayed in lavender, and the solutions to (2) displayed as the red lines. (Here N is close to 1000.)
+
+ The reason for this is rather unusual pattern is because in this region the function can be asymptotically approximated by an expression involving the Airy function; see http://michaelnielsen.org/polymath1/index.php?title=Second_attempt_at_computing_H_t(x)_for_negative_t 
+
+ These phenomena only capture a very sparse subset of the zeroes; it seems that most of the zeroes of exit the real line long before this “sharkfin” picture begins to take form.
+
+ At some point we may try to write up these observations and heuristic justifications into a second paper; it seems to be a good example of how experimental mathematics and heuristic arguments work together (in particular, the numerical data was instrumental in detecting several occasions in which the heuristics began to be inaccurate).
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 13 January, 2019 at 9:38 am 
+
+ Terence Tao 
+
+ 
+
+ 
+ I’ve transcribed the wiki heuristic computations to a TeX file on the writeup: https://github.com/km-git-acc/dbn_upper_bound/blob/master/Writeup/Sharkfin/sharkfin.pdf 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 14 January, 2019 at 4:38 pm 
+
+ BR 
+
+ 
+
+ 
+ Is it expected from the heuristic involved with Remark 2.1 that for any negative t, O(x) of the zeros of H_t will be within O(1) of the real axis? (Obviously proving this is a different matter.)
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 15 January, 2019 at 7:55 am 
+
+ Terence Tao 
+
+ 
+
+ 
+ Hmm, a good question! If one naively adds up the predicted number of zeroes that should peel off on the curves for , together with their complex conjugates, one does seem to exhaust the bulk of the or so total zeroes, so it is plausible that the number of zeroes remaining near the real axis should be of lower order, and your conjecture of sounds reasonable. (Maybe a histogram of imaginary parts of the zeroes will clarify this?)
+
+ The question amounts to understanding the winding number of for fixed choices of in some dyadic range . This amounts to understanding the winding number of an exponential sum that is roughly of the form times some well understood factors (there is a factor that is effectively localising to the region ). Comparing this against the sum that would come out of the Riemann-Siegel formula, one could indeed imagine that the winding number of the latter is only times that of the former, which would be consistent with your prediction, but this is _extremely_ non-rigorous :) It’s possible that one could use the theory of random Dirichlet series as a model to predict what should happen though. 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 16 January, 2019 at 12:24 am 
+
+ BR 
+
+ 
+
+ 
+ A histogram of the imaginary parts does indeed end up being interesting. Using rudolph01’s data set for zeros with x=20 to 5000, for t = -90, the result is
+
+ 
+
+ This takes all the imaginary parts and puts them into bins of width 3. If x is only taken up to 1000 or 2000 rather than 5000 the same basic pattern emerges. There is some fluctuation in the later part, and surely this is due to the n=1 curve (roughly) y = |t|log(Sqrt[X/4*Pi]/Sqrt[2]), and the n=2 curve etc. 
+
+ A bit more surprising in this histogram: lower imaginary parts seem a little less likely, with the rest of the range (roughly) from 0 to |t|*log(Sqrt[X/4*Pi]) reasonably equidistributed apart from the already mentioned fluctuations.
+
+ If we define N_t(X,Y) to be the number of zeros of H_t(z) with real part in [0,X] and imaginary part in [-Y,Y], this also becomes pretty revealing to plot, using the same data set.
+
+ Plotting 1/2* N_t(X,Y) / (X/4Pi) for various Y cutoffs (and X equal to 5x) gives the following plots:
+
+ Y=20
+
+ 
+
+ Y=150
+
+ 
+
+ Y=200
+
+ 
+
+ No Y cutoff (just the Riemann-von Mangoldt formula for negative t)
+
+ 
+
+ Considering counts in aggregate rather than in small bins should have the effect of smoothing over the the fluctuations in the first histogram above. To make a somewhat wild guess (and ignore all second order terms), it may be that for fixed negative t,
+
+ N_t(X,Y) << (X/4Pi)*Min(log X, (2/|t|)*Y)
+
+ for Y in any fixed range [epsilon,Infinity), and to make a second guess this is an asymptotic formula as long as Y is growing. If Y is some fixed constant (not zero), this may still be true as an asymptotic formula, but at least judging by the histogram there could be some sort of term that changes the asymptotic a little. If one wanted to use numerics to test this quantitatively rather than qualitatively, it would probably be necessary to consider second order terms (e.g. log X should be replaced by log(X/4Pi), but there are certainly other missing terms like this too and I don't have a conjecture).
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 24 January, 2019 at 3:50 pm 
+
+ rudolph01 
+
+ 
+
+ 
+ Below are a few more datasets of complex zeros of in the range for different :
+
+ t=-1 
+
+ t=-5 
+
+ t=-10 
+
+ t=-30 
+
+ We now understand what happens to the real zeros when , and also what happens to the complex zeros when (all gone when ). However we haven’t yet fully explored what happens to these curves of complex zeros when . 
+
+ Maybe this is trivial, but when I compute the complex solutions for , it seems at first that the curves just drift further away from the real line and then ‘straighten out’ into horizontal lines at increasingly negative . However at a certain point new complex zeros start to emerge close to the origin as can be seen in this plot ( with is the most inner curve):
+
+ https://ibb.co/g6t600t 
+
+ [It appears that if the link ends in something like .jpg then it is automatically rendered, but if it is not a recognised image extension then it is not. -T] 
+
+ The complex zeros appear to originate from a certain and then travel into the domain when decreases further (note that the zeros of are not conjugated pairs, e.g. at the curves would become straight lines at . I guess a slightly different version for Z() exists that produces the conjugated version of the curves).
+
+ Note that the outer right sides of the n-curves in the plot are all relatively close to the vertical lines of real zeros (the zeros always stay on the left side of these vertical lines). Where could these new complex zeros come from and how could they travel through the real line without a collision with their conjugate and thereby inducing a new pair of real zeros? 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 24 January, 2019 at 8:12 pm 
+
+ Terence Tao 
+
+ 
+
+ 
+ These phenomena may be artefacts of continuing the approximation for these curves well beyond their range of applicability. For instance I would imagine that these curves diverge significantly from the simpler approximation , as well as from the actual zeroes of .
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 14 January, 2019 at 3:04 pm 
+
+ rudolph01 
+
+ 
+
+ 
+ Here is one more question, can’t let it go yet :)
+
+ We now know that for increasingly negative , all complex zeros are ‘peeled off’ from the real line and eventually organise themselves on curves that can be explained by the dominance of two adjacent terms from an asymptotic (Dirichlet-type) series for . The most outer curve only requires the first two terms from this series and including more terms yields more curved patterns that are increasingly closer to the real line, however contain less complex zeros and oscillate more. These oscillations fade out when going further back in time as the curves move away from the real line.
+
+ All complex zeros originate from collisions of a pair of real zeros at a certain , So, the wave forms of the complex zeros near the real line should also ‘cast a shadow’ on the collision patterns of the real zeros at . As gets closer to , this ‘peeling off process’ clearly becomes increasingly more complex, however moving further away from things seem to become ‘quieter’. This culminated in the recent discovery that the final ‘peeling off-wave’ can be fully explained by the collisions of the real zeros of an Airy function (with the collisions occurring on the left edges of ‘sharkfin’ shaped structures). To explain this ‘most outer’ pattern at , we again only require the first two dominant terms of an asymptotic series (eq. 1.41 + 1.55), i.e. for the half integer lines and inducing the required oscillations in the sharkfin-shapes.
+
+ This is a long shot, but similar to the mechanisms that explained the oscillations in the complex zeros, could it be that subsequently adding Airy terms e.g. will fit a few of the noisier collisions patterns of real zeros at less negative ?
+
+ P.S.:
+
+Surprisingly there even exists an Airy-Zeta function  that seems to share a few high level properties with the Riemann Zeta-function.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 12 January, 2019 at 4:03 pm 
+
+ rudolph01 
+
+ 
+
+ 
+ Just a final thought about the real zeros in the negative domain.
+
+ All the equations derived so far strongly indicate that information about always originates from and there is no information flowing vice versa. The case, i.e. the Riemann -function, seems therefore special. On the other hand, this is the original function that we chose to perturb in the and directions. 
+
+ The recent insights from exploring the domain have changed my initial mental model in which real and complex zeros were flowing from a gaseous towards a solid state over time. It now more feels like represents a sort of thermodynamical equilibrium state (with the highest possible entropy) that is being disturbed by injecting an increasingly positive or negative and eventually converges the zero trajectories towards the regular (lower entropy) patterns that we can now all fully explain. 
+
+ From the perspective of a model with at the centre, I find it still surprising that there isn’t at least some symmetry found between and . An obvious reason for the asymmetry probably is the dominant presence of complex zeros in the domain, however I could think of these two high level symmetries/similarities:
+
+ +t = real zeros always repel each other, complex zeros always attract each other.
+
+0 = ‘peaceful’ coexistence between all zeros.
+
+-t = real zeros always attract each other, complex zeros always repel each other. 
+
+ +t = there is a minimum speed by which complex zeros fall towards their conjugates and collide.
+
+0 = all zeros in a standstill.
+
+-t = there is a minimum speed by which real zeros fall towards a partner and collide.
+
+ For the latter similarity we know that this minimal speed is determined by a solution to an ODE, respectively the DBN upper bound for complex zeros at (using the known supremum ) and the Airy-function for some ‘latest collision’ real zeros at larger . 
+
+ So, we now know how far imaginary zeros can penetrate the domain (the DBN bound, or hey, hey: $\Lambda \le 0.22$ !) and we also know how far real zeros can penetrate the domain (the curve drawn through the tips of the sharkfins, thereby ignoring the zeros on the straight lines at half integers). 
+
+ The bound for the complex zeros was derived from their dynamics, so from a symmetry perspective, could a bound for the real zeros at also be derived from their dynamics? I.e. when one starts from a set of non-trivial zeros up to at , is it possible to derive from their (assuming only attractive) dynamics the (x, -t) upper bound before which all these zeros must have collided?
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 13 January, 2019 at 9:47 am 
+
+ Terence Tao 
+
+ 
+
+ 
+ I agree with you that is the most complicated function (particularly on the critical line ) and all the other quantities for positive or negative are simpler. There still seems to be some asymmetry between positive and negative though.
+
+ From the toy approximation (relying entirely on the “B” series) we heuristically have an approximation
+
+ 
+
+ of as a weighted exponential sum times some simple additional terms, where and (the wiki says but I think the latter is actually a slightly better approximation). When , the weights simplifies to which makes all of the phases coming from a single dyadic range of have equal “strength” as far as square root cancellation heuristics are concerned. But as one varies and , the weight changes shape and effectively localises the sum to much smaller ranges of (e.g., near 1, or near ), at which point the behaviour of the sum can be simplified to the point where one can understand the zeroes asymptotically.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 
+ 4 January, 2019 at 4:06 pm 
+
+ Marshall Flax 
+
+ 
+
+ 
+ As far as Airy functions, the US government is shut down, but the Internet Archive has a copy of the website — https://web.archive.org/web/20181106010212/https://dlmf.nist.gov/9 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 8 January, 2019 at 2:12 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ In page 13 of the writeup, in the line below (32), it seems that “vanishes” should be “ “. 
+
+ [Thanks, this will be corrected in the next build of the writeup PDF. -T] 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 10 January, 2019 at 11:58 am 
+
+ Anonymous 
+
+ 
+
+ 
+ This typo is obvious (since the derivative at a simple zero must be nonzero – the opposite of “vanishes”.)
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 13 January, 2019 at 2:02 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ Also in page 13 of the writeup, the limit in (33) is applied to a function represented (pointwise) by a locally uniformly convergent sum which is therefore continuous – so there is NO NEED to justify (by the dominated convergenge theorem) the interchange of summation and limit (which is equivalent to the continuity of this pointwise sum at ) as remarked at the end of page 13. 
+
+ [This will be reworded in the next build of the pdf. -T] 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 11 January, 2019 at 11:26 am 
+
+ Anonymous 
+
+ 
+
+ 
+ Atiyah passed away :\
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 11 January, 2019 at 11:44 am 
+
+ Anonymous 
+
+ 
+
+ 
+ https://royalsociety.org/news/2019/01/tribute-to-former-president-of-the-royal-society-sir-michael-atiyah/ 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 11 January, 2019 at 12:54 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ Sad news.
+
+So many great mathematicians passed away in less than one month.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 16 January, 2019 at 1:56 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ If you suppose that $\Lambda=0$, there are some good consequences about $H_t$ (beyond Riemann hypothesis)?
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 28 February, 2019 at 5:30 am 
+
+ Dan Romik Studies the Riemann’s Zeta Function, and Other Zeta News. | Combinatorics and more 
+
+ 
+
+ 
+ […] task of polymath15 (proposed here, launched here, last (11th) post here) was to use current analytic number theory technology that already has yielded information on the […]
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 11 April, 2019 at 7:37 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ Any updates? I’m just curious.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 12 April, 2019 at 7:32 am 
+
+ Terence Tao 
+
+ 
+
+ 
+ Actually I’ve been working on the writeup this week (see the discussion on github at https://github.com/km-git-acc/dbn_upper_bound/issues/131 ). There was a slight issue with the theoretical justification of the method used to lower bound a certain Dirichlet-type series (in a long rectangular region to the right of the barrier) and I am currently in the process of repairing it. I will then also try to replicate some of the numerics and rewrite some of the rough descriptions of those numerics in the relevant portion of the paper. Then the paper should be largely completed except perhaps for the final section on conditional results. I had been distracted in the last few months with a number of other urgent issues but am now focusing on getting this project wrapped up.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 14 April, 2019 at 4:29 pm 
+
+ Terence Tao 
+
+ 
+
+ 
+ The writeup is now nearing a final form: https://github.com/km-git-acc/dbn_upper_bound/blob/master/Writeup/debruijn.pdf ; the holdup had been an accurate description of the numerical part of the project but I think now that this part of the paper has reached a satisfactory state. 
+
+ Regarding what to do with the paper, one possibility is to submit to Research in the Mathematical Sciences, which previously published the Polymath8b paper, and which is willing to accept longer papers such as this one (currently at 68 pages).
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 19 April, 2019 at 1:50 pm 
+
+ Terence Tao 
+
+ 
+
+ 
+ I guess participation in this project has wound down quite a bit, but I will wait for another week to see if there are any further comments or objections to the writeup and to the proposal to submit to RMS (and the arXiv, of course). I think it is perhaps a good time to “declare victory” on this project and wrap it up, now that the pace of activity has slowed to basically zero.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 19 April, 2019 at 2:08 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ In the caption of figure 1 are the descriptions of ii and iii switched? In the figure iii is more barrier-related but in the caption ii is more barrier-related. I don’t know if the rest of the paper is correct or not, I just skimmed to the first figure and read its caption.
+
+ [Corrected, thanks – T.] 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 19 April, 2019 at 2:42 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ Is Remark 1.6 still current given the comment by Rudolph above in this thread “The recent insights from exploring the -t domain have changed my initial mental model in which real and complex zeros were flowing from a gaseous towards a solid state over time”?
+
+ [Reworded – T.] 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 20 April, 2019 at 9:35 am 
+
+ rudolph01 
+
+ 
+
+ 
+ Elaborating a bit on my comment:
+
+ The analogy that ‘cools’ down from a liquid state (with highly unequal spacings between the real zeroes) into a solidified equilibrium (with zeros arranged in an arithmetic progression) for increasingly positive , still looks sound to me.
+
+ However, with the heuristic insights from the negative domain, the sentence in Remark 1.6: “A “gaseous” state corresponds to the situation in which the zeroes of are strictly complex.” might be phrased a bit too strongly for two reasons:
+
+1) There actually doesn’t appear to exist a time where all zeros are ‘strictly’ complex, since we know there always is a very small subset of zeros that have been real ‘throughout their entire life’.
+
+2) It seems that for increasing , the last complex zeros will be ‘peeled’ off the real line at increasingly negative . Hence for larger , one has to go further and further back in time to make all zeros ‘strictly’ complex.
+
+ As has been mentioned before, all information and insights we have gained about (so far), always originated from . Also, the function seems to reach its highest complexity at . This could be another indication that instead of ‘heating up into gas’ at more negative , there also is a form of solidification happening to (ref. the ‘Sharkfin’ Airy functions for real zeros and complex zeros organising themselves on curves). Of course this is currently all based on visual observations and heuristic math, but wonder whether there could exist a way to formalise the complexity of ? This wouldn’t help prove the RH, but I still do expect it to reach its highest point somewhere in the range :)
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 19 April, 2019 at 3:14 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ The truncation of B(b) at E=50 on page 36 in the multieval section is justified by visually inspecting figure 13, and this is obvious enough to not be worth writing down an estimate of the truncation error?
+
+ [More explanation given. The actual bounding is rather tedious but the procedure is straightforward. -T.] 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 19 April, 2019 at 3:57 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ The manuscript mentions massive computations performed using a boinc based grid, but doesn’t cite boinc in the references. Maybe that’s OK like not citing texas instruments if you use a TI-81 to add numbers together, but if not heres a citation link https://dl.acm.org/citation.cfm?id=1033223 
+
+ [Citation added – T.] 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 28 April, 2019 at 8:07 pm 
+
+ Terence Tao 
+
+ 
+
+ 
+ I have just submitted the Polymath15 paper to the arXiv and to Research in the Mathematical Sciences.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 
+ 15 April, 2019 at 6:11 am 
+
+ Anonymous 
+
+ 
+
+ 
+ In page 44 of the writeup, in the first line it is claimed (without sufficient clarification) that “can also be seen to be decreasing in the range “. And in the third line, it is not clear which claim follows.
+
+ [More explanation added, thanks – T.] 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 21 April, 2019 at 6:40 am 
+
+ Anonymous 
+
+ 
+
+ 
+ Dear Terry,
+
+May I have a question?
+
+Do you think what is more impressive between polymath8 and polymath15?
+
+Thanks
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 21 April, 2019 at 10:20 am 
+
+ Anonymous 
+
+ 
+
+ 
+ polymath8 was more impressive because it attracted more famous participants and it was based on yitang zhang’s breakthrough which got high ratings. polymath15 was also more impressive because it reached 56% of the way to proving the riemann hypothesis whose ratings are also high
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 21 April, 2019 at 5:47 pm 
+
+ M Ruxton 
+
+ 
+
+ 
+ I think this impressiveness question is irrelevant. 
+
+ This is like asking which of your niece and nephew is your favourite.
+
+ Zhang’s work was a breakthrough; everyone was impressed, but we knew many people would build on Zhang’s work.
+
+ Rodgers and Tao’s work was a breakthrough. Unless we are willing to proceed under the belief that the RH is false, the work left to do is to lower the upper bound.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 21 April, 2019 at 7:07 pm 
+
+ goingtoinfinity 
+
+ 
+
+ 
+ Is there an technical reason why it is difficult to get below 0,22 as the current lower bound (except of computations getting more expensive)?
+
+ In an explanation for polymath8, the parity-problem was named as a reason for hindering further progress with current technology, even with assumption of strong conjectures. Is there a similar technical obstruction that would hinder progress beyond a certain value for the de Bruijn-Newman constant ?
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 21 April, 2019 at 7:33 pm 
+
+ Terence Tao 
+
+ 
+
+ 
+ The main bottleneck is the parameter , which basically is the height to which we can numerically verify the Riemann hypothesis, and which we have taken to be basically . Once is given, we can pretty much optimise all the other parameters in our method (in particular ) in a numerically feasible time (at least until reaches or so). The final bound on is proportional to (and we heuristically believe that we cannot do much better than this with current technology, save perhaps to improve the proportionality constant a little). So, judging by Table 1 of the paper, it might be possible to lower the bound to say with significant computational effort on numerical verification of RH, but to get to for instance looks well beyond current computational capability.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 22 April, 2019 at 4:36 am 
+
+ Anonymous 
+
+ 
+
+ 
+ It seems that it is not posssible for each given to establish an explicit lower bound ( , say) for the minimal computational complexity needed to verify that the given is indeed an upper bound for , because such complexity lower bound should imply a lower bound on the complexity of any proof for the RH.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 22 April, 2019 at 8:29 am 
+
+ Anonymous 
+
+ 
+
+ 
+ I think when he says “final bound on lambda” it’s with respect to the “current technology”, so not the final final bound on lambda that you could get with a hypothetical different technology such as would be needed to prove RH.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 22 April, 2019 at 3:07 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ This project is a good example where a bound can be pushed by increasing the height of RH numerical verification. I wonder if there’s a compilation of such bounds or other constants in the literature that would similarly benefit from greater RH numerical verification height?
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 
+ 23 April, 2019 at 3:32 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ In the line below (33) of the writeup, the statement that is non-zero at the origin can be made clearer by adding that it follows from the positivity of .
+
+Note however that this discussion partially reappear(!) (with more details) in the proof of theorem 1.5(iv) (page 61).
+
+ [Explanation added, thanks – T.] 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 25 April, 2019 at 9:15 am 
+
+ Anonymous 
+
+ 
+
+ 
+ In the writeup, first line of page 9, it is claimed that in the asymptotic limit “one easily sees” three asymptotic estimates – which are (at least for me) not obvious at all.
+
+Note also that the coefficients (defined in (15)) grow faster than any power of . Does it means that the summands in the first sum of (14) are growing in absolute value?
+
+ [Asymptotics corrected. is indeed increasing, but the expression in practice will be decreasing up to , though it will eventually diverge if we instead took . -T] 
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 26 April, 2019 at 10:04 am 
+
+ EP 
+
+ 
+
+ 
+ It seems that it is possible to improve slightly the current value of by improving de Bruijn classical bound (theorem 3.2) by using improved differential inequality of the form 
+
+ 
+
+ where is a simple non-real zero of such that for all zeros of . 
+
+ It follows that is a growing positive function of (which grows like ) and is lower bounded by a positive absolute constant. The improved differential inequality implies the new bound 
+
+ 
+
+ Which is slightly better than de Bruijn bound. (the best constant is dependent on as well on any given lower bound on but, as remarked, it is still lower bounded by an absolute positive constant) 
+
+ I hope to give the details of this (simple) derivation in a day or two.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 28 April, 2019 at 7:36 pm 
+
+ EP 
+
+ 
+
+ 
+ Let be a simple zero of .
+
+If , it is known that 
+
+ 
+
+ Where denotes the set of indices for which 
+
+ If for all , , then 
+
+ Hence 
+
+ 
+
+ where , and 
+
+ 
+
+ Now observe that because the contribution of each with real to this sum is zero (since ), while the contribution of any with non-real is canceled(!) by the contribution of its conjugate.) This gives the basic inequality 
+
+ 
+
+ In order to lower bound , define for all 
+
+ 
+
+ where denotes the set of indices in for which . Hence for all 
+
+ 
+
+ where 
+
+ Hence 
+
+ Now we extend the definition of to be an odd function for all real x by . It easy to verify that the number of indices in satisfies
+
+ 
+
+ with equality if are not for some . This gives the more explicit bound 
+
+ 
+
+ For simplicity, we lower bound by 
+
+ 
+
+ 
+
+ where 
+
+ and 
+
+ Since . Therefore 
+
+ 
+
+ For sufficiently large , we may approximate this maximization problem by maximizing the function 
+
+ 
+
+ The maximum is attained (approximately) for , giving the approximate lower bound 
+
+ . 
+
+ Remark: This elementary bounding method is crude, improving very slightly de Bruijn bound. Fortunately, there is a much better (nearly optimal) analytical bounding method, giving a much better differential inequality of the form 
+
+ 
+
+ where the "main term" of the expression for can be calculated precisely and is very close to . I'll give the improved analytical bounding method and its improved de Bruijn bound for in my next comment.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 28 April, 2019 at 8:06 pm 
+
+ Terence Tao 
+
+ 
+
+ 
+ For complicated calculations it may be better to use another web site, such as the polymath wiki, and then add a link here.
+
+ One issue though is that it appears that you are trying to use the Riemann-von Mangoldt formula. Currently this is only established (with effective constants) at t=0, however we will need also some effective version of this formula for positive t, and this has not yet been done.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 16 July, 2019 at 10:27 pm 
+
+ Dan Romik on the Riemann zeta function | Combinatorics and more 
+
+ 
+
+ 
+ […] paper by Rodgers and Tao [4] proving a major conjecture of Newman, and the recent paper [9] by the Polymath15 project (mentioned by Gil in his earlier post), for the latest on this […]
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 20 July, 2019 at 1:02 am 
+
+ Anonymous 
+
+ 
+
+ 
+ In order to prove RH, it is sufficient (by Hurwitz theorem) to find a sequence of non-vanishing analytic functions in the critical strip which converge locally uniformly to the xi function in the critical strip.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 15 October, 2019 at 1:01 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ Is this polymath over?
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 15 October, 2019 at 4:36 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ Yes.
+
+ 
+ 
+ Reply 
+ 
+ 
+ 
+ 
+ 
+ 29 January, 2024 at 7:49 pm 
+
+ Anonymous 
+
+ 
+
+ 
+ This result had a new progress:
+
+ Click to access 2004.09765.pdf 
+
+ We know now that $$\Lambda \leq 0.2$$.
+
+ 
+ 
+ Reply 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+ Leave a comment Cancel reply 
+
+ 
+ 
+
+ 
+ 
+
+ Δ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ For commenters To enter in LaTeX in comments, use $latex <Your LaTeX code> $ (without the < and > signs, of course; in fact, these signs should be avoided as they can cause formatting errors). Also, backslashes \ need to be doubled as \\.  See the about page for details and for other commenting policy.
+
+ 
+ 
+ 
+
+ 
+
+ 
+ 
+ « Elias Stein 
+ Jean Bourgain » 
+ 
+ 
+
+ 
+ 
+ Blog at WordPress.com. Ben Eastaugh and Chris Sternal-Johnson. 
+
+ 
+ 
+ Subscribe to feed. 
+
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Comment 
+ 
+ 
+ 
+ 
+ Reblog 
+ 
+ 
+ 
+ 
+ 
+ Subscribe 
+ 
+ 
+ 
+ Subscribed 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ What's new 
+ 
+ 
+ 
+ Join 12,320 other subscribers 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sign me up 
+ 
+ 
+ 
+ 
+ Already have a WordPress.com account? Log in now. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Privacy 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ What's new 
+ 
+ 
+ 
+ 
+ Subscribe 
+ 
+ 
+ 
+ Subscribed 
+ 
+ 
+ Sign up 
+ Log in 
+ 
+ 
+ Copy shortlink 
+ 
+ 
+ 
+ 
+ 
+ Report this content 
+ 
+ 
+ 
+ View post in Reader 
+ 
+ 
+ Manage subscriptions 
+ 
+ Collapse this bar 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ %d

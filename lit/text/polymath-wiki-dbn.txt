@@ -1,0 +1,139 @@
+For each real number [math]\displaystyle{ t }[/math] , define the entire function [math]\displaystyle{ H_t: {\mathbf C} \to {\mathbf C} }[/math] by the formula
+
+ [math]\displaystyle{ \displaystyle H_t(z) := \int_0^\infty e^{tu^2} \Phi(u) \cos(zu)\ du }[/math] 
+ where [math]\displaystyle{ \Phi }[/math] is the super-exponentially decaying function
+
+ [math]\displaystyle{ \displaystyle \Phi(u) := \sum_{n=1}^\infty (2\pi^2 n^4 e^{9u} - 3 \pi n^2 e^{5u}) \exp(-\pi n^2 e^{4u}). }[/math] 
+ It is known that [math]\displaystyle{ \Phi }[/math] is even, and that [math]\displaystyle{ H_t }[/math] is even, real on the real axis, and obeys the functional equation [math]\displaystyle{ H_t(\overline{z}) = \overline{H_t(z)} }[/math] . In particular, the zeroes of [math]\displaystyle{ H_t }[/math] are symmetric about both the real and imaginary axes. One can also express [math]\displaystyle{ H_t }[/math] in a number of different forms, such as
+
+ [math]\displaystyle{ \displaystyle H_t(z) = \frac{1}{2} \int_{\bf R} e^{tu^2} \Phi(u) e^{izu}\ du }[/math] 
+ or
+
+ [math]\displaystyle{ \displaystyle H_t(z) = \frac{1}{2} \int_0^\infty e^{t\log^2 x} \Phi(\log x) e^{iz \log x}\ \frac{dx}{x}. }[/math] 
+ In the notation of [KKL2009], one has
+
+ [math]\displaystyle{ \displaystyle H_t(z) = \frac{1}{8} \Xi_{t/4}(z/2). }[/math] 
+ De Bruijn [B1950] and Newman [N1976] showed that there existed a constant, the de Bruijn-Newman constant [math]\displaystyle{ \Lambda }[/math] , such that [math]\displaystyle{ H_t }[/math] has all zeroes real precisely when [math]\displaystyle{ t \geq \Lambda }[/math] . The Riemann hypothesis is equivalent to the claim that [math]\displaystyle{ \Lambda \leq 0 }[/math] . Currently it is known that [math]\displaystyle{ 0 \leq \Lambda \lt 1/2 }[/math] (lower bound in [RT2018], upper bound in [KKL2009]).
+
+ The Polymath15 project seeks to improve the upper bound on [math]\displaystyle{ \Lambda }[/math] . The current strategy is to combine the following three ingredients:
+
+ Numerical zero-free regions for [math]\displaystyle{ H_t(x+iy) }[/math] of the form [math]\displaystyle{ \{ x+iy: 0 \leq x \leq T; y \geq \varepsilon \} }[/math] for explicit [math]\displaystyle{ T, \varepsilon, t \gt 0 }[/math] . 
+ Rigorous asymptotics that show that [math]\displaystyle{ H_t(x+iy) }[/math] whenever [math]\displaystyle{ y \geq \varepsilon }[/math] and [math]\displaystyle{ x \geq T }[/math] for a sufficiently large [math]\displaystyle{ T }[/math] . 
+ Dynamics of zeroes results that control [math]\displaystyle{ \Lambda }[/math] in terms of the maximum imaginary part of a zero of [math]\displaystyle{ H_t }[/math] . 
+ Contents 
+ 
+ 1 [math]\displaystyle{ t=0 }[/math] 
+ 2 [math]\displaystyle{ t\gt 0 }[/math] 
+ 3 Threads 
+ 4 Other blog posts and online discussion 
+ 5 Code and data 
+ 6 Writeup 
+ 7 Test problem 
+ 8 Zero-free regions 
+ 9 Wikipedia and other references 
+ 10 Bibliography 
+ 
+ 
+
+ [math]\displaystyle{ t=0 }[/math] 
+ When [math]\displaystyle{ t=0 }[/math] , one has
+
+ [math]\displaystyle{ \displaystyle H_0(z) = \frac{1}{8} \xi( \frac{1}{2} + \frac{iz}{2} ) }[/math] 
+ where
+
+ [math]\displaystyle{ \displaystyle \xi(s) := \frac{s(s-1)}{2} \pi^{-s/2} \Gamma(s/2) \zeta(s) }[/math] 
+ is the Riemann xi function. In particular, [math]\displaystyle{ z }[/math] is a zero of [math]\displaystyle{ H_0 }[/math] if and only if [math]\displaystyle{ \frac{1}{2} + \frac{iz}{2} }[/math] is a non-trivial zero of the Riemann zeta function. Thus, for instance, the Riemann hypothesis is equivalent to all the zeroes of [math]\displaystyle{ H_0 }[/math] being real, and Riemann-von Mangoldt formula (in the explicit form given by Backlund) gives
+
+ [math]\displaystyle{ \displaystyle \left|N_0(T) - (\frac{T}{4\pi} \log \frac{T}{4\pi} - \frac{T}{4\pi} - \frac{7}{8})\right| \lt 0.137 \log (T/2) + 0.443 \log\log(T/2) + 4.350 }[/math] 
+ for any [math]\displaystyle{ T \gt 4 }[/math] , where [math]\displaystyle{ N_0(T) }[/math] denotes the number of zeroes of [math]\displaystyle{ H_0 }[/math] with real part between 0 and T.
+
+ The first [math]\displaystyle{ 10^{13} }[/math] zeroes of [math]\displaystyle{ H_0 }[/math] (to the right of the origin) are real [G2004]. This numerical computation uses the Odlyzko-Schonhage algorithm. In [P2017] it was independently verified that all zeroes of [math]\displaystyle{ H_0 }[/math] between 0 and 61,220,092,000 were real.
+
+ [math]\displaystyle{ t\gt 0 }[/math] 
+ For any [math]\displaystyle{ t\gt 0 }[/math] , it is known that all but finitely many of the zeroes of [math]\displaystyle{ H_t }[/math] are real and simple [KKL2009, Theorem 1.3]. In fact, assuming the Riemann hypothesis, all of the zeroes of [math]\displaystyle{ H_t }[/math] are real and simple [CSV1994, Corollary 2].
+
+ It is known that [math]\displaystyle{ \xi }[/math] is an entire function of order one ([T1986, Theorem 2.12]). Hence by the fundamental solution for the heat equation, the [math]\displaystyle{ H_t }[/math] are also entire functions of order one for any [math]\displaystyle{ t }[/math] .
+
+ Because [math]\displaystyle{ \Phi }[/math] is positive, [math]\displaystyle{ H_t(iy) }[/math] is positive for any [math]\displaystyle{ y }[/math] , and hence there are no zeroes on the imaginary axis.
+
+ Let [math]\displaystyle{ \sigma_{max}(t) }[/math] denote the largest imaginary part of a zero of [math]\displaystyle{ H_t }[/math] , thus [math]\displaystyle{ \sigma_{max}(t)=0 }[/math] if and only if [math]\displaystyle{ t \geq \Lambda }[/math] . It is known that the quantity [math]\displaystyle{ \frac{1}{2} \sigma_{max}(t)^2 + t }[/math] is non-increasing in time whenever [math]\displaystyle{ \sigma_{max}(t)\gt 0 }[/math] (see [KKL2009, Proposition A]. In particular we have
+
+ [math]\displaystyle{ \displaystyle \Lambda \leq t + \frac{1}{2} \sigma_{max}(t)^2 }[/math] 
+ for any [math]\displaystyle{ t }[/math] .
+
+ The zeroes [math]\displaystyle{ z_j(t) }[/math] of [math]\displaystyle{ H_t }[/math] obey the system of ODE
+
+ [math]\displaystyle{ \partial_t z_j(t) = - \sum_{k \neq j} \frac{2}{z_k(t) - z_j(t)} }[/math] 
+ where the sum is interpreted in a principal value sense, and excluding those times in which [math]\displaystyle{ z_j(t) }[/math] is a repeated zero. See dynamics of zeros for more details. Writing [math]\displaystyle{ z_j(t) = x_j(t) + i y_j(t) }[/math] , we can write the dynamics as
+
+ [math]\displaystyle{ \partial_t x_j = - \sum_{k \neq j} \frac{2 (x_k - x_j)}{(x_k-x_j)^2 + (y_k-y_j)^2} }[/math] 
+ [math]\displaystyle{ \partial_t y_j = \sum_{k \neq j} \frac{2 (y_k - y_j)}{(x_k-x_j)^2 + (y_k-y_j)^2} }[/math] 
+ where the dependence on [math]\displaystyle{ t }[/math] has been omitted for brevity.
+
+ In [KKL2009, Theorem 1.4], it is shown that for any fixed [math]\displaystyle{ t\gt 0 }[/math] , the number [math]\displaystyle{ N_t(T) }[/math] of zeroes of [math]\displaystyle{ H_t }[/math] with real part between 0 and T obeys the asymptotic
+
+ [math]\displaystyle{ N_t(T) = \frac{T}{4\pi} \log \frac{T}{4\pi} - \frac{T}{4\pi} + \frac{t}{16} \log T + O(1) }[/math] 
+ as [math]\displaystyle{ T \to \infty }[/math] (caution: the error term here is not uniform in t). Also, the zeroes behave like an arithmetic progression in the sense that
+
+ [math]\displaystyle{ z_{k+1}(t) - z_k(t) = (1+o(1)) \frac{4\pi}{\log |z_k|(t)} = (1+o(1)) \frac{4\pi}{\log k} }[/math] 
+ as [math]\displaystyle{ k \to +\infty }[/math] .
+
+ See asymptotics of H_t for asymptotics of the function [math]\displaystyle{ H_t }[/math] , and Effective bounds on H_t and Effective bounds on H_t - second approach for explicit bounds.
+
+ Threads 
+ Polymath proposal: upper bounding the de Bruijn-Newman constant , Terence Tao, Jan 24, 2018. 
+ Polymath15, first thread: computing H_t, asymptotics, and dynamics of zeroes , Terence Tao, Jan 27, 2018. 
+ Polymath15, second thread: generalising the Riemann-Siegel approximate functional equation , Terence Tao and Sujit Nair, Feb 2, 2018. 
+ Polymath15, third thread: computing and approximating H_t , Terence Tao and Sujit Nair, Feb 12, 2018. 
+ Polymath 15, fourth thread: closing in on the test problem , Terence Tao, Feb 24, 2018. 
+ Polymath15, fifth thread: finishing off the test problem? , Terence Tao, Mar 2, 2018. 
+ Polymath15, sixth thread: the test problem and beyond , Terence Tao, Mar 18, 2018. 
+ Polymath15, seventh thread: going below 0.48 , Terence Tao, Mar 28, 2018. 
+ Polymath15, eighth thread: going below 0.28 , Terence Tao, Apr 17, 2018. 
+ Polymath15, ninth thread: going below 0.22? , Terence Tao, May 4, 2018. 
+ Polymath15, tenth thread: numerics update , Rudolph Dwars and Kalpesh Muchhal, Sep 6, 2018. 
+ Polymath15, eleventh thread: Writing up the results, and exploring negative t , Terence Tao, Dec 28, 2018. 
+ Effective approximation of heat flow evolution of the Riemann xi function, and a new upper bound for the de Bruijn-Newman constant , Terence Tao, Apr 30, 2019. 
+ Other blog posts and online discussion 
+ Heat flow and zeroes of polynomials , Terence Tao, Oct 17, 2017. 
+ The de Bruijn-Newman constant is non-negative , Terence Tao, Jan 19, 2018. 
+ Lehmer pairs and GUE , Terence Tao, Jan 20, 2018. 
+ A new polymath proposal (related to the Riemann hypothesis) over Tao's blog , Gil Kalai, Jan 26, 2018. 
+ Code and data 
+ Github repository 
+ Writeup 
+ Writeup subdirectory of Github repository 
+ Here are the Polymath15 grant acknowledgments .
+
+ Polymath15 was able to establish the bound [math]\displaystyle{ \Lambda \leq 0.22 }[/math] , but with the recent numerical verification of RH in https://arxiv.org/abs/2004.09765 this may be improved to [math]\displaystyle{ \Lambda \leq 0.20 }[/math] .
+
+ Test problem 
+ See Polymath15 test problem .
+
+ Zero-free regions 
+ See Zero-free regions .
+
+ Wikipedia and other references 
+ de Bruijn-Newman constant 
+ Odlyzko–Schönhage algorithm 
+ Riemann–Siegel formula 
+ Riemann xi function 
+ Bibliography 
+ [A2011] J. Arias de Reyna, High-precision computation of Riemann's zeta function by the Riemann-Siegel asymptotic formula, I , Mathematics of Computation, Volume 80, Number 274, April 2011, Pages 995–1009. 
+ [B1994] W. G. C. Boyd, Gamma Function Asymptotics by an Extension of the Method of Steepest Descents , Proceedings: Mathematical and Physical Sciences, Vol. 447, No. 1931 (Dec. 8, 1994),pp. 609-630. 
+ [B1950] N. C. de Bruijn, The roots of trigonometric integrals , Duke J. Math. 17 (1950), 197–226. 
+ [CSV1994] G. Csordas, W. Smith, R. S. Varga, Lehmer pairs of zeros, the de Bruijn-Newman constant Λ, and the Riemann hypothesis , Constr. Approx. 10 (1994), no. 1, 107–129. 
+ [G2004] Gourdon, Xavier (2004), The [math]\displaystyle{ 10^{13} }[/math] first zeros of the Riemann Zeta function, and zeros computation at very large height 
+ [KKL2009] H. Ki, Y. O. Kim, and J. Lee, On the de Bruijn-Newman constant, Advances in Mathematics, 22 (2009), 281–306. Citeseer 
+ [N1976] C. M. Newman, Fourier transforms with only real zeroes , Proc. Amer. Math. Soc. 61 (1976), 246–251. 
+ [P2017] D. J. Platt, Isolating some non-trivial zeros of zeta , Math. Comp. 86 (2017), 2449-2467. 
+ [P1992] G. Pugh, The Riemann-Siegel formula and large scale computations of the Riemann zeta function , M.Sc. Thesis, U. British Columbia, 1992. 
+ [RT2018] B. Rodgers, T. Tao, The de Bruijn-Newman constant is non-negative, preprint. arXiv:1801.05914 
+ [T1986] E. C. Titchmarsh, The theory of the Riemann zeta-function. Second edition. Edited and with a preface by D. R. Heath-Brown. The Clarendon Press, Oxford University Press, New York, 1986. pdf 
+ 
+ 
+
+ 
+ 
+ Retrieved from " https://michaelnielsen.org/polymath/index.php?title=De_Bruijn-Newman_constant&oldid=11185 " 
+ Category : Polymath15

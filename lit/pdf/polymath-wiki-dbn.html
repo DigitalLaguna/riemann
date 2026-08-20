@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>De Bruijn-Newman constant - Polymath Wiki</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"aocF_pfVXpTbNG7M_zNSEAAnfmc","wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"De_Bruijn-Newman_constant","wgTitle":"De Bruijn-Newman constant","wgCurRevisionId":11185,"wgRevisionId":11185,"wgArticleId":1723,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Polymath15"],"wgPageViewLanguage":"en","wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"De_Bruijn-Newman_constant","wgRelevantArticleId":1723,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgSmjUseCdn":true,
+"wgSmjUseChem":true,"wgSmjDisplayMath":[],"wgSmjExtraInlineMath":[],"wgSmjScale":1,"wgSmjEnableMenu":true,"wgSmjDisplayAlign":"left"};RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.monobook.styles":"ready"};RLPAGEMODULES=["ext.SimpleMathJax","site","mediawiki.page.ready","mediawiki.toc","skins.monobook.scripts"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.impl(function(){return["user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+}];});});</script>
+<link rel="stylesheet" href="/polymath/load.php?lang=en&amp;modules=skins.monobook.styles&amp;only=styles&amp;skin=monobook">
+<script async="" src="/polymath/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=monobook"></script>
+<meta name="generator" content="MediaWiki 1.42.3">
+<meta name="robots" content="max-image-preview:standard">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0">
+<link rel="icon" href="/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/polymath/opensearch_desc.php" title="Polymath Wiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://michaelnielsen.org/polymath/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="Polymath Wiki Atom feed" href="/polymath/index.php?title=Special:RecentChanges&amp;feed=atom">
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-De_Bruijn-Newman_constant rootpage-De_Bruijn-Newman_constant skin-monobook action-view skin--responsive"><div id="globalWrapper">
+	<div id="column-content">
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<div id="siteNotice"></div>
+			<div class="mw-indicators">
+			</div>
+			<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">De Bruijn-Newman constant</span></h1>
+			<div id="bodyContent" class="monobook-body">
+				<div id="siteSub">From Polymath Wiki</div>
+				<div id="contentSub" ><div id="mw-content-subtitle"></div></div>
+				
+				<div id="jump-to-nav"></div><a href="#column-one" class="mw-jump-link">Jump to navigation</a><a href="#searchInput" class="mw-jump-link">Jump to search</a>
+				<!-- start content -->
+				<div id="mw-content-text" class="mw-body-content"><div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><p>For each real number <span style="opacity:.5" class="smj-container">[math]\displaystyle{ t }[/math]</span>, define the entire function <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t: {\mathbf C} \to {\mathbf C} }[/math]</span> by the formula
+</p>
+<dl><dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{ \displaystyle H_t(z)&#160;:= \int_0^\infty e^{tu^2} \Phi(u) \cos(zu)\ du }[/math]</span></dd></dl>
+<p>where <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \Phi }[/math]</span> is the super-exponentially decaying function
+</p>
+<dl><dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{ \displaystyle \Phi(u)&#160;:= \sum_{n=1}^\infty (2\pi^2 n^4 e^{9u} - 3 \pi n^2 e^{5u}) \exp(-\pi n^2 e^{4u}). }[/math]</span></dd></dl>
+<p>It is known that <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \Phi }[/math]</span> is even, and that <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t }[/math]</span> is even, real on the real axis, and obeys the functional equation <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t(\overline{z}) = \overline{H_t(z)} }[/math]</span>.  In particular, the zeroes of <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t }[/math]</span> are symmetric about both the real and imaginary axes.  One can also express <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t }[/math]</span> in a number of different forms, such as
+</p>
+<dl><dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{ \displaystyle H_t(z) = \frac{1}{2} \int_{\bf R} e^{tu^2} \Phi(u) e^{izu}\ du }[/math]</span></dd></dl>
+<p>or
+</p>
+<dl><dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{ \displaystyle H_t(z) = \frac{1}{2} \int_0^\infty e^{t\log^2 x} \Phi(\log x) e^{iz \log x}\ \frac{dx}{x}. }[/math]</span></dd></dl>
+<p>In the notation of [KKL2009], one has
+</p>
+<dl><dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{ \displaystyle H_t(z) = \frac{1}{8} \Xi_{t/4}(z/2). }[/math]</span></dd></dl>
+<p>De Bruijn [B1950] and Newman [N1976] showed that there existed a constant, the <i>de Bruijn-Newman constant</i> <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \Lambda }[/math]</span>, such that <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t }[/math]</span> has all zeroes real precisely when <span style="opacity:.5" class="smj-container">[math]\displaystyle{ t \geq \Lambda }[/math]</span>.  The Riemann hypothesis is equivalent to the claim that <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \Lambda \leq 0 }[/math]</span>.  Currently it is known that <span style="opacity:.5" class="smj-container">[math]\displaystyle{ 0 \leq \Lambda \lt  1/2 }[/math]</span> (lower bound in [RT2018], upper bound in [KKL2009]).
+</p><p>The <b>Polymath15</b> project seeks to improve the upper bound on <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \Lambda }[/math]</span>.  The current strategy is to combine the following three ingredients:
+</p>
+<ol><li>Numerical zero-free regions for <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t(x+iy) }[/math]</span> of the form <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \{ x+iy: 0 \leq x \leq T; y \geq \varepsilon \} }[/math]</span> for explicit <span style="opacity:.5" class="smj-container">[math]\displaystyle{ T, \varepsilon, t \gt  0 }[/math]</span>.</li>
+<li>Rigorous asymptotics that show that <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t(x+iy) }[/math]</span> whenever <span style="opacity:.5" class="smj-container">[math]\displaystyle{ y \geq \varepsilon }[/math]</span> and <span style="opacity:.5" class="smj-container">[math]\displaystyle{ x \geq T }[/math]</span> for a sufficiently large <span style="opacity:.5" class="smj-container">[math]\displaystyle{ T }[/math]</span>.</li>
+<li>Dynamics of zeroes results that control <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \Lambda }[/math]</span> in terms of the maximum imaginary part of a zero of <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t }[/math]</span>.</li></ol>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#[math]\displaystyle{_t=0_}[/math]"><span class="tocnumber">1</span> <span class="toctext"><span>[math]\displaystyle{ t=0 }[/math]</span></span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#[math]\displaystyle{_t\gt_0_}[/math]"><span class="tocnumber">2</span> <span class="toctext"><span>[math]\displaystyle{ t\gt 0 }[/math]</span></span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Threads"><span class="tocnumber">3</span> <span class="toctext">Threads</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Other_blog_posts_and_online_discussion"><span class="tocnumber">4</span> <span class="toctext">Other blog posts and online discussion</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Code_and_data"><span class="tocnumber">5</span> <span class="toctext">Code and data</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Writeup"><span class="tocnumber">6</span> <span class="toctext">Writeup</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Test_problem"><span class="tocnumber">7</span> <span class="toctext">Test problem</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Zero-free_regions"><span class="tocnumber">8</span> <span class="toctext">Zero-free regions</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Wikipedia_and_other_references"><span class="tocnumber">9</span> <span class="toctext">Wikipedia and other references</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Bibliography"><span class="tocnumber">10</span> <span class="toctext">Bibliography</span></a></li>
+</ul>
+</div>
+
+<h2><span id=".5Bmath.5D.5Cdisplaystyle.7B_t.3D0_.7D.5B.2Fmath.5D"></span><span class="mw-headline" id="[math]\displaystyle{_t=0_}[/math]"><span style="opacity:.5" class="smj-container">[math]\displaystyle{ t=0 }[/math]</span></span></h2>
+<p>When <span style="opacity:.5" class="smj-container">[math]\displaystyle{ t=0 }[/math]</span>, one has
+</p>
+<dl><dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{ \displaystyle H_0(z) = \frac{1}{8} \xi( \frac{1}{2} + \frac{iz}{2} )  }[/math]</span></dd></dl>
+<p>where
+</p>
+<dl><dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{ \displaystyle \xi(s)&#160;:= \frac{s(s-1)}{2} \pi^{-s/2} \Gamma(s/2) \zeta(s) }[/math]</span></dd></dl>
+<p>is the Riemann xi function.  In particular, <span style="opacity:.5" class="smj-container">[math]\displaystyle{ z }[/math]</span> is a zero of <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_0 }[/math]</span> if and only if <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \frac{1}{2} + \frac{iz}{2} }[/math]</span> is a non-trivial zero of the Riemann zeta function.  Thus, for instance, the Riemann hypothesis is equivalent to all the zeroes of <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_0 }[/math]</span> being real, and <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Riemann%E2%80%93von_Mangoldt_formula">Riemann-von Mangoldt formula</a> (in the explicit form given by Backlund) gives
+</p>
+<dl><dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{ \displaystyle \left|N_0(T) - (\frac{T}{4\pi} \log \frac{T}{4\pi} - \frac{T}{4\pi} - \frac{7}{8})\right| \lt   0.137 \log (T/2) + 0.443  \log\log(T/2) + 4.350  }[/math]</span></dd></dl>
+<p>for any <span style="opacity:.5" class="smj-container">[math]\displaystyle{ T \gt  4 }[/math]</span>, where <span style="opacity:.5" class="smj-container">[math]\displaystyle{ N_0(T) }[/math]</span> denotes the number of zeroes of <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_0 }[/math]</span> with real part between 0 and T.
+</p><p>The first <span style="opacity:.5" class="smj-container">[math]\displaystyle{ 10^{13} }[/math]</span> zeroes of <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_0 }[/math]</span> (to the right of the origin) are real [G2004].  This numerical computation uses the Odlyzko-Schonhage algorithm.  In [P2017] it was independently verified that all zeroes of <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_0 }[/math]</span> between 0 and 61,220,092,000 were real.
+</p>
+<h2><span id=".5Bmath.5D.5Cdisplaystyle.7B_t.5Cgt_0_.7D.5B.2Fmath.5D"></span><span class="mw-headline" id="[math]\displaystyle{_t\gt_0_}[/math]"><span style="opacity:.5" class="smj-container">[math]\displaystyle{ t\gt 0 }[/math]</span></span></h2>
+<p>For any <span style="opacity:.5" class="smj-container">[math]\displaystyle{ t\gt 0 }[/math]</span>, it is known that all but finitely many of the zeroes of <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t }[/math]</span> are real and simple [KKL2009, Theorem 1.3].  In fact, assuming the Riemann hypothesis, <i>all</i> of the zeroes of <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t }[/math]</span> are real and simple [CSV1994, Corollary 2].
+</p><p>It is known that <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \xi }[/math]</span> is an entire function of order one ([T1986, Theorem 2.12]).  Hence by the fundamental solution for the heat equation, the <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t }[/math]</span> are also entire functions of order one for any <span style="opacity:.5" class="smj-container">[math]\displaystyle{ t }[/math]</span>.
+</p><p>Because <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \Phi }[/math]</span> is positive, <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t(iy) }[/math]</span> is positive for any <span style="opacity:.5" class="smj-container">[math]\displaystyle{ y }[/math]</span>, and hence there are no zeroes on the imaginary axis.
+</p><p>Let <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \sigma_{max}(t) }[/math]</span> denote the largest imaginary part of a zero of <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t }[/math]</span>, thus <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \sigma_{max}(t)=0 }[/math]</span> if and only if <span style="opacity:.5" class="smj-container">[math]\displaystyle{ t \geq \Lambda }[/math]</span>.  It is known that the quantity <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \frac{1}{2} \sigma_{max}(t)^2 + t }[/math]</span> is non-increasing in time whenever <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \sigma_{max}(t)\gt 0 }[/math]</span> (see [KKL2009, Proposition A].  In particular we have
+</p>
+<dl><dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{ \displaystyle \Lambda \leq t + \frac{1}{2} \sigma_{max}(t)^2 }[/math]</span></dd></dl>
+<p>for any <span style="opacity:.5" class="smj-container">[math]\displaystyle{ t }[/math]</span>.
+</p><p>The zeroes <span style="opacity:.5" class="smj-container">[math]\displaystyle{ z_j(t) }[/math]</span> of <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t }[/math]</span> obey the system of ODE
+</p>
+<dl><dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{ \partial_t z_j(t) = - \sum_{k \neq j} \frac{2}{z_k(t) - z_j(t)} }[/math]</span></dd></dl>
+<p>where the sum is interpreted in a principal value sense, and excluding those times in which <span style="opacity:.5" class="smj-container">[math]\displaystyle{ z_j(t) }[/math]</span> is a repeated zero.  See <a href="/polymath/index.php?title=Dynamics_of_zeros" title="Dynamics of zeros">dynamics of zeros</a> for more details.  Writing <span style="opacity:.5" class="smj-container">[math]\displaystyle{ z_j(t) = x_j(t) + i y_j(t) }[/math]</span>, we can write the dynamics as
+</p>
+<dl><dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{  \partial_t x_j = - \sum_{k \neq j} \frac{2 (x_k - x_j)}{(x_k-x_j)^2 + (y_k-y_j)^2}  }[/math]</span></dd>
+<dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{  \partial_t y_j = \sum_{k \neq j} \frac{2 (y_k - y_j)}{(x_k-x_j)^2 + (y_k-y_j)^2}  }[/math]</span></dd></dl>
+<p>where the dependence on <span style="opacity:.5" class="smj-container">[math]\displaystyle{ t }[/math]</span> has been omitted for brevity.
+</p><p>In [KKL2009, Theorem 1.4], it is shown that for any fixed <span style="opacity:.5" class="smj-container">[math]\displaystyle{ t\gt 0 }[/math]</span>, the number <span style="opacity:.5" class="smj-container">[math]\displaystyle{ N_t(T) }[/math]</span> of zeroes of <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t }[/math]</span> with real part between 0 and T obeys the asymptotic
+</p>
+<dl><dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{ N_t(T) = \frac{T}{4\pi} \log \frac{T}{4\pi} - \frac{T}{4\pi} + \frac{t}{16} \log T + O(1)  }[/math]</span></dd></dl>
+<p>as <span style="opacity:.5" class="smj-container">[math]\displaystyle{ T \to \infty }[/math]</span> (caution: the error term here is not uniform in t).  Also, the zeroes behave like an arithmetic progression in the sense that
+</p>
+<dl><dd><span style="opacity:.5" class="smj-container">[math]\displaystyle{  z_{k+1}(t) - z_k(t) = (1+o(1)) \frac{4\pi}{\log |z_k|(t)} = (1+o(1)) \frac{4\pi}{\log k}  }[/math]</span></dd></dl>
+<p>as <span style="opacity:.5" class="smj-container">[math]\displaystyle{ k \to +\infty }[/math]</span>.
+</p><p>See <a href="/polymath/index.php?title=Asymptotics_of_H_t" title="Asymptotics of H t">asymptotics of H_t</a> for asymptotics of the function <span style="opacity:.5" class="smj-container">[math]\displaystyle{ H_t }[/math]</span>, and <a href="/polymath/index.php?title=Effective_bounds_on_H_t" title="Effective bounds on H t">Effective bounds on H_t</a> and <a href="/polymath/index.php?title=Effective_bounds_on_H_t_-_second_approach" title="Effective bounds on H t - second approach">Effective bounds on H_t - second approach</a> for explicit bounds.
+</p>
+<h2><span class="mw-headline" id="Threads">Threads</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2018/01/24/polymath-proposal-upper-bounding-the-de-bruijn-newman-constant/">Polymath proposal: upper bounding the de Bruijn-Newman constant</a>, Terence Tao, Jan 24, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2018/01/27/polymath15-first-thread-computing-h_t-asymptotics-and-dynamics-of-zeroes/">Polymath15, first thread: computing H_t, asymptotics, and dynamics of zeroes</a>, Terence Tao, Jan 27, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2018/02/02/polymath15-second-thread-generalising-the-riemann-siegel-approximate-functional-equation/">Polymath15, second thread: generalising the Riemann-Siegel approximate functional equation</a>, Terence Tao and Sujit Nair, Feb 2, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2018/02/12/polymath15-third-thread-computing-and-approximating-h_t/">Polymath15, third thread: computing and approximating H_t</a>, Terence Tao and Sujit Nair, Feb 12, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2018/02/24/polymath15-fourth-thread-closing-in-on-the-test-problem/">Polymath 15, fourth thread: closing in on the test problem</a>, Terence Tao, Feb 24, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2018/03/02/polymath15-fifth-thread-finishing-off-the-test-problem/">Polymath15, fifth thread: finishing off the test problem?</a>, Terence Tao, Mar 2, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2018/03/18/polymath15-sixth-thread-the-test-problem-and-beyond/">Polymath15, sixth thread: the test problem and beyond</a>, Terence Tao, Mar 18, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2018/03/28/polymath15-seventh-thread-going-below-0-48/">Polymath15, seventh thread: going below 0.48</a>, Terence Tao, Mar 28, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2018/04/17/polymath15-eighth-thread-going-below-0-28/">Polymath15, eighth thread: going below 0.28</a>, Terence Tao, Apr 17, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2018/05/04/polymath15-ninth-thread-going-below-0-22/">Polymath15, ninth thread: going below 0.22?</a>, Terence Tao, May 4, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/10725">Polymath15, tenth thread: numerics update</a>, Rudolph Dwars and Kalpesh Muchhal, Sep 6, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2018/12/28/polymath-15-eleventh-thread-writing-up-the-results-and-exploring-negative-t/">Polymath15, eleventh thread: Writing up the results, and exploring negative t</a>, Terence Tao, Dec 28, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2019/04/30/11075/">Effective approximation of heat flow evolution of the Riemann xi function, and a new upper bound for the de Bruijn-Newman constant</a>, Terence Tao, Apr 30, 2019.</li></ul>
+<h2><span class="mw-headline" id="Other_blog_posts_and_online_discussion">Other blog posts and online discussion</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2017/10/17/heat-flow-and-zeroes-of-polynomials/">Heat flow and zeroes of polynomials</a>, Terence Tao, Oct 17, 2017.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2018/01/19/the-de-bruijn-newman-constant-is-non-negativ/">The de Bruijn-Newman constant is non-negative</a>, Terence Tao, Jan 19, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://terrytao.wordpress.com/2018/01/20/lehmer-pairs-and-gue/">Lehmer pairs and GUE</a>, Terence Tao, Jan 20, 2018.</li>
+<li><a rel="nofollow" class="external text" href="https://polymathprojects.org/2018/01/26/a-new-polymath-proposal-related-to-the-riemann-hypothesis-over-taos-blog/">A new polymath proposal (related to the Riemann hypothesis) over Tao's blog</a>, Gil Kalai, Jan 26, 2018.</li></ul>
+<h2><span class="mw-headline" id="Code_and_data">Code and data</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="https://github.com/km-git-acc/dbn_upper_bound">Github repository</a></li></ul>
+<h2><span class="mw-headline" id="Writeup">Writeup</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="https://github.com/km-git-acc/dbn_upper_bound/tree/master/Writeup">Writeup subdirectory of Github repository</a></li></ul>
+<p>Here are the <a href="/polymath/index.php?title=Polymath15_grant_acknowledgments" title="Polymath15 grant acknowledgments">Polymath15 grant acknowledgments</a>.
+</p><p>Polymath15 was able to establish the bound <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \Lambda \leq 0.22 }[/math]</span>, but with the recent numerical verification of RH in <a rel="nofollow" class="external free" href="https://arxiv.org/abs/2004.09765">https://arxiv.org/abs/2004.09765</a> this may be improved to <span style="opacity:.5" class="smj-container">[math]\displaystyle{ \Lambda \leq 0.20 }[/math]</span>.
+</p>
+<h2><span class="mw-headline" id="Test_problem">Test problem</span></h2>
+<p>See <a href="/polymath/index.php?title=Polymath15_test_problem" title="Polymath15 test problem">Polymath15 test problem</a>.
+</p>
+<h2><span class="mw-headline" id="Zero-free_regions">Zero-free regions</span></h2>
+<p>See <a href="/polymath/index.php?title=Zero-free_regions" title="Zero-free regions">Zero-free regions</a>.
+</p>
+<h2><span class="mw-headline" id="Wikipedia_and_other_references">Wikipedia and other references</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/De_Bruijn%E2%80%93Newman_constant">de Bruijn-Newman constant</a></li>
+<li><a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Odlyzko%E2%80%93Sch%C3%B6nhage_algorithm">Odlyzko–Schönhage algorithm</a></li>
+<li><a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Riemann%E2%80%93Siegel_formula">Riemann–Siegel formula</a></li>
+<li><a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Riemann_Xi_function">Riemann xi function</a></li></ul>
+<h2><span class="mw-headline" id="Bibliography">Bibliography</span></h2>
+<ul><li>[A2011] J. Arias de Reyna, <a rel="nofollow" class="external text" href="https://pdfs.semanticscholar.org/7964/fbdc0caeec0a41304deb8d2d8b2e2be639ee.pdf">High-precision computation of Riemann's zeta function by the Riemann-Siegel asymptotic formula, I</a>, Mathematics of Computation, Volume 80, Number 274, April 2011, Pages 995–1009.</li>
+<li>[B1994] W. G. C. Boyd, <a rel="nofollow" class="external text" href="http://www.jstor.org/stable/52450">Gamma Function Asymptotics by an Extension of the Method of Steepest Descents</a>, Proceedings: Mathematical and Physical Sciences, Vol. 447, No. 1931 (Dec. 8, 1994),pp. 609-630.</li>
+<li>[B1950] N. C. de Bruijn, <a rel="nofollow" class="external text" href="https://pure.tue.nl/ws/files/1769368/597490.pdf">The roots of trigonometric integrals</a>, Duke J. Math. 17 (1950), 197–226.</li>
+<li>[CSV1994] G. Csordas, W. Smith, R. S. Varga, <a rel="nofollow" class="external text" href="https://link.springer.com/article/10.1007/BF01205170">Lehmer pairs of zeros, the de Bruijn-Newman constant Λ, and the Riemann hypothesis</a>, Constr. Approx. 10 (1994), no. 1, 107–129.</li>
+<li>[G2004] Gourdon, Xavier (2004), <a rel="nofollow" class="external text" href="http://numbers.computation.free.fr/Constants/Miscellaneous/zetazeros1e13-1e24.pdf">The <span style="opacity:.5" class="smj-container">[math]\displaystyle{ 10^{13} }[/math]</span> first zeros of the Riemann Zeta function, and zeros computation at very large height</a></li>
+<li>[KKL2009] H. Ki, Y. O. Kim, and J. Lee, On the de Bruijn-Newman constant, Advances in Mathematics, 22 (2009), 281–306. <a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.164.5595&amp;rep=rep1&amp;type=pdf">Citeseer</a></li>
+<li>[N1976] C. M. Newman, <a rel="nofollow" class="external text" href="http://www.ams.org/journals/proc/1976-061-02/S0002-9939-1976-0434982-5/S0002-9939-1976-0434982-5.pdf">Fourier transforms with only real zeroes</a>, Proc. Amer. Math. Soc. 61 (1976), 246–251.</li>
+<li>[P2017] D. J. Platt, <a rel="nofollow" class="external text" href="http://www.ams.org/journals/mcom/2017-86-307/S0025-5718-2017-03198-7/">Isolating some non-trivial zeros of zeta</a>, Math. Comp. 86 (2017), 2449-2467.</li>
+<li>[P1992] G. Pugh, <a rel="nofollow" class="external text" href="https://web.viu.ca/pughg/thesis.d/masters.thesis.pdf">The Riemann-Siegel formula and large scale computations of the Riemann zeta function</a>, M.Sc. Thesis, U. British Columbia, 1992.</li>
+<li>[RT2018] B. Rodgers, T. Tao, The de Bruijn-Newman constant is non-negative, preprint. <a rel="nofollow" class="external text" href="https://arxiv.org/abs/1801.05914">arXiv:1801.05914</a></li>
+<li>[T1986] E. C. Titchmarsh, The theory of the Riemann zeta-function. Second edition. Edited and with a preface by D. R. Heath-Brown. The Clarendon Press, Oxford University Press, New York, 1986. <a rel="nofollow" class="external text" href="http://plouffe.fr/simon/math/The%20Theory%20Of%20The%20Riemann%20Zeta-Function%20-Titshmarch.pdf">pdf</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20260819202905
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.031 seconds
+Real time usage: 0.031 seconds
+Preprocessor visited node count: 431/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 8682/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key newpolymath2:pcache:idhash:1723-0!canonical and timestamp 20260819202905 and revision id 11185. Rendering was triggered because: diff-page
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://michaelnielsen.org/polymath/index.php?title=De_Bruijn-Newman_constant&amp;oldid=11185">https://michaelnielsen.org/polymath/index.php?title=De_Bruijn-Newman_constant&amp;oldid=11185</a>"</div></div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/polymath/index.php?title=Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/polymath/index.php?title=Category:Polymath15" title="Category:Polymath15">Polymath15</a></li></ul></div></div>
+				<!-- end content -->
+				<div class="visualClear"></div>
+			</div>
+		</div>
+		<div class="visualClear"></div>
+	</div>
+	<div id="column-one" >
+		<h2>Navigation menu</h2>
+		<div role="navigation" class="portlet" id="p-cactions" aria-labelledby="p-cactions-label">
+			<h3 id="p-cactions-label" >Page actions</h3>
+			<div class="pBody">
+				<ul >
+				<li id="ca-nstab-main" class="selected mw-list-item"><a href="/polymath/index.php?title=De_Bruijn-Newman_constant" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new mw-list-item"><a href="/polymath/index.php?title=Talk:De_Bruijn-Newman_constant&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li><li id="ca-view" class="selected mw-list-item"><a href="/polymath/index.php?title=De_Bruijn-Newman_constant">Read</a></li><li id="ca-viewsource" class="mw-list-item"><a href="/polymath/index.php?title=De_Bruijn-Newman_constant&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="mw-list-item"><a href="/polymath/index.php?title=De_Bruijn-Newman_constant&amp;action=history" title="Past revisions of this page [h]" accesskey="h">History</a></li>
+				
+				</ul>
+			</div>
+		</div>
+		
+<div role="navigation" class="portlet mw-portlet mw-portlet-cactions-mobile"
+	id="p-cactions-mobile" aria-labelledby="p-cactions-mobile-label">
+	<h3 id="p-cactions-mobile-label" >Page actions</h3>
+	<div class="pBody">
+		<ul ><li id="main-mobile" class="selected mw-list-item"><a href="/polymath/index.php?title=De_Bruijn-Newman_constant" title="Page">Page</a></li><li id="talk-mobile" class="new mw-list-item"><a href="/polymath/index.php?title=Talk:De_Bruijn-Newman_constant&amp;action=edit&amp;redlink=1" title=" (page does not exist)">Discussion</a></li><li id="ca-more" class="mw-list-item"><a href="#p-cactions">More</a></li><li id="ca-tools" class="mw-list-item"><a href="#p-tb" title="Tools">Tools</a></li></ul>
+		
+	</div>
+</div>
+
+		<div role="navigation" class="portlet" id="p-personal" aria-labelledby="p-personal-label">
+			<h3 id="p-personal-label" >Personal tools</h3>
+			<div class="pBody">
+				<ul >
+				<li id="pt-login" class="mw-list-item"><a href="/polymath/index.php?title=Special:UserLogin&amp;returnto=De+Bruijn-Newman+constant" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="portlet" id="p-logo" role="banner">
+			<a href="/polymath/index.php?title=Main_Page" class="mw-wiki-logo"></a>
+		</div>
+		<div id="sidebar">
+		
+<div role="navigation" class="portlet mw-portlet mw-portlet-navigation"
+	id="p-navigation" aria-labelledby="p-navigation-label">
+	<h3 id="p-navigation-label" >Navigation</h3>
+	<div class="pBody">
+		<ul ><li id="n-mainpage-description" class="mw-list-item"><a href="/polymath/index.php?title=Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-recentchanges" class="mw-list-item"><a href="/polymath/index.php?title=Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage" class="mw-list-item"><a href="/polymath/index.php?title=Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help-mediawiki" class="mw-list-item"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents">Help about MediaWiki</a></li></ul>
+		
+	</div>
+</div>
+
+		<div role="search" class="portlet" id="p-search">
+			<h3 id="p-search-label" ><label for="searchInput">Search</label></h3>
+			<div class="pBody" id="searchBody">
+				<form action="/polymath/index.php" id="searchform"><input type="hidden" value="Special:Search" name="title"><input type="search" name="search" placeholder="Search Polymath Wiki" aria-label="Search Polymath Wiki" autocapitalize="sentences" title="Search Polymath Wiki [f]" accesskey="f" id="searchInput"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" class="searchButton" id="searchButton"> <input type="submit" name="fulltext" value="Search" title="Search the pages for this text" class="searchButton mw-fallbackSearchButton" id="mw-searchButton"></form>
+			</div>
+		</div>
+		
+<div role="navigation" class="portlet mw-portlet mw-portlet-tb"
+	id="p-tb" aria-labelledby="p-tb-label">
+	<h3 id="p-tb-label" >Tools</h3>
+	<div class="pBody">
+		<ul ><li id="t-whatlinkshere" class="mw-list-item"><a href="/polymath/index.php?title=Special:WhatLinksHere/De_Bruijn-Newman_constant" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/polymath/index.php?title=Special:RecentChangesLinked/De_Bruijn-Newman_constant" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages" class="mw-list-item"><a href="/polymath/index.php?title=Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink" class="mw-list-item"><a href="/polymath/index.php?title=De_Bruijn-Newman_constant&amp;oldid=11185" title="Permanent link to this revision of this page">Permanent link</a></li><li id="t-info" class="mw-list-item"><a href="/polymath/index.php?title=De_Bruijn-Newman_constant&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</div>
+
+		
+		</div>
+		<a href="#sidebar" title="Jump to navigation"
+			class="menu-toggle" id="sidebar-toggle"></a>
+		<a href="#p-personal" title="user tools"
+			class="menu-toggle" id="p-personal-toggle"></a>
+		<a href="#globalWrapper" title="back to top"
+			class="menu-toggle" id="globalWrapper-toggle"></a>
+	</div>
+	<!-- end of the left (by default at least) column -->
+	<div class="visualClear"></div>
+	<div id="footer" class="mw-footer" role="contentinfo"
+		>
+		<div id="f-poweredbyico" class="footer-icons">
+			<a href="https://www.mediawiki.org/"><img src="/polymath/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/polymath/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /polymath/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"></a>
+		</div>
+		<ul id="f-list">
+			<li id="lastmod"> This page was last edited on 22 April 2020, at 13:37.</li>
+			<li id="privacy"><a href="/polymath/index.php?title=Polymath_Wiki:Privacy_policy">Privacy policy</a></li><li id="about"><a href="/polymath/index.php?title=Polymath_Wiki:About">About Polymath Wiki</a></li><li id="disclaimers"><a href="/polymath/index.php?title=Polymath_Wiki:General_disclaimer">Disclaimers</a></li>
+		</ul>
+	</div>
+</div>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":3827,"wgPageParseReport":{"limitreport":{"cputime":"0.031","walltime":"0.031","ppvisitednodes":{"value":431,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":3,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":8682,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20260819202905","ttl":86400,"transientcontent":false}}});});</script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 # Track B seed reading list (de Bruijn-Newman constant upper bound)
-gate: CLOSED
+gate: OPEN
 
 Seeds must be fetched and carded before this track opens.
 
