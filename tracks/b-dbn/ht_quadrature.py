@@ -12,9 +12,18 @@ rigorous truncation tails (all bounds asserted in code):
   tailB (n >= 5, all u): 2*pi^2*625*(1+3e-15)*int_0^inf exp(19u + t*u^2 - 25*pi*exp(4u)) du
       (sum_{n>=5} (n/5)^4*exp(-pi*(n^2-25)) <= 1+3e-15; h(u)=19u+tu^2-25*pi*e^{4u},
        h'(u) = 19+2tu-100*pi*e^{4u} < 0 on [0,inf) for t <= 1000, asserted)
-GL nodes/weights: mpmath 120-digit polyroots of Legendre P_n, weights via
-  w_i = 2*(1-x_i^2)/(n^2*P_{n-1}(x_i)^2)  (from w_i = 2/((1-x_i^2)P_n'(x_i)^2),
-tick 14 fix: weight formula was missing (1-x_i^2)^2; verified in Arb by the moment test sum w_i x_i^k == (b^{k+1}-a^{k+1})/(k+1), k=0..n.
+GL nodes/weights (tick 17 rewrite): P_n coeffs by 3-term recurrence at dps=150,
+  roots by Newton with polynomial-derivative (Horner) eval; starts: 1-1.8657/n^2
+  for k=1, its negative for k=n, else cos(pi*(k-0.25)/(n+0.5)). Verified in
+  scratch (tick 17): n=16/32/64 all roots, maxresid ~1e-110..1e-116, no dups,
+  moment deviations ~1e-122 (an apparent 1e-17 'deviation' in scratch was a
+  Python-float 2/(k+1) target, NOT in the Arb check below). Weights via the
+  single-factor identity w_i = 2*(1-x_i^2)/(n^2*P_{n-1}(x_i)^2)
+  (from w_i = 2/((1-x_i^2)*P_n'(x_i)^2) and (1-x^2)P_n' = n(P_{n-1}-xP_n) at
+  P_n(x_i)=0; n=2 check: w=1,w=1 exact). The 'tick 14 fix' adding a second
+  (1-x_i^2) was a misdiagnosis; the real bug was mp.findroot returning
+  duplicate roots (n=32: 3 dups, sum of weights 1.074/0.712 vs 1 on [0,1])
+  and crashing at n=64. Moment test (exact acb target) is FATAL below.
 Pre-registered checks (logs/2026-08-20.tick.log, tick 11):
   F1: t=0 quadrature vs claim #3 closed form, >= 25 digits
   F2: t in {1,100,1000} vs independent mpmath 80-digit quad, >= 20 digits
@@ -34,6 +43,14 @@ def q(x):
     """Exact fmpq from a decimal literal / mpf / float, via its decimal string."""
     f = Fraction(str(x))
     return fmpq(f.numerator, f.denominator)
+
+def _re_upper(z):
+    """Upper bound of Re(z) for an acb ball z, as float (assertions only)."""
+    return float(z.real.mid()) + float(z.real.rad())
+
+def _re_lower(z):
+    """Lower bound of Re(z) for an acb ball z, as float (assertions only)."""
+    return float(z.real.mid()) - float(z.real.rad())
 
 Z_RE, Z_IM = 35, 10
 N_MAX = 4
@@ -55,24 +72,64 @@ def legendre_coeffs(n):
     return Pk
 
 _GL_CACHE = {}
+
+def _legendre_coeffs(n):
+    """Coeffs of P_n, highest degree first, in mp (dps set by caller)."""
+    if n == 0:
+        return [mp.mpf(1)]
+    Pk = [mp.mpf(1), mp.mpf(0)]    # P_1
+    Pkm1 = [mp.mpf(1)]             # P_0
+    for k in range(1, n):
+        xPk = Pk + [mp.mpf(0)]
+        term = [(2*k + 1) * c for c in xPk]
+        for i, c in enumerate(Pkm1):
+            term[i + 2] -= k * c
+        Pkm1, Pk = Pk, [c / (k + 1) for c in term]
+    return Pk
+
+def _ev(cs, x):
+    """Horner eval of a highest-degree-first coefficient list."""
+    r = mp.mpf(0)
+    for c in cs:
+        r = r * x + c
+    return r
+
 def gl_ref(n):
-    """GL nodes/weights on [-1,1], 120 digits.
-    w_i = 2*(1-x_i^2)/(n^2*P_{n-1}(x_i)^2), from w_i = 2/((1-x_i^2)*P_n'(x_i)^2)
-    and (1-x^2)P_n' = n(P_{n-1} - xP_n) evaluated at P_n(x_i) = 0."""
+    """GL nodes/weights on [-1,1] at ~110+ digit accuracy.
+    Roots by Newton (polynomial derivative via Horner); weights via the
+    single-factor identity w_i = 2(1-x_i^2)/(n^2 P_{n-1}(x_i)^2).
+    Machine checks (fatal asserts): residual |P_n(x_i)| < 1e-110, distinct,
+    in (-1,1)."""
     if n in _GL_CACHE:
         return _GL_CACHE[n]
-    mp.dps = 120
-    f = lambda x: mp.legendre(n, x)
-    df = lambda x: n * (x * mp.legendre(n, x) - mp.legendre(n - 1, x)) / (x*x - 1)
-    xs, ws = [], []
+    mp.dps = 150
+    cs = _legendre_coeffs(n)
+    dcs = [(n - i) * cs[i] for i in range(n)]
+    csn1 = _legendre_coeffs(n - 1)
+    xs = []
     for k in range(1, n + 1):
-        x0 = mp.cos(mp.pi * (k - 0.25) / (n + 0.5))
-        x = mp.findroot(f, x0, df=df, maxsteps=50)
-        assert abs(f(x)) < mp.mpf('1e-100'), f"root residual too large: {abs(f(x))}"
-        Pnm1 = mp.legendre(n - 1, x)
-        w = 2.0 * (1 - x*x) / (n * n * Pnm1 * Pnm1)
-        xs.append(x); ws.append(w)
+        if k == 1:
+            x = 1 - mp.mpf('1.8657') / (n * n)
+        elif k == n:
+            x = -(1 - mp.mpf('1.8657') / (n * n))
+        else:
+            x = mp.cos(mp.pi * (k - 0.25) / (n + 0.5))
+        for _it in range(300):
+            fx = _ev(cs, x)
+            dfx = _ev(dcs, x)
+            step = fx / dfx
+            if abs(fx) < mp.mpf('1e-115') or abs(step) < mp.mpf('1e-118'):
+                break
+            x -= step
+        else:
+            raise RuntimeError(f"GL root k={k}/n={n} not converged")
+        assert abs(_ev(cs, x)) < mp.mpf('1e-110'), f"residual k={k}: {abs(_ev(cs, x))}"
+        assert -1 < x < 1, f"root out of range k={k}"
+        xs.append(x)
     xs.sort()
+    for i in range(1, n):
+        assert xs[i] - xs[i - 1] > mp.mpf('1e-80'), f"duplicate roots at {i}"
+    ws = [2 * (1 - x * x) / (n * n * _ev(csn1, x) ** 2) for x in xs]
     _GL_CACHE[n] = (xs, ws)
     return xs, ws
 
@@ -123,20 +180,22 @@ def Ht_quad(t, n1=32, n2=64):
         nn = acb(n)
         g = 19*um + t*um**2 - PI*nn**2*acb.exp(4*um)
         gp = 19 + 2*t*um - 4*PI*nn**2*acb.exp(4*um)
-        assert gp.real < 0, f"tailA: g_n'({U_MAX}) not negative, n={n}, t={t}"
-        assert 2*t.real < 16*PI*nn**2*acb.exp(4*um).real, f"tailA: g_n'' not <0, n={n}"
+        assert _re_upper(gp) < 0.0, f"tailA: g_n'({U_MAX}) not negative, n={n}, t={t}"
+        assert 2.0*float(t.real.mid()) < _re_lower(16*PI*nn**2*acb.exp(4*um)), \
+            f"tailA: g_n'' not <0, n={n}"
         tailA += 2*PI**2*nn**4*acb.exp(g)/(-gp)
     h0 = -25*PI
     hp0 = 19 - 100*PI
-    assert hp0.real < 0
-    if t.real <= 200*PI.real:
-        assert 2*t.real < 400*PI.real, "tailB: h'' not <0 on [0,inf)"
+    assert _re_upper(hp0) < 0.0
+    if float(t.real.mid()) <= 200.0*float(PI.real.mid()):
+        assert 2.0*float(t.real.mid()) < 400.0*float(PI.real.mid()), \
+            "tailB: h'' not <0 on [0,inf)"
         intb = acb.exp(h0)/(-hp0)
     else:
         uc = acb.log(t/(200*PI))/4
         hc = 19*uc + t*uc**2 - 25*PI*acb.exp(4*uc)
         hpc = 19 + 2*t*uc - 100*PI*acb.exp(4*uc)
-        assert hpc.real < 0, "tailB: h' max not negative"
+        assert _re_upper(hpc) < 0.0, "tailB: h' max not negative"
         intb = uc*acb.exp(h0) + acb.exp(hc)/(-hpc)
     tailB = 2*PI**2*acb(625)*(1 + acb(fmpq(3, 10**15)))*intb
     E = rad.abs_upper() + tailA.abs_upper() + tailB.abs_upper()
@@ -177,15 +236,14 @@ def digits_agree(arb_val, oracle_str_re, oracle_str_im):
         return d
     ar = str(arb_val.real).split(' +/-')[0].strip('[]')
     ai = str(arb_val.imag).split(' +/-')[0].strip('[]')
-    # align by exponent: use scientific mantissa comparison
+    # align by exponent: compare leading mantissa digits in scientific form
     def mant(s, nd=60):
         x = decimal.Decimal(s)
         if x == 0: return '0'*nd
-        sign = '-' if x < 0 else ''
         x = abs(x)
-        exp = x.adjusted()
-        m = format(x * 10**(-exp), '.60f')[2:]
-        return m
+        sci = format(x, f'.{nd-1}E')          # d.dddd...E<exp>
+        digits = sci.split('E')[0].replace('.', '')
+        return digits[:nd].ljust(nd, '0')
     mr, mi = mant(ar), mant(ai)
     orr, oim = mant(oracle_str_re), mant(oracle_str_im)
     def shared(a, b):
@@ -197,7 +255,9 @@ def digits_agree(arb_val, oracle_str_re, oracle_str_im):
     return shared(mr, orr), shared(mi, oim)
 
 print("=== machine check 0: GL moment test on [0,1] (n=32) ===")
-print("moment test n=32:", moment_test(32, 0.0, 1.0))
+_mom_ok = moment_test(32, 0.0, 1.0)
+print("moment test n=32:", _mom_ok)
+assert _mom_ok, "GL moment test FAILED - nodes/weights untrustworthy, all later results void"
 
 print()
 print("=== F1: t=0, quadrature vs claim #3 closed form ===")
@@ -219,9 +279,17 @@ for t in [1, 100, 1000]:
     orac = Ht_oracle(t)
     print(f"oracle (mpmath 80d) = {mp.nstr(orac, 60)}")
     dr, di = digits_agree(qt, mp.nstr(orac.real, 60), mp.nstr(orac.imag, 60))
-    mag = float(abs(qt))
-    relrad = float(qt.rad()) / max(mag, 1e-300)
+    # rel radius via mpmath: float64 overflows for |value| ~ 1e500 (t=1000)
+    def _mid_mpf(ball_str):
+        return mp.mpf(ball_str.split(' +/-')[0].strip('[]'))
+    re_mid = _mid_mpf(str(qt.real))
+    im_mid = _mid_mpf(str(qt.imag))
+    mag_mp = mp.sqrt(re_mid**2 + im_mid**2)
+    rad_mp = _mid_mpf(str(qt.rad()))
+    relrad = float(rad_mp / mag_mp) if mag_mp > 0 else float('inf')
+    finite = (mp.isfinite(re_mid) and mp.isfinite(im_mid))
     print(f"  log10|value| = {mp.log10(abs(orac)) if abs(orac) > 0 else float('nan')}")
     print(f"F2 digits (real, imag): {dr}, {di}  (need >= 20)")
     print(f"F3 rel radius: {relrad:.3e}  (need < 1e-25)")
+    print(f"F4 finite and heat-scale (not NaN/O(1)): {bool(finite)}")
     print(f"F2: {'YES' if min(dr, di) >= 20 else 'NO'}   F3: {'YES' if relrad < 1e-25 else 'NO'}")

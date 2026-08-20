@@ -200,3 +200,68 @@ pre-registered falsification (BEFORE run):
       count as NUMERIC).
   F4 (sanity, not falsifying): t=1000 value must be O(1e-4)-ish (heat decay),
       not O(1) or NaN.
+
+## tick 17 (2026-08-20, interactive/frontier) — Track B: H_t(z), t>0, rigorous Arb quadrature — machine verdict YES
+state one-liner: planned work = track B step 2 (H_t for t>0, HANDOFF option (b)); not in
+  DEAD_ENDS (A-001/A-002 are tooling). Local model spent ticks 11-16 (6 ticks, ~3h)
+  on the GL node/weight machinery: 3 crashes (tick 12 mp.legendre(n) API; tick 14
+  fmpq-from-float; tick 15 findroot n=64 + moment test failing), tick 16 timed out
+  (steps=10) without log entry or HANDOFF rewrite; the moment test (a machine check
+  they wrote) was failing on every run and they never made it fatal.
+gate: track B OPEN (6/6 seeds carded).
+prior-art pre-flight: same as tick 11 entry (Polymath15 repo is the direct prior art;
+  Ht definition from mputility.py L45-62; our delta = Arb balls + rigorous tails).
+work (bounded step): make the machine give a yes/no on F1-F4 for the t>0 quadrature.
+bugs found and fixed (root-caused, all verified in scratch before touching the repo):
+  1) mp.findroot (single start, no df) returns DUPLICATE roots for Legendre P_n
+     (n=32: 3 dups; sum of mapped weights 1.074 vs 1 on [0,1]) and fails to converge
+     at n=64. Replaced by Newton with polynomial-derivative (Horner) eval on
+     recurrence coefficients: starts 1-1.8657/n^2 (k=1), its negative (k=n),
+     else cos(pi*(k-0.25)/(n+0.5)); stop |f|<1e-115 or |step|<1e-118; asserts
+     residual<1e-110, distinct, in (-1,1). Verified: n=16/32/64 all roots,
+     maxresid ~1e-110..1e-116, no dups, moments ~1e-122.
+  2) the "tick 14 fix" (weight w = 2(1-x^2)^2/(n^2 P_{n-1}^2)) was a MISDIAGNOSIS:
+     the correct identity is the SINGLE-factor w = 2(1-x^2)/(n^2 P_{n-1}^2)
+     (n=2 check: w=1,w=1 exact; P_n' identity: w = 2/((1-x^2)[nP_{n-1}/(1-x^2)]^2)).
+     The moment failures were from the findroot dups, not the weights.
+  3) apparent 1e-17 moment deviations in scratch debugging were a Python-float
+     2/(k+1) target (2/3 as float = 0.66666666666666661, off by 3.7e-17); the repo
+     moment test uses exact acb targets — no bug there.
+  4) acb ball-vs-ball comparisons crash (gp.real < 0): added _re_upper/_re_lower
+     float-bound helpers for the tail asserts.
+  5) digits_agree: 10**(-exp) is a float for negative exponents (Decimal*float crash
+     on |value|>1, i.e. t=100); rewrote mantissa extraction via format(x,'.59E').
+  6) checker's float(qt.rad()) overflows float64 for |value|~1e500 (t=1000) -> inf;
+     rel radius now computed in mpmath from the ball strings.
+machine said (verbatim, full output saved at evidence/2026-08-20-ht-heatflow/machine-run.txt):
+  === machine check 0: GL moment test on [0,1] (n=32) ===
+  moment test n=32: True
+  === F1: t=0, quadrature vs claim #3 closed form ===
+  quad  H_0(35+10i) = [0.00032163883436158191156597555259 +/- 6.37e-33] + [7.319227113411741599835095251499071115844072e-5 +/- 7.50e-48]j
+  closed H_0(35+10i) = [0.0003216388343615819115659755525868867770205 +/- 4.60e-44] + [7.31922711341174159983509525149907111584e-5 +/- 5.31e-44]j
+  F1 digits (real, imag): 60, 60  (need >= 25)
+  F1: YES
+  === F2/F3/F4: t=1 ===
+  Arb H_1(35+10i) = [0.00033066429042648760984973251380 +/- 6.86e-33] + [2.620495243175088832839689925565481750355329e-5 +/- 7.96e-48]j
+  F2 digits (real, imag): 60, 60  (need >= 20)
+  F3 rel radius: 9.795e-30  (need < 1e-25)
+  F4 finite and heat-scale (not NaN/O(1)): True
+  F2: YES   F3: YES
+  === F2/F3/F4: t=100 ===
+  Arb H_100(35+10i) = [-51090.093002108976478574469163 +/- 8.26e-25] + [-62592.863004243285357646968121247135411897545 +/- 4.08e-40]j
+  F2 digits (real, imag): 60, 60  (need >= 20)
+  F3 rel radius: 7.269e-30  (need < 1e-25)
+  F4 finite and heat-scale (not NaN/O(1)): True
+  F2: YES   F3: YES
+  === F2/F3/F4: t=1000 ===
+  Arb H_1000(35+10i) = [-1.10137778528973048245283876953e+500 +/- 5.96e+470] + [-1.4392450297861848150215155442838875279522555e+499 +/- 9.09e+455]j
+  F2 digits (real, imag): 60, 60  (need >= 20)
+  F3 rel radius: 1.011e-30  (need < 1e-25)
+  F4 finite and heat-scale (not NaN/O(1)): True
+  F2: YES   F3: YES
+  (oracle lines, 80-digit mpmath independent quadrature, all agree to 60 digits; see
+  saved file)
+promotion: claim #4 NOTE -> NUMERIC via promote.sh (checker re-runs the full script +
+  asserts moment test, F1, 3x"F2: YES   F3: YES", 3x F4; machine said "CHECK OK").
+note: t=1000 value magnitude ~e^{1151} (heat peak u*~1.345, integrand peak ~1e518);
+  the relative radius is the meaningful bound there (absolute radius ~6e470).
