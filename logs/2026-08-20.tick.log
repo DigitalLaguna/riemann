@@ -65,3 +65,19 @@ next: first real work on an open track. Recommended: track B (6/6 carded, Arb-ba
   no build dependency) — re-implement the Polymath15 heat-flow numerics to 2
   significant figures (week-4 kill criterion depends on it). Track A: claim a first
   XS Lean issue from the 39 open PNT+ issues (snapshot at lit/text/pnt-plus-issues.json).
+
+## tick 4 env probe (post-commit): python-flint 0.9 Arb API for track B
+machine said (verbatim):
+  $ python3 -c "from flint.types.acb import acb; ..."
+  zeta(1/2+12.9113i) = [0.49367026943924934909962 +/- 4.52e-24] +
+                      [-0.68219025933531303105067 +/- 8.46e-25]j
+api notes (verified, not from memory):
+  - flint.ctx.prec = N sets midpoint precision (bits); flint.arb(mid, rad) —
+    the 2nd constructor arg is the RADIUS, not precision (arb(1.4, 53) is the
+    interval [1.4-53, 1.4+53]).
+  - real balls: flint.arb; complex balls: from flint.types.acb import acb;
+    acb(re, im) constructor.
+  - complex zeta: acb.zeta(z) — works at ctx precision, returns acb with
+    explicit radius. Also available: acb.zeta_zero, acb.zeta_zeros,
+    dirichlet_eta, dirichlet_l; real side: flint.arb.zeta, flint.arb.zeta_nzeros,
+    gamma/lgamma/digamma in the flint.arb function module.

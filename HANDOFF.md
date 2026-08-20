@@ -25,6 +25,9 @@ figures; week-4 kill criterion = "Polymath15 numerics reproduced to 2 sig figs"
 so start it now. Pre-registered falsification: reproduced Lambda(t) curve
 agrees with arXiv 1904.12438 Fig. 1 to 2 sig figs on t in [0, 10^4], else
 method not understood (kill track B per week-4 criterion).
+Env ready (probed this tick, verbatim output in log): python-flint 0.9,
+flint.ctx.prec=N; acb.zeta(0.5+12.9113i) returns a complex ball with explicit
+radius (~1e-24 at 80 bits). Note: 2nd arb() constructor arg is the RADIUS.
 
 ## Blocked
 - odlyzko-zeros full text: AMS CONM 290 chapter 4573 behind LibLynx login.
