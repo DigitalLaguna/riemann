@@ -81,3 +81,35 @@ api notes (verified, not from memory):
     explicit radius. Also available: acb.zeta_zero, acb.zeta_zeros,
     dirichlet_eta, dirichlet_l; real side: flint.arb.zeta, flint.arb.zeta_nzeros,
     gamma/lgamma/digamma in the flint.arb function module.
+
+## tick 8 (2026-08-20) — Track B: run the H_0 closed-form Arb verification (written ticks 5-7, never executed)
+attempt: run tracks/b-dbn/ht_closed_form.py (H_0(k/10), k=0..13, vs
+  dbn/output/numbers/sample_output_Ht_real.txt, 8 digits) and
+  tracks/b-dbn/ht_closed_form_complex.py (H_0(35+10j), vs the 64-digit reference in
+  dbn/dbn_upper_bound/tests/python/test_ht.py). Not in DEAD_ENDS: scripts existed but
+  were never run (ticks 5-7 left no log entries; tick 7 auto-commit contains only the
+  two scripts + ticks.log line).
+prior-art pre-flight (logged queries, 2026-08-20 ~18:35Z):
+  - arXiv API query all:"de Bruijn-Newman", 10 results: 2211.17269 (new approach,
+    2022), 1801.05914 (Rodgers-Tao), 1904.12438 (Polymath15), 2602.20313 (PF-order
+    kernel, 2026), 2005.05142 (Selberg class), 1106.4348, 1901.06596, 1301.3158,
+    1508.05870, 1206.6973. None reproduces the H_0 closed form in Arb; the Polymath15
+    repo itself (already cloned at tracks/b-dbn/dbn) is the direct prior art.
+  - H_t definition verified from source: dbn_upper_bound/python/mputility.py line 55:
+    "return mp.exp(t * u * u) * phi_decay(u) * mp.cos(z * u)" — matches script docstring.
+  - Reference files verified present: output/numbers/sample_output_Ht_real.txt (t=0
+    rows, x=0.0..2.3, ~8 digits + error column); tests/python/test_ht.py lines 13-15
+    (64-digit Ht_AFE_ABC(35+10j, 0)).
+falsification test (pre-registered, BEFORE run):
+  closed form H_0(z) = sum_n [2*pi^2*n^4*I(9,z) - 3*pi*n^2*I(5,z)] (incomplete gamma,
+  Arb 120 bits) must satisfy:
+  (a) |H_0(k/10) - ref| < 5e-8 for all k=0..13 (8-digit agreement with sample output);
+  (b) first 40 digits of H_0(35+10j) match test_ht.py reference (real and imag).
+  If either fails: closed-form derivation is wrong -> kill closed form, fall back to
+  direct Arb integration of the defining integral.
+  AMENDMENT to tick-4 pre-registration: "arXiv 1904.12438 Fig 1" is a schematic of the
+  barrier approach, not a data plot (caption verbatim: "Figure 1. A visualization of
+  Theorem 1.2. If at time t0 one can show that there are no zeroes Ht (x + iy) = 0 in
+  the 'canopy' 0 <= x < infinity, y0 <= y <= 1, then a theorem of de Bruijn allows one
+  to conclude the desired bound..."); the repo's own test references are the stronger
+  machine-checkable target for the same goal (reproduce Polymath15 numerics).
