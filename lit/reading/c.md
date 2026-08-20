@@ -1,5 +1,5 @@
 # Track C seed reading list (explicit constant re-optimization)
-gate: CLOSED
+gate: OPEN
 
 Seeds must be fetched and carded before this track opens.
 

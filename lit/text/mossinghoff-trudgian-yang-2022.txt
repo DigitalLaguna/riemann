@@ -1,0 +1,3002 @@
+arXiv:2212.06867v1 [math.NT] 13 Dec 2022
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN
+ZETA-FUNCTION
+MICHAEL J. MOSSINGHOFF, TIMOTHY S. TRUDGIAN, AND ANDREW YANG
+
+Abstract. We prove that the Riemann zeta-function ζ(σ + it) has no zeros in
+the region σ ≥ 1 − 1/(55.241(log|t|)2/3 (log log|t|)1/3 ) for |t| ≥ 3. In addition,
+we improve the constant in the classical zero-free region, showing that the
+zeta-function has no zeros in the region σ ≥ 1 − 1/(5.558691 log|t|) for |t| ≥ 2.
+We also provide new bounds that are useful for intermediate values of |t|.
+Combined, our results improve the largest known zero-free region within the
+critical strip for 3 · 1012 ≤ |t| ≤ exp(64.1) and |t| ≥ exp(1000).
+
+1. Introduction
+Let ζ(s) denote the Riemann zeta-function, where s = σ + it is a complex
+variable. All non-trivial zeros of ζ(s) lie in the critical strip with 0 < σ < 1.
+Determining regions in the critical strip that are devoid of zeros of ζ(s) is of great
+interest in number theory. Such regions take the shape σ ≥ 1 − 1/f (|t|) for some
+function f (t) tending to infinity with t. The so-called classical zero-free region has
+f (t) = R0 log t, where R0 is a positive constant. An asymptotically larger region,
+proved by Korobov [17] and Vinogradov [30], has f (t) = R1 (log t)2/3 (log log t)1/3 ,
+for some constant R1 > 0.
+Considerable effort has been made to make these results explicit, and we briefly
+recall the sharpest zero-free regions known. For the Korobov–Vinogradov region, in
+2000 Ford [9] (see also [10] for minor corrections) established two explicit bounds,
+one holding for essentially all t, and a larger one holding for sufficiently large t. In
+the former case, Ford proved that there are no zeros of ζ(s) in the region
+σ ≥1−
+
+1
+57.54(log|t|)2/3 (log log|t|)1/3
+
+,
+
+|t| ≥ 3.
+
+(1.1)
+
+In the latter case, Ford showed that there are no zeros when t is sufficiently large
+and
+1
+σ ≥1−
+.
+(1.2)
+49.13(log|t|)2/3 (log log|t|)1/3
+This was recently slightly improved by Nielsen [19], who showed that there are no
+zeros with
+1
+σ ≥1−
+(1.3)
+2/3
+49.08(log|t|) (log log|t|)1/3
+Date: December 15, 2022.
+2010 Mathematics Subject Classification. Primary: 11M26, 42A05; Secondary: 11Y35.
+Key words and phrases. Riemann zeta-function, zero-free region, non-negative trigonometric
+polynomials, simulated annealing.
+The second author was partially supported by Australian Research Council Future Fellowship
+FT160100094.
+1
+
+2
+
+M. J. MOSSINGHOFF, T. S. TRUDGIAN, AND A. YANG
+
+for sufficiently large |t|. For the classical region, in 2015 the first two authors [18]
+proved that the region
+1
+σ ≥1−
+, |t| ≥ 2
+(1.4)
+5.573412 log|t|
+is devoid of zeros of the zeta-function. This region is wider than that of (1.1) for
+all |t| ≤ exp(10151.5).
+We improve (1.1), (1.3) and (1.4) in this article. For the first of these, we
+establish the following theorem.
+Theorem 1.1. There are no zeros of ζ(σ + it) for |t| ≥ 3 and
+1
+σ ≥1−
+.
+2/3
+55.241(log|t|) (log log|t|)1/3
+
+(1.5)
+
+Our improvement in Theorem 1.1 over (1.1) is a result of several ingredients.
+• We employ a trigonometric polynomial of large degree: this produces our
+largest improvement.
+• We optimize the choice of certain parameters to account for secondary error
+terms.
+• We use improved intermediate zero-free regions to cover medium-sized t
+values where the argument for the asymptotic region does not perform as
+well.
+• We employ sharper explicit estimates on the growth of the zeta-function in
+the critical strip.
+• We use a new height up to which the Riemann hypothesis (RH) has been
+proved.
+It appears substantially more difficult to improve the constant in the asymptotic region (1.3). We identify three potential avenues of improvement: using a
+better smoothing function, finding a more favorable trigonometric polynomial, and
+improving the constant B in Richert’s bound—see (3.1). In [12] and [32], improvements related to the first approach have been largely explored. In this work, we
+exploit the second method to produce the following improvement.
+Theorem 1.2. For sufficiently large |t|, there are no zeros of ζ(σ + it) with
+1
+σ ≥1−
+.
+(1.6)
+2/3
+48.1588(log|t|) (log log|t|)1/3
+We remark that Nielsen’s result (1.3) improved (1.2) by replacing a particular
+trigonometric polynomial that was used in Ford’s argument. Ford used a polynomial of degree 4, while Nielsen adopted one of degree 5 (see Section 3.3). We
+use polynomials of substantially larger degree here for our improvements. Also, we
+mention that Khale [16] recently established analogues of Theorems 1.1 and 1.2 for
+Dirichlet L-functions. While some of the ingredients we employ in this article do
+not appear to be suitable for use with Dirichlet L-functions, we note that the use
+of higher-degree trigonometric polynomials may lead to some improvements in [16].
+For the classical region, in [18] the inequality (1.4) was established by extending
+some work of Kadiri [15] by constructing a more favorable trigonometric polynomial,
+by optimizing some analytic arguments, and by employing the verification of RH
+up to 3.06 · 1010 from [22]. It was also recorded in [18] that if RH were verified
+for |t| ≤ 3 · 1011 , then the constant in (1.7) could be replaced by 5.5666305, and
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN ZETA-FUNCTION
+
+3
+
+this is now permissible due to the verification performed in [24]. We take the
+opportunity here to record a further improvement for the classical region, using
+two ideas. First, RH was verified for |t| ≤ 3 · 1012 in [24]. Second, in 2014, Jang
+and Kwon [13] derived another improvement to Kadiri’s result by different means,
+involving the replacement of a particular smoothing function employed in [15], and
+we incorporate this as well. We prove the following theorem.
+Theorem 1.3. There are no zeros of ζ(σ + it) for |t| ≥ 2 and
+σ ≥1−
+
+1
+.
+5.558691 log|t|
+
+(1.7)
+
+We remark that the region (1.7) is wider than that of (1.5) for |t| < exp(8928).
+In order to obtain a good constant in Theorem 1.1, it is necessary to deduce
+another zero-free region to cover medium-sized values of t, in addition to (1.7).
+We obtain such a zero-free region by using bounds on the growth rate of the zetafunction on the half-line and establish the following theorem.
+Theorem 1.4 (Intermediate zero-free region). There are no zeros of ζ(σ + it) for
+|t| ≥ exp(1000) and
+0.05035 0.0349
++ 2
+,
+σ >1−
+h(t)
+h (t)
+27
+where h(t) = 164
+log|t| + 7.096.
+
+We record one additional result of Ford: from [9, Thm. 3], we see that if t ≥
+1.88 · 1014 then ζ(σ + it) 6= 0 for
+σ ≥1−
+
+0.0196
+0.04962 − J(t)+1.15
+
+J(t) + 0.685 + 0.155 log log t
+
+,
+
+(1.8)
+
+where J(t) = 16 log t + log log t + log 3.
+By combining these results, we may summarize the largest known zero-free region
+for the Riemann zeta-function within the critical strip for each height t. For |t| ≤
+3 · 1012 , all zeros are known to lie on the critical line. The region of Theorem 1.3
+provides the best known bound for 3 · 1012 < |t| ≤ exp(64.1), then for exp(64.1) <
+|t| ≤ exp(1000) the expression (1.8) produces the widest region. After this, for
+exp(1000) < |t| ≤ exp(52238), Theorem 1.4 is best, and for |t| > exp(52238) the
+result of Theorem 1.1 produces the widest known region.
+This article is organized in the following manner. Section 2 lists some immediate applications of our results. Section 3 reviews some results we require from the
+literature. Section 4 contains a number of lemmas that we require for the proofs
+of our main theorems. Section 5 contains the proof of Theorem 1.1. Section 6
+describes the proof of Theorem 1.4, and Section 7 has the proof of Theorem 1.2.
+Section 8 summarizes our computations for determining the constants in Theorems 1.1 and 1.2. Section 9 describes the improvement in the classical region for
+Theorem 1.3, and Section 10 suggests some potential future work.
+2. Some immediate applications
+One application of Theorem 1.1 concerns the existence of primes between successive cubes. Dudek [6] used (1.1) to show that there exists a prime between n3
+
+4
+
+M. J. MOSSINGHOFF, T. S. TRUDGIAN, AND A. YANG
+
+and (n + 1)3 for all n ≥ exp(exp(33.3)). This was subsequently improved by CullyHugill [4] to all n ≥ exp(exp(32.892)). By substituting Theorem 1.1 into [4, §4] and
+choosing α = 1/3+10−13 , we obtain the modest improvement n ≥ exp(exp(32.76)).
+Another application is explicit bounds on the error term of the prime number
+theorem—see Johnston and Yang [14], who developed work of Platt and Trudgian
+[25] particularly with reference to the Korobov–Vinogradov zero-free region. Other
+related recent works such as [2, 3, 5, 7] required explicit zero-free regions to obtain
+precise estimates.
+As per Ford [8, p. 566], one can use Theorem 1.2 to improve on the error term
+in the prime number theorem. From the work of Pintz [21], a zero-free region like
+that in (1.6) with c in place of 48.1588 shows that
+π(x) − li(x)  x exp{−d(log x)3/5 (log log x)−1/5 },
+where
+
+d=
+
+56
+2
+2 · 34 · c3
+
+1/5
+.
+
+With c = 48.1588 from Theorem 1.2, we obtain d ≥ 0.2123, improving on the
+current best value of 0.2098.
+3. Preliminaries
+To assist in our argument we review the following results from the literature.
+3.1. Bounds on ζ(s) near the 1-line. The underlying philosophy in furnishing
+zero-free regions is to estimate ζ(s) in a region close to the line σ = 1. Richert’s
+theorem [27] (see also [29, p. 135]), accomplishes this by proving that there exist
+positive constants A and B for which
+3/2
+
+|ζ(σ + it)| ≤ A|t|B(1−σ)
+
+(log|t|)2/3 ,
+
+|t| ≥ 3,
+
+1
+≤ σ ≤ 1.
+2
+
+(3.1)
+
+Ford [8] obtains a relatively small value of B while maintaining a completely explicit
+value of A: in (3.1) one can take A = 76.2 and B = 4.45. We remark in passing
+that the advances made in [26] may be applied to Ford’s paper [8], and should lead
+to a slight reduction in the value of B in (3.1).
+We also require bounds on ζ(s) slightly to the right of σ = 1. A result recorded
+in Bastien and Rogalski [1], originally due to O. Ramaré, states that for σ > 1, we
+have
+eγ(σ−1)
+ζ(σ) ≤
+,
+(3.2)
+σ−1
+where γ is Euler’s constant. Using the Maclaurin series for ex one sees that the
+approximation in (3.2) is very good.
+3.2. Bounds on ζ(s) on the half-line. We recall the recent sub-Weyl bound due
+to Patel [20]: for |t| ≥ 3, we have
+|ζ( 12 + it)| ≤ 307.098|t|27/164 .
+This is required in the proof of Theorem 1.4 in Section 6.
+
+(3.3)
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN ZETA-FUNCTION
+
+5
+
+3.3. Trigonometric polynomials. For any K ≥ 2, let
+PK (x) =
+
+K
+X
+
+bk cos(kx)
+
+k=0
+
+where bk are constants such that bk ≥ 0, b1 > b0 and PK (x) ≥ 0 for all real x. We
+refer to PK (x) as a Kth degree non-negative trigonometric polynomial. Choosing a
+favorable PK plays an integral part in determining the size of the zero-free region:
+see [18] for a detailed history of this problem.
+In [9], Ford employed the degree 4 polynomial
+P4 (x) = (0.225 + cos x)2 (0.9 + cos x)2 ,
+
+(3.4)
+
+while Nielsen [19] adopted the degree 5 function
+P5 (x) = (1 + cos x)(0.1974476 . . . + cos x)2 (0.8652559 . . . + cos x)2 .
+
+(3.5)
+
+We employ simulated annealing in a large-scale search to determine favorable
+trigonometric polynomials of higher degree. We utilize two polynomials in this
+article. Theorem 1.1 relies on a polynomial P40 (x) with degree 40 having
+b0 = 1,
+
+b1 = 1.74600190914994,
+
+b=
+
+40
+X
+
+bk = 3.56453965437134,
+
+(3.6)
+
+k=1
+
+while Theorem 1.2 employs a polynomial P46 (x) with degree 46 where
+b0 = 1,
+
+b1 = 1.74708744081848,
+
+b=
+
+46
+X
+
+bk = 3.57440943022073.
+
+(3.7)
+
+k=1
+
+We show the full polynomials in Tables 1 and 2 in Section 8, and provide details
+there on the process used to find these polynomials as well as a justification that
+they are non-negative.
+3.4. Estimates of the zero-counting function. We also require bounds on the
+error term of estimates of N (T ), the number of zeros of ζ(s) with 0 ≤ t < T . For
+large T , the current best known explicit result is due to Hasanalizade, Shen and
+Wong [11, Cor. 1.2], who proved that
+N (T ) −
+
+T
+T
+log
+≤ 0.1038 log T + 0.2573 log log T + 9.3675
+2π
+2πe
+
+(3.8)
+
+for all T ≥ e. The bound in (3.8) can be improved in the region where RH is known
+to hold [24], and for some intermediate values of T as well using [23]. Nevertheless,
+the bound in (3.8) is the best available at present for T ≥ 10410 . While that bound
+could be reduced using (3.3), it suffices for our purposes.
+4. Required lemmas
+Before proceeding to the proof of Theorem 1.1 in the next section, we review
+some useful lemmas. Throughout, let
+L1 = L1 (t) = log(Kt + 1),
+
+L2 = L2 (t) = log log(Kt + 1),
+
+where K is the degree of the trigonometric polynomial under consideration. Let b0 ,
+b1 and b be as in (3.6) or (3.7). In addition, assume throughout that (3.1) holds
+for some A, B > 0. Unless otherwise stated, our results will remain valid for all
+
+6
+
+M. J. MOSSINGHOFF, T. S. TRUDGIAN, AND A. YANG
+
+A, B > 0 for which (3.1) holds. Since ζ(s) = ζ(s), it suffices to consider only t > 0
+throughout.
+As in Ford [9], the main tool used to pass from upper bounds on ζ(s) to a zero-free
+0
+region is the “zero-detector”, which expresses −< ζζ (s) as an integral involving ζ(s)
+over two vertical lines on either side of σ = 1 (plus a small error term). Concretely,
+we have the following lemma.
+Lemma 4.1 (Zero-detector for ζ). Let s = 1 + it with t 6= 0 and ρ run through the
+non-trivial zeros of ζ(s). For all η > 0, except for a set of Lebesgue measure 0, we
+have
+Z ∞
+2ηiu
+log|ζ(s − η + 2ηiu
+1
+ζ0
+π )| − log|ζ(s + η + π )|
+du
+−< (s) =
+ζ
+4η −∞
+cosh2 u
+
+
+X
+π
+π(ρ − s)
++
+,
+< cot
+2η
+2η
+|<(s−ρ)|≤η
+
+where in the sum, each zero is counted with multiplicity.
+Proof. Follows from taking ζ(s) and s = 1 + it in Ford [9, Lemma 2.2].
+
+
+
+As is common practice, instead of working directly with Lemma 4.1, we consider
+a “mollified” version, presented in Lemma 4.2. The choice of the smoothing function
+f significantly influences the eventual zero-free region constant. As in Ford [9], we
+base our choice of f on Lemma 7.5 of Heath-Brown [12]. Jang and Kwon [13]
+obtained improvements for the classical zero-free region by choosing a different
+mollifier described in Xylouris [32], however we find that such a choice of f did
+not produce significant improvements here for the Korobov–Vinogradov zero-free
+region.
+We construct the smoothing function the same way as Ford [9], which we briefly
+review here for completeness. Given a qualifying trigonometric polynomial P (x) =
+PK
+k=0 bk cos(kx), let θ = θ(b0 , b1 ) be the unique solution to the equation
+b1
+(1 − θ cot θ) ,
+b0
+For the choice of b0 , b1 in (3.6), we compute
+sin2 θ =
+
+0<θ<
+
+π
+.
+2
+
+θ = 1.13331020636698 . . .
+
+(4.1)
+
+(4.2)
+
+and for (3.7) we find
+θ = 1.13269369969232 . . . .
+Define
+(
+(cos(u tan θ) − cos θ) sec2 θ, |u| ≤ θ cot θ,
+g(u) :=
+0,
+otherwise,
+Z ∞
+w(u) := (g ∗ g)(u) =
+g(t)g(u − t) dt,
+−∞
+
+where, in particular,
+w(0) = (θ tan θ + 3θ cot θ − 3) sec2 θ .
+
+(4.3)
+
+We then choose the smoothing function to be
+f (u) := λeλu w(λu)
+
+(4.4)
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN ZETA-FUNCTION
+
+7
+
+where λ is a positive parameter to be fixed later. Note that f (u) ≥ 0 since g(u) ≥ 0.
+We will primarily require properties about the Laplace transform of this smoothing function. Let
+Z ∞
+e−zu f (u) du
+F (z) :=
+0
+
+denote the Laplace transform of f (u), and similarly let W (z) be the Laplace transform of w(u). The function W (z) has a closed formula, given in Ford [9], which we
+state here for convenience:
+w(0)
+W (z) =
++ W0 (z),
+z
+
+
+
+c0 c2 (z + 1)2 e−2θ(cot θ)z + z 2 − 1 − c1 z − c3 z 3
+W0 (z) :=
+,
+(4.5)
+z 2 (z 2 + tan2 θ)2
+where
+1
+,
+c1 := (θ − sin θ cos θ) tan4 θ,
+c0 :=
+sin θ cos3 θ
+c2 := tan3 θ sin2 θ,
+c3 := (θ − sin θ cos θ) tan2 θ.
+In particular, via a direct substitution, we have
+csc θ(3(4θ2 − 5) + θ(15 − 4θ2 ) cot θ) − 3θ sec θ
+.
+(4.6)
+3 sin θ
+This will be useful later in the proof of Lemma 6.1. Meanwhile, for R ≥ 3, and
+using (4.5), we have
+W 0 (0) =
+
+H(R)
+,
+|z|3
+
+|W0 (z)| ≤
+
+<z ≥ −1, |z| ≥ R,
+
+where
+H(R) :=
+
+
+
+c0
+2
+
+θ
+1 − tan
+R2
+
+2
+
+
+
+c1
+(R + 1)2 2θ cot θ
+c2
+e
++ 1 + 2 + c3 .
+R3
+R
+
+This allows us to bound F0 (z) := F (z) − f (0)/z, via the identity
+
+z
+F (z) = W
+−1 ,
+λ
+which is a consequence of (4.4). We obtain, as per Ford,
+|F0 (z)| ≤ C5 (R)
+
+λf (0)
+,
+|z|2
+
+<z ≥ 0, |z| ≥ (R + 1)λ,
+
+where
+C5 (R) :=
+
+H(R)(R + 1)2
+1
++1+ .
+R3 w(0)
+R
+
+(4.7)
+
+The motivation for bounding |F0 (z)| is shown in the next lemma.
+Lemma 4.2. Let f be a non-negative, compactly supported real function with a
+continuous derivative and an absolutely convergent Laplace transform F (z) for <z >
+0, where
+Z ∞
+F (z) :=
+f (t)e−zt dt,
+0
+
+8
+
+M. J. MOSSINGHOFF, T. S. TRUDGIAN, AND A. YANG
+
+and write F0 (z) := F (z) − f (0)
+z . Suppose further that for 0 < η ≤ 3/2 we have
+|F0 (z)| ≤
+
+D
+|z|2
+
+∀ <z ≥ 0, |z| ≥ η,
+
+for some absolute constant D. If s = 1 + it with t ≥ 1000, then
+
+
+
+
+
+X Λ(n)f (log n)
+X
+π
+π(s − ρ)
+1
+<
+≤
+−
+<
+F
+(s
+−
+ρ)
++
+f
+(0)
+cot
+−
+ns
+2η
+2η
+s−ρ
+n≥1
+|1+it−ρ|≤η
+(Z
+)
+Z ∞
+∞
+log|ζ(s − η + 2ηui
+log|ζ(s + η + 2ηui
+f (0)
+π )|
+π )|
++
+du −
+du
+4η
+cosh2 u
+cosh2 u
+−∞
+−∞
+
+
+
+X
+log t
+1 
++ D 1.8 +
++
+
+3
+|s − ρ|2 
+|s−ρ|≥η
+
+(4.8)
+and
+X Λ(n)f (log n)
+n≥1
+
+n
+
+≤ F (0) + 1.8D.
+
+Proof. This follows by combining [9, Lemma 4.5] with [9, Lemma 4.6].
+
+
+
+We remark that some negligible improvements are possible if one takes t ≥ t0 for
+some t0 > 1000. These do not affect our final results, given the number of decimal
+places to which they are stated.
+We seek to determine an upper bound on linear combinations of the right side of
+(4.8). We briefly outline our approach, which follows Ford [9], while incorporating
+some improvements from Section 3. The first integral,
+Z ∞
+log|ζ(s − η + 2ηui
+π )|
+du,
+2
+cosh
+u
+−∞
+is taken on a vertical line inside the critical strip, and it can be bounded using
+Lemma 4.3 below and (3.1). This term is by far the most significant, and highlights
+the sensitivity of the resulting zero-free region to the constants A and B appearing
+in (3.1). The contour of the second integral lies outside the critical strip, and for
+this we employ Ford’s trick of combining log|ζ(·)| terms, combined with (3.2). This
+term is the subject of Lemma 4.4. Next, the sum
+X
+1
+|s−ρ|≥η
+
+|s − ρ|2
+
+is bounded with the aid of N (t, v), the number of zeros ρ with |1 + it − ρ| ≤ v. This
+is discussed in Lemmas 4.5 and 4.6. In Lemma 4.7, we combine all these results
+with the trigonometric polynomial (3.6) to establish an inequality involving the real
+and imaginary parts of a zero.
+Lemma 4.3 (Ford [9]). Suppose that, for fixed 12 ≤ σ < 1 and t ≥ 3, we have
+|ζ(σ + iτ )| ≤ XtY logZ t,
+
+∀ 1 ≤ |τ | ≤ t,
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN ZETA-FUNCTION
+
+9
+
+where X, Y, Z are positive constants and Y + Z > 0.1. If 0 < a ≤ 12 , t ≥ 100 and
+1
+−1
+, then
+2 ≤σ ≤1−t
+Z ∞
+1
+log|ζ(σ + it + iau)|
+du ≤ log X + Y log t + Z log log t.
+2 −∞
+cosh2 u
+Proof. See [9, Lemma 3.4].
+
+
+
+Lemma 4.4. Let K > 1 and bj be the coefficients of a non-negative trigonometric
+polynomial of degree K. Furthermore let t1 , t2 ∈ R and η > 0. Then
+Z ∞
+K
+X
+1
+bj log|ζ(1 + η + ijt1 + iut2 )| du ≥ −2b0 log ζ(1 + η).
+2
+−∞ cosh u j=1
+Proof. This is an immediate generalization of [9, Lemma 5.1] to degree K polynomials.
+
+Lemma 4.5. Let 0 < η ≤ 1/4 and t ≥ 100. Then
+N (t, η) ≤ 1.3478η 3/2 B log t + 0.479 +
+
+log A − log η + 32 log log t
+.
+1.879
+
+Proof. Same as in [9, Lemma 4.2].1 Using η in place of R in Ford’s treatment, we
+replace the second inequality in (4.1) of [9] with
+1
+e3.1421γη
+≤ ζ(1 + 3.1421η) ≤
+|ζ(s + 2.5η + iv)|
+3.1421η
+for real v, where the last inequality follows from (3.2). Hence, since η ≤ 1/4,
+ 3.1421γη 
+e
+log
+= 3.1421γη − log η − log 3.1421 ≤ − log η − 0.6914.
+3.1421η
+The constant to replace the 0.49 appearing in [9, Lemma 4.2] is then
+
+
+1
+0.6914
+1
+−
+≤ 0.479,
+0.3758 3.1421
+5
+and the result immediately follows from this.
+
+(4.10)
+
+
+Lemma 4.6. Suppose t ≥ 10000 and 0 < η ≤ 1/4. Then
+
+
+
+X
+1
+1
+≤ 5.409 + 5.392B √ − 2 log t + 206.7
+|1 + it − ρ|2
+η
+|1+it−ρ|≥η
+
+
+1 log A − log η + 23 log log t
++ 2
++ 0.213 − N (t, η) .
+η
+1.879
+1We take this opportunity to correct a minor oversight in the corresponding statement in [9].
+There, in our notation the hypothesis required 0 < η ≤ 1/4, and then the inequality
+
+ζ(σ) ≤ 0.6 +
+
+1
+,
+σ−1
+
+1 < σ ≤ 1.06
+
+(4.9)
+
+from [9, Lemma 3.1] was used with σ = 1 + 3.1421η, so here one should require 0 < η ≤ 0.019 . . .
+instead. This does not affect subsequent work: this lemma was employed in the proof of [8,
+Thm. 2] where η was restricted by 0 < η ≤ 0.01. In our treatment, we retain the condition
+0 < η ≤ 1/4, and opt to achieve a result of similar strength by using (3.2) in place of (4.9).
+
+10
+
+M. J. MOSSINGHOFF, T. S. TRUDGIAN, AND A. YANG
+
+Proof. We proceed in the same manner as [9, Lemma 4.3], except we use (3.8) in
+place of a classical inequality of Rosser [28]. In addition, we propagate the new
+constant (4.10) in the bound for N (t, η) through to this bound, where we obtain
+0.479 −
+
+1
+≤ 0.213.
+2(1.879)
+
+
+
+Equipped with these lemmas, we are now prepared to form an inequality involving the real and imaginary parts of a zero ρ = β + it.
+Lemma 4.7. Let 0 < η ≤ 1/4 and R ≥ 3 be constants. Suppose β + it is a zero
+satisfying t ≥ 10000 and 1 − β ≤ η/2. Further, suppose that there are no zeros in
+the rectangle
+1 − λ < <s ≤ 1, t − 1 ≤ =s ≤ Kt + 1,
+where λ is a constant satisfying 0 < λ ≤ min {1 − β, η/(R + 1)}. If b0 , b1 and b are
+constants associated with a degree K non-negative trigonometric polynomial, then
+
+
+
+W 0 (0)b1 1 − β
+b1 1 − β
+1
+cos2 θ −
+−1
+≤ 0.087π 2
+λ
+w(0)b0
+λ
+b0 η 2
+ 
+
+
+b 2
+1
+L2 + Bη 3/2 L1 + log A + log ζ(1 + η)
++
+2η b0 3
+
+
+
+
+b
+1
+L1
++ C5 (R) λ
++ 5.409 + 5.392B √ − 2 L1 + 209.1
+b0
+3
+η
+
+
+2
+1 log(A/η) + 3 L2
++ 2
++ 0.213 ,
+η
+1.879
+with C5 (R), w(0) and W 0 (0) are defined in (4.7), (4.3) and (4.6) respectively.
+Proof. We follow the argument of [9, Lemma 7.1], using our Lemma 4.6 instead
+of [9, Lemma 4.3], using Lemma 4.4 in place of [9, Lemma 5.1], and using the
+trigonometric polynomial (3.6) instead of (3.4).
+
+To form an explicit zero-free region for ζ(s), we apply Lemma 4.7 with η as a
+fixed function of t. The rate at which η → 0 as t → ∞ determines the shape and
+width of the zero-free region. We choose, as in [9],
+
+2/3
+L2
+η(t) := E
+(4.11)
+BL1
+for some constant E > 0. Ultimately, we take
+E := 1.8821259
+in order to attain the constant of 55.241 appearing in Theorem 1.1. This choice
+replaces that of
+ 
+2/3
+4
+b0
+E=
+1+
+,
+(4.12)
+3
+b
+appearing in Ford [9], where b0 and b are constants from the trigonometric polynomial in (3.6). Ford’s choice minimizes the asymptotic zero-free region constant,
+whereas we choose E to minimize the zero-free region constant holding for all t ≥ 3.
+The difference between our choices reflects the presence of a secondary error term
+that decreases as E increases, and which is significant for small values of t.
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN ZETA-FUNCTION
+
+11
+
+5. Proof of Theorem 1.1
+We divide our argument into four sections depending on the size of t. Throughout, let
+1
+ν(t) :=
+.
+2/3
+55.241(log t) (log log t)1/3
+First, for 3 ≤ t ≤ H := 3 · 1012 , we use the rigorous verification of RH up to height
+H in [24]. Next, for H ≤ t < exp(8928), the desired result follows immediately
+from Theorem 1.3, since
+1
+≥ ν(t), H ≤ t < exp(8928).
+5.558691 log t
+For exp(8928) ≤ t < exp(52238), we use Theorem 1.4, combined with the observation that
+0.05035 0.0349
+− 2
+> ν(t)
+h(t)
+h (t)
+for this range of t, where h(t) is defined in Theorem 1.4. The proof for t ≥
+exp(52238) forms the main part of our argument. For convenience, let
+T0 := exp(52238),
+
+M1 := 0.048976.
+
+Define the function
+Z(β, t) := (1 − β)B 2/3 (log t)2/3 (log log t)1/3
+
+(5.1)
+
+and let
+M :=
+
+inf
+
+Z(β, t).
+
+(5.2)
+
+ζ(β+it)=0
+t≥T0
+
+If M ≥ M1 , then we are done, since if β + it is a zero with t ≥ T0 , then
+M1 ≤ M ≤ (1 − β)B 2/3 (log t)2/3 (log log t)1/3
+and B 2/3 /M1 < 55.241. Assume for a contradiction that
+M < M1 .
+
+(5.3)
+
+We will show that this implies M ≥ M1 . Under assumption (5.3), there is a zero
+β + it such that t ≥ T0 and for which Z(β, t) is arbitrarily close to M . In particular,
+we may take a zero satisfying
+ −100
+
+10
+M1 − M
+M ≤ Z(β, t) ≤ M (1 + δ), δ := min
+,
+.
+(5.4)
+log T0
+2M
+Note in particular that Z(β, t) < M1 . Next, let
+λ := λ(t) =
+
+M
+B 2/3 L1 2/3 L2 1/3
+
+.
+
+There are no zeros of ζ(s) in the rectangular region
+1 − λ < <s ≤ 1,
+0
+
+t − 1 ≤ =s ≤ Kt + 1.
+
+0
+
+(5.5)
+0
+
+0
+
+This is because if a zero β + it exists in that region, then log t ≤ L1 (t ) and
+log log t0 ≤ L2 (t0 ), so
+1 − β 0 < λ(t0 ) ≤
+
+M
+,
+B 2/3 (log t0 )2/3 (log log t0 )1/3
+
+12
+
+M. J. MOSSINGHOFF, T. S. TRUDGIAN, AND A. YANG
+
+i.e., Z(β 0 , t0 ) < M and t0 ≥ t − 1 ≥ T0 − 1. However, if t0 ∈ [T0 − 1, T0 ) then by
+Theorem 1.4,
+0.05035 0.0349
+0.05035 0.0349
+− 2 0 ≥
+− 2
+h(t0 )
+h (t )
+h(T0 )
+h (T0 )
+M1
+M1
+≥ 2/3
+> 2/3
+2/3
+1/3
+0
+2/3
+B (log(T0 − 1)) (log log(T0 − 1))
+B (log t ) (log log t0 )1/3
+
+1 − β0 ≥
+
+so that Z(β 0 , t0 ) ≥ M1 > M , a contradiction. Note that the third inequality is
+verified by a numerical computation. On the other hand if t0 ∈ [T0 , Kt + 1], then
+by (5.2) we also arrive at a contradiction. Thus any zero β + it must satisfy
+λ ≤ 1 − β,
+
+(5.6)
+
+thereby proving claim (5.5).
+Next, we choose η = EB −2/3 (L2 /L1 )2/3 , as in (4.11), with E = 1.8821259. This
+choice gives, for all t ≥ T0 ,
+λ≤
+
+M1
+M1
+η
+=η·
+,
+<
+2/3 1/3
+2/3
+EL
+417.48
+2
+B L1 L2
+
+(5.7)
+
+where the last inequality follows from K = 40 and t ≥ T0 . Furthermore, using
+Z(β, t) < M1 we have that for all t ≥ T0 ,
+2/3
+
+1−β <
+
+EL2
+η
+M1
+<
+< ,
+2/3
+2/3
+1/3
+2/3
+2/3
+2
+B (log t) (log log t)
+417.48B L1
+
+Finally, by substituting the values of E, T0 and K, we have
+
+2/3
+E
+L2 (T0 )
+1
+η ≤ 2/3
+< .
+L1 (T0 )
+4
+B
+
+(5.8)
+
+(5.9)
+
+Collecting (5.6), (5.7), (5.8) and (5.9), we see that all of the requirements of
+Lemma 4.7 are met with R = 416. Substituting b0 = 1, b1 = 1.74600190914994,
+b = 3.56453965437134, K = 40 (from (3.6)) into Lemma 4.7 and computing numerically the values of w(0) and W 0 (0), we obtain
+
+
+
+b
+1
+1−β
+−1
+≤ 1.5T1 + T2 + C5 (R) T3 ,
+(5.10)
+0.17949 − 0.20466
+λ
+λ
+b0
+where
+1−β
+,
+η2
+ 
+
+
+1 b 2
+3/2
+T2 :=
+L2 + Bη L1 + log A + log ζ(1 + η) ,
+2η b0 3
+"
+
+
+
+L1
+1
+T3 := λ
++ 5.409 + 5.392B √ − 2 L1 + 209.1
+3
+η
+
+#
+1 log A − log η + 32 L2
++ 2
++ 0.213
+.
+η
+1.879
+T1 :=
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN ZETA-FUNCTION
+
+13
+
+We proceed by bounding each of the terms T1 , T2 and T3 . First, using (5.1) we find
+ 4/3
+B 4/3 L1
+Z(β, t)
+·
+T1 = 2/3
+L2
+B (log t)2/3 (log log t)1/3 E 2
+ 2/3 
+2/3
+2/3
+L1
+L1
+1
+M1 B
+(5.11)
+·
+·
+≤
+2/3
+E2
+L2
+log t
+L2 (log log t)1/3
+ 2/3
+M1 B 2/3 L1
+≤ κ1
+,
+E2
+L2
+where, since t ≥ T0 ,
+
+κ1 =
+
+L1 (T0 )
+L2 (T0 )
+
+2/3
+·
+
+1
+(log T0 )2/3 (log log T0 )1/3
+
+.
+
+Next, using (3.2) and (5.9), we have
+log ζ(1 + η) ≤ γη − log η ≤
+
+2
+2
+B
+κ2 E
+L2 + log
+− log E + 2/3 ,
+3
+3
+L2
+B
+
+where
+
+κ2 := γ
+
+L2 (T0 )
+BL1 (T0 )
+
+2/3
+.
+
+Hence
+ 
+
+
+2
+2
+B
+1 b 2
+κ2 E
+L2 + Bη 3/2 L1 + log A + L2 + log
+− log E + 2/3
+2η b0 3
+3
+3
+L2
+B
+
+
+
+
+1/2
+b
+1
+bE
+2/3 1/3
+=
++1 +
+B 2/3 L1 L2
+3E b0
+2b0
+
+
+2/3
+b
+B
+1
+2
+κ2 E
+L
++
+log A + log
+− log E + 2/3 B 2/3 12/3 .
+2E b0
+3
+L2
+B
+L2
+(5.12)
+
+T2 ≤
+
+Next, we have
+"
+
+!
+ 1/3
+5.392B 4/3 L1
+κ3 +
+− 10.784B L1
+T3 ≤
+2/3 1/3
+L2
+E 1/2
+B 2/3 L1 L2
+)#
+
+4/3 (
+log A + 43 L2 + 23 log LB2 − log E
+1
+BL1
++ 2
++ 0.213
+E
+L2
+1.879
+(5.13)
+
+2/3 "
+ 1/3
+BL1
+5.392
+4
+κ3 − 10.784B L2
+= M1
++
++
+L2
+5.637E 2
+L1
+E 1/2
+B 4/3
+(
+)
+#
+log A + 23 log LB2 − log E
+1
++ 2
++ 0.213
+,
+E L2
+1.879
+M1
+
+where, since t ≥ T0 and L1 (T0 ) > log(KT0 ), we may take
+κ3 =
+
+1
+209.1
++ 5.409 +
+.
+3
+log K + log T0
+
+14
+
+M. J. MOSSINGHOFF, T. S. TRUDGIAN, AND A. YANG
+
+Last, we have
+
+2/3 
+1/3
+1−β
+L1
+L2
+− 1 ≤ (1 + δ)
+−1
+λ
+log t
+log log t
+
+
+10−100
+L1
+κ4
+< 1+
+−1≤
+,
+log T0 log t
+log T0
+
+(5.14)
+
+where, since t ≥ T0 ,
+
+
+log(K + T0−1 )
++ log(K + T0−1 ).
+κ4 := 10−100 1 +
+log T0
+Combining (5.10), (5.12), (5.13), (5.11) and (5.14), we conclude
+
+
+
+
+
+1
+0.20466κ4
+1
+1−β
+0.17949 −
+≤
+0.17949 − 0.20466
+−1
+λ
+log T0
+λ
+λ
+
+
+ 
+1 b 2
+1−β
+3/2
+L2 + Bη L1 + log A + log ζ(1 + η)
+≤ 1.5 2 +
+η
+2η b0 3
+
+
+
+
+b
+1
+L1
++ C5 (R) λ
++ 5.409 + 5.392B √ − 2 L1 + 209.1
+b0
+3
+η
+
+
+2
+1 log A − log η + 3 L2
++ 2
++ 0.213
+η
+1.879
+
+ 2/3 
+
+
+1.5κ1 M1 B 2/3 L1
+1
+b
+bE 1/2
+1/3
+≤
++1 +
++
+(BL1 )2/3 L2
+E2
+L2
+3E b0
+2b0
+
+
+2/3
+b
+B
+BL1
+1
+2
+κ2 E
++
+log A + log
+− log E + 2/3
+2E b0
+3
+L2
+L2
+B
+ 1/3
+2/3 "
+
+κ3 − 10.784B L2
+5.392
+4
+b
+BL1
++
++
++ C5 (R) M1
+b0
+L2
+5.637E 2
+L1
+E 1/2
+B 4/3
+)#
+(
+B
+2
+log A + 3 log L2 − log E
+1
++ 2
++ 0.213
+.
+E L2
+1.879
+At this point we substitute the values A = 76.2, B = 4.45, K = 40, b0 = 1,
+b = 3.56453965437134, M1 = 0.048976, E = 1.8821259 and R = 416, and using
+(4.2) and (4.7) to compute C5 (R), we obtain
+
+
+1
+0.755
+1/3
+0.17949 −
+≤ (BL1 )2/3 L2 [3.25351 + Y (t)]
+λ
+log T0
+where
+Y (t) :=
+
+4.940431 0.136899
+1.031863
+0.177104 log L2
+0.0179076 log L2
++
+− 1/3 2/3 −
+−
+.
+L2
+L22
+L
+L22
+2
+L L
+1
+
+2
+
+A short Mathematica computation is used to verify that Y (t) is decreasing for
+t ≥ T0 .2 Therefore, Y (t) ≤ Y (T0 ) < 0.4110503. However, from the definition of λ
+2Our monotonicity argument is used to overcome a small issue in Ford’s [9] treatment (after
+
+corrections in [10]). In (8.9), the following inequality was used:
+
+
+0.04893
+2
+B
+B
+log A + log
+≤ 0.0048 log A + 0.0031 log
+,
+L2
+3
+L2
+L2
+
+t ≥ exp(30000).
+
+This should be reversed if t is sufficiently large, as both sides of the inequality are negative.
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN ZETA-FUNCTION
+
+15
+
+together with t ≥ T0 , we have
+0.17949 − 0.755/ log T0
+3.25351 + Y (t)
+0.17949 − 0.755/52238
+≥
+> 0.04897601 > M1 ,
+3.25351 + 0.4110503
+
+M = λB 2/3 L1 2/3 L2 1/3 ≥
+
+(5.15)
+
+hence we have arrived at the desired contradiction.
+6. Proof of Theorem 1.4
+The proof of this theorem is similar to that of Theorem 1.1. Instead of bounding
+ζ(s) on σ = 1±η(t), we use upper bounds on ζ(s) on the lines σ = 1/2 and σ = 3/2,
+i.e., η is fixed at 1/2. The main disadvantage of this new scheme is that the best
+known bounds of ζ(1/2 + it) are of order tθ+ for some fixed θ > 0, which means
+that the resulting zero-free region will only have width O(1/ log t). Nevertheless,
+the resulting zero-free region has a better asymptotic constant than (1.4), so we
+use this result to cover the range exp(8928) ≤ t ≤ exp(52238).
+Throughout this section, let us define
+J(t) :=
+
+27
+log t + log 307.098.
+164
+
+(6.1)
+
+This is the logarithm of the sub-Weyl bound in (3.3). First, we require the following
+lemma, which corresponds to Lemma 4.7 for this zero-free region.
+Lemma 6.1. Suppose ζ(β + it) = 0 where t ≥ exp(1000) and β ≥ 1 − 1712−1 . Let
+b, b0 and K be defined in (3.6). Suppose there exists λ ∈ (0, 1 − β] such that there
+are no zeros in the rectangle
+1 − λ < <s ≤ 1,
+
+t − 1 ≤ =s ≤ Kt + 1.
+
+Then
+
+
+
+1
+1−β
+b
+0.17949 − 0.20466
+−1
+≤ 5.746(1 − β) + J(Kt + 1) + 0.851
+λ
+λ
+b0
+b
++ 1.0146λ (3.5691L1 + 5.316L2 + 18.439),
+b0
+where J(t) is defined in (6.1).
+Proof. We largely follow the argument of [9, Lemma 9.2]. The main changes are to
+replace Ford’s definition of J(t) with (6.1), use a better trigonometric polynomial,
+increase the height from which the zero-free region takes effect (to improve its
+constants) and more carefully bound some secondary terms that arise.
+1
+−1 ≥ 855, so that η ≤ 856λ. Using the trigonometric polynomial
+Let R := 2(1−β)
+(3.6), and with C5 (R) as defined in (4.7), we have C5 (R) ≤ 1.0146. Suppose that
+|z| ≥ (R + 1)λ. By the lemma’s assumptions, this implies |z| ≥ 1/2 and hence, as
+in Section 4,
+|F0 (z)| ≤ C5 (R)
+
+λf (0)
+1.0146λf (0)
+≤
+,
+|z|2
+|z|2
+
+<z ≥ 0, |z| ≥ (R + 1)λ.
+
+16
+
+M. J. MOSSINGHOFF, T. S. TRUDGIAN, AND A. YANG
+
+Therefore the conditions of Lemma 4.2 are satisfied with D = 1.0146λf (0) and
+η = 1/2. Hence for <s = 1 and =s ≥ 1000 we have
+
+
+
+X Λ(n)f (log n)
+X
+1
+<
+≤−
+< F (s − ρ) + f (0) π cot (π(s − ρ)) −
+ns
+s−ρ
+1
+n≥1
+
+|s−ρ|≤ 2
+
+Z ∞
+
+1
+ui
+log|ζ(s − 12 + ui
+f (0)
+π )| − log|ζ(s + 2 + π )|
+du
+2
+cosh2 u
+ −∞
+
+
+X
+log t
+1 
++ D 1.8 +
++
+
+3
+|s − ρ|2 
+1
+
++
+
+|s−ρ|≥ 2
+
+(6.2)
+and
+
+∞
+X
+Λ(n)f (log n)
+n=1
+
+n
+
+≤ F (0) + 1.8D.
+
+We sum (6.2) for s = 1 + ijt for 0 ≤ j ≤ K, and using log(jt) ≤ L1 and the subWeyl bound (3.3) on the line σ = 1/2, along with the fact that J(t) is increasing,
+we find
+
+
+K
+K
+∞
+∞
+X
+X
+X
+X
+Λ(n)
+Λ(n)
+f (log n) 
+bj cos(jt log n) = <
+bj
+f (log n)
+0≤
+1+ijt
+n
+n
+n=1
+n=1
+j=0
+j=0
+≤ −<
+
+K
+X
+
+X
+
+bj
+
+
+
+
+F (1 + ijt − ρ) + f (0) π cot(π(1 + ijt − ρ)) −
+
+|1+ijt−ρ|≤ 21
+
+j=0
+
+1
+1 + ijt − ρ
+
+Z ∞
+K
+log|ζ( 32 + ijt + ui
+1X
+π )|
++ bf (0)J(Kt + 1) −
+bj
+du + b0 F (0)
+2
+2 j=1
+cosh u
+−∞
+
+
+
+K
+
+ 
+X
+X
+1
+L1
+bj
++ 1.8b0 +
+. (6.3)
++ D b 1.8 +
+
+3
+|1 + ijt − ρ|2 
+1
+j=1
+|1+ijt−ρ|≥ 2
+
+We now seek an upper bound for the right side of (6.3), following largely the same
+arguments as Ford. First, as in the proof of [9, Thm. 3], we have
+
+
+Z
+K
+X
+1 ∞
+1
+3
+iu
+−
+b
+log
+ζ
++
+ijt
++
+du ≤ 0.851b0 .
+j
+2 −∞ cosh2 u j=1
+2
+π
+Note that this bound relies on special properties of ζ(s) on the line σ = 3/2, and
+is sharper than what Lemma 4.4 implies. Next, by [9, eq. (9.2)], we have
+K
+X
+j=1
+
+X
+
+bj
+
+1
+|1
++
+ijt
+− ρ|2
+1
+
+|1+ijt−ρ|≥ 2
+
+≤
+
+K
+X
+
+
+
+
+1
+bj 3.2357 log(jt) + 5.316 log log(jt) + 16.134 − 4N jt,
+2
+j=1
+
+≤ b [3.2357L1 + 5.316L2 + 16.134] − 4
+
+K
+X
+j=1
+
+
+bj N
+
+jt,
+
+1
+2
+
+
+.
+
+(6.4)
+
+
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN ZETA-FUNCTION
+
+17
+
+In [9, Lemma 7.1] it is established, via the maximum modulus principle, that if
+<z ≥ πλ and |1 + ijt − ρ| ≤ 12 , then
+
+
+
+1
+− < F (1 + ijt − ρ) + f (0) π cot(π(1 + ijt − ρ)) −
+≤ cπ 2 λf (0),
+1 + ijt − ρ
+(6.5)
+where
+c :=
+
+π(1 − β)H(R)
+4
++
+.
+2
+π
+w(0)( π2 − π(1 − β))2
+
+We use (6.5) for j 6= 1. If j = 1, then 1+ijt−ρ = 1−β and cot x−x−1 ≥ −0.3334x
+for 0 < x ≤ π(1 − β), so
+
+
+
+1
+− < F (1 + it − ρ) + f (0) π cot(π(1 + it − ρ)) −
+1 + it − ρ
+(6.6)
+2
+≤ F (1 − β) − 0.3334π f (0)(1 − β).
+Combining (6.5) and (6.6), and noting that cπ 2 λf (0)b1 N (t, 21 ) ≥ 0, we find
+−<
+
+K
+X
+j=0
+
+bj
+
+X
+
+
+
+
+F (1 + ijt − ρ) + f (0) π cot(π(1 + ijt − ρ)) −
+
+|1+ijt−ρ|≤ 12
+K
+X
+
+
+bj N
+≤ −b1 F (1 − β) − 0.3334π 2 f (0)(1 − β) + cπ 2 λf (0)
+j=0
+
+1
+1 + ijt − ρ
+
+
+
+
+
+1
+jt,
+.
+2
+(6.7)
+
+Substituting (6.4), (6.5) and (6.7) into (6.3), we obtain
+K
+
+
+X
+bj N
+0 ≤ −b1 F (1 − β) − 0.3334π 2 f (0)(1 − β) + cπ 2 λf (0) − 4D
+j=1
+
+
+
+1
+jt,
+2
+
++ f (0) [bJ(Kt + 1) + 0.851b0 ] + b0 F (0)
+
+ 
+
+L1
++ 3.2357L1 + 5.316L2 + 16.134 + 1.8b0 .
++ D b 1.8 +
+3
+(6.8)
+However, from the definition of D and combined with the estimates H(R) ≤ 134.87,
+w(0) ≥ 5.64531, we have
+
+
+π(1 − β)H(R)
+2
+− 4.0584 λf (0) ≤ 0,
+(6.9)
+cπ λf (0) − 4D = 4 +
+w(0)(β − 21 )2
+so we may drop the sum in (6.8). Furthermore,
+
+
+1−β
+b0 F (0) − b1 F (1 − β) = b0 W (−1) − b1 W
+−1
+λ
+
+
+
+1−β
+= b1 W (0) − W
+−1
+− (b1 W (0) − b0 W (−1))
+λ
+
+
+
+1−β
+b0 f (0) cos2 θ
+= b1 W (0) − W
+−1
+−
+.
+(6.10)
+λ
+λ
+
+18
+
+M. J. MOSSINGHOFF, T. S. TRUDGIAN, AND A. YANG
+
+Note that W (z) is decreasing, since
+Z ∞
+Z ∞
+Z ∞
+d
+d −zu
+e−zu w(u) du =
+W 0 (z) =
+e
+w(u) du = −
+ue−zu w(u) du < 0,
+dz 0
+dz
+0
+0
+and similarly W 0 (z) is increasing. Hence by the mean-value theorem, for some
+0 < ξ < (1 − β)/λ − 1 we have
+ 
+
+
+1−β
+1−β
+−1 = 1−
+W 0 (ξ)
+W (0) − W
+λ
+λ
+
+
+1−β
+≤ 1−
+W 0 (0)
+(6.11)
+λ
+
+
+1−β
+≤ 0.6617195
+−1 ,
+λ
+where the last inequality follows from (4.6). Substituting (6.9), (6.10) and (6.11)
+into (6.8), we obtain the desired result.
+
+We now proceed to the proof of Theorem 1.4. Let J(t) be as defined in (6.1),
+and assume throughout that t ≥ t0 := exp(1000). Observe that
+
+
+27
+Kt + 1
+J(Kt + 1) − J(t) =
+log
+≤ 0.60732.
+164
+t
+We will show that if ζ(β + it) = 0 then 1 − β > c(t)(0.05035 − 0.0349c(t)), where
+c(t) :=
+
+1
+.
+J(t) + 1.3686
+
+Define Y (β, t) implicitly via the equation
+1−β =
+
+0.05035 − 0.0349c(t)
+.
+J(t) + Y (β, t)
+
+(6.12)
+
+As t → ∞, we have Y (β, t) → −∞, and M := maxt≥t0 Y (β, t) is well-defined and
+finite. If M ≤ 1.3686 then we are done, so assume that M > 1.3686, i.e., that there
+exists a zero ρ = β + it such that Y (β, t) = M > 1.3686. We pursue a contradiction
+argument as before. By our assumption, there is a rectangular region near ρ that
+is zero-free, specifically ζ(s) 6= 0 for all s satisfying
+1 − λ < <s ≤ 1
+
+and t − 1 ≤ =s ≤ Kt + 1,
+
+with
+λ=
+
+0.05035 − 0.0349c(t)
+.
+J(Kt + 1) + M
+
+Combining this with the definition of Y (β, t), we obtain
+1−β
+J(Kt + 1) + M
+J(Kt + 1) − J(t)
+0.60732
+−1=
+−1=
+≤
+.
+λ
+J(t) + M
+J(t) + M
+J(t) + M
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN ZETA-FUNCTION
+
+19
+
+Applying Lemma 6.1, we obtain
+0.05035 − 0.0349c(t)
+ λ
+
+
+b0 1
+0.60732
+≤
+0.17949 − 0.20466
+b λ
+J(t) + M
+b0
+b0
+≤ 5.746 (1 − β) + J(Kt + 1) + 0.851
+b
+b
++ 1.0146λ(3.5691L1 + 5.316L2 + 18.439),
+
+J(Kt + 1) + M =
+
+and hence, substituting the values of b0 and b, and using (6.12) with Y (β, t) >
+1.3686, we obtain
+M ≤ 1.612(1 − β) + 0.23875 + 1.0146λ (3.5691L1 + 5.316L2 + 18.439)
+≤ 0.23875 + c(t)(0.05035 − 0.0349c(t))(34.384 + 3.6227 log t + 5.3958 log log t).
+Now for t ≥ t0 = exp(1000), we have
+34.384 + 3.6227 log t + 5.3958 log log t
+≤ 3.69436 log t ≤ 22.4399(J(t) + 1.3686) =
+
+22.4399
+,
+c(t)
+
+hence M ≤ 0.23875 + 22.4399(0.05035 − 0.0349c(t)) ≤ 1.3686. This achieves our
+desired contradiction. To complete the proof, we simply note that J(t) + 1.3686 ≤
+27
+164 log t + 7.096.
+7. Proof of Theorem 1.2
+Observe that the contradiction argument in the proof of Theorem 1.1 relies on
+the inequality
+
+
+
+
+cos2 θ − Y1 (T0 )
+
+
+(7.1)
+M1 ≤ min
+bE 1/2
+b
+t≥T0  1
+
++
+1
++
++
+Y
+(t)
+3E b0
+2b0
+which appears in (5.15), where Y1 (t), Y (t) → 0 as t → ∞. If we choose E as in
+(4.12), then (7.1) is satisfied for any
+ 2/3
+
+−1/3
+4
+b0
+b0
+M1 < cos2 θ
+1+
+3
+b
+b
+so long as we take T0 sufficiently large. Also, as in [9, §1], by appealing to zerodensity theorems, the number of zeros of ζ(s) in the rectangle 3/4 ≤ <s ≤ 1,
+T0 − 1 ≤ =s ≤ T0 is O(T01−δ ) for some δ > 0, so for sufficiently large T0 , most such
+rectangles are free of zeros. Therefore, following the argument in Section 5, there
+are no zeros in the region
+σ >1−
+
+M1 B −2/3
+,
+(log|t|)2/3 (log log|t|)1/3
+
+|t| ≥ T0
+
+for sufficiently large T0 . Using the polynomial P46 (x) with values shown in (3.7),
+we conclude by noting that
+ 2/3
+
+−1/3
+4
+b0
+b0
+2
+cos θ
+1+
+B −2/3 ≥ 0.05617776B −2/3 > (48.1588)−1 . (7.2)
+3
+b
+b
+
+20
+
+M. J. MOSSINGHOFF, T. S. TRUDGIAN, AND A. YANG
+
+Remark. The value of 0.05617776 improves on 0.05507 appearing in [9] and 0.055127
+appearing in [19].
+8. Computations
+The work of Ford [9] relied in part on the selection of a trigonometric polynomial
+PK (x) with certain properties. Recall that
+PK (x) =
+
+K
+X
+
+bk cos(kx),
+
+k=0
+
+and we require that each bk ≥ 0, that b1 > b0 , and that PK (x) ≥ 0 for all real x.
+Any such polynomial gives rise to an asymptotic zero-free region of the Riemann
+zeta-function having the form
+1
+σ ≥1−
+2/3
+R2 (log|t|) (log log|t|)1/3
+when |t| is sufficiently large, and a value for the constant R2 can be computed using
+the polynomial. Let θ be the unique solution in (0, π/2) to
+b0 sin2 θ = b1 (1 − θ cot θ),
+
+(8.1)
+
+and as in (3.6) and (3.7) let
+b=
+
+K
+X
+
+bk = PK (0) − b0 .
+
+k=1
+
+Using (7.2) we may take
+R2 =
+
+1
+cos2 θ
+
+ 2/3
+1/3
+
+3
+b
+b0
+B 2/3 .
+1+
+4
+b0
+b
+
+(8.2)
+
+In [9] and [19] respectively, the polynomials (3.4) and (3.5) with degrees K = 4 and
+5 were used. Here we employ a heuristic optimization technique to determine good
+polynomials PK (x) with K > 4 that produce an improved constant R2 .
+As in [18], we apply the technique of simulated annealing to find favorable
+trigonometric polynomials PK (x) having the required properties. Suppose we have
+selected a degree K. We must guarantee that any candidate polynomial PK (x)
+have the property that PK (x) ≥ 0 for all real x. For this, instead of manipulating
+the coefficients bk of PK (x) directly, instead we maintain a list of coefficients c0 = 1,
+c1 , c2 , . . . , cK . We set
+K
+X
+g(x) =
+ck eikx
+k=0
+
+and let
+
+|g(x)|2
+.
+PK (x) = PK
+2
+j=0 cj
+Thus, b0 = 1 and for k > 0 the coefficient bk is the kth autocorrelation of the
+sequence of coefficients ck , suitably scaled:
+PK−k
+2 j=0 cj cj+k
+bk =
+.
+PK 2
+j=0 cj
+With this construction, we are assured that PK (x) ≥ 0 for all x.
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN ZETA-FUNCTION
+
+21
+
+Given K and a positive real number H, our procedure begins by setting c0 = 1
+and selecting each ck with 1 ≤ k ≤ K uniformly at random from the interval [0, H],
+and then it computes the associated coefficients bk . Then PK (x) ≥ 0 and each
+bk ≥ 0 by construction, and we need only check if b1 > b0 . If this does not hold
+we simply pick a new list of values ck and restart. We typically find a qualifying
+polynomial in short order, and we compute its associated value R2 using (8.2). We
+then employ simulated annealing to search for better polynomials from this starting
+point.
+In this process, we maintain a current maximum step size S and temperature
+T . Given these values, we perform an adjustment to our current polynomial for
+a certain number of iterations N . In each iteration, we select a positive integer
+k < K at random, and a random real value s ∈ [−S, S], then add s to ck and
+perform the O(K) operations required to update the bk values. If any bk < 0, or if
+b1 ≤ b0 , then we reject this adjustment and return ck to its prior value. Otherwise,
+we compute the value R2 for the adjusted polynomial, using Newton’s method to
+determine θ in (8.1). If the new value is smaller than our prior value, then we keep
+this adjustment and move to the next iteration. If the new value is larger than our
+prior value, then we keep the adjustment with probability depending on the current
+temperature T , otherwise we reject it and return ck to its prior value. The threshold
+probability is e−∆R2 /T , so that the likelihood of accepting a larger value for R2 is
+smaller when the change in R2 is greater, but we are more likely to accept larger
+adjustments when the temperature T is higher. For a fixed value of S, our method
+executes N iterations for each value of a decreasing sequence of temperature values
+T , culminating with the effective selection T = 0, so where only improvements to
+R2 are allowed. We repeat this for several values of S, which decay exponentially.
+We used this procedure to search for favorable polynomials with degree from
+K = 10 to K = 72. In each case we typically selected H ∈ [100, 200], step values
+S decreasing gradually from 50 or 60 and slowly decreasing to approximately 2,
+using about twelve temperature values T , and selecting N near 8000. We found
+many polynomials with R2 < 48.18, and our best polynomial has degree 46 and is
+recorded in Table 1. It produces
+R2 = 48.1587921551117,
+which we employ in the statement of Theorem 1.2. Figure 1(b) shows a plot of this
+polynomial over the interval [π/2, π].
+For the result in Theorem 1.1, we employed two similar procedures. First, we
+amended the objective function to compute a value R1 in the zero-free region for all
+|t| ≥ 3. However, each iteration of this computation was much slower, so our computations here were limited. Indeed, we restricted our searches to degrees K ≤ 28
+in this case due to the greater computational complexities. Second, we used the objective function for the asymptotic constant, and reset our parameters to allow the
+step size to decrease more rapidly while greatly increasing the number of iterations
+N per round (taking N between 105 and 106 ), as well as the number of total number searches performed per degree selection. This allowed for a much larger search,
+and we tested degrees K ≤ 55 with this strategy. Each search recorded polynomials
+optimized for the asymptotic constant R2 , then these polynomials were tested to
+determine their R1 value for Theorem 1.1. One degree-40 polynomial found with
+this procedure had an asymptotic constant of R2 ≈ 48.162, which is inferior to
+the polynomial displayed in Table 1, but it had the best value for R1 . We used
+
+22
+
+M. J. MOSSINGHOFF, T. S. TRUDGIAN, AND A. YANG
+
+Figure 1. The trigonometric polynomials employed in the proofs
+of Theorems 1.1 and 1.2 respectively, plotted over [π/2, π].
+
+(a) P40 (x)
+Table 1. P46 (x) =
+P46
+with b = k=1 bk .
+
+(b) P46 (x)
+P46
+
+P46
+
+k=0 bk cos(kx) = |
+
+k=0 ck e
+
+ikx 2
+
+| /
+
+P46
+
+2
+k=0 ck ,
+
+k
+
+ck
+
+bk
+
+k
+
+ck
+
+bk
+
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+
+1
+338.377844758599
+−219.537480547081
+−736.781312848966
+914.902037465737
+1915.78694475716
+−1310.28600595906
+−3389.853917904
+1732.46060916218
+6943.01235038993
+−278.171504957099
+−11594.9052445657
+−4279.8222109347
+14539.7736361703
+11710.3298598379
+−18824.0950949349
+−33323.9900467912
+−663.769351563045
+34162.7992046244
+7425.01374396162
+−56820.1949038606
+−60583.1989268389
+27278.3371854473
+101206.908417904
+
+1
+1.74708744081848
+1.14338015090023
+0.521864216745001
+0.132187571762225
+1.44250682908725 · 10−7
+4.69075278525482 · 10−9
+0.0141904926848435
+0.00859097729886965
+5.05758761820625 · 10−7
+4.42284301054098 · 10−10
+0.00262452919575262
+0.0018969952017721
+4.69472495111911 · 10−10
+2.18058618368512 · 10−7
+0.000818384876659817
+0.000639651965532567
+3.11262094946825 · 10−8
+7.74994211145798 · 10−7
+0.000329183630974004
+0.000268358318561904
+4.43747297378809 · 10−7
+1.87358718910571 · 10−7
+0.000151428354073652
+
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+
+49282.888742825
+−72469.9665724928
+−80343.7855839228
+130557.454262211
+456655.665589724
+686366.255781866
+690091.748824027
+504386.928024044
+256781.756010027
+60405.4597040306
+−37039.4291423529
+−49829.9664619879
+−22696.5925525196
+1689.57285600626
+9780.98700327532
+10336.0633101459
+9993.04428459519
+9558.78229646887
+7861.68784142526
+6657.72906076572
+4736.89926522741
+2233.04706685592
+504.683217557847
+
+0.000127104592072581
+1.74058423843506 · 10−7
+6.156980223188 · 10−9
+7.4923012998548 · 10−5
+6.29610657045172 · 10−5
+4.51492091998615 · 10−7
+1.76696516341167 · 10−8
+3.57616762286565 · 10−5
+2.9356535048273 · 10−5
+2.6547976338407 · 10−7
+7.39578841754684 · 10−7
+1.5703528751761 · 10−5
+1.16349907747152 · 10−5
+1.01423339047177 · 10−7
+1.71248131672039 · 10−6
+7.84636117271159 · 10−6
+5.93829512034697 · 10−6
+9.47232309558493 · 10−7
+4.84440446543232 · 10−8
+9.72548049252508 · 10−7
+8.45180184576162 · 10−7
+2.25111200007826 · 10−7
+6.56678999833493 · 10−10
+b = 3.57440943022073
+
+this polynomial as our initial state in a further annealing procedure that optimized
+for R1 to determine an additional small improvement. Our final polynomial is
+listed in Table 2. This polynomial P40 (x) produced the value R1 = 55.241 used for
+Theorem 1.1. Figure 1(a) displays a plot of this polynomial over [π/2, π].
+9. The classical zero-free region
+In 2005, Kadiri [15] established the value R0 = 5.69693 in the classical zerofree region of the Riemann zeta-function by means of a clever iterative procedure.
+This method relied in part on a particular smoothing function f (z) having certain
+properties: it was required that f ∈ C 2 [0, 1], with compact support, and having a
+Laplace transform F (z) that is non-negative on the positive real axis. Kadiri noted
+that Heath-Brown’s work on Linnik’s theorem [12] developed four families of such
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN ZETA-FUNCTION
+
+Table 2. P40 (x) =
+P40
+with b = k=1 bk .
+
+P40
+
+P40
+
+k=0 bk cos(kx) = |
+
+k=0 ck e
+
+ikx 2
+
+| /
+
+23
+
+P40
+
+2
+k=0 ck ,
+
+k
+
+ck
+
+bk
+
+k
+
+ck
+
+bk
+
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
+1
+8.70590487645377
+253.542513581082
+538.912985014916
+1421.76588050758
+3062.1230018832
+5755.1498181548
+9653.05616924715
+14967.239037407
+21237.398416925
+27168.5781338032
+31408.8257398599
+32409.0713030987
+28642.8233658012
+19217.7742754807
+6084.93971979693
+−6971.7133423118
+−16051.2777747034
+−17900.8974008674
+−10944.9022767045
+2745.65474520683
+
+1
+1.74600190914994
+1.14055431833244
+0.518966962914028
+0.130885859164882
+8.86418531143308 · 10−8
+1.79787121328335 · 10−6
+0.0137716529944408
+0.00825900683475376
+4.91544374578637 · 10−6
+2.20263007866541 · 10−6
+0.00243120523137902
+0.00172926530269636
+1.35500078722447 · 10−6
+2.20879127662495 · 10−6
+0.00069712400164774
+0.000530583559753362
+6.3973072524226 · 10−7
+5.37323136636712 · 10−7
+0.000234320877800568
+0.000177364641910045
+
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+
+14616.1664568754
+15112.6306248979
+3281.48150931095
+−9858.76392710328
+−11913.1717506499
+−2607.30174667086
+6649.42849986177
+6689.88754688983
+193.678093993709
+−3912.86637215382
+−2318.83016640653
+911.79644433382
+1499.03441911128
+159.800369623307
+−551.30680615611
+−146.185445028008
+160.626530894317
+9.7531801403406
+−46.7104974975636
+23.9407317021713
+
+4.66702819061453 · 10−7
+8.88183754657211 · 10−7
+6.61799442215331 · 10−5
+3.70153227317542 · 10−5
+6.2332255794641 · 10−8
+3.29243016002061 · 10−5
+4.89938220699415 · 10−5
+1.50988491954013 · 10−5
+1.13051732969427 · 10−7
+2.11823533257304 · 10−5
+2.13859401551174 · 10−5
+1.55071932288034 · 10−6
+1.51812185041036 · 10−6
+1.67615806595912 · 10−5
+1.60031224178442 · 10−5
+3.94634065729451 · 10−6
+4.08859029078879 · 10−7
+1.77819241241605 · 10−6
+5.06885733758335 · 10−8
+7.50406436813653 · 10−9
+b = 3.56453965437134
+
+functions, and that these were well-adapted for application to the problem of the
+(i)
+classical zero-free region. We denote these four families of functions by fη,λ,θ (t).
+Each is defined by
+(i)
+(i)
+fη,λ,θ (t) = ηhλ,θ (ηt)
+(i)
+
+for 1 ≤ i ≤ 4, where λ > 0, θ, and η are real parameters, and hλ,θ (u) are certain
+functions. Kadiri employed the fourth of these, where
+
+
+
+u
+2θ
+−θ
+(4)
+−
+cos(λu tan θ) −
+− λu
+hλ,θ (u) = λ sec2 θ λ sec2 θ
+λ tan θ
+2
+tan θ
+
+
+(9.1)
+sin(2θ + λu tan θ)
+sin(θ + λu tan θ)
+−
++2 1+
+,
+sin 2θ
+sin θ
+and one requires π/2 < θ < π. Kadiri set λ = 1 and selected θ = 1.848 in her
+analysis.
+(i)
+In 2014, Jang and Kwon [13] applied all four families of functions fη,λ,θ (u) inherited from Heath-Brown’s list to this problem, and optimized over λ and θ in each
+case. They found that some of Heath-Brown’s other functions performed slightly
+better than (9.1), and obtained a better value for R0 . Most of their improvement
+was due to the use of a larger height T0 for which RH had been verified: they
+used T0 = 3.06 · 1010 while Kadiri employed the best value known at the time,
+approximately 3.3 · 109 . However, investigation of other auxiliary functions allowed
+(i)
+them to reduce their R0 value further. They found that the four functions hλ,θ (u)
+produced in turn 5.68372, 5.68483, 5.68484, and 5.68486 with the new T0 value, so
+(1)
+among these their best result arose from hλ,θ , which is defined by
+
+
+
+θ
+u
+2θ
+(1)
+2
+2
+hλ,θ (u) = λ sec θ λ sec θ
+−
+cos(λu tan θ) +
+− λu
+λ tan θ
+2
+tan θ
+
+
+(9.2)
+sin(2θ − λu tan θ)
+sin(θ − λu tan θ)
++
+−2 1+
+,
+sin 2θ
+sin θ
+
+24
+
+M. J. MOSSINGHOFF, T. S. TRUDGIAN, AND A. YANG
+
+and one requires 0 < θ < π/2. Jang and Kwon chose λ = 1.03669 and θ = 1.13537,
+selecting these values in concert with their choice of a non-negative trigonometric
+polynomial, in order to optimize the constant with this function using Kadiri’s
+method. As in [15], Jang and Kwon selected a favorable non-negative trigonometric
+polynomial of degree 4. Jang and Kwon also employed a function h(5) from Xylouris
+(1)
+[31], which out-performed hλ,θ just slightly, producing R0 = 5.68371. This was the
+final value established in [13].
+Independent of [13], in 2015 the first two authors [18] determined an improved
+value for the constant R0 in the classical region by amending Kadiri’s method in
+different ways, and showed that R0 = 5.573412 is permissible. A small part of that
+improvement arose by employing the larger value for T0 = 3.06 · 1010 . Most of the
+gain resulted from two other changes: optimizing over a particular error term, and
+investigating admissible non-negative trigonometric polynomials of larger degree.
+A polynomial of degree 16 was constructed there by using simulated annealing with
+an appropriate objective function, and the constant R0 = 5.574312 was computed
+(4)
+using h1,θ as in [15], with an appropriate value of θ.
+We take the opportunity here to combine the ideas from [13] and [18], together
+with the recent work [25] establishing RH to the height T0 = 3 · 1012 , to record
+an improved value for the constant R0 in the classical zero-free region of the zetafunction. We employ the admissible non-negative trigonometric polynomial of de(1)
+gree 16 from [18, Table 5], the auxiliary function hλ,θ (u) from (9.2), and the new
+value for T0 . We set λ = 1 since adjusting this value did produce any further gains
+of significance, and choose θ = 1.13489. We follow the method detailed in [18], with
+the following adjustments owing to the use of (9.2) rather than (9.1):
+• Since θ is now restricted to (0, π/2), we set d1 (θ) = 2θ cot θ.
+(1)
+• We now have g1 (θ) = h1,θ (0) = (θ tan θ + 3θ cot θ − 3) sec2 θ.
+• We use the inequality ey ≤ 1 + y + y 2 /2 + y 3 /3.47, which is valid for
+d1 (θ) ≤ 1.89355, so for 0 ≤ θ ≤ 1.13544. In [18], the value 3.45 was used in
+place of 3.47.
+• For the iteration, we use r = 5 for our lower bound on the constant we aim
+to achieve, as in [18], but now set the initial upper bound to R0 = 5.573412.
+• We verify that the error term C(η) as defined in [15, §2.4] satisfies C(η) ≤ 0
+over the interval [0, 1/(5 log(3 · 1012 )], and that the function K(w) from the
+same source with θ = 1.13489 is increasing on [0, 1], as required by the
+method.
+We refer the reader to [18] for full details on the method. Using this strategy,
+after seven iterations we compute the value R0 = 5.5586904517 and establish Theorem 1.3. The successive values of R0 determined after each iteration are displayed
+in Table 3, together with the values of other parameters that arise during the
+calculation—we include these to mirror the data shown in [18, Table 3].
+(4)
+(1)
+We remark that with h1,θ in place of h1,θ we produced a slightly larger constant
+with the method, R0 = 5.5608403, so swapping the smoothing function in this way
+allowed us to reduce the value of R0 by approximately an additional 2.15 · 10−3 .
+This is about twice the marginal gain that reported in [13] for the same swap of
+auxiliary functions. We did not investigate the function of Xylouris, as this had a
+very small marginal benefit in [13].
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN ZETA-FUNCTION
+
+25
+
+Table 3. Values of parameters from [18] in successive iterations
+when T0 = 3 · 1012 , using r = 5 and θ = 1.13489. All values are
+rounded at the last recorded decimal place.
+R0
+5.5734120
+5.5603156
+5.5588702
+5.5587103
+5.5586927
+5.5586907
+5.5586905
+
+η0 · 103
+6.259945
+6.261572
+6.261752
+6.261772
+6.261774
+6.261775
+6.261775
+
+η1 · 103
+0.7565797
+0.7581420
+0.7583148
+0.7583339
+0.7583360
+0.7583362
+0.7583363
+
+κ
+0.4410554
+0.4410415
+0.4410400
+0.4410399
+0.4410398
+0.4410398
+0.4410398
+
+δ
+0.61994498
+0.61994923
+0.61994971
+0.61994976
+0.61994976
+0.61994976
+0.61994976
+
+r
+5.5603156
+5.5588702
+5.5587103
+5.5586927
+5.5586907
+5.5586905
+5.5586905
+
+Table 4. Allowable values for the constant R0 in the classical
+zero-free region if RH were to be verified to height T0 . All values
+are rounded up at the last recorded decimal place.
+T0
+13
+
+10
+3 · 1013
+1014
+3 · 1014
+1015
+
+R0
+5.5559836
+5.5536904
+5.5513505
+5.5493579
+5.5473149
+(1)
+
+Finally, using this method, and again employing h1,θ (u) with θ = 1.13489 and
+using the same degree 16 trigonometric polynomial, we computed the value for R0
+that would be achieved by this method if RH were verified up to height T0 in the
+future, for several values of T0 ≤ 1015 . These values are exhibited in Table 4.
+10. Future work
+The approach taken in the proof of Theorem 1.1 may be summarized as follows.
+If a zero-free region σ ≥ 1 − ν(t) can be established over a small finite region, say
+for t ∈ [T0 − 1, T0 ), then under appropriate conditions the same zero-free region
+holds for all t ≥ T0 . This suggests an inductive argument may be used—given
+a sequence of suitable functions ν1 (t), ν2 (t), . . . , νN (t), we may use the zero-free
+region σ ≥ 1 − νj (t) to show that there are no zeros in a small finite region, which
+then implies the next zero-free region σ ≥ 1 − νj+1 (t), and so on. If in addition the
+first zero-free region can be established unconditionally, this produces a method of
+iteratively constructing a zero-free region as a union of small zero-free regions.
+One possible choice for νj (t) is given by
+νj (t) :=
+
+1
+,
+rj (log t)φj (log log t)1−φj
+
+(j)
+
+t ≥ T0 ,
+
+for some φj > 2/3, which can be easily established by choosing
+ φj
+E
+L2
+η = 2/3
+L1
+B
+
+26
+
+M. J. MOSSINGHOFF, T. S. TRUDGIAN, AND A. YANG
+
+in place of (4.11), then following the rest of the proof of Theorem 1.1. If rj is small
+enough, then the resulting zero-free region will be sharper than Theorem 1.1 over
+(j)
+(j)
+some finite interval t ∈ [T1 , T2 ]. By combining multiple such results, we create
+an envelope of zero-free regions whose union covers the interval [3, T0 ] for some large
+T0 . We then use the same argument as Theorem 1.1 to cover the range [T0 , ∞). In
+particular, this allows us to take T0 much larger than is otherwise possible, which
+reduces the size of R1 , the zero-free region constant.
+To attain a non-trivial result via this method, we need to take rj small enough
+(j)
+(j)
+that νj (T0 ) > νj−1 (T0 − 1), so there is a small region
+T0 − 1 ≤ t ≤ T0 ,
+
+νj (t) ≤ σ ≤ νj−1 (t),
+
+(10.1)
+
+in which zeros may exist, hence invalidating the inductive argument. Therefore, if
+we have tools to exclude the possibility of zeros in small, finite regions at known
+locations within the critical strip, immediate improvements to Theorem 1.1 are
+possible. By judiciously choosing φj , we find that using 355 such regions suffice to
+improve the constant of Theorem 1.1 to 52.74, provided that no zeros exist in regions
+of the form (10.1) for each j. Conventional arguments, such as raw computation or
+zero-density estimates, are currently insufficient to completely exclude zeros in these
+regions due to their large height, ranging from t ≈ exp(40000) to t ≈ exp(5 · 107 ).
+However, if a new method was developed to exclude zeros in small finite regions,
+then immediate improvements to Theorem 1.1 are possible.
+References
+[1] G. Bastien and M. Rogalski. Convexité, complète monotonie et inégalités sur les fonctions zêta
+et gamma, sur les fonctions des opérateurs de Baskakov et sur des fonctions arithmétiques.
+Canad. J. Math., 54(5), 916–944, 2002.
+[2] M. A. Bennett, G. Martin, K. O’Bryant, and A. Rechnitzer. Explicit bounds for primes in
+arithmetic progressions. Illinois J. Math., 62(1-4):427–532, 2018.
+[3] S. Broadbent, H. Kadiri, A. Lumley, N. Ng, and K. Wilk. Sharper bounds for the Chebyshev
+function θ(x). Math. Comp., 90(331):2281–2315, 2021.
+[4] M. Cully-Hugill. Primes between consecutive powers. J. Number Theory, to appear.
+arXiv:2107.14468v2 [math.NT], 18 Nov 2021, 18 pp.
+[5] M. Cully-Hugill and E. S. Lee. Explicit interval estimates for prime numbers. Math. Comp.,
+91(336):1955–1970, 2022.
+[6] A. W. Dudek. An explicit result for primes between cubes. Funct. et Approx., 55(2):177–197,
+2016.
+[7] A. Fiori, H. Kadiri, and J. Swindisky. Sharper bounds for the error term in the prime number
+theorem. arXiv:2206.12557v1 [math.NT], 25 Jun 2022, 19 pp.
+[8] K. Ford. Vinogradov’s integral and bounds for the Riemann zeta function. Proc. London
+Math. Soc., 85(3):565–633, 2002.
+[9] K. Ford. Zero-free regions for the Riemann zeta function. Number Theory for the Millennium,
+II (Urbana, IL, 2000), pp. 25–56, A K Peters, Natick, MA, 2002.
+[10] K. Ford. Zero-free regions for the Riemann zeta function. arXiv:1910.08205v4 [math.NT], 22
+Sep 2022, 31 pp.
+[11] E. Hasanalizade, Q. Shen, and P. J. Wong. Counting zeros of the Riemann zeta function. J.
+Number Theory, 235:219–241, 2021.
+[12] D. R. Heath-Brown. Zero-free regions for Dirichlet L-functions, and the least prime in an
+arithmetic progression. Proc. London Math. Soc., 64(2):265–338, 1992.
+[13] W.-J. Jang and S.-H. Kwon. A note on Kadiri’s explicit zero free region for Riemann zeta
+function. J. Korean Math. Soc., 51(6):1291–1304, 2014.
+[14] D. R. Johnston and A. Yang. Some explicit estimates for the error term in the prime number
+theorem. arXiv:2204.01980v2 [math.NT], 20 Apr 2022, 22 pp.
+
+EXPLICIT ZERO-FREE REGIONS FOR THE RIEMANN ZETA-FUNCTION
+
+27
+
+[15] H. Kadiri. Une région explicite sans zéros pour la fonction ζ de Riemann. Acta Arith.,
+117(4):303–339, 2005.
+[16] T. Khale. An explicit Vinogradov–Korobov zero-free region for Dirichlet L-functions.
+arXiv:2210.06457v1 [math.NT], 12 Oct 2022, 29 pp.
+[17] N. M. Korobov. Estimates of trigonometric sums and their applications. Uspehi Mat. Nauk,
+13:185–192, 1958.
+[18] M. J. Mossinghoff and T. S. Trudgian. Nonnegative trigonometric polynomials and a zero-free
+region for the Riemann zeta-function. J. Number Theory, 157(1–2):329–349, 2015.
+[19] P. P. Nielsen. Trigonometric inequalities and the Riemann zeta-function arXiv:2210.14130v1
+[math.NT], 25 Oct 2022, 12 pp.
+[20] D. Patel. Explicit sub-Weyl bound for the Riemann zeta function. Ph.D. Thesis, The Ohio
+State University, 2021.
+[21] J. Pintz. On the remainder term of the prime number formula II. On a theorem of Ingham.
+Acta Arith., 37, 209–220, 1980.
+[22] D. J. Platt. Computing π(x) analytically. Math. Comp., 84(293):1521–1535, 2015.
+[23] D. J. Platt and T. S. Trudgian. An improved explicit bound on |ζ( 12 +it)|. J. Number Theory,
+147:842–851, 2015.
+[24] D. J. Platt and T. S. Trudgian. The Riemann hypothesis is true up to 3 · 1012 . Bull. Lond.
+Math. Soc., 53(3), 792–797, 2021.
+[25] D. J. Platt and T. S. Trudgian. The error term in the prime number theorem. Math. Comp.,
+90(328):871–881, 2021.
+[26] S. N. Preobrazhenskiı̆. A new estimate in I.M. Vinogradov’s mean value theorem. Math.
+Notes, 2:285–299, 2011.
+[27] H. E. Richert. Zur Abschätzung der Riemannschen Zetafunktion in der Nähe der Vertikalen
+σ = 1. Math. Ann., 169(1):97–101, 1967.
+[28] B. Rosser. Explicit bounds for some functions of prime numbers. Amer. J. Math., 63(1):211–
+232, 1941.
+[29] E. C. Titchmarsh. The Theory of the Riemann Zeta-function. Oxford Univ. Press, Oxford,
+2nd ed., 1986.
+[30] I. M. Vinogradov. A new estimate for ζ(1+it). Izv. Akad. Nauk SSSR, Ser. Mat., 22:161–164,
+1958.
+[31] T. Xylouris. Über die Linniksche Konstante. Diplomarbeit, Universität Bonn, 2009.
+arXiv:0906.2749v1 [math.NT], 86 pp.
+[32] T. Xylouris. On the least prime in an arithmetic progression and estimates for the zeros of
+Dirichlet L-functions. Acta Arith., 150(1):65–91, 2011.
+Center for Communications Research, Princeton, NJ, USA
+Email address: m.mossinghoff@idaccr.org
+School of Science, The University of New South Wales Canberra, Australia
+Email address: t.trudgian@adfa.edu.au
+School of Science, The University of New South Wales Canberra, Australia
+Email address: andrew.yang1@adfa.edu.au
+
+

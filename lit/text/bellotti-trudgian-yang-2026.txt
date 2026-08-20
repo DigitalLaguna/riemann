@@ -1,0 +1,2631 @@
+arXiv:2603.21490v1 [math.NT] 23 Mar 2026
+
+Zero-free regions inspired by work of Heath-Brown
+Chiara Bellotti, Tim Trudgian∗ and Andrew Yang
+School of Science, UNSW Canberra, Australia
+c.bellotti@unsw.edu.au
+timothy.trudgian@unsw.edu.au
+andrew.yang1@unsw.edu.au
+March 24, 2026
+
+This work we dedicate
+To dear D.R.H.-B.
+To help to celebrate
+His diamond jubilee.
+Abstract
+We prove a new explicit zero-free region for the Riemann zeta-function, drawing substantially on Heath-Brown’s seminal work on Linnik’s constant. Using these ideas we
+are able to prove that ζ(σ + it) ̸= 0 whenever t ≥ 3 and σ ≥ 1 − 1/(4.896 log t).
+
+1
+
+Introduction
+
+One of the standard ways to show that ζ(s), the Riemann zeta-function, is non-zero in a
+certain region is to use the ‘zero-detector’ arising from P
+its logarithmic derivative. Specifically,
+′
+−s
+for s = σ + it and for σ > 1 we have −ζ (s)/ζ(s) = ∞
+n=1 Λ(n)n , where Λ(n) is the von
+Mangoldt function. One manipulates the Dirichlet series and uses the fact that ζ(s) has a
+pole at s = 1 to show that there are no zeroes on the line σ = 1 — see, e.g., [9, Chapter 6.1].
+Such ideas can be extended to σ < 1 leading to the ‘classical’ zero-free region. This is the
+region σ ≥ 1 − A/ log t, for sufficiently large t and for some positive constant A, for which
+ζ(σ +it) ̸= 0. This was first proved by de la Vallée Poussin in 1899: see [10] for a summary of
+improvements to the constant A. While asymptotically sharper zero-free regions are known
+(we mention two standard results in (3) and (4)), many applications rely on sharp numerical
+∗
+
+Supported by Australian Research Council Discovery Project DP240100186.
+
+1
+
+estimates for the classical zero-free region. This is the focal point of our article. We shall be
+concerned with showing
+ζ(σ + it) ̸= 0
+
+in the region
+
+σ >1−
+
+A
+,
+log t
+
+t ≥ 3,
+
+(1)
+
+for a small constant A.
+Two key ideas have been used to enlarge the classical zero-free region of ζ(s). The first
+idea, due to Stechkin [13], was to make use of the fact that the complex zeroes of the zetafunction exist in pairs about the critical line. The second idea, due to Heath-Brown [6], was
+to smooth the classical zero-detector using a specific weight function. The zero-detectors
+they used have the Dirichlet series representations
+X Λ(n)
+X Λ(n) 
+κ
+1
+−
+and
+f (log n),
+ns
+nδ
+ns
+n≥1
+n≥1
+respectively, where f is a compactly supported, twice-differentiable real-valued function that
+decays steadily to 0.
+Remarkably, the two ideas appear to be largely
+P orthogonal, despite their both being
+weighted versions of the classical zero-detector n≥1 Λ(n)n−s . This is because the weight
+functions are used in two different ways. Stechkin’s function attenuates terms in the zerodetector corresponding to small n, while Heath-Brown’s function attenuates terms corresponding to large n.
+One may therefore wonder if the two ideas can be used concurrently. Indeed, Kadiri [7]
+showed that this can be done profitably by using the zero detector
+
+
+X Λ(n)
+κ′
+f (log n) 1 − δ′
+(2)
+s
+n
+n
+n≥1
+for some constants κ′ , δ ′ > 0, and where f is the function considered by Heath-Brown.
+Although [7] contains several innovations, the combination of smoothing functions explains
+most of the improvement in (1), from A = (8.463)−1 in [4] to A = (5.69693)−1 in [7].
+Our goal is to combine these two ideas more efficiently to prove the following.
+Theorem 1. If t ≥ 3 then ζ(σ + it) ̸= 0 in the region σ > 1 − 1/(4.896 log t).
+The constant of 4.896 in Theorem 1 improves on the previous best 5.559 from [11]. We
+prove this first in a restricted range below.
+Lemma 1. If 3 ≤ t ≤ exp(76.47) then ζ(σ + it) ̸= 0 in the region σ > 1 − 1/(4.896 log t).
+We now show how Theorem 1 follows from Lemma 1. First we quote two zero-free regions
+that appear to be the strongest in the literature in various ranges. The third author [15]
+proved an explicit version of Littlewood’s zero-free region
+ζ(σ + it) ̸= 0
+
+σ >1−
+
+in the region
+2
+
+log log t
+,
+21.233 log t
+
+t ≥ 3.
+
+(3)
+
+The first author [1] proved an explicit version of the Vinogradov–Korobov zero-free region
+ζ(σ + it) ̸= 0
+
+in the region
+
+σ >1−
+
+1
+53.989(log t)2/3 (log log t)1/3
+
+,
+
+t ≥ 3.
+
+(4)
+
+We note that (4) is sharper than (3) for t > exp(482036). For the proof of Theorem 1,
+however, the relevant point is that the explicit Littlewood zero-free region (3) is stronger
+than our Theorem 1 for t > exp(76.463). Since Lemma 1 establishes Theorem 1 for 2 ≤ t ≤
+exp(76.47), the zero-free region (3) covers the remaining range t > exp(76.463), and hence
+Theorem 1 follows.
+The constants in (4) and (3) were improved in the third author’s thesis [16], where
+21.233 and 53.989 are replaced by 19.62 and 51.34, respectively. In particular, the improved
+Littlewood zero-free region would yield the following stronger classical zero-free region.
+Theorem 2. If t ≥ 3 then ζ(σ + it) ̸= 0 in the region σ > 1 − 1/(4.8594 log t).
+As before, this theorem would from a result restricted to a certain range.
+Lemma 2. If 3 ≤ t ≤ exp(56.693) then ζ(σ + it) ̸= 0 in the region σ > 1 − 1/(4.8594 log t).
+Indeed, the improved Littlewood zero-free region is sharper than the bound claimed in
+Theorem 2 for every t > exp(56.691). Therefore, once Lemma 2 is established in the range
+3 ≤ t ≤ exp(56.693), the improved Littlewood zero-free region covers the remaining range of
+t, and Theorem 2 would follow.
+The outline of this paper is as follows. In §2 we motivate the choice of our new smoothing
+function f . In §3 we select our function f . In §4 we select an appropriate trigonometric
+polynomial to enhance the size of the zero-free region. Finally, in §5 we prove Lemma 1.
+
+2
+
+Reasons for choosing f
+
+We now motivate our choice of a smoothing function f , which leads to our improved
+region in Theorem 1. We draw heavy inspiration from the argument of Heath-Brown [6].
+Since non-trivial zeroes are symmetric about the critical line and the real axis, we focus
+on the quadrant {z ∈ C : ℜ z ≥ 1/2, ℑ z ≥ 0}. In fact, we can further restrict to
+ℑ z ≥ H := 3 · 1012
+
+(5)
+
+since all zeroes ρ = β + iγ with 0 < γ ≤ H have been computationally verified to lie on the
+critical line [12]. The non-trivial zeroes at heights just above H pose the greatest difficulty.
+Suppose f is a non-negative, bounded
+R ∞ −zu and compactly supported function with a welldefined Laplace transform F (z) := 0 e f (u)du. Under suitable assumptions, the associated zero-detector has an explicit formula
+ℜ
+
+X Λ(n)
+n≥1
+
+n
+
+f (log n) =
+s
+
+
+X
+f (0) Γ′  s
+ℜ
++ 1 + ℜF (s − 1) −
+ℜF (s − ρ) + o(1),
+2
+Γ 2
+ρ
+3
+
+(6)
+
+where s = σ + it and the error term is taken with respect to t → ∞. This formula may be
+viewed as a generalisation of Hadamard’s product formula used in the classical proof, with
+an important distinction that the formula remains valid for s inside the critical strip.
+It turns out that moving s inside the critical strip is accretive to the size of the zerofree region, provided that s itself resides in a zero-free region. This inspires an interesting
+inductive argument: one begins with a known zero-free region, then iteratively1 expands it
+by taking s deeper inside the critical strip as permitted by the new zero-free region at each
+stage. This idea was introduced in [7] and has since become standard in the literature.
+Specifically, suppose that there exists a simple2 , complex zero ρ0 = β0 + it lying just
+outside a known zero-free region σ > 1 − A/ log t for some constant A > 0. We seek to show
+that ρ0 actually satisfies a stronger inequality, of the form β0 ≤ 1 − (A + ε)/ log t say, for
+some ε > 0. Assume for a contradiction that
+A ≤ (1 − β0 ) log t < A + ε.
+
+(7)
+
+P
+We consider a non-negative trigonometric polynomial P (θ) = 0≤k≤K ak cos(kθ), satisfying
+P (θ) ≥ 0, ak > 0 and a1 > a0 , which generalises the polynomial 3 + 4 cos θ + cos 2θ used
+in the classical proof — see, e.g., [14, Chapter 3]. The existence and construction of such
+polynomials is non-trivial, and we refer the reader to [10] for an account. Combined with
+(6) evaluated at s = sk := σ + ikt for 0 ≤ k ≤ K, we obtain
+0≤
+
+X Λ(n)
+n≥1
+
+=ℜ
+
+n
+
+X
+
+f (log n)P (t log n) = ℜ
+σ
+
+X
+0≤k≤K
+
+0≤k≤K
+
+ak
+
+′ 
+
+f (0) Γ
+2 Γ
+
+ak
+
+X Λ(n)
+nsk
+n≥1
+
+f (log n)
+
+X
+sk
++ 1 + F (sk − 1) −
+F (sk − ρ)
+2
+ρ
+
+
+(8)
+
+!
++ o(1).
+
+Using classical estimates, as t → ∞,
+
+
+
+X
+f (0) Γ′  sk
+ℜ
+ak
++ 1 + F (sk − 1) < cf (0) log t + a0 F (σ − 1),
+2
+Γ
+2
+0≤k≤K
+for an absolute constant c > 0. To bound the sum over zeroes we assume the following
+positivity condition: for any non-trivial zero ρ,
+ℜF (s − ρ) + ℜF (s − (1 − ρ)) ≥ 0.
+
+(9)
+
+Note that both ρ and 1 − ρ are (possibly distinct) complex zeroes, so (9) may be viewed
+as a slightly “averaged” version of the pointwise condition ℜF (s − ρ) ≥ 0 considered in
+1
+
+As usual, there is no free lunch — eventually the marginal progress made with each iteration tends to 0
+and the size of the zero-free region stabilises.
+2
+Since zeroes in the sum (6) are counted with multiplicity, if ρ0 has multiplicity m then it is included m
+times, and we arbitrarily rename one of them ρ0 . The remaining m − 1 terms are treated the same way as
+the other zeroes ρ ̸= ρ0 .
+
+4
+
+Heath-Brown [6]. Condition (9) is also satisfied by Kadiri’s [7] smoothing function: it is
+here that the ideas of Stechkin and Heath-Brown are combined. This condition allows us to
+isolate the contribution of just one pair of zeroes, say β0 + it and 1 − β0 + it, since
+X
+ℜ
+F (s1 − ρ) ≥ F (σ − β0 ) + F (σ − 1 + β0 )
+ρ
+
+P
+and ℜ ρ F (sk − ρ) ≥ 0 when k ̸= 1. The F (σ − 1 + β0 ) term is o(1), so combining these
+estimates with (8), one has
+c log t >
+
+a1 F (σ − β0 ) − a0 F (σ − 1) + o(1)
+.
+f (0)
+
+(10)
+
+Next we choose σ and f so that the right side is ≫ 1/η, where η := 1 − β0 . This can be
+achieved, for instance, if one takes σ = 1 − (A + o(1))/ log t and f (u) = ηg(ηu) for some
+fixed function g. With these choices the right side of (10) is
+a1 G(1 − µ) − a0 G(−µ) −1
+η
+g(0)
+where G is the Laplace transform of g and µ = (1 − σ)/η = 1 + O(ε). Taking ε → 0, the
+coefficient of η −1 is a constant, as required. Therefore, one arrives at a contradiction to (7)
+if A is small enough, which completes the argument.
+Let us now consider the problem of choosing the best f for each η > 0 (we now regard η as
+fixed). First, we review the constraints one needs to place on f . To control the various o(1)
+error terms we require F (z) = f (0)/z + O(|z|−2 ) as |z| → ∞. This condition is surprisingly
+mild3 — in [6] this was enforced by requiring f to be compactly supported and having a
+bounded and continuous second derivative. The second, more important condition comes
+from (9) — for this it suffices to require that ℜF (z) + ℜF (2σ − 1 − z) ≥ 0 for all ℜ z ≥ 0.
+Taking ε → 0 and ignoring o(1) terms, from (10) the optimisation problem we are led to
+consider is (for each fixed η)
+a1 F (0) − a0 F (−η)
+max
+(11)
+f
+f (0)
+subject to F (z) = f (0)/z + O(|z|−2 ) and
+ℜF (z) + ℜF (2σ − 1 − z) ≥ 0
+
+(ℜ z ≥ 0).
+
+(12)
+
+In [6], Heath-Brown studied a similar optimisation problem, with the constraint ℜF (z) ≥ 0
+in place of (12). In the next section we explore how solutions to Heath-Brown’s optimisation
+problem can be adapted to solve (11).
+3
+
+In fact, our choice of f satisfies F (z) = f (0)/z + O(|z|−3 ). The improved error was also noted in [7].
+
+5
+
+3
+
+The test function
+
+In this section we choose the test function f . First, suppose that w is a twice-differentiable,
+compactly-supported, real-valued function. Let W (z) denote its Laplace transform, which
+satisfies ℜW (z) ≥ 0 when ℜ z ≥ 0. Examples of such functions were studied by HeathBrown [6]. One particularly relevant function is [6, Lemma 7.1] with λ = 1, given by:
+Definition 1 (The functions w and W ). For fixed θ ∈ (0, π/2), let w be defined as
+w(u) := sec2 θ(sec2 θ(θ cot θ − u/2) cos(u tan θ) + 2θ cot θ − u
++ sin(2θ − u tan θ) csc 2θ − 2(1 + sin(θ − u tan θ) csc θ)),
+R∞
+for 0 ≤ u ≤ 2θ cot θ, and w(u) := 0 elsewhere. Let W (z) := 0 e−zu w(u)du denote the
+Laplace transform of w.
+In our notation, one choice of f considered by Heath-Brown was
+ηw(ηu).
+
+(13)
+
+In [6], it was shown via a calculus-of-variations argument that this choice of f solves, within
+a large family of functions, the optimisation problem
+max
+f
+
+a1 F (0) − a0 F (−η)
+f (0)
+
+subject to
+
+ℜF (z) ≥ 0 (ℜ z ≥ 0).
+
+Consider now the function
+f (u) = ηw(ηu)h(u),
+
+h(u) :=
+
+1
+1 + e−(2σ−1)u
+
+.
+
+This choice of f satisfies (12), since for any z = iy (y ∈ R),
+Z ∞
+ℜF (z) + ℜF (2σ − 1 − z) = ℜ
+e−iyu (1 + e−(2σ−1)u )f (u)du
+Z0 ∞
+=ℜ
+e−iyu/η w(u)du
+
+(14)
+
+(15)
+(16)
+
+0
+
+= ℜW (iy/η) ≥ 0.
+We can then extend this inequality to hold for all ℜ z ≥ 0 via a result of Heath-Brown [6,
+Lemma 4.1]. In particular, one might expect that this choice of weight function h is optimal
+because there is no “loss” in passing from (15) to (16).
+Unfortunately, f does not satisfy the condition F (z) = f (0)/z + O(|z|−2 ). Furthermore,
+the inverse Laplace transform of h does not converge, which makes analysis difficult. For
+these reasons, we will instead use a discrete approximation of h(u) which produces numerically similar results, and which possesses the desired properties. Roughly speaking, we
+choose parameters κm (1 ≤ m ≤ M ) so that uniformly for x ∈ [0, 1], one has
+X
+1
+κm xm ≈
+.
+(17)
+1
++
+x
+0≤m≤M
+6
+
+One may be inclined to find the coefficients κm in (17) using a Taylor expansion at say
+x = 1/2; however, this leads to approximations that are catastrophically bad at, e.g., x = 0.
+Instead, we search for favourable coefficients computationally. As a first pass we choose κm
+to minimise the L∞ norm
+X
+1
+−
+κm xm .
+max
+0≤x≤1 1 + x
+0≤m≤M
+We perturb the coefficients so as to make the arguments that follow simpler (in particular,
+we opt for slightly less favourable coefficients that can be more easily analysed, and whose
+rational approximations are “simple” to aid our presentation). We take M = 6 and
+
+
+851 780
+525 171 28
+29
+[κm ]0≤m≤M = 1, −
+,
+, −
+,
+,
+, −
+.
+(18)
+859 859
+859 859 859
+859
+Our choice of f is then given by
+Definition 2 (The functions f and F ). For fixed η > 0 and 1/2 < σ < 1, define
+X
+f (u) := ηw(ηu)
+κm e−(2σ−1)mu
+
+(19)
+
+0≤m≤M
+
+where M and κm are fixed parameters defined in (18). Let F (z) :=
+Laplace transform of f .
+
+R ∞ −zu
+e f (u)du denote
+0
+
+In comparison, Kadiri’s [7] test function (2) may be expressed in our notation as
+X
+ηw(ηu)
+κm e−δm u ,
+
+(20)
+
+0≤m≤1
+
+with κ0 = 1, δ0 = 0, κ1 = κ′ and δ1 = δ ′ . One can measure the “efficiency” of the test
+functions (13), (14), (19) and (20) by evaluating (11), which in each case gives
+a1 W (0) − a0 W (−1)
+a1 F (0) − a0 F (−η)
+= (c + O(η))
+,
+f (0)
+ηw(0)
+where c = 859/433 = 1.98 . . . in the case of (19), c = 2 for the hypothetical function (14),
+c = 1.78 . . . for (20) and c = 1 for (13). In this sense, the value attained by our discrete
+approximation is within one percent of the hypothetical limit of the method.
+Let us now record some properties of these functions.
+Lemma 3. One has f (u) ≥ 0 for all u ≥ 0.
+Proof. By inspection w(u) ≥ 0, so upon taking x = e−(2σ−1)u (and noting that the exponent
+is negative from the assumption σ > 1/2), it suffices to show that
+X
+p(x) =
+κm xm > 0
+(0 < x ≤ 1),
+0≤m≤M
+
+which we verify by numerically isolating all M roots of the polynomial p, checking that none
+resides on (0, 1], and noting that p(1) > 0.
+7
+
+Next, we record an explicit estimate for W (z), due to Ford [4, 5].
+Lemma 4 (Ford [4] §7). Let θ ∈ (0, π/2) and r > tan θ be fixed, and let W be defined in
+Definition 1. If we write
+w(0)
++ W0 (z),
+W (z) =
+z
+then for all ℜ z ≥ ν and |z| ≥ r one has |W0 (z)| ≤ C(ν, r)|z|−3 , where
+C(ν, r) := c0 r
+
+c2 (r + 1)2 (e−2νθ cot θ + 1) + c1 r + c3 r3
+(r2 − tan2 θ)2
+
+and
+c0 = csc θ sec2 θ,
+
+c1 = (θ − sin θ cos θ) tan4 θ,
+
+c2 = tan3 θ sin2 θ,
+
+c3 = (θ − sin θ cos θ) tan2 θ.
+
+Before proceeding further, in Definitions 1 and 2 let us fix θ = 1.1338, the choice of which
+was determined via numerical experimentation. We therefore have
+w(0) = sec2 θ(θ tan θ + 3θ cot θ − 3) = 5.672787598 . . . .
+Recall H is defined in (5). For future use we also define the following parameters
+T0 = 1010 ,
+δm = (2σ − 1)m,
+η0 = A0 / log H,
+K = 16,
+σ0 = 1 − A0 / log(KH + T0 ),
+where A0 is from Lemma 1 or Lemma 2. We have defined σ0 so that our eventual choice of
+σ satisfies σ ∈ [σ0 , 1), and similarly one is guaranteed that η ∈ (0, η0 ]. The parameter K is
+the degree of the non-negative trigonometric polynomial which we discuss in §4.
+A0
+η0
+σ0
+
+Lemma 1
+(4.8596)−1
+0.0071093 . . .
+0.9935164 . . .
+
+Lemma 2
+(4.8594)−1
+0.0071628 . . .
+0.9934675 . . .
+
+Recall that ℜW (z) ≥ 0 for ℜ z ≥ 0 (see [6]). This property is used to show that f
+satisfies the non-negativity condition (9).
+Lemma 5 (Non-negativity property). Let σ ∈ [σ0 , 1), η ∈ (0, η0 ] and F (z) be as defined in
+Definition 2. Then for all complex numbers z with 0 ≤ ℜ z ≤ 2σ − 1, one has
+ℜF (z) + ℜF (2σ − 1 − z) ≥ 0.
+
+(21)
+
+Furthermore, for all −η ≤ ℜ z ≤ 1 and |ℑz| ≥ T0 , one has
+ℜF (z) + ℜF (2σ − 1 − z) > −
+8
+
+44
+η.
+|ℑz|2
+
+(22)
+
+Proof. Since ℜF (2σ − 1 − z) = ℜF (2σ − 1 − z), we may show (21) by proving ℜF (z) +
+ℜF (2σ − 1 − z) ≥ 0 on the boundary of the rectangle {z ∈ C : 0 ≤ ℜ z ≤ 2σ − 1, |ℑz| ≤ T }
+for every sufficiently large T . The result then holds by the maximum modulus principle
+(applied to the holomorphic function e−F (z)−F (2σ−1−z) ).
+First we will show that the desired inequality holds on the line ℜ z = 0 (so that by
+symmetry it also holds for ℜ z = 2σ − 1). Let us write
+X
+X
+(1 + x)
+κm xm =
+b m xm .
+0≤m≤M
+
+0≤m≤M +1
+
+Then
+ℜF (iy) + ℜF (2σ − 1 − iy)
+Z ∞
+X
+=ℜ
+e−iyu (1 + e−(2σ−1)u )ηw(ηu)
+κm e−δm u du
+0
+
+=ℜ
+
+0≤m≤M
+
+X
+0≤m≤M +1
+
+≥ℜ
+
+X
+1≤m≤M +1
+
+Z ∞
+bm
+
+e−(δm +iy)u/η w(u)du
+
+(23)
+
+0
+
+
+bm W
+
+δm + iy
+η
+
+
+,
+
+where we dropped the term corresponding to m = 0 since ℜW (iy/η) ≥ 0. If z = (δm + iy)/η
+with m ≥ 1, then |z| ≥ ℜ z ≥ (2σ0 − 1)/η0 > 138. Thus, applying Lemma 4,
+
+
+1
+δm + iy
+η02 C(138, 138) 1
+ε0
+η
+η
+W0
+≤
+<
+2
+2
+(2σ − 1)w(0)
+η
+(2σ0 − 1) w(0) m |δm + iy|
+m |δm + iy|2
+with ε0 = 1/2000, and also
+w(0)
+η
+1
+ℜ
+=m
+.
+(2σ − 1)w(0) (δm + iy)/η
+|δm + iy|2
+Therefore,
+
+
+X
+1
+δm + iy
+ℜ
+bm W
+(2σ − 1)w(0)η 1≤m≤M +1
+η
+≥
+
+X
+bm m − |bm |ε0 /m
+≥
+B(y)
+:=
+bm Bm (y)
+2
+|δ
+m + iy|
+1≤m≤M +1
+1≤m≤M +1
+X
+
+where, since c0 m < (2σ0 − 1)m ≤ δm ≤ m, where c0 = 151/153,
+
+m + ε0 /m
+
+
+, bm ≤ 0,
+ 2 2
+2
+Bm (y) := c0 m + y
+m − ε0 /m
+
+
+, bm > 0.
+ 2
+m + y2
+9
+
+It suffices to verify that B(y) ≥ 0 for all y ∈ R. Substituting the values of κm (0 ≤ m ≤ M ),
+one may explicitly derive (with the aid of computer assistance) that B(y) = p(y)/q(y), where
+p(y) = 4061245152630328137981y 12 + 4077560173170236734684710y 10
+− 104378137212291977844887868y 8 − 4484512641017853031179075270y 6
++ 135673322742635307737680349343y 4 − 229732179325278720034298507440y 2
++ 112359769561546903428467326544,
+q(y) = 4012454647232553285540000(y 2 + 1)(y 2 + 9)(y 2 + 25)
+× (y 2 + 4c20 )(y 2 + 16c20 )(y 2 + 36c20 )(y 2 + 49c20 ).
+By inspection, q(y) has no real roots, and by computationally isolating all twelve complex
+roots of p(y), we verify that none are real. Therefore, B(y) is one-signed, and so, since
+B(0) > 0 we have B(y) > 0 for all y ∈ R. Combined with (23), one obtains (21) on ℜ z = 0.
+Next we show (21) holds on the line segment ℑz = T (0 ≤ ℜ z ≤ 2σ − 1) for sufficiently
+large T (and hence also on ℑz = −T since ℜF (z) = ℜF (z)). For this we simply note that
+for any fixed η and uniformly for 0 ≤ x ≤ 2σ − 1,
+
+
+X
+x + iT
+ηw(0)
+κm W
+ℜF (x + iT ) = ℜ
+(κ + o(1))
+(T → ∞),
+=
+2
+η
+T
+0≤m≤M
+P
+where κ := 0≤m≤M κm > 0, so ℜF (x + iT ) > 0 for sufficiently large T . Thus (21) holds.
+Now consider (22). In light of the bound (21) it suffices to show (22) for −η ≤ ℜ z < 0
+and ℑz ≥ T0 . First, suppose u = x + iy is a complex number and v a real number, such that
+|v| ≤ η, x ≥ 0 and |y| ≥ T0 . Then, by Lemma 4 one has
+
+ 
+
+
+
+
+ 
+
+u
+1
+1
+u+v
+u
+u+v
+−W
+= ηw(0)
+−
++ W0
+− W0
+,
+W
+η
+η
+u+v u
+η
+η
+where, since ℜ(u/η) ≥ 0, ℜ(u + v)/η ≥ −1 and |y/η| ≥ T0 /η0 one has
+
+
+ 
+η02 C(−1, T0 /η0 ) η
+η02 C(0, T0 /η0 ) η
+u+v
+u
+W0
+≤
+,
+W
+≤
+.
+0
+η
+T0
+y2
+η
+T0
+y2
+Meanwhile,
+1
+1
+|v|
+η
+−
+=
+≤ 2.
+u+v u
+|u||u + v|
+y
+Combining everything,
+
+
+ 
+
+
+u+v
+u
+η
+C(−1, T0 /η0 ) + C(0, T0 /η0 ) 2
+5.7η
+W
+−W
+≤ 2 w(0) +
+η0 < 2 .
+η
+η
+y
+T0
+y
+Taking u = δm + iy (m ≥ 0) and v = ℜ z, one gets
+
+
+X
+z + δm
+5.7η X
+ℜF (z) =
+κm W
+> ℜF (iy) − 2
+|κm |.
+η
+y
+0≤m≤M
+0≤m≤M
+10
+
+Similarly, if we instead take u = 2σ − 1 + δm + iy and v = −ℜ z, then
+ℜF (2σ − 1 − z) > ℜF (2σ − 1 + iy) −
+
+5.7η X
+|κm |.
+y 2 0≤m≤M
+
+Adding the two inequalities gives (22), since ℜF (iy) + ℜF (2σ − 1 + iy) ≥ 0 by (21).
+Lemma 5 is used to isolate the contribution of a pair of zeroes at height t, while discarding
+all other zeroes (incurring a small loss).
+Lemma 6. Suppose ζ(β0 + it) = 0 with β0 > 1/2 and t ≥ H. Let A ∈ (0, A0 ], η ∈
+(0, A0 / log t] and F be as defined in Definition 2. Furthermore suppose that ζ has no zeroes
+β + iγ in the region β ≥ 1 − A/ log γ and γ ≥ H. Let sk = σ + ikt where 0 ≤ k ≤ K and
+σ = 1 − A/ log(Kt + T0 ). Then
+X
+ℜ
+F (s1 − ρ) ≥ F (σ − β0 ) + F (σ − 1 + β0 ) − 10−8 .
+ρ
+
+Furthermore, for any k ̸= 1 one has ℜ
+
+P
+
+−8
+ρ F (sk − ρ) ≥ −10 .
+
+Proof. Throughout let us write T = Kt + T0 . We divide the zeroes ρ = β + iγ in the critical
+strip into those with |γ| ≤ T and those with |γ| > T . Suppose first that |γ| ≤ T . Then
+β ≤ 1 − A/ log |γ| ≤ 1 − A/ log T = σ
+so that ℜ(sk − ρ) ≥ 0 for all such zeroes. A similar argument shows that ℜ(sk − ρ) ≤ 2σ − 1.
+Also, if ρ is a complex zero off the critical line, then 1 − ρ is also a zero. On the other hand,
+if ρ lies on the critical line then sk − ρ = sk − (1 − ρ). Thus
+ℜ
+
+X
+X
+1
+F (sk −ρ) = ℜ
+F (sk −ρ)+F (sk −(1−ρ))+ℜ
+F (sk −ρ)+F (sk −(1−ρ)).
+2
+1
+ρ=β+iγ
+ρ=β+iγ
+X
+
+|γ|≤T
+
+ρ= 2 +iγ
+|γ|≤T
+
+β> 21
+|γ|≤T
+
+First, suppose k ̸= 1. Since 0 ≤ ℜ(sk − ρ) ≤ 2σ − 1 we may apply (21) termwise with
+z = s − ρ, so that both sums on the right side are non-negative. Therefore
+X
+ℜ
+F (sk − ρ) ≥ 0
+(k ̸= 1).
+(24)
+ρ=β+iγ
+|γ|≤T
+
+On the other hand if k = 1, then we isolate the term corresponding to ρ = ρ0 in the second
+sum, and apply (21) to all other terms (recall that ρ0 = β0 + it is our hypothetical zero off
+the critical line). We obtain
+X
+F (s1 − ρ) ≥ F (σ − β0 ) + F (2σ − 1 + β0 ).
+(25)
+ℜ
+ρ=β+iγ
+|γ|≤T
+
+11
+
+It remains to estimate the contribution of zeroes with |γ| > T . These are far from s so the
+corresponding terms are small, and we can afford to estimate them crudely. Applying (22)
+termwise, one obtains
+
+X
+X
+X 
+1
+1
+ℜ
+F (sk − ρ) = ℜ
+.
+F (sk − ρ) + F (sk − ρ) ≥ −44η
++
+(γ − kt)2 (γ + kt)2
+ρ=β+iγ
+ρ=β+iγ
+ρ=β+iγ
+|γ|>T
+
+γ>T
+
+γ>T
+
+Here we have made use of the fact that |ℑ(sk − ρ)|, |ℑ(sk − ρ)| > T0 for each zero in the sum.
+If k = 0 then we use [8, Lemma 2] (see also [3, 2]) with n = 2 to get
+X 1
+γ>T0
+
+γ
+
+<
+2
+
+log T0
+T0
+
+so that, since η ≤ A0 / log t ≤ η0 by assumption,
+ℜ
+
+X
+
+F (σ − ρ) > −88η0
+
+ρ=β+iγ
+|γ|>T
+
+X 1
+γ2
+γ>T
+
+> −10−8 .
+
+(26)
+
+0
+
+If k ̸= 0, then we use the same treatment as [10]. Applying [8, Lemma 1] (see also [3]) with
+ϕ(x) = (x − kt)−2 + (x + kt)−2 , we get
+
+
+Z ∞
+Z ∞
+X
+1
+x
+ϕ(x)
+∗
+ϕ(γ) =
+ϕ(x) log dx + O 4ϕ(T ) log T + 2
+dx ,
+2π
+2π
+x
+T
+T
+γ>T
+where, here and henceforth, O∗ (A) means a complex number whose modulus does not exceed
+A. Recall that T = Kt + T0 and k ≤ K, so that
+
+Z ∞
+Z ∞
+1
+1
+x
+kt + x
++
+dx
+ϕ(x) log dx ≤
+log
+2π
+x2 (x + 2kt)2
+2π
+T0
+T
+1
+1
+kt + T0
+kt + T0 log(2kt + T0 ) log T0
+=
+log
++
+log
++
+−
+.
+T0
+2π
+2kt + T0
+2π
+kt
+kt
+We drop the last term, and bound the second and third terms using kt ≥ H, since they are
+both decreasing in kt. Finally, the first term may be bounded using log(1 + x) ≤ x, so that
+
+
+kt + T0
+Kt
+T0
+T0
+K
+log
+1+
+≤ log t +
+≤ log
++ log .
+2π
+2π
+Kt
+KH
+2π
+Computing the constants explicitly, one finds
+Z ∞
+x
+ϕ(x) log dx < 10−10 (log t + 1).
+2π
+T0
+
+12
+
+(27)
+
+Next, since kt ≥ H, we have
+
+
+1
+1
++
+log(kt + T0 ) < 10−10 (log t + 1),
+ϕ(T0 ) log T0 ≤
+2
+2
+T0
+(2H + T0 )
+
+Z ∞
+Z ∞
+ϕ(x)
+1
+dx
+1
+dx ≤
+< 10−10 ,
++
+2
+2
+x
+x
+(2H
++
+x)
+x
+T0
+T0
+
+(28)
+
+(29)
+
+where in deriving (28) we used log(kt + T0 ) ≤ log t + T0 /(KH) + log K. Combining (27),
+(28) and (29), and since η ≤ A0 / log t ≤ η0 by assumption
+ −10
+
+X
+10
+−11
+ℜ
+F (sk − ρ) > −44η
+(log t + 1) > −10−8 .
++ 6 · 10
+2π
+ρ=β+iγ
+|γ|>T
+
+The result follows from combining the above inequality with (24), (25) and (26).
+One can use the assumed properties of f to obtain an “explicit formula”. First, recall
+the following theorem from [7].
+Lemma 7 (Kadiri [7] Proposition 2.1). Let d > 0 and suppose g is a real-valued function
+supported on [0, d) and twice continuously
+differentiable on [0,
+d], satisfying g(d) = g ′ (0) =
+R
+R
+∞
+∞
+g ′ (d) = g ′′ (d) = 0. Let G(z) := 0 e−zu g(u)du and G2 (z) := 0 e−zu g ′′ (u)du denote respectively the Laplace transforms of g and g ′′ . Then, for all complex numbers s,
+
+
+X Λ(n)
+1
+1 Γ′  s
+g(log n) = g(0) − log π + ℜ
++1
+ℜ
++ ℜ G(s − 1)
+ns
+2
+2 Γ 2
+n≥1
+
+
+Z 1/2+i∞
+X
+G2 (s − z) Γ′  z 
+G2 (s)
+1
+ℜ
+dz +
+−ℜ
+G(s − ρ) + ℜ
+.
+2πi 1/2−i∞ (s − z)2 Γ 2
+s2
+ρ
+The next lemma is used to control the error term in the case relevant to our application.
+Lemma 8 (Bounding the error term). Let s = σ + it, σ ≥ σ0 and η ∈ (0, η0 ]. Assume either
+t = 0 or t ≥ H and η ≤ A0 / log t. If W0 (z) = W (z) − w(0)/z then
+(
+Z 1/2+i∞
+ s − z  Γ′  z 
+s
+623η 3 ,
+t = 0,
+1
+W0
+ℜ
+dz + W0
+≤
+2
+3
+2πi 1/2−i∞
+η
+Γ 2
+η
+14η + 424η , t ≥ H.
+Proof. Let E1 (s) denote the left side of the above inequality, so that
+
+
+
+
+Z ∞
+s − (1/2 + iy)
+Γ′ 1/2 + iy
+1
+W0
+ℜ
+dy + |W0 (s/η)|
+E1 (s) ≤
+2π −∞
+η
+Γ
+2
+= T1 + T2 ,
+
+13
+
+say. For convenience we write x0 := σ0 − 1/2. By assumption, η ≤ η0 . If ξ = (s − 1/2 − iy)/η
+then |ξ| ≥ ℜ ξ ≥ x0 /η0 . Applying Lemma 4 (and noting that C(x0 /η0 , x0 /η0 ) < 52), one has
+
+
+s − 1/2 − iy
+52η 3
+.
+(30)
+W0
+≤ 2
+η
+(x0 + (t − y)2 )3/2
+Meanwhile, as in [7, Lemma 3.6] we use
+1
+16
+2
+
+
+
++
++ 2,
+|y| < 1/2,
+ log
+2
+Γ′ 1/2 + iy
+2
+1 + 4y
+1 + 4y 2
+ℜ
+≤ U (y) :=
+2
+1
+2
+|y|
+
+Γ
+2
+ log
+−
++ 2 , |y| ≥ 1/2.
++
+2
+2
+1 + 4y
+3|y| 8y
+If t = 0 then via direct computation,
+Z ∞
+
+U (y)
+
+2
+2 3/2
+−∞ (x0 + y )
+
+dy < 24.
+
+(31)
+
+(32)
+
+On the other hand if t ≥ H then we divide the integral as
+Z ∞
+Z ∞
+Z −(t−2) Z t−2
+U (t + y)
+= I1 + I2 + I3 .
++
++
+dy =
+2
+2 3/2
+t−2
+−(t−2)
+−∞ (x0 + y )
+−∞
+One may verify that U (x) < log(100 − x) for x ≤ 2, so that
+Z ∞
+log(y + 100)
+I1 <
+dy < 10−10 .
+3
+y
+H−2
+For x ≥ 2, one may check that U (x) ≤ log x so
+Z t−2
+Z
+log(t + y)
+dy
+2
+I2 ≤
+dy < log t
+< 2 log t
+2
+2
+2
+3/2
+2
+3/2
+x0
+−(t−2) (x0 + y )
+|y|≤t−2 (x0 + y )
+and also
+
+Z ∞
+I3 ≤
+
+log y
+dy < 10−10 .
+3
+H−2 y
+
+Combining these estimates with (30) and (32), and using η ≤ A0 / log t ≤ η0 one has
+(
+Z
+199η 3 , t = 0,
+52 3 ∞
+U (y)
+T1 ≤
+η
+dy
+<
+2
+2 3/2
+2π
+14η 2 , t ≥ H.
+−∞ (x0 + y )
+
+(33)
+
+Next if ξ = s/η then |ξ| ≥ ℜ ξ ≥ σ0 /η0 so that by Lemma 4, for all k ≥ 0
+T2 ≤
+
+C(σ0 /η0 , σ0 /η0 ) 3
+η < 424η 3 .
+x30
+
+The desired result follows from combining (33) and (34).
+14
+
+(34)
+
+Remark 1. The bounds for the digamma function in (31) could be sharpened slightly by
+estimating more carefully the terms appearing in the corresponding asymptotic expansions in
+each case. However, such refinements would yield only a negligible improvement in the final
+constant for the zero-free region. We therefore keep the present estimates for simplicity.
+Lemma 9 (The explicit formula). Let s = σ + it with σ ∈ [σ0 , 1) and t ≥ H, and suppose
+η ∈ (0, A0 / log t]. If f and F are as in Definition 2, then
+
+
+
+X Λ(n)
+X
+1 Γ′ s + δm
+1
++1
+ℜ
+f (log n) = f (0)
+κm − log π + ℜ
+ns
+2
+2 Γ
+2
+n≥1
+0≤m≤M
+X
++ ℜF (s − 1) − ℜ
+F (s − ρ) + E,
+ρ
+
+where
+
+(
+2353η 3 ,
+|E| <
+53η 2 + 1601η 3 ,
+
+t = 0,
+t ≥ H.
+
+Proof. Note that if g(u) = ηw(ηu) then g(d) = g ′ (0) = g ′ (d) = g ′′ (d) and
+g(0)
+G2 (z)
+= G(z) −
+= W0 (z/η).
+2
+z
+z
+We apply Lemma 9 with this choice of g and with s replaced by s + δm (0 ≤ m ≤ M ):
+X Λ(n)
+X
+X Λ(n)
+ℜ
+f
+(log
+n)
+=
+ℜ
+κ
+ηw(η log n)
+m
+s
+s+δm
+n
+n
+n≥1
+n≥1
+0≤m≤M
+
+
+
+
+X
+1 Γ′ s + δm
+1
++1
+=ℜ
+κm ηw(0) − log π +
+2
+2Γ
+2
+0≤m≤M
+
+ X 
+
+
+s + δm − 1
+s + δm − ρ
++W
+W
+−
++ E1 (s + δm )
+η
+η
+ρ
+
+
+
+X
+1 Γ′ s + δm
+1
++1
+κm − log π +
+= f (0)ℜ
+2
+2Γ
+2
+0≤m≤M
+X
+X
++ ℜF (s − 1) − ℜ
+F (s − ρ) +
+κm E2 (s + δm ),
+ρ
+
+where
+1
+E2 (s) := ℜ
+2πi
+
+Z 1/2+i∞
+
+
+W0
+
+1/2−i∞
+
+0≤m≤M
+
+s−z
+η
+
+
+ℜ
+
+Γ′  z 
+dz + ℜW0 (s/η).
+Γ 2
+
+Applying Lemma 8 (with s replaced by s + δm (0 ≤ m ≤ M ) as required), and using the
+values of κm , one has
+(
+X
+2353η 3 ,
+t = 0,
+|κm E2 (s + δm )| <
+2
+3
+53η + 1601η , t ≥ H,
+0≤m≤M
+as required.
+15
+
+4
+
+The trigonometric polynomial
+
+As wePbriefly mentioned earlier, we require a non-negative trigonometric polynomial
+P (x) := 0≤k≤K ak cos kx ≥ 0 with coefficients satisfying a0 < a1 and ak ≥ 0 (0 ≤ k ≤ K).
+We will use the following choice, which is a rational version of the polynomial in [10, Table
+5]
+2
+X
+1
+ikx
+,
+P (x) :=
+ck e
+14912370 0≤k≤K
+where we recall that K = 16, c0 = 4 and
+c1 = −8,
+c5 = −34,
+c9 = −201,
+c13 = 2389,
+
+c2 = 2,
+c6 = 27,
+c10 = 32,
+c14 = 1896,
+
+c4 = −9,
+c8 = −27,
+c12 = 1949,
+c16 = 239.
+
+c3 = 20,
+c7 = 91,
+c11 = 895,
+c15 = 949,
+
+One may verify computationally that all conditions on P (x) are satisfied. In particular
+a0 = 1,
+
+a1 =
+
+865534
+,
+497079
+
+a :=
+
+X
+
+ak =
+
+1≤k≤K
+
+2919857
+.
+828465
+
+(35)
+
+In standard proofs of the zero-free region, the non-negativity of P (x) is used to establish
+X Λ(n)
+nσ
+
+n≥1
+
+f (log n)P (t log n) ≥ 0.
+
+In the remainder of this section, we show that it is possible to strengthen this inequality
+by replacing the right side with a positive quantity. This improvement will be used later to
+obtain a larger zero-free region.
+Lemma 10. Let f (u) be defined in Definition 2 and P (x) be defined as above. Then
+X Λ(n)
+n≥1
+
+nσ
+
+f (log n)P (t log n) ≥ 0.1186f (0).
+
+Our main idea is that instead of applying the estimate P (t log n) ≥ 0 pointwise, we first
+sum over terms n = pm (m ≥ 1) where p is a fixed prime. In particular, we only consider
+primes less than 100 since the contributions from the other primes are negligible.
+Lemma
+P 11. If f is as defined in Definition 2, then f (u) ≥ κf (0) for 0 ≤ u ≤ 59, where
+κ = 0≤m≤M κm .
+Proof. Note that w′ (x) ≤ 0 for x ≥ 0, so w(ηu) ≥ w(η0 u). Meanwhile, 2σ0 − 1 ≤ δm ≤ m so
+X
+X
+η −1 f (u) = w(ηu)
+κm e−δm u ≥ w(η0 u)
+κm e−dm u ,
+0≤m≤M
+
+0≤m≤M
+
+16
+
+where dm = (2σ0 − 1)m if κm < 0 and dm = m otherwise. The right side is a pure function
+of u, and a routine computer-assisted computation is used to verify that
+X
+−κw(0) + w(η0 u)
+κm e−dm u ≥ 0
+0≤m≤M
+
+for 0 ≤ u ≤ 59. The result follows from multiplying by η.
+Using the non-negativity of f (u) and P (x), we may discard all terms with n > N := e59 .
+Together with Lemma 11, this gives
+X Λ(n)
+X Λ(n)
+f
+(log
+n)P
+(t
+log
+n)
+≥
+κf
+(0)
+P (t log n).
+σ
+σ
+n
+n
+n≥1
+1≤n≤N
+Expanding over prime powers, we obtain
+X
+X Λ(n)
+f
+(log
+n)P
+(t
+log
+n)
+≥
+κf
+(0)
+log p
+σ
+n
+p
+n≥1
+
+X
+
+X
+
+p−mσ
+
+ak cos(mkt log p).
+
+0≤k≤K
+
+1≤m≤log N/ log p
+
+Since P (x) ≥ 0, we may further discard all primes p > 100 and all terms with m > 15, since
+a numerical verification shows that their contribution is negligible. Hence
+X
+X
+X
+X Λ(n)
+f
+(log
+n)P
+(t
+log
+n)
+>
+κf
+(0)
+log
+p
+a
+p−mσ cos(mkt log p).
+k
+σ
+n
+p<100
+1≤m≤15
+n≥1
+0≤k≤K
+Fix a prime p, and write x = t log p. Denoting ℓ = mk, we can rewrite the double sum
+X
+X
+Gp (σ, x) =
+ak
+p−mσ cos(mkx)
+0≤k≤K
+
+1≤m≤15
+
+as
+Gp (σ, x) =
+
+X
+
+bℓ (σ) cos(ℓx),
+
+ℓ≤15K
+
+where
+b0 (σ) = a0
+
+15
+X
+
+p−mσ = a0
+
+m=1
+
+p−σ (1 − p−15σ )
+,
+1 − p−σ
+
+and, for ℓ ≥ 1,
+bℓ (σ) =
+
+X
+
+ak p−σℓ/k .
+
+1≤k≤K
+k|ℓ
+ℓ/k≤15
+
+Equivalently,
+
+Gp (σ, x) = a0
+
+15
+X
+m=1
+
+p
+
+−mσ
+
+
+
+
+15K  X
+X
+
+
+−σℓ/k 
+
++
+a
+p
+k
+
+ cos(ℓx).
+
+ℓ=1 1≤k≤K
+k|ℓ
+ℓ/k≤15
+
+17
+
+Differentiating with respect to σ, we obtain
+
+
+
+
+
+15
+15K  X
+X
+X
+
+
+∂Gp
+ℓ
+−σℓ/k
+−mσ
+ cos(ℓx).
+
+(σ, x) = −(log p)a0
+mp
+− (log p)
+p
+a
+k
+
+
+∂σ
+k
+
+m=1
+ℓ=1 1≤k≤K
+k|ℓ
+ℓ/k≤15
+
+For each prime p < 100, we verified numerically, using Mathematica, that
+∂Gp
+(σ, x) < 0
+∂σ
+
+(σ ∈ [σ0 , 1] , x ∈ [0, 2π]) .
+
+Hence, for every fixed x, the function σ 7→ Gp (σ, x) is decreasing on [σ0 , 1], and therefore
+Gp (σ, x) ≥ Gp (1, x). It remains to find a lower bound for Gp (1, x). Writing y = cos x, we
+use the identity cos(ℓx) = Tℓ (y), where Tℓ is the ℓ-th Chebyshev polynomial. Thus Gp (1, x)
+becomes a polynomial Pp (y) on [−1, 1]. For each prime p < 100, we computed numerically
+the minimum of Pp (y) on [−1, 1], truncated this minimum downward to the eighth decimal
+place, and then verified rigorously that
+Pp (y) − mp > 0,
+
+(y ∈ [−1, 1]),
+
+by exact real-algebraic verification in Mathematica. This yields a certified lower bound
+Gp (1, x) > mp . For all primes p < 100, the resulting certified lower bounds are displayed in
+Table 1. Summing these contributions, we obtain
+p
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+
+Certified lower bound mp
+0.23416332
+0.05006283
+0.00735709
+0.00205251
+0.00039742
+0.00022273
+0.00009071
+0.00006314
+0.00003427
+0.00001656
+0.00001346
+7.8 · 10−6
+5.69 · 10−6
+
+p Certified lower bound mp
+43
+4.91 · 10−6
+47
+3.74 · 10−6
+53
+2.59 · 10−6
+59
+1.87 · 10−6
+61
+1.69 · 10−6
+67
+1.27 · 10−6
+71
+1.06 · 10−6
+73
+9.7 · 10−7
+79
+7.7 · 10−7
+83
+6.6 · 10−7
+89
+5.3 · 10−7
+97
+4.1 · 10−7
+
+Table 1: Certified truncated lower bounds mp for minx Gp (1, x), for primes p < 100.
+X
+
+(log p)mp > 0.23545.
+
+p<100
+
+18
+
+Therefore,
+X Λ(n)
+n≥1
+
+n
+
+f (log n)P (t log n) ≥ κf (0)
+σ
+
+X
+
+(log p)mp > 0.23545κf (0).
+
+p<100
+
+Using the chosen value of κ, this gives
+X Λ(n)
+n≥1
+
+nσ
+
+f (log n)P (t log n) > 0.1186f (0),
+
+which proves Lemma 10.
+
+5
+
+Proof of Lemma 1
+
+To complete the argument we require a few more results to estimate certain terms appearing on the right side of Lemma 9; these are recorded in the next few lemmas.
+Lemma 12. Let sk = σ + ikt with k ≥ 0 an integer, σ0 ≤ σ < 1 and t ≥ H. If κm
+(0 ≤ m ≤ M ) and ak (0 ≤ k ≤ K) are as defined in (18) and Section 4 respectively, then
+
+
+
+X
+X
+1 Γ′ sk + δm
+aκ
+1
++1
+≤
+log t − 1.568
+ak
+κm − log π + ℜ
+2
+2 Γ
+2
+2
+0≤m≤M
+0≤k≤K
+where a :=
+
+P
+
+1≤k≤K ak = 2919857/828465, κ :=
+
+P
+
+0≤m≤M κm = 433/859.
+
+Proof. For k ≥ 1, we use the following estimate, due to [7, (24)]: if z = x + iy with
+0 < x < |y|, then
+
+
+Γ′
+1 x
+x2
+1
+∗
+ℜ (z) = log |y| −
++O
++
+.
+(36)
+Γ
+2 |z|2
+12x|y| 2y 2
+Applying (36) with z = (sk + δm )/2 + 1, all error terms for k ≥ 1 are O(t−1 ) so we can afford
+to estimate them roughly. In particular, for 1 ≤ x ≤ (M + 3)/2 and y ≥ H/2 one has
+−
+
+1
+x2
+1 x
+< 10−10 .
++
++
+2 |z|2 12x|y| 2y 2
+
+Therefore
+
+
+
+1
+1 Γ′ sk + δm
+ak
+κm − log π + ℜ
++1
+2
+2
+Γ
+2
+0≤m≤M
+1≤k≤K
+
+
+κ X
+kt
+−10
+≤
+ak − log π + log + 10
+2 1≤k≤K
+2
+aκ
+aκ
+κ X
+log t +
+(− log 2π + 10−10 ) +
+ak log k.
+=
+2
+2
+2 1≤k≤K
+X
+
+X
+
+19
+
+(37)
+
+For the term corresponding to k = 0 we use the fact that Γ′ /Γ(x) is increasing for x > 0, so
+
+
+
+
+
+
+Γ′ σ0 + (2σ0 − 1)m
+Γ′ σ + δm
+Γ′ m + 3
++1 ≤
++1 ≤
+.
+Γ
+2
+Γ
+2
+Γ
+2
+Therefore, by choosing the appropriate bound depending on the sign of κm , we find
+
+
+1 X
+Γ′ σ + δm
+κm
++ 1 ≤ −0.041.
+2 0≤m≤M
+Γ
+2
+
+(38)
+
+The result follows from combining (37) and (38).
+Lemma 13. Suppose sk = σ + ikt (0 ≤ k ≤ K) with σ0 ≤ σ < 1 and t ≥ H. Let η ∈ (0, η0 ]
+and F be as defined in Definition 2. Then
+X
+ℜ
+ak F (sk − 1) ≤ a0 F (σ − 1) + 10−10 η.
+0≤k≤K
+
+Proof. Suppose that k ≥ 1. By Lemma 4, for ℜ z ≥ ν, |z| ≥ r, one has
+ℜW (z) =
+
+w(0)ℜ z
++ O∗ (C(ν, r)|z|−3 ).
+2
+|z|
+
+Taking z = (sk + δm − 1)/η, so that |z| ≥ t/η ≥ H/η0 > 1010 and ℜ z ≥ (σ − 1)/η > −1. A
+computer verification gives C(−1, 1010 ) < 51 which, together with ℜ z/|z|2 < M η/H 2 , gives
+
+
+w(0)M
+sk + δ m − 1
+51 3
+<
+ℜW
+η
++
+η < 10−12 η.
+η
+H2
+H3
+Therefore, for all k ≥ 1,
+ℜF (sk − 1) ≤
+
+X
+
+
+κm W
+
+0≤m≤M
+
+sk + δ m − 1
+η
+
+
+
+< 10−11 η.
+
+The result follows from summing over k.
+Lemma 14. Suppose σ ∈ [σ0 , 1), η ∈ (0, η0 ] and
+1 − σ0
+1−σ
+− 10−10 ≤
+≤ 1.
+η0
+η
+Let F be as defined in Definition 2 and a0 , a1 be as defined in (35). Then
+a1 F (σ − 1 + η) + a1 F (σ − η) − a0 F (σ − 1)
+≥ C1 ((1 − σ)/η) + 3.909η + 26η 2 − 3897η 3 ,
+where C1 (x) := 0.87637 + 0.12002x + 0.01017x2 − 0.00073x3 .
+20
+
+Proof. For convenience, denote
+µ :=
+
+1−σ
+,
+η
+
+µ0 :=
+
+1 − σ0
+− 10−10 = 0.91198 . . . .
+η0
+
+(39)
+
+First we bound the expression a1 F (σ − 1 + η) − a0 F (σ − 1), which may be written as
+X
+κm (a1 W (δm /η − µ + 1) − a0 W (δm /η − µ)).
+0≤m≤M
+
+For any a, ε, with a ̸= 0 and a + ε ̸= 0 one has
+1
+1
+ε
+ε2
+= − 2+ 2
+a+ε
+a a
+a (a + ε)
+
+(40)
+
+so that
+ηw(0)
+W (δm /η + x) =
++ W0
+δm + xη
+where
+
+
+
+δm
++x
+η
+
+
+=
+
+x2 w(0)
+η 3 + W0
+E(η) = 2
+δm (δm + xη)
+
+xw(0) 2
+w(0)
+η−
+η + E(η)
+2
+δm
+δm
+
+
+
+
+δm
++x .
+η
+
+If |x| ≤ x0 and δm + xη ≥ x1 > 0, then by Lemma 4,
+
+
+C(x1 , x1 )
+x20 w(0)
++
+|E(η)| ≤
+η3.
+3
+2
+2
+(2σ0 − 1) m x1
+x1
+In particular, if m ≥ 1P
+and x = −µ then we may take x0 = µ0 and x1 = (2σ0 − 1)m − µ0 η0
+so that, writing Sk := 1≤m≤M κm /mk , we have
+X
+
+κm W (δm /η − µ) ≤
+
+1≤m≤M
+
+µw(0)η 2
+w(0)η
+S1 −
+S2 + 1126η 3 .
+2σ − 1
+(2σ − 1)2
+
+Similarly, if x = −µ + 1 we take x0 = 1 − µ0 and x1 = (2σ0 − 1)m − (1 − µ0 )η0 to get
+X
+
+κm W (δm /η − µ + 1) ≥
+
+1≤m≤M
+
+w(0)η
+(µ + 1)w(0)η 2
+S1 −
+S2 − 1188η 3 .
+2
+2σ − 1
+(2σ − 1)
+
+We explicitly evaluate S1 = −0.689736127 . . . and S2 = −0.818779265 . . .. Furthermore,
+substituting the values of a0 , a1 and w(0), and applying µ ≥ µ0 and σ ≥ σ0 , one finds that
+X
+κm (a1 W (δm /η − µ + 1) − a0 W (δm /η − µ))
+1≤m≤M
+
+w(0)(a1 − a0 )
+w(0)((a1 − a0 )µ + a1 )
+S1 − η 2
+S2 − 3188η 3
+2σ − 1
+(2σ − 1)2
+> −2.939η + 11η 2 − 3193η 3 .
+>η
+
+21
+
+(41)
+
+Next, the term corresponding to m = 0 is
+Z 2θ cot θ
+a1 W (−µ + 1) − a0 W (−µ) =
+
+eµu (a1 e−u − a0 )w(u)du.
+
+0
+
+For all 0 ≤ x ≤ 2θ cot θ = 1.05923293 . . . one has
+1+x+
+so that
+
+x2 x3
+1
++
+− e x < x4
+2
+6
+18
+
+c2
+a1 W (−µ + 1) − a0 W (−µ) > c0 + c1 µ + µ2 +
+2
+
+
+
+c3
+c∗
+−
+6
+18
+
+
+
+µ3
+
+where
+Z 2θ cot θ
+cn :=
+
+n
+
+−u
+
+u (a1 e
+
+− a0 )w(u)du,
+
+0
+
+∗
+
+Z 2θ cot θ
+
+c :=
+
+u3 |a1 e−u − a0 |w(u)du
+
+0
+
+are computable constants. In particular, we find, using computer assistance,
+c0 = 0.8763706262 . . . ,
+c3 = 0.0004382722 . . . ,
+
+c1 = 0.1200272738 . . . ,
+c∗ = 0.0190417514 . . . ,
+
+c2 = 0.0203537951 . . . ,
+
+so that
+a1 W (−µ + 1) − a0 W (−µ) > C1 (µ).
+
+(42)
+
+It remains to bound a1 F (σ − η). One has
+X
+F (σ − η) =
+κm W ((σ − η + δm )/η).
+0≤m≤M
+
+Applying (40) with a = 1 + δm and ε = σ − 1 − η = −(µ + 1)η, we have
+
+
+
+
+σ + δm − η
+1
+1+µ
+= ηw(0)
++
+η + E1 (η),
+W
+η
+1 + δm (1 + δm )2
+where
+
+w(0)(1 + µ)2
+E1 (η) =
+η 3 + W0
+(1 + δm )(1 + δm − (1 + µ)η)
+
+
+
+σ + δm − η
+η
+
+
+.
+
+Recall that µ0 ≤ µ ≤ 1, η ≤ η0 and δm ≥ dm := (2σ0 − 1)m. Furthermore, for all m ≥ 0,
+one has (σ + δm − η)/η ≥ σ0 /η0 − 1 so that by Lemma 4
+
+
+4w(0)
+C(σ0 /η0 − 1, σ0 /η0 − 1) 3
++
+η .
+|E1 (η)| ≤
+(1 + dm )(1 + dm − (1 + µ0 )η0 )m
+(σ0 − η0 )3
+P
+Next we write Tk (σ) := 0≤m≤M κm /(1 + δm )k , so that
+X
+mκm
+Tk′ (σ) = −2k
+(1 + δm )k+1
+1≤m≤M
+22
+
+is positive for k = 1, 2 and all σ0 ≤ σ ≤ 1. Therefore,
+a1 F (σ − η) = a1 ηw(0) (T1 (σ) + η(1 + µ)T2 (σ)) + a1 E1 (η)
+≥ a1 ηw(0)T1 (σ0 ) + a1 η 2 w(0)(1 + µ0 )T2 (σ0 ) + a1 E1 (η)
+> 6.848η + 15η 2 − 708η 3 .
+The result follows from combining this bound with (41) and (42).
+We now proceed to the main inductive argument.
+Lemma 15 (Iteration lemma). Suppose that ζ(σ + it) ̸= 0 in the region
+σ >1−
+
+A
+,
+log t
+
+t ≥ H,
+
+for some 1/6 < A ≤ A0 . Then ζ(σ + it) ̸= 0 in the region
+σ >1−
+
+A+ε
+,
+log t
+
+t ≥ H,
+
+with ε = 10−100 .
+Proof. Suppose for a contradiction that ρ0 = β0 + it is a zero of ζ(s) with
+A ≤ (1 − β0 ) log t < A + ε and t ≥ H.
+
+(43)
+
+Fix sk = σ + ikt with 0 ≤ k ≤ K and σ = 1 − A/ log(Kt + T0 ), so that σ ∈ [σ0 , 1). Let
+η := 1 − β0 so that η ∈ (0, η0 ], and choose
+X
+f (u) = ηw(ηu)
+κm e−δm u
+0≤m≤M
+
+as in Definition 2. By Lemma 9 with s = sk ,
+
+
+
+1
+1 Γ′ sk + δm
+f (log n) = f (0)
+κm − log π + ℜ
++1
+ℜ
+sk
+n
+2
+2
+Γ
+2
+n≥1
+0≤m≤M
+X
++ ℜF (sk − 1) − ℜ
+F (sk − ρ) + Ek ,
+X Λ(n)
+
+X
+
+ρ
+
+where
+|Ek | ≤ 2353η 3 if k = 0 and |Ek | ≤ 53η 2 + 1601η 3 if k ≥ 1. Next, let P (x) =
+P
+0≤k≤K ak cos kx be the non-negative trigonometric polynomial constructed in Section 4.
+
+23
+
+By Lemma 10 and Lemma 9 one has
+0.1186f (0) ≤
+
+X Λ(n)
+
+f (log n)P (t log n)
+σ
+n
+n≥1
+X
+X Λ(n)
+f (log n)
+=ℜ
+ak
+nsk
+n≥1
+0≤k≤K
+
+
+
+
+X
+X
+1 Γ′ sk + δm
+1
+=
++1
+ak f (0)
+κm − log π + ℜ
+2
+2
+Γ
+2
+0≤m≤M
+0≤k≤K
+
+X
++ ℜF (sk − 1) − ℜ
+F (sk − ρ) + Ek .
+
+(44)
+
+ρ
+
+Now we invoke a series of estimates to bound the terms on the right side. First, Lemma 12
+is used to bound the main term of order log t:
+
+ aκ
+X
+X
+1
+1 Γ′  sk
+κm
+ak − log π + ℜ
++1
+≤
+log t − 1.568,
+(45)
+2
+2 Γ 2
+2
+0≤m≤M
+0≤k≤K
+where κ :=
+
+P
+
+0≤m≤M κm = 433/859. Next, by Lemma 13 one has
+
+ℜ
+
+X
+
+ak F (sk − 1) ≤ a0 F (σ − 1) + 10−10 η
+
+(46)
+
+0≤k≤K
+
+and by Lemma 6 one has
+X
+X
+ℜ
+ak
+F (sk − ρ) > F (σ − β0 ) + F (σ − 1 + β0 ) − 10−7 .
+0≤k≤K
+
+(47)
+
+ρ
+
+Finally, Lemma 9 gives a bound for the error term
+X
+
+ak Ek < 187η 2 + 8013η 3 .
+
+(48)
+
+0≤k≤K
+
+Substituting (46), (47), (45) and (48) into (44), we have
+0≤
+
+aκ
+f (0) log t + a0 F (σ − 1) − a1 (F (σ − β0 ) + F (σ − 1 + β0 ))
+2
++ 10−7 + (−0.1186w(0) − 1.568w(0) + 10−10 )η + 187η 2 + 8013η 3 .
+
+At this point we note that by our assumption (43) (recalling that η = 1 − β0 , A > 1/6 and
+µ0 is as defined in (39)), we have
+µ :=
+
+1−σ
+A
+log t
+>
+> µ0
+η
+A + ε log(Kt + T0 )
+24
+
+and also µ < 1, so that we may apply Lemma 14 to obtain
+aκ
+f (0) log t ≥ C1 (µ) + C2 (η) − 10−7
+2
+where C1 is defined in Lemma 14 and C2 (η) := 13.47η − 161η 2 − 11896η 3 . Note that C1 and
+C2 are positive and increasing on [µ0 , 1] and [0, η0 ] respectively. Thus we may use4 (in light
+of A > 1/6)
+µ>
+
+A
+log t
+2.78
+>1−
+A + ε log(K + T0 /H) + log t
+log t
+
+and
+
+η>
+
+1
+6 log t
+
+to obtain (with the aid of any symbolic algebra package)
+
+
+
+
+aκ
+2.78
+1
+f (0) log t > C1 1 −
++ C2
+− 10−7
+2
+log t
+6 log t
+1.86088
+4.4106
+55.0584
+> 1.00582 +
+−
+−
+.
+2
+log t
+(log t)
+(log t)3
+Since the right side is decreasing for t ∈ [H, exp(76.47)], we may lower-bound this expression
+by its value at t = exp(76.47), which is 1.02928 . . .. Therefore
+η log t >
+
+1.02928
+= 0.204248 . . . > A0 + ε ≥ A + ε,
+aκw(0)/2
+
+as required.
+To complete the proof of Lemma 1 it remains to note that all zeroes β+iγ with 3 ≤ γ < H
+are known to lie on the critical line [12], so Lemma 1 follows in this region. For γ ≥ H, we
+use Lemma 15 combined with any existing zero-free region of the form σ > 1 − c/ log t for
+some c > 1/6, e.g. those proved in [7], [10] or [11].
+
+References
+[1] C. Bellotti. Explicit bounds for the Riemann zeta function and a new zero-free region.
+J. Math. Anal. Appl., 536(2), Paper No. 128249, 33pp., 2024.
+[2] C. Bellotti and P.-J. Wong. Improved estimates for the argument and zero-counting
+function of the Riemann zeta-function. Math. Comp., to appear. Preprint available at
+arXiv:2412.15470, 2024.
+[3] R. P. Brent, D. J. Platt, and T. S. Trudgian. Accurate estimation of sums over zeros of
+the Riemann zeta-function. Math. Comp., 90(332):2923–2935, 2021.
+4
+
+We note that some iteration here yields minor improvements. Once we have a zero-free region constant
+in Theorem 1 of A0 = 1/4.9, say, we can we apply this lemma with a marginally-improved lower bound for
+η and hence with an improved C2 . We have not pursued this, since the improvements appear negligible.
+
+25
+
+[4] K. Ford. Zero-free regions for the Riemann zeta function. Number Theory for the
+Millennium, II (Urbana, IL, 2000), pp. 25–56, A K Peters, Natick, MA, 2002.
+[5] K. Ford. Zero-free regions for the Riemann zeta function.
+[math.NT], 22 Sep 2022, 31 pp.
+
+arXiv:1910.08205v4
+
+[6] D. R. Heath-Brown. Zero-free regions for Dirichlet L-functions, and the least prime in
+an arithmetic progression. Proc. London Math. Soc., 64(2):265–338, 1992.
+[7] H. Kadiri. Une région explicite sans zéros pour la fonction ζ de Riemann. Acta Arith.,
+117(4):303–339, 2005.
+[8] R. S. Lehman. On the difference π(x) − li(x). Acta Arith., 11:397–410, 1966.
+[9] H. L. Montgomery and R. C. Vaughan, Multiplicative Number Theory I. Classical Theory, Cambridge Univ. Press, New York, 2007.
+[10] M. J. Mossinghoff and T. S. Trudgian. Nonnegative trigonometric polynomials and a
+zero-free region for the Riemann zeta-function. J. Number Theory, 157(1–2):329–349,
+2015.
+[11] M. J. Mossinghoff, T. S. Trudgian, and A. Yang. Explicit zero-free regions for the
+Riemann zeta-function. Res. Number Theory, 10(1), paper no. 11, 27 pp., 2024.
+[12] D. J. Platt and T. S. Trudgian. The Riemann hypothesis is true up to 3 · 1012 . Bull.
+Lond. Math. Soc., 53(3), 792–797, 2021.
+[13] S. B. Stechkin. Zeros of the Riemann zeta-function. Math. Notes, 8:706–711, 1970.
+[14] E. C. Titchmarsh. The Theory of the Riemann Zeta-function. Oxford Univ. Press,
+Oxford, 2nd ed., 1986.
+[15] A. Yang. Explicit bounds on ζ(s) in the critical strip and a zero-free region. J. Math.
+Anal. Appl., 534(2), 128124, 2024.
+[16] A. Yang. Explicit zero-free regions for the Riemann zeta-function. PhD thesis, UNSW,
+2025. https://doi.org/10.26190/unsworks/31825.
+
+26
+
+

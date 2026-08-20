@@ -1,0 +1,348 @@
+arXiv:2004.09765v1 [math.NT] 21 Apr 2020
+
+The Riemann hypothesis is true up to 3 · 1012
+Dave Platt∗
+School of Mathematics,
+University of Bristol, Bristol, UK
+dave.platt@bris.ac.uk
+Tim Trudgian∗†
+School of Science
+The University of New South Wales Canberra, Australia
+t.trudgian@adfa.edu.au
+April 22, 2020
+
+Abstract
+We verify numerically, in a rigorous way using interval arithmetic, that the Riemann
+hypothesis is true up to height 3 · 1012 . That is, all zeroes β + iγ of the Riemann
+zeta-function with 0 < γ ≤ 3 · 1012 have β = 1/2.
+
+1
+
+Introduction
+
+The Riemann zeta-function ζ(s) has trivial zeroes at s = −2, −4, −6 . . ., and non-trivial
+zeroes in the strip 0 < σ < 1, where here, and hereafter s = σ + it. The Riemann hypothesis
+asserts that all non-trivial zeroes ρ = β + iγ have β = 1/2. In the absence of a proof, it
+is extremely important to obtain partial verifications of the Riemann hypothesis. To that
+end, define H as the largest number for which it is known that all zeroes ρ = β + iγ with
+0 < γ ≤ H have β = 1/2. This problem has a long history; for a glimpse of this we refer the
+reader to [11, p. 2].
+In recent years, three calculations have been referenced frequently in the literature. The
+first result is by Wedeniwski1 [36] in 2004, with H = 2.41 . . .·1011 . The second is by Gourdon
+∗
+
+Supported by Australian RC Discovery Project DP160100932 and EPSRC Grant EP/K034383/1.
+Supported by Australian RC Future Fellowship FT160100094.
+1
+It is difficult to pinpoint the height claimed in these calculations. The third slide of [36], dated 20th
+May 2003, claims the first 200 billion zeroes were checked, equating to H = 5.72 . . . · 1010 . The end of [36]
+contains the statement that the project computed 385 billion zeroes or H = 1.07 . . . · 1011 if we assume these
+†
+
+1
+
+[11], also in 2004, which establishes H = 2.44 . . . · 1012 . The third is by the first author in
+2017 [21] (see also [20]), with H = 3.06 . . . · 1010 .
+Whilst the latest and lowest value for H may appear to be a retrograde step, the computations in [21] utilised interval arithmetic and rigorously derived truncation bounds to
+ensure the results claimed are correct. The two earlier results have the disadvantage that
+neither has been published in a peer reviewed journal. Furthermore, it is not clear how the
+computations were set up to avoid problematic accumulation of rounding and truncation
+errors. This concern was noted in works by Tao [32] (see remarks after Theorem 1.5) and
+Helfgott [12]. We also mention the result claimed by Franke et al. [9] with H = 1011 : again,
+few computational details are given.
+We now state our main theorem, which surpasses all aforementioned results.
+Theorem 1. The Riemann hypothesis is true up to height 3 000 175 332 800. That is, the
+lowest 12 363 153 437 138 non-trivial zeroes ρ have ℜρ = 1/2.
+We note that this independently verifies the results of Gourdon, Wedeniwski and Franke
+et al. and indeed goes 22% higher than the largest of these.
+We have endeavoured to make this paper as short as possible. In §2 we outline some of
+the computational aspects underpinning Theorem 1. In §3 we mention some results that are
+improved instantly with Theorem 1.
+
+2
+
+Theory and computation
+
+We used the algorithm described in [21]. In common with all modern partial verifications
+of the Riemann hypothesis, the algorithm computes values of the completed zeta function
+on the half line and counts sign changes therein. Each sign change represents a zero of zeta
+on the half line. Using a variation of Turing’s method (see [34, 35]), we can confirm that all
+the expected zeroes have been accounted for, so none lie off the half line and the Riemann
+hypothesis holds in the given range.
+We rewrote the original code to utilise Arb [13] in place of MPFI [26] for two reasons.
+First, Arb is being actively maintained whereas MPFI is not. Second, Arb uses ball arithmetic in place of full interval arithmetic whence there is a space saving of roughly 50%, which
+make applications more cache friendly.
+The other main change to the code that was used to reach 3 · 1010 in [21] was that we
+made no attempt to isolate zeroes to any more precision than was absolutely necessary. A key
+motivation of [21] was to generate a database of rigorously isolated zeroes to high precision,
+but to do so here would have added to the run time and, in any case, we had nowhere to store
+that many zeroes. Rather, once we had found a sign change in the completed zeta function
+indicating the presence of a zero of zeta on the half line, we did not use the machinery of
+Shannon–Whittaker–Nyquist to “zoom in” on that zero, we merely counted it and moved
+were the lowest lying zeroes. A later version of the same slides from 12th November 2003 mentions 561
+billion zeroes or H = 1.53 . . . · 1011 . To add to the confusion, the link [37] gives 900 billion zeroes and this
+is leads to the quoted H = 2.41 . . . · 1011 .
+
+2
+
+on. In fact, the default lattice sampling rate we used (about 0.01) was sufficient to isolate
+999 997.5 out of every 1 000 000 zeroes.
+All computations were performed on the University of Bristol’s Bluecrystal Phase III
+[1] and the National Computing Infrastructure’s Raijin and Gadi [19] clusters. Both Raijin
+and Gadi nodes support Hyper-Threading meaning there are two logical processors per core.
+Since both of these logical devices share the same physical execution resources, one would
+not expect to see a two times speed up: we found we benefitted to the tune of about
+15%. Bluecrystal does not have Hyper-Threading enabled. We also incorporated a minor
+improvement to our bound for |Γ((σ + it)/2)| exp(πt/4) (A.2 in [21]) and spent some time
+optimising the computational parameters to work better 100 times higher up the half line.
+In total we used some 7.5 million core hours on 3.6GHz Intel R Xeon R processors, so
+each GHz-hour processed a piece of the half line of length about 110 000. For comparison,
+Wedeniwski [36] reports that the isolation of 561 billion zeros took the equivalent of 2 304
+years on 2GHz Pentium R 4, so about 3 800 of the half line per GHz-hour whereas Gourdon’s computation took the equivalent of 525 days on a single 2.4GHz Pentium R 4, so about
+80 000 000 of the half line per GHz-hour. The difference between the Wedeniwski computation and Gourdon’s and our’s shows the power of FFT based algorithms up against vanilla
+Riemann-Siegel. The fact that Gourdon’s computation was 725 times quicker than ours is
+down to the higher sampling rate we used (25 per zero in place of 1.2) and the cost of multi
+precision rigorous numerics compared to hardware floating point.
+
+3
+
+Some instant wins
+
+Where researchers have used Gourdon’s or Platt’s H as their starting point, this independent verification adds weight to their results and gives some explicit improvements. In this
+section we include some results that are improved either instantly, or at least fairly easily,
+in light of Theorem 1. We have not endeavoured to furnish an exhaustive list.
+
+3.1
+
+Bounds on primes
+
+It is useful P
+to have explicit estimates on the error term in the prime number
+Ptheorem.
+Define ψ(x) = pm ≤x Λ(n), where Λ(n) is the von Mangoldt function, and θ(x) = p≤x log p.
+Rosser and Schoenfeld [28] instigated a program of research to bound ψ(x) − x explicitly.
+The current best results are due to Dusart [7] and Faber and Kadiri [8] for small values of
+x, Broadbent et al. [3] for intermediate values, and the authors [23] for larger values. These
+results were based on Gourdon’s value of H which is confirmed by and can be improved
+improved slightly with our Theorem 1.
+Related to these bounds are Bertrand-type estimates: exhibiting a prime in intervals of
+the form (x, x + cx] for some c and for all x ≥ x0 (c). The best results of this type are by
+Kadiri and Lumley [15], and can now be improved with Theorem 1.
+
+3
+
+Of course, on the Riemann hypothesis much more is known: Schoenfeld [29] proved that
+|ψ(x) − x| ≤
+
+1 1/2 2
+x log x,
+8π
+
+(x > 59).
+
+(1)
+
+Büthe [5, §7] showed that
+p if the Riemann hypothesis holds up to height H then (1) holds
+for those x such that 4.92 x/ log x ≤ H. Given this we may note a quick corollary.
+
+Corollary 1. The following bounds hold in the range indicated
+√
+x
+|ψ(x) − x| ≤
+log2 x, (59 < x ≤ 2.169 · 1025 ),
+8π
+√
+x
+log2 x, (599 < x ≤ 2.169 · 1025 ),
+|θ − x| ≤
+8π
+√
+x
+log2 x, (2657 < x ≤ 2.169 · 1025 ).
+|π(x) − li(x)| ≤
+8π
+
+We also mention that some results from the expansive article by Bennett et al. [2] can
+be improved, as can bounds on weighted sums of Λ(n) as given by Ramaré [25].
+
+3.2
+
+Zero-free regions and zero density estimates
+
+1
+It is known that there are no zeroes ρ = β + iγ in the region β ≥ 1 − R log
+for all
+γ
+γ > 3. The current best value is R = 5.573412 by Mossinghoff and Trudgian [18]. This can
+be improved slightly with Theorem 1 and will be tackled in a future paper of Mossinghoff
+and the second author, along with the explicit version of the Vinogradov–Korobov zero-free
+region, which was proved by Ford [10].
+Not only is the zeta-function non-zero in regions close to σ = 1, its reciprocal does not
+grow too quickly. This has been quantified, explicitly, by the second author in [33]. These
+results depend not just on the value of H, and hence are improvable by Theorem 1, but also
+on the size of the zero-free constant R mentioned above.
+Let N(σ, T ) count the number of zeroes with β > σ and 0 < γ ≤ T . Explicit estimates
+on N(σ, T ) have been given by Kadiri [14], Kadiri, Lumley, and Ng [16], and Simonič [30].
+All of these results could be improved with Theorem 1.
+
+3.3
+
+Oscillations in the prime number theorem
+
+The prime number theorem gives π(x) ∼ li(x) and θ(x) ∼ x. Littlewood [17] showed
+that there are infinitely many sign changes in the differences π(x) − li(x) and θ(x) − x. The
+history of estimating the first sign change of the first of these differences is rich: see [6, 31]
+for further details. These results, as well as the results of the authors [22] for the first sign
+change of θ(x) − x could potentially be improved with Theorem 1. Such an improvement
+would only be meagre, though, owing to the known small gap between unconditional results
+and those contingent on the Riemann hypothesis.
+4
+
+The aforementioned results show that the first sign changes cannot be too large. Numerical work shows that the first sign changes cannot be too small, either. Büthe in [4] shows
+that θ(x) < x and π(x) < li(x) for 2 ≤ x ≤ 1019 . We note that these results relied on the
+value of H = 1011 in Franke et al. [9] and so, could also be improved with our Theorem 1.
+
+3.4
+
+The de Bruijn–Newman constant
+
+For t ∈ R, let
+Z ∞
+2
+Ht (z) =
+etu Φ(u) cos(zu) du,
+
+Φ(u) =
+
+0
+
+∞
+X
+n=1
+
+
+
+2π 2 n4 e9u − 3πn2 e5u exp −πn2 e4u .
+
+The de Bruijn–Newman constant Λ is the real number for which all the zeroes of Ht are real
+when t ≥ Λ. The Riemann hypothesis is equivalent to the statement that Λ ≤ 0. Rodgers
+and Tao [27] proved that Λ ≥ 0. A history of bounds on Λ is given in [27] and [24].
+The 15th Polymath Project [24] contains some calculations with the de Bruijn–Newman
+constant: the authors prove that Λ ≤ 0.22. We note that we can make an instant, but very
+mild, improvement on this. The second row in Table 1 on page 65 of [24] shows2 that one
+may take Λ ≤ 0.2 provided one has shown H > 2.51 · 1012 . This leads to the following.
+Corollary 2. We have Λ ≤ 0.2.
+The next entry in Table 1 of [24] is conditional on taking H a little higher than 1013 ,
+which of course, is not achieved by Theorem 1. This would enable one to prove Λ < 0.19.
+Given that our value of H falls between the entries in this table, it is possible that some
+extra decimals could be wrought out of the calculation. We have not pursued this.
+Acknowledgements
+The authors would like to thank the technical staff at NCI and the University of Bristol
+ACRC for their invaluable support and advice. This mammoth computation would not have
+been possible without the allocation of machine hours on Raijin and Gadi via NCMAS,
+INTERSECT, and the UNSW Resource Allocation Scheme.
+
+References
+[1] ACRC. BlueCrystal User Guide, 2015. https://www.acrc.bris.ac.uk/pdf/bc-user-guide.pdf.
+[2] M.A. Bennett, G. Martin, K. O’Bryant, and A. Rechnitzer. Explicit bounds for primes
+in arithmetic progressions. Illinois J. Math., 62(1-4), 427–532 (2018).
+[3] S. Broadbent, H. Kadiri, A. Lumley, N. Ng, and K. Wilk. Sharper bounds for the
+Chebyshev function θ(x). Preprint available at arXiv:2002.11068v1, 2020.
+2
+
+Note that the X in Table 1 corresponds to 2H.
+
+5
+
+[4] J. Büthe. An analytic method for bounding ψ(x). Math. Comp., 87(312), 1991–2009
+(2017).
+[5] J. Büthe. Estimating π(x) and related functions under partial RH assumptions. Math.
+Comp., 85(301), 2483–2498 (2016).
+[6] P. Demichel, Y. Saouter, and T. Trudgian. A still sharper region where π(x) − li(x) is
+positive. Math. Comp., 84(295), 2433–2446 (2015).
+[7] P. Dusart. Explicit estimates of some functions over primes. Ramaujan J., 45, 227–251
+(2018).
+[8] L. Faber and H. Kadiri. Corrigendum to “New bounds for ψ(x)”. Math. Comp., 87,
+1451–1455 (2018).
+[9] J. Franke, T. Kleinjung, J. Büthe, and A. Jost. A practical analytic method for calculating π(x). Math. Comp., 86(308), 2889–2909 (2017).
+[10] K. Ford. Zero-free regions for the Riemann zeta function. Number Theory for the
+Millennium, II (Urbana, IL, 2000), 25–56, A K Peters, Natick, MA, 2002.
+
+[11] X.
+Gourdon.
+Computation
+of
+zeros
+of
+the
+Zeta
+function,
+http://numbers.computation.free.fr/Constants/Miscellaneous/zetazeroscompute.html#Gour
+[12] H.A.
+Helfgott.
+The
+ternary
+Goldbach
+https://webusers.imj-prg.fr/~ harald.helfgott/anglais/book.html.
+
+problem.
+
+[13] F. Johansson. Arb: efficient arbitrary-precision midpoint-radius interval arithmetic.
+IEEE Trans. Comput., 66, 1281–1292 (2017).
+[14] H. Kadiri. A zero density result for the Riemann zeta function. Acta Arith., 160(2),
+185–200 (2013).
+[15] H. Kadiri and A. Lumley. Short effective intervals containing primes. Integers, 14,
+#A61, 18pp. (2014).
+[16] H. Kadiri, A. Lumley, and N. Ng. Explicit zero density for the Riemann zeta function.
+J. Math. Anal. Appl., 465, 22–46 (2018).
+[17] J. E. Littlewood. Sur la distribution des nombres premiers. Comptes Rendus, 158,
+1869–1872 (1914).
+[18] M. J. Mossinghoff and T. S. Trudgian. Nonnegative trigonometric polynomials and a
+zero-free region for the Riemann zeta-function. J. Number Theory, 157, 329–349 (2015).
+[19] NCI NCI HPC Systems, 2020. https://nci.org.au/our-systems/hpc-systems.
+[20] D. J. Platt. Computing degree 1 L-functions rigorously. PhD Thesis, University of
+Bristol, 2011.
+6
+
+[21] D. J. Platt. Isolating some non-trivial zeros of zeta. Math. Comp., 86, 2449–2467 (2017).
+[22] D.J. Platt and T. S. Trudgian. On the first sign change of θ(x) − x. Math. Comp.,
+85(299), 1539–1547 (2016).
+[23] D.J. Platt and T. S. Trudgian. The error term in the prime number theorem. Math.
+Comp., to appear.
+[24] D. H. J. Polymath. Effective approximation of heat flow evolution of the Riemann ξ
+function, and a new upper bound for the de Bruijn–Newman constant. Res. Math. Sci.,
+6(3) (2019).
+[25] O. Ramaré. Explicit estimates for the summatory function of Λ(n)/n from the one for
+Λ(n). Acta Arith., 159(2), 113–122 (2013).
+[26] N. Revol and F. Rouillier, A library for arbitrary precision interval arithmetic, 10th
+GAMM-IMACS International Symposium on Scientific Computing, Computer Arithmetic, and Validated Numerics (2002).
+[27] B. Rodgers and T. Tao. The de Bruijn–Newman constant is non-negative. Forum of
+Math., Pi, 8(e6), 62pp. (2020).
+[28] J. B. Rosser and L. Schoenfeld. Approximate formulas for some functions of prime
+numbers. Illinois J. Math., 6, 64–94 (1962).
+[29] L. Schoenfeld. Sharper bounds for the Chebyshev functions θ(x) and ψ(x), II. Math.
+Comp., 30(134), 337–360 (1976).
+[30] A. Simonič. Explicit zero density estimate for the Riemann zeta-function near the
+critical line. Submitted. Preprint available at arXiv:1910.08274, 2019.
+[31] C. R. Smith. The hunt for Skewes’ number. MSc thesis, University of York, 2016.
+[32] T. Tao. Every odd number greater than 1 is the sum of at most five primes. Math.
+Comp., 83(286), 997–1038 (2014).
+[33] T. S. Trudgian. Explicit bounds on the logarithmic derivative and the reciprocal of the
+Riemann zeta-function. Funct. Approx. Comment. Math., 52(2), 253–261 (2015).
+[34] T. S. Trudgian. Improvements to Turing’s Method. Math. Comp., 80(276), 2259–2279
+(2011).
+[35] T. S. Trudgian. Improvements to Turing’s Method II. Rocky Mountain J. Math., 46(1),
+325–332 (2016).
+[36] S. Wedeniwski. ZetaGrid — Computational verification of the Riemann Hypothesis.
+Conference in number theory in honour of Professor H. C. Williams, Banff, Alberta,
+Canada, 2003.
+
+7
+
+[37] Wikipedia. The Riemann hypothesis. https://en.wikipedia.org/wiki/Riemann_hypothesis,
+accessed April 2020.
+
+8
+
+

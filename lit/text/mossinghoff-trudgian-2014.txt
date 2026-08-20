@@ -1,0 +1,1855 @@
+NONNEGATIVE TRIGONOMETRIC POLYNOMIALS AND A
+ZERO-FREE REGION FOR THE RIEMANN ZETA-FUNCTION
+
+arXiv:1410.3926v1 [math.NT] 15 Oct 2014
+
+MICHAEL J. MOSSINGHOFF AND TIMOTHY S. TRUDGIAN
+
+Abstract. We prove that the Riemann zeta-function ζ(σ + it) has no zeros in the region σ ≥ 1 − 1/(5.573412 log|t|) for |t| ≥ 2. This represents
+the largest known zero-free region within the critical strip for 3.06 · 1010 <
+|t| < exp(10151.5). Our improvements result from determining some favorable
+trigonometric polynomials having particular properties, and from analyzing
+the error term in the method of Kadiri. We also improve an upper bound in
+a question of Landau regarding nonnegative trigonometric polynomials.
+
+1. Introduction
+Let ζ(s) denote the Riemann zeta-function, where throughout this article we
+write s = σ + it, with σ and t real numbers. It is well known that ζ(s) is zero
+at each negative even integer—these are the trivial zeros of the zeta-function—and
+that all nontrivial zeros of this function occur in the critical strip in the complex
+plane, where 0 < σ < 1. Further, the nontrivial zeros are symmetric about the line
+σ = 1/2. The Riemann hypothesis states that all nontrivial zeros are on this line.
+Determining zero-free regions within the critical strip has long been of great
+interest in number theory, since such results bear directly on questions regarding
+the distribution of prime numbers. For example, the prime number theorem was
+established in 1896 by Hadamard and de la Vallée Poussin by proving that ζ(s) has
+no zeros on the line σ = 1. Moreover, de la Vallée Poussin established in 1899 [2]
+that ζ(s) 6= 0 in a region of the form
+1
+σ >1−
+,
+R0 log|t|
+where R0 is a particular constant and |t| is sufficiently large. We refer to a region
+of this form as a classical zero-free region of the Riemann zeta-function.
+An improved zero-free region for ζ(s) was established by Korobov [7] and Vinogradov [20] in 1958, who showed independently that ζ(s) 6= 0 for
+1
+σ >1−
+R1 (log|t|)2/3 (log log|t|)1/3
+for some constant R1 . Ford [4] established an explicit region of this type, showing
+that one can take R1 = 57.54 for |t| ≥ 3. Clearly, Ford’s region is asymptotically
+Date: August 13, 2018.
+2010 Mathematics Subject Classification. Primary: 11M26, 42A05; Secondary: 11Y35.
+Key words and phrases. Riemann zeta-function, zero-free region, nonnegative trigonometric
+polynomials, simulated annealing.
+The first author was partially supported by a grant from the Simons Foundation (#210069).
+The second author was partially supported by Australian Research Council DECRA Grant
+DE120100173.
+1
+
+2
+
+MICHAEL J. MOSSINGHOFF AND TIMOTHY S. TRUDGIAN
+
+Table 1. Improvements in the constant R0 in the classical region.
+
+1899
+1938
+1962
+1970
+1975
+1977
+2002
+2005
+
+de la Vallée Poussin [2]
+Westphal [22]
+Rosser & Schoenfeld [14]
+Stechkin [18]
+Rosser & Schoenfeld [15]
+Kondrat’ev [6]
+Ford [4]
+Kadiri [5]
+
+R0
+30.4679
+17.537
+17.51631
+9.65
+9.64591
+9.547897
+8.463
+5.69693
+
+b1
+b2
+1
+—
+1
+0.25
+1
+0.3
+0.91 0.28
+1
+0.3
+(see Table 2)
+0.9 0.225
+0.91 0.265
+
+superior to the classical one, but for values of |t| that are not too large, explicit
+forms of the classical region provide better bounds on σ than Ford’s result. Because
+of this, explicit forms of the classical zero-free region remain of interest, and find
+application in number theory: see for instance [3, 12].
+Table 1 exhibits the history of improvements in the value of R0 in the classical region, beginning with de la Vallée Poussin’s value, R0 = 30.4679, from
+1899, through to the 2005 result of Kadiri [5], who established that R0 = 5.69693
+is permissible.
+Each of these works employed an even trigonometric polynomial
+Pn
+f (ϕ) =
+k=0 ak cos(kϕ) with real coefficients and possessing certain properties:
+f (ϕ) ≥ 0 for all real ϕ, each coefficient ak is nonnegative, and a1 > a0 . For example, de la Vallée Poussin used the polynomial (1+cos ϕ)2 = 32 +2 cos ϕ+cos 2ϕ. After
+this result, each of the other efforts summarized in this table employed a polynomial
+of degree n = 4, except for Kondrat’ev, who employed one of degree 8, described
+below. The trigonometric polynomial used in each of the other results summarized
+in Table 1 is indicated by the values of b1 and b2 in the last two columns: these
+designate the nonnegative even trigonometric polynomial (b1 + cos ϕ)2 (b2 + cos ϕ)2 .
+Kondrat’ev’s work was motivated by a result of LandauPfrom 1908 [8]. Let Pn
+n
+denote the set of even trigonometric polynomials fn (ϕ) = k=0 ak cos(kϕ) having
+nonnegative real coefficients with a1 > a0 and satisfying fn (ϕ) ≥ 0 for all real ϕ.
+Define the real number Vn by
+fn (0) − a0
+√
+√ 2.
+fn ∈Pn ( a1 −
+a0 )
+
+Vn = inf
+
+(1.1)
+
+For convenience, we let A = A(fn ) := fn (0) − a0 . Certainly Vn is decreasing in n,
+so we define
+V = lim Vn .
+(1.2)
+n→∞
+
+Landau proved that for  > 0 one may take
+V
+R0 =
++
+2
+for |t| > T () in the classical zero-free region. Stechkin [18] improved this in 1970,
+showing that one may select
+
+
+V
+1
+R0 =
+1− √
++
+2
+5
+for |t| > T (), and by using the degree 4 trigonometric polynomial shown in this
+entry in Table 1, Stechkin established his value of R0 = 9.65 for |t| > 12.
+
+NONNEGATIVE TRIGONOMETRIC POLYNOMIALS
+
+3
+
+Table 2. Coefficients of the polynomial of Kondrat’ev, k8 (ϕ).
+a0
+a1
+a2
+a3
+a4
+a5
+a6
+a7
+a8
+A
+
+1
+1.733792817542616
+1.110484293773627
+0.4895739485699287
+0.1180328991868943
+7.549474144412732 · 10−9
+7.994175811779779 · 10−10
+0.009253861629263798
+0.004429241403972788
+3.465567070455195
+
+Kondrat’ev [6] employed a computational strategy to search for trigonometric
+polynomials fn ∈ Pn that would produce improved bounds on Vn , and thus on R0 .
+While the details of his method of optimization are not recorded in his 1977 article,
+his search at n = 8 produced the polynomial k8 (ϕ), whose normalized coefficients
+are listed in Table 2.
+Kadiri [5] employed a more complicated analysis to obtain the value R0 =
+5.69693. We review her method in Section 2. In this article, we obtain an improved value for R0 by using Kadiri’s method, with two main improvements. First,
+we construct an improved trigonometric polynomial of degree n = 16, using the
+randomized optimization method of simulated annealing to search for favorable
+polynomials. Second, we analyze the error term of this method and obtain some
+savings by employing additional computations. We prove the following theorem.
+Theorem 1. There are no zeros of ζ(σ + it) for |t| ≥ 2 and
+1
+σ >1−
+.
+5.573412 log |t|
+This represents the largest known zero-free region for the zeta-function within
+the critical strip for 3.06 · 1010 < |t| < exp(10151.5).
+Our work also allows us to improve a bound on Landau’s quantity V from (1.2).
+Exact values for Vn are known only for n ≤ 6; for the general case, Arestov and
+Kondrat’ev proved in 1990 [1] that
+34.468305 < V < 34.5035864.
+
+(1.3)
+
+More information on what is known regarding values of Vn and similar quantities
+may be found in the survey of Révész [13]. In this article, we determine improved
+values for Vn for a number of values of n, and reduce the gap in (1.3) by approximately 40%.
+Theorem 2. Let Pn denote the set of even trigonometric polynomials fn (ϕ) =
+P
+n
+k=0 ak cos(kϕ) of degree n having each ak ≥ 0 and a1 > a0 , and let
+V = lim
+
+inf
+
+fn (0) − a0
+.
+√
+√
+a1 − a0 )2
+
+n→∞ fn ∈Pn (
+
+Then 34.468305 < V < 34.4889920009.
+In Section 2, we summarize Kadiri’s method, and we describe some improvements we make to this method in Section 3. Section 4 provides details on our
+
+4
+
+MICHAEL J. MOSSINGHOFF AND TIMOTHY S. TRUDGIAN
+
+bounding of the error term in Kadiri’s method. Section 5 describes our methods
+for searching for improved trigonometric polynomials by using simulated annealing.
+Section 6 reports on the results of our searches, describes the reduction in the gap
+of permissible values for Vn for a number of integers n, and establishes Theorems 1
+and 2. It also investigates one possible avenue for further improvements. Finally,
+Section 7 briefly discusses some applications of these results.
+2. Kadiri’s method
+We summarize the method of Kadiri [5] for reducing the constant R0 in the
+classical zero-free region of the Riemann zeta-function. We use the same notation.
+This strategy relies on a number of parameters. First, one requires a trigonometric
+polynomial fn ∈ Pn . Next, we let T0 be a height to which the Riemann hypothesis
+has been verified, and we let R be a positive constant for which the classical zerofree region of the Riemann zeta-function has already been established. Also, we let
+r < R be a positive constant, and we let t0 denote a constant in [1, T0 ] that may
+be selected later.
+We suppose that ζ(s) has a zero ρ0 = β0 + iγ0 with γ0 > 0 which lies just outside
+an established zero-free region of the zeta-function, so that
+1−
+
+1
+1
+≤ β0 ≤ 1 −
+.
+r log γ0
+R log γ0
+
+We aim to show that β0 in fact satisfies a stronger inequality of the form
+β0 ≤ 1 −
+
+1
+R0 log γ0
+
+for some R0 ∈ (r, R). The parameter r thus represents a lower bound on what we
+might achieve.
+We now define
+1
+1−σ
+1
+η=
+, w=
+,
+, σ =1−
+r log γ0
+R log(nγ0 + t0 )
+η
+(2.1)
+1
+1 − σ0
+1
+η0 =
+, w0 =
+, σ0 = 1 −
+,
+r log T0
+R log(nT0 + t0 )
+η0
+and, for any fixed θ ∈ (π/2, π), we define the function hθ (u) by
+
+
+
+u
+2θ
+−θ
+−
+cos(u tan θ) −
+−u
+hθ (u) = sec2 θ sec2 θ
+tan θ
+2
+tan θ
+
+
+sin(2θ + u tan θ)
+sin(θ + u tan θ)
+−
++2 1+
+.
+sin 2θ
+sin θ
+We then set g1 (θ) = hθ (0), so that
+g1 (θ) = sec2 (θ) (3 − θ tan θ − 3θ cot θ) ,
+and we let
+d1 (θ) = −
+
+2θ
+tan θ
+
+and
+m(θ) = max {|h00θ (u)| : 0 ≤ u ≤ d1 (θ)} .
+
+NONNEGATIVE TRIGONOMETRIC POLYNOMIALS
+
+5
+
+Next, we set δ to be the solution in [0, 1] to the equation κ2 (δ) = κ3 (δ), where
+m(θ)η 2
+
+g1 (θ)(2σ0 − 1) − 2σ0 −10
+
+
+κ2 (δ) = κ2 (δ, θ) =
+(1 + 2δ)g1 (θ) + 1δ + δ+2σ10 −1 m(θ)η02
+and
+m(θ)η 2
+
+g1 (θ)(2σ0 − 1) − 2σ0 −10
+
+
+
+,
+κ3 (δ) = κ3 (δ, θ) = 
+1+δ
+1
+1
+1
+2
++
+g
+(θ)
++
++
+m(θ)η
+2
+3
+3
+1
+0
+δ
+(δ+2σ0 −1)
+δ
+(δ+2σ0 −1)
+noting the additional requirements that
+√
+5−1
+≤ δ ≤ 0.866
+2
+and
+1
+1
+1
+1
+1
++
+≤ ≤ 3+
+.
+δ
+0.99 + δ
+κ
+δ
+(1 + δ)3
+In fact, one may select 0 ≤ κ ≤ min{κ2 (δ), κ3 (δ)}, and δ ≥ δ 0 if δ 0 is the solution in
+[0, 1] of κ2 (δ) = κ3 (δ), but we find that the described selections for δ and κ satisfy
+the required constraints in our applications.
+Finally, let
+Z d1 (θ)
+K(w, θ) =
+(a1 e−u − a0 )hθ (u)ewu du,
+0
+
+where a0 and a1 are the coefficients of the first two terms of the selected trigonometric polynomial fn ∈ Pn . It then follows from the arguments given in [5] that
+R0 ≤
+
+Ag1 (θ)(1 − κ)
+,
+2(K(w, θ) − C(η))
+
+(2.2)
+
+where C(η) is a small error term, and we recall that A = fn (0) − a0 . Kadiri proved
+that K(w, θ) is increasing for w ≥ w0 for each fixed θ ∈ (π/2, π), and that C(η) is
+decreasing and nonpositive for 0 ≤ η ≤ η0 . It follows that
+R0 ≤
+
+Ag1 (θ)(1 − κ)
+2K(w0 , θ)
+
+(2.3)
+
+for any fixed θ ∈ (π/2, π). Kadiri selected Rosser and Schoenfeld’s value [15] for
+R, so R = 9.645908801, and chose r = 5, T0 = 3 330 657 430.697 (as established in
+[21]), t0 = 10, θ = 1.848, and the trigonometric polynomial of degree n = 4 shown
+in Table 1. Kadiri then obtained the value 5.69693 by using an iterative procedure.
+First, one computes an initial improvement in R0 from (2.3), and then one
+replaces R by this R0 , and increases the value of r as well, and performs the
+computation again. Note that changing R and r in the method alters the values
+of η0 , σ0 , and w0 , and hence the values of κ and K(w0 , θ), and so a new value for
+R0 is obtained from (2.3). The value chosen for r must remain smaller than any
+improved value for R0 . This procedure is repeated until the r and R0 values lie
+within a tolerance of ∆ = 10−5 , and then this iteration is repeated, with r reset to
+5 and R set to the latest value of R0 . This outer iteration is then continued until
+R0 no longer improves by more than v = 5 · 10−6 . Using Kadiri’s trigonometric
+polynomial and the selected values for T0 , t0 and θ, after six iterations this method
+produces the value R0 = 5.696924085 . . . .
+
+6
+
+MICHAEL J. MOSSINGHOFF AND TIMOTHY S. TRUDGIAN
+
+3. Improvements
+Our improvement in the value of R0 over Kadiri’s result has three main sources.
+First, we employ a new trigonometric polynomial. Second, we save some information in the error term C(η) to use in the iterative calculation. Third, we adjust
+some of the other parameters in kind, and exploit some more recent knowledge
+about the zeros of the zeta-function.
+P16
+We employ the trigonometric polynomial F16 (ϕ) = k=0 ak cos(kϕ), whose coefficients are listed in Table 5 in Section 6. A graph of this polynomial over (π/2, π)
+is shown in Figure 4. The method used to construct this polynomial is described
+in Section 5, and this method guarantees that F16 (ϕ) ≥ 0 for all ϕ. It is evident
+from Table 5 that each ak ≥ 0 and a1 > a0 , so F16 ∈ V16 .
+To obtain some savings from the error term C(η), we consider a new parameter
+η1 with 0 < η1 ≤ η0 . When η ≤ η0 , we have γ0 ≥ exp(1/rη1 ) by (2.1), and since
+log x/ log(nx + t0 ) is increasing in x for fixed n and t0 , it follows that
+w=
+
+1/Rη1
+r log γ0
+≥
+=: w1 .
+R log(nγ0 + t0 )
+log(n exp(1/rη1 ) + t0 )
+
+Thus, for η ≤ η1 we may bound the denominator in (2.2) below by K(w1 , θ).
+Since C(η) is decreasing on [0, η0 ), we have C(η) ≤ C(η1 ) for η1 ≤ η ≤ η0 ,
+so in this range the denominator in (2.2) is bounded below by K(w0 , θ) − C(η1 ).
+Therefore, we can replace the bound (2.3) by
+
+
+
+1
+A
+1
+R0 ≤ g1 (θ)(1 − κ)
+min max
+,
+.
+(3.1)
+0<η1 ≤η0
+2
+K(w1 , θ) K(w0 , θ) − C(η1 )
+The function C(η) is described in detail in Section 4.
+We select T0 = 3.06·1010 as established in [10], t0 = 105 , θ = 1.85573, r = 5, and
+R = 5.7. After each iteration, we reset r to the average of its current value and the
+value of R0 just obtained, and continue this inner process until the distance between
+these two values is less than ∆ = 10−6 . The outer iteration is continued until R0
+no longer improves by more than v = 5 · 10−7 . In addition, in each computation of
+R0 a binary search is employed to determine a value for η1 ∈ (0, η0 ]: we search for
+a value of η1 in this range where K(w1 , θ) and K(w0 , θ) − C(η1 ) differ by no more
+than  = 10−3 . Table 3 lists the values of several parameters in the computation
+at the end of each inner iteration, so just before r is reset to 5 and R0 is assigned
+to R. This table exhibits the values for η0 , η1 , κ, and δ in each iteration as well.
+We obtain the value R0 = 5.5734118005 . . . after seven rounds; an eighth round
+produces R0 = 5.57341178 . . . .
+We remark that using the new trigonometric polynomial, combined with the
+strategy of saving some information in the error term, accounts for approximately
+93.6% of the improvement in the value of R0 obtained here. The remaining 6.4%
+is due to the larger value of T0 that we employ.
+4. Analyzing the error term
+We describe the error term C(η) from (2.2) in some detail, highlighting aspects
+where our estimates differ from those used in [5]. Following Kadiri, we write C(η) =
+C1 (η) + C2 (η) + C3 (η) + C4 (η), and describe each of these summands in turn. First,
+
+NONNEGATIVE TRIGONOMETRIC POLYNOMIALS
+
+7
+
+Table 3. Values of parameters in successive runs of the outer
+iteration. All values are rounded.
+R
+5.7000000
+5.5868212
+5.5748558
+5.5735676
+5.5734286
+5.5734136
+5.5734120
+
+r
+5.58682
+5.57486
+5.57357
+5.57343
+5.57341
+5.57341
+5.57341
+
+η0 · 103
+7.41347
+7.42938
+7.43109
+7.43128
+7.43130
+7.43130
+7.43130
+
+η1 · 103
+0.861315
+0.876546
+0.878187
+0.878364
+0.878383
+0.878385
+0.878386
+
+κ
+0.440100
+0.439964
+0.439949
+0.439948
+0.439948
+0.439948
+0.439948
+
+δ
+0.620251
+0.620293
+0.620298
+0.620298
+0.620298
+0.620298
+0.620298
+
+R0
+5.5868212
+5.5748558
+5.5735676
+5.5734286
+5.5734136
+5.5734120
+5.5734118
+
+Pn
+equations (55) and (56) in [5] produce C1 (η) = ηg1 (θ) k=0 ak c1 (k), where
+ 
+
+
+κ−1
+1 Γ0 3
+κ Γ0 σ0 + δ
+c1 (0) =
+log π +
+−
++1
+2
+2Γ 2
+2 Γ
+2
+and
+κ−1
+2π 1
+log
++ min{r2 (σ0 + 2, 3, kT0 ), r3 (σ0 + 2, 3, kT0 )}
+2
+k
+2
+for 1 ≤ k ≤ n, where
+
+
+
+
+1−κ
+(x1 + δ)2
+1
+y0
+−1 y0
+−1
+r2 (x0 , x1 , y0 ) =
+log 1 +
++
+tan
++
+κ
+tan
+,
+2
+y02
+y0
+x1
+x1 + δ
+
+
+x2 + κ(x1 + δ)2
+1
+1
+κ
++ 1
+.
+r3 (x0 , x1 , y0 ) =
++
+3y0 x0
+x0 + δ
+2y02
+c1 (k) =
+
+Second, from equation (60) in [5] we have C2 (η) = q1 η + q2 η 2 + q3 η 3 , where
+(
+)
+n
+a0
+σ0 − 1 + δ X ak
+q1 = −κg1 (θ)
++
+,
+δ
+2
+(kT0 )2
+k=1
+
+q2 = M ∗ (−r/R, θ)
+
+n
+X
+k=1
+
+ak
+,
+(kT0 )2
+n
+
+q3 =
+
+a0 m(θ)κ
+m(θ)κ X ak
++
+.
+(σ0 − 1 + δ)3
+σ0 − 1 + δ
+(kT0 )2
+k=1
+
+Here, M ∗ (z, θ) is an upper bound on
+Z d1 (θ)
+M (z, θ) =
+|h00θ (u)|e−zu du.
+0
+
+To compute a value for M ∗ (z, θ) in an efficient way when z varies and θ is fixed,
+we compute each of the integrals
+Z d1 (θ)
+Mk (θ) =
+|h00θ (u)|uk du
+0
+
+once at the start of the computation, and then the fact that ey ≤ 1 + y + y 2 /2 +
+y 3 /3.45 for 0 ≤ y ≤ 1.91094 . . . implies that we may take
+M ∗ (z, θ) = M0 (θ) − M1 (θ)z +
+
+M2 (θ)z 2
+M3 (θ)z 3
+−
+2
+3.45
+
+8
+
+MICHAEL J. MOSSINGHOFF AND TIMOTHY S. TRUDGIAN
+
+with z = −r/R since 0 < r < R, provided that d1 (θ) ≤ y0 . This last condition
+is satisfied for 1.8469 . . . < θ < π, and the values of θ that we employ lie within
+this range. Naturally, we must take care to round M0 (θ) and M2 (θ) up at the last
+decimal place of the calculated precision, and M1 (θ) and M3 (θ) down. (This is
+similar to the analysis in [5], but here we add the z 3 term for a sharper estimate.)
+Third, equations (52), (53), and (54) in [5] produce C3 (η) = p1 η + p2 η 2 + p3 η 3 ,
+where
+
+
+
+n
+X
+1
+1
++
+κ − 1 + M ∗ (−r/R, θ)η0
+p1 = a1 g1 (θ)
+ak c30 (kT0 , t0 ),
+δ
+σ0 − η0 + δ
+k=0
+
+n
+(1 + 2κ)m(θ)η0 X
+p2 =
+ak c30 (kT0 , t0 ),
+σ0 − 12
+k=0
+
+
+
+1
+1
++
+κ+1 ,
+p3 = a1 m(θ)
+δ3
+(σ0 − η0 + δ)3
+
+and where c30 (t, t0 ) is required to be an upper bound on the sum
+X
+1
+.
+Σ(t, t0 ) =
+(γ − t)2
+
+(4.1)
+
+ζ(β+iγ)=0
+|γ|≥t+t0
+
+We depart from [5] here in obtaining an expression for c30 (t, t0 ): Kadiri employs an
+explicit bound on the error term for the function N (T ), the number of nontrivial
+zeros of the Riemann zeta-function with imaginary part in [0, T ]. We pursue another
+approach. For t = 0, we have
+
+
+X 1
+X 1
+,
+Σ(0, t0 ) = 2 
+−
+γ2
+γ2
+γ>0
+0<γ≤t0
+
+where all the sums are over the pertinent zeros of the zeta-function in the critical
+strip. From [16, Lemma 2.9] we have that the first sum in this last expression is at
+most 0.023105, and we may compute the latter sum explicitly for a reasonable value
+of t0 . Using this strategy, we compute that we may take c30 (0, 105 ) = 0.00027. For
+t > 0, we note that
+X
+X
+1
+1
+Σ(t) =
++
+,
+(γ − t)2
+(γ + t)2
+γ≥t+t0
+
+γ≥t+t0
+
+and we use a result of Lehman [9], which allows us to write
+
+
+Z ∞
+Z ∞
+X
+φ(x)
+1
+φ(γ) =
+φ(x) log(x/2π) dx + ξ 4φ(T1 ) log T1 + 2
+dx ,
+2π T1
+x
+T1
+γ>T1
+
+where ξ denotes a constant of absolute value at most 1, when φ(x) is continuous,
+positive, and monotone decreasing on x > T1 > 2πe. Using φ(x) = 1/(x − t)2 +
+1/(x + t)2 , and ignoring negligible savings, we find that we may take
+
+
+
+Z ∞
+1
+x + kT0
+1
+1
+c30 (kT0 ) =
+log
++
+dx
+2π t0
+2π
+x2
+(x + 2kT0 )2
+
+
+1
+1
+4
++ 4 log(kT0 + t0 ) 2 +
++
+t0
+(t0 + 2kT0 )2
+kT0 t0
+for 1 ≤ k ≤ n.
+
+NONNEGATIVE TRIGONOMETRIC POLYNOMIALS
+
+9
+
+Last, equations (61) and (64) in [5] yield
+C4 (η) = η 3 m(θ)
+
+n
+X
+
+ak {C41 (k) + C42 (k)} ,
+
+k=0
+
+where
+C41 (k) =
+
+C42 (0) =
+
+Z ∞
+
+U0 (t)
+dt
+1 2
+2
+−∞ (σ0 − 2 ) + (kT0 − t)
+Z ∞
+κ
+U0 (t)
++
+dt,
+1
+1
+2π(σ0 − 2 + δ) −∞ (σ0 − 2 + δ)2 + (kT0 − t)2
+1
+
+2π(σ0 − 12 )
+
+
+
+1
+κ
++
+,
+σ03
+(σ0 + δ)3
+
+and, by Lemma 3.6 of [5],
+(
+U0 (t) ≤
+
+C42 (k) =
+
+
+
+1
+κ
++
+σ0
+σ0 + δ
+
+
+
+1
+2
+16
+2 log 1+4t2 + 1+4t2 + 2,
+2
+2
+1
+log |t|
+2 − 1+4t2 + 3|t| + 8t2 ,
+
+
+
+1
+,
+(kT0 )2
+
+if k ≥ 1,
+
+if |t| < 12 ,
+if |t| ≥ 12 .
+
+(4.2)
+
+We estimate the first integral in the definition of C41 (k) as follows; the second
+integral is estimated similarly. We write this integral as
+Z ∞
+U0 (t)
+I=
+dt,
+2 + (b − t)2
+a
+−∞
+2
+∗
+where a = σ0 − 12 and b = kT0 . Note that log |t|
+2 − 1+4t2 ≥ 0 for |t| ≥ t = 2.205 . . . .
+When k = 0 we make use of the symmetry inherent in the integrand to write
+!
+Z 1/2
+Z t∗
+Z ∞
+Z ∞
+U0 (t)
+U0 (t)
+U0 (t)
+U0 (t)
+dt = 2
+dt +
+dt +
+dt .
+2
+2
+2
+2
+2
+2
+a2 + t2
+0
+1/2 a + t
+t∗ a + t
+−∞ a + t
+
+When k 6= 0 we write
+Z −t∗ Z − 21 Z − 12 Z t∗ Z ∞ !
++
++
++
++
+−∞
+
+− 12
+
+t∗
+
+1
+2
+
+t∗
+
+U0 (t)
+dt = I1 + I2 + I3 + I4 + I5 ,
+2
+a + (b − t)2
+
+say. We may estimate each of I2 , I3 , and I4 numerically, noting that the formula
+used for U0 (t) is different in each of these integrals. For |t| ≥ t∗ , we find that
+U0 (|t|) ≤ log |t| − c,
+and the optimal value of c is
+c = log 2 +
+Thus, we obtain
+Z −t∗
+I1 =
+−∞
+
+2
+2
+1
+= 0.462935 . . . .
+2 − 3t∗ −
+∗
+1 + 4t
+8t∗ 2
+Z −t∗
+
+log(−t) − c
+dt
+(b − t)2
+−∞
+log(b + t∗ )
+t∗ log t∗
+c
+=
+−
+−
+.
+b
+b(b + t∗ ) b + t∗
+
+U0 (t)
+dt <
+a2 + (b − t)2
+
+All that remains is to estimate I5 . First, we note that
+
+
+
+
+Z ∞
+c
+c
+b − t∗
+π
+−1
+dt =
+tan
++
+.
+2
+2
+a
+a
+2
+t∗ a + (b − t)
+
+10
+
+MICHAEL J. MOSSINGHOFF AND TIMOTHY S. TRUDGIAN
+
+We then divide the range into three sections: [t∗ , b(1 − ε)], [b(1 − ε), b(1 + ε)], and
+[b(1 + ε), ∞), for a parameter ε > 0. We compute
+Z b(1−ε)
+Z b(1−ε)
+log t
+log t
+dt
+<
+dt
+2 + (b − t)2
+a
+(b
+− t)2
+∗
+∗
+t
+t
+
+
+
+
+1 log b
+t∗ log t∗
+1
+=
+,
+− log(b − t∗ ) + log ε − 1 −
+log(1 − ε) −
+b
+ε
+ε
+b − t∗
+and then
+Z b(1+ε)
+b(1−ε)
+
+and finally
+Z ∞
+
+log t
+2
+dt < log(b(1 + ε)) · tan−1
+2
+2
+a + (b − t)
+a
+
+log t
+dt <
+2
+2
+b(1+ε) a + (b − t)
+
+Z ∞
+
+1
+log t
+dt =
+2
+bε
+b(1+ε) (b − t)
+
+
+
+
+
+bε
+a
+
+
+<
+
+π
+log(b(1 + ε)),
+a
+
+
+
+
+1
+log b + ε log 1 +
++ log(1 + ε) .
+ε
+
+Therefore, we find that
+Z ∞
+Z − 12
+Z 21
+U0 (t)
+U0 (t)
+U0 (t)
+dt <
+dt +
+dt
+2 + (b − t)2
+2
+2
+2
+1
+a
+a
++
+(b
+−
+t)
+a
++
+(b − t)2
+−∞
+−t∗
+−2
+Z t∗
+U0 (t)
+π
++
+dt + log(b(1 + ε))
+2 + (b − t)2
+1
+a
+a
+2
+
+
+
+
+
+
+
+1 2 log b
+1
+1
+b + t∗
++
++ 1+
+log(1 + ε) − 1 −
+log(1 − ε) + log
+b
+ε
+ε
+ε
+b − t∗
+
+
+
+
+
+
+
+t∗ log t∗
+1
+1
+1
+1
+b − t∗
+π
+−1
+−
++
+−
+c
++
+tan
++
+.
+b
+b + t∗
+b − t∗
+b + t∗
+a
+a
+2
+We choose ε = 10−3 , and thus find that we can bound the term C41 (k) relatively
+easily.
+5. Searching for trigonometric polynomials
+We employ simulated annealing to search for favorable trigonometric polynomials
+in this problem. In this optimization method, one seeks to minimize an objective
+function G defined on some (typically multidimensional) domain D. One begins at
+a particular location, and moves through the space in search of favorable values of
+G by using an iterative process. At each step, one moves from the current location
+to a nearby point in the domain D, and measures the change in the value of G. If
+the objective function decreased, i.e. we witnessed an improvement, then we keep
+this step and proceed to the next iteration. On the other hand, if we find that G
+increased due to this move, then we may undo this step, but we may choose to keep
+it, depending on a particular probability distribution. This distribution depends
+on a parameter called the temperature: if the change ∆G in the objective function
+is positive, then we keep this step with probability exp(−∆G/Y ), where Y is the
+current temperature. Thus, if the temperature is high, then we are reasonably likely
+to keep steps that increase the objective function by a small amount, but less likely
+if we witness a large change. As the temperature decreases, we become less likely
+to accept small increases in the value of G. In the limiting case, as Y → 0+ , the
+method becomes simple greedy descent. Typically, one performs a number of trials
+
+NONNEGATIVE TRIGONOMETRIC POLYNOMIALS
+
+11
+
+for each value in a decreasing sequence of temperatures (the annealing schedule),
+ending with a number of trials of simple greedy descent.
+Simulated annealing requires many evaluations of the objective function, so it is
+very helpful if this function can be computed quickly. In this problem, where the
+domain D is the set Pn of trigonometric polynomials of degree n having the required
+properties, using Kadiri’s method to evaluate the merit of a particular polynomial
+in this space is rather time-consuming. Instead, we use Landau’s function from
+(1.1), so for f ∈ Pn we let
+G(f ) =
+
+A
+,
+√
+a0 + a1 − 2 a0 a1
+
+(5.1)
+
+where A again denotes f (0) − a0 . Note that writing the denominator in this way
+allows G to be evaluated with only one call to a square-root function.
+In our method, we fix the degree n, we set c0 = 1, and then choose each ck for
+1 ≤ k ≤ n uniformly at random from [0, B] for a prescribed bound B, and then set
+f (ϕ) =
+
+n
+X
+
+2
+
+ck eikϕ .
+
+k=0
+
+We then compute values a0 , . . . , an so that f (ϕ) =
+a0 =
+
+n
+X
+j=0
+
+c2j , ak = 2
+
+n−k
+X
+
+Pn
+
+k=0 ak cos(kϕ). Here,
+
+cj cj+k for 1 ≤ k ≤ n.
+
+j=0
+
+We note that a0 is the peak autocorrelation of the sequence {ck }, and ak /2 for
+k > 1 is the kth off-peak aperiodic autocorrelation of this sequence. (In fact, it
+is slightly more efficient to keep track of these autocorrelations in the code, rather
+than the ak , but this is a minor point.) We then test if f ∈ Pn , so we test if
+a1 > a0 and whether each ak ≥ 0, since f (ϕ) ≥ 0 for all ϕ automatically by
+the construction. (Kondrat’ev [6] employed this same strategy to ensure choosing
+trigonometric polynomials that are nonnegative everywhere.) If this test fails, then
+we start over with a new randomly selected f . Once we have a viable polynomial,
+we proceed with the annealing phase.
+To describe the annealing process, we find it convenient to set Z = 1/Y , where Y
+is the temperature. We begin with a particular maximum step size S and an initial
+value for Z. We then perform M annealing trials: each time we randomly select
+an integer k ∈ {1, . . . , n}, we pick a step size s ∈ [−S, S] uniformly at random, and
+then we change ck by s. We then update each coefficient aj that depends on ck , so
+a0 increases by s(2ck + s), ak increases by 2s, each ai with 1 ≤ i < k increases by
+2sck−i , and each ai with 1 ≤ i < n − k increases by 2sck+i . Thus, each change to a
+value of ck requires O(n) operations to update the state of the program. We then
+check if the new values of ai are all nonnegative, and that a1 > a0 . If any of these
+conditions fails, we undo this step and return to the prior polynomial f . Otherwise,
+our new location is valid, so we compute the value of the objective function (5.1). If
+∆G < 0, we keep this step, and if ∆G > 0, then we keep this step with probability
+e−Z∆G .
+For each fixed value of the maximum step size S, we perform this process M
+times for each of the K values of Z, incrementing Z each time by an amount ∆Z,
+and then we perform M trials of greedy descent. After this, we decrease the step
+
+12
+
+MICHAEL J. MOSSINGHOFF AND TIMOTHY S. TRUDGIAN
+
+Figure 1. Coefficients {ck } for F40 (ϕ).
+{1, 5.82299804516981, 20.256046857268, 41.8371543572416, 62.6803646661328,
+86.3371461181984, 140.237920299854, 230.172136828422, 296.566863709684,
+259.103949548556, 115.007833826561, −36.3610468402636, −95.0264057388131,
+−58.142464967588, −2.7847512808475, 17.2100840100492, 10.7193028056306,
+5.04620845731704, 3.86024903930945, −0.321719428284046, −4.25534268200327,
+−2.73295949107489, 1.31013188826865, 1.16950963394944, −0.36353468679768,
+−0.468164164916908, 0.940864822848766, 0.224723973462492, −0.762490754252658,
+−0.100627491842387, 0.486777412937381, −0.00593275691352972, −0.399968301710688,
+0.225086077352437, 0.198770260275958, −0.239235383947936, −0.0483116501842605,
+0.212556439828151, −0.124475686268429, 0.0123641022008911, 0.0146979855952472}
+
+size by dividing S by 1 + λ, where λ is a positive parameter, and continue as long
+as this maximum size is greater than a prescribed value, S0 .
+Our selection of parameters in this process varied over a number of runs. In fact,
+it was useful to run annealing jobs on many processors simultaneously, with each
+processor choosing its annealing parameters at random from some prescribed intervals. This way, over time we could learn which parameters tended to produce better trigonometric polynomials, and this would inform choices of parameters in later
+runs. We often chose B ∈ [100, 200], Z ∈ [8, 16], ∆Z ∈ [.5, 2], M ∈ [250n, 350n],
+K = 10 or 11, S ∈ [2.5, 4], λ ∈ [.015, .05], and S0 = 10−5 or 10−6 .
+6. Results
+Table 4 records the best value of the objective function we constructed by using
+this optimization method for each degree n = 4m, with 2 ≤ m ≤ 10. Each entry
+provides the current best-known value for Landau’s Vn (1.1). In particular, the entry for n = 8 improves the result of [6], and each subsequent entry is less than the
+formerly best known upper bound on V of 34.5035 . . . from [1]. At degree n = 40,
+our searches produced a polynomial that established V40 < 34.48923. We then
+performed some additional simulated annealing passes with finer parameters, using
+this polynomial as our starting point. In this way we constructed a trigonometric
+polynomial F40 , whose objective value produces V40 < 34.488992000856. This establishes Theorem 2. The coefficient sequence {ck } for F40 (ϕ) is shown in Figure 1,
+and the corresponding values for the sequence {ak }, after normalizing by dividing
+by the sum of the squares of the ck (approximately 268 761.1), are displayed in Figure 2. The sum of all the coefficients after a0 in this list is A = 3.490002852278399.
+A plot for F40 (ϕ) over [π/2, π] is exhibited in Figure 3.
+We may now apply Kadiri’s method for computing a value for R0 in the classical
+zero-free region of the Riemann zeta-function using each of the polynomials that
+produced the records for Vn , and employing the savings obtained in the error term
+as described in Section 3. These values are also listed in Table 4, along with
+the value of θ that was employed in each case. The best value here appears at
+n = 12, and some further local optimizations allow us to derive R0 < 5.57422.
+It is interesting that polynomials that produce an improvement in Landau’s value
+V do not necessarily produce an improvement in R0 under Kadiri’s method, but
+this is perhaps not so surprising since we use Landau’s function as a surrogate
+for our true objective function, owing to its easy calculation. This suggests that
+
+NONNEGATIVE TRIGONOMETRIC POLYNOMIALS
+
+13
+
+Figure 2. Normalized coefficients {ak } for F40 (ϕ).
+{1, 1.737404932358421, 1.1180312174988238, 0.4958068290777618, 0.12043435038423943,
+−15
+
+2.8862586376137162 · 10
+
+, 2.0972266792962233 · 10
+−14
+
+0.005445447694684562, 4.982862012828773 · 10
+
+−7
+
+6.247326172856939 · 10
+
+−4
+
+, 1.625564268382144 · 10
+
+−12
+
+6.129588083976596 · 10
+
+−4
+
+, 5.231422915759923 · 10
+
+−4
+
+−13
+
+1.4092336429708759 · 10
+
+−7
+
+1.1342395284997809 · 10
+
+, 0.010264161325212823,
+
+, 4.8092823793119544 · 10
+
+, 2.923444923088646 · 10
+
+, 9.170949177475853 · 10
+
+−8
+
+, 2.835025226384611 · 10
+
+, 4.936509000300511 · 10
+
+−4
+
+−15
+
+,
+
+−7
+
+−8
+
+, 2.3484834215069657 · 10
+
+−4
+
+, 1.1678447544116879 · 10
+
+−4
+
+8.482954015115613 · 10
+
+−5
+
+, 5.338369918854597 · 10
+
+−12
+
+, 1.8115431364172399 · 10
+
+2.274822660800113 · 10
+
+−5
+
+, 6.894175279654467 · 10
+
+−14
+
+, 1.570310005695605 · 10
+
+3.090195669976266 · 10
+
+−5
+
+, 2.75304675142816 · 10
+
+−14
+
+2.6604018245602642 · 10
+4.623133724479399 · 10
+
+−6
+
+, 4.959939074564098 · 10
+
+, 1.643513306111948 · 10
+
+, 7.930664147911865 · 10
+
+−6
+
+1.8249928742340992 · 10
+
+−5
+
+−5
+
+−7
+
+, 7.289034419080702 · 10
+
+−6
+
+−7
+
+−8
+
+,
+,
+
+,
+
+,
+
+,
+
+, 1.522818206748077 · 10
+
+−5
+
+−6
+
+, 2.6276458478038436 · 10
+
+−7
+
+,
+
+,
+
+−7
+
+, 1.0937584248561976 · 10
+
+,
+
+,
+}
+
+Table 4. Upper bound on Vn for n = 4m and 2 ≤ m ≤ 10, and
+bound on R0 resulting from choosing this polynomial.
+n
+8
+12
+16
+20
+24
+28
+32
+36
+40
+
+Vn <
+34.53991919
+34.50266054
+34.49747009
+34.49321564
+34.49027559
+34.48959029
+34.48939230
+34.48930967
+34.488992001
+
+θ
+1.853
+1.855
+1.855
+1.855
+1.855
+1.855
+1.855
+1.855
+1.855
+
+R0 <
+5.58139
+5.57429
+5.57490
+5.57495
+5.57519
+5.57560
+5.57632
+5.57683
+5.57724
+
+we test the several hundred thousand other trigonometric polynomials that were
+produced by our method of simulated annealing, which exhibited very good values
+under Landau’s objective function. Indeed, many of these produce a value for R0
+better than 5.57422. The best polynomial found in these searches has degree 16,
+and produces R0 < 5.57353. Some further annealing using this polynomial as a
+starting point produces the polynomial F16 (ϕ) employed in Section 3 to establish
+the bound in Theorem 1. The sequences of coefficients ck and ak are both displayed
+in Table 5, where again we have normalized the ak by dividing by the sum of the
+squares of the ck (approximately 932 023.9), so that a0 = 1.
+We remark that Landau’s objective function (5.1) evaluated on F16 (ϕ) produces
+34.49997 . . ., which is somewhat larger than the record obtained for this degree, as
+shown in Table 4.
+6.1. Potential improvements. While it appears that the scope for selecting an
+improved trigonometric polynomial may be limited, we see that the height T0 to
+which the Riemann hypothesis has been verified has some influence on the width of
+the zero-free region that one can obtain by using this method. We might ask then
+
+14
+
+MICHAEL J. MOSSINGHOFF AND TIMOTHY S. TRUDGIAN
+
+Figure 3. F40 (ϕ) for π/2 ≤ ϕ ≤ π.
+0.00006
+0.00005
+0.00004
+0.00003
+0.00002
+0.00001
+
+3Π
+4
+
+Π
+2
+
+Π
+
+Table 5. Coefficients for F16 (ϕ).
+c0
+c1
+c2
+c3
+c4
+c5
+c6
+c7
+c8
+c9
+c10
+c11
+c12
+c13
+c14
+c15
+c16
+
+1
+−2.09100370089199
+0.414661861733616
+4.94973437766435
+−2.26052224951171
+−8.58599241204357
+6.87053689828658
+22.6412990090005
+−6.76222005424994
+−50.2233943767588
+8.07550113395201
+223.771572768515
+487.278135806977
+597.268928658734
+473.937203439807
+237.271715181426
+59.6961898512813
+
+a0
+a1
+a2
+a3
+a4
+a5
+a6
+a7
+a8
+a9
+a10
+a11
+a12
+a13
+a14
+a15
+a16
+A
+
+1
+1.74126664022806
+1.128282822804652
+0.5065272432186642
+0.1253566902628852
+9.35696526707405 · 10−13
+4.546614790384321 · 10−13
+0.01201214561729989
+0.006875849760911001
+7.77030543093611 · 10−12
+2.846662294985367 · 10−7
+0.001608306592372963
+0.001017994683287104
+2.838909054508971 · 10−7
+5.482482041999887 · 10−6
+2.412958794855076 · 10−4
+1.281001290654868 · 10−4
+3.523323140225021
+
+how much improvement we might expect in R0 from this method as the parameter
+T0 increases. For example, if T0 = 3 · 1011 , then by choosing θ = 1.85567 with
+F16 (ϕ), we obtain that R0 = 5.5666305 is permissible.1
+We also applied this method for 150 values for T0 up to approximately 10300 ,
+using F16 (ϕ) as the trigonometric polynomial, with t0 = 105 , r = 5, and θ =
+1The value T = 3 · 1011 has been announced by Jan Büthe and Jens Franke in a personal
+0
+communication.
+
+NONNEGATIVE TRIGONOMETRIC POLYNOMIALS
+
+15
+
+Figure 4. F16 (ϕ) for π/2 ≤ ϕ ≤ π.
+
+0.0004
+
+0.0003
+
+0.0002
+
+0.0001
+
+3Π
+4
+
+Π
+2
+
+Π
+
+1.8552. We found that the value of R0 that one may obtain in this region is wellapproximated by
+2.0185
+R0 = 5.4912 +
+,
+log T0
+suggesting that, as larger values of T0 are established, the potential improvement in
+the width of the classical zero-free region that one may obtain by using this method
+is limited.
+7. Applications
+Theorem 1 has a number of applications. We first describe two improvements
+concerning the error term in the prime number theorem that follow almost immediately from this result.
+Corollary 1. Let
+r
+0 (x) =
+
+8
+X 1/2 e−X ,
+17π
+
+p
+
+(log x)/R,
+
+|θ(x) − x| ≤ x0 (x),
+
+x ≥ 149,
+
+|ψ(x) − x| ≤ x0 (x),
+
+x ≥ 23.
+
+X=
+
+R = 6.315.
+
+Then
+
+Proof. Theorem 1 can be used, as in [19, p. 2], to show that there are no zeros of
+the Riemann zeta-function in the region
+1
+σ ≥1−
+, t ≥ 24.
+(7.1)
+6.315 log |t/17|
+The statement then follows from the arguments in [19].
+
+
+
+Here, the value 6.315 replaces the value 6.455 from [19]. The same substitution
+occurs in the following improvement on a result from this same article, where in
+addition the leading constant term is sharpened here from 0.2795 to 0.2593.
+
+16
+
+MICHAEL J. MOSSINGHOFF AND TIMOTHY S. TRUDGIAN
+
+Corollary 2. If x ≥ 229 then
+x
+|π(x) − li(x)| ≤ 0.2593
+exp −
+(log x)3/4
+
+r
+
+log x
+6.315
+
+!
+.
+
+Proof. The proof is almost identical to that in [19]. We make use of the more
+sophisticated result from [11] that θ(t) < t for all t < 1.39 × 1017 , and the proof
+follows as in [19] by choosing α = 1.70 and x0 = 1.5 × 108 .
+
+It is worthwhile to note that a zero-free region of the form
+1
+,
+σ ≥1−
+R log(t/B)
+
+(7.2)
+
+for t ≥ 2, where B ≥ 1 is a fixed constant, is asymptotically equivalent to the form
+analyzed in this paper. Were one to prove (7.2) for some B > 1 with R = R0 , for the
+value of R0 derived in this paper, then one could further improve on Corollaries 1
+and 2.
+Finally, we very briefly note two additional applications of Theorem 1. First,
+Faber and Kadiri [3], continuing the work of Schoenfeld [17], have used the width of
+this zero-free
+obtain good bounds for the Chebyshev functions
+P region inter alia toP
+θ(x) = p≤x log p and ψ(x) = n≤x Λ(n), where Λ(n) is von Mangoldt’s function.
+P Second, Ramaré [12, Thm. 1.1] employs Kadiri’s value of R0 when bounding
+n≤x Λ(n)/n. These results may be updated by using the smaller value of R0 from
+Theorem 1.
+Acknowledgements
+We thank the Institute for Computational and Experimental Research in Mathematics and the Center for Computation and Visualization at Brown University for
+computational resources.
+References
+[1] V. V. Arestov and V. P. Kondrat’ev. An extremal problem for nonnegative trigonometric
+polynomials. Math. Notes, 47(1):10–20, 1990.
+[2] C. J. de la Vallée Poussin. Sur la fonction ζ(s) de Riemann et le nombre des nombres premiers
+inférieurs à une limite donée. Mém. Couronnés et Autres Mém. Publ. Acad. Roy. Sci. des
+lettres Beaux-Arts Belg., 59:1–74, 1899-1900.
+[3] L. Faber and H. Kadiri. New bounds for ψ(x). Math. Comp., 2013. To appear. Preprint
+available at arXiv:1310.6374 [math.NT].
+[4] K. Ford. Zero-free regions for the Riemann zeta function. In Number Theory for the Millennium, II, pages 25–56. A K Peters, Natick, MA, 2002.
+[5] H. Kadiri. Une région explicite sans zéros pour la fonction ζ de Riemann. Acta Arith.,
+117(4):303–339, 2005.
+[6] V. P. Kondrat’ev. Some extremal properties of positive trigonometric polynomials. Math.
+Notes, 22(3):696–698, 1977.
+[7] N. M. Korobov. Estimates of trigonometric sums and their applications. Uspehi Mat. Nauk,
+13(4 (82)):185–192, 1958.
+[8] E. Landau. Beiträge zur analytischen Zahlentheorie. Rend. Circ. Mat. Palermo, 26:169–302,
+1908.
+[9] R. S. Lehman. On the difference π(x) − li(x). Acta. Arith., 11:397–410, 1966.
+[10] D. J. Platt. Computing π(x) analytically. Math. Comp., published electronically Oct. 3, 2014.
+To appear in print; DOI 10.1090/S0025-5718-2014-02884-6.
+[11] D. J. Platt and T. S. Trudgian. On the first sign change of θ(x) − x. arXiv:1407.1914v1, July
+2014. Submitted.
+
+NONNEGATIVE TRIGONOMETRIC POLYNOMIALS
+
+17
+
+[12] O. Ramaré. Explicit estimates for the summatory function of Λ(n)/n from the one of Λ(n).
+Acta Arith., 159(2):113–122, 2013.
+[13] S. Révész. On some extremal problems of Landau. Serdica Math. J., 33(1):125–162, 2007.
+[14] J. B. Rosser and L. Schoenfeld. Approximate formulas for some functions of prime numbers.
+Illinois J. Math., 6:64–94, 1962.
+[15] J. B. Rosser and L. Schoenfeld. Sharper bounds for the Chebyshev functions θ(x) and ψ(x).
+Math. Comp., 29:243–269, 1975.
+[16] Y. Saouter, T. Trudgian, and P. Demichel. A still sharper region where π(x)−li(x) is positive.
+Math. Comp., 2014. To appear.
+[17] L. Schoenfeld. Sharper bounds for the Chebyshev functions θ(x) and ψ(x), II. Math. Comp.,
+30(134):337–360, 1976.
+[18] S. B. Stechkin. Zeros of the Riemann zeta-function. Math. Notes, 8:706–711, 1970.
+[19] T. S. Trudgian. Updating the error term in the prime number theorem. Ramanujan J., 2015.
+To appear. Preprint available at arXiv:1401.2689 [math.NT].
+[20] I. M. Vinogradov. A new estimate of the function ζ(1 + it). Izv. Akad. Nauk SSSR. Ser. Mat.,
+22:161–164, 1958.
+[21] S. Wedeniwski. Results connected with the first 100 billion zeros of the Riemann zeta function.
+Website, 2004. http://www.zetagrid.net/zeta/math/zeta.result.100billion.zeros.html.
+[22] H. Westphal. Über die Nullstellen der Riemannschen Zetafunktion im kritischen Streifen.
+PhD thesis, Universität Berlin, 1938. In Schriften des mathematischen Instituts und des
+Instituts für angewandte Mathematik der Universität Berlin, vol. 4, Berlin, 1938/39, pages
+1–31.
+Department of Mathematics and Computer Science, Davidson College, Davidson, NC,
+28035-6996, USA
+E-mail address: mimossinghoff@davidson.edu
+Mathematical Sciences Institute, The Australian National University, ACT 0200,
+Australia
+E-mail address: timothy.trudgian@anu.edu.au
+
+
