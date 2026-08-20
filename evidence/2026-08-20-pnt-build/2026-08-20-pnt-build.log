@@ -1,0 +1,634 @@
+info: downloading https://releases.lean-lang.org/lean4/v4.32.2/lean-4.32.2-linux.tar.zst
+info: installing /home/niklas/.elan/toolchains/leanprover--lean4---v4.32.2
+info: mathlib: cloning https://github.com/leanprover-community/mathlib4.git
+info: mathlib: checking out revision '905b95818eb32af7874a58b427f50c1711a5e96c'
+info: PrimeCert: cloning https://github.com/b-mehta/PrimeCert
+info: PrimeCert: checking out revision '6cac6fcb55fe9070afc4c42cad1d0eaa1c59e6a1'
+info: leancert: cloning https://github.com/alerad/leancert.git
+info: leancert: checking out revision '6b11513512c9d27183fb4725bfc291ab38b4a6d7'
+info: checkdecls: cloning https://github.com/PatrickMassot/checkdecls.git
+info: checkdecls: checking out revision '3d425859e73fcfbef85b9638c2a91708ef4a22d4'
+info: LeanArchitect: cloning https://github.com/hanwenzhu/LeanArchitect.git
+info: LeanArchitect: checking out revision 'd9013cc08bd2b5483e837368dfa4cc7ead92a5c2'
+info: plausible: cloning https://github.com/leanprover-community/plausible
+info: plausible: checking out revision 'e12c1910fe855cbfc38803cd4e55543906d5fa62'
+info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision 'c5d5b8fe6e5158def25cd28eb94e4141ad97c843'
+info: importGraph: cloning https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision '7e9612bf0b9ee66db3cb5b9988a35afc706f5a12'
+info: proofwidgets: cloning https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision '6e311e2a844da9b2cc3971187df2fe0066947b93'
+info: aesop: cloning https://github.com/leanprover-community/aesop
+info: aesop: checking out revision 'a7dbf0c63b694e47f425f3dcddbc0e178bb432d3'
+info: Qq: cloning https://github.com/leanprover-community/quote4
+info: Qq: checking out revision '38d591e778f100aec9762bb582f9c7f55f50e9dc'
+info: batteries: cloning https://github.com/leanprover-community/batteries
+info: batteries: checking out revision '023ce7d62a0531e22a5331e20b587817a80d49ff'
+info: Cli: cloning https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision '88679d088c9720c27ebdf2ba4dafe17341747f94'
+✔ [1/5] Built Cache.Cli (280ms)
+✔ [2/5] Built Cache.Lean (354ms)
+✔ [6/26] Built Cache.Cli:c.o (117ms)
+✔ [7/26] Built Cache.Lean:c.o (127ms)
+✔ [8/26] Built Cache.Infra (348ms)
+✔ [9/26] Built Cache.Infra:c.o (187ms)
+✔ [10/26] Built Batteries.Tactic.OpenPrivate (891ms)
+✔ [11/26] Built Batteries.Tactic.OpenPrivate:c.o (982ms)
+✔ [12/26] Built Cache.IO (1.4s)
+✔ [13/26] Built Cache.Hashing (758ms)
+✔ [14/26] Built Cache.Hashing:c.o (357ms)
+✔ [15/26] Built Cache.IO:c.o (1.3s)
+✔ [16/26] Built Cache.Requests (2.1s)
+✔ [17/26] Built Cache.Marker (518ms)
+✔ [18/26] Built Cache.Marker:c.o (108ms)
+✔ [19/26] Built Cache.Query (669ms)
+✔ [20/26] Built Cache.Query:c.o (256ms)
+✔ [21/26] Built Cache.Warning (639ms)
+✔ [22/26] Built Cache.Warning:c.o (225ms)
+✔ [23/26] Built Cache.Requests:c.o (2.3s)
+✔ [24/26] Built Cache.Main (1.5s)
+✔ [25/26] Built Cache.Main:c.o (818ms)
+✔ [26/26] Built cache:exe (672ms)
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Attempting to download 8639 file(s) from leanprover-community/mathlib4 cache at https://lakecache.blob.core.windows.net/mathlib4-master
+Downloaded: 0 file(s) [attempted 1/8639 = 0%, 0 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 41/8639 = 0%, 0 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 76/8639 = 0%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 113/8639 = 1%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 156/8639 = 1%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 193/8639 = 2%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 238/8639 = 2%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 273/8639 = 3%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 308/8639 = 3%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 346/8639 = 4%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 388/8639 = 4%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 426/8639 = 4%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 456/8639 = 5%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 499/8639 = 5%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 539/8639 = 6%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 578/8639 = 6%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 614/8639 = 7%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 651/8639 = 7%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 691/8639 = 7%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 734/8639 = 8%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 771/8639 = 8%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 813/8639 = 9%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 853/8639 = 9%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 891/8639 = 10%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 926/8639 = 10%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 966/8639 = 11%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1008/8639 = 11%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1051/8639 = 12%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1090/8639 = 12%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1128/8639 = 13%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1166/8639 = 13%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1203/8639 = 13%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1245/8639 = 14%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1283/8639 = 14%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1323/8639 = 15%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1360/8639 = 15%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1398/8639 = 16%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1440/8639 = 16%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1475/8639 = 17%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1515/8639 = 17%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1550/8639 = 17%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1595/8639 = 18%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1632/8639 = 18%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1670/8639 = 19%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1705/8639 = 19%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1745/8639 = 20%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1787/8639 = 20%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1826/8639 = 21%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1861/8639 = 21%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1898/8639 = 21%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1940/8639 = 22%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 1977/8639 = 22%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2017/8639 = 23%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2057/8639 = 23%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2095/8639 = 24%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2137/8639 = 24%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2174/8639 = 25%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2212/8639 = 25%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2252/8639 = 26%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2289/8639 = 26%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2329/8639 = 26%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2371/8639 = 27%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2411/8639 = 27%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2447/8639 = 28%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2484/8639 = 28%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2522/8639 = 29%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2566/8639 = 29%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2601/8639 = 30%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2637/8639 = 30%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2674/8639 = 30%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2719/8639 = 31%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2756/8639 = 31%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2789/8639 = 32%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2829/8639 = 32%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2869/8639 = 33%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2911/8639 = 33%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2949/8639 = 34%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 2984/8639 = 34%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3024/8639 = 35%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3064/8639 = 35%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3101/8639 = 35%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3139/8639 = 36%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3176/8639 = 36%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3218/8639 = 37%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3256/8639 = 37%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3298/8639 = 38%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3333/8639 = 38%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3376/8639 = 39%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3413/8639 = 39%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3453/8639 = 39%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3488/8639 = 40%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3526/8639 = 40%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3563/8639 = 41%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3601/8639 = 41%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3641/8639 = 42%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3678/8639 = 42%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3718/8639 = 43%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3753/8639 = 43%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3800/8639 = 43%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3847/8639 = 44%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3882/8639 = 44%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3915/8639 = 45%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3953/8639 = 45%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 3997/8639 = 46%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4042/8639 = 46%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4075/8639 = 47%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4110/8639 = 47%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4152/8639 = 48%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4197/8639 = 48%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4235/8639 = 49%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4270/8639 = 49%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4309/8639 = 49%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4349/8639 = 50%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4392/8639 = 50%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4429/8639 = 51%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4469/8639 = 51%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4509/8639 = 52%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4546/8639 = 52%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4586/8639 = 53%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4629/8639 = 53%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4668/8639 = 54%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4706/8639 = 54%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4741/8639 = 54%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4786/8639 = 55%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4826/8639 = 55%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4861/8639 = 56%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4898/8639 = 56%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4941/8639 = 57%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 4980/8639 = 57%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5020/8639 = 58%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5053/8639 = 58%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5091/8639 = 58%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5138/8639 = 59%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5187/8639 = 60%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5234/8639 = 60%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5279/8639 = 61%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5318/8639 = 61%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5349/8639 = 61%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5386/8639 = 62%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5431/8639 = 62%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5473/8639 = 63%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5508/8639 = 63%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5548/8639 = 64%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5588/8639 = 64%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5628/8639 = 65%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5670/8639 = 65%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5708/8639 = 66%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5743/8639 = 66%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5785/8639 = 66%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5825/8639 = 67%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5860/8639 = 67%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5896/8639 = 68%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5935/8639 = 68%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 5975/8639 = 69%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6013/8639 = 69%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6048/8639 = 70%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6090/8639 = 70%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6128/8639 = 70%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6170/8639 = 71%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6205/8639 = 71%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6245/8639 = 72%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6285/8639 = 72%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6323/8639 = 73%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6363/8639 = 73%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6402/8639 = 74%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6440/8639 = 74%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6475/8639 = 74%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6515/8639 = 75%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6557/8639 = 75%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6595/8639 = 76%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6630/8639 = 76%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6670/8639 = 77%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6714/8639 = 77%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6757/8639 = 78%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6790/8639 = 78%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6829/8639 = 79%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6869/8639 = 79%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6912/8639 = 80%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6949/8639 = 80%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 6984/8639 = 80%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7024/8639 = 81%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7066/8639 = 81%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7106/8639 = 82%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7148/8639 = 82%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7188/8639 = 83%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7224/8639 = 83%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7261/8639 = 84%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7303/8639 = 84%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7348/8639 = 85%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7388/8639 = 85%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7416/8639 = 85%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7458/8639 = 86%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7500/8639 = 86%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7543/8639 = 87%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7571/8639 = 87%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7615/8639 = 88%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7653/8639 = 88%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7702/8639 = 89%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7751/8639 = 89%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7798/8639 = 90%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7838/8639 = 90%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7873/8639 = 91%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7906/8639 = 91%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7951/8639 = 92%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 7993/8639 = 92%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8035/8639 = 93%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8071/8639 = 93%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8108/8639 = 93%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8148/8639 = 94%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8193/8639 = 94%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8232/8639 = 95%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8270/8639 = 95%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8310/8639 = 96%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8347/8639 = 96%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8394/8639 = 97%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8432/8639 = 97%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8467/8639 = 98%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8507/8639 = 98%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8549/8639 = 98%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8591/8639 = 99%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8627/8639 = 99%, 1 KB/s], Decompressed: 0[KDownloaded: 0 file(s) [attempted 8639/8639 = 100%, 1 KB/s], Decompressed: 0[K
+Attempting to download 8639 file(s) from leanprover-community/mathlib4 cache at https://lakecache.blob.core.windows.net/mathlib4
+Downloaded: 1 file(s) [attempted 1/8639 = 0%, 10 KB/s], Decompressed: 0[KDownloaded: 14 file(s) [attempted 14/8639 = 0%, 5 KB/s], Decompressed: 12[KDownloaded: 25 file(s) [attempted 25/8639 = 0%, 33 KB/s], Decompressed: 24[KDownloaded: 59 file(s) [attempted 59/8639 = 0%, 362 KB/s], Decompressed: 46[KDownloaded: 83 file(s) [attempted 83/8639 = 0%, 249 KB/s], Decompressed: 59[KDownloaded: 114 file(s) [attempted 114/8639 = 1%, 52 KB/s], Decompressed: 93[KDownloaded: 138 file(s) [attempted 138/8639 = 1%, 94 KB/s], Decompressed: 124[KDownloaded: 171 file(s) [attempted 171/8639 = 1%, 553 KB/s], Decompressed: 138[KDownloaded: 197 file(s) [attempted 197/8639 = 2%, 389 KB/s], Decompressed: 157[KDownloaded: 238 file(s) [attempted 238/8639 = 2%, 239 KB/s], Decompressed: 183[KDownloaded: 266 file(s) [attempted 266/8639 = 3%, 35 KB/s], Decompressed: 214[KDownloaded: 304 file(s) [attempted 304/8639 = 3%, 569 KB/s], Decompressed: 247[KDownloaded: 342 file(s) [attempted 342/8639 = 3%, 181 KB/s], Decompressed: 247[KDownloaded: 382 file(s) [attempted 382/8639 = 4%, 104 KB/s], Decompressed: 295[KDownloaded: 413 file(s) [attempted 413/8639 = 4%, 100 KB/s], Decompressed: 295[KDownloaded: 449 file(s) [attempted 449/8639 = 5%, 112 KB/s], Decompressed: 352[KDownloaded: 484 file(s) [attempted 484/8639 = 5%, 91 KB/s], Decompressed: 420[KDownloaded: 529 file(s) [attempted 529/8639 = 6%, 1367 KB/s], Decompressed: 420[KDownloaded: 565 file(s) [attempted 565/8639 = 6%, 359 KB/s], Decompressed: 484[KDownloaded: 591 file(s) [attempted 591/8639 = 6%, 589 KB/s], Decompressed: 484[KDownloaded: 633 file(s) [attempted 633/8639 = 7%, 72 KB/s], Decompressed: 541[KDownloaded: 678 file(s) [attempted 678/8639 = 7%, 453 KB/s], Decompressed: 613[KDownloaded: 719 file(s) [attempted 719/8639 = 8%, 215 KB/s], Decompressed: 613[KDownloaded: 754 file(s) [attempted 754/8639 = 8%, 303 KB/s], Decompressed: 678[KDownloaded: 790 file(s) [attempted 790/8639 = 9%, 357 KB/s], Decompressed: 678[KDownloaded: 830 file(s) [attempted 830/8639 = 9%, 85 KB/s], Decompressed: 749[KDownloaded: 870 file(s) [attempted 870/8639 = 10%, 580 KB/s], Decompressed: 749[KDownloaded: 908 file(s) [attempted 908/8639 = 10%, 46 KB/s], Decompressed: 818[KDownloaded: 941 file(s) [attempted 941/8639 = 10%, 426 KB/s], Decompressed: 875[KDownloaded: 979 file(s) [attempted 979/8639 = 11%, 761 KB/s], Decompressed: 875[KDownloaded: 1019 file(s) [attempted 1019/8639 = 11%, 196 KB/s], Decompressed: 932[KDownloaded: 1060 file(s) [attempted 1060/8639 = 12%, 129 KB/s], Decompressed: 986[KDownloaded: 1100 file(s) [attempted 1100/8639 = 12%, 827 KB/s], Decompressed: 1045[KDownloaded: 1135 file(s) [attempted 1135/8639 = 13%, 431 KB/s], Decompressed: 1088[KDownloaded: 1173 file(s) [attempted 1173/8639 = 13%, 372 KB/s], Decompressed: 1088[KDownloaded: 1213 file(s) [attempted 1213/8639 = 14%, 68 KB/s], Decompressed: 1133[KDownloaded: 1251 file(s) [attempted 1251/8639 = 14%, 857 KB/s], Decompressed: 1176[KDownloaded: 1291 file(s) [attempted 1291/8639 = 14%, 141 KB/s], Decompressed: 1225[KDownloaded: 1327 file(s) [attempted 1327/8639 = 15%, 535 KB/s], Decompressed: 1225[KDownloaded: 1362 file(s) [attempted 1362/8639 = 15%, 46 KB/s], Decompressed: 1287[KDownloaded: 1403 file(s) [attempted 1403/8639 = 16%, 72 KB/s], Decompressed: 1287[KDownloaded: 1445 file(s) [attempted 1445/8639 = 16%, 199 KB/s], Decompressed: 1348[KDownloaded: 1488 file(s) [attempted 1488/8639 = 17%, 476 KB/s], Decompressed: 1410[KDownloaded: 1516 file(s) [attempted 1516/8639 = 17%, 609 KB/s], Decompressed: 1410[KDownloaded: 1561 file(s) [attempted 1561/8639 = 18%, 339 KB/s], Decompressed: 1464[KDownloaded: 1599 file(s) [attempted 1599/8639 = 18%, 82 KB/s], Decompressed: 1521[KDownloaded: 1641 file(s) [attempted 1641/8639 = 18%, 301 KB/s], Decompressed: 1573[KDownloaded: 1670 file(s) [attempted 1670/8639 = 19%, 305 KB/s], Decompressed: 1573[KDownloaded: 1712 file(s) [attempted 1712/8639 = 19%, 284 KB/s], Decompressed: 1627[KDownloaded: 1757 file(s) [attempted 1757/8639 = 20%, 1719 KB/s], Decompressed: 1675[KDownloaded: 1793 file(s) [attempted 1793/8639 = 20%, 1805 KB/s], Decompressed: 1724[KDownloaded: 1828 file(s) [attempted 1828/8639 = 21%, 633 KB/s], Decompressed: 1724[KDownloaded: 1866 file(s) [attempted 1866/8639 = 21%, 142 KB/s], Decompressed: 1774[KDownloaded: 1909 file(s) [attempted 1909/8639 = 22%, 442 KB/s], Decompressed: 1831[KDownloaded: 1947 file(s) [attempted 1947/8639 = 22%, 488 KB/s], Decompressed: 1831[KDownloaded: 1973 file(s) [attempted 1973/8639 = 22%, 439 KB/s], Decompressed: 1897[KDownloaded: 2020 file(s) [attempted 2020/8639 = 23%, 67 KB/s], Decompressed: 1954[KDownloaded: 2055 file(s) [attempted 2055/8639 = 23%, 410 KB/s], Decompressed: 1954[KDownloaded: 2084 file(s) [attempted 2084/8639 = 24%, 413 KB/s], Decompressed: 2018[KDownloaded: 2126 file(s) [attempted 2126/8639 = 24%, 74 KB/s], Decompressed: 2018[KDownloaded: 2171 file(s) [attempted 2171/8639 = 25%, 97 KB/s], Decompressed: 2084[KDownloaded: 2204 file(s) [attempted 2204/8639 = 25%, 245 KB/s], Decompressed: 2084[KDownloaded: 2242 file(s) [attempted 2242/8639 = 25%, 668 KB/s], Decompressed: 2160[KDownloaded: 2278 file(s) [attempted 2278/8639 = 26%, 468 KB/s], Decompressed: 2223[KDownloaded: 2320 file(s) [attempted 2320/8639 = 26%, 125 KB/s], Decompressed: 2223[KDownloaded: 2358 file(s) [attempted 2358/8639 = 27%, 252 KB/s], Decompressed: 2278[KDownloaded: 2389 file(s) [attempted 2389/8639 = 27%, 152 KB/s], Decompressed: 2278[KDownloaded: 2425 file(s) [attempted 2425/8639 = 28%, 637 KB/s], Decompressed: 2335[KDownloaded: 2458 file(s) [attempted 2458/8639 = 28%, 165 KB/s], Decompressed: 2391[KDownloaded: 2503 file(s) [attempted 2503/8639 = 28%, 294 KB/s], Decompressed: 2448[KDownloaded: 2540 file(s) [attempted 2540/8639 = 29%, 75 KB/s], Decompressed: 2448[KDownloaded: 2576 file(s) [attempted 2576/8639 = 29%, 90 KB/s], Decompressed: 2495[KDownloaded: 2614 file(s) [attempted 2614/8639 = 30%, 255 KB/s], Decompressed: 2547[KDownloaded: 2654 file(s) [attempted 2654/8639 = 30%, 248 KB/s], Decompressed: 2547[KDownloaded: 2694 file(s) [attempted 2694/8639 = 31%, 219 KB/s], Decompressed: 2611[KDownloaded: 2727 file(s) [attempted 2727/8639 = 31%, 749 KB/s], Decompressed: 2611[KDownloaded: 2765 file(s) [attempted 2765/8639 = 32%, 165 KB/s], Decompressed: 2675[KDownloaded: 2808 file(s) [attempted 2808/8639 = 32%, 225 KB/s], Decompressed: 2675[KDownloaded: 2845 file(s) [attempted 2845/8639 = 32%, 158 KB/s], Decompressed: 2749[KDownloaded: 2883 file(s) [attempted 2883/8639 = 33%, 881 KB/s], Decompressed: 2812[KDownloaded: 2919 file(s) [attempted 2919/8639 = 33%, 443 KB/s], Decompressed: 2812[KDownloaded: 2959 file(s) [attempted 2959/8639 = 34%, 139 KB/s], Decompressed: 2881[KDownloaded: 2992 file(s) [attempted 2992/8639 = 34%, 604 KB/s], Decompressed: 2881[KDownloaded: 3028 file(s) [attempted 3028/8639 = 35%, 596 KB/s], Decompressed: 2945[KDownloaded: 3068 file(s) [attempted 3068/8639 = 35%, 601 KB/s], Decompressed: 2945[KDownloaded: 3106 file(s) [attempted 3106/8639 = 35%, 308 KB/s], Decompressed: 3016[KDownloaded: 3144 file(s) [attempted 3144/8639 = 36%, 293 KB/s], Decompressed: 3016[KDownloaded: 3181 file(s) [attempted 3181/8639 = 36%, 655 KB/s], Decompressed: 3078[KDownloaded: 3222 file(s) [attempted 3222/8639 = 37%, 469 KB/s], Decompressed: 3148[KDownloaded: 3257 file(s) [attempted 3257/8639 = 37%, 161 KB/s], Decompressed: 3148[KDownloaded: 3295 file(s) [attempted 3295/8639 = 38%, 1307 KB/s], Decompressed: 3207[KDownloaded: 3330 file(s) [attempted 3330/8639 = 38%, 878 KB/s], Decompressed: 3207[KDownloaded: 3366 file(s) [attempted 3366/8639 = 38%, 160 KB/s], Decompressed: 3278[KDownloaded: 3408 file(s) [attempted 3408/8639 = 39%, 367 KB/s], Decompressed: 3335[KDownloaded: 3446 file(s) [attempted 3446/8639 = 39%, 240 KB/s], Decompressed: 3335[KDownloaded: 3479 file(s) [attempted 3479/8639 = 40%, 159 KB/s], Decompressed: 3394[KDownloaded: 3518 file(s) [attempted 3518/8639 = 40%, 487 KB/s], Decompressed: 3451[KDownloaded: 3557 file(s) [attempted 3557/8639 = 41%, 757 KB/s], Decompressed: 3451[KDownloaded: 3593 file(s) [attempted 3593/8639 = 41%, 25 KB/s], Decompressed: 3505[KDownloaded: 3631 file(s) [attempted 3631/8639 = 42%, 21 KB/s], Decompressed: 3560[KDownloaded: 3666 file(s) [attempted 3666/8639 = 42%, 97 KB/s], Decompressed: 3560[KDownloaded: 3711 file(s) [attempted 3711/8639 = 42%, 316 KB/s], Decompressed: 3619[KDownloaded: 3742 file(s) [attempted 3742/8639 = 43%, 177 KB/s], Decompressed: 3619[KDownloaded: 3785 file(s) [attempted 3785/8639 = 43%, 60 KB/s], Decompressed: 3683[KDownloaded: 3822 file(s) [attempted 3822/8639 = 44%, 96 KB/s], Decompressed: 3683[KDownloaded: 3860 file(s) [attempted 3860/8639 = 44%, 50 KB/s], Decompressed: 3751[KDownloaded: 3893 file(s) [attempted 3893/8639 = 45%, 81 KB/s], Decompressed: 3827[KDownloaded: 3938 file(s) [attempted 3938/8639 = 45%, 440 KB/s], Decompressed: 3827[KDownloaded: 3981 file(s) [attempted 3981/8639 = 46%, 477 KB/s], Decompressed: 3891[KDownloaded: 4019 file(s) [attempted 4019/8639 = 46%, 24 KB/s], Decompressed: 3891[KDownloaded: 4049 file(s) [attempted 4049/8639 = 46%, 229 KB/s], Decompressed: 3964[KDownloaded: 4090 file(s) [attempted 4090/8639 = 47%, 271 KB/s], Decompressed: 3964[KDownloaded: 4125 file(s) [attempted 4125/8639 = 47%, 121 KB/s], Decompressed: 4038[KDownloaded: 4154 file(s) [attempted 4154/8639 = 48%, 1173 KB/s], Decompressed: 4038[KDownloaded: 4197 file(s) [attempted 4197/8639 = 48%, 170 KB/s], Decompressed: 4104[KDownloaded: 4239 file(s) [attempted 4239/8639 = 49%, 65 KB/s], Decompressed: 4104[KDownloaded: 4269 file(s) [attempted 4269/8639 = 49%, 284 KB/s], Decompressed: 4194[KDownloaded: 4309 file(s) [attempted 4309/8639 = 49%, 277 KB/s], Decompressed: 4194[KDownloaded: 4350 file(s) [attempted 4350/8639 = 50%, 397 KB/s], Decompressed: 4269[KDownloaded: 4385 file(s) [attempted 4385/8639 = 50%, 250 KB/s], Decompressed: 4269[KDownloaded: 4416 file(s) [attempted 4416/8639 = 51%, 1746 KB/s], Decompressed: 4345[KDownloaded: 4459 file(s) [attempted 4459/8639 = 51%, 268 KB/s], Decompressed: 4404[KDownloaded: 4504 file(s) [attempted 4504/8639 = 52%, 99 KB/s], Decompressed: 4404[KDownloaded: 4541 file(s) [attempted 4541/8639 = 52%, 95 KB/s], Decompressed: 4456[KDownloaded: 4577 file(s) [attempted 4577/8639 = 52%, 208 KB/s], Decompressed: 4511[KDownloaded: 4615 file(s) [attempted 4615/8639 = 53%, 375 KB/s], Decompressed: 4511[KDownloaded: 4655 file(s) [attempted 4655/8639 = 53%, 331 KB/s], Decompressed: 4577[KDownloaded: 4691 file(s) [attempted 4691/8639 = 54%, 35 KB/s], Decompressed: 4577[KDownloaded: 4728 file(s) [attempted 4728/8639 = 54%, 70 KB/s], Decompressed: 4653[KDownloaded: 4769 file(s) [attempted 4769/8639 = 55%, 657 KB/s], Decompressed: 4653[KDownloaded: 4809 file(s) [attempted 4809/8639 = 55%, 143 KB/s], Decompressed: 4726[KDownloaded: 4847 file(s) [attempted 4847/8639 = 56%, 122 KB/s], Decompressed: 4726[KDownloaded: 4880 file(s) [attempted 4880/8639 = 56%, 599 KB/s], Decompressed: 4785[KDownloaded: 4915 file(s) [attempted 4915/8639 = 56%, 22 KB/s], Decompressed: 4851[KDownloaded: 4955 file(s) [attempted 4955/8639 = 57%, 56 KB/s], Decompressed: 4851[KDownloaded: 4993 file(s) [attempted 4993/8639 = 57%, 117 KB/s], Decompressed: 4915[KDownloaded: 5038 file(s) [attempted 5038/8639 = 58%, 125 KB/s], Decompressed: 4972[KDownloaded: 5074 file(s) [attempted 5074/8639 = 58%, 120 KB/s], Decompressed: 4972[KDownloaded: 5112 file(s) [attempted 5112/8639 = 59%, 223 KB/s], Decompressed: 5038[KDownloaded: 5142 file(s) [attempted 5142/8639 = 59%, 228 KB/s], Decompressed: 5038[KDownloaded: 5185 file(s) [attempted 5185/8639 = 60%, 43 KB/s], Decompressed: 5104[KDownloaded: 5216 file(s) [attempted 5216/8639 = 60%, 78 KB/s], Decompressed: 5104[KDownloaded: 5258 file(s) [attempted 5258/8639 = 60%, 208 KB/s], Decompressed: 5166[KDownloaded: 5296 file(s) [attempted 5296/8639 = 61%, 80 KB/s], Decompressed: 5166[KDownloaded: 5336 file(s) [attempted 5336/8639 = 61%, 308 KB/s], Decompressed: 5232[KDownloaded: 5367 file(s) [attempted 5367/8639 = 62%, 66 KB/s], Decompressed: 5303[KDownloaded: 5410 file(s) [attempted 5410/8639 = 62%, 475 KB/s], Decompressed: 5303[KDownloaded: 5445 file(s) [attempted 5445/8639 = 63%, 64 KB/s], Decompressed: 5362[KDownloaded: 5485 file(s) [attempted 5485/8639 = 63%, 19 KB/s], Decompressed: 5421[KDownloaded: 5523 file(s) [attempted 5523/8639 = 63%, 322 KB/s], Decompressed: 5421[KDownloaded: 5559 file(s) [attempted 5559/8639 = 64%, 226 KB/s], Decompressed: 5478[KDownloaded: 5594 file(s) [attempted 5594/8639 = 64%, 556 KB/s], Decompressed: 5533[KDownloaded: 5634 file(s) [attempted 5634/8639 = 65%, 269 KB/s], Decompressed: 5582[KDownloaded: 5672 file(s) [attempted 5672/8639 = 65%, 65 KB/s], Decompressed: 5627[KDownloaded: 5708 file(s) [attempted 5708/8639 = 66%, 455 KB/s], Decompressed: 5627[KDownloaded: 5746 file(s) [attempted 5746/8639 = 66%, 320 KB/s], Decompressed: 5667[KDownloaded: 5783 file(s) [attempted 5783/8639 = 66%, 165 KB/s], Decompressed: 5712[KDownloaded: 5821 file(s) [attempted 5821/8639 = 67%, 345 KB/s], Decompressed: 5753[KDownloaded: 5854 file(s) [attempted 5854/8639 = 67%, 667 KB/s], Decompressed: 5753[KDownloaded: 5899 file(s) [attempted 5899/8639 = 68%, 114 KB/s], Decompressed: 5802[KDownloaded: 5944 file(s) [attempted 5944/8639 = 68%, 195 KB/s], Decompressed: 5861[KDownloaded: 5984 file(s) [attempted 5984/8639 = 69%, 223 KB/s], Decompressed: 5861[KDownloaded: 6018 file(s) [attempted 6018/8639 = 69%, 82 KB/s], Decompressed: 5937[KDownloaded: 6051 file(s) [attempted 6051/8639 = 70%, 204 KB/s], Decompressed: 5937[KDownloaded: 6093 file(s) [attempted 6093/8639 = 70%, 126 KB/s], Decompressed: 5999[KDownloaded: 6136 file(s) [attempted 6136/8639 = 71%, 89 KB/s], Decompressed: 5999[KDownloaded: 6174 file(s) [attempted 6174/8639 = 71%, 125 KB/s], Decompressed: 6067[KDownloaded: 6212 file(s) [attempted 6212/8639 = 71%, 263 KB/s], Decompressed: 6067[KDownloaded: 6242 file(s) [attempted 6242/8639 = 72%, 301 KB/s], Decompressed: 6138[KDownloaded: 6282 file(s) [attempted 6282/8639 = 72%, 1001 KB/s], Decompressed: 6214[KDownloaded: 6325 file(s) [attempted 6325/8639 = 73%, 189 KB/s], Decompressed: 6214[KDownloaded: 6361 file(s) [attempted 6361/8639 = 73%, 85 KB/s], Decompressed: 6273[KDownloaded: 6389 file(s) [attempted 6389/8639 = 73%, 553 KB/s], Decompressed: 6327[KDownloaded: 6421 file(s) [attempted 6421/8639 = 74%, 291 KB/s], Decompressed: 6368[KDownloaded: 6465 file(s) [attempted 6465/8639 = 74%, 73 KB/s], Decompressed: 6368[KDownloaded: 6514 file(s) [attempted 6514/8639 = 75%, 201 KB/s], Decompressed: 6368[KDownloaded: 6562 file(s) [attempted 6562/8639 = 75%, 1474 KB/s], Decompressed: 6420[KDownloaded: 6592 file(s) [attempted 6592/8639 = 76%, 475 KB/s], Decompressed: 6521[KDownloaded: 6628 file(s) [attempted 6628/8639 = 76%, 372 KB/s], Decompressed: 6521[KDownloaded: 6668 file(s) [attempted 6668/8639 = 77%, 84 KB/s], Decompressed: 6588[KDownloaded: 6708 file(s) [attempted 6708/8639 = 77%, 647 KB/s], Decompressed: 6588[KDownloaded: 6748 file(s) [attempted 6748/8639 = 78%, 70 KB/s], Decompressed: 6656[KDownloaded: 6782 file(s) [attempted 6782/8639 = 78%, 181 KB/s], Decompressed: 6656[KDownloaded: 6819 file(s) [attempted 6819/8639 = 78%, 539 KB/s], Decompressed: 6722[KDownloaded: 6860 file(s) [attempted 6860/8639 = 79%, 54 KB/s], Decompressed: 6784[KDownloaded: 6893 file(s) [attempted 6893/8639 = 79%, 60 KB/s], Decompressed: 6784[KDownloaded: 6933 file(s) [attempted 6933/8639 = 80%, 73 KB/s], Decompressed: 6834[KDownloaded: 6969 file(s) [attempted 6969/8639 = 80%, 40 KB/s], Decompressed: 6902[KDownloaded: 7009 file(s) [attempted 7009/8639 = 81%, 369 KB/s], Decompressed: 6902[KDownloaded: 7042 file(s) [attempted 7042/8639 = 81%, 286 KB/s], Decompressed: 6968[KDownloaded: 7082 file(s) [attempted 7082/8639 = 81%, 465 KB/s], Decompressed: 6968[KDownloaded: 7120 file(s) [attempted 7120/8639 = 82%, 40 KB/s], Decompressed: 7032[KDownloaded: 7160 file(s) [attempted 7160/8639 = 82%, 252 KB/s], Decompressed: 7099[KDownloaded: 7200 file(s) [attempted 7200/8639 = 83%, 541 KB/s], Decompressed: 7099[KDownloaded: 7236 file(s) [attempted 7236/8639 = 83%, 110 KB/s], Decompressed: 7155[KDownloaded: 7281 file(s) [attempted 7281/8639 = 84%, 117 KB/s], Decompressed: 7222[KDownloaded: 7321 file(s) [attempted 7321/8639 = 84%, 134 KB/s], Decompressed: 7222[KDownloaded: 7356 file(s) [attempted 7356/8639 = 85%, 181 KB/s], Decompressed: 7281[KDownloaded: 7392 file(s) [attempted 7392/8639 = 85%, 826 KB/s], Decompressed: 7281[KDownloaded: 7432 file(s) [attempted 7432/8639 = 86%, 113 KB/s], Decompressed: 7354[KDownloaded: 7465 file(s) [attempted 7465/8639 = 86%, 182 KB/s], Decompressed: 7354[KDownloaded: 7508 file(s) [attempted 7508/8639 = 86%, 108 KB/s], Decompressed: 7423[KDownloaded: 7550 file(s) [attempted 7550/8639 = 87%, 423 KB/s], Decompressed: 7423[KDownloaded: 7586 file(s) [attempted 7586/8639 = 87%, 347 KB/s], Decompressed: 7498[KDownloaded: 7626 file(s) [attempted 7626/8639 = 88%, 44 KB/s], Decompressed: 7498[KDownloaded: 7661 file(s) [attempted 7661/8639 = 88%, 92 KB/s], Decompressed: 7572[KDownloaded: 7704 file(s) [attempted 7704/8639 = 89%, 2063 KB/s], Decompressed: 7572[KDownloaded: 7740 file(s) [attempted 7740/8639 = 89%, 1403 KB/s], Decompressed: 7654[KDownloaded: 7773 file(s) [attempted 7773/8639 = 89%, 160 KB/s], Decompressed: 7654[KDownloaded: 7813 file(s) [attempted 7813/8639 = 90%, 43 KB/s], Decompressed: 7720[KDownloaded: 7855 file(s) [attempted 7855/8639 = 90%, 734 KB/s], Decompressed: 7720[KDownloaded: 7889 file(s) [attempted 7889/8639 = 91%, 582 KB/s], Decompressed: 7794[KDownloaded: 7922 file(s) [attempted 7922/8639 = 91%, 285 KB/s], Decompressed: 7863[KDownloaded: 7964 file(s) [attempted 7964/8639 = 92%, 173 KB/s], Decompressed: 7863[KDownloaded: 8004 file(s) [attempted 8004/8639 = 92%, 686 KB/s], Decompressed: 7922[KDownloaded: 8042 file(s) [attempted 8042/8639 = 93%, 561 KB/s], Decompressed: 7976[KDownloaded: 8075 file(s) [attempted 8075/8639 = 93%, 769 KB/s], Decompressed: 7976[KDownloaded: 8118 file(s) [attempted 8118/8639 = 93%, 746 KB/s], Decompressed: 8030[KDownloaded: 8158 file(s) [attempted 8158/8639 = 94%, 584 KB/s], Decompressed: 8094[KDownloaded: 8189 file(s) [attempted 8189/8639 = 94%, 722 KB/s], Decompressed: 8149[KDownloaded: 8227 file(s) [attempted 8227/8639 = 95%, 404 KB/s], Decompressed: 8149[KDownloaded: 8267 file(s) [attempted 8267/8639 = 95%, 167 KB/s], Decompressed: 8189[KDownloaded: 8302 file(s) [attempted 8302/8639 = 96%, 670 KB/s], Decompressed: 8243[KDownloaded: 8333 file(s) [attempted 8333/8639 = 96%, 336 KB/s], Decompressed: 8243[KDownloaded: 8376 file(s) [attempted 8376/8639 = 96%, 145 KB/s], Decompressed: 8291[KDownloaded: 8418 file(s) [attempted 8418/8639 = 97%, 362 KB/s], Decompressed: 8340[KDownloaded: 8444 file(s) [attempted 8444/8639 = 97%, 480 KB/s], Decompressed: 8388[KDownloaded: 8485 file(s) [attempted 8485/8639 = 98%, 54 KB/s], Decompressed: 8388[KDownloaded: 8525 file(s) [attempted 8525/8639 = 98%, 1120 KB/s], Decompressed: 8437[KDownloaded: 8567 file(s) [attempted 8567/8639 = 99%, 274 KB/s], Decompressed: 8437[KDownloaded: 8608 file(s) [attempted 8608/8639 = 99%, 585 KB/s], Decompressed: 8513[KDownloaded: 8638 file(s) [attempted 8638/8639 = 99%, 264 KB/s], Decompressed: 8586[KDownloaded: 8639 file(s) [attempted 8639/8639 = 100%, 264 KB/s], Decompressed: 8586[K
+Decompressed 8639 file(s)
+Already decompressed 8639 file(s)
+✔ [3802/4063] Built Architect.Command (708ms)
+✔ [3997/4322] Built Architect.Basic (1.4s)
+✔ [3998/4322] Built PrimeNumberTheoremAnd.Mathlib.Algebra.Notation.Support (1.0s)
+✔ [3999/4322] Built PrimeCert.PredMod (585ms)
+✔ [4000/4322] Built LeanCert.Engine.Table (648ms)
+✔ [4001/4322] Built PrimeNumberTheoremAnd.Auxiliary (2.7s)
+✔ [4002/4322] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.Norm (2.1s)
+✔ [4003/4322] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Log.Basic (2.5s)
+✔ [4004/4336] Built PrimeNumberTheoremAnd.Tactic.AdditiveCombination (2.7s)
+✔ [4005/4336] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Log.PosLog (2.6s)
+✔ [4007/4336] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Meromorphic.DivisorSupport (2.7s)
+✔ [4008/4336] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Asymptotics.Asymptotics (2.6s)
+✔ [4009/4336] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Exp (2.8s)
+✔ [4010/4336] Built LeanCert.Cert.Interval (2.5s)
+✔ [4011/4336] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Meromorphic.DivisorHolomorphic (3.1s)
+✔ [4014/4343] Built PrimeCert.PowMod (2.6s)
+✔ [4015/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Pow.Deriv (2.0s)
+✔ [4016/4343] Built PrimeNumberTheoremAnd.Tactic.Simprocs (2.7s)
+✔ [4017/4343] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Cauchy (2.7s)
+✔ [4018/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.LocallyUniformLimit (3.6s)
+✔ [4020/4343] Built LeanCert.ANT.PrimePowerExt (3.2s)
+✔ [4021/4343] Built PrimeCert.Meta.PrimeCert (3.1s)
+✔ [4023/4343] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (3.9s)
+✔ [4024/4343] Built PrimeNumberTheoremAnd.EulerMaclaurin (3.0s)
+✔ [4025/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.Trigonometric (3.1s)
+✔ [4026/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.Basic (3.3s)
+✔ [4027/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.AbsMax (3.4s)
+✔ [4028/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Pow.Real (3.1s)
+✔ [4029/4343] Built PrimeNumberTheoremAnd.Mathlib.Algebra.Order.Floor.Ring (2.1s)
+✔ [4030/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Basic (4.2s)
+✔ [4031/4343] Built LeanCert.Core.Interval (3.0s)
+✔ [4032/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Calculus.Deriv.Polynomial (3.4s)
+✔ [4033/4343] Built LeanCert.Core.DerivativeIntervals (4.1s)
+✔ [4034/4343] Built Architect.CollectUsed (1.8s)
+✔ [4035/4343] Built Architect.Content (1.8s)
+✔ [4036/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.ZetaFunctionalEquation (3.8s)
+✔ [4037/4343] Built PrimeNumberTheoremAnd.IEANTN.RosserSchoenfeld.RosserSchoenfeldPrime_tables (4.1s)
+✔ [4038/4343] Built LeanCert.Core.Dyadic (4.5s)
+✔ [4039/4343] Built LeanCert.Tactic.Verification (4.5s)
+✔ [4040/4343] Built LeanCert.Tactic.VecUtil (4.3s)
+✔ [4041/4343] Built Architect.Tactic (2.3s)
+✔ [4042/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Gamma.IntegralBounds (4.1s)
+✔ [4043/4343] Built PrimeNumberTheoremAnd.Mathlib.MeasureTheory.Integral.IntegrableOn (3.1s)
+✔ [4044/4343] Built PrimeCert.Interval (4.5s)
+✔ [4045/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.BorelCaratheodory (4.4s)
+✔ [4046/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Gamma.GammaStirlingAux (3.0s)
+✔ [4047/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Complex.LogBounds (5.2s)
+✔ [4048/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Log.Dyadic (5.2s)
+✔ [4049/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CartanProductBound (2.6s)
+✔ [4050/4343] Built PrimeNumberTheoremAnd.Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic (3.0s)
+✔ [4051/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.Sieve.AuxResults (5.5s)
+✔ [4052/4343] Built PrimeCert.Meta.SmallPrime (1.0s)
+✔ [4053/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.AbelSummation (3.1s)
+✔ [4054/4343] Built LeanCert.Contrib.Sinc (5.6s)
+✔ [4055/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZeta (4.7s)
+✔ [4056/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CanonicalDecomposition (2.5s)
+✔ [4057/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CauchyIntegral (2.8s)
+✔ [4058/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Log.ExpGrowth (3.2s)
+✔ [4059/4343] Built Architect.Attribute (2.2s)
+✔ [4060/4343] Built LeanCert.ANT.Step (3.3s)
+✔ [4061/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.Convex (5.6s)
+✔ [4062/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaValues (3.6s)
+✔ [4063/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.GammaBounds (6.3s)
+✔ [4064/4343] Built LeanCert.Core.Expr (6.9s)
+✔ [4065/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Asymptotics.Uniformly (3.0s)
+✔ [4066/4343] Built Architect.Output (2.4s)
+✔ [4067/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.CompletedXi (2.8s)
+✔ [4068/4343] Built LeanCert.Tactic.FinSumExpand (2.9s)
+✔ [4069/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.Chebyshev (4.6s)
+✔ [4070/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.ImproperIntegrals (2.0s)
+✔ [4071/4343] Built Architect.Load (969ms)
+✔ [4072/4343] Built PrimeCert.Wieferich (3.4s)
+✔ [4073/4343] Built Architect (755ms)
+✔ [4074/4343] Built PrimeCert.Pocklington (3.9s)
+✔ [4075/4343] Built LeanCert.ANT.EulerProduct (3.1s)
+✔ [4076/4343] Built PrimeNumberTheoremAnd.Sobolev (10s)
+✔ [4077/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CartanBound (7.2s)
+✔ [4078/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.WeierstrassFactor (5.2s)
+✔ [4079/4343] Built LeanCert.Core.Support (3.4s)
+✔ [4080/4343] Built PrimeNumberTheoremAnd.HadamardFactorization (1.6s)
+✔ [4081/4343] Built LeanCert.ANT.Abel (4.0s)
+✔ [4082/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.Sieve.Basic (5.3s)
+✔ [4083/4343] Built LeanCert.Core.Taylor (6.6s)
+✔ [4084/4343] Built LeanCert.Meta.Numeral (3.9s)
+✔ [4085/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaAbelKernel (3.6s)
+✔ [4086/4343] Built PrimeNumberTheoremAnd.IEANTN.LnFactorialSeries (11s)
+✔ [4087/4343] Built LeanCert.Core.IntervalRat.LogReduction (5.1s)
+✔ [4088/4343] Built PrimeNumberTheoremAnd.IEANTN.KadiriEq11Base (3.5s)
+✔ [4089/4343] Built LeanCert.Core.IntervalRat.Basic (8.4s)
+✔ [4090/4343] Built PrimeNumberTheoremAnd.HoffsteinLockhart (3.7s)
+✔ [4091/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Growth (6.4s)
+✔ [4092/4343] Built PrimeCert.SmallPrimes (3.2s)
+✔ [4093/4343] Built LeanCert.ANT.PrimeEuler (3.3s)
+✔ [4094/4343] Built PrimeNumberTheoremAnd.ZetaConj (4.1s)
+✔ [4095/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CanonicalProduct (3.6s)
+✔ [4096/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CartanInverseFactorBound (3.7s)
+✔ [4097/4343] Built PrimeNumberTheoremAnd.Rectangle (5.3s)
+✔ [4098/4343] Built PrimeNumberTheoremAnd.SmoothExistence (5.5s)
+✔ [4099/4343] Built LeanCert.ANT.Asymp.Env (4.4s)
+✔ [4100/4343] Built LeanCert.Tactic.LeanCert.Bridge.Environment (3.2s)
+✔ [4101/4343] Built PrimeNumberTheoremAnd.Fourier (5.8s)
+✔ [4102/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Gamma.StripBounds (9.0s)
+✔ [4103/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaPartialSum (4.5s)
+✔ [4104/4343] Built LeanCert.Tactic.IntervalAuto.Extract (3.6s)
+✔ [4105/4343] Built LeanCert.Engine.Eval.Result (3.8s)
+✔ [4106/4343] Built LeanCert.Core.TrigReduction (4.2s)
+✔ [4107/4343] Built LeanCert.Meta.ToExpr (5.9s)
+✔ [4108/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorIndex (3.4s)
+✔ [4109/4343] Built LeanCert.Tactic.IntervalAuto.Types (4.7s)
+✔ [4110/4343] Built PrimeCert.Pocklington3 (8.2s)
+✔ [4111/4343] Built LeanCert.Core.IntervalRat.Transcendental (5.9s)
+✔ [4112/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.Sieve.Selberg (8.0s)
+✔ [4113/4343] Built LeanCert.ANT.Asymp.Pointwise (3.0s)
+✔ [4114/4343] Built LeanCert.ANT.Asymp.Stieltjes (3.0s)
+✔ [4115/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.ExpPoly (13s)
+✔ [4116/4343] Built LeanCert.ANT.Asymp.Hyperbola (4.4s)
+✔ [4117/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorUnits (2.7s)
+✔ [4118/4343] Built PrimeCert (2.5s)
+✔ [4119/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaAbelContinuation (4.7s)
+✔ [4120/4343] Built LeanCert.Tactic.LeanCert.Normalize (4.0s)
+✔ [4121/4343] Built LeanCert.Tactic.IntervalAuto.Norm (4.4s)
+✔ [4122/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorConvergence (4.9s)
+⚠ [4123/4343] Built PrimeNumberTheoremAnd.IwaniecKowalskiCh1 (13s)
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:74:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:91:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:649:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:871:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:1622:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:1789:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:1804:6: declaration uses `sorry`
+✔ [4124/4343] Built PrimeNumberTheoremAnd.Defs (6.4s)
+✔ [4125/4343] Built PrimeNumberTheoremAnd.LaplaceInversion (18s)
+✔ [4126/4343] Built LeanCert.ANT.PNTCompilers (3.7s)
+✔ [4127/4343] Built PrimeNumberTheoremAnd.MellinCalculus (13s)
+✔ [4128/4343] Built LeanCert.Tactic.IntervalAuto.Parse (6.2s)
+✔ [4129/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.Sieve.SelbergBounds (5.0s)
+✔ [4130/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaConvexity (3.7s)
+✔ [4131/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.ExpPoly.Growth (6.5s)
+✔ [4132/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorFiber (3.7s)
+✔ [4133/4343] Built PrimeNumberTheoremAnd.SincKernelErrorBounds (3.5s)
+✔ [4134/4343] Built PrimeNumberTheoremAnd.IEANTN.eSHP.eSHP_tables (3.8s)
+✔ [4135/4343] Built PrimeNumberTheoremAnd.IEANTN.ZetaDefinitions (4.1s)
+✔ [4136/4343] Built LeanCert.Tactic.IntervalAuto.Diagnostic (3.3s)
+✔ [4137/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaStripBound (2.5s)
+✔ [4138/4343] Built PrimeNumberTheoremAnd.ResidueCalcOnRectangles (14s)
+✔ [4139/4343] Built PrimeNumberTheoremAnd.IEANTN.Mertens (19s)
+✔ [4140/4343] Built PrimeNumberTheoremAnd.BrunTitchmarsh (5.7s)
+⚠ [4141/4343] Built PrimeNumberTheoremAnd.IEANTN.RosserSchoenfeld.RosserSchoenfeldZeta (3.6s)
+warning: PrimeNumberTheoremAnd/IEANTN/RosserSchoenfeld/RosserSchoenfeldZeta.lean:27:8: declaration uses `sorry`
+✔ [4142/4343] Built LeanCert.Core.IntervalRat.Taylor (17s)
+✔ [4143/4343] Built PrimeNumberTheoremAnd.IEANTN.KLN (3.9s)
+✔ [4144/4343] Built PrimeNumberTheoremAnd.IEANTN.HadamardLogDerivative (4.2s)
+✔ [4145/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorComplement (5.5s)
+✔ [4146/4343] Built PrimeNumberTheoremAnd.IEANTN.PrimeTables (11s)
+✔ [4147/4343] Built PrimeNumberTheoremAnd.GeneralMeromorphic (2.0s)
+✔ [4148/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Gamma.DigammaSeries (31s)
+✔ [4149/4343] Built PrimeNumberTheoremAnd.IEANTN.PVIdentity (31s)
+✔ [4150/4343] Built PrimeNumberTheoremAnd.RectangleArgumentPrinciple (3.0s)
+✔ [4151/4343] Built LeanCert.Core.IntervalReal (2.4s)
+✔ [4152/4343] Built LeanCert.Core.IntervalRat.TrigReduced (2.7s)
+✔ [4153/4343] Built LeanCert.Engine.Chebyshev.Psi (3.3s)
+✔ [4154/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (3.2s)
+✔ [4155/4343] Built PrimeNumberTheoremAnd.IEANTN.KadiriEq12Foundations (6.6s)
+✔ [4156/4343] Built LeanCert.Engine.Chebyshev.Theta (5.2s)
+✔ [4157/4343] Built LeanCert.Core.IntervalRealEndpoints (3.4s)
+✔ [4158/4343] Built PrimeNumberTheoremAnd.IEANTN.KadiriEq15GammaFactor (4.8s)
+✔ [4159/4343] Built PrimeNumberTheoremAnd.IEANTN.KadiriEq12Helpers (8.2s)
+✔ [4160/4343] Built LeanCert.Engine.Affine.Basic (4.9s)
+✔ [4161/4343] Built LeanCert.CertifiedBounds.Chebyshev (2.4s)
+✔ [4162/4343] Built LeanCert.ANT.Mertens (3.2s)
+✔ [4163/4343] Built LeanCert.ANT.Dirichlet (3.3s)
+✔ [4164/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorQuotientConvergence (4.7s)
+✔ [4165/4343] Built LeanCert.Core.IntervalDyadic (6.6s)
+✔ [4166/4343] Built PrimeNumberTheoremAnd.IEANTN.KadiriSupport (4.5s)
+✔ [4167/4343] Built LeanCert.Engine.Eval.Core (5.0s)
+✔ [4168/4343] Built LeanCert.Engine.Affine.Nonlinear (3.7s)
+✔ [4169/4343] Built PrimeNumberTheoremAnd.IEANTN.LiSeries (9.6s)
+✔ [4170/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorQuotientRemovable (2.7s)
+✔ [4171/4343] Built PrimeNumberTheoremAnd.IEANTN.KadiriEq15LaplaceStrip (3.6s)
+✔ [4172/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.Divisor (2.0s)
+✔ [4173/4343] Built LeanCert.Engine.Eval.Extended (2.8s)
+✔ [4174/4343] Built PrimeNumberTheoremAnd.IEANTN.KadiriEq11Reduction (5.3s)
+⚠ [4175/4343] Built PrimeNumberTheoremAnd.Wiener (29s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:323:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/Wiener.lean:342:8: declaration uses `sorry`
+✔ [4176/4343] Built LeanCert.Engine.Bounds.Lemmas (1.9s)
+✔ [4177/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.ZetaFiniteOrder (19s)
+✔ [4178/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization (2.6s)
+✔ [4179/4343] Built LeanCert.Engine.IntervalEval (1.6s)
+✔ [4180/4343] Built PrimeNumberTheoremAnd.ZetaBounds (19s)
+✔ [4181/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_app_tables (40s)
+✔ [4182/4343] Built LeanCert.Validity.Bounds.Core (2.8s)
+✔ [4183/4343] Built LeanCert.Engine.AD.Basic (2.9s)
+✔ [4184/4343] Built LeanCert.Engine.Optimization.Box (2.9s)
+✔ [4185/4343] Built LeanCert.Validity.Bounds.Checked (2.9s)
+✔ [4186/4343] Built LeanCert.Engine.Affine.Transcendental (3.0s)
+✔ [4187/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization.Summability (5.1s)
+✔ [4188/4343] Built LeanCert.Engine.RootFinding.Basic (4.6s)
+✔ [4189/4343] Built LeanCert.Engine.Integrate (5.1s)
+✔ [4190/4343] Built PrimeNumberTheoremAnd.PerronFormula (7.4s)
+✔ [4191/4343] Built LeanCert.Engine.IntervalEvalDyadic (6.1s)
+✔ [4192/4343] Built LeanCert.Engine.AD.Transcendental (4.3s)
+✔ [4193/4343] Built LeanCert.Engine.TaylorModel.Core (7.2s)
+⚠ [4194/4343] Built PrimeNumberTheoremAnd.IEANTN.eSHP.eSHP (30s)
+warning: PrimeNumberTheoremAnd/IEANTN/eSHP/eSHP.lean:85:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/eSHP/eSHP.lean:129:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/eSHP/eSHP.lean:304:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/eSHP/eSHP.lean:449:8: declaration uses `sorry`
+✔ [4195/4343] Built LeanCert.Validity.DyadicBounds (3.5s)
+✔ [4196/4343] Built LeanCert.Engine.IntervalEvalAffine (6.0s)
+✔ [4197/4343] Built LeanCert.Engine.AD.Eval (3.2s)
+✔ [4198/4343] Built LeanCert.Engine.RootFinding.Bisection (5.9s)
+✔ [4199/4343] Built LeanCert.Engine.TaylorModel.Special (3.6s)
+✔ [4200/4343] Built LeanCert.Engine.FinSumDyadic (5.2s)
+✔ [4201/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CartanMajorantBound (15s)
+✔ [4202/4343] Built LeanCert.Engine.TaylorModel.Integral (4.7s)
+✔ [4203/4343] Built LeanCert.ANT.Asymp.Checkers (3.7s)
+✔ [4204/4343] Built PrimeNumberTheoremAnd.IEANTN.KadiriEq15 (8.0s)
+✔ [4205/4343] Built LeanCert.Engine.TaylorModel.Log1p (7.1s)
+✔ [4206/4343] Built LeanCert.Validity.AffineBounds (4.4s)
+✔ [4207/4343] Built LeanCert.Engine.AD.Correctness (4.2s)
+✔ [4208/4343] Built LeanCert.Engine.Affine.Environment (4.5s)
+✔ [4209/4343] Built LeanCert.Engine.WitnessSum (3.5s)
+✔ [4210/4343] Built LeanCert.Engine.TaylorModel.ExpLog (8.0s)
+✔ [4211/4343] Built LeanCert.ANT.Asymp.Inequality (2.9s)
+✔ [4212/4343] Built LeanCert.Validity.AffineCover (2.4s)
+✔ [4213/4343] Built LeanCert.Engine.TaylorModel.Trig (10s)
+✔ [4214/4343] Built LeanCert.Examples.Li2Base (3.6s)
+✔ [4215/4343] Built LeanCert.Engine.AD.Computable (3.5s)
+✔ [4216/4343] Built LeanCert.ANT.Asymp (2.3s)
+✔ [4217/4343] Built LeanCert.Engine.TaylorModel.Hyperbolic (11s)
+✔ [4218/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization.Growth (7.4s)
+✔ [4219/4343] Built LeanCert.Engine.ReflectiveSum (5.0s)
+✔ [4220/4343] Built LeanCert.Engine.AD.PartialCorrectness (5.7s)
+⚠ [4221/4343] Built LeanCert.CertifiedBounds.Li2 (2.3s)
+warning: LeanCert/CertifiedBounds/Li2.lean:42:8: declaration uses `sorry`
+warning: LeanCert/CertifiedBounds/Li2.lean:49:8: declaration uses `sorry`
+✔ [4222/4343] Built LeanCert.Engine.TaylorModel.Functions (1.7s)
+✔ [4223/4343] Built LeanCert.Engine.AD.DomainChecked (2.9s)
+✔ [4224/4343] Built LeanCert.ANT (2.4s)
+✔ [4225/4343] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization.Order (2.5s)
+✔ [4226/4343] Built PrimeNumberTheoremAnd.IEANTN.Li2Bounds (3.1s)
+✔ [4227/4343] Built PrimeNumberTheoremAnd.Consequences (25s)
+✔ [4228/4343] Built LeanCert.Engine.TaylorModel.Expr (3.4s)
+✔ [4229/4343] Built LeanCert.Engine.AD.Dyadic (3.0s)
+✔ [4230/4343] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaHadamard (3.3s)
+✔ [4231/4343] Built LeanCert.Engine.TaylorModel (1.6s)
+✔ [4232/4343] Built LeanCert.Engine.AD (1.6s)
+✔ [4233/4343] Built LeanCert.Validity.Bounds.Smart (2.1s)
+✔ [4234/4343] Built LeanCert.Meta.ProveSupported (2.5s)
+✔ [4235/4343] Built LeanCert.Engine.IntervalEvalRefined (2.7s)
+✔ [4236/4343] Built LeanCert.Engine.Optimize (4.0s)
+✔ [4237/4343] Built LeanCert.Validity.Bounds.Bridge (2.2s)
+✔ [4238/4343] Built LeanCert.Meta.ProveContinuous (3.1s)
+✔ [4239/4343] Built LeanCert.Validity.Bounds.Basic (1.6s)
+✔ [4240/4343] Built PrimeNumberTheoremAnd.Backlund.ZeroCountCrude (27s)
+✔ [4241/4343] Built LeanCert.Tactic.IntervalAuto.ProveCommon (3.8s)
+ℹ [4242/4343] Built PrimeNumberTheoremAnd.MediumPNT (31s)
+info: PrimeNumberTheoremAnd/MediumPNT.lean:4282:0: 'MediumPNT' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [4243/4343] Built LeanCert.Engine.RootFinding.Newton (3.0s)
+✔ [4244/4343] Built LeanCert.Engine.Optimization.Gradient (3.8s)
+✔ [4245/4343] Built LeanCert.Tactic.IntervalAuto.Basic (1.8s)
+✔ [4246/4343] Built LeanCert.Validity.Integration (4.0s)
+✔ [4247/4343] Built LeanCert.Engine.RootFinding.MVTBounds (3.8s)
+✔ [4248/4343] Built LeanCert.Engine.RootFinding.Krawczyk (3.9s)
+✔ [4249/4343] Built LeanCert.Engine.RootFinding.Contraction (3.4s)
+✔ [4250/4343] Built PrimeNumberTheoremAnd.IEANTN.ZetaAppendix (39s)
+✔ [4251/4343] Built LeanCert.Engine.RootFinding.Main (1.6s)
+⚠ [4252/4343] Built PrimeNumberTheoremAnd.IEANTN.ZetaSummary (2.4s)
+warning: PrimeNumberTheoremAnd/IEANTN/ZetaSummary.lean:29:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/ZetaSummary.lean:43:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/ZetaSummary.lean:58:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/ZetaSummary.lean:71:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/ZetaSummary.lean:82:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/ZetaSummary.lean:93:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/ZetaSummary.lean:103:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/ZetaSummary.lean:113:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/ZetaSummary.lean:123:8: declaration uses `sorry`
+✔ [4253/4343] Built PrimeNumberTheoremAnd.IEANTN.PrimaryDefinitions (2.2s)
+✔ [4254/4343] Built PrimeNumberTheoremAnd.IEANTN.KadiriZeroCounting (12s)
+✔ [4255/4343] Built LeanCert.Engine.Optimization.Global (11s)
+✔ [4256/4343] Built LeanCert.Engine.Optimization.BoundVerify (2.4s)
+✔ [4257/4343] Built PrimeNumberTheoremAnd.IEANTN.KadiriEq13 (4.4s)
+✔ [4258/4343] Built LeanCert.Validity.Bounds (4.3s)
+✔ [4259/4343] Built LeanCert.Tactic.IntervalAuto.RootBound (3.2s)
+✔ [4260/4343] Built LeanCert.Tactic.IntervalAuto.OptBound (3.4s)
+✔ [4261/4343] Built LeanCert.Tactic.IntervalAuto.Multivariate (5.7s)
+✔ [4262/4343] Built PrimeNumberTheoremAnd.IEANTN.KadiriEq14 (6.4s)
+✔ [4263/4343] Built PrimeNumberTheoremAnd.IEANTN.MobiusLemma (13s)
+⚠ [4264/4343] Built PrimeNumberTheoremAnd.StrongPNT (25s)
+warning: PrimeNumberTheoremAnd/StrongPNT.lean:2383:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/StrongPNT.lean:2502:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/StrongPNT.lean:2647:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/StrongPNT.lean:3042:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/StrongPNT.lean:3132:6: declaration uses `sorry`
+✔ [4265/4343] Built PrimeNumberTheoremAnd.BorelCaratheodory (3.7s)
+⚠ [4266/4343] Built PrimeNumberTheoremAnd.IEANTN.Kadiri (12s)
+warning: PrimeNumberTheoremAnd/IEANTN/Kadiri.lean:138:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Kadiri.lean:175:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Kadiri.lean:437:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Kadiri.lean:469:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Kadiri.lean:1362:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Kadiri.lean:2592:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Kadiri.lean:2618:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Kadiri.lean:3224:8: declaration uses `sorry`
+✔ [4267/4343] Built LeanCert.Tactic.IntervalAuto.Bound (24s)
+✔ [4268/4343] Built LeanCert.Tactic.IntervalAuto.Subdiv (3.5s)
+✔ [4269/4343] Built LeanCert.Tactic.IntervalAuto.Adaptive (6.2s)
+✔ [4270/4343] Built LeanCert.Tactic.IntervalAuto.PointIneq (11s)
+✔ [4271/4343] Built PrimeNumberTheoremAnd.IEANTN.CH2.CH2_part1 (42s)
+✔ [4272/4343] Built LeanCert.Tactic.IntervalAuto (2.2s)
+✔ [4273/4343] Built LeanCert.Engine.BKLNW (4.4s)
+⚠ [4274/4343] Built PrimeNumberTheoremAnd.IEANTN.CH2.CH2 (14s)
+warning: PrimeNumberTheoremAnd/IEANTN/CH2/CH2.lean:4319:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/CH2/CH2.lean:4333:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/CH2/CH2.lean:4347:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/CH2/CH2.lean:4359:8: declaration uses `sorry`
+ℹ [4275/4343] Built PrimeNumberTheoremAnd.IEANTN.Ramanujan.RamanujanCalculations (18s)
+info: PrimeNumberTheoremAnd/IEANTN/Ramanujan/RamanujanCalculations.lean:75:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+✔ [4276/4343] Built PrimeNumberTheoremAnd.IEANTN.LogTables (26s)
+✔ [4277/4343] Built PrimeNumberTheoremAnd.IEANTN.FioriKadiriSwidinsky.FioriKadiriSwidinsky_tables (2.3s)
+✔ [4278/4343] Built PrimeNumberTheoremAnd.EulerMascheroniBounds (7.3s)
+⚠ [4279/4343] Built PrimeNumberTheoremAnd.IEANTN.FioriKadiriSwidinsky.FioriKadiriSwidinsky (5.6s)
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:45:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:112:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:149:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:153:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:165:18: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:177:18: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:218:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:228:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:257:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:354:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:368:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:383:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:402:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:408:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:418:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:464:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:473:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:488:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:533:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:560:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:588:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:639:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:652:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:664:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:708:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:718:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FioriKadiriSwidinsky/FioriKadiriSwidinsky.lean:731:8: declaration uses `sorry`
+✔ [4280/4343] Built PrimeNumberTheoremAnd.IEANTN.SecondaryDefinitions (5.0s)
+✔ [4281/4343] Built PrimeNumberTheoremAnd.IEANTN.PrimeInInterval (3.9s)
+⚠ [4282/4343] Built PrimeNumberTheoremAnd.IEANTN.RosserSchoenfeld.RosserSchoenfeldPrime (11s)
+warning: PrimeNumberTheoremAnd/IEANTN/RosserSchoenfeld/RosserSchoenfeldPrime.lean:1015:8: declaration uses `sorry`
+⚠ [4283/4343] Built PrimeNumberTheoremAnd.IEANTN.Buthe (12s)
+warning: PrimeNumberTheoremAnd/IEANTN/Buthe.lean:32:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Buthe.lean:42:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Buthe.lean:52:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Buthe.lean:62:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Buthe.lean:74:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Buthe.lean:84:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Buthe.lean:132:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Buthe.lean:143:8: declaration uses `sorry`
+✔ [4284/4343] Built PrimeNumberTheoremAnd.IEANTN.PrimarySummary (2.2s)
+✔ [4285/4343] Built PrimeNumberTheoremAnd.IEANTN.Chebyshev (19s)
+✔ [4286/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtCore (25s)
+⚠ [4287/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_app (15s)
+warning: PrimeNumberTheoremAnd/IEANTN/BKLNW/BKLNW_app.lean:48:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/BKLNW/BKLNW_app.lean:131:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/BKLNW/BKLNW_app.lean:169:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/BKLNW/BKLNW_app.lean:517:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/BKLNW/BKLNW_app.lean:1128:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/BKLNW/BKLNW_app.lean:1181:8: declaration uses `sorry`
+✔ [4288/4343] Built PrimeNumberTheoremAnd.IEANTN.Erdos392 (41s)
+✔ [4289/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_13 (17s)
+✔ [4290/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_01 (28s)
+✔ [4291/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_11 (28s)
+✔ [4292/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_03 (28s)
+✔ [4293/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_00 (28s)
+✔ [4294/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_07 (28s)
+✔ [4295/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_09 (28s)
+✔ [4296/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_05 (29s)
+✔ [4297/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_12 (29s)
+✔ [4298/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_08 (29s)
+✔ [4299/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_06 (29s)
+✔ [4300/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_02 (29s)
+✔ [4301/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_10 (29s)
+✔ [4302/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4ExtData_04 (29s)
+✔ [4303/4343] Built LeanCert.CertifiedBounds.BKLNWVerified (93s)
+⚠ [4304/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4Ext (3.4s)
+warning: PrimeNumberTheoremAnd/IEANTN/FKS2Tables/Table4Ext.lean:116:8: declaration uses `sorry`
+✔ [4305/4343] Built LeanCert.CertifiedBounds.BKLNW (2.0s)
+✔ [4306/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_tables (90s)
+⚠ [4307/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW (27s)
+warning: PrimeNumberTheoremAnd/IEANTN/BKLNW/BKLNW.lean:2182:8: declaration uses `sorry`
+✔ [4308/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_a2_bounds (4.6s)
+✔ [4309/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_core (8.4s)
+⚠ [4310/4343] Built PrimeNumberTheoremAnd.IEANTN.Dusart (43s)
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:73:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:89:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:148:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:171:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:185:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:199:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:211:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:223:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:235:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:246:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:257:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:268:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:279:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:291:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:302:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:313:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:324:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:335:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:545:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:574:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:586:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:599:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:612:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:623:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:635:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:644:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:656:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:668:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:680:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:692:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:704:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:716:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Dusart.lean:728:8: declaration uses `sorry`
+✔ [4311/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_90_95 (36s)
+✔ [4312/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_values (45s)
+✔ [4313/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_misc (47s)
+✔ [4314/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_next (53s)
+✔ [4315/4343] Built PrimeNumberTheoremAnd.IEANTN.RosserSchoenfeld.RSPrimeLower (23s)
+✔ [4316/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_65_85 (55s)
+✔ [4317/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_regime3_8600_10500 (56s)
+✔ [4318/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_regime3_4900_6500 (56s)
+✔ [4319/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_regime3_10600_12500 (56s)
+✔ [4320/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_regime3_1900_2375 (56s)
+✔ [4321/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_regime3_2900_3375 (56s)
+✔ [4322/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_regime3_2400_2875 (56s)
+✔ [4323/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_regime3_3400_3875 (56s)
+✔ [4324/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_regime3_4400_4875 (57s)
+✔ [4325/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_regime3_6600_8500 (57s)
+✔ [4326/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_regime3_100_1875 (57s)
+✔ [4327/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_regime3_3900_4375 (57s)
+⚠ [4328/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2 (82s)
+warning: PrimeNumberTheoremAnd/IEANTN/FKS2.lean:4643:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/FKS2.lean:4670:8: declaration uses `sorry`
+⚠ [4329/4343] Built PrimeNumberTheoremAnd.IEANTN.TMEEMT (16s)
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:157:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:170:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:183:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:196:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:212:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:220:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:245:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:253:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:261:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:276:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:400:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:408:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:539:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:584:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:601:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:638:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:649:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:660:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:671:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:680:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:689:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:705:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:714:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:723:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:732:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:767:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:776:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:785:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:811:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:834:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:845:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:856:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:867:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:877:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:885:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:893:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:902:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1025:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1045:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1075:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1101:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1115:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1124:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1142:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1157:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1166:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1181:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1206:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1219:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1236:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1247:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1272:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1286:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1303:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1318:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1336:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1352:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1363:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1370:0: Definition `proposition_5_4_copy` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1372:0: Definition `corollary_5_5_copy` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1388:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1402:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1416:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1430:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1447:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1484:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1552:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1567:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1586:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1604:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1619:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1631:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1643:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1659:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1678:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1696:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1717:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1741:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1764:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1779:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1808:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/TMEEMT.lean:1830:8: declaration uses `sorry`
+⚠ [4330/4343] Built PrimeNumberTheoremAnd.IEANTN.FKS2Floor.Cor22Floor (6.9s)
+warning: PrimeNumberTheoremAnd/IEANTN/FKS2Floor/Cor22Floor.lean:19:72: Using `native_decide` is not allowed in mathlib: because it trusts the entire Lean compiler (not just the Lean kernel), it could quite possibly be used to prove false.
+
+Note: This linter can be disabled with `set_option linter.style.nativeDecide false`
+warning: PrimeNumberTheoremAnd/IEANTN/FKS2Floor/Cor22Floor.lean:110:37: Using `native_decide` is not allowed in mathlib: because it trusts the entire Lean compiler (not just the Lean kernel), it could quite possibly be used to prove false.
+
+Note: This linter can be disabled with `set_option linter.style.nativeDecide false`
+warning: PrimeNumberTheoremAnd/IEANTN/FKS2Floor/Cor22Floor.lean:123:60: Using `native_decide` is not allowed in mathlib: because it trusts the entire Lean compiler (not just the Lean kernel), it could quite possibly be used to prove false.
+
+Note: This linter can be disabled with `set_option linter.style.nativeDecide false`
+⚠ [4331/4343] Built PrimeNumberTheoremAnd.IEANTN.SecondarySummary (9.5s)
+warning: PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean:61:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean:205:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean:215:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean:229:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean:244:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean:258:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/SecondarySummary.lean:341:8: declaration uses `sorry`
+✔ [4332/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_regime3_12600_24000 (87s)
+⚠ [4333/4343] Built PrimeNumberTheoremAnd.IEANTN.Goldbach (6.4s)
+warning: PrimeNumberTheoremAnd/IEANTN/Goldbach.lean:155:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Goldbach.lean:182:8: declaration uses `sorry`
+✔ [4334/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_20_43 (49s)
+✔ [4335/4343] Built PrimeNumberTheoremAnd.IEANTN.Lcm (31s)
+✔ [4336/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows_44_59 (31s)
+✔ [4337/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_rows (2.2s)
+✔ [4338/4343] Built PrimeNumberTheoremAnd.IEANTN.Ramanujan.Ramanujan (59s)
+✔ [4339/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table10_dispatch (18s)
+✔ [4340/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table11_suffix (26s)
+✔ [4341/4343] Built PrimeNumberTheoremAnd.IEANTN.BKLNW.BKLNW_table11_dispatch (20s)
+✔ [4342/4343] Built PrimeNumberTheoremAnd (2.3s)
+Build completed successfully (4343 jobs).

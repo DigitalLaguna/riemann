@@ -1,14 +1,16 @@
 bibkey:      pnt-plus
-title:       PNT+ repository and blueprint (PrimeNumberTheoremAnd)
-authors:     Alex Kontorovich (repo owner); PNT+ project contributors
+title:       PrimeNumberTheoremAnd (PNT+) repository, blueprint, contributing guide, open issue list
+authors:     Alex Kontorovich et al.
 year:        2026
 url:         https://github.com/AlexKontorovich/PrimeNumberTheoremAnd
-local:       tracks/a-lean/pnt (local clone); open-issue snapshot: lit/text/pnt-plus-issues.json
+local:       tracks/a-lean/pnt (local clone); lit/pdf/pnt-open-issues.json (issue list fetched 2026-08-20)
 fetched:     2026-08-20
-main_result: "To claim a task, comment the single word `claim` on the relevant GitHub issue." (Section "2. Claiming a Task", CONTRIBUTING.md)
-             "After submitting the PR, comment `propose #PR_NUMBER` on the original issue. This links your PR to the task, and the task will move to the `In Progress` column on the dashboard." (Section "4. Submitting a Pull Request", CONTRIBUTING.md)
-             "Contributions produced with the aid of an AI coding assistant (Cursor, Claude Code, Copilot, Codex, aider, …) are welcome and follow the same rules as any other contribution — but they should also: 1. **Disclose the tool** in the PR body (e.g. \"Made with Cursor\", or the auto-generated footer produced by these tools)." (Section 13 "AI-assisted contributions", PULL_REQUEST_STYLE.md)
-constants:   none fixed in the guides; open-issue snapshot 2026-08-20: 39 open issues, e.g. #1694 [TMEEMT/RS] RS_prime.theorem_c (sum 1/p > log log x for x > 1), #1692 RS_prime.theorem_d, #1687 RS_prime.theorem_b (pi(x) > x/log x for x >= 17), #1429 [FKS2] Upper bound on E_pi (Corollary 24), #722 [FKS2] Further bounds on E_pi (Corollary 23), #1257 [BKLNW] Verify Table 11
-supersedes:  none; the PNT+ project is the host of the IEANTN network (tao-2026-ant)
+main_result: "The objective of this project is to formalize in Lean the Prime Number Theorem (with classical error term), as well as related results such as the Prime Number Theorem in Arithmetic Progressions." (README.md, para 4)
+             "We are also hosting the Integrated Explicit Analytic Number Theory network." (README.md, para 4)
+             "Tasks are posted as GitHub issues and can be found in the `Unclaimed` column of the project dashboard." (CONTRIBUTING.md, section 1)
+             "To claim a task, comment the single word `claim` on the relevant GitHub issue." (CONTRIBUTING.md, section 2)
+             "Contributions produced with the aid of an AI coding assistant (Cursor, Claude Code, Copilot, Codex, aider, ...) are welcome and follow the same rules as any other contribution" — disclosure required in PR body; CI auto-applies the `ai` umbrella label (PULL_REQUEST_STYLE.md, section 13)
+constants:   no numeric constants; fixes the workflow: claim word on issue, `propose #N` / `awaiting-review` comments, one PR per issue from a fork branch; 39 open issues as of fetch (list in lit/pdf/pnt-open-issues.json), several already carry `claude,ai` labels
+supersedes:  none; the host repository for the ANT network formalization half
 superseded:  none known as of 2026-08-20
-relevance:   Track A. Workflow: claim via `claim` comment, PR from fork branch (not main), `propose #N`, `awaiting-review`. AI disclosure: one line "Made with <tool>" in PR body; CI auto-labels. New Lean files must import Architect, be added to PrimeNumberTheoremAnd.lean and blueprint.tex. The 39-issue snapshot is the task queue; XS/S candidates to be screened next tick.
+relevance:   Track A working repository. First action per design doc: get the blueprint building locally (done, tick 1), join the Lean Zulip, close one XS issue. Task size labels XS-XL live in the project dashboard (GitHub project 1), not in issue bodies; pick XS/S tasks from the dashboard. AI disclosure: one line in PR body, e.g. "Made with ..." + Co-Authored-By footer.
