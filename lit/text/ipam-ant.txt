@@ -1,0 +1,134 @@
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Special Projects 
+ 
+ Special Projects
+ >
+ Integrated Explicit Analytic Number Theory network
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+- 
+ 
+ Suggested collaborator tool 
+ 
+ 
+- 
+ 
+ Integrated Explicit Analytic Number Theory network 
+ 
+ 
+- 
+ 
+ ALPHA: Accelerated formal proof synthesis with neuro‐symbolicAutomation 
+ 
+ 
+- 
+ 
+ Singularities in compressible gas dynamics 
+ 
+ 
+- 
+ 
+ Mathematics of DNA-aptamer design 
+ 
+ 
+ 
+ 
+ 
+ 
+ Integrated Explicit Analytic Number Theory network
+ 
+ 
+Several areas of analysis, such as analytic number theory, are interested in effective inequalities with explicit constants, for instance explicit bounds on the error term in the prime number theorem.  With unspecified constants, such bounds are well understood and can be found in many textbooks (and have even been formalized in several proof assistant languages, including Lean).  However, with explicit constants, the results are only contained in a few papers which are full of routine but tedious computations.  Furthermore, while bounds with unspecified constants are quite robust with respect to minor typos in the arguments, explicit constant bounds can be extremely fragile, with a single arithmetic error causing all subsequent bounds to be untrustworthy.
+
+This seems like an ideal use case for autoformalization – using AI assistance as heavily as possible to automate the (extremely tedious) task of formalizing effective estimates, which, in contrast to more conceptual mathematical arguments, do not generate the type of insights, experience, or new techniques that would be of value to human mathematicians writing such arguments (either informally or formally).
+
+The primary objective of this project is to create a scalable workflow that permits the community to formalize (in a crowdsourced fashion) the computational component of such papers with an emphasis on automation, scale, and modularity rather than elegance, simplicity, or conceptual understanding.   A secondary, longer-term, goal is to then deploy AI tools on top of such formalization to generate additional capabilities, in particular to make a given estimate proven in a paper more “dynamic” by allowing the ability to insert improved input estimates, and allow the AI to generate a verified improved output estimate.
+
+We will use the Prime Number Theorem and more (PNT+) repository to hold the formalizations for this project.  Broadly speaking, the results here move between four types of estimates:
+
+- Zeta function estimates: zero-free regions on the Riemann zeta function, zero density estimates, and other bounds on the zeta function.
+
+- Primary estimates: Bounds on the Chebyshev function and the Mobius summatory function.
+
+- Secondary estimates: estimates on other number theoretic functions, such as the number of primes in an interval.
+
+- Tertiary estimates: estimates on various problems in analytic number theory.
+
+Papers generating zeta function estimates:
+
+- [PT] D. Platt, T. Trudgian, The Riemann hypothesis is true up to 3 ⋅ 1012, Bull. Lond. Math. Soc. 53 (2021), no. 3, 792–797.
+
+- [MTY] M. J. Mossinghoff, T. S. Trudgian, and A. Yang, Nonnegative trigonometric polynomials and a zero-free region for the Riemann zeta-function,
+
+Papers generating primary estimates:
+
+- [CH] A. Chirre, H. Helfgott, Optimal bounds for sums of bounded arithmetic functions, arXiv:2511.14736
+
+- [CH2] A. Chirre, H. Helfgott, Optimal bounds for sums of non-negative arithmetic functions, arXiv:2512.15709
+
+- [FKS] Andrew Fiori, Habiba Kadiri, Joshua Swidinsky, Sharper bounds for the Chebyshev function ψ(x)
+
+- 
+
+Papers converting primary to secondary estimates:
+
+- [RS] J. Barkley Rosser, Lowell Schoenfeld “Approximate formulas for some functions of prime numbers,” Illinois Journal of Mathematics, Illinois J. Math. 6(1), 64-94, (March 1962) [together with any relevant precursor papers]
+
+- [BKLNW] S. Broadbent, H. Kadiri, A. Lumley, N. Ng, K. Wilk, Sharper bounds for the Chebyshev function theta(x), Math. Comp. 90 (2021), no. 331, 2281-2313.
+
+- [Dusart] Dusart, P. Explicit estimates of some functions over primes. Ramanujan J 45, 227–251 (2018). https://doi.org/10.1007/s11139-016-9839-4 
+
+- [Buthe] J. Büthe, Estimating 𝜋(𝑥) and related functions under partial RH assumptions, Math. Comp., 85(301), 2483–2498, Jan. 2016.
+
+- [Buthe2] J. Büthe, An analytic method for bounding 𝜋(𝑥). Math. Comp., 87 (312), 1991–2009.
+
+- [FKS2] Andrew Fiori, Habiba Kadiri, Joshua Swidinsky, Sharper bounds for the error term in the Prime Number Theorem
+
+Papers converting secondary to tertiary estimates:
+
+- [ACRSTMUV] Boris Alexeev, Evan Conway, Matthieu Rosenfeld, Andrew V. Sutherland, Terence Tao, Markus Uhr, Kevin Ventullo, Decomposing a factorial into large factors
+
+- [LCM] The asymptotic analysis in “Is the least common multiple sequence lcm(1,2,…,n) a subset of the highly abundant numbers?“
+
+- [Erdos392] The solution to Erdős problem 392
+
+- [Ramare] Ramare’s theorem: every even integer greater than or equal to 4 is the sum of at most six primes
+
+More papers will be added to the network as the project expands.
+
+Here is an interview at IPAM on the future of mathematics, the last third of which is devoted to discussion of this project:
+
+ 
+
+Here is a followup video describing this project in more detail:
+
+A personal log on progress on the project may be found here.
+
+PIs: Ernest Ryu, Dima Shylakhtenko, Terence Tao
+
+Researchers: Hyunsik Chae, Xinjie He
+
+We gratefully acknowledge the sponsorship of this project by Math Inc.
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+

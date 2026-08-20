@@ -1,0 +1,30 @@
+
+## tick 1 (2026-08-20) — Track A seed carding
+attempt: card the first three Track A seeds (tao-2026-ant, ipam-ant, pnt-plus).
+  All tracks CLOSED, so carding is the only permitted work. Not in DEAD_ENDS.md:
+  no carding attempt had been made yet (scaffold tick 0 only built the tools).
+prior-art pre-flight: n/a (carding, not a new mathematical attempt); sources
+  fetched fresh, not from memory:
+  - curl https://terrytao.wordpress.com/2026/01/15/the-integrated-explicit-analytic-number-theory-network/ -> lit/text/tao-2026-ant.html (185813 bytes, exit 0)
+  - curl https://www.ipam.ucla.edu/news-research/special-projects/integrated-explicit-analytic-number-theory-network/ -> lit/text/ipam-ant.html (70987 bytes, exit 0)
+  - local clone tracks/a-lean/pnt (CONTRIBUTING.md, PULL_REQUEST_STYLE.md read in place)
+  - curl https://api.github.com/repos/AlexKontorovich/PrimeNumberTheoremAnd/issues?state=open&per_page=100 -> lit/text/pnt-plus-issues.json (39 open issues)
+machine said (verbatim):
+  $ python3 tools/card.py check tao-2026-ant
+  OK
+  $ python3 tools/card.py check ipam-ant
+  OK
+  $ python3 tools/card.py check pnt-plus
+  OK
+  $ python3 tools/gate.py check a
+    tao-2026-ant: PASS
+    ipam-ant: PASS
+    pnt-plus: PASS
+    lean-zulip-pnt: FAIL (missing card)
+notes:
+  - first pnt-plus card attempt FAILED gate.py: location paren must start with a
+    keyword (Section/Theorem/...); fixed by reordering to (Section "...", file).
+  - PNT+ lake build: last log line shows [4306/4343] building BKLNW_tables; not
+    finished at tick start.
+next: card lean-zulip-pnt (last Track A seed; needs Zulip fetch method) or move
+  to Track B seeds (polymath15-2019 arXiv fetch is the cheapest).
