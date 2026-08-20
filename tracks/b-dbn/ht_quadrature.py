@@ -13,8 +13,8 @@ rigorous truncation tails (all bounds asserted in code):
       (sum_{n>=5} (n/5)^4*exp(-pi*(n^2-25)) <= 1+3e-15; h(u)=19u+tu^2-25*pi*e^{4u},
        h'(u) = 19+2tu-100*pi*e^{4u} < 0 on [0,inf) for t <= 1000, asserted)
 GL nodes/weights: mpmath 120-digit polyroots of Legendre P_n, weights via
-  w_i = 2/((1-x_i^2)*n^2*P_{n-1}(x_i)^2)  (exact identity, P_n(x_i)=0),
-verified in Arb by the moment test sum w_i x_i^k == (b^{k+1}-a^{k+1})/(k+1), k=0..n.
+  w_i = 2*(1-x_i^2)/(n^2*P_{n-1}(x_i)^2)  (from w_i = 2/((1-x_i^2)P_n'(x_i)^2),
+tick 14 fix: weight formula was missing (1-x_i^2)^2; verified in Arb by the moment test sum w_i x_i^k == (b^{k+1}-a^{k+1})/(k+1), k=0..n.
 Pre-registered checks (logs/2026-08-20.tick.log, tick 11):
   F1: t=0 quadrature vs claim #3 closed form, >= 25 digits
   F2: t in {1,100,1000} vs independent mpmath 80-digit quad, >= 20 digits
@@ -22,7 +22,8 @@ Pre-registered checks (logs/2026-08-20.tick.log, tick 11):
       relative is the only reading consistent with F2)
   F4: t=1000 value finite, O(e^O(1000)) heat peak, not NaN/O(1)
 """
-import flint, mpmath as mp
+import flint
+from mpmath import mp
 flint.ctx.prec = 160
 acb = flint.acb
 fmpq = flint.fmpq
@@ -33,15 +34,40 @@ N_MAX = 4
 U_MAX = 2.0
 GRID = [0.0, 0.25, 0.5, 0.75, 1.0, 1.1, 1.2, 1.25, 1.3, 1.35, 1.4, 1.5, 1.6, 2.0]
 
+def legendre_coeffs(n):
+    """Coeffs of P_n (highest degree first) via three-term recurrence, exact in mp."""
+    if n == 0:
+        return [mp.mpf(1)]
+    Pk = [mp.mpf(1), mp.mpf(0)]    # P_1
+    Pkm1 = [mp.mpf(1)]             # P_0
+    for k in range(1, n):
+        xPk = Pk + [mp.mpf(0)]
+        term = [(2*k + 1) * c for c in xPk]
+        for i, c in enumerate(Pkm1):
+            term[i + 2] -= k * c
+        Pkm1, Pk = Pk, [c / (k + 1) for c in term]
+    return Pk
+
+_GL_CACHE = {}
 def gl_ref(n):
-    """GL nodes/weights on [-1,1], 120 digits."""
+    """GL nodes/weights on [-1,1], 120 digits.
+    w_i = 2*(1-x_i^2)/(n^2*P_{n-1}(x_i)^2), from w_i = 2/((1-x_i^2)*P_n'(x_i)^2)
+    and (1-x^2)P_n' = n(P_{n-1} - xP_n) evaluated at P_n(x_i) = 0."""
+    if n in _GL_CACHE:
+        return _GL_CACHE[n]
     mp.dps = 120
-    roots = sorted(mp.polyroots(mp.legendre(n)))
+    f = lambda x: mp.legendre(n, x)
+    df = lambda x: n * (x * mp.legendre(n, x) - mp.legendre(n - 1, x)) / (x*x - 1)
     xs, ws = [], []
-    for x in roots:
+    for k in range(1, n + 1):
+        x0 = mp.cos(mp.pi * (k - 0.25) / (n + 0.5))
+        x = mp.findroot(f, x0, df=df, maxsteps=50)
+        assert abs(f(x)) < mp.mpf('1e-100'), f"root residual too large: {abs(f(x))}"
         Pnm1 = mp.legendre(n - 1, x)
-        w = 2.0 / ((1 - x*x) * n * n * Pnm1 * Pnm1)
+        w = 2.0 * (1 - x*x) / (n * n * Pnm1 * Pnm1)
         xs.append(x); ws.append(w)
+    xs.sort()
+    _GL_CACHE[n] = (xs, ws)
     return xs, ws
 
 def gl_mapped(n, a, b):
@@ -106,8 +132,8 @@ def Ht_quad(t, n1=32, n2=64):
         assert hpc.real < 0, "tailB: h' max not negative"
         intb = uc*acb.exp(h0) + acb.exp(hc)/(-hpc)
     tailB = 2*PI**2*acb(625)*(1 + acb(fmpq(3, 10**15)))*intb
-    res = Q2
-    res.rad += rad + tailA + tailB
+    E = rad.abs_upper() + tailA.abs_upper() + tailB.abs_upper()
+    res = Q2 + acb(-E).union(acb(E))   # center = Q2 center, radius = Q2.rad + E
     return res
 
 def H0_closed(z_re, z_im, n_max=4):
