@@ -1,0 +1,7597 @@
+EFFECTIVE APPROXIMATION OF HEAT FLOW EVOLUTION OF THE
+RIEMANN ξ FUNCTION, AND A NEW UPPER BOUND FOR THE DE
+BRUIJN-NEWMAN CONSTANT
+
+arXiv:1904.12438v2 [math.NT] 4 Aug 2019
+
+D.H.J. POLYMATH
+Abstract. For each t ∈ R, define the entire function
+Z ∞
+2
+Ht (z) B
+etu Φ(u) cos(zu) du
+0
+
+where Φ is the super-exponentially decaying function
+∞
+X
+Φ(u) B
+(2π2 n4 e9u − 3πn2 e5u ) exp(−πn2 e4u ).
+n=1
+
+This is essentially the heat flow evolution of the Riemann ξ function. From the work of de Bruijn
+and Newman, there exists a finite constant Λ (the de Bruijn-Newman constant) such that the
+zeroes of Ht are all real precisely when t ≥ Λ. The Riemann hypothesis is equivalent to the
+assertion Λ ≤ 0; recently, Rodgers and Tao established the matching lower bound Λ ≥ 0. Ki,
+Kim and Lee established the upper bound Λ < 12 .
+In this paper we establish several effective estimates on Ht (x + iy) for t ≥ 0, including some
+that are accurate for small or medium values of x. By combining these estimates with numerical
+computations, we are able to obtain a new upper bound Λ ≤ 0.22 unconditionally, as well as
+improvements conditional on further numerical verification of the Riemann hypothesis. We also
+obtain some new estimates controlling the asymptotic behavior of zeroes of Ht (x + iy) as x → ∞.
+
+1. Introduction
+Let H0 : C → C denote the function
+!
+1 1 iz
+H0 (z) B ξ
++
+,
+8 2 2
+
+(1)
+
+where ξ : C → C denotes the Riemann ξ function
+s(s − 1) −s/2  s 
+π
+Γ
+ζ(s)
+(2)
+ξ(s) B
+2
+2
+(which is an entire function after removing all singularities) and ζ is the Riemann ζ function.
+Then H0 is an entire even function with functional equation H0 (z) = H0 (z), and the Riemann
+hypothesis (RH) is equivalent to the assertion that all the zeroes of H0 are real.
+It is a classical fact (see [27, p. 255]) that H0 has the Fourier representation
+Z ∞
+H0 (z) =
+Φ(u) cos(zu) du
+0
+
+where Φ is the super-exponentially decaying function
+∞
+X
+(3)
+Φ(u) B
+(2π2 n4 e9u − 3πn2 e5u ) exp(−πn2 e4u ).
+n=1
+1
+
+2
+
+D.H.J. POLYMATH
+
+The sum defining Φ(u) converges absolutely for negative u also. From Poisson summation one
+can verify that Φ satisfies the functional equation Φ(u) = Φ(−u) (i.e., Φ is even); this fact is of
+course closely related to the functional equation for ζ.
+De Bruijn [5] introduced (with somewhat different notation) the more general family of functions Ht : C → C for t ∈ R, defined by the formula
+Z ∞
+2
+(4)
+Ht (z) B
+etu Φ(u) cos(zu) du.
+0
+
+As noted in [9, p.114], one can view Ht as the evolution of H0 under the backwards heat equation
+∂t Ht (z) = −∂zz Ht (z). As with H0 , each of the Ht are entire even functions with functional
+2
+equation Ht (z) = Ht (z); from the super-exponential decay of etu Φ(u) we see that the Ht are in
+fact entire of order 1. It follows from the work of Pólya [19] that if Ht has purely real zeroes
+for some t, then Ht0 has purely real zeroes for all t0 > t; de Bruijn showed that the zeroes of
+Ht are purely real for t ≥ 1/2. Newman [14] strengthened this result by showing that there is
+an absolute constant −∞ < Λ ≤ 1/2, now known as the De Bruijn-Newman constant, with the
+property that Ht has purely real zeroes if and only if t ≥ Λ. The Riemann hypothesis is then
+clearly equivalent to the upper bound Λ ≤ 0. Recently in [22] the complementary bound Λ ≥ 0
+was established, answering a conjecture of Newman [14], and improving upon several previous
+lower bounds for Λ [6, 15, 8, 7, 16, 23]. Furthermore, Ki, Kim, and Lee [10] sharpened the
+upper bound Λ ≤ 1/2 of de Bruijn [5] slightly to Λ < 1/2.
+In this paper we improve the upper bound:
+Theorem 1.1 (New upper bound). We have Λ ≤ 0.22.
+The proof of Theorem 1.1 combines numerical verification with some new asymptotics and
+observations about the Ht which may be of independent interest. Firstly, by analyzing the dynamics of the zeroes of Ht , we establish in Section 3 the following criterion for obtaining upper
+bounds on Λ:
+Theorem 1.2 (Upper bound criterion). Suppose that t0 , X > 0 and 0 < y0 ≤ 1 obey the following
+hypotheses:
+(i) (Numerical verification of RH at initial time 0) There are no zeroes ζ(σ + iT ) = 0 with
+1+y0
+X
+2 ≤ σ ≤ 1 and 0 ≤ T ≤ 2 .
+(ii) (Asymptotic
+final time t0 ) There are no zeroes Ht0 (x + iy) = 0 with
+q zero-free region at √
+x ≥ X + 1 − y20 and y0 ≤ y ≤ 1 − 2t0 .
+(iii) (Barrier
+times) There are no zeroes Ht (x + iy) = 0 with X ≤ x ≤
+q at intermediate
+q
+√
+X + 1 − y20 , y20 + 2(t0 − t) ≤ y ≤ 1 − 2t, and 0 ≤ t ≤ t0 .
+Then Λ ≤ t0 + 12 y20 .
+Informally, hypothesis (i) implies that at time t = 0, there are no zeroes Ht (x + iy) = 0 with
+large values of y to the left of the barrier region in (iii). The absence of zeroes in that barrier,
+together with a continuity argument and an analysis of the time derivative of each zero, can then
+be used to show that for later times 0 < t ≤ t0 , there continue to be no zeroes Ht (x + iy) = 0
+with large values of y to the left of the barrier; see Figure 1. Hypothesis (ii) then gives the
+complementary assertion to the right of the barrier, and one can use an existing theorem of de
+Bruijn (Theorem 3.2) to conclude.
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+3
+
+In practice, we have found it convenient numerically to replace the barrier region in Theorem
+1.2 with the larger and simpler region
+X ≤ x ≤ X + 1;
+
+0 ≤ t ≤ t0 .
+
+y0 ≤ y ≤ 1;
+
+Figure 1. A visualization of Theorem 1.2. If at time t0 one can show that there
+are no zeroes Ht (x + iy) = 0 in the “canopy” 0 ≤ x < ∞, y0 ≤ y ≤ 1, then a
+theorem of de Bruijn allows one to conclude the desired bound Λ ≤ t0 + 21 y20 .
+The hypothesis (i) prevents zeroes hitting this canopy from an initial position
+to the left of the barrier; the hypothesis (ii) prevents zeroes from lying in the
+canopy to the right of the barrier; and the hypothesis (iii) prevents zeroes from
+starting to the right of the barrier and reaching the canopy to the left of the
+barrier.
+We will obtain Theorem 1.1 by applying Theorem 1.2 with the specific numerical choices
+t0 = 0.2, X = 6 × 1010 + 83952 − 0.5, and y0 = 0.2. The reason we choose X close to 6 × 1010
+is that this is near the limit of known numerical verifications of the Riemann hypothesis such
+as [18], which we need for the hypothesis (i) of the above theorem; the shift 83952 − 0.5 is
+!−1
+Q
+1
+large, which helps in keeping
+in place to make the partial Euler product p≤11 1 − 1−iX
+p
+
+2
+
+the functions Ht (x + iy), Ht0 (x + iy) large in magnitude, which in turn is helpful for numerical
+verifications of (ii) and (iii); see also Figure 11. The choices t0 = 0.2, y0 = 0.2 are then close to
+the limit of our ability to numerically verify hypothesis (ii) for this choice of X. (The hypothesis
+(iii) is also verified numerically, but can be done quite quickly compared to (ii), and so does not
+present the main bottleneck to further improvements to Theorem 1.1.) Further upper bounds to
+Λ can be obtained if one assumes the Riemann hypothesis to hold up to larger heights than that
+in [18]: see Section 10.
+To verify (ii) and (iii), we need efficient approximations (of Riemann-Siegel type) for Ht (x +
+iy) in the regime where t, y are bounded and x is large. For sake of numerically explicit constants,
+we will focus attention on the region
+1
+(5)
+0 < t ≤ ; 0 ≤ y ≤ 1; x ≥ 200,
+2
+
+4
+
+D.H.J. POLYMATH
+
+though the results here would also hold (with different explicit constants) if the numerical quantities 21 , 1, 200 were replaced by other quantities.
+A key difficulty here is that Ht (x + iy) decays exponentially fast in x (basically because of the
+Gamma factor in (2)); see Figure 3. This means that any direct attempt to numerically establish
+a zero-free region for Ht (x + iy) for large x would require enormous amounts of numerical
+precision. To get around this, we will first renormalise the function Ht (x + iy) by dividing it
+by a nowhere vanishing explicit function Bt (x + iy) (basically a variant of the aforementioned
+Gamma factor) that removes this decay. To describe this function, we first introduce the function
+M0 : C\(−∞, 1] → C\{0} defined by the formula
+!
+!
+s 1
+s s
+1 s(s − 1) −s/2 √
+2π exp
+π
+− Log − ,
+(6)
+M0 (s) B
+8
+2
+2 2
+2 2
+where Log denotes the standard branch of the complex logarithm, with branch cut at the negative
+axis and imaginary part
+  in (−π, π]. One may interpret M0 (s) as the Stirling approximation to the
+1 s(s−1) −s/2
+Γ 2s appearing in (1), (2); it decays exponentially as one moves to infinity
+factor 8 2 π
+s → ±i∞ along the critical strip. We may form a holomorphic branch log M0 : C\(−∞, 1] → C
+of the logarithm of M0 by the formula
+√
+!
+2π
+s 1
+s s
+s
++
+− Log − ;
+(7)
+log M0 (s) B Logs + Log(s − 1) − log π + log
+2
+16
+2 2
+2 2
+differentiating this, we see that the logarithmic derivative α : C\(−∞, 1] → C of this function,
+defined by
+α B (log M0 )0 =
+
+(8)
+
+M00
+M0
+
+is given explicitly by the formula
+1
+1
+1
+1
+s
+1
++
+− log π + Log −
+s s−1 2
+2
+2 2s
+(9)
+1
+1
+1
+s
+=
++
++ Log .
+2s s − 1 2
+2π
+For any time t ∈ R, we then define the deformation Mt : C\(−∞, 1] of M0 by the formula
+t
+
+(10)
+Mt (s) B exp α(s)2 M0 (s)
+4
+for any t ≥ 0. In the region (5), we introduce the quantity
+!
+1 + y − ix
+(11)
+Bt (x + iy) B Mt
+.
+2
+α(s) =
+
+For fixed t ≥ 0 and y > 0, Bt (x + iy) is non-vanishing, and it is easy to verify the asymptotic
+π
+|Bt (x + iy)| = e−( 8 +o(1))x . As it turns out, Bt (x + iy) is an asymptotic approximation to Ht (x + iy)
+in the region (5), in the sense that
+(12)
+
+lim
+
+Ht (x + iy)
+
+x→∞ Bt (x + iy)
+
+=1
+
+for any fixed t > 0 and y > 0; see Figure 2. (However, the convergence of (12) is not uniform as
+t approaches zero.)
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+5
+
+Figure 2. The quantity |Ht (x + iy)/Bt (x + iy) − 1| when y = t = 0.4 and log10 x ≤
+12 (left) and when for 1000 ≤ x ≤ 1030 and various choices of (y, t) (right).
+
+Figure 3. The quantities log |Ht (x + iy)| and log |Bt (x + iy)| when y = t = 0.4
+and log10 x ≤ 7. Both quantities decay like − π8 x ≈ −0.393x.
+In fact we have the following significantly more accurate approximation (of Riemann-Siegel
+type) with effective error estimates. For any real number X, let O≤ (X) denote a quantity that is
+bounded in magnitude by X. We also use x+ = max(x, 0) to denote the positive part of a real
+number x.
+
+6
+
+D.H.J. POLYMATH
+
+Theorem 1.3 (Effective Riemann-Siegel approximation to Ht (x + iy)). Let t, x, y lie in the region
+(5). Then we have
+
+Ht (x + iy)
+= ft (x + iy) + O≤ eA + eB + eC,0
+Bt (x + iy)
+
+(13)
+where
+
+ft (x + iy) B
+
+(14)
+
+N
+X
+bt
+n=1
+
+n
++γ
+n s∗
+
+N
+X
+
+bt
+ny s n+κ
+n∗
+n=1
+
+t
+btn B exp( log2 n)
+4
+
+Mt 1−y+ix
+2
+
+
+γ = γ(x + iy) B
+Mt 1+y−ix
+2
+
+(15)
+(16)
+
+!
+1 + y − ix t 1 + y − ix
++ α
+s∗ = s∗ (x + iy) B
+2
+2
+2
+!
+!!
+1 − y + ix
+1 + y + ix
+t
+κ = κ(x + iy) B
+α
+−α
+2
+2
+2
+ r
+
+
+x
+t 
+N B 
++ 
+4π 16
+
+(17)
+(18)
+(19)
+
+and eA , eB , eC,0 are certain explicitly computable positive quantities1 depending on t and x + iy.
+Furthermore, we have the following bounds:
+ x −y/2
+(20)
+|γ| ≤ e0.02y
+4π
+!
+1+y t
+x
+t
+4y(1 + y)
+Re s∗ ≥
+(21)
++ log
+−
+1 − 3y +
+2
+4
+4π 2x2
+x2
++
+ty
+(22)
+|κ| ≤
+2(x − 6)
+
+
+
+ t2
+x
+N
+t 
+X
+
+
+ 16 log2 4πn
+2 + 0.626 
+
+|κ| y bn 
+ − 1
+(23) eA + eB ≤
+(1 + |γ|N n ) Re s exp 
+
+
+x − 6.66
+n ∗
+n=1
+
+(24)
+
+eC,0 ≤
+
+ x − 1+y
+4
+4π
+
+exp −
+
+x
+π
+t
+1.24 × (3y + 3−y ) 3| log 4π + i 2 | + 10.44
+x
+log2
++
++
+16
+4π
+N − 0.125
+x − 12
+
+!
+
+This theorem will be proven in Section 6; see Figures 4, 5 for a numerical illustration of the
+approximation. The strategy is to express Ht as a convolution of H0 with a gaussian heat kernel,
+then apply an effective Riemann-Siegel expansion to H0 to rewrite Ht as the sum of various
+contour integrals; see Section 4 for details. One then uses the saddle point method to shift each
+such contour to a location that is suitable for effective estimation. We remark that ft (x + iy)
+is a holomorphic function of x + iy in the region (5) as long as N is constant, but has jump
+discontinuities when N is incremented.
+1See (71)-(74) for the precise definition of these quantities.
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+7
+
+Figure 4. Comparison of | ft (x + iy)| and |Ht (x + iy)|/|Bt (x + iy)| for y = 0.9,
+t = 0.1, 1000 ≤ x ≤ 1030, (left) and when 106 ≤ x ≤ 106 + 30 (right). The
+approximation improves as x gets larger.
+
+Figure 5. Comparison of | ft (x+iy)| and |Ht (x+iy)|/|Bt (x+iy)| for y = 0, t = 0.3,
+1000 ≤ x ≤ 1030 (left), and when 106 ≤ x ≤ 106 + 30 (right). Again notice the
+improving approximation with x.
+From (13) and the triangle inequality, we have a numerically verifiable criterion to establish
+non-vanishing of Ht at a given point:
+Corollary 1.4 (Criterion for non-vanishing). Let t, x, y lie in the region (5), and let ft , eA , eB , eC,0
+be as in Theorem 1.3. If one has the inequality
+(25)
+
+| ft (x + iy)| > eA + eB + eC,0
+
+then Ht (x + iy) , 0.
+Actually, for some regions of x, y, t we will use a more complicated criterion than (25), in
+order to exploit the argument principle. To numerically estimate ft (x + iy) in a feasible amount
+of time, we will use Taylor expansion to be able to efficiently compute many values of ft (x + iy)
+
+8
+
+D.H.J. POLYMATH
+
+Figure 6. The error upper bound |eA + eB + eC,0 | versus | ft − Ht /Bt | when y =
+t = 0.2 and 2 ≤ log10 x ≤ 5.
+
+Figure 7. The individual error upper bounds |eA |, |eB | and |eC,0 | with y = t = 0.2
+and 2 ≤ log10 x ≤ 5. The eC,0 -term clearly dominates.
+
+simultaneously (see Section 7), and for some ranges of the parameters t, x, y we will also use an
+Euler product mollifier to reduce the amount of oscillation in the sum ft (x + iy) (see Section 8.5).
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+9
+
+For y, t fixed and x sufficiently large, we have the asymptotics
+eA , eB , eC,0 = O(x−ct )
+ft (x + iy) = 1 + O(x−ct )
+for some absolute constant c > 0; see Proposition 9.1(i) and its proof. This gives the crude
+asymptotic (12) in the region (5) at least. In practice, the eC,0 term numerically dominates the
+eA + eB term, although both errors will be quite small in the ranges of x under consideration;
+in particular, for the ranges needed to verify conditions (ii) and (iii) of Theorem 1.2, we can
+make eA + eB and eC,0 both significantly smaller than | ft (x + iy)|. In the spirit of expanding the
+Riemann-Siegel approximation to higher order, we also obtain an even more accurate explicit
+approximation in which a correction term − CBtt is added to ft , and the error term eC,0 is replaced
+by a smaller quantity eC ; see (69) and Figure 8.
+
+(x+iy)
+Figure 8. Comparison of | ft (x+iy)|, | ft (x+iy)− CBtt (x+iy)
+| and |Ht (x+iy)|/|Bt (x+iy)|
+for y = 0, t = 0.3, 1000 ≤ x ≤ 1012.
+
+In addition to establishing upper bounds such as Theorem 1.1, one can use Theorem 1.3
+and Corollary 1.4 (together with variants in slightly larger regions than (5), for instance if y is
+allowed to be as large as 10) to obtain asymptotic control on the zeroes of Ht , refining previous
+work of Ki, Kim, and Lee [10]. Indeed, in Section 9 we will establish
+Theorem 1.5 (Distribution of zeroes of Ht ). Let 0 < t ≤ 1/2, let C > 0 be a sufficiently large
+absolute constant, and let c > 0 be a sufficiently small absolute constant. For x ≥ 4π, define
+x
+x
+x
+11
+t
+x
+log
+−
++
++
+log
+4π
+4π 4π
+8
+16
+4π
+and for all n ≥ C, let xn be the unique real number greater than 4π such that
+g(x, t) B
+
+(26)
+
+g(xn , t) = n.
+
+(This is well-defined since the g(x, t) is increasing in x for x ≥ 4π.)
+
+10
+
+D.H.J. POLYMATH
+
+(i) If x ≥ exp( Ct ) and Ht (x + iy) = 0, then y = 0, and
+x = xn + O(x−ct )
+for some n.
+(ii) Conversely, for each n ≥ exp( Ct ) there is exactly one zero Ht in the disk {x + iy : |x + iy −
+xn | ≤ logc xn } (and by part (i), this zero will be real and lie within O(x−ct ) of xn ).
+(iii) If X ≥ exp( Ct ), the number Nt (X) of zeroes with real part between 0 and X (counting
+multiplicity) is
+Nt (X) = g(X, t) + O(1).
+(iv) For any X ≥ 0, one has
+Nt (X + 1) − Nt (X) ≤ O(log(2 + X))
+and
+Nt (X) = g(X, t) + O(log(2 + X)).
+Here and in the sequel we use X = O(Y) to denote the estimate |X| ≤ AY for some constant A
+that is absolute (in particular, A is independent of t and C).
+Roughly speaking, these estimates tell us that the zeroes of Ht behave (on macroscopic scales)
+like those of H0 in the region x = O(exp(O(1/t))), and are very evenly spaced (and on the real
+xn
+in (26) indicates that as time t advances, the
+axis) outside of this range. The factor 16t log 4π
+zeroes (or at least those with large values of x) will tend to move towards the origin at a speed
+of approximately π4 . Although we will not prove this here, the conclusions (i) and (iii) suggest
+that one in fact has an asymptotic of the form
+j
+k
+Nt (X) = g(X, t) + O(X −ct )
+when X ≥ exp(C/t); in particular (since the sawtooth function x − bxc has average value 12 ) one
+would have the heuristic approximation
+X
+X
+X
+7
+t
+X
+Nt (X) ≈
+log
+−
++ +
+log
+4π
+4π 4π 8 16
+4π
+after performing some averaging in X, thus recovering the familiar 87 term in the usual averaged
+asymptotics for N0 (X).
+The results in Theorem 1.5 refine previous results of Ki, Kim, and Lee [10, Theorems 1.3,
+1.4], which gave similar results but with constants that depended on t in a non-uniform (and
+ineffective) fashion, and error terms that were of shape o(1) rather than O(x−ct ) in the limit
+x → ∞ (holding t fixed). The results may also be compared with those in [3], who (in our
+notation) show that assuming RH, the zeroes of H0 are precisely the solutions xn to the equation
+
+
+n 
+ 2iϑ(x /2) ζ 0 ( 1−ix
+)
+1
+
+2
+n
+arg −e
+ = n
+1+ix
+n
+0
+2π
+ζ( 2 )
+for integer n, where −ϑ(t) is the phase of ζ( 12 + it) and one chooses a branch of the argument so
+that the left-hand side is − 12 when xn = 0.
+Remark 1.6. One can draw an analogy between the various potential behaviours of zeroes of Ht
+and the three classical states of matter. A “gaseous” state corresponds to the situation in which
+some fraction of the zeroes of Ht are strictly complex. A “liquid” state corresponds to a situation
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+11
+
+Figure 9. The real zeroes xi of Ht will converge to integer values of g(xi , t)
+when t (left) and/or x (right) increases.
+in which the zeroes are real, but disordered (with highly unequal spacings between zeroes). A
+“solid” state corresponds to a situation in which the zeroes are real and arranged roughly in
+an arithmetic progression. Thus for instance the Riemann hypothesis and the GUE hypothesis
+assert (roughly speaking) that the zeroes of H0 should exhibit liquid behaviour everywhere, while
+Theorem 1.5 asserts that the zeroes of Ht , t > 0 “solidify” in the region x ≥ exp(C/t). Below this
+region we expect liquid behaviour. In general, as the parameter t increases, the zeroes appear2
+to “cool” down, transitioning from gaseous to liquid to solid type states; see [22] for some
+formalisations of this intuition.
+1.1. About this project. This paper is part of the Polymath project, which was launched by
+Timothy Gowers in February 2009 as an experiment to see if research mathematics could be
+conducted by a massive online collaboration. The current project (which was administered by
+Terence Tao) is the fifteenth project in this series. Further information on the Polymath project
+can be found on the web site michaelnielsen.org/polymath1. Information about this specific project may be found at
+michaelnielsen.org/polymath1/index.php?title=De Bruijn-Newman constant
+
+and a full list of participants and their grant acknowledgments may be found at
+michaelnielsen.org/polymath1/index.php?title=Polymath15 grant acknowledgments
+
+We thank the anonymous referees for their careful reading of the paper and for several useful
+corrections and suggestions.
+2. Notation
+We use the standard branch Log of the logarithm to define the standard complex powers
+
+√
+zw B exp(wLogz), and in particular define the standard square root z B z1/2 = exp( 12 Logz).
+
+2This is the picture for positive t at least. As t becomes very negative, it appears that the “gaseous” zeroes
+become more ordered again, for instance organizing themselves into curves in the complex plane. See [21] for
+further discussion of this phenomenon.
+
+12
+
+D.H.J. POLYMATH
+
+We record the familiar gaussian identity
+Z
+(27)
+
+r
+
+
+
+exp −(au + bu + c) du =
+2
+
+R
+
+b2
+π
+exp
+−c
+a
+4a
+
+!
+
+for any complex numbers a, b, c with Re a > 0.
+When using order of magnitude notation such as O≤ (X), any expression of the form A = B
+using this notation should be interpreted as the assertion that any quantity of the form A is also
+of the form B, thus for instance O≤ (1) + O≤ (1) = O≤ (3). (In particular, the equality relation is
+no longer symmetric with this notation.)
+If F is a meromorphic function, we use F 0 to denote its derivative. We also use F ∗ to denote
+the reflection F ∗ (s) := F(s) of F. Observe from analytic continuation that if F : Ω → C is
+holomorphic on a connected open domain Ω ⊂ C containing an interval in R, and is real-valued
+on Ω ∩ R, then it is equal to its own reflection: F = F ∗ (since the holomorphic function F − F ∗
+has an uncountable number of zeroes).
+
+3. Dynamics of zeroes
+In this section we control the dynamics of the zeroes of Ht in order to establish Theorem 1.2.
+As Ht is even with functional equation Ht = Ht∗ , the zeroes are symmetric around the origin and
+the real axis; from (4) and the positivity of Φ, we also see that Ht (iy) > 0 for all y ∈ R, so there
+are no zeroes on the imaginary axis. From the super-exponential decay of Φ and (4) we see that
+the entire function Ht is of order 1; by Jensen’s formula, this implies that the number of zeroes
+in a large disk D(0, R) is at most O(R1+o(1) ) as R → ∞.
+We begin with the analysis of the dynamics of a single zero of Ht :
+Proposition 3.1 (Dynamics of a single zero). Let t0 ∈ R, and let (zk (t0 ))k∈Z\{0} be an enumeration
+of the zeroes of Ht0 in C (counting multiplicity), with the symmetry condition z−k (t0 ) = −zk (t0 ).
+(i) If j ∈ Z\{0} is such that z j (t0 ) is a simple zero of Ht0 , then there exists a neighbourhood
+U of z j (t0 ), a neighbourhood I of t0 in R, and a smooth map z j : I → U such that for
+every t ∈ I, z j (t) is the unique zero of Ht in U. Furthermore one has the equation
+(28)
+
+0
+X
+dz j
+1
+(t0 ) = 2
+dt
+z
+(t
+)
+−
+zk (t0 )
+k, j j 0
+
+where the sum is over those k ∈ Z\{0} with k , j, and the prime means that the k and −k
+terms are summed together (except for the k = − j term, which is summed separately) in
+order to make the sum convergent.
+(ii) If j ∈ Z\{0} is such that z j (t0 ) is a repeated zero of Ht0 of order m ≥ 2, then there is a
+neighbourhood U of z j (t0 ) such that for t sufficiently close to t0 , there are precisely m
+zeroes of Ht in U, and they take the form
+z j (t0 ) +
+
+√
+2(t − t0 )1/2 λ j + O(|t − t0 |)
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+(29)
+(30)
+
+13
+
+for j = 1, . . . , m as t → t0 , where λ1 < · · · < λm are the roots of the mth Hermite
+polynomial
+!
+!
+z2 d m
+z2
+m
+exp −
+Hem (z) B (−1) exp
+2 dzm
+2
+m−2l
+X
+z
+m!
+(−1)l l
+=
+l!(m − 2l)!
+2
+0≤l≤m/2
+and the implied constant in the O() notation can depend on t0 , j, and m.
+
+The differential equation (28) was previously derived in [9, Lemma 2.4] in the case t > Λ (in
+which all zeroes are real and simple); however, in our applications we also need to consider the
+regime t ≤ Λ in which the zeroes are permitted to be complex or repeated. The roots λ1 , . . . , λm
+appearing in Proposition 3.1(ii) can be given explicitly for small values of m as
+λ1 = −1;
+when m = 2,
+
+√
+λ1 = − 3;
+
+λ2 = +1
+√
+λ3 = + 3
+
+x2 = 0;
+
+when m = 3, and
+q
+√
+xλ1 = − 3 + 6;
+
+q
+√
+λ2 = − 3 − 6;
+
+q
+√
+λ3 = 3 − 6;
+
+q
+√
+λ4 = 3 + 6
+
+when m = 4. From (29) and iterating Rolle’s
+ 2 theorem we see that all the roots λ1 , . . . , λm of
+d
+d
+Hem are real; from the Hermite equation dz
+2 − z dz + m Hem (z) = 0 and the Picard uniqueness
+theorem for ODE we see that the zeroes are all simple.
+∂
+Proof. First suppose we are in the situation of (i). As z j (t0 ) is simple, ∂z
+Ht is non-zero at z j (t0 );
+since Ht (z) is a smooth function of both t and z, we conclude from the implicit function theorem
+that there is a unique solution z j (t) ∈ U to the equation
+
+Ht (z j (t)) = 0
+with z j (t) in a sufficiently small neighbourhood U of z j (t0 ), if t is in a sufficiently small neighbourhood I of t0 ; furthermore, z j (t) depends smoothly on t, and agrees with z j (t0 ) when t = t0 .
+Differentiating the above equation at t0 , we obtain
+dz j
+∂Ht
+|t=t0 (z j (t0 )) +
+(t0 )Ht00 (z j (t0 )) = 0,
+∂t
+dt
+where the primes denote differentiation in the z variable. On the other hand, from (4) and differentiation under the integral sign (which can be justified using the rapid decrease of Φ) we have
+the backwards heat equation
+∂Ht
+= −Ht00
+∂t
+for all t ≥ 0. Inserting this into the previous equation, we conclude that
+
+(31)
+
+(32)
+
+dz j
+H 00
+(t0 ) = t0 (z j (t0 )),
+dt
+Ht
+
+14
+
+D.H.J. POLYMATH
+
+noting that the denominator Ht0 (z j (t0 )) is non-vanishing by the hypothesis that the zero at z j (t0 )
+is simple. Henceforth we omit the dependence on t0 for brevity. From Taylor expansion of Ht ,
+Ht0 , and Ht00 around the simple zero z j we see that
+!
+Ht0
+Ht00
+1
+(z j ) = 2 lim
+(z) −
+.
+(33)
+z→z j Ht
+Ht0
+z − zj
+On the other hand, as Ht is even, non-zero at the origin (as follows from (4) and the positivity of
+Φ), and entire of order 1, we see from the Hadamard factorization theorem that
+!
+0
+Y
+z
+Ht (z) = Ht (0)
+,
+1−
+zk
+k
+where the prime indicates that the k and −k factors are multiplied together. The product is locally
+uniformly convergent, so we may take logarithmic derivatives and conclude that
+0
+X
+Ht0
+1
+(z) =
+.
+Ht
+z − zk
+k
+P
+1
+Inserting this into (32), (33) and using the continuity of z 7→ 0k:k, j z−z
+at z j (which follows
+k
+from the growth in the number of zeroes, either from the dominated convergence theorem or the
+Weierstrass M-test), we obtain the claim (i).
+Now we prove (ii). We abbreviate z j (t0 ) as z j . By Taylor expansion we have
+∂2k Ht0
+(z) = m(m − 1) . . . (m − 2k + 1)am (z − z j )m−2k + O(|z − z j |max(m−2k+1,0) )
+∂z2k
+as z → z j for any fixed integer k ≥ 0 and some non-zero complex number am = am (z j , t0 ) (with
+the implied constant in the O() notation allowed to depend on k, z j , t0 ); applying the backwards
+heat equation (31) we thus have
+∂k Ht
+|t=t0 (z) = (−1)k m(m − 1) . . . (m − 2k + 1)am (z − z j )m−2k + O(|z − z j |max(m−2k+1,0) ).
+∂tk
+Performing Taylor expansion in time and using (30), we conclude that in the regime z − z j =
+O(|t − t0 |1/2 ), one has the bound
+!
+
+!
+z − zj
+m
+1/2
+m
+1/2
++ O |t − t0 |
+Ht (z) = 2 2 am ((t − t0 ) ) Hem √
+2(t − t0 )1/2
+as t → t0 , using (say) the standard branch of the square root. By the inverse function theorem
+(and the simple nature of the zeroes of Hem ), we conclude that for t sufficiently close but not
+equal to t0 , we have m zeroes of Ht of the form
+√
+z j + 2(t − t0 )1/2 λ j + O(|t − t0 |).
+By Rouche’s theorem, if U is a sufficiently small neighborhood of z j then these are the only
+zeroes of Ht in U for t sufficiently close to t0 . The claim follows.
+
+Next, we recall the following bound of de Bruijn:
+Theorem 3.2. Suppose that t0 ∈ R and y0 > 0 is such that there are no zeroes Ht0 (x + iy) = 0
+with x ∈ R and y > y0 . Then for any t > t0 , there are no zeroes Ht (x + iy) = 0 with x ∈ R and
+y > max(y20 − 2(t − t0 ), 0)1/2 . In particular one has Λ ≤ t0 + 21 y20 .
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+15
+
+
+
+Proof. See [5, Theorem 13].
+We are now ready to prove Theorem 1.2. The main step is to establish
+
+Proposition 3.3 (Zero-free region criterion). Suppose that t0 , X > 0 and 0 < y0 ≤ 1 obey the
+following hypotheses:
+q
+(i) There are no zeroes H0 (x + iy) = 0 with 0 ≤ x ≤ X and y20 + 2t0 ≤ y ≤ 1.
+q
+√
+(ii) There are no zeroes Ht0 (x + iy) = 0 with x ≥ X + 1 − y20 and y0 ≤ y ≤ 1 − 2t0 .
+q
+q
+(iii) There are no zeroes Ht (x + iy) = 0 with X ≤ x ≤ X + 1 − y20 , y20 + 2(t0 − t) ≤ y ≤
+√
+1 − 2t, and 0 ≤ t ≤ t0 .
+Then there are no zeroes Ht0 (x + iy) = 0 with x ∈ R and y ≥ y0 .
+Proof. It is well known that the Riemann ξ function has no zeroes outside of the strip {0 ≤
+Re s ≤ 1}, hence there are no zeroes H0 (x + iy)√= 0 with y > 1. By
+√ Theorem 3.2, we may thus
+remove the upper bound constraints y ≤ 1, y ≤ 1 − 2t0 , and y ≤ 1 − 2t from (i), (ii), and (iii)
+respectively.
+By hypotheses (ii), (iii) and the symmetry properties of Ht , it suffices to show that for every
+0q ≤ t ≤ t0 , there are no zeroes Ht (x + iy) = 0 with 0 ≤ x ≤ X and y ≥ Y(t), where Y(t) B
+
+y20 + 2(t0 − t). By hypothesis (i), this is true at time t = 0. Suppose the claim failed for some
+time 0 < t ≤ t0 . Let t1 ∈ (0, t0 ] be the minimal time in which this occurred (such a time exists
+because Ht varies continuously in t, and there are no zeroes Ht (x + iy) = 0 with (say) y > 1).
+From Rouche’s theorem (or Proposition 3.1) we conclude that there is a zero Ht1 (x + iy) = 0
+with x + iy on the boundary of the region {x + iy : 0 ≤ x ≤ X, y ≥ Y(t1 )}. The right side x = X of
+this boundary is ruled out by hypothesis (iii), and (as mentioned at the start of the section) the
+left side x = 0 is ruled out by (4) and the positivity of Φ. Thus by the symmetry properties of
+Ht1 we must have
+Ht1 (x + iY(t1 )) = 0
+for some 0 < x < X.
+Suppose first that Ht1 has a repeated zero at x + iy0 . Using Proposition 3.1(ii) and observing
+(from the symmetry of Hem ) that at least one of the roots x1 , . . . , xm is positive, we then see
+that for t < t1 sufficiently close to t1 , Ht has a zero in the region {x + iy : 0 ≤ x ≤ X, y ≥ Y(t)},
+contradicting the minimality of t1 . Thus the zero x+iY(t1 ) of Ht1 must be simple. In particular, by
+Proposition 3.1(i) we can write x+iY(t1 ) = z j (t1 ) for some smooth function z j in a neighbourhood
+of t1 obeying (28), such that z j (t) is a zero of Ht for all t close to t1 . We will prove that
+(34)
+
+Im
+
+d
+d
+z j (t1 ) < Y(t1 ),
+dt
+dt
+
+which implies that there is a zero of Ht in the region {x + iy : 0 ≤ x ≤ X, y ≥ Y(t)} for t < t1
+sufficiently close to t1 , giving the required contradiction.
+The right-hand side of (34) is
+d
+1
+Y(t1 ) = −
+.
+dt
+Y(t1 )
+
+16
+
+D.H.J. POLYMATH
+
+By Proposition 3.1(i), the left-hand side of (34) is
+−2
+
+0
+X
+
+Y(t1 ) − yk
+(x − xk )2 + (Y(t1 ) − yk )2
+k, j
+
+where we write zk = xk + iyk . Clearly any zero xk + iyk with imaginary part yk in [−Y(t1 ), Y(t1 )]
+gives a non-positive contribution to this sum, the contribution of the zero x − iY(t1 ) is − Y(t11 ) ,
+the contribution of the zero −x + iY(t1 ) vanishes, and the contribution of −x − iY(t1 ) is negative.
+Grouping the remaining zeroes with their complex conjugates, it then suffices to show that
+Y(t1 ) − yk
+Y(t1 ) + yk
+−
+≤0
+2
+2
+(x − xk ) + (Y(t1 ) − yk )
+(x − xk )2 + (Y(t1 ) + yk )2
+whenever yk > Y(t1 ). Cross-multiplying and canceling like terms, this inequality eventually
+simplifies to
+y2k ≤ (x − xk )2 + Y(t1 )2 .
+p
+But from the hypothesis (iii) and the assumption yk > Y(t1 ), we have |xk | ≥ X + 1 − Y(t1 )2 , so
+(x − xk )2 ≥ 1 − Y(t1 )2 . On the other hand from Theorem 3.2 one has yk < 1, giving the required
+contradiction.
+
+By combining Proposition 3.3 with Theorem 3.2, we obtain Theorem 1.2, noting from (1),
+(2) that condition (i) of Proposition 3.3 is implied by condition (i) of Theorem 1.2.
+4. Applying the fundamental solution for the heat equation
+As discussed in the introduction, we will establish Theorem 1.3 by writing Ht in terms of H0
+using the fundamental solution to the heat equation. Namely, for any t > 0, we have from (27)
+that
+Z
+√
+2
+1
+tu2
+e =
+e±2 tvu √ e−v dv
+π
+R
+for any complex u and either choice of sign ±. Multiplying by e±izu and averaging, we conclude
+that
+Z
+
+√   1
+2
+2
+etu cos(zu) =
+cos z − 2i tv u √ e−v dv
+π
+R
+for any complex z, u. Multiplying by Φ(u) and using Fubini’s theorem, we conclude the heat
+kernel representation
+Z
+√
+2
+1
+Ht (z) =
+H0 (z − 2i tv) √ e−v dv
+π
+R
+for any complex z. Using (1), we thus have
+!
+Z
+2
+1
+1 1 + iz √
+ξ
++ tv √ e−v dv.
+(35)
+Ht (z) =
+8
+2
+π
+R
+Remark 4.1. We have found numerically that the formula (35) gives a fast and accurate means
+to compute Ht (z) when z is of moderate size, e.g., if z = x+iy with |x| ≤ 106 and |y| ≤ 1. However,
+we will not need to directly compute the right-hand side of (35) for our application to bounding
+Λ, as we will only need to control Ht (x + iy) for large values of x, and we will shortly develop
+tractable approximations of Riemann-Siegel type that are more suitable for this regime.
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+17
+
+We now combine this formula with expansions of the Riemann ξ-function. From [27, (2.10.6)]
+we have the Riemann-Siegel formula
+1
+ξ(s) = R0,0 (s) + R∗0,0 (1 − s)
+8
+for any complex s that is not an integer (in order to avoid the poles of the Gamma function),
+where R0,0 (s) is the contour integral
+Z
+2
+w−s eiπw
+1 s(s − 1) −s/2  s 
+dw
+π
+Γ
+R0,0 (s) :=
+8
+2
+2 0.1 eπiw − e−πiw
+
+(36)
+
+with 0 . 1 any infinite line oriented in the direction e5πi/4 that crosses the interval [0, 1]. From
+2
+the residue theorem (and the gaussian decrease of eiπw along the eπi/4 and e5πi/4 directions) we
+may expand
+N
+X
+R0,0 (s) =
+r0,n (s) + R0,N (s)
+n=1
+
+for any non-negative integer N, where r0,n , R0,N are the meromorphic functions
+1 s(s − 1) −s/2  s  −s
+r0,n (s) :=
+(37)
+n ,
+π
+Γ
+8
+2
+2
+Z
+2
+1 s(s − 1) −s/2  s 
+w−s eiπw
+R0,N (s) :=
+Γ
+(38)
+π
+dw
+8
+2
+2 N.N+1 eπiw − e−πiw
+and N . N + 1 denotes any infinite line oriented in the direction e5πi/4 that crosses the interval
+[N, N + 1]. For any z √
+that is not purely imaginary,
+we see from Stirling’s approximation that the
+√
+1+iz
++
++
+functions r0,n ( 1+iz
+tv)
+and
+R
+(
+tv)
+grow
+slower than gaussian as v → ±∞ (indeed
+0,N 2
+2
+they grow like exp(O(|v| log |v|)), where the implied constants depend on t, z). From this and
+(35), (36) we conclude that
+! X
+!
+!
+!
+N
+N
+X
+1 − iz
+1 + iz
+1 − iz
+1 + iz
+∗
+∗
++
+rt,n
++ Rt,N
++ Rt,N
+(39)
+Ht (z) =
+rt,n
+2
+2
+2
+2
+n=1
+n=1
+for any t > 0, any z that is not purely imaginary, and any non-negative integer N, where
+rt,n (s), Rt,N (s) are defined for non-real s by the formulae
+Z
+
+√  1
+2
+rt,n (s) :=
+r0,n s + tv √ e−v dv
+π
+R
+Z
+
+√  1 −v2
+Rt,N (s) :=
+R0,N s + tv √ e dv;
+π
+R
+these can be thought of as the evolutions of r0,n , R0,N respectively under the forward heat equation.
+The functions r0,n (s), R0,N (s) grow slower than gaussian as long as the imaginary part of s is
+bounded√ and bounded away from zero. As a consequence, we may shift contours (replacing v
+by v + 2t αn ) and write
+ t Z
+
+ √
+
+√
+2
+t  1
+exp − tvαn r0,n s + tv + αn √ e−v dv
+(40)
+rt,n (s) = exp − α2n
+4
+2
+π
+R
+
+18
+
+D.H.J. POLYMATH
+
+for any complex number αn with Im (s), Im (s + 2t αn ) having the same sign. Similarly we may
+write
+ t Z
+
+ √
+
+√
+2
+t  1
+exp − tvβN R0,N s + tv + βN √ e−v dv
+(41)
+Rt,N (s) = exp − β2N
+4
+2
+π
+R
+for any complex number βN with Im s, Im (s + 2t βN ) having the same sign. In the spirit of the
+saddle point method, we will select the parameters αn , βN later in the paper in order to make the
+integrands in (40), (41) close to stationary in phase at v = 0, in order to obtain good estimates
+and approximations for these terms.
+5. Elementary estimates
+In order to explicitly estimate various error terms arising in the proof of Theorem 1.3, we will
+need the following elementary estimates:
+Lemma 5.1 (Elementary estimates). Let x > 0.
+(i) If a > 0 and b ≥ 0 are such that x > b/a, then
+!
+!
+a
+b
+a
++ O≤ 2 = O≤
+.
+O≤
+x
+x − b/a
+x
+√
+More generally, if a > 0 and b, c ≥ 0 are such that x > b/a, c/a, then
+!
+!
+a
+c
+b
+a
+O≤
++ O≤ 2 + O≤ 3 = O≤
+.
+√
+x
+x
+x
+x − max(b/a, c/a)
+(ii) If x > 1, then
+log 1 + O≤
+
+1
+x
+
+!!
+= O≤
+
+!
+1
+.
+x−1
+
+or equivalently
+1 + O≤
+
+!
+!!
+1
+1
+= exp O≤
+.
+x
+x−1
+
+exp O≤
+
+1
+x
+
+(iii) If x > 1/2, then
+!!
+= 1 + O≤
+
+!
+1
+.
+x − 0.5
+
+(iv) We have
+exp (O≤ (x)) = 1 + O≤ (e x − 1).
+(v) If z is a complex number with |Im z| ≥ 1 or Re z ≥ 1, then
+!
+!!
+√
+1
+1
+.
+Γ(z) = 2π exp z − log z − z + O≤
+2
+12(|z| − 0.33)
+(vi) If a, b > 0, y ≥ 0 and x ≥ x0 ≥ exp(a/b) and x0 > c ≥ 0, then
+loga |x + iy| loga |x0 + iy|
+≤
+.
+(x − c)b
+(x0 − c)b
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+19
+
+Proof. Claim (i) follows from the geometric series formula
+a
+a at at2
+= + 2 + 3 + ...
+x−t x x
+x
+whenever 0 ≤ t < x.
+For Claim (ii), we use the Taylor expansion of the logarithm to note that
+!
+!!
+1
+1
+1
+1
+log 1 + O≤
++
++
++ ...
+= O≤
+x
+x 2x2 3x3
+which on comparison with the geometric series formula
+1
+1
+1
+1
+= + 2 + 3 + ...
+x−1 x x
+x
+gives the claim. Similarly for Claim (iii), we may compare the Taylor expansion
+!
+!!
+1
+1
+1
+1
++
++ ...
+exp O≤
+= 1 + O≤
++
+x
+x 2!x2 3!x3
+with the geometric series formula
+1
+1
+1
+1
+= + 2 + 2 3 + ...
+x − 0.5 x 2x
+2 x
+k
+and note that k! ≥ 2 for all k ≥ 2.
+Claim (iv) follows from the trivial identity e x = 1 + (e x − 1) and the elementary inequality
+−x
+e ≥ 1 − (e x − 1). For Claim (v), we may use the functional equation Γ = Γ∗ to assume that
+Im z ≥ 0. From the work of Boyd [4, (1.13), (3.1), (3.14), (3.15)] we have the effective Stirling
+approximation
+!
+!
+!
+√
+1
+1
++ R2 (z)
+Γ(z) = 2π exp z − log z − z 1 +
+2
+12z
+where the remainder R2 (z) obeys the bound
+√
+C2 Γ(2)
+|R2 (z)| ≤ (2 2 + 1)
+(2π)3 |z|2
+for Re z ≥ 0 and
+√
+C2 Γ(2)
+|R2 (z)| ≤ (2 2 + 1)
+3
+(2π) |z|2 |1 − e2πiz |
+for Re z ≤ 0, where C2 is the constant
+!
+1
+1
+π2
+C2 := (1 + ζ(2)) =
+1+
+.
+2
+2
+6
+In the latter case, we have Im z ≥ 1 by hypothesis, and hence |1 − e2πiz | ≥ 1 − e−2π . We conclude
+that in all ranges of z of interest, we have
+√
+C2 Γ(2)
+0.0205
+≤
+|R2 (z)| ≤ (2 2 + 1)
+3
+2
+−2π
+(2π) |z| (1 − e )
+|z|2
+and hence by Claim (i)
+!
+!
+!!
+√
+1
+1
+Γ(z) = 2π exp z − log z − z 1 + O≤
+2
+12(|z| − 0.246)
+and the claim then follows by Claim (ii).
+
+20
+
+D.H.J. POLYMATH
+a
+
+|x+iy|
+is non-increasing for x ≥
+For Claim (vi), it suffices to show that the function x 7→ log(x−c)
+b
+2
+
+log(1+ y2 )
+exp(a/b). Since log |x + iy| = (log x)(1 + 2 log xx ) and the second factor is monotone decreasing
+loga x
+in x, it suffices to show that x 7→ (x−c)
+b is non-increasing in this region. Taking logarithms
+a
+b
+b
+b
+and differentiating, we wish to show that x log
+x − x−c ≤ 0. But this is clear since x−c ≥ x and
+
+log x ≥ a/b.
+
+
+6. Proof of Theorem 1.3
+
+In this section we establish Theorem 1.3. The strategy is to use the expansion (39), which
+turns out to be an effective approximation in the region (5), since we will be able to ensure that
+√
+√
+, stay away from the real
+quantities such as s + tv + 2t αn or s + tv + 2t βN , with s = 1+i(x+iy)
+2
+axis where the poles of Γ are located (and also where the error terms in the Riemann-Siegel
+approximation deteriorate).
+Accordingly, we will need effective estimates on the functions rt,n , Rt,N appearing in Section
+4. We will treat these two functions separately.
+6.1. Estimation of rt,n . We recall the function α(s) defined in (8). From differentiating (9) we
+see that
+1
+1
+1
+(42)
+α0 (s) = − 2 −
++
+2
+2s
+2s
+(s − 1)
+whenever s ∈ C\(−∞, 1]. If Im s > 3, we conclude in particular the useful bound
+!
+!
+!
+1
+1
+1
+0
+α (s) = O≤
++ O≤
++ O≤
+2Im (s)
+2Im (s)2
+Im (s)2
+!
+(43)
+1
+= O≤
+2Im (s) − 6
+thanks to Lemma 5.1(i).
+We also recall the function Mt and the coefficients btn from (10), (15) respectively. It turns out
+we have a good approximation
+rt,n (σ + iT ) ≈ Mt (σ + iT )
+
+btn
+nσ+iT + 2 α(σ+iT )
+t
+
+.
+
+More precisely, we have
+Proposition 6.1 (Estimate for rt,n ). Let σ be real, let T > 10, let n be a positive integer, and let
+0 < t ≤ 1/2. Then
+rt,n (σ + iT ) = Mt (σ + iT )
+
+btn
+t
+nσ+iT + 2 α(σ+iT )
+
+1 + O≤ (εt,n (σ + iT ))
+
+where
+(44)
+
+ t2
+
+ |α(σ + iT ) − log n|2 + t + 1 
+8
+4
+6
+ − 1.
+εt,n (σ + iT ) B exp 
+
+T − 3.33
+
+
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+21
+
+Proof. From (37), (6) and Lemma 5.1(v) one has
+r0,n (s) = M0 (s)n exp O≤
+−s
+
+1
+6(|s| − 0.66)
+
+!!
+
+whenever Im s > 2. Let αn denote the quantity
+αn B α(σ + iT ) − log n;
+
+(45)
+
+this is the logarithmic derivative of M(s)n−s at s = σ + iT . By (9) and the hypothesis T ≥ 10,
+the imaginary part of αn may be lower bounded by
+1
+1
+− ≥ −0.15;
+(46)
+Im αn ≥ −
+2T T
+in particular, σ + iT and σ + iT + 2t αn have imaginary parts of the same sign. We can now apply
+(40) to obtain
+ t Z
+
+ √
+
+√
+t 
+rt,n (σ + iT ) = exp − α2n
+exp − tvαn M0 σ + iT + tv + αn ×
+4
+2
+
+  R
+
+
+√
+t
+1
+
+
+ 1 −v2
+× exp − σ + iT + tv + αn log n + O≤ 
+ √ e dv.
+√
+t
+2
+π
+6(|σ + iT + tv + 2 αn | − 0.66)
+√
+From (46) we see that σ + iT + tv + 2t αn has imaginary part at least T − 0.08. Thus
+
+
+!
+!
+
+
+1
+1
+1
+ = O≤
+O≤ 
+= O≤
+.
+√
+6(T − 0.74)
+6(T − 3.08)
+6(|σ + iT + tv + 2t αn | − 0.66)
+From (43) we have
+!
+1
+2(T − 3.08)
+√
+for all s on the line segment between σ + iT and σ + iT + tv + 2t αn . Applying Taylor’s theorem
+with remainder to the branch of the logarithm log M0 defined in (7), we conclude that
+
+ √
+
+
+ | tv + 2t αn |2 
+√
+√
+t
+t
+M0 (σ + iT + tv + αn ) = M0 (σ + iT ) exp α(σ + iT )( tv + αn ) + O≤ 
+ .
+2
+2
+4(T − 3.08) 
+√
+Combining these estimates, writing α(σ + iT ) = αn + log n, estimating | tv + 2t αn |2 by 2tv2 +
+t2
+2
+2 |αn | , and simplifying, we conclude that
+t
+
+rt,n (s) = M0 (σ + iT ) exp α2n − (σ + iT ) log n
+4
+ t
+
+Z
+  v2 + t2 |αn |2 + 1  1
+2
+8
+6 
+ √ e−v dv.
+×
+exp O≤  2
+T − 3.08
+π
+R
+α0 (s) = O≤
+
+Using (45), (10), (15) we see that
+
+t
+btn
+M0 (σ + iT ) exp α2n − (σ + iT ) log n = Mt (σ + iT )
+t
+4
+nσ+iT + 2 α(σ+iT )
+and so it suffices to show that
+ t
+ t2
+
+
+
+
+Z
+  v2 + t2 |αn |2 + 1  1
+ |αn |2 + t + 1 
+
+
+2
+2
+8
+6
+8
+4
+6
+ √ e−v dv = 1 + O exp 
+ − 1 .
+exp O≤ 
+ π
+
+ T − 3.33 
+
+T − 3.08
+R
+
+22
+
+D.H.J. POLYMATH
+2
+
+Since √1π e−v dv integrates to one, it suffices by Lemma 5.1(iv) to show that
+t
+
+ t2
+
+Z
+ v2 + t2 |αn |2 + 1  1
+ |αn |2 + t + 1 
+2
+8
+6
+4
+6
+ √ e−v dv ≤ exp  8
+ .
+exp  2
+T − 3.08
+T − 3.33 
+π
+R
+2
+
+1
+1
+< T −3.33
+, we can remove the t8 |αn |2 + 61 terms from both sides and reduce to showing
+Since T −3.08
+that
+!
+!
+Z
+tv2
+1 −v2
+t
+(47)
+exp
+.
+√ e dv ≤ exp
+2(T − 3.08)
+4(T − 3.33)
+π
+R
+
+Using (27), the left-hand side may be calculated exactly as
+!−1/2
+t
+1−
+.
+2(T − 3.08)
+Applying Lemma 5.1(ii) and using the hypotheses t ≤ 1/2, T ≥ 10, one has
+!!
+t
+t
+1−
+= exp O≤
+2(T − 3.08)
+2(T − 3.33)
+
+
+and the claim follows.
+
+6.2. Estimation of Rt,N . We begin with the following estimates of Arias de Reyna [2] on the
+R
+−s eiπw2
+term N.N+1 ewπiw −e
+−πiw appearing in (38):
+Proposition 6.2. Let σ be real and T 0 > 0, and define the quantities
+(48)
+(49)
+(50)
+(51)
+(52)
+
+s B σ + iT 0
+r
+T0
+aB
+2π
+N B bac
+p B 1 − 2(a − N)
+T0 T0 π
+T0
+log
+−
+−
+U B exp −i
+2
+2π
+2
+8
+
+!!
+.
+
+Let K be a positive integer. Then we have the expansion
+
+ K
+Z
+2
+X Ck (p, σ)
+
+w−s eiπw
+N−1
+−σ 
+
+
+Ua
++
+RS
+(s)
+dw
+=
+(−1)
+
+K
+
+
+πiw − e−πiw
+k
+a
+N.N+1 e
+k=0
+where C0 (p, σ) = C0 (p) is independent of σ and is given explicitly by the formula
+√
+p2 3
+eπi( 2 + 8 ) − i 2 cos πp
+2
+(53)
+C0 (p) B
+2 cos(πp)
+(removing the singularities at p = ±1/2), while for k ≥ 1 the Ck (p, σ) are complex numbers
+obeying the bounds
+√ σ
+2 9 Γ(k/2)
+(54)
+|Ck (p, σ)| ≤
+2π
+2k
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+23
+
+for σ > 0 and
+1
+
+(55)
+
+Γ(k/2)
+2 2 −σ
+|Ck (p, σ)| ≤
+2π 2π((3 − 2 log 2)π)k/2
+
+for σ ≤ 0, while the error term RS K (s) is a complex number obeying the bounds
+(56)
+
+1
+Γ((K + 1)/2)
+|RS K (s)| ≤ 23σ/2
+7
+(a/1.1)K+1
+
+for σ ≥ 0, and
+(57)
+
+|RS K (s)| ≤
+
+1 9
+2 10
+
+!d−σe
+
+Γ((K + 1)/2)
+(a/1.1)K+1
+
+if σ < 0 and K + σ ≥ 2.
+Proof. This follows from [2, Theorems 3.1, 4.1, 4.2] combined with [2, (3.2), (5.2)]. The
+dependence of Ck (p, σ), k ≥ 1 on σ and the dependence of RS K (s) on s is suppressed in
+[2], but can be discerned from the definitions of these quantities (and the related quantities
+g(τ, z), Pk (z) = Pk (z, σ), RgK (τ, z)) in [2, (3.9), (3.10), (3.7), (3.6)].
+
+Note that p ranges in the interval [−1, 1]. One can show that
+(58)
+
+|C0 (p)| ≤
+
+1
+2
+
+for all p ∈ [−1, 1]; this follows for instance from the n = 0 case of [2, Theorem 6.1]. See also
+Figure 10.
+
+Figure 10. Plot of |C0 (p)| for −1 ≤ p ≤ 1.
+
+24
+
+D.H.J. POLYMATH
+
+Informally, the above proposition (and (38), (6)) yield the approximation
+1 s(s − 1) −s/2  s 
+π
+Γ
+(−1)N−1 Ua−σC0 (p)
+R0,N (s) ≈
+8
+2
+2
+≈ (−1)N−1 U M0 (s)a−σC0 (p).
+iT
+If one writes s = σ + iT , then by using the approximation α(s) ≈ 12 log 2π
+for the log-derivative
+of M0 , one can then obtain the approximate formula
+
+R0,N (s) ≈ (−1)N−1 Ueπiσ/4 M0 (iT )C0 (p).
+In fact we have the more general approximation
+Rt,N (s) ≈ (−1)
+
+N−1
+
+Ue
+
+πiσ/4
+
+!
+tπ2
+exp
+M0 (iT 0 )C0 (p)
+64
+
+where T 0 B T + πt8 . More precisely, we have
+Proposition 6.3 (Estimate for Rt,N ). Let 0 ≤ σ ≤ 1, let T ≥ 100, and let 0 < t ≤ 1/2. Set
+πt
+T0 B T +
+8
+and then define a, N, p, U, C0 (p) using (49), (50), (52), (53). Then
+!
+tπ2
+N−1
+πiσ/4
+exp
+M0 (iT 0 ) (C0 (p) + O≤ (ε̃(σ + iT )))
+Rt,N (σ + iT ) = (−1) Ue
+64
+where
+!
+!
+5
+0.397 × 9σ
+3.49
+ε̃(σ + iT ) B
++
+exp
+.
+a − 0.865
+3(T − 6)
+T −4
+
+(59)
+
+Proof. We apply (41) with βN := πi/4 to obtain
+√
+!Z
+!
+√
+2
+1
+tπ2
+tvπi
+R0,N (σ + iT 0 + tv) √ e−v dv.
+exp −
+Rt,N (σ + iT ) = exp
+64 R
+4
+π
+From (38) we have
+K
+
+√
+s 
+v
+X
+
+√ 
+√
+
+C
+(p,
+σ
++
+1
+s
+(s
+−
+1)
+tv)
+
+k
+v v
+v
+
+R0,N (σ+iT 0 + tv) =
+π−sv /2 Γ
+(−1)N−1 Ua−σ− tv 
++
+RS
+(s
+)
+K
+v
+v
+
+k
+8
+2
+2
+a
+k=0
+for any positive√integer Kv that we permit to depend (in a measurable fashion) on v, where
+sv B σ + iT 0 + tv. From (6) and Lemma 5.1(v) we thus have
+K
+
+
+ 
+√
+v
+
+√ 
+
+ 
+√
+X
+1
+C
+(p,
+σ
++
+tv)
+k
+N−1
+−σ−
+0
+tv
+ .
+
+
+
+Ua
+R0,N (σ+iT + tv) = M0 (sv ) exp O≤ 
+(−1)
++
+RS
+(s
+)
+
+
+
+Kv v 
+0
+
+
+k
+a
+12( T2 − 0.33)
+k=0
+From (43) and Taylor expansion of the logarithm log M0 defined in (7), we have
+√
+!!
+√
+(σ + tv)2
+.
+M0 (sv ) = M0 (iT 0 ) exp α(iT 0 )(σ + tv) + O≤
+4(T − 3)
+From (9), (49) one has
+α(iT 0 ) = O≤
+
+!
+!
+!
+1
+1
+1
+iT 0
+iπ
+3
++
+O
++
+Log
+=
+log
+a
++
++
+O
+≤
+≤
+2T 0
+T0
+2
+2π
+4
+2T 0
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+and hence (bounding 2T3 0 by 4(T6−3) )
+√
+√
+πiσ
+α(iT )(σ + tv) = (σ + tv) log a +
++
+4
+0
+
+We conclude (bounding
+
+25
+
+√ !
+√
+6|σ + tv|
+tvπi
++ O≤
+.
+4
+4(T − 3)
+
+1
+≤ 4(T1/3
+0
+−3) ) that
+12( T2 −0.33)
+
+√
+√
+ 
+
+√
+!
+  (σ + tv)2 + 6|σ + tv| + 13 
+√
+tvπi
+0
+0
+ ×
+exp −
+R0,N (σ + iT + tv) = M0 (iT ) exp O≤ 
+4
+4(T − 3)
+
+K
+√
+v
+
+X
+tv)
+C
+(p,
+σ
++
+k
+N−1
+πiσ/4 
+ .
+
++
+RS
+(s
+)
+× (−1) Ue
+K
+v
+v
+
+k
+a
+k=0
+√
+√
+Bounding 6|σ + tv| ≤ 3(σ + tv)2 + 3, we have
+√
+√
+√
+(σ + tv)2 + 6|σ + tv| + 13
+(σ + tv)2 + 56
+≤
+.
+4(T 0 − 0.33)
+T −3
+Putting all this together, we obtain
+!
+tπ2
+Rt,N (σ + iT ) = (−1)N−1 Ueπiσ/4 exp
+M0 (iT 0 )×
+64
+
+√
+ 
+  Kv
+√
+Z
+ 1
+  (σ + tv)2 + 65  X
+C
+(p,
+σ
++
+tv)
+k
+ √ e−v2 dv.
+×
++
+RS
+(s
+)
+exp O≤ 
+ 
+Kv v 
+ π
+k
+T −3
+a
+R
+k=0
+2
+
+We separate the k = 0 term from the rest. By Lemma 5.1(iv) and the fact that √1π e−v integrates
+to one, we can write the above expression as
+!
+tπ2
+N−1
+πiσ/4
+M0 (iT 0 ) (C0 (p)(1 + O≤ ()) + O≤ (δ))
+(60)
+Rt,N (σ + iT ) = (−1) Ue
+exp
+64
+where
+√
+
+
+
+Z 
+ (σ + tv)2 + 56 
+
+
+ − 1 √1 e−v2 dv
+ :=
+exp 
+T −3
+π
+R
+and
+
+√
+
+  Kv
+√
+Z
+ 1
+ (σ + tv)2 + 56  X
+|C
+(p,
+σ
++
+tv)|
+k
+ √ e−v2 dv.
+ 
+δ :=
++
+|RS
+(s
+)|
+exp 
+K
+v
+v
+
+ π
+k
+T −3
+a
+R
+k=1
+√
+Bounding (σ + tv)2 ≤ 2σ2 + 2tv2 and using (27) we obtain
+ 2 5
+!−1/2
+ 2σ + 6 
+2t
+
+
+ ≤ exp 
+− 1.
+ 1− 0
+T −3 
+T − 0.33
+Applying Lemma 5.1(ii) and using the hypotheses t ≤ 1/2, T ≥ 100, one has
+!!
+2t
+2t
+1−
+= exp O≤
+T −3
+T −6
+and hence
+
+ 2
+ 2σ + t + 56 
+ − 1.
+
+ ≤ exp 
+T −6 
+
+26
+
+D.H.J. POLYMATH
+
+With t ≤ 1/2 and 0 ≤ σ ≤ 1, one has 2σ2 + t + 56 ≤ 10
+3 . By the mean value theorem we then have
+!
+10
+10
+exp
+.
+(61)
+≤
+3(T − 6)
+3(T − 6)
+√
+Now we work on δ. Making the change of variables u B σ + tv, we have
+
+ 2 5   K̃u
+Z
+ 1
+ u + 6  X |Ck (p, u)|
+ √ e−(u−σ)2 /t du,
+0
+ 
++
+|RS
+(u
++
+iT
+)|
+δ=
+exp 
+K̃u
+
+k
+
+T
+−
+3
+a
+πt
+R
+k=1
+where K̃u is a positive integer parameter that can depend arbitrarily on u (as long as it is measurable, of course).
+0
+We choose K̃u to equal 1 when u ≥ 0 and max(b−uc + 3, b Tπ c) when u < 0, so that Proposition
+6.2 applies. The expression
+K̃u
+X
+|Ck (p, u)|
+
+ak
+
+k=1
+
++ |RS K̃u (u + iT 0 )|
+
+is then bounded by
+√ u
+2 9 Γ(1/2) 1 3u/2 Γ(1)
+0.200 × 9u 0.173 × 23u/2
+(62)
++ 2
+≤
++
+2π
+2a
+7
+a
+(a/1.1)2
+a2
+for u ≥ 0 and
+X 2 21 −u
+Γ(k/2)
+1
+Γ((K̃u + 1)/2)
++ (9/10)d−ue
+(63)
+k/2
+k
+2π 2π((3 − 2 log 2)π) a
+2
+(a/1.1)K̃u +1
+1≤k≤K̃u
+
+for u < 0. One can calculate that
+
+1
+
+1
+22 1
+≤ 0.036 ≤
+2π 2π
+2
+and
+
+1
+≤ 0.445 ≤ 1.1
+((3 − 2 log 2)π)1/2
+and hence we can bound (63) by
+X
+Γ(k/2) 1 −u X
+(0.445)k
+(0.036)2−u
++ 2
+2
+ak
+T0
+T0
+
+π ≤k≤−u+4
+
+1≤k≤ π
+
+Γ(k/2)
+.
+(a/1.1)k
+
+For u ≥ 0, we can estimate (62) by
+0.2 × 9
+
+u
+
+!
+0.2 × 9u
+1 0.865
+≤
++
+a
+a − 0.865
+a2
+0
+
+thanks to Lemma 5.1(i). For u < 0, we observe that if k ≤ 2a2 = Tπ then
+Γ( k+2
+2 )
+ak+2
+
+=
+
+k Γ(k/2) Γ(k/2)
+≤
+2a2 ak
+ak
+
+and hence by the geometric series formula
+X
+Γ(k/2)
+(0.445)2 Γ(2/2) 0.247
+(0.445)k
+≤
+≤
+1 − (0.445)2 a2
+a2
+ak
+T0
+2≤k≤ π ,k even
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+27
+
+and similarly
+X
+
+(0.445)k
+
+0
+
+3≤k≤ Tπ ,k odd
+
+(0.445)3 Γ(3/2) 0.098
+Γ(k/2)
+≤
+≤
+1 − (0.445)2 a3
+a3
+ak
+
+and hence we can bound (63) by
+!
+√
+0.247 0.098
+1 −u X
+−u 0.445 π
++
+(0.036)2
++
++
+2
+a
+2
+a2
+a3
+T0
+
+π ≤k≤−u+4
+
+Γ(k/2)
+.
+(a/1.1)k
+
+By Lemma 5.1(i) we have
+
+!
+√
+0.445 π 0.247 0.098
+0.029
++
++
+0.036
+≤
+2
+3
+a
+a − 0.353
+a
+a
+and thus we can bound (63) by
+0.029 × 2−u 1 −u X
+Γ(k/2)
++ 2
+.
+(1.1)k
+a − 0.353
+2
+ak
+T0
+π ≤k≤−u+4
+
+Putting this together, we conclude that
+K̃u
+X
+|Ck (p, u)|
+k=1
+
+ak
+
++ |RS K̃u (u + iT 0 )| ≤
+
+X
+0.2 × 9u
+0.029 × 2−u 2−u
++
++
+a − 0.865
+a − 0.353
+2 T0
+
+(1.1)k
+
+π ≤k≤−u+4
+
+for all u (positive or negative). We conclude that δ ≤ δ1 + δ2 + δ3 , where
+ 2 5
+Z
+ u + 6  0.2 × 9u 1 −(u−σ)2 /t
+
+δ1 B
+du
+exp 
+√ e
+T − 3  a − 0.865 πt
+R
+ 2 5
+Z
+ u + 6  0.029 × 2−u 1 −(u−σ)2 /t
+du
+δ2 B
+exp 
+
+√ e
+T − 3  a − 0.353
+πt
+R
+ 2 5
+Z
+X
+ u + 6  2−u
+Γ(k/2) 1 −(u−σ)2 /t
+
+δ3 B
+(64)
+exp 
+(1.1)k
+du.
+√ e
+T − 3 2 T0
+ak
+πt
+R
+π ≤k≤−u+4
+
+For δ1 , we translate u by σ to obtain
+ 2
+
+Z
+ u + 2σu + σ2 + 65
+ 1 −u2 /t
+0.2 × 9σ
+ √ e
+δ1 =
+exp 
++
+2u
+log
+3
+du
+a − 0.865 R
+T 0 − 0.33
+πt
+and hence by (27)
+(65)
+
+ 2 5
+
+σ
+−1/2
+ σ + 6
+t(log 3 + T 0 −0.33
+)2  
+0.2 × 9σ
+
+ 1 − t
+δ1 =
+exp  0
++
+.
+t
+a − 0.865
+T − 0.33
+T −3
+1 − T −3
+
+One can write
+(66)
+
+1
+t
+t
+t = 1 + T − 3 − t ≤ 1 + T − 3.5
+1 − T −3
+
+while by Lemma 5.1(ii) we have
+ 
+
+  t 
+t
+t
+(67)
+1−
+= exp O≤
+= exp O≤
+.
+T −3
+T −3−t
+T − 3.5
+
+Γ(k/2)
+ak
+
+28
+
+D.H.J. POLYMATH
+
+We conclude that
+!
+
+5 + 3t + 6σ2
+0.2 × 9σ
+σ 2 
+t 
+δ1 ≤
+exp
++ t log 3 +
+1+
+.
+a − 0.865
+6(T − 3.5)
+T −3
+T − 3.5
+From Lemma 5.1(i) and the hypothesis 0 ≤ σ ≤ 1, we have
+
+
+
+
+
+σ 2
+2σ/
+log
+3
+
+
+log 3 +
+≤ (log2 3) 1 +
+σ 
+T −3
+T − 3 − 2 log 3 
+!
+2σ/ log 3
+2
+≤ (log 3) 1 +
+T − 3.5
+and therefore by a further application of Lemma 5.1(i)
+
+
+
+σ 2 
+t 
+log 3 +
+1+
+≤ log2 3 1 +
+T −3
+T − 3.5
+
+2σ
+
+log 3 + t
+
+2σt/ log 3 
+T − 3.5 − 2σ/ log 3+t 
+
+2σ
+
+log 3 + t 
+
+
+
+
+
+
+
+≤ log 3 1 +
+T − 3.5 − t 
+
+
+2σ
+
++ t 
+log
+3
+
+≤ log2 3 1 +
+T −4 
+2
+
+and thus
+δ1 ≤
+
+!
+0.2 × 9σ exp(t log2 3)
+5 + 3t + 6σ2 + 12tσ log 3 + 6t2 log2 3
+exp
+.
+a − 0.865
+6(T − 4)
+
+By repeating the proof of (65), we have
+
+ 
+
+√
+ σ2 + 5 t − log 2 + σ 2  
+−1/2
+−σ
+0.029 × 2
+T −3 
+
+6
+ 1 − t
+δ2 =
+exp 
++
+.
+t
+
+ T −3
+a − 0.353
+T −3
+1 − T −3
+√
+√
+We can bound (− log 2 + Tσ−3 )2 by log2 2. Using (66), (67) we thus have
+√
+√ 
+
+ 5 + 3t + 6σ2 + 6t2 log2 2 
+0.029 × 2−σ exp(t log2 2)
+ .
+exp 
+δ2 ≤
+a − 0.353
+6(T − 4)
+With t ≤ 1/2 and 0 ≤ σ ≤ 1 one has
+
+5 + 3t + 6σ2 + 6t2 log2
+6
+and hence
+
+√
+2
+
+0.2 exp(t log2 3) ≤ 0.366
+√
+0.029 exp(t log2 2) ≤ 0.031
+
+5 + 3t + 6σ2 + 12tσ log 3 + 6t2 log2 3
+≤ 3.49
+6
+!
+0.366 × 9σ
+3.49
+δ1 ≤
+exp
+a − 0.865
+T −4
+
+and
+δ2 ≤
+
+≤
+
+!
+0.031 × 2−σ
+3.49
+exp
+.
+a − 0.353
+T −4
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+29
+
+Now we turn to δ3 , which will end up being extremely small compared to δ1 or δ2 . By (64)
+and the Fubini-Tonelli theorem, we have
+ 2 5
+
+Z 4−k
+2
+ u + 6
+
+(u
+−
+σ)
+1 X
+k Γ(k/2)
+
+ du.
+exp
+(1.1)
+−
+−
+u
+log
+2
+δ3 = √
+0
+T − 0.33
+t
+ak
+2 πt T 0
+−∞
+k≥ 2.2π
+0
+
+T
+Since u ≤ 4 − k, k ≥ 2.2π
+, and T 0 ≥ T ≥ 100, we have k ≥ 14 and u ≤ −10; since σ ≥ 0, we may
+u2 + 5
+
+2
+
+6
+− ut by (say)
+thus lower bound (u − σ)2 /t by u2 /t. Since t ≤ 1/2, we can upper bound T 0 −0.33
+2
+− u2t , thus
+Z 4−k
+u2
+1 X
+k Γ(k/2)
+e− 2t −u log 2 du.
+δ3 ≤ √
+(1.1)
+k
+a
+2 πt T 0
+−∞
+
+k≥ 2.2π
+
+2
+− u2t
+
+(k−4)u
+2t
+
+We can bound e
+≤e
+, in the range of integration and thus
+Z 4−k
+(k−4)2
+u2
+2
+1
+1
+e− 2t +(k−4) log 2 ≤ k−4
+e−(k−4) +(k−4) log 2 ;
+e− 2t −u log 2 du ≤ k−4
+−∞
+2t − log 2
+2t − log 2
+bounding
+k−4
+k − 4 − 2t log 2 k − 6
+− log 2 =
+≥
+2t
+2t
+2t
+we conclude that
+
+√ X
+t
+Γ(k/2) −(k−4)2 +(k−4) log 2
+δ3 ≤ √
+(1.1)k
+e
+.
+(k − 6)ak
+π T0
+k≥ 2.2π
+
+√
+
+For k ≥ 14 one can easily verify that (1.1)k Γ(k/2)e−(k−4) +(k−4) log 2 ≤ 10−30 ; discarding the √πt
+2
+
+1
+factors we thus have
+and k−6
+
+δ3 ≤
+
+X 10−30
+k≥14
+
+ak
+
+≤
+
+2 × 10−30
+a14
+
+(say). Since
+0.031 × 2−σ 2 × 10−30 0.031 × 2−σ
+≤
++
+a − 0.353
+a − 0.865
+a14
+we thus have
+
+!
+0.366 × 9σ + 0.031 × 2−σ
+3.49
+δ ≤ δ1 + δ2 + δ3 ≤
+exp
+.
+a − 0.865
+T −4
+Inserting this and (61), (58) into (60), and crudely bounding 2−σ by 9σ , we obtain the claim. 
+6.3. Combining the estimates. Combining Propositions 6.1, 6.3 with (39) and the triangle
+inequality (and noting that M0 = M0∗ , Mt = Mt∗ and α = α∗ , and that U has magnitude 1), we
+conclude the following “A + B − C approximation to Ht ”:
+Corollary 6.4 (A + B − C approximation). Let t, x, y obey (5). Set
+x πt
+(68)
+T0 B +
+2 8
+
+30
+
+D.H.J. POLYMATH
+
+and then define a, N, p, U, C0 (p) using (49), (50), (52), (53). Define the quantities
+1 + y − ix
+s+ = s+ (x + iy) B
+2
+1 − y + ix
+s− = s− (x + iy) B
+2
+N
+X
+btn
+At,N (x + iy) B Mt (s− )
+s− + 2t α(s− )
+n=1 n
+Bt,N (x + iy) B Mt (s+ )
+Ct (x + iy) B 2e
+
+N
+X
+
+btn
+
+n=1 n
+
+−πiy/8
+
+s+ + 2t α(s+ )
+
+!
+tπ2
+(−1) exp
+Re (M0 (iT 0 )C0 (p)Ueπi/8 )
+64
+N
+
+where M0 , btn were defined in (10), (15). Then
+Ht (x + iy) = At,N (x + iy) + Bt,N (x + iy) − Ct (x + iy) + O≤ (E A (x + iy) + E B (x + iy) + EC (x + iy))
+where
+E A (x + iy) B |Mt (s− )|
+E B (x + iy) B |Mt (s+ )|
+
+N
+X
+
+btn
+1−y
+
+n=1 n 2
+N
+X
+n=1 n
+
++ 2t Re α(s− )
+
+btn
+
+1+y t
+2 + 2 Re α(s+ )
+
+εt,n (s− )
+εt,n (s+ )
+
+!
+tπ2
+EC (x + iy) B exp
+|M0 (iT 0 )| (ε̃(s− ) + ε̃(s+ ))
+64
+and εt,n , ε̃ were defined in (44), (59).
+In our applications, we will just use the cruder “A + B” approximation that is immediate from
+the above corollary and (58):
+Corollary 6.5 (A + B approximation). With the notation and hypotheses as in Corollary 6.4, we
+have
+Ht (x + iy) = At,N (x + iy) + Bt,N (x + iy) + O≤ (E A (x + iy) + E B (x + iy) + EC,0 (x + iy))
+where
+!
+tπ2
+|M0 (iT 0 )| (1 + ε̃(s− ) + ε̃(s+ )) .
+EC,0 (x + iy) B exp
+64
+We can now prove Theorem 1.3. Dividing by the expression Bt from (11), and using (14), we
+conclude that
+Ct (x + iy)
+Ht (x + iy)
+= ft (x + iy) −
++ O≤ (eA + eB + eC )
+(69)
+Bt (x + iy)
+Bt (x + iy)
+and
+(70)
+
+
+Ht (x + iy)
+= ft (x + iy) + O≤ eA + eB + eC,0
+Bt (x + iy)
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+31
+
+where
+(71)
+
+eA B eA (x + iy) B |γ|
+
+(72)
+
+eB B eB (x + iy) B
+
+(73)
+
+eC B eC (x + iy) B
+
+(74)
+
+eC,0 B eC,0 (x + iy) B
+
+N
+X
+
+btn
+ε (s )
+ny Re s+Re
+κ t,n −
+n
+n=1
+
+N
+X
+btn
+ε (s )
+Re s t,n +
+n
+n=1
+ 2
+0
+exp tπ
+64 |M0 (iT )|
+
+|Mt (s+ )|
+ 2
+0
+exp tπ
+64 |M0 (iT )|
+|Mt (s+ )|
+
+(ε̃(s− ) + ε̃(s+ )) .
+(1 + ε̃(s− ) + ε̃(s+ )) ,
+
+and where γ, s∗ , κ were defined in (16), (17), (18). Note also from (68), (49), (50) that N is given
+by (19).
+To conclude the proof of Theorem 1.3 it thus suffices to obtain the following estimates.
+Proposition 6.6 (Estimates). Let the notation and hypotheses be as above.
+(i) One has
+ −y/2
+0.02y x
+|γ| ≤ e
+4π
+(ii) One has
+)+ t
+(1 − 3y + 8y(1−y)
+1+y t
+x
+x2
+Re s∗ ≥
++ log
+−
+.
+2
+4
+4π
+2x2
+(iii) One has
+!
+ty
+κ = O≤
+.
+2(x − 6)
+(iv) One has
+
+ t2
+
+
+N
+t 
+X
+ 16 log2 x 2 + 0.626 
+
+
+b
+
+4πn
+ − 1 .
+eA ≤ |γ|N |κ|
+ny Rens exp 
+
+
+x − 6.66
+n ∗
+n=1
+(v) One has
+
+ t2
+
+
+N
+X
+
+ 16 log2 x 2 + 0.626 
+btn 
+4πn
+
+
+exp 
+ − 1 .
+eB ≤
+x − 6.66
+nRe s∗
+n=1
+(vi) One has
+!
+!
+x
+ x − 1+y
+3| log 4π
++ i π2 | + 3.58 1.24 × (3y + 3−y )
+4
+t
+6.92
+2 x
+eC ≤
+exp − log
++
++
+.
+4π
+16
+4π
+x − 8.52
+N − 0.125
+x − 12
+and
+!
+!
+x
+ x − 1+y
+3| log 4π
++ i π2 | + 3.58
+4
+t
+1.24 × (3y + 3−y )
+6.92
+2 x
+eC,0 ≤
+exp − log
++
+1+
++
+.
+4π
+16
+4π
+x − 8.52
+N − 0.125
+x − 12
+Note that to obtain the bound (24) from Proposition 6.6(vi) we may simply use the inequality
+1
+1
+1 + u ≤ exp(u) for any u ∈ R, and then bound x−8.52
+≤ x−12
+.
+
+32
+
+D.H.J. POLYMATH
+
+ 1+y+ix 
+
+
+M
+=
+),
+Proof. From the mean value theorem (and noting that Mt = Mt∗ , so that Mt 1+y−ix
+t
+2
+2
+we have
+
+d
+ix 
+log |γ| = −y
+log Mt σ +
+dσ
+2
+1−y
+1+y
+for some 2 ≤ σ ≤ 2 . From (8), (10) we have
+
+t 
+
+ix 
+d
+ix  0 
+ix 
+ix 
+= Re α σ +
+log Mt σ +
+α σ+
++α σ+
+.
+dσ
+2
+2
+2
+2
+2
+From (43) one has
+!
+
+1
+ix 
+0
+= O≤
+(75)
+α σ+
+2
+x−6
+and from Taylor expansion we also have
+ ix 
+ σ 
+ix
+α(σ + ) = α
++ O≤
+;
+2
+2
+x−6
+from (9) one has
+!
+!
+!
+ ix 
+1
+1
+2
+1
+ix
+1
+x
+π
+α
+= O≤
++ O≤
++ Log
+= log
++ i + O≤
+2
+x
+x
+2
+4π 2
+4π
+4
+x
+and hence
+!
+ix
+1
+x
+π
+2+σ
+(76)
+α(σ + ) = log
++ i + O≤
+.
+2
+2
+4π
+4
+x−6
+Inserting these bounds, we conclude that
+!!
+!!!
+x
+π
+2+σ
+t
+1
+log
++ i + O≤
+1 + O≤
+.
+log |γ| = −yRe
+2
+4π
+4
+x−6
+2(x − 6)
+Expanding this out, we have
+
+
+t(2+σ) 
+x
+ 2 + σ + 4t log 4π
+
+ 1
++ tπ8 + 2(x−6)
+x
+ .
++ O≤ 
+log |γ| = −y  log
+2
+4π
+x−6
+In the region (5), which implies that 0 ≤ σ ≤ 1, we have
+tπ t(2 + σ)
+2+σ+ +
+≤ 3.21
+8 2(x − 6)
+and thus
+x
+t
+log 4π
++ 3.21
+x
+y
++y4
+.
+log |γ| ≤ − log
+2
+4π
+x−6
+log x
+The function x 7→ x−64π is decreasing for x ≥ 200 thanks to Lemma 5.1(vi), hence
+x
+t
+log 4π
++ 3.21
+log 200
+4π + 3.21
+≤y4
+≤ 0.02y.
+x−6
+200 − 6
+Claim (i) follows. We remark that one can improve the e0.02y factor here by Taylor expanding α
+to second order rather than first order, but we will not need to do so here.
+To prove claim (ii), it suffices by (21) to show that
+1
+x
+(1 − 3y)+ 4y(1 + y)
+Re α(s+ ) ≥ log
+−
+−
+.
+2
+4π
+x2
+x4
+t
+
+y4
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+33
+
+By (9) one has
+2(1 − y)
+1
+1+y
+−
++ log
+Re α(s+ ) =
+2
+2
+2
+2
+2
+(1 + y) + x
+(1 − y) + x
+
+p
+(1 + y)2 + x2
+.
+4π
+
+(1 + y)2 + x2 ≥ x and calculate
+2(1 − y)
+1 − 3y
+8y(1 − y)
+1+y
+−
+=−
+−
+2
+2
+2
+2
+2
+2
+2
+(1 + y) + x
+(1 − y) + x
+(1 + y) + x
+((1 + y) + x2 )((1 − y)2 + x2 )
+
+We bound
+
+p
+
+≥−
+
+1 − 3y + 8y(1−y)
+x2
+(1 + y)2 + x2
+
+.
+
+Lower bounding the numerator by its nonnegative part and then lower bounding (1 + y)2 + x2 by
+x2 , we obtain the claim.
+Claim (iii) is immediate from (75) and the fundamental theorem of calculus. Now we turn to
+(iv), (v). From (76) one has
+!
+!
+3
+1 ± y + ix
+x
+1
+π
+α
+− log n = log
++ i + O≤
+2
+2
+4
+x−6
+4πn2
+for either choice of sign ±. In particular, we have
+!
+!
+x
+π
+2
+3| log 4πn
+1 ± y + ix
+π2
+1
+x
+9
+2 + i2|
+(77)
++
+− log n = log2
++
+O
++
+α
+.
+≤
+2
+4
+x−6
+4πn2 16
+(x − 6)2
+For any 1 ≤ n ≤ N, we have
+x + πt4
+2
+2
+2
+1≤n ≤N ≤a =
+;
+4π
+x 2
+in the region (5), the right-hand side is certainly bounded by ( 4π
+) , so that
+4π
+x
+x
+≤
+≤
+2
+x
+4π
+4πn
+and hence
+log
+
+π
+x
+x
+π
++ i ≤ log
++i .
+2
+2
+4π
+2
+4πn
+
+In the region (5) we have x ≥ 200, we see from Lemma 5.1(vi) (after squaring) that
+decreasing in x. Thus
+x
+π
+π
+200
+9
+π2 3| log 4π + i 2 |
+9
+π2 3| log 4πn2 + i 2 |
++
++
+≤
++
++
+2
+16
+x−6
+16
+200 − 6
+(x − 6)
+(200 − 6)2
+≤ 0.667.
+
+Similarly, in (5) we also have
+t2
+t 1
+× 0.667 + + ≤ 0.313.
+8
+4 6
+We conclude from (44) that
+εt,n
+
+ t2
+
+!
+ 32 log2 x 2 + 0.313 
+1 ± y + ix
+4πn
+ − 1.
+≤ exp 
+
+2
+T − 3.33
+
+Inserting this bound into (71), (72), we obtain claims (iv), (v).
+
+x
++i π2 |
+| log 4π
+is
+x−6
+
+34
+
+D.H.J. POLYMATH
+
+Now we establish (vi). From (10) we have
+ 2
+!
+0
+0
+exp tπ
+tπ2 t
+64 |M0 (iT )|
+2 |M0 (iT )|
+= exp
+− Re (α(s+ ) )
+.
+|Mt (s+ )|
+64 4
+|M0 (s+ )|
+πit
+1
+0
+Note that 1+y+ix
+= iT 0 + 1+y
+2
+2 − 8 . From (43) we see that |α (s)| ≤ x−6 for any s on the line
+segment between iT 0 and 1+y+ix
+2 . From Taylor’s theorem with remainder applied to a branch of
+log M0 , and noting that |M0 (s+ )| = |M0 ( 1+y+ix
+2 )|, we conclude that
+ 1+y πit 
+
+!
+!
+ | − 2 + 8 |2 
+
+|M0 (iT 0 )|
+1 + y πit
+0
+ .
+= exp Re −
++
+α(iT ) + O≤ 
+|M0 (s+ )|
+2
+8
+2(x − 6) 
+
+For 0 ≤ y ≤ 1 and 0 < t ≤ 12 we have
+πit 2
+| − 1+y
+2 + 8 |
+≤ 0.52
+2
+
+and from (9) one has
+α(iT ) = O≤
+0
+
+!
+!
+1
+1
+1
+iT 0 1
+T 0 iπ
+3
++
+O
++
+Log
+=
+log
++ + O≤ ( 0 )
+≤
+0
+0
+2T
+T
+2
+2π
+2
+2π 4
+2T
+
+and hence
+
+
+
+0
+2
+ 1 + y
+ 3| − 1+y + πit | 0.52 
+|M0 (iT 0 )|
+T
+tπ
+2
+8
+ .
++
+= exp −
+log
+−
++ O≤ 
+|M0 (s+ )|
+4
+2π 32
+2T 0
+x − 6 
+1
+πit
+and | − 1+y
+Bounding 2T1 0 ≤ x−6
+2 + 8 | ≤ 1.02, this becomes
+!− 1+y
+!!
+tπ2
+|M0 (iT 0 )|
+T0 4
+3.58
+exp −
+=
++ O≤
+|M0 (s+ )|
+2π
+32
+x−6
+and hence
+ 2
+
+!− 1+y
+!2
+!
+0
+exp tπ
+ tπ2 t
+
+T0 4
+1
++
+y
++
+ix
+3.58
+64 |M0 (iT )|
+−
+ .
+=
+exp
+−
+Re
+(α
+)
++
+O
+≤
+2π
+64 4
+2
+x−6 
+|Mt ( 1+y+ix
+)|
+2
+
+By repeating the proof of (77) we have
+!
+x
+3| log 4π
++ i π2 |
+1 ± y + ix 2
+1
+π2
+9
+2 x
+.
+Re (α(
+) ) = log
+−
++ O≤
++
+2
+4
+4π 16
+x−6
+(x − 6)2
+As before, in the region (5) we have
+x
+π
+x
+3| log 4πn
+3| log 4π
++ i π2 |
+9
+9
+2 + i2|
++
+≤
++
+2
+x−6
+x−6
+(x − 6)
+(x − 6)2
+and thus
+ 2
+!− 1+y
+!!
+0
+x
+exp tπ
+3| log 4π
++ i π2 | + 3.58
+T0 4
+t
+9
+64 |M0 (iT )|
+2 x
+=
+exp − log
++ O≤
++
+|Mt (s+ )|
+2π
+16
+4π
+x−6
+(x − 6)2
+1+y
+!−
+!!
+x
+3| log 4π
++ i π2 | + 3.58
+T0 4
+t
+x
+=
+exp − log2
++ O≤
+2π
+16
+4π
+x − 8.52
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+35
+
+thanks to Lemma 5.1(i). Finally, since T 0 ≥ 2x ≥ 100 in (5), one has
+!
+3.49
+exp
+≤ 1.037
+T −4
+and hence by (59)
+
+!
+1 ± y + ix
+1.24 × 3±y
+1.73
+ε̃
+≤
++
+.
+2
+a − 0.125 T − 6
+
+Hence
+
+3.46
+1.24 × (3y + 3−y )
++
+a − 0.125
+T −6
+giving the claim (substituting T 0 = x/2 and a ≥ N).
+ε̃(s+ ) + ε̃(s− ) ≤
+
+
+
+7. Fast evaluation of multiple sums
+Fix t ≥ 0. For the verification of the barrier criterion (Theorem 1.2(iii)) using Corollary 1.4,
+we will need to evaluate the quantity ft (s) to reasonable accuracy for a large number of values
+of s in the vicinity of a fixed complex number X + iy. From (14) we have
+(78)
+
+ft (s) =
+
+N
+X
+nb bt
+
+n
+
+n=1 n
+
+1+y−iX
+2
+
++ γ(s)
+
+N
+X
+na bt
+
+n
+
+n=1 n
+
+1−y+iX
+2
+
+,
+
+where btn is given by (15), γ(s) is given by (16), N is given by (19) and
+1 + y − iX
+b = b(s) B
+− s∗
+2
+and
+1 − y − iX
+a = a(s) B
+− s∗ − κ
+2
+with s∗ , κ defined by (17), (18). In practice the exponents a, b will be rather small, and N will be
+fixed (in our main verification we will in fact have N = 69098).
+A naive computation of ft (s) for M values of s would take time O(N M), which turns out to
+be somewhat impractical for for the ranges of N, M we will need; indeed, for our main theorem,
+the total number of pairs (t, s) at which we need to perform the evaluation is 785052 (spread out
+over 152 values of t), and direct computation of all this data required 78.5 hours of computer
+time, which was still feasible at this order of magnitude of X but would not scale to significantly
+higher magnitudes. However, one can significantly speed up the computation (to about 0.025
+hours) to extremely high accuracy by using Taylor series expansion to factorise the sums in (78)
+into combinations of sums that do not depend on s and thus can be computed in advance.
+We turn to the details. To make the Taylor series converge3 faster, we recenter the sum in n,
+writing
+b(N+1)/2c
+N
+X
+X
+F(n) =
+F(n0 + h)
+n=1
+
+h=−bN/2c+1
+
+for any function F, where n0 B bN/2c. We thus have
+ft (s) = B(b) + γ(s)A(a)
+3One can obtain even faster speedups here by splitting the summation range PN
+
+n=1 into shorter intervals and using
+a Taylor expansion for each interval, although ultimately we did not need to exploit this.
+
+36
+
+D.H.J. POLYMATH
+
+where
+B(b) B
+
+h=−bN/2c+1 (n0 + h)
+
+and
+A(a) B
+
+(n0 + h)b btn0 +h
+
+b(N+1)/2c
+X
+
+1+y−iX
+2
+
+(n0 + h)a btn0 +h
+
+b(N+1)/2c
+X
+
+h=−bN/2c+1 (n0 + h)
+
+1−y+iX
+2
+
+.
+
+We discuss the fast computation of B(b) for multiple values of b; the discussion for A(a) is
+analogous. We can write the numerator (n0 + h)b btn0 +h as
+t
+log2 (n0 + h));
+4
+writing log(n0 + h) = log n0 + log(1 + nh0 ), this becomes
+exp(b log(n0 + h) +
+
+b+ t log n0
+
+n0 4
+
+h
+t
+h
+t
+exp( log2 (1 + )) exp((b + log n0 ) log(1 + )).
+4
+n0
+2
+n0
+
+By Taylor expanding4 the exponentials, we can write this as
+b+ t log n0
+
+n0 4
+
+∞ X
+∞ ( t log2 (1 + h ))i
+X
+4
+n
+0
+
+i=0 j=0
+
+i!
+
+log j (1 +
+
+t
+h (b + 2 log n0 ) j
+)
+n0
+j!
+
+and thus the expression B(b) can be written as
+∞ X
+∞
+X
+(b + 2t log n0 ) j
+b+ t log n0
+B(b) = n0 4
+Bi, j
+j!
+i=0 j=0
+where
+
+b(N+1)/2c
+X
+
+( 4t log2 (1 + nh0 ))i log j (1 + nh0 )
+
+.
+1+y−iX
+(n0 + h) 2
+If we truncate the i, j summations at some cutoff E, we obtain the approximation
+Bi, j B
+
+i!
+
+h=−bN/2c+1
+
+b+ t log n0
+
+B(b) ≈ n0 4
+
+E−1 X
+E−1
+X
+i=0 j=0
+
+Bi, j (n0 )
+
+(b + 2t log n0 )i
+.
+i!
+
+The quantities Bi, j , i, j = 0, . . . , E − 1 may be evaluated in time O(NE 2 ), and then the sums B(b)
+for M values of b may be evaluated in time O(ME 2 ), leading to a total computation time of
+O((N + M)E 2 ) which can be significantly faster than O(N M) even for relatively large values of
+E. We took E = 50, which is more than adequate to obtain extremely high accuracy5; for ft (s);
+see Figure 13. The code for implementing this may be found in the file
+dbn upper bound/pari/barrier multieval t agnostic.txt
+in the github repository [20].
+4It is also possible to proceed by just performing Taylor expansion on the second exponential and leaving the first
+
+exponential untouched; this turns out to lead to a comparable numerical run time.
+5One can obtain more than adequate analytic bounds for the error (which are several orders of magnitude more
+than necessary) for the parameter ranges of interest by very crude bounds, e.g., bounding b and log(1 + nh0 ) by (say)
+O≤ (2), and relying primarily on the i! and j! terms in the denominator to make the tail terms small. We omit the
+details as they are somewhat tedious.
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+37
+
+8. A new upper bound for the de Bruijn-Newman constant
+In this section we prove Theorem 1.1.
+
+8.1. Selection of parameters. As stated in the introduction, it suffices to verify the conditions
+(i), (ii), (iii) of Theorem 1.2 t0 B 0.2, X B X0 − 0.5, and y0 B 0.2, where X0 B 6 × 1010 + 83952.
+The choice t0 = y0 = 0.2 is due to the limitations of our numerical verifications, particularly
+the known numerical verification of RH. We now explain the choice of X0 . Recall the familiar
+Euler product factorization
+ζ(s) =
+
+Y
+p
+
+1
+1− s
+p
+
+!−1
+
+for the Riemann zeta function. This leads to the heuristic
+1
+H0 (x + iy) ∝
+1− s
+p
+p≤P
+Y
+
+!−1
+
+and we are extremely vague as to what the
+for some small prime cutoff P, where s = 1+y+ix
+2
+proportionality symbol ∝ means. This heuristic extends to non-zero times t as
+
+Y 
+btp −1
+
+1 − s 
+Ht (x + iy) ∝
+p
+p≤P
+and we also have
+(79)
+
+
+Y 
+btp −1
+
+
+ft (x + iy) ∝
+1 − s  .
+p
+p≤P
+
+One can non-rigorously justify the latter assertion by by inspecting the first series of ft (x + iy) in
+(14) and ignoring the fact that the sequence n 7→ btn is not multiplicative when t , 0.
+We will be relying heavily on Corollary 1.4, and therefore seek to ensure that | ft (x + iy)| is as
+large as possible. It would therefore seem to be advantageous to try to work as much as possible
+in regions where Euler product
+!
+Y
+btn
+1− s ,
+p
+p≤P
+x
+is small, which heuristically corresponds to 4π
+log p being close to an integer for p ≤ P (so that
+s
+p has argument close to zero). If one chooses x to lie in the vicinity of
+
+X B 6 × 1010 + 83952 − 0.5
+
+38
+
+D.H.J. POLYMATH
+
+X
+log p} for p ≤ 11 are somewhat close to zero:
+then indeed the fractional parts { 4π
+
+X
+log 2} = 0.0275 . . .
+4π
+X
+{ log 3} = 0.0437 . . .
+4π
+X
+{ log 5} = 0.0640 . . .
+4π
+X
+{ log 7} = 0.0774 . . .
+4π
+X
+{ log 11} = 0.0954 . . .
+4π
+We found this shift by the following somewhat ad hoc procedure. We first introduced the quantity
+Y
+1
+,
+eulerprod(x, pn ) B
+1
+p≤pn 1 − p1−ix/2
+{
+
+which is the exponent corresponding to y = 1 (where the minimum value of | ft (x + iy)| in the
+barrier region is expected to occur). We numerically located candidate integers 1 ≤ q ≤ 105 for
+which the quantity
+min
+|eulerprod(x, 29)|
+x−6×1010 −q∈{−0.5,0,0.5}
+
+exceeded a threshold (we chose 4), to obtain seven candidates for q: 1046, 22402, 24198, 52806,
+77752, 83952, and 99108. Among these candidates, we selected the value of q which maximised
+the quantity
+min
+| f0 (x + i)|,
+x−6×1010 −q∈{−0.5,0,0.5}
+
+namely q = 83952 (this quantity being ≈ 4.32 for this value of q).
+8.2. Verifications of claims. Claim (i) of Theorem 1.2 is immediate from the result of Platt
+[18] that all the non-trivial zeroes of ζ with imaginary part between 0 and 3.06 × 1010 lie on the
+critical line {Re s = 1/2}. For the remaining claims (ii), (iii) of Theorem 1.2, it will suffice to
+verify that Ht (x + iy) , 0 for the following three regions of (x, y, t):
+√
+√
+(ii) x ≥ X0 − 0.5 + 0.96, 0.2 ≤ y ≤ 0.6,
+√ and t = 0.2.
+(iii) X0 − 0.5 ≤ x ≤ X0 + 0.5, 0.2 ≤ y ≤ 0.6, and 0 ≤ t ≤ 0.2.
+Here we have enlarged the region (iii) for simplicity. Both of these regions lie in (5). We can of
+course replace Ht (x + iy) by Ht (x + iy)/Bt (x + iy).
+Set
+
+ r
+
+
+t
+x
++ 
+N B 
+4π 16
+so in particular
+(80)
+
+xN ≤ x < xN+1
+
+where
+xN B 4πN 2 −
+
+πt
+.
+4
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+39
+
+Figure 11. Improving approximation of epn (x) w.r.t. | f0 (x+iy)| as n is increased,
+where epn (x) = eulerprod(x, pn ), shown near X = 6 × 1010 + 83951.5, which
+was chosen as a barrier location.
+Write N0 B 69098 and N1 B 1.5 × 106 . In region (ii) we then have N ≥ N0 , while in region (iii)
+(x+iy)
+, 0 in the following three regions:
+we have N = N0 . It will now suffice to verify HBtt(x+iy)
+(a) When X0 − 0.5 ≤ x ≤ X0 + 0.5, N = N0 , 0 ≤ t ≤ 0.2, and 0.2 ≤ y ≤ 1.
+(b) When x ≥ X0 − 0.5, N0 ≤ N ≤ N1 , t = 0.2, and 0.2 ≤ y ≤ 1.
+(c) When N ≥ N1 , t = 0.2, and 0.2 ≤ y ≤ 1.
+In all three regions we use the following approximation:
+Proposition 8.1. Let (x, y, t) lie in one of the regions (a), (b), (c). Define
+ft (x + iy) B
+
+N
+X
+bt
+n=1
+
+n
++γ
+n s∗
+
+N
+X
+
+bt
+ny s n+κ
+n∗
+n=1
+
+t
+btn B exp( log2 n),
+4
+
+where κ, s∗ , γ are as in Theorem 1.3. Then
+(81)
+
+Ht (x + iy)
+= ft (x + iy) + O≤ (1.25 × 10−3 ).
+Bt (x + iy)
+
+Proof. By Theorem 1.3 it suffices to show that
+eA + eB + eC,0 ≤ 1.25 × 10−3 .
+From Theorem 1.3 again, we have
+(82)
+
+eA + eB ≤ (eδ1 − 1)(F N,t (Re s∗ ) + |γ|N |κ| F N,t (Re s∗ − y))
+
+40
+
+D.H.J. POLYMATH
+
+where
+(83)
+
+F N,t (σ) :=
+
+N
+X
+bt
+
+n
+
+nσ
+n=1
+
+.
+
+and
+δ1 B
+
+2 x
+t2
+16 log 4π + 0.626
+
+.
+x − 6.66
+From Lemma 5.1(vi), the quantity δ1 is monotone decreasing in x in the region (5). Thus we
+have
+(84)
+
+δ1 ≤
+
+(85)
+
+(0.2)2
+2 X0 −0.5
+16 log
+4π + 0.626
+
+X0 − 0.5 − 6.66
+whenever x ≥ X0 − 0.5 ≥ 200 and 0 ≤ t ≤ 0.2. Computing the right-hand side, we conclude that
+δ1 ≤ 3.12 × 10−11
+and hence by Taylor expansion
+
+eδ1 − 1 ≤ 1.001δ1
+(say). Also, from Theorem 1.3 and (83) we can bound
+|γ|F N,t (Re s∗ − y − |κ|) ≤ |γ|N y N |κ| F N,t (Re s∗ )
+!
+!
+1
+x
+ty
+≤ exp 0.02y + y log N − log
++
+log N F N,t (Re s∗ )
+2
+4π
+2(x − 6)
+!
+!
+1
+πt
+ty
+x
+ty
+F N,t (Re s∗ ).
+log(1 + ) +
+log
+≤ exp 0.02y + y +
+2(x − 6) 2
+4x
+4(x − 6)
+4π
+For 0.2 ≤ y ≤ 1, 0 ≤ t ≤ 0.2, and x ≥ X0 − 0.5 we see from Lemma 5.1(vi) that
+ty
+x
+0.2
+X0 − 0.5
+log
+≤
+log
+≤ 1.86 × 10−11
+4(x − 6)
+4π 4(X0 − 0.5 − 6)
+4π
+and
+!
+!
+!
+1
+πt
+1
+ty
+0.2
+0.2π
+≤ 1.31 × 10−12
+log(1 + ) ≤ 1 +
+log 1 +
+y+
+2(x − 6) 2
+4x
+2(X0 − 0.5 − 6) 2
+4(X0 − 0.5)
+and thus
+(86)
+
+|γ|F N,t (Re s∗ − y − |κ|) ≤ 1.021F N,t (Re s∗ ).
+
+Thus
+eA + eB ≤ 1.023δ1 F N,t (Re s∗ ).
+To estimate Re s∗ , we use Proposition 6.6(ii) or (22), together with the inequality
+!
+!
+t
+8y(1 − y)
+0.2
+8
+1 − 3y +
+≤
+1 − 3 × 0.2 +
+≤ 1.2 × 10−23
+2
+2
+2
+2
+2x
+x
+2(X0 − 0.5)
+(X0 − 0.5) +
++
+to obtain
+t
+x
+Re s∗ ≥ 0.5999 + log
+4
+4π
+(say). Since F N,t (σ) is non-increasing in σ, we conclude
+
+t
+x
+eA + eB ≤ 1.023δ1 F N,t 0.5999 + log
+.
+4
+4π
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+41
+
+Since
+
+ r
+
+x
+t 
+
++ ,
+N = 
+4π 16 
+0 ≤ t ≤ 0.2, and x ≥ X0 − 0.5, it is easy to see that
+x
+4π
+
+N≤
+and hence by (15)
+btn
+t
+
+x
+
+n 4 log 4π
+
+≤1
+
+for all 1 ≤ n ≤ N. Therefore
+N
+t
+x X 1
+F N,t 0.5999 + log
+≤
+4
+4π
+n0.6001
+n=1
+
+
+
+and hence by the integral test
+Z N+1
+
+t
+1
+x
+ds
+F N,t 0.5999 + log
+=
+≤
+(N + 1)0.4001
+0.5999
+4
+4π
+0.4001
+s
+1
+so that (by (84))
+eA + eB ≤ 1.023
+
+(0.2)2
+2 x
+16 log 4π + 0.626
+
+x − 6.66
+
+1
+(N + 1)0.5999 .
+0.5999
+
+We have
+x − 6.66
+N + 1 ≤ (1.001)
+4π
+
+!1/2
+
+(say), and hence
+eA + eB ≤ 0.7220
+
+x
+0.0025 log2 4π
++ 0.626
+
+(x − 6.66)0.80005
+From Lemma 5.1(vi), the right-hand side is monotone decreasing in the region x ≥ X0 − 0.5,
+thus
+eA + eB ≤ 0.7220
+
+−0.5
+0.0025 log2 X04π
++ 0.626
+
+(X0 − 0.5 − 6.66)0.80005
+≤ 3.444 × 10−9 .
+
+Meanwhile, from Proposition 6.6(vi) one has
+eC,0 ≤
+
+ x − 1+y
+4
+4π
+
+x
+3| log 4π
++ i π2 | + 3.58
+t
+2 x
+exp − log
++
+16
+4π
+x − 8.52
+2
+
+log2 x + π
+
+!
+
+!
+1.24 × (3y + 3−y )
+6.92
+1+
++
+.
+N − 0.125
+x − 6.66
+| log x +i π |
+
+4π
+4
+4π
+2
+From Lemma 5.1(vi), the quantity (x−8.52)
+2 is monotone decreasing in x in (5), hence
+x−8.52
+is also monotone decreasing. Also the expression is monotone decreasing in y. We conclude
+
+42
+
+D.H.J. POLYMATH
+
+that
+(87)
+X0 − 0.5
+eC,0 ≤
+4π
+
+!− 1+0.2
+4
+
+√
+√
+
+
+
+−0.5
+0.6 + 3− 0.6 )
+
+ 3| log X04π
++ i π2 | + 3.58  
+6.92
+1.24
+×
+(3
+
+
+
+
++
+exp 
+ 1 +
+X0 − 0.5 − 8.52
+N0 − 0.125
+X0 − 0.5 − 6.66 
+
+≤ 1.249 × 10−3
+−0.5
+. Combining the estimates, we obtain
+where we have discarded the negative term − 16t log2 X04π
+the claim.
+
+
+Now we attend to the three claims.
+8.3. Proof of claim (c). We begin with claim (c), which is the easiest. By Proposition 8.1, it
+suffices to establish the bound
+| ft (x + iy)| > 1.25 × 10−3 .
+In fact we will establish the stronger estimate
+ft (x + iy) = 1 + O≤ (0.955).
+
+(88)
+
+In the region (c) we have from (80) that
+x ≥ xN1 ≥ 2.82 × 1013 .
+Our main tool here is the triangle inequality. From (14) one has
+ft (x + iy) = 1 +
+
+N
+X
+bt
+n=2
+
+n
++γ
+n s∗
+
+N
+X
+
+bt
+ny s n+κ
+n∗
+n=1
+
+and hence
+ N
+
+N
+t 
+X
+X bt
+b
+
+n 
+n
+ft (x + y) = 1 + O≤ 
++ |γ|
+ny σ−|κ|
+
+σ
+n
+n
+n=2
+n=1
+where σ B Re s∗ . Restoring the n = 1 term in the first sum and recalling that t = 0.2, it thus
+suffices to show that
+N
+X
+b0.2
+
+(89)
+
+n=1
+
+n
+nσ
+
++ |γ|
+
+N
+X
+
+b0.2
+n
+ny σ−|κ|
+< 1.955.
+n
+n=1
+
+Our main tool here will be
+Lemma 8.2. Let N ≥ N0 ≥ 1 be natural numbers, and let σ, t > 0 be such that
+σ>
+
+t
+log N.
+2
+
+Then
+N
+X
+bt
+
+N0
+X
+bt
+
+n=1
+
+nσ
+n=1
+
+n
+≤
+nσ
+
+n
+
++ max(N01−σ btN0 , N 1−σ btN ) log
+
+N
+.
+N0
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+43
+
+Proof. From the identity
+
+
+exp 4t (log N − log n)2 − 4t (log N)2
+btn
+=
+t
+nσ
+nσ− 2 log N
+bt
+
+we see that the summands nσn are decreasing for 1 ≤ n ≤ N, hence by the integral test one has
+(90)
+
+N
+X
+bt
+
+N0
+X
+bt
+
+n=1
+
+n=1
+
+n
+≤
+nσ
+
+n
++
+nσ
+
+Z N
+
+bta
+da.
+σ
+N0 a
+
+Making the change of variables a = eu , the right-hand side becomes
+Z N
+N0
+X
+bt
+n=1
+
+n
+nσ
+
+t
+exp((1 − σ)u + u2 ) du.
+4
+N0
+
+The expression (1 − σ)u + 4t u2 is convex in u, and is thus bounded by the maximum of its values
+at the endpoints u = log N0 , log N; thus
+t
+exp((1 − σ)u + u2 ) ≤ N01−σ btN0 , N 1−σ btN .
+4
+
+
+The claim follows.
+Remark 8.3. The right-hand side of (90) can be evaluated exactly as
+N0
+X
+bt
+n=1
+
+n
++
+nσ
+
+√
+−(σ − 1)2
+π
+) erfi
+√ exp(
+t
+t
+
+!
+t
+2 log N − σ + 1
+√
+t
+
+− erfi
+
+!!
+t
+2 log N0 − σ + 1
+√
+t
+
+Rz 2
+where erfi(z) = −i erf(iz) is the imaginary error function, with erf(z) B √2π 0 e−t dt.
+PN btn
+In practice, this upper bound for n=1
+nσ is slightly more accurate than the one in Lemma 8.2,
+and is a good approximation even for relatively small values of N0 (e.g., N0 = 100). However,
+the cruder bound above suffices for the numerical values of parameters needed to establish the
+bound Λ ≤ 0.22.
+Observe from (22) that
+|κ| ≤
+
+0.2 × 1
+≤ 3.55 × 10−15
+2(2.82 × 1013 − 6)
+
+while from (20) one has
+|γ| ≤ 1.005
+
+ x −y/2
+N
+
+4π
+
+xN 1/2
+so in particular since 0.2 ≤ y ≤ 1 and n ≤ 1.0001( 4π
+) ≤ 1.0002N
+
+|γ|ny ≤ 1.006N −0.2 n0.2 .
+
+44
+
+D.H.J. POLYMATH
+
+Also from (21) one has
+
+
+xN
+0.2 
+0.2
+0.96 
+log
+−
+σ ≥ 0.6 +
+0.4 + 2 
+4
+4π 2x2N 
+xN
+1
+
+1
+
++
+
+
+
+!
+t
+0.2 
+0.96 
+≥ 0.6 + 0.1 log N + 0.05 log 1 −
+− 2 0.4 + 2
+
+16(N1 )2
+2xN1
+x1.5×106
+≥ 0.6 + 0.1 log N − 5.1 × 10
+
+−29
+
++
+
+.
+
+We can then apply Lemma 8.2 twice to bound the left-hand side of (89) by A + B, where
+N0 0.2
+N0 0.2
+ x −0.1 X
+X
+bn
+bn
+N
++
+1.006
+AB
+0
+00 ,
+σ
+4π
+n
+nσ
+n=1
+n=1
+0
+
+0
+
+00
+
+00
+
+1−σ 0.2
+1−σ 0.2
+B B (max(N01−σ b0.2
+bN ) + 1.006N −0.2 max(N01−σ b0.2
+bN )) log
+N0 , N
+N0 , N
+
+N
+N0
+
+σ0 := 0.6 + 0.1 log N − 5.1 × 10−29
+σ00 := 0.4 + 0.1 log N − 7.09 × 10−16 .
+The quantity A is decreasing in N, so we may bound it by its value at N = N1 . Performing the
+sum numerically, we obtain
+A ≤ 1.88.
+Finally, the quantity B can also be seen to be decreasing6 in N in the range N ≥ N1 , and obeys
+the bound
+B ≤ 0.075.
+The claim (88) follows.
+8.4. Proof of claim (a). As N = N0 is constant in this region, the function ft (x + iy) is holomorphic, so by Rouche’s theorem, it suffices to show that for each time 0 ≤ t ≤ 0.2, as x + iy
+traverses the boundary ∂R of the rectangle
+R B {x + iy : X0 − 0.5 ≤ x ≤ X0 + 0.5; 0.2 ≤ y ≤ 1},
+the function ft (x + iy) stays outside of the ball B B {z : |z| ≤ 1.25 × 10−3 }, and furthermore has
+a winding number of zero around the origin.
+To verify this claim numerically for a given value of t, we subdivide each edge of ∂R into
+some number n of equally spaced mesh points, thus approximating ∂R by a discrete mesh x j +iy j ,
+j = 1, . . . , 4n, with any two adjacent points on this mesh separated by a distance at most 1/n.
+Using the techniques in Section 7, we evaluate ft (x j + iy j ) numerically for each such value of j.
+The polygonal path connecting these points then winds around the origin with winding number
+4n
+
+1 X
+arg( ft (x j+1 + iy j+1 )/ ft (x j + iy j ))
+2π j=1
+6This is visually apparent from Figure 12, but to prove it analytically, it suffices to show that the quantities
+0
+0
+00
+N
+N
+−0.2 −σ00
+N0−σ log NN0 , N 1−σ b0.2
+N0 log NN0 , N −0.2 N 1−σ b0.2
+N log N0 , N
+N log N0
+
+are decreasing in N for N ≥ N1 . This can in
+turn be established by computing the log-derivative of all these quantities, multiplied by N; there will be a negative
+term −0.1 log N0 or −0.1 log N which dominates all the other terms when N ≥ N1 . We leave the details to the
+interested reader.
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+45
+
+Figure 12. Plot of B vs N
+which can be easily computed (and verified to be zero). To pass from this polygonal path to the
+true trajectory ft (∂R) of ft (x + iy) on ∂R, we again use Rouche’s theorem. If one has a derivative
+∂
+ft (z)| ≤ Dz on the boundary of the rectangle, the polygonal path and the true trajectory
+bound | ∂z
+z
+ft (∂R) differ by a distance of at most D
+2n , and the latter will have the same winding number
+around the origin (and stay outside of the ball B) as long as
+| ft (x j + iy j )| > 1.25 × 10−3 +
+
+Dz
+.
+2n
+
+Furthermore, the same is true for nearby times t ≤ t0 ≤ 0.2 to t, as long as one has the stronger
+bound
+(91)
+
+| ft (x j + iy j )| > 1.25 × 10−3 +
+
+Dz Dt |t0 − t|
++
+2n
+2n
+
+and a bound of the form | ∂t∂ ft˜(z)| ≤ Dt for t ≤ t˜ ≤ 0.2 and z ∈ ∂R.
+This gives the following algorithm to verify (a) for the entire range 0 ≤ t ≤ 0.2. We start with
+t = 0 and obtain bounds Dt , Dz for the derivatives of ft˜(z) in the indicated ranges. Because of the
+way the barrier location X was selected, we expect | ft (x + iy)| to stay well above 1 in magnitude.
+z
+We thus choose n so that D
+2n ≤ 1, and evaluate ft (x j + iy j ) at all the mesh points (in particular
+confirming that | ft (x j + iy j )| does stay well above 1). Using the minimum value of | ft (x j + iy j )|,
+we can then use the condition (91) to establish the claim for times in the interval [t, t0 ) where
+t0 > t is chosen so that (91) holds (or t0 = 0.2, if that is also possible); the most aggressive choice
+of t0 would be one in which (91) held with equality, but in practice we can afford to take more
+conservative values of t0 and still obtain good runtime performance. If t0 < 0.2, we then repeat
+the process, replacing t by t0 , until the entire range 0 ≤ t ≤ 0.2 is verified.
+To run this algorithm, we need bounds on Dt and Dz . This is achieved by the following
+lemma, which gives bounds which are somewhat complicated but which can be easily upper
+bounded numerically on ∂R:
+
+46
+
+D.H.J. POLYMATH
+
+Lemma 8.4. In the region (5), and away from the jump discontinuities of N, we have
+!
+N
+X
+btn log n
+∂ ft
+t log n
+≤
++
+∂z
+2
+4(x − 6)
+nRe s∗
+n=1
+!
+!!
+N
+X
+btn ny t log n
+|1 + y + ix|
+3 1
+t
+|κ|
++ |γ|N
++ log
++π+
++
+4π
+x 2 4(x − 6)
+nRe s∗ 4(x − 6)
+n=1
+and
+!
+N
+X
+btn 1
+∂ ft
+x
+π
+2 log n
+≤
+log n log
++ log n +
+∂t
+4πn 8
+x−6
+nRe s∗ 4
+n=1
+!
+!!
+N
+X
+btn ny 1
+x
+π
+2 log n 1 π
+8
+x
+8
++ |γ|N
+log n log
++ log n +
++
++
+log
++
+.
+4πn 8
+x−6
+4 2 x−6
+4π x − 6
+nRe s∗ 4
+n=1
+|κ|
+
+Proof. We begin with the first estimate. Write
+1 − y + ix t 1 − y + ix
+s∗∗ B s∗ − y + κ =
++ α
+2
+2
+2
+
+!
+
+then
+(92)
+
+ft =
+
+N
+X
+bt
+
+N
+X
+bt
+
+n=1
+
+n s∗∗
+n=1
+
+n
++γ
+n s∗
+
+n
+
+.
+
+One can check that s∗ , s∗∗ , γ are holomorphic functions of x + iy, hence by the Cauchy-Riemann
+equations
+∂ ft
+∂ ft
+=
+.
+∂x
+∂y
+By the product and chain rules, we may calculate
+!
+N
+N
+X
+X
+btn ∂s∗
+btn ∂
+∂s∗∗
+∂ ft
+=−
+log n + γ
+log γ −
+log n .
+∂x
+n s∗ ∂x
+n s∗∗ ∂x
+∂x
+n=1
+n=1
+From (17), (43) we have
+i it
+1 + y − ix
+∂s∗
+= − − α0
+∂x
+2 4
+2
+!
+i
+t
+= − + O≤
+.
+2
+4(x − 6)
+Similarly we have
+
+!
+
+!
+∂s∗∗
+i
+t
+= + O≤
+.
+∂x
+2
+4(x − 6)
+
+Writing s = 1−y+ix
+2 , we have from (16), (10) that
+t
+log γ = (α(s)2 − α(1 − s)2 ) + log M0 (s) − log M0 (1 − s)
+4
+and hence by (8)
+∂
+it
+i
+i
+log γ = (α(s)α0 (s) + α(1 − s)α0 (1 − s)) + α(s) + α(1 − s).
+∂x
+4
+2
+2
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+From the triangle inequality and (43), we thus have
+!
+N
+X
+btn log n
+t log n
+∂ ft
++
+| |≤
+∂x
+2
+4(x − 6)
+nRe s∗
+n=1
++ |γ|
+
+N
+X
+n=1
+
+btn
+nRe s∗∗
+
+!
+|α(s)| + |α(1 − s)| − log n t(|α(s)| + |α(1 − s)|)
+t log n
++
++
+.
+4(x − 6)
+2
+4(x − 6)
+
+We have from (9) that
+|α(s)|, |α(s) −
+
+1
+1
+|1 − y + ix| π
+3
+log n| ≤ log
++ +
+2
+2
+4π
+2 2x
+
+x
+since n ≤ N ≤ 4π
+≤ |1−y+ix|
+4π . Similarly
+
+|α(1 − s)|, |α(1 − s) −
+
+1
+1
+|1 + y + ix| π
+3
+log n| ≤ log
++ +
+2
+2
+4π
+2 2x
+
+and thus
+
+|1 + y + ix|
+3
++π+ .
+4π
+x
+Writing Re s∗∗ = Re s∗ − y + Re κ, we then have the first estimate.
+Now we estimate the time derivative. Since
+∂
+1
+log btn = log2 n
+∂t
+4
+∂
+1
+s∗ = α(1 − s)
+∂t
+2
+1
+∂
+s∗∗ = α(s)
+∂t
+2
+
+∂
+1
+log γ =
+α(s)2 − α2 (1 − s)
+∂t
+4
+we see from differentiating (92) that, we obtain
+!
+N
+∂ ft X btn log2 n α(1 − s)
+=
+−
+log n
+∂t
+n s∗
+4
+2
+n=1
+!
+N
+X
+btn log2 n α(s)
+1
+2
+2
+−
+log n + (α(s) − α (1 − s)) .
++γ
+n s∗∗
+4
+2
+4
+n=1
+|α(s) + α(1 − s)|, |α(s) + α(1 − s) − log n| ≤ log
+
+From (43), (9) we have
+!
+!
+ ix 
+1 ± y + ix
+1
+α
+=α
++ O≤
+2
+2
+x−6
+!
+1
+x
+πi
+4
+= log
++ + O≤
+2
+4π 4
+x−6
+and hence (since α = α∗ )
+α
+
+!
+!
+1 ± y − ix
+1
+x
+πi
+4
+= log
+− + O≤
+2
+2
+4π 4
+x−6
+
+47
+
+48
+
+D.H.J. POLYMATH
+
+and s = 1−y+ix
+so in particular (recalling that 1 − s = 1+y−ix
+2
+2 )
+πi
+8
+α(s) − α(1 − s) =
++ O≤
+2
+x−6
+
+!
+
+and
+
+!
+8
+x
++ O≤
+α(s) + α(1 − s) = log
+4π
+x−6
+so that
+!
+!
+π
+8
+8
+x
+α(s)2 − α(1 − s)2 ≤
++
++
+log
+.
+2 x−6
+4π x − 6
+We conclude from the triangle inequality that
+!
+N
+X
+btn 1
+∂ ft
+x
+π
+2 log n
+≤
+log n log
++ log n +
+∂t
+4πn 8
+x−6
+nRe s∗ 4
+n=1
++ |γ|
+
+N
+X
+n=1
+
+btn
+nRe s∗∗
+
+1
+x
+π
+2 log n 1 π
+8
+log n log
++ log n +
++
++
+4
+4πn 8
+x−6
+4 2 x−6
+
+!
+
+8
+x
++
+log
+4π x − 6
+
+giving the second claim.
+
+!!
+
+
+
+The next few graphs summarize the numerical output of the algorithm for the following barrier
+parameters: x = 6 × 1010 + 83952 ± 0.5, y = 0.2 . . . 1, t = 0 . . . 0.2.
+The first step in the barrier verification process was to precalculate a ‘stored sum’ of Taylor
+expansion terms that allows for fast recreation of ft (x + iy) during the execution of the algorithm
+as per Section 7. The number of Taylor terms required was determined through an iterative process targeted to achieve a 20 decimal accuracy. Figure 13 illustrates that the achieved accuracy
+for all rectangular mesh points at t = 0.
+
+Figure 13. Achieved error term in the Taylor expansion at t = 0. Target was set
+at 20 decimal places accuracy.
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+49
+
+The derivative bounds determine the number of mesh points required on each xy-rectangle and
+in the t-direction. Figure 14 illustrates that these bounds have been chosen quite conservatively:
+
+Figure 14. Derivative bounds versus their actual values at all required steps of t.
+The number of rectangle mesh points varies with t ranging from 11076 at t = 0 to 56 at
+t = 0.195; see Figure 15.
+
+Figure 15. The number of mesh points required per rectangle for each step of t.
+The overall winding number for the barrier at this specific location came out at 0. Figures 16,
+17 show the winding process at t = 0, 0.2 respectively. Due to the choice of the barrier location
+and the small barrier width compared to the wavelength in the x variable, little oscillation is
+expected to occur in each rectangle.
+The code for implementing these computations may be found in the directory
+
+50
+
+D.H.J. POLYMATH
+
+Figure 16. Winding the rectangle at t = 0.
+
+Figure 17. Winding the rectangle at t = 0.2.
+dbn upper bound/arb
+in the github repository [20].
+8.5. Proof of claim (b). Fix t = 0.2, and let R denote the rectangle
+R B {x + iy : 0.2 ≤ y ≤ 1; x ≥ X0 − 0.5; N ≤ N1 }.
+We wish to show that the holomorphic function Ht (x + iy)/Bt (x + iy) does not vanish in this
+rectangle. We would like to establish this by the argument principle, however this turns out to
+be difficult to accomplish due to the oscillation in Ht (x + iy)/Bt (x + iy) ≈ ft (x + iy) indicated by
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+51
+
+the heuristic (79). To damp out this oscillation, we introduce an7 “Euler mollifier”
+
+Y 
+btp 
+
+
+Et,5 (x + iy) B
+1 − s∗  ,
+p
+p≤5
+where s∗ is given by (17) the choice to use the first three primes 2, 3, 5 was obtained after significant trial and error as giving the best numerical results in this range of t, x, y. We have the upper
+bound
+
+Y 
+btp 
+
+ .
+1 +
+|Et,5 (x + iy)| ≤
+Re s∗ 
+p
+p≤5
+When N ≥ N0 , 0.2 ≤ y ≤ 1 and t = 0.2, one easily verifies from (21) that
+Re s∗ ≥ 1.7143
+and hence
+|Et,5 (x + iy)| ≤ 1.635
+In particular, by Proposition 8.1 we have
+Ht (x + iy)
+= Et,5 (x + iy) ft (x + iy) + O≤ (2.05 × 10−3 ).
+Et,5 (x + iy)
+Bt (x + iy)
+The left-hand side remains holomorphic in x+iy (even though ft (x+iy) has jump discontinuities).
+Thus, by the argument principle, it will suffice to show that the left-hand side avoids the negative
+real axis (−∞, 0] as x + iy traverses the boundary ∂R of the rectangle R. In other words, it will
+suffice to show that
+(93)
+
+dist(Et,5 (x + iy) ft (x + iy), (−∞, 0]) > 2.05 × 10−3
+
+for x + iy ∈ ∂R. For future reference we also observe that for any x + iy ∈ R, the magnitude of
+Et,5 (x + iy) can be bounded below by
+
+Y 
+btp 
+
+ ≥ 0.534
+1 −
+(94)
+|Et,5 (x + iy)| ≥
+Re s∗ 
+p
+p≤5
+and the argument has magnitude at most
+(95)
+
+|arg(Et,5 (x + iy))| ≤
+
+X
+p≤5
+
+sin
+
+−1
+
+btp
+pRe s∗
+
+≤ 0.553.
+
+Of the four sides of the rectangle ∂R, the required estimate (93) will hold with significant
+room to spare, and we can proceed using rather crude estimates. We first attend to the right edge
+of ∂R, in which N = N1 . From (88) we have
+ft (x + iy) = 1 + O≤ (0.955)
+in this region. In particular ft (x + iy) has argument of magnitude at most sin−1 0.955 ≤ 1.27.
+Combining this with (94), (95), we conclude that Et,5 (x+iy) ft (x+iy) has magnitude at least 0.024
+and argument at most 1.823 in magnitude, giving the claim (93) on this side from elementary
+trigonometry.
+7In the literature one also sees other choices of mollifier than this Euler product used, for instance to control
+the extreme values of Dirichlet polynomials; however our numerical experimentations with alternative mollifiers to
+ft (x + iy) turned out to give inferior results for our application.
+
+52
+
+D.H.J. POLYMATH
+
+Now we attend to the left edge of ∂R, in which x = X0 − 0.5 and 0.2 ≤ y ≤ 1. From the
+calculations for part (a) (see in particular Figure 17) one can verify that (for instance) | ft (x+iy)| ≥
+1 and |arg ft (x + iy)| ≤ π2 in this region. Combining this with (94), (95), we conclude that
+Et,5 (x + iy) ft (x + iy) has magnitude at least 0.534 and argument at most 2.13 in magnitude, again
+giving the claim (93) on this side from elementary trigonometry.
+Now we attend to the upper edge of ∂R, in which N0 ≤ N ≤ N1 and y = 1. From (21) one
+now has
+Re s∗ ≥ 2.1143.
+8
+In particular
+
+N
+N
+1
+t
+X
+
+X
+btn
+b
+n 
+ = 1 + O≤ (0.7).
+
+=
+1
++
+O
+≤
+
+
+s∗
+2.1143 
+n
+n
+n=1
+n=2
+Meanwhile, from (20) one has
+|γ| ≤ e0.02
+and from (22) one has
+
+ x −1/2
+4π
+
+≤ 1.03N −1
+
+ty
+≤ 4 × 10−13
+2(x − 6)
+!
+1.03
+ny
+|γ| s +κ = O≤
+n∗
+Nn1.1142
+
+|κ| ≤
+and hence
+
+and
+N
+
+N1
+0
+X
+X
+1.03btn
+1.03btn 
+
+ = O≤ (0.1)
++
+γ
+n s +κ = O≤ 
+N n1.1142 n=N +1 n2.1142 
+n∗
+n=1 0
+n=1
+N
+X
+
+y
+
+btn
+
+0
+
+and hence
+ft (x + iy) = 1 + O≤ (0.8).
+In particular ft (x+iy) has magnitude at least 0.2 and argument at most 0.928 in magnitude, hence
+Et (x + iy) ft (x + iy) has magnitude at least 0.1068 and argument at most 1.481, at which point the
+claim follows from elementary trigonometry.
+It remains to attend to the lower edge of ∂R, in which N0 ≤ N ≤ N1 and y = 0.2. This is
+by far the most delicate side of the rectangle for the purposes of verifying (93). We will split
+the range [N0 , N1 ] into a number of subintervals [N− , N+ ] and obtain a uniform lower bound for
+dist(Et,5 (x + iy) ft (x + iy), (−∞, 0]) when N is in one of these subintervals [N− , N+ ].
+Fix [N− , N+ ] ⊂ [N0 , N1 ], suppose that N ∈ [N− , N+ ], and write s∗ = σ + iT . We first deal with
+the κ term in the definition of ft (x + iy) by writing
+n−κ = 1 + O≤ (n|κ| − 1)
+and hence
+(96)
+
+
+
+N
+N
+N
+t
+t
+X
+X
+ X
+
+b
+b
+btn
+n
+n
+y
+y
+|κ|
+|γ|
+ .
+ft (x + iy) =
++
+γ
+n
++
+O
+n
+(n
+−
+1)
+≤
+
+
+σ
+σ+iT
+σ−iT
+n
+n
+n
+n=1
+n=1
+n=1
+btn
+n=2 n2.1143 can be numerically computed directly, but one could also use Lemma 8.2 (using for instance
+
+8The sum PN1
+
+N0 = 69098) to obtain a usable upper bound as well. Similarly for the other sums of this type that appear in this
+argument.
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+53
+
+In particular, using (20) to bound
+|γ|ny ≤ e0.02y (xN /4πn2 )−y/2
+1
+(N − )/n2
+80
+
+0.02
+
+!−y/2
+
+2
+
+≤e
+
+≤ 1.03(N 2 /n2 )−0.1
+≤ 1.03(n/N− )−0.2 .
+we have
+
+
+N
+N
+t
+X
+X
+
+
+b
+btn
+n
+0.2
+ + O≤ (Z)
+1.03|Et,5 (x + iy)|
++
+O
+Et,5 (x + iy) ft (x + iy) = Et,5 (x + iy)
+(n/N
+)
+−
+≤
+
+
+σ+iT
+σ−iT 
+n
+n
+n=1
+n=1
+where
+Z B 1.644
+
+N
+X
+bt
+(n/N)0.2 σn (n|κ| − 1).
+n
+n=1
+
+We can write
+Et,5 (x + iy) =
+where D B 2 × 3 × 5 and
+λd B
+
+X λd
+dσ+iT
+d|D
+
+Y
+(−btp ).
+p|d
+
+As a consequence, we have
+DN
+N
+X
+X
+btn
+βn
+=
+Et,5 (x + iy)
+σ+iT
+σ+iT
+n
+n
+n=1
+n=1
+
+where
+βn B
+
+X
+
+λd btn/d .
+
+d|n,D
+
+PDN βn
+Thus for instance β1 = 1 and β p = 0 for p = 2, 3, 5, so that the Dirichlet series n=1
+is
+nσ+iT
+PN btn
+expected to experience less oscillation than the series n=1 nσ+iT .
+PN
+btn
+is not favorable due to the negative sign in
+The product of Et,5 (x + iy) and n=1
+(n/N− )0.2 nσ−iT
+the σ − iT exponent. But since |z||w| = |zw|, we have
+1.03|Et,5 (x + iy)|
+
+N
+X
+
+N
+X
+btn
+btn
+= 1.03 Et,5 (x + iy) (n/N− )0.2 σ+iT
+(n/N− )0.2 σ−iT
+n
+n
+n=1
+n=1
+
+=
+
+DN
+X
+N −0.2 αn
+−
+
+n=1
+
+nσ+iT
+
+where
+αn B 1.03
+
+X
+d|n,D
+
+λd (n/d)0.2 btn/d .
+
+54
+
+D.H.J. POLYMATH
+
+Note that the coefficients αn , βn are both real. We now have
+
+ DN
+DN
+X
+ X N −0.2 αn 
+βn
+−
+ + O≤ (Z).
++ O≤ 
+(97)
+Et,5 (x + iy) ft (x + iy) =
+
+σ+iT
+σ+iT 
+n
+n
+n=1
+n=1
+A naive application of the triangle inequality (using β1 = 1) would give the lower bound
+(98)
+
+dist(Et,5 (x + iy) ft (x + iy), (−∞, 0]) ≥ 1 − N−−0.2 α1 −
+
+DN
+X
+|βn | + |N −0.2 αn |
+n=2
+
+−
+σ
+n
+
+− Z.
+
+As it turns out, this bound is not quite strong enough to be satisfactory for the numerical ranges
+PDN βn
+of parameters we need. To do better we need to exploit the fact that when the sum n=1
+nσ+iT
+PDN N −0.2 αn
+exhibits significant cancellation, then the sum n=1 nσ+iT will also. The key tool here is
+Lemma 8.5 (Improved triangle inequality). We have
+1−N −0.2 α
+
+1
+−
+DN max(|βn − N −0.2 αn |,
+|β + N−−0.2 αn |)
+X
+−
+1+N−−0.2 α1 n
+−0.2
+dist(Et,5 (x+iy) ft (x+iy), (−∞, 0]) ≥ 1−N− α1 −
+−Z.
+nσ
+n=2
+
+Proof. Write
+1−N −0.2 α
+
+YB
+
+1
+−
+DN max(|βn − N −0.2 αn |,
+|β + N−−0.2 αn |)
+X
+−
+1+N −0.2 α1 n
+−
+
+nσ
+
+n=2
+
+.
+
+We may assume that N−−0.2 α1 + Y < 1, otherwise the claim is trivial. By (97) and convexity, it
+suffices to show that
+DN
+X
+βn + eiθ N−−0.2 αn
+dist(
+, (−∞, 0]) ≥ 1 − N−−0.2 α1 − Y
+σ+iT
+n
+n=1
+
+for all phases θ ∈ R. We may write
+DN
+X
+βn + eiθ N −0.2 αn
+n=1
+
+−
+σ+iT
+n
+
+ DN
+
+X |βn + eiθ N −0.2 αn | 
+−
+
+= 1 + eiθ N−−0.2 α1 + O≤ 
+
+σ
+n
+n=2
+
+ DN
+
+
+X |βn + eiθ N −0.2 αn |/|1 + eiθ N −0.2 α1 | 
+−
+−
+ .
+= (1 + eiθ N−−0.2 α1 ) 1 + O≤ 
+
+σ
+n
+n=2
+
+By the cosine rule, we have
+
+
+|βn + eiθ N−−0.2 αn |/|1 + eiθ N−−0.2 α1 |
+
+2
+
+=
+
+β2n + N−−0.4 α2n + 2N−−0.2 αn βn cos θ
+.
+1 + N−−0.4 α21 + 2N−−0.2 α1 cos θ
+
+This is a fractional linear function of cos θ with no poles in the range [−1, 1] of cos θ. Thus this
+function is monotone on this range and attains its maximum at either cos θ = +1 or cos θ = −1.
+We conclude that
+!
+|βn + eiθ N−−0.2 αn |
+|βn − N−−0.2 αn | |βn + N−−0.2 αn |
+≤ max
+,
+|1 + eiθ N−−0.2 α1 |
+1 − N−−0.2 α1
+1 + N−−0.2 α1
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+55
+
+and thus
+DN
+X
+|βn + eiθ N −0.2 αn |/|1 + eiθ N −0.2 α1 |
+−
+
+−
+
+nσ
+
+n=2
+
+1
+Y.
+1 − N−−0.2 α1
+
+≤
+
+We conclude from the triangle inequality that
+DN
+X
+βn + eiθ N −0.2 αn
+−
+nσ+iT
+
+n=1
+
+=1+e
+
+iθ
+
+N−−0.2 α1 + O≤
+
+!
+|1 + eiθ N−−0.2 α1 |
+Y .
+1 − N−−0.2 α1
+
+By further application of the triangle inequality
+DN
+X
+βn + eiθ N−−0.2 αn
+|1 + eiθ N−−0.2 α1 |
+iθ −0.2
+,
+(−∞,
+0])
+≥
+dist(1
++
+e
+N
+α
+,
+(−∞,
+0])
+−
+Y
+dist(
+1
+−
+nσ+iT
+1 − N−−0.2 α1
+n=1
+
+|1 + eiθ N−−0.2 α1 |
+Y
+1 − N−−0.2 α1
+!
+Y
+iθ −0.2
+= |1 + e N− α1 | 1 −
+1 − N−−0.2 α1
+!
+Y
+−0.2
+≥ (1 − N− α1 ) 1 −
+1 − N−−0.2 α1
+= |1 + eiθ N−−0.2 α1 | −
+
+= 1 − N−−0.2 α1 − Y
+as desired, where we have used the fact that 1 + eiθ N−−0.2 α1 lies to the right of the imaginary axis
+(so that the closest element of (−∞, 0] is the origin).
+
+Bounding DN ≤ DN+ , we see that in order to establish (93) in the range N ∈ [N− , N+ ], it
+suffices to verify the inequality
+1 − N−−0.2 α1 −
+
+1−N −0.2 α
+DN
+X+ max(|βn − N−−0.2 αn |, 1+N−−0.2 α11 |βn + N −0.2 αn |)
+−
+
+nσ
+
+n=2
+
+− Z ≥ 2.14 × 10−3 .
+
+From (21), (80) one has
+
+
+1+y t
+4y(1 + y) 
+xN
+t 
+1 − 3y +
+
+σ≥
++ log
+−
+2
+4
+4π 2x2N
+x2N
++
+
+
+
+
+1
+0.96 
+xN
+1 
+0.4 +
+
+log
+−
+= 0.6 +
+20
+4π 10x2N
+x2N
+
+
+0.96 
+1
+1
+1 
+2
+= 0.6 +
+log(N − ) −
+0.4 + 2 
+20
+80
+10x2N0
+xN0
+≥ σN−
+where
+σN− B 0.599 +
+
+1
+log N−
+10
+
+while from (22), (80) one has
+|κ| ≤
+
+ty
+0.02
+≤
+≤ 4 × 10−13
+2(xN − 6) xN0 − 6
+
+56
+
+D.H.J. POLYMATH
+
+and hence it suffices to show that
+F N− ,N+ − ZN− ,N ≥ 2.14 × 10−3
+where
+F N− ,N+ B 1 − N−−0.2 α1 −
+
+1−N −0.2 α
+DN
+X+ max(|βn − N−−0.2 αn |, 1+N−−0.2 α11 |βn + N−−0.2 αn |)
+−
+
+nσN−
+
+n=2
+
+and
+ZN− ,N B 1.644
+
+N
+X
+
+bt
+−13
+(n/N)0.2 σnN (n4×10 − 1).
+−
+n
+n=1
+
+Since σN− ≥ 1.714, we may crudely bound
+N1
+X
+btn
+−13
+(n4×10 − 1) ≤ 10−10
+ZN− ,N ≤ 1.644
+1.714
+n
+n=1
+
+so it will suffice to show that
+F N− ,N+ ≥ 2.15 × 10−3
+for a collection of intervals [N− , N+ ] covering [N0 , N1 ]. This can be done by ad hoc numerical
+experimentation; for instance, one can calculate that
+F69098,8×104 = 0.0263 . . .
+F8×104 ,1.1×105 = .0470 . . .
+F1.1×105 ,2.2×105 = 0.093 . . .
+F2.2×105 ,1.5×106 = 0.060 . . . .
+9. Asymptotic results
+In this section we use the effective estimates from Theorem 1.3 to obtain asymptotic information about the function Ht , which improves (and makes more effective) the results of Ki, Kim,
+and Lee [10], by establishing Theorem 1.5.
+We begin with
+Proposition 9.1 (Preliminary asymptotics). Let 0 < t ≤ 1/2, x ≥ 200, and −10 ≤ y ≤ 10.
+(i) If x ≥ exp( Ct ) for a sufficiently large absolute constant C, then
+!
+!
+1 + y − ix
+1 − y + ix
+−ct
+−ct
+Ht (x + iy) = (1 + O(x ))Mt
++ (1 + O(x ))Mt
+2
+2
+for an absolute constant c > 0, where Mt is defined in (10).
+(ii) If instead we have 3 ≤ y ≤ 4 and x ≥ C for a sufficiently large absolute constant C, then
+!
+1 + y − ix
+.
+Ht (x + iy) = (1 + O≤ (0.7))Mt
+2
+(iii) If x = x0 + O(1) for some x0 ≥ 200, then
+Ht (x + iy) = O x0O(1) Mt
+
+1 + y − ix
+2
+
+!!
+
+
+ ix  
+0
+= O x0O(1) Mt
+.
+2
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+57
+
+Proof. We begin with (i). Since Ht = Ht∗ and Mt = Mt∗ , we may assume without loss of
+generality that y ≥ 0. Using (16), (11) we may write the desired estimate as
+Ht (x + iy)
+= 1 + O(x−ct ) + γ.
+Bt (x + iy)
+We apply Theorem 1.3. (Strictly speaking, the estimates there required y ≤ 1 rather than y ≤ 10;
+however, as remarked at the beginning of Section 6, all the estimates in that section would
+continue to hold under this weaker hypothesis if one adjusted all the numerical constants appropriately.) This gives
+(99)
+
+N
+N
+t
+X
+
+Ht (x + iy) X btn
+y bn
++ O≤ eA + eB + eC,0
+=
++
+γ
+n
+s
+s
++κ
+∗
+∗
+Bt (x + iy) n=1 n
+n
+n=1
+
+where
+γ = O(x−y/2 )
+κ = O(x−1 )
+x
+1+y t
++ log
+− O(x−2 )
+Re s∗ ≥
+2
+2
+4π
+
+
+N
+2 
+X
+
+1−y t
+x
+−1 ) log x 
+
+−y/2
+t
+−
+−
+log
+−O(x
+eA = O  x
+bn n 2 2 4π
+
+x
+n=1
+ N
+
+2 
+X
+1+y t
+
+x
+−1
+log
+x
+
+eB = O  btn n− 2 − 2 log 4π +O(x )
+x 
+n=1
+ 1+y 
+eC,0 = O x− 4
+−1
+
+Since N = O(x1/2 ), we have x−y/2 ny = O(1) and nO(x ) = O(1) for all 1 ≤ n ≤ N. We conclude
+that
+
+
+N
+t
+ log2 x X
+1+y 
+
+b
+Ht (x + iy)
+n
++ x− 4 
+= 1 + γ + O 
++
+1+y t
+x
++
+log
+Bt (x + iy)
+x
+4π
+n=2 n 2 2
+so it will suffice (for c small enough) to show that
+N
+X
+
+btn
+
+n=2 n
+
+1+y t
+x
+2 + 2 log 4π
+
+= O(x−ct ).
+
+By (15) we can write the left-hand side as
+N
+X
+n=2 n
+
+For 2 ≤ n ≤ N, we have
+
+1
+1+y t
+x√
+2 + 2 log 4π n
+
+= O(x−ct ).
+
+1+y t
+x
++ log √ ≥ ct log x
+2
+2
+4π n
+for some absolute constant c > 0. By the integral test, the left-hand side is then bounded by
+Z ∞
+1
+1
++
+du
+ct
+log
+x
+ct
+log x
+2
+2 u
+
+58
+
+D.H.J. POLYMATH
+
+which, for x ≥ exp(C/t) and C large, is bounded by O(2−ct log x ). The claim then follows after
+adjusting c appropriately.
+Now we prove (ii). As before we have the expansion (99). We have
+
+
+N
+N
+t
+t
+X
+X
+
+
+b
+b
+n
+
+γ
+ny s n+κ = O  x−y/2
+1−y t
+
+x 
+∗
++ 2 log 4π
+n
+2
+n=1
+n=1 n
+
+
+N
+
+y−1 
+ −y/2 X
+= O  x
+n 2 
+n=1
+
+= O(x
+2
+
+− y−1
+4
+
+);
+
+1−y
+
+similar arguments give eA = O( logx x x 4 ), while
+
+
+N
+ log2 x X
+
+1+y t
+x 
+t
+−
+−
+log
+eB = O 
+bn n 2 2 4π 
+x n=1
+
+
+N
+
+ log2 x X
+n−2 
+= O 
+x n=1
+!
+log2 x
+.
+=O
+x
+We conclude that
+N
+Ht (x + yi) X btn
+− y−1
+4 )
+=
++
+O(x
+Bt (x + yi) n=1 n s∗
+
+ N
+
+X 1+y t
+y−1
+x
+−1
+= 1 + O≤  n− 2 − 2 log 4π −O(x )  + O(x− 4 )
+n=2
+ N
+
+X
+
+−2
+= 1 + O≤  n  + O(x−1/2 )
+n=2
+!
+π2
+= 1 + O≤
+− 1 + O(x−1/2 )
+6
+= 1 + O≤ (0.7)
+
+as claimed, if x ≥ C for C large enough.
+Finally, we prove (iii). Again our starting point is (99). The right-hand side can be bounded
+crudely by O(xO(1) ) = O(x0O(1) ), hence
+!!
+1 + y + ix
+O(1)
+Ht (x + iy) = O x0
+Mt
+.
+2
+However, from (10), (6), (9) it is not hard to see that the log-derivative of Mt (s) is of size
+O(log x0 ) in the region s = ix20 + O(1). Thus
+!
+
+ ix  
+1 + y + ix
+0
+Mt
+= O x0O(1) Mt
+,
+2
+2
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+59
+
+
+
+giving the claim.
+To understand the behavior of Mt (x + iy), we make the following simple observations:
+
+Lemma 9.2 (Behavior of Mt ). Let 0 < t ≤ 1/2, let x∗ > 0 be sufficiently large, and let x + iy =
+x∗ + O(1). Then
+!!
+!
+!
+!
+x∗ πi
+1 + y + ix
+1 + ix∗
+1
+log x∗
++
+.
+Mt
+= Mt
+exp (i(x − x∗ ) + y) log
++O
+2
+2
+4
+4π 8
+x∗
+
+
+∗
+Also, there is a continuous branch of argMt 1+ix
+for all large real x∗ such that
+2
+!
+1 + ix∗
+x∗ 7π x∗
+x∗ x∗
+log x∗
+tπ
+argMt
+log
++
++ log
+−
++ O(
+).
+=
+2
+16
+4π
+8
+4
+4π 4
+x∗
+Proof. By (10), (8), the log-derivative of Mt is given by
+(100)
+
+Mt0
+t
+= α + αα0 .
+Mt
+2
+
+For s = ix2∗ + O(1), we have from (9) that
+(101)
+
+1
+x∗ πi
+1
+α(s) = log
++ +O
+2
+4π 4
+x∗
+
+!
+
+and from this and (43) we conclude that
+Mt0 (s) 1
+x∗ πi
+log x∗
+= log
++ +O
+Mt (s) 2
+4π 4
+x∗
+
+!
+
+whenever s = ix2∗ + O(1). The first claim then follows by applying the fundamental theorem of
+calculus to a branch of log Mt .
+For the second claim, we calculate
+!
+!2
+!
+1 + ix∗
+t
+1 + ix∗
+x∗
+−1 + ix∗
+1 + ix∗ 1 + ix∗
+argMt
+= Im (α
+) + π − log π + Im
+log
+−
+2
+4
+2
+4
+4
+4
+4
+!
+!!!
+t π
+x∗
+log x∗
+x∗
+−1 + ix∗
+x∗ iπ
+i
+1
+x∗
+=
+log
++ O(
+) + π − log π + Im
+log + −
++O 2
+−
+4 4
+4π
+x∗
+4
+4
+4
+2
+x∗
+4
+x∗
+!
+tπ
+x∗
+x∗
+x∗ x∗
+x∗ π
+log x∗
+=
+log
++ π − log π −
++ log − + O
+16
+4π
+4
+4
+4
+4
+8
+x∗
+!
+tπ
+x∗ 7π x∗
+x∗ x∗
+log x∗
+=
+log
++
++ log
+−
++O
+16
+4π
+8
+4
+4π 4
+x∗
+as desired.
+
+
+
+Now we can prove Theorem 1.5. We begin with (ii). Let n ≥ exp( Ct ), and suppose that
+x + iy = xn + O(1). By Proposition 9.1(i) and Lemma 9.2 we have
+!
+!
+!
+1 + ixn
+1
+xn πi
+−ct
+Ht (x + iy) = Mt
+exp (−i(x − xn ) + y) log
+−
++ O(xn )
+2
+4
+4π 8
+(102)
+!
+!
+!
+1 + ixn
+1
+xn πi
++ Mt
+exp (i(x − xn ) − y) log
++
++ O(xn−ct ) .
+2
+4
+4π 8
+
+60
+
+D.H.J. POLYMATH
+
+From Lemma 9.2 and (26) one has
+argMt
+
+!
+!
+log xn
+1 + ixn
+π
+mod π
+=− +O
+2
+2
+xn
+
+and hence
+!
+!
+!
+1 + ixn
+1 + ixn
+log xn
+(103)
+Mt
+) Mt
+= − exp O(
+.
+2
+xn
+2
+
+
+If we now make the further assumption y = O log1 xn , we can thus simplify the above approximation as
+(104)
+!
+!
+1 + ixn −π(x−xn )/8
+1
+xn
+−ct
+Ht (x + iy) = −Mt
+e
+exp (−i(x − xn ) + y) log
++ O(|y| log xn + xn )
+2
+4
+4π
+!
+!
+xn
+1 + ixn −π(x−xn )/8
+1
+−ct
++ O(|y| log xn + xn )
+e
+exp (i(x − xn ) − y) log
++ Mt
+2
+4
+4π
+!
+
+xn 
+1 + ixn −π(x−xn )/8   x + iy − xn
+e
+sin
+log
++ O(|y| log xn + xn−ct ) .
+= 2iMt
+2
+4
+4π
+In particular, if x + iy traverses the circle {xn + logc n eiθ : 0 ≤ θ ≤ 2π} once anti-clockwise and c
+is small enough, the quantity Ht (x + iy) will wind exactly once around the origin, and hence by
+the argument principle there is precisely one zero of Ht inside this circle. As the zeroes of Ht
+are symmetric around the real axis, this zero must be real. This proves (ii).
+Now we prove (i). Suppose that Ht (x + iy) = 0 and x ≥ exp( Ct ). We can assume |y| ≤ 1 since
+it is known (e.g., from [5, Theorem 13]) that there are no zeroes with |y| > 1.
+
+Let n be a natural number that minimises |x − xn |, then x = xn + O log1 xn since the derivative
+of the left-hand side of (26) in xn is comparable to log xn . From (102) we have
+!
+!
+!
+1
+xn πi
+1 + ixn
+exp (−i(x − xn ) + y) log
+−
++ O(xn−ct )
+0 = Mt
+2
+4
+4π 8
+!
+!
+1 + ixn
+1
+xn πi
+−ct
++ Mt (
+) exp (i(x − xn ) − y) log
++
++ O(xn ) .
+2
+4
+4π 8
+Thus both summands on the right-hand side have the same magnitude, which on taking logarithms and canceling like terms implies that
+1
+xn
+xn
+1
+y log
++ O(xn−ct ) = −y log
++ O(xn−ct )
+4
+4π
+4
+4π
+ −ct 
+x
+and hence y = O logn xn . We can now apply (104) to conclude that
+ x + iy − x
+xn 
+n
+sin
+log
++ O(xn−ct ) = 0
+4
+4π
+ −ct 
+x
+which (when combined with the hypothesis that |x − xn | is minimal) forces x − xn = O logn xn .
+This gives the claim.
+Next, we prove (iii). In view of parts (i) and (ii), and adjusting C if necessary, we may assume
+that X takes the form X = xn + logc xn for some n ≥ exp( Ct ). By the argument principle, Nt (X) is
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+61
+
+equal to −1
+2π times the variation in the argument of Ht on the boundary of the rectangle {x + iy :
+0 ≤ x ≤ X; −3 ≤ y ≤ 3} traversed clockwise, since there are no zeroes with imaginary part of
+magnitude greater than one. By compactness, the variation on the left edge {iy : −3 ≤ y ≤ 3}
+is O(1), and similarly for any fixed portion {x + 3i : 0 ≤ x ≤ C} of the upper edge. From
+Proposition 9.1 (and (102)), we see that the variation of Ht (x + iy)/Mt ( 1+y−ix
+2 ) on the remaining
+upper edge {x + 3i : C ≤ x ≤ X} and on the top half {X + iy : 0 ≤ y ≤ 3} of the right edge are
+both equal to O(1). Since Ht = Ht∗ , the variation on the lower half of the rectangle is equal to
+that of the upper half. We thus conclude that
+!
+1
+1 − iX
+Nt (X) = − argMt
++ O(1)
+π
+2
+
+
+that is bounded at 3i. The claim
+where we use a continuous branch of the argument of Mt 1−iX
+2
+1+iX
+∗
+now follows from Lemma 9.2 (using Mt = Mt to work with 2 instead of 1−iX
+2 ).
+Finally, we prove (iv). From the Hadamard factorization theorem as in the proof of Proposition 3.1 we have
+!
+Ht0 (z) X
+1
+1
++
+=
+(105)
+Ht (z) n>0 z − zn z + zn
+where the zeroes of Ht are indexed in pairs ±zn . Setting z = X + 4i, we see from Proposition 9.1 and the
+ generalized Cauchy integral formula that the logarithmic derivative of Ht (x +
+iy)/Mt 1+y−ix
+is equal to O(1) at X + 4i for all sufficiently large X, and hence for all X by sym2
+metry and compactness. On the other hand, from Stirling’s formula (or the logarithmic
+growth
+of
+
+
+is
+equal
+the digamma function) one easily verifies that the logarithmic derivative of Mt 1+y−ix
+2
+H 0 (X+4i)
+
+to O(log(2 + X)) at X + 4i. Hence Htt (X+4i) = O(log(2 + X)). Taking imaginary parts, we conclude
+that
+X
+4 + yn
+4 − yn
+−
+= O(log(2 + X))
+−
+2
+2
+(X − xn ) + (4 − yn )
+(X + xn )2 + (4 + yn )2
+n>0
+where we write zn = xn + iyn ; equivalently one has
+X
+(4 − yn )
+= O(log(2 + X))
+(X − xn )2 + (4 − yn )2
+n
+where the sum now ranges over all zeroes, including any at the origin. Since |yn | ≤ 1, every
+1
+zero in [X, X + 1] makes a contribution of at least 100
+(say). As the summands are all positive,
+the first part of claim (iv) follows. To prove the second part, we may assume by compactness
+that x ≥ C. Repeating the proof of (iii), and reduce to showing that the variation of argHt on
+the short vertical interval {X + iy : 0 ≤ y ≤ 3} is O(log X). If we let θ be a phase such that
+eiθ Ht (X + 3i) is real and positive, we see that this variation is at most π(m + 1), where m is the
+number of zeroes of Re (eiθ Ht (X + yi)) for 0 ≤ y ≤ 3, since every increment of π in argeiθ Ht
+must be accompanied by at least one such zero. As Ht = Ht∗ , this is also the number of zeroes
+of eiθ Ht (X + yi) + e−iθ Ht (2X − (X + yi)). On the other hand, from Proposition 9.1(ii), (iii) and
+Jensen’s formula we see that the number of such zeroes is O(log X), and the claim follows.
+Remark 9.3. Theorem 1.5 gives good control on Ht (x + iy) whenever x ≥ exp(C/t). As a
+consequence (and assuming for sake of argument that the Riemann hypothesis holds), then for
+any Λ0 > 0, the bound Λ ≤ Λ0 should be numerically verifiable in time O(exp(O(1/Λ0 ))), by
+
+62
+
+D.H.J. POLYMATH
+
+applying the arguments of previous sections with t and y set equal to small multiples of Λ0 . We
+leave the details to the interested reader.
+Remark 9.4. Our discussion here will be informal. In view of the results of [9], it is expected
+that the zeroes z j (t) of Ht (x + iy) should evolve according to the system of ordinary differential
+equations
+0
+X
+1
+d
+zk (t) = 2
+dt
+z
+(t)
+−
+z j (t)
+j,k k
+where the sum is evaluated in a suitable principal value sense, and one avoids those times where
+the zero zk (t) fails to be simple; see [9, Lemma 2.4] for a verification of this in the regime t > Λ.
+In view of the Riemann-von Mangoldt formula (as well as variants such Corollary 1.5, it is
+expected that the number of zeroes in any region of the form {x + iy : x + iy = x∗ + O(1)} for
+large x∗ should be of the order of log x∗ . As a consequence, we expect a typical zero zk (t) to
+move with speed O(log |zk (t)|), although one may occasionally move much faster than this if two
+zeroes are exceptionally close together, or less than this if the zeroes are close to being evenly
+spaced. As a consequence, if the Riemann hypothesis fails and there is a zero x + iy of H0 with
+y comparable to 1, it should take time comparable to log1 x for this zero to move towards the real
+axis, leading to the heuristic lower bound Λ  log1 x . Thus, in order to obtain an upper bound
+Λ ≤ Λ0 , it will probably be necessary to verify that there are no zeroes x + iy of H0 with y
+comparable to 1 and |x| ≤ c log Λ1 for some small absolute constant c > 0. This suggests that the
+time complexity bound in Remark 9.3 is likely to be best possible (unless one is able to prove the
+Riemann hypothesis, of course).
+In [9, Lemma 2.1] it is also shown that the velocity of a given zero z(t) is given by the formula
+H 00 (z(t))
+d
+z(t) = t0
+dt
+Ht (z(t))
+assuming that the zero is simple. By using the asymptotics in Proposition 9.1 and Corollary 1.5
+together with the generalized Cauchy integral formula to then obtain asymptotics for Ht0 and
+Ht00 , it is possible to show that for the zeroes x(t) that are real and larger than exp(C/t), and
+move leftwards with velocity
+π
+d
+x(t) = − + O(x−ct );
+dt
+4
+we leave the details to the interested reader.
+10. Further numerical results
+By Theorem 1.5, one can verify the second hypothesis of Theorem 1.2 when X ≥ exp(C/t0 )
+for a large constant C. If we ignore for sake of discussion the third hypothesis of Theorem 1.2
+(which turns out to be relatively easy to verify numerically in practice), this suggests that one
+can obtain a bound of the form Λ ≤ O(t0 ) provided that one can verify the Riemann hypothesis
+up to a height exp(C/t0 ). In other words, if one has numerically verified theRiemann
+hypothesis
+
+1
+up to a large height T , this should soon lead to a bound of the form Λ ≤ O log T .
+Aside from improving the implied constant in this bound, it does not seem easy to improve
+this sort of implication without a major breakthrough on the Riemann hypothesis (such as a
+massive expansion of the known zero-free regions for the zeta function inside the critical strip).
+We shall justify this claim heuristically as follows. Suppose that there was a counterexample to
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+63
+
+Figure 18. Real zeros moving up leftwards and getting ‘solidified’.
+
+the Riemann hypothesis at a large height T , so that H0 (2T + iy) = 0 for some positive y, which
+for this discussion we will take to be comparable to 1. The Riemann von Mangoldt formula
+indicates that the number of zeroes of H0 within a bounded distance of this zero should be
+comparable to log T ; the majority of these zeroes should obey the Riemann hypothesis and thus
+stay at roughly unit distance from our initial zero 2T + iy. Proposition 3.1 then suggests that
+as time t advances, this zero should move at speed comparable to log T . Thus one should not
+expect this zero to reach the real axis until a time comparable to log1 T . This heuristic analysis
+
+
+therefore indicates that it is unlikely that one can significantly improve the bound Λ ≤ O log1 T
+without being able to exclude significant violations of the Riemann hypothesis at height T .
+The table below collects some numerical results verifying the second two hypotheses of Theorem 1.2 for larger values of X, and smaller values of t0 , y0 , than were considered in Section 8.
+This leads to improvements to the bound Λ ≤ 0.22 conditional on the assumption that the Riemann Hypothesis can be numerically verified beyond the height T ≈ 3.06 × 1010 used in Section
+8. For instance, the final row of the table implies that one has the bound Λ ≤ 0.1 assuming that
+the Riemann hypothesis is verified up to the height T ≈ 4.5 × 1021 . Note that this is broadly
+consistent with the previous heuristic that the upper bound on Λ is proportional to log1 T .
+The selection of parameters in this table proceeded as follows. One first located parameters
+t0 , y0 , N0 (with the quantity Λ = t0 + 21 y20 as small as possible) for which one could obtain a
+good lower bound for ft0 (x + iy0 ) when x = N0 ; we arbitrarily chose a target lower bound of
+
+64
+
+D.H.J. POLYMATH
+
+Figure 19. Actual trajectories of some real and complex zeros.
+Table 1. Conditional Λ Results
+X
+2 × 1012 + 129093
+5 × 1012 + 194858
+2 × 1013 + 131252
+6 × 1013 + 123375
+3 × 1014 + 188911
+2 × 1015 + 122014
+7 × 1015 + 68886
+6 × 1016 + 156984
+6 × 1017 + 88525
+9 × 1018 + 35785
+2 × 1020 + 66447
+9 × 1021 + 70686
+
+t0
+0.198
+0.186
+0.180
+0.168
+0.161
+0.153
+0.139
+0.132
+0.122
+0.113
+0.102
+0.093
+
+y0
+0.15492
+0.16733
+0.14142
+0.15492
+0.13416
+0.11832
+0.14832
+0.12649
+0.12649
+0.11832
+0.12649
+0.11832
+
+Λ Winding Number
+N0 | ft (x + iy)| lower bound
+0.21
+0
+398942
+0.0341
+0.20
+0
+630783
+0.0376
+0.19
+0
+1261566
+0.0349
+0.18
+0
+2185096
+0.0377
+0.17
+0
+4886025
+0.0369
+0.16
+0
+12615662
+0.0532
+0.15
+0
+23601743
+0.0350
+0.14
+0
+69098829
+0.0307
+0.13
+0
+218509686
+0.0347
+0.12
+0
+846284375
+0.0318
+0.11
+0
+3989422804
+0.0305
+0.1
+0
+26761861742
+0.0321
+
+| ft0 (x + iy0 )| ≥ 0.03 to provide an adequate safety margin. From (96) one had
+(106)
+
+ft0 (x + iy0 ) =
+
+N
+X
+n=1
+
+βn + O≤ (|γ||
+
+N
+X
+n=1
+
+
+
+N
+t0
+ X
+
+b
+n
+y
+|κ|
+αn |) + O≤ |γ|
+n 0 σ (n − 1)
+n
+n=1
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+65
+
+where
+βn B
+
+btn0
+nσ+iT
+
+and
+αn B ny0
+
+btn0
+
+.
+nσ+iT
+The final term on the right-hand side of (106) can be estimated as in Section 8.5 and is negligible
+in practice. To control the other two terms, we use the following lemma (which roughly speaking
+corresponds to a simplified version of the “Euler 2 mollifier” version of the “Euler 5 mollifier”
+analysis in Section 8.5):
+Lemma 10.1. Let α1 , . . . , αN be complex numbers, and let β2 be a number such that whenever
+1 ≤ n ≤ N is even, β2 αn/2 lies on the line segment {θαn : 0 ≤ θ ≤ 1} connecting 0 with αn . Then
+we have the lower bound
+|1 − β2 |
+
+N
+X
+
+αn ≥ 2|α1 | − (1 − |β2 |)
+
+N
+X
+n=1
+
+n=1
+
+X
+
+|αn | − 2|β2 |
+
+|αn |
+
+N/2<n≤N
+
+and the upper bound
+|1 − β2 |
+
+N
+X
+
+αn ≤ (1 − |β2 |)
+
+n=1
+
+Proof. The quantity |1 − β2 ||
+
+N
+X
+
+X
+
+|αn | + 2|β2 |
+
+n=1
+
+|αn |.
+
+N/2<n≤N
+
+n=1 αn | can be written as
+
+PN
+
+2N
+X
+(1n≤N αn − 12|n αn/2 β2 ) .
+n=1
+
+By the triangle inequality, this is bounded above by
+2N
+X
+
+|1n≤N αn − 12|n αn/2 β2 |
+
+n=1
+
+and below by
+2|α1 | −
+
+2N
+X
+
+|1n≤N αn − 12|n αn/2 β2 |.
+
+n=1
+
+We have
+2N
+X
+
+|1n≤N αn − 12|n αn/2 β2 | =
+
+n=1
+
+N
+X
+
+2N
+X
+
+|αn | − 12|n |αn/2 ||β2 | +
+
+n=1
+
+12|n |αn/2 ||β2 |
+
+n=N+1
+
+which we can rearrange as
+(1 − |β2 |)
+
+N
+X
+n=1
+
+and the claim follows.
+
+|αn | + 2|β2 |
+
+X
+
+|αn |
+
+N/2<n≤N
+
+
+
+66
+
+D.H.J. POLYMATH
+
+PN
+PN
+Using this lemma to lower bound | n=1
+βn | and upper bound | n=1
+αn |, and then using the
+triangle inequality, yields a lower bound on | ft0 (x + iy0 )| when N = N0 . These quantities can be
+readily computed for many values of t0 , y0 , N0 , leading to an envelope for Λ and x ≈ 4πN02 that
+is depicted in Figure 20.
+
+Figure 20. The envelope of potential choices of x, Λ. Note the approximate
+inverse relationship between Λ and log1 x .
+By working in intervals N ∈ [N− , N+ ] for some finite number of intervals [N− , N+ ] covering
+[N0 , N1 ] for some large N1 as in Section 8.5, and then using a crude triangle inequality bound for
+N ≥ N1 as in Section 8.3, we thus (in view of the conservative safety margin in our lower bounds
+for | ft0 (x + iy0 )|) expect to be able to verify the hypothesis in Theorem 1.2(iii) for any choice
+of parameters t0 , y0 , N0 as above. The main remaining difficulty is then to verify the barrier
+hypothesis (Theorem 1.2(ii)). This is by far the most numerically intensive step, and we proceed
+as in Section 8.4, after using the ad hoc procedure in Section 8.1 to select X0 . The graphs in
+figure 21 illustrate that for increasing x, the number of xy-rectangles to be evaluated within the
+barrier, as well as the number of mesh points required per rectangle (measured at t = 0), increase
+exponentially.
+All barrier runs generated a winding number of zero for each rectangle and the scripts completed successfully without any errors. For all barrier locations, the computations of the mesh
+points where calculated at 20 digits accuracy except for the highest two where 10 digits where
+
+UPPER BOUND FOR DE BRUIJN-NEWMAN CONSTANT
+
+67
+
+Figure 21. The left graph shows how the number mesh points of the xyrectangle at t = 0 increases with x for each barrier. The graph on the right
+does the same, but now for the total number of xy-rectangles that need to be
+evaluated per barrier.
+used (to be able to compute it within a reasonable time). Checks where made before each formal
+run to assure the target accuracy would be achieved.
+The computations for X = 2 × 1020 + 66447 and X = 9 × 1021 + 70686 in the above table were
+massive, and performed using a Boinc [1] based grid computing setup, in which a few hundred
+volunteers participated. Their contributions can be tracked at anthgrid.com/dbnupperbound.
+11. Conflict of interest statement
+There are no conflicts of interest for this paper.
+References
+[1] D. P. Anderson, BOINC: A System for Public-Resource Computing and Storage, In GRID ’04: Proceedings of
+the Fifth IEEE/ACM International Workshop on Grid Computing (2004), 4–10.
+[2] J. Arias de Reyna, High-precision computation of Riemann’s zeta function by the Riemann-Siegel asymptotic
+formula, I, Mathematics of Computation, 80 (2011), 995–1009.
+[3] J. Arias de Reyna, J. Van de lune, On the exact location of the non-trivial zeroes of Riemann’s zeta function,
+Acta Arith. 163 (2014), 215–245.
+[4] W. G. C. Boyd, Gamma Function Asymptotics by an Extension of the Method of Steepest Descents, Proceedings:
+Mathematical and Physical Sciences, Vol. 447, No. 1931 (Dec. 8, 1994), 609–630.
+[5] N. C. de Bruijn, The roots of trigonometric integrals, Duke J. Math. 17 (1950), 197–226.
+[6] G. Csordas, T. S. Norfolk, R. S. Varga, A lower bound for the de Bruijn-Newman constant Λ, Numer. Math. 52
+(1988), 483–497.
+[7] G. Csordas, A. M. Odlyzko, W. Smith, R. S. Varga, A new Lehmer pair of zeros and a new lower bound for the
+De Bruijn-Newman constant Lambda, Electronic Transactions on Numerical Analysis. 1 (1993), 104–111.
+[8] G. Csordas, A. Ruttan, R.S. Varga, The Laguerre inequalities with applications to a problem associated with
+the Riemann hypothesis, Numer. Algorithms, 1 (1991), 305–329.
+[9] G. Csordas, W. Smith, R. S. Varga, Lehmer pairs of zeros, the de Bruijn-Newman constant Λ, and the Riemann
+hypothesis, Constr. Approx. 10 (1994), no. 1, 107–129.
+[10] H. Ki, Y. O. Kim, and J. Lee, On the de Bruijn-Newman constant, Advances in Mathematics, 22 (2009), 281–
+306.
+[11] D. H. Lehmer, On the roots of the Riemann zeta-function, Acta Math. 95 (1956), 291–298.
+
+68
+
+D.H.J. POLYMATH
+
+[12] H. L. Montgomery, The pair correlation of zeros of the zeta function, Analytic number theory (Proc. Sympos.
+Pure Math., Vol. XXIV, St. Louis Univ., St. Louis, Mo., 1972), 181–193. Amer. Math. Soc., Providence, R.I.,
+1973.
+[13] H. L. Montgomery, R. C. Vaughan, Multiplicative number theory. I. Classical theory. Cambridge Studies in
+Advanced Mathematics, 97. Cambridge University Press, Cambridge, 2007.
+[14] C. M. Newman, Fourier transforms with only real zeroes, Proc. Amer. Math. Soc. 61 (1976), 246–251.
+[15] T. S. Norfolk, A. Ruttan, R. S. Varga, A lower bound for the de Bruijn-Newman constant Λ II., in A. A. Gonchar
+and E. B. Saff, editors, Progress in Approximation Theory, 403–418. Springer-Verlag, 1992.
+[16] A. M. Odlyzko, An improved bound for the de Bruijn-Newman constant, Numerical Algorithms 25 (2000),
+293–303.
+[17] T. K. Petersen, Eulerian numbers. With a foreword by Richard Stanley. Birkhäuser Advanced Texts: Basler
+Lehrbücher. Birkhäuser/Springer, New York, 2015.
+[18] D. J. Platt, Isolating some non-trivial zeros of zeta, Math. Comp. 86 (2017), 2449–2467.
+[19] G. Polya, Über trigonometrische Integrale mit nur reelen Nullstellen, J. Reine Angew. Math. 58 (1927), 6–18.
+[20] D. H. J. Polymath, github.com/km-git-acc/dbn upper bound
+[21] D. H. J. Polymath,
+Zeroes of the heat flow evolution of the Riemann ξ function
+at
+negative
+times:
+numerical
+experiments
+and
+heuristic
+justifications,
+github.com/km-git-acc/dbn upper bound/blob/master/Writeup/Sharkfin/sharkfin.pdf
+[22] B. Rodgers, T. Tao, The De Bruijn-Newman constant is nonnegative, preprint. arXiv:1801.05914
+[23] Y. Saouter, X. Gourdon, P. Demichel, An improved lower bound for the de Bruijn-Newman constant, Mathematics of Computation. 80 (2011), 2281–2287.
+[24] J. Stopple, Notes on Low discriminants and the generalized Newman conjecture, Funct. Approx. Comment.
+Math., vol. 51, no. 1 (2014), 23–41.
+[25] J. Stopple, Lehmer pairs revisited, Exp. Math. 26 (2017), no. 1, 45–53.
+[26] H. J. J. te Riele, A new lower bound for the de Bruijn-Newman constant, Numer. Math., 58 (1991), 661–667.
+[27] E. C. Titchmarsh, The Theory of the Riemann Zeta-function, Second ed. (revised by D. R. Heath-Brown),
+Oxford University Press, Oxford, 1986.
+http://michaelnielsen.org/polymath1/index.php
+
+
