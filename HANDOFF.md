@@ -34,6 +34,9 @@ radius (~1e-24 at 80 bits). Note: 2nd arb() constructor arg is the RADIUS.
   Retry: S2 search endpoint (was 429) or JSTOR.
 - lean-zulip-pnt full thread: needs a Zulip API key or guest session;
   channel 423402 URL is the resolved reference meanwhile.
+- apt libflint-dev/libarb-dev: pkexec prompt timed out (90s, no human at
+  machine); non-blocking — python-flint 0.9 bundles its own FLINT+ARB and
+  all numerics go through it (probe in log).
 
 ## Budget
 Frontier calls used this week: 0 (of the 5 escalation triggers).
