@@ -265,3 +265,13 @@ promotion: claim #4 NOTE -> NUMERIC via promote.sh (checker re-runs the full scr
   asserts moment test, F1, 3x"F2: YES   F3: YES", 3x F4; machine said "CHECK OK").
 note: t=1000 value magnitude ~e^{1151} (heat peak u*~1.345, integrand peak ~1e518);
   the relative radius is the meaningful bound there (absolute radius ~6e470).
+
+## tick 17 post-note (2026-08-20T22:35Z)
+Numbering note: this interactive tick shares the number 17 with three timer ticks
+(17: 20:58 ERROR timed out steps=10; 18: 21:36 ERROR timed out steps=6; 19: 22:06
+steps=14) that fired during the interactive session. Timer tick 19 re-ran the FINAL
+ht_quadrature.py and reproduced the identical machine output (moment test True,
+F1: YES, 3x "F2: YES   F3: YES") — see evidence/2026-08-20-ht-quadrature/
+machine-run-tick19.txt. Independent re-confirmation of claim #4. From now on,
+interactive ticks are labeled "tick N (interactive)" and the next interactive tick
+takes the next free number (20) regardless of timer numbering.
