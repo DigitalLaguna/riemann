@@ -1,0 +1,18 @@
+=== machine check 0: GL moment test on [0,1] (n=32) ===
+Traceback (most recent call last):
+  File "/home/niklas/riemann/tracks/b-dbn/ht_quadrature.py", line 167, in <module>
+    print("moment test n=32:", moment_test(32, 0.0, 1.0))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/niklas/riemann/tracks/b-dbn/ht_quadrature.py", line 55, in moment_test
+    xs, ws = gl_mapped(n, a, b)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/niklas/riemann/tracks/b-dbn/ht_quadrature.py", line 49, in gl_mapped
+    xs, ws = gl_ref(n)
+             ^^^^^^^^^
+  File "/home/niklas/riemann/tracks/b-dbn/ht_quadrature.py", line 39, in gl_ref
+    roots = sorted(mp.polyroots(mp.legendre(n)))
+                                ^^^^^^^^^^^^^^
+  File "/home/niklas/.local/lib/python3.12/site-packages/mpmath/ctx_mp_python.py", line 1023, in f_wrapped
+    retval = f(ctx, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: legendre() missing 1 required positional argument: 'x'
