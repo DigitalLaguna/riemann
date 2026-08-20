@@ -11,3 +11,4 @@
 2026-08-20T17:46:49.987567+00:00 tick 11 model=qwen3.8-27b steps=16 wall=1283s next=Track B step 2: H_t(z) for t>0 in Arb. The t=0 closed form used
 2026-08-20T18:17:49.988787+00:00 tick 12 model=qwen3.8-27b steps=23 wall=1248s next=Track B step 2: H_t(z) for t>0 in Arb. The t=0 closed form used
 2026-08-20T18:48:49.987233+00:00 tick 13 ERROR timed out steps=5
+2026-08-20T19:19:49.989514+00:00 tick 14 model=qwen3.8-27b steps=25 wall=1098s next=Track B step 2: H_t(z) for t>0 in Arb. The t=0 closed form used

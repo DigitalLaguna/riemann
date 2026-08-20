@@ -24,10 +24,16 @@ Pre-registered checks (logs/2026-08-20.tick.log, tick 11):
 """
 import flint
 from mpmath import mp
+from fractions import Fraction
 flint.ctx.prec = 160
 acb = flint.acb
 fmpq = flint.fmpq
 PI = acb('3.141592653589793238462643383279502884197169399375105820974944592307816406286')
+
+def q(x):
+    """Exact fmpq from a decimal literal / mpf / float, via its decimal string."""
+    f = Fraction(str(x))
+    return fmpq(f.numerator, f.denominator)
 
 Z_RE, Z_IM = 35, 10
 N_MAX = 4
@@ -73,8 +79,9 @@ def gl_ref(n):
 def gl_mapped(n, a, b):
     """Map reference nodes to [a,b]; return (nodes, weights) as acb lists."""
     xs, ws = gl_ref(n)
-    mid = acb(fmpq(a + b, 2)); half = acb(fmpq(b - a, 2))
-    return [mid + half*acb(fmpq(str(x))) for x in xs], [half*acb(fmpq(str(w))) for w in ws]
+    aq, bq = q(a), q(b)
+    mid = acb((aq + bq) / 2); half = acb((bq - aq) / 2)
+    return [mid + half*acb(q(x)) for x in xs], [half*acb(q(w)) for w in ws]
 
 def moment_test(n, a, b):
     """Machine check: GL-n exact for polynomials deg < 2n-1; test k = 0..n."""
@@ -84,8 +91,8 @@ def moment_test(n, a, b):
         s = acb(0)
         for x, w in zip(xs, ws):
             s += w * x**k
-        exact = (acb(fmpq(b))**(k+1) - acb(fmpq(a))**(k+1)) / acb(k + 1)
-        if abs(s - exact) > acb(fmpq(1, 10**40)):
+        exact = (acb(q(b))**(k+1) - acb(q(a))**(k+1)) / acb(k + 1)
+        if abs(s - exact) > acb(fmpq(1, 10**40)).real:
             ok = False
             print(f"  MOMENT FAIL k={k}: {s} vs {exact}")
     return ok
@@ -110,7 +117,7 @@ def Ht_quad(t, n1=32, n2=64):
             Q2 += w * f(x)
     rad = abs(Q2 - Q1)
     # tails
-    um = acb(fmpq(U_MAX))
+    um = acb(q(U_MAX))
     tailA = acb(0)
     for n in range(1, N_MAX + 1):
         nn = acb(n)
