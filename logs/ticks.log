@@ -16,3 +16,5 @@
 2026-08-20T20:21:49.993794+00:00 tick 16 ERROR timed out steps=10
 2026-08-20T20:58:45.826608+00:00 tick 17 ERROR timed out steps=10
 2026-08-20T21:36:49.050130+00:00 tick 18 ERROR timed out steps=6
+2026-08-20T22:06:49.986537+00:00 tick 19 model=qwen3.8-27b steps=14 wall=1317s next=Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics
+2026-08-20T22:31:42 tick 17 model=interactive(frontier) steps=manual wall=manual next=Track B step 3: locate t_0=2.217e4 computation in dbn_upper_bound, run their code (2 sig figs), pre-register Arb re-implementation
