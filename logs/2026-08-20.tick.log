@@ -181,3 +181,22 @@ corrections to earlier log entries (append-only, noted here):
     (post-commit)" section further down; treat that section as the verbatim record.
   - tick 8: entry truncated mid-sentence (no machine-said block, no HANDOFF rewrite);
     its machine outputs are the two v1 runs recorded in this entry.
+
+--- tick 11 (frontier, 2026-08-20T17:5xZ) ---
+track: b | step: H_t(z), t>0, rigorous Arb quadrature of defining integral (handoff option (b))
+one-liner: not in DEAD_ENDS (A-001/A-002 are tooling; this is the first t>0 numerics attempt)
+prior-art pre-flight (queries, verbatim):
+  grep -n "def Ht\|def phi" tracks/b-dbn/dbn/dbn_upper_bound/python/mputility.py
+  -> L25 phi_decay: phi(u)=sum_n [2*pi^2*n^4*exp(9u)-3*pi*n^2*exp(5u)]*exp(-pi*n^2*exp(4u))
+  -> L45-55 Ht_complex_integrand: exp(t*u*u)*phi_decay(u)*cos(z*u)
+  -> L58-63 Ht_complex: mp.quad(integrand, [0,10])   [mpmath, non-rigorous, 30 dps]
+  verdict: method = prior art (Polymath15 public code); our delta = Arb balls + rigorous tail bound
+pre-registered falsification (BEFORE run):
+  F1: at t=0, Arb H_0(35+10i) must agree with claim #3 closed form to >=25 digits;
+      else the t=0 limit of the t>0 code is broken (truncation/summation bug).
+  F2: at t in {1,100,1000}, z=35+10i, Arb H_t must agree with independent mpmath
+      70-digit quadrature to >=20 digits; else method not understood.
+  F3: Arb radius must stay < 1e-25 at all four t (else balls not tight enough to
+      count as NUMERIC).
+  F4 (sanity, not falsifying): t=1000 value must be O(1e-4)-ish (heat decay),
+      not O(1) or NaN.
