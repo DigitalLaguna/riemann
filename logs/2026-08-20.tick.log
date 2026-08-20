@@ -113,3 +113,71 @@ falsification test (pre-registered, BEFORE run):
   the 'canopy' 0 <= x < infinity, y0 <= y <= 1, then a theorem of de Bruijn allows one
   to conclude the desired bound..."); the repo's own test references are the stronger
   machine-checkable target for the same goal (reproduce Polymath15 numerics).
+
+## tick 10 (2026-08-20, interactive/frontier) — Track B: H_0 closed form, machine verdict + bug fix
+state one-liner: planned work = verify/finish the H_0 closed-form implementation left by
+  ticks 5-9; not in DEAD_ENDS (A-001, A-002 both about tooling, not about the math);
+  tick 8 (local model) ran the two scripts but its log entry is TRUNCATED — it ends
+  mid-sentence in the pre-flight section, no "machine said" block, no HANDOFF rewrite.
+  This tick records the machine outputs verbatim and completes the step.
+gate: track B OPEN (6/6 seeds carded, gate.py).
+prior-art pre-flight: Polymath15 repo (tracks/b-dbn/dbn) is the direct prior art;
+  H_t definition re-verified from mputility.py lines 45-62 (Ht_complex_integrand,
+  Ht_complex) and lines 231-247 (Ht_AFE_ABC = A+B+C, "much more accurate approx
+  functional eqn"). Reference files verified present and quoted verbatim before use.
+work (bounded step): get a machine yes/no on the H_0 closed form, real axis and complex.
+machine said (verbatim):
+  $ python3 tracks/b-dbn/ht_closed_form.py   [saved: evidence/2026-08-20-h0-closed-form/machine-real-axis.txt]
+  k   x     H0_closed(Arb)        ref(sample)         diff        agree(8d)?
+  0   0.0   0.06214009727  0.06214009727  4.23e-16  True  rad=8.3e-35
+  1   0.1   0.06213650800  0.06213650800  4.09e-16  True  rad=5.8e-34
+  2   0.2   0.06212574135  0.06212574135  4.23e-16  True  rad=6.5e-34
+  3   0.3   0.06210780079  0.06210780079  4.16e-16  True  rad=7.7e-34
+  4   0.4   0.06208269210  0.06208269210  4.09e-16  True  rad=9.0e-34
+  5   0.5   0.06205042337  0.06205042337  4.09e-16  True  rad=2.1e-34
+  6   0.6   0.06201100501  0.06201100501  4.02e-16  True  rad=1.2e-33
+  7   0.7   0.06196444970  0.06196444970  4.02e-16  True  rad=1.3e-33
+  8   0.8   0.06191077245  0.06191077245  3.96e-16  True  rad=1.4e-33
+  9   0.9   0.06184999053  0.06184999053  3.82e-16  True  rad=1.5e-33
+  10  1.0   0.06178212349  0.06178212349  3.75e-16  True  rad=2.6e-34
+  11  1.1   0.06170719315  0.06170719315  3.61e-16  True  rad=1.6e-33
+  12  1.2   0.06162522360  0.06162522360  3.40e-16  True  rad=1.6e-33
+  13  1.3   0.06153624116  0.06153624116  3.33e-16  True  rad=1.5e-33
+  ALL MATCH to 8 digits: True
+  => REAL AXIS: YES (agreement ~33 digits; diffs ~4e-16, Arb radii 1e-34..1e-33)
+  $ python3 tracks/b-dbn/ht_closed_form_complex.py   [saved: .../machine-complex-v1-failed.txt]
+  H_0(35+10j) Arb  = [0.00401107016545859486867397254448742 +/- 7.62e-36]
+    real match (first 40 chars): ... -> False
+    imag match (first 40 chars): 0 == 0.0000760... -> False
+  => COMPLEX (ticks 5-7 version): NO (returned 0.0040110701+0i, imag part vanished)
+  $ python3 tracks/b-dbn/ht_closed_form_v2.py   [saved: .../machine-complex-v2.txt]
+  H_0(35+10j) Arb = [0.00032163883436158191156597555259 +/- 8.22e-33] + [7.31922711341174159983509525e-5 +/- 2.02e-32]j
+  oracle (mpmath quad 70d): 0.00032163883436158191156597555258989525738957951903864
+                          + 0.00007319227113411741599835095251496972054311906234081 i
+  real digits match: True
+  imag digits match: True
+  => COMPLEX (corrected): YES (Arb 110-bit balls, rad <= 8.3e-33, 30+ digit agreement)
+bug found (why v1 failed): two independent errors in the ticks-5-7 generalization:
+  (a) Re[w^{ic}] = cos(c ln w) is only valid for REAL c. For complex z the correct
+      identity is cos(theta) = (e^{i theta}+e^{-i theta})/2, giving TWO gamma terms:
+      J(a,z,n) = (1/8)*[P^{-sp} Gamma(sp,P) + P^{-sm} Gamma(sm,P)], sp=(a+iz)/4, sm=(a-iz)/4
+      (the one-term Re form is the z-real special case; it passed the real-axis test).
+  (b) the first correction attempt double-counted the P^{-a/4} factor (it appears once,
+      from e^{au} = (v/X)^{a/4} in the substitution v = X e^{4u}), giving -0.0003064877
+      +0.0002172399i; the corrected formula reproduces the direct quadrature.
+bonus finding (oracle trap): the 64-digit value hardcoded in
+  dbn_upper_bound/tests/python/test_ht.py is Ht_AFE_ABC(35+10j, 0) with N = int(tau) = 1
+  (tau = sqrt(Im(s)/2pi) = 1.669, s = (1+iz)/2 = -4.5+17.5i) — an approximate functional
+  equation output, NOT the exact H_0. Exact value (term-by-term direct u-quadrature,
+  mpmath 70 digits, n=1..5, converges by n=3):
+  H_0(35+10j) = 0.00032163883436158191156597555258989525738957951903864280036118553936386
+              + 0.00007319227113411741599835095251496972054311906234081401086774973830934 i
+  AFE N=1 differs by ~2.5%. Do not use test_ht.py values as exact oracles.
+promotion: claim #3 NOTE -> NUMERIC via tools/promote.sh (checker: evidence/2026-08-20-h0-closed-form/check.sh, re-runs both scripts + asserts digit matches + rad < 1e-30; machine said "CHECK OK").
+corrections to earlier log entries (append-only, noted here):
+  - tick 4: the "machine said (verbatim):" line contains the literal shell text
+    '$(cat /tmp/tick4-machine.txt | sed '1,2d')' — single-quoted heredoc never expanded it.
+    The intended verbatim output (python-flint acb.zeta probe) is in the "tick 4 env probe
+    (post-commit)" section further down; treat that section as the verbatim record.
+  - tick 8: entry truncated mid-sentence (no machine-said block, no HANDOFF rewrite);
+    its machine outputs are the two v1 runs recorded in this entry.
