@@ -40,3 +40,4 @@
 2026-08-21T08:26:49.985028+00:00 tick 40 model=qwen3.8-27b steps=25 wall=224s next=Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics reproduced
 2026-08-21T08:57:49.985839+00:00 tick 41 ERROR 'utf-8' codec can't decode byte 0x89 in position 347: invalid start byte steps=20
 2026-08-21T09:28:49.985288+00:00 tick 42 model=qwen3.8-27b steps=25 wall=263s next=Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics reproduced
+2026-08-21T09:59:49.985395+00:00 tick 43 model=qwen3.8-27b steps=25 wall=347s next=Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics reproduced

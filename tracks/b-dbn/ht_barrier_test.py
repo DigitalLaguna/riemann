@@ -1,7 +1,10 @@
 """
 Track B step 3 (t_0 question): can our verified GL quadrature (claim #4) reach the
-Polymath15 barrier region? Barrier: X0 = 6e10 + 83951.5, y in [0.2,1], t in [0,0.2]
-(paper Sec 8.2, winding number = 0). Integrand cos(z u) with z_re ~ 6e10 oscillates
+Polymath15 barrier region? Paper's X_0 := 6e10 + 83952 (Sec 8.1, p. 37); barrier
+location X = X_0 - 0.5 = 6e10 + 83951.5 (Fig 11 caption, p. 39); region
+X_0-0.5 <= x <= X_0+0.5, y in [0.2,1], t in [0,0.2] (Sec 8.2, regions (a)/(iii)).
+Verified against fetched paper tick 44:
+evidence/2026-08-21-ht-barrier/x0-verification.txt. Integrand cos(z u) with z_re ~ 6e10 oscillates
 with period 2*pi/z_re ~ 1e-10 in u; GL n=32/64 on [0,2] cannot resolve it.
 Machine test: degree-difference radius (n=32 vs n=64) at the barrier point vs at the
 verified z=35+10i. Falsification (pre-registered): if the barrier radius is SMALL
@@ -96,7 +99,7 @@ v, r = Ht_quad_z(0.2, 1000, 0.2, 32, 64)
 print(f"  H_0.2(1000+0.2i) = {v}")
 print(f"  degree-diff radius = {r.abs_upper()}  rel = {relrad(v, r):.3e}")
 
-print("=== BARRIER: z=6e10+83951.5+0.2i, t=0.2 (X0, y=0.2) ===")
+print("=== BARRIER: z=6e10+83951.5+0.2i, t=0.2 (X = X_0-0.5, y=0.2) ===")
 X0 = 60000000000 + 83951.5
 v, r = Ht_quad_z(0.2, X0, 0.2, 32, 64)
 print(f"  H_0.2(X0+0.2i) = {v}")

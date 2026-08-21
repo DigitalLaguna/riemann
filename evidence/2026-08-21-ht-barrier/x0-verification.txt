@@ -1,0 +1,33 @@
+# X0 barrier-point verification (tick 44, 2026-08-21)
+Question: is the local model's docstring value X0 = 6e10 + 83951.5
+(tracks/b-dbn/ht_barrier_test.py) the Polymath15 barrier location, per the
+fetched paper (lit/pdf/polymath15-2019.pdf, extracted lit/text/polymath15-2019.txt)?
+
+Pre-registered falsification (from HANDOFF tick 39): if the fetched paper does not
+contain 83951.5 as the barrier location, or the barrier region differs from
+X_0-0.5 <= x <= X_0+0.5, y in [0.2,1], t in [0,0.2], then the docstring is
+unsourced and the barrier test point must be re-derived.
+
+Machine (grep -n "83951" lit/text/polymath15-2019.txt):
+  4323:where epn (x) = eulerprod(x, pn ), shown near X = 6 × 1010 + 83951.5, which
+
+Verbatim quotes (fetched paper, arXiv 1904.12438):
+  L4169 (Sec 8, p. 37): "(i), (ii), (iii) of Theorem 1.2 t0 B 0.2, X B X0 − 0.5, and y0 B 0.2, where X0 B 6 × 1010 + 83952."
+  L4236 (p. 37): "X B 6 × 1010 + 83952 − 0.5"
+  L4284 (p. 37): "namely q = 83952 (this quantity being ≈ 4.32 for this value of q)."
+  L4323 (Fig 11 caption, p. 39): "where epn (x) = eulerprod(x, pn ), shown near X = 6 × 1010 + 83951.5, which was chosen as a barrier location."
+  L5565 (Sec 8.4, p. 47): "parameters: x = 6 × 1010 + 83952 ± 0.5, y = 0.2 . . . 1, t = 0 . . . 0.2."
+
+Local LaTeX source of the same paper (tracks/b-dbn/dbn/Writeup/debruijn.tex):
+  L1160: "As stated in the introduction, it suffices to verify the conditions (i), (ii), (iii) of Theorem \ref{ubc-0} $t_0 \coloneqq 0.2$, $X \coloneqq X_0-0.5$, and $y_0 \coloneqq 0.2$, where $X_0 \coloneqq 6 \times 10^{10} + 83952$."
+  L1178: "$$ X \coloneqq 6 \times 10^{10} + 83952 - 0.5$$"
+
+Conclusion: CONFIRMED, with one notational correction. The paper's X_0 := 6e10 + 83952
+(integer; q=83952 chosen by the ad-hoc candidate search of Sec 8 so the partial Euler
+product over p<=11 is large). The barrier location is X = X_0 - 0.5 = 6e10 + 83951.5
+(Fig 11 caption calls it "a barrier location"); the barrier region is
+X_0-0.5 <= x <= X_0+0.5, 0.2 <= y <= 1, 0 <= t <= 0.2 (regions (a)/(iii), Sec 8.2).
+The docstring's "X0 = 6e10 + 83951.5" is the barrier location X = X_0 - 0.5, i.e. the
+LEFT EDGE of the barrier region; the test point z = 6e10+83951.5+0.2i is the corner of
+region (a) (x = X_0-0.5, y = 0.2, t = 0.2). Falsification NOT triggered.
+Docstring corrected to state X_0 = 6e10+83952 and X = X_0-0.5 explicitly.

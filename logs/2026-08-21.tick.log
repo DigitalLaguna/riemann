@@ -43,3 +43,43 @@ next: (a) verify X0 against the polymath15-2019 card; (b) decide: implement AFE 
   quadrature to the barrier) vs run the Polymath15 C code (confirm t_0=2.2e4). The C-code path is
   the literal HANDOFF plan and cheaper; the AFE path is more work but gives us our own verified
   barrier evaluation.
+
+## tick 44 (2026-08-21, frontier) — Track B step 3a: verify barrier point X0 against the fetched Polymath15 paper — machine verdict: CONFIRMED (with notational correction)
+state one-liner: planned work = HANDOFF tick 39 "first bounded step either way": verify
+  X0=6e10+83951.5 (local model's docstring, never re-checked) against the fetched paper;
+  not in DEAD_ENDS (A-001/A-002 tooling, B-001 quadrature). Ticks 40-43 (local model)
+  stalled again: only appended to ticks.log, tick 41 hit the A-002-class PNG/utf-8 error.
+gate: track B OPEN (6/6).
+pre-registered falsification: if the fetched paper does not contain 83951.5 as the
+  barrier location, or the barrier region differs from X_0-0.5<=x<=X_0+0.5, y in [0.2,1],
+  t in [0,0.2], then the docstring is unsourced and the test point must be re-derived.
+work (bounded step): grep the extracted paper text; pull verbatim quotes with page
+  numbers; cross-check against the local LaTeX source (tracks/b-dbn/dbn/Writeup/
+  debruijn.tex, same paper); update card constants line; correct the docstring.
+machine said (verbatim, full file at evidence/2026-08-21-ht-barrier/x0-verification.txt):
+  grep -n "83951" lit/text/polymath15-2019.txt:
+    4323:where epn (x) = eulerprod(x, pn ), shown near X = 6 × 1010 + 83951.5, which
+  paper L4169 (Sec 8.1, p. 37): "(i), (ii), (iii) of Theorem 1.2 t0 B 0.2, X B X0 − 0.5,
+    and y0 B 0.2, where X0 B 6 × 1010 + 83952."
+  paper L4323 (Fig 11 caption, p. 39): "...shown near X = 6 × 1010 + 83951.5, which was
+    chosen as a barrier location."
+  paper L5565 (Sec 8.4, p. 47): "parameters: x = 6 × 1010 + 83952 ± 0.5, y = 0.2 . . . 1,
+    t = 0 . . . 0.2."
+  debruijn.tex L1160: "...where $X_0 \coloneqq 6 \times 10^{10} + 83952$."
+verdict: NOT FALSIFIED. Paper's X_0 := 6e10+83952 (integer, q=83952 from the ad-hoc
+  candidate search, Sec 8.1); barrier location X = X_0-0.5 = 6e10+83951.5; barrier region
+  X_0-0.5<=x<=X_0+0.5, y in [0.2,1], t in [0,0.2] (regions (a)/(iii), Sec 8.2). The
+  docstring's value is the LEFT EDGE of the barrier region; test point z=6e10+83951.5+0.2i
+  is the corner of region (a). Docstring corrected (X_0 vs X distinction).
+note: page-number extraction is fragile (a table cell "8" masqueraded as a page marker for
+  L5565; corrected to p. 47 by locating the Sec 8.4/8.5 boundaries).
+gate: python3 tools/gate.py → 21/21 PASS after the card constants-line append.
+recon (for next step): the Polymath15 C code IS local — tracks/b-dbn/dbn/
+  dbn_upper_bound/arb/BarrierLocationAssistant.c (needs acb_poly.h/acb_mat.h, i.e. FLINT/Arb
+  dev headers; apt was pkexec-blocked). Path (a) [run their C code] is now the cheaper
+  option; path (b) [implement AFE] remains the fallback.
+promotion: NOTE-level (fact about the paper, recorded with verbatim quotes; no new math).
+next: path (a) — get BarrierLocationAssistant.c to build+run locally. First sub-step:
+  check whether python-flint's bundled FLINT/Arb headers suffice (find the headers under
+  site-packages, try compiling with -I pointing at them); if not, try pip-installing a
+  flint wheel that ships headers, or build FLINT+Arb from source in the repo (no apt).
