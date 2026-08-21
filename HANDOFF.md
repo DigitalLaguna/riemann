@@ -1,50 +1,48 @@
 # HANDOFF
-tick: 17 | 2026-08-20T21:50:00Z | track: b (numerics) | gate: A B C D E all OPEN (21/21)
+tick: 39 | 2026-08-21T08:04:29Z | track: b (numerics) | gate: A B C D E all OPEN (21/21)
 
 ## State
-Literature gate COMPLETE (21/21, all OPEN). Claims: #1 scaffold NOTE; #2 PNT+
-local build FORMAL; #3 H_0 closed form NUMERIC; #4 NEW — track B heat flow
-H_t(35+10i) for t in {0,1,100,1000} NUMERIC (rigorous Arb GL quadrature, 160-bit
-balls, rel radius <=1.1e-29, 60-digit agreement with independent 80-d mpmath
-quadrature; checker re-runs everything). Track B now has TWO machine-verified
-H_t implementations (t=0 closed form, t>0 quadrature) agreeing with each other
-to 60 digits. Dead ends: A-001, A-002 (tooling). Local model burned ticks 11-16
-(~3h, 6 ticks) on GL node/weight debugging; tick 17 (frontier) fixed it in one
-session: findroot duplicate roots + misdiagnosed (1-x^2)^2 weight "fix".
+Literature gate COMPLETE (21/21, all OPEN). Claims: #1 scaffold NOTE; #2 PNT+ local build
+FORMAL; #3 H_0 closed form NUMERIC; #4 H_t(35+10i) t in {0,1,100,1000} NUMERIC (rigorous Arb GL
+quadrature); #5 NEW NOTE — barrier diagnostic: our GL quadrature (n=32/64) does NOT converge at
+the Polymath15 barrier point X0=6e10+83951.5+0.2i (degree-diff rel 0.227 vs 4.3e-39 at reference
+z=35+10i). Dead ends: A-001, A-002 (tooling), B-001 (GL quadrature does not reach the barrier).
 
 ## Last tick
-Machine verdict on the pre-registered F1-F4 (tick 11): ALL YES. F1: t=0
-quadrature vs claim #3 closed form 60 digits (need 25). F2: t=1/100/1000 vs
-independent 80-d mpmath quad, 60 digits each (need 20). F3: rel ball radius
-9.8e-30 / 7.3e-30 / 1.0e-30 (need <1e-25). F4: finite, heat-scale. Values
-(verbatim in log): H_1 = 3.3066429042648760984973251380e-4 +
-2.62049524317508883283968992556548e-5 i; H_100 = -51090.093002108976478574469163
-- 62592.863004243285357646968121 i; H_1000 = -1.10137778528973048245283876953e+500
-- 1.4392450297861848150215155442838875e+499 i (t=1000 peak |~e^{1151}; integrand
-peak ~1e518 at u*~1.345). Claim #4 NOTE->NUMERIC (checker: CHECK OK).
+Machine verdict on the pre-registered falsification (tick 39): TRIGGERED. Ran the built-but-unrun
+ht_barrier_test.py (local model built tick 32, fixed tick 38, never ran it). Degree-difference
+n=32 vs n=64 at t=0.2: reference z=35+10i rel 4.3e-39 (converges); moderate z=1000+0.2i rel 2.48;
+barrier X0+0.2i rel 0.227. VERDICT: barrier rel radius LARGE — quadrature does NOT converge; AFE
+or the Polymath15 C code is needed to reproduce t_0=2.217e4. Root cause: integrand cos(z*u)
+oscillates with period ~1e-10 in u at X0~6e10; GL n=32/64 (node spacing ~0.03) aliases it. Full
+verbatim output at evidence/2026-08-21-ht-barrier/machine-run.txt.
 
 ## Next action
-Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics
-reproduced to 2 sig figs", i.e. their t_0 lower bound 2.217e4, arXiv
-1904.12438). Bounded step: locate in tracks/b-dbn/dbn (dbn_upper_bound) the
-exact code that computed t_0 = 2.217e4 (barrier/canopy method, Theorem 1.2 per
-the Fig-1 caption quoted on the card); run THEIR code to confirm 2.2e4 comes
-out of it (machine says yes/no); then pre-register the Arb re-implementation.
-Falsification (pre-registered): reproduced t_0 >= 2.2e4 (2 sig figs) using our
-verified H_t Arb quadrature; if the barrier computation needs features beyond
-pointwise H_t (e.g. contour integrals, AFE), record what exactly is missing.
+Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics reproduced to 2
+sig figs", i.e. their t_0 lower bound 2.217e4, arXiv 1904.12438). Two candidate paths, pick one:
+  (a) C-code path (literal HANDOFF plan, cheaper): locate + run the Polymath15 C code
+      (dbn_upper_bound/arb/BarrierLocationAssistant.c or the barrier-t-loop scripts) to confirm
+      t_0=2.2e4 comes out. Needs FLINT/Arb C dev headers (apt libflint-dev/libarb-dev was blocked
+      by pkexec; python-flint bundles FLINT+ARB but the C scripts need the dev headers).
+  (b) AFE path (more work, our own verified barrier eval): implement the Approximate Functional
+      Equation to extend our quadrature to the barrier region.
+First bounded step either way: verify the barrier point X0=6e10+83951.5 against the
+polymath15-2019 card (the local model's docstring value, not yet re-checked against the fetched
+paper). Falsification (pre-registered): reproduced t_0 >= 2.2e4 (2 sig figs); if the barrier
+computation needs features beyond pointwise H_t (AFE, contour integrals), record exactly what is
+missing.
 
 ## Blocked
 - odlyzko-zeros full text: AMS CONM 290 chapter 4573 behind LibLynx login.
 - lean-zulip-pnt full thread: needs Zulip API key or guest session.
-- apt libflint-dev/libarb-dev: pkexec timeout; non-blocking (python-flint
-  bundles FLINT+ARB).
-- Local model reliability (data for weekly review): ticks 6, 9 steps=0 (empty
-  response); ticks 13, 16 timed out; tick 8 log truncated; ticks 11-16 = 6 ticks
-  on one mechanical debugging step. Candidate: retry once on steps=0; cap
-  per-attempt ticks at ~4 before escalation.
+- apt libflint-dev/libarb-dev: pkexec timeout; blocks the C-code path (a) unless python-flint's
+  bundled headers suffice.
+- Local model reliability (data for weekly review): ticks 18-38 (16 ticks, ~7h) all wrote the same
+  "next" action and only appended to ticks.log — built ht_barrier_test.py (tick 32) but never ran
+  it. Candidate: cap per-attempt ticks at ~4 before escalation; require a machine-yes/no or a
+  logged dead end per tick.
 
 ## Budget
-Frontier calls this week: 2 (of 5) — tick 10 (H_0 bug hunt), tick 17 (GL fix).
-Local model: qwen3.8-27b on :8080. Weekly review due 2026-08-27 (week-1
-milestone: 250 ticks, gates, PNT+ build, first claims — met; decision point).
+Frontier calls this week: 2 confirmed (tick 10 H_0 bug hunt, tick 17 GL fix) + this tick 39 if
+escalated = 3 (of 5). Local model: qwen3.8-27b on :8080. Weekly review due 2026-08-27 (week-1
+milestone met; decision point on track B path a vs b).

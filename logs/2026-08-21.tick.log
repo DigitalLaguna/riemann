@@ -1,0 +1,45 @@
+# Track tick log — 2026-08-21
+# (ticks 18-38 ran on this date but only appended to ticks.log; no detail entries.
+#  tick 39 is the first detail entry of the day.)
+
+## tick 39 (2026-08-21, frontier/escalated) — Track B step 3: does our GL quadrature reach the Polymath15 barrier? — machine verdict: NO (AFE or C code needed)
+state one-liner: planned work = run the built-but-unrun ht_barrier_test.py (local model built it
+  tick 32, fixed the barrier-point exactness tick 38, never ran it or logged it); not in
+  DEAD_ENDS (A-001/A-002 are tooling). Ticks 18-38 (16 timer ticks, ~7h) all wrote the identical
+  "next" action and only appended to ticks.log — the local model stalled on this step.
+gate: track B OPEN (6/6 seeds carded).
+prior-art pre-flight: barrier point X0=6e10+83951.5, y in [0.2,1], t in [0,0.2] is from the
+  Polymath15 paper Sec 8.2 (per the local model's test docstring; exact X0 to be re-verified
+  against the polymath15-2019 card next tick). The integrand is copied verbatim from
+  ht_quadrature.py (claim #4 source) — verified by diff (only z is parameterized; N_MAX=4,
+  GRID, GL machinery identical).
+work (bounded step): run ht_barrier_test.py — degree-difference (n=32 vs n=64) at reference
+  z=35+10i, moderate z=1000+0.2i, and barrier X0+0.2i, all at t=0.2.
+pre-registered falsification (from the test docstring): if the barrier degree-diff rel radius is
+  SMALL (< 1e-6, comparable to the z=35+10i radius), the quadrature DOES reach the barrier and no
+  AFE is needed; if LARGE, AFE (or the Polymath15 C code) is needed.
+machine said (verbatim, full output at evidence/2026-08-21-ht-barrier/machine-run.txt):
+  reference z=35+10i, t=0.2:
+    H = [0.00032390593108429120478113997062531698763812997 +/- 7.74e-48] + [6.397604825697349005091263763927676654478779e-5 +/- 5.04e-48]j
+    degree-diff radius = [1.4173950721897000751460025339797313762302237972e-42 +/- 1.83e-89]  rel = 4.293e-39
+  moderate z=1000+0.2i, t=0.2:
+    H = [-0.0067303953700861890399739186847321525105795578 +/- 3.60e-47] + [-1.00266807488320605649647769319880327590534126e-4 +/- 6.39e-49]j
+    degree-diff radius = [0.016698139049067691148678634676836673736734817979 +/- 4.69e-49]  rel = 2.481e+00
+  barrier X0+0.2i, t=0.2:
+    H = [-0.002561172926519382481102690477450269698 +/- 8.67e-40] + [4.01605573801669917754954379910082411e-5 +/- 1.20e-41]j
+    degree-diff radius = [0.00058137924667957529457599532891543725788447933635 +/- 2.93e-51]  rel = 2.270e-01
+    VERDICT: barrier rel radius LARGE (quadrature does NOT converge; AFE needed)
+  EXIT=0
+verdict: FALSIFICATION TRIGGERED (barrier rel 0.227 >> 1e-6). Our GL quadrature (n=32/64) does NOT
+  reach the barrier. The integrand cos(z*u) oscillates with period ~2*pi/6e10 ~ 1e-10 in u; GL
+  n=32/64 on [0,2] (node spacing ~0.03) aliases it. To reproduce t_0=2.217e4 with our tools we
+  need the AFE (Approximate Functional Equation) or to run the Polymath15 C code directly.
+note: degree-diff is a heuristic error estimate (|Q2-Q1|), not a rigorous bound; but 0.227 rel is
+  ~27 orders of magnitude above the 1e-29 we need, so the "does not converge" conclusion is robust.
+  The exact X0 value (6e10+83951.5) is from the local model's docstring; the conclusion is robust
+  to the exact X0 (any X0 ~ 1e10 gives rapid oscillation).
+promotion: NOTE (diagnostic about our method, not a result about RH/DBN). Ledger #5.
+next: (a) verify X0 against the polymath15-2019 card; (b) decide: implement AFE (extend our
+  quadrature to the barrier) vs run the Polymath15 C code (confirm t_0=2.2e4). The C-code path is
+  the literal HANDOFF plan and cheaper; the AFE path is more work but gives us our own verified
+  barrier evaluation.

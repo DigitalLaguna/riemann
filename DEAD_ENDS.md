@@ -25,3 +25,12 @@ failed: agent_tick.py tick 3 crashed at step 4 with "'utf-8' codec can't decode
   PNG signature, so a downloaded image was fed to a text read.
 evidence: logs/ticks.log line 3 (tick 3 ERROR entry)
 closed by: keep binaries (pdf/png) out of `read`; use pdftotext/pdftoppm first.
+
+## B-001 GL quadrature (n=32/64) reaching the Polymath15 barrier point
+tried: 2026-08-21, tick 39
+failed: degree-difference (n=32 vs n=64) at the barrier point X0=6e10+83951.5+0.2i, t=0.2 gives
+  rel radius 0.227 (vs 4.3e-39 at the verified reference z=35+10i); the integrand cos(z*u)
+  oscillates with period ~1e-10 in u and GL n=32/64 (node spacing ~0.03) aliases it. Pointwise
+  GL quadrature does NOT reach the barrier.
+evidence: evidence/2026-08-21-ht-barrier/machine-run.txt
+closed by: machine output (VERDICT: barrier rel radius LARGE; AFE needed)
