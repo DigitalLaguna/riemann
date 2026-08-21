@@ -50,3 +50,4 @@
 2026-08-21T13:36:49.990532+00:00 tick 50 model=qwen3.8-27b steps=22 wall=1319s next=Track B step 3a continued. Find correct Arb + ACB download URLs (inspect arblib.org downlo
 2026-08-21T14:07:49.990330+00:00 tick 51 model=qwen3.8-27b steps=20 wall=1210s next=Track B step 3b — RUN the barrier program, reproduce the barrier LOCATION:
 2026-08-21T14:38:49.990912+00:00 tick 52 model=qwen3.8-27b steps=25 wall=876s next=Track B step 3c — t_0=2.217e4 (the actual bound input) comes from the T-loop programs, NOT
+2026-08-21T15:09:49.984513+00:00 tick 53 model=qwen3.8-27b steps=21 wall=1362s next=Track B step 3c — t_0=2.217e4 (the actual bound input) comes from the T-loop programs, NOT
