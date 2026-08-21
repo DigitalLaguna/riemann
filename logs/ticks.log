@@ -32,3 +32,5 @@
 2026-08-21T04:18:49.984582+00:00 tick 32 model=qwen3.8-27b steps=25 wall=634s next=Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics
 2026-08-21T04:49:49.986217+00:00 tick 33 model=qwen3.8-27b steps=25 wall=134s next=Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics
 2026-08-21T05:20:49.984327+00:00 tick 34 model=qwen3.8-27b steps=25 wall=177s next=Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics
+2026-08-21T05:51:49.984325+00:00 tick 35 model=qwen3.8-27b steps=26 wall=111s next=Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics
+2026-08-21T06:22:49.984524+00:00 tick 36 ERROR timed out steps=9
