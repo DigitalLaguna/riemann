@@ -1,0 +1,39 @@
+make[1]: Verzeichnis „/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0“ wird betreten
+make[2]: Verzeichnis „/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr“ wird betreten
+    CC   ../build/fmpr/add.lo
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from add.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+add.c: In function ‘_fmpr_add_1x1’:
+add.c:33:9: warning: implicit declaration of function ‘add_ssaaaa’ [-Wimplicit-function-declaration]
+   33 |         add_ssaaaa(hi, lo, hi, lo, 0, t);
+      |         ^~~~~~~~~~
+add.c:51:13: warning: implicit declaration of function ‘sub_ddmmss’ [-Wimplicit-function-declaration]
+   51 |             sub_ddmmss(hi, lo, hi, lo, 0, t);
+      |             ^~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/add.lo] Fehler 1
+make[2]: Verzeichnis „/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr“ wird verlassen
+make[1]: *** [Makefile:128: libarb.so.2.14.0] Fehler 2
+make[1]: Verzeichnis „/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0“ wird verlassen
+make: *** [Makefile:148: library] Fehler 2

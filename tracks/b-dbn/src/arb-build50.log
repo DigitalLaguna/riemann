@@ -1,0 +1,1224 @@
+make[1]: Verzeichnis „/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0“ wird betreten
+make[2]: Verzeichnis „/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr“ wird betreten
+    CC   ../build/fmpr/add.lo
+    CC   ../build/fmpr/add_eps.lo
+    CC   ../build/fmpr/add_fmpz.lo
+    CC   ../build/fmpr/add_mpn.lo
+    CC   ../build/fmpr/addmul.lo
+    CC   ../build/fmpr/add_naive.lo
+    CC   ../build/fmpr/add_si.lo
+    CC   ../build/fmpr/add_ui.lo
+    CC   ../build/fmpr/check_ulp.lo
+    CC   ../build/fmpr/cmp_2exp_si.lo
+    CC   ../build/fmpr/cmpabs_2exp_si.lo
+    CC   ../build/fmpr/cmpabs.lo
+    CC   ../build/fmpr/cmpabs_ui.lo
+    CC   ../build/fmpr/cmp.lo
+    CC   ../build/fmpr/div.lo
+    CC   ../build/fmpr/exp.lo
+    CC   ../build/fmpr/get_d.lo
+    CC   ../build/fmpr/get_fmpq.lo
+    CC   ../build/fmpr/get_fmpz_2exp.lo
+    CC   ../build/fmpr/get_fmpz.lo
+    CC   ../build/fmpr/get_fmpz_fixed.lo
+    CC   ../build/fmpr/get_mpfr.lo
+    CC   ../build/fmpr/get_si.lo
+    CC   ../build/fmpr/log.lo
+    CC   ../build/fmpr/mul_1x1.lo
+    CC   ../build/fmpr/mul.lo
+    CC   ../build/fmpr/mul_fmpz.lo
+    CC   ../build/fmpr/mul_mpn.lo
+    CC   ../build/fmpr/mul_naive.lo
+    CC   ../build/fmpr/normalise.lo
+    CC   ../build/fmpr/pow_sloppy.lo
+    CC   ../build/fmpr/print.lo
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from add_eps.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+    CC   ../build/fmpr/printd.lo
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from add_fmpz.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+    CC   ../build/fmpr/randtest.lo
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+    CC   ../build/fmpr/root.lo
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+    CC   ../build/fmpr/rsqrt.lo
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from add_mpn.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from addmul.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+    CC   ../build/fmpr/set_d.lo
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from add.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from add_ui.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+    CC   ../build/fmpr/set_fmpq.lo
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from add_si.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from add_naive.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+    CC   ../build/fmpr/set_fmpz_2exp.lo
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+    CC   ../build/fmpr/set_mpfr.lo
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from cmpabs.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from cmpabs_2exp_si.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+    CC   ../build/fmpr/set_round.lo
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from cmp.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+    CC   ../build/fmpr/set_round_mpn.lo
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from check_ulp.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+    CC   ../build/fmpr/set_round_ui_2exp_fmpz.lo
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from cmpabs_ui.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+    CC   ../build/fmpr/set_round_uiui_2exp_fmpz.lo
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from cmp_2exp_si.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+    CC   ../build/fmpr/sqrt.lo
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from get_d.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/add_eps.lo] Fehler 1
+make[2]: *** Auf noch nicht beendete Prozesse wird gewartet …
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/add_fmpz.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+add_mpn.c: In function ‘_fmpr_add_mpn’:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+add_mpn.c:84:9: warning: implicit declaration of function ‘flint_mpn_zero’ [-Wimplicit-function-declaration]
+   84 |         flint_mpn_zero(tmp, shift_limbs);
+      |         ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from get_fmpq.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+add.c: In function ‘_fmpr_add_1x1’:
+add.c:33:9: warning: implicit declaration of function ‘add_ssaaaa’ [-Wimplicit-function-declaration]
+   33 |         add_ssaaaa(hi, lo, hi, lo, 0, t);
+      |         ^~~~~~~~~~
+add_mpn.c:213:13: warning: implicit declaration of function ‘mpn_neg_n’; did you mean ‘mpn_neg’? [-Wimplicit-function-declaration]
+  213 |             mpn_neg_n(tmp, xman, xn);
+      |             ^~~~~~~~~
+      |             mpn_neg
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from div.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/add_ui.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+add.c:51:13: warning: implicit declaration of function ‘sub_ddmmss’ [-Wimplicit-function-declaration]
+   51 |             sub_ddmmss(hi, lo, hi, lo, 0, t);
+      |             ^~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+add_mpn.c:216:13: warning: implicit declaration of function ‘flint_mpn_store’ [-Wimplicit-function-declaration]
+  216 |             flint_mpn_store(tmp + xn, shift_limbs - xn, (mp_limb_t) -1);
+      |             ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from get_fmpz_2exp.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/add_si.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/addmul.lo] Fehler 1
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from exp.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from get_fmpz_fixed.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/cmpabs_2exp_si.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/cmpabs.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/add.lo] Fehler 1
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from get_mpfr.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/add_naive.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/add_mpn.lo] Fehler 1
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from get_si.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/check_ulp.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/cmpabs_ui.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/get_d.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/cmp_2exp_si.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from mul_fmpz.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from get_fmpz.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/cmp.lo] Fehler 1
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from normalise.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from mul_1x1.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/get_fmpq.lo] Fehler 1
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from mul_mpn.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from log.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from mul_naive.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from mul.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from pow_sloppy.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/div.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/get_fmpz_2exp.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from print.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/exp.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from root.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from printd.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from rsqrt.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from set_round_mpn.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from randtest.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from set_mpfr.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from set_fmpq.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from set_fmpz_2exp.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/get_fmpz_fixed.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/get_mpfr.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+mul_1x1.c: In function ‘_fmpr_mul_1x1’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+mul_1x1.c:21:5: warning: implicit declaration of function ‘umul_ppmm’ [-Wimplicit-function-declaration]
+   21 |     umul_ppmm(hi, lo, u, v);
+      |     ^~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/get_si.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from set_round_uiui_2exp_fmpz.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from set_round.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/mul_mpn.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+mul_1x1.c:27:9: warning: implicit declaration of function ‘count_leading_zeros’ [-Wimplicit-function-declaration]
+   27 |         count_leading_zeros(lead, lo);
+      |         ^~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/mul_naive.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/log.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+mul_1x1.c:75:17: warning: implicit declaration of function ‘add_ssaaaa’ [-Wimplicit-function-declaration]
+   75 |                 add_ssaaaa(hi, lo, hi, lo, 0, 1);
+      |                 ^~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/pow_sloppy.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/get_fmpz.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/mul_fmpz.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/normalise.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/mul.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/print.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+set_round_mpn.c: In function ‘_fmpr_set_round_mpn’:
+set_round_mpn.c:45:5: warning: implicit declaration of function ‘count_leading_zeros’ [-Wimplicit-function-declaration]
+   45 |     count_leading_zeros(bc, x[xn - 1]);
+      |     ^~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/printd.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/root.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/mul_1x1.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/rsqrt.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/set_mpfr.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/set_fmpq.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/randtest.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/set_fmpz_2exp.lo] Fehler 1
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from set_round_ui_2exp_fmpz.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+set_round_uiui_2exp_fmpz.c: In function ‘fmpr_set_round_uiui_2exp_fmpz’:
+set_round_uiui_2exp_fmpz.c:47:9: warning: implicit declaration of function ‘count_leading_zeros’ [-Wimplicit-function-declaration]
+   47 |         count_leading_zeros(lead, hi);
+      |         ^~~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+set_round.c: In function ‘_fmpr_set_round’:
+set_round.c:68:13: warning: implicit declaration of function ‘count_leading_zeros’ [-Wimplicit-function-declaration]
+   68 |             count_leading_zeros(lead, w);
+      |             ^~~~~~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/set_round_mpn.lo] Fehler 1
+set_round_uiui_2exp_fmpz.c:70:17: warning: implicit declaration of function ‘add_ssaaaa’ [-Wimplicit-function-declaration]
+   70 |                 add_ssaaaa(hi, lo, hi, lo, 0, 1);
+      |                 ^~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from sqrt.c:12:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:30,
+                 from set_d.c:13:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:137:1: error: static declaration of ‘fmpz_set_mpn_large’ follows non-static declaration
+  137 | fmpz_set_mpn_large(fmpz_t z, mp_srcptr src, mp_size_t n, int negative)
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:23:
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:240:6: note: previous declaration of ‘fmpz_set_mpn_large’ with type ‘void(fmpz *, const ulong *, slong,  int)’ {aka ‘void(long int *, const long unsigned int *, long int,  int)’}
+  240 | void fmpz_set_mpn_large(fmpz_t z, nn_srcptr src, slong n, int negative);
+      |      ^~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/set_round.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/set_round_uiui_2exp_fmpz.lo] Fehler 1
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: In function ‘fmpz_set_mpn_large’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:145:5: warning: implicit declaration of function ‘flint_mpn_copyi’ [-Wimplicit-function-declaration]
+  145 |     flint_mpn_copyi(zz->_mp_d, src, n);
+      |     ^~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h: At top level:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpz_extras.h:208:1: error: static declaration of ‘fmpz_ui_pow_ui’ follows non-static declaration
+  208 | fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e)
+      | ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/flint-pfx/include/flint/fmpz.h:378:6: note: previous declaration of ‘fmpz_ui_pow_ui’ with type ‘void(fmpz *, ulong,  ulong)’ {aka ‘void(long int *, long unsigned int,  long unsigned int)’}
+  378 | void fmpz_ui_pow_ui(fmpz_t x, ulong b, ulong e);
+      |      ^~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h: In function ‘fmpr_set_ui’:
+/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr.h:360:9: warning: implicit declaration of function ‘count_trailing_zeros’ [-Wimplicit-function-declaration]
+  360 |         count_trailing_zeros(b, c);
+      |         ^~~~~~~~~~~~~~~~~~~~
+set_round_ui_2exp_fmpz.c: In function ‘fmpr_set_round_ui_2exp_fmpz’:
+set_round_ui_2exp_fmpz.c:36:5: warning: implicit declaration of function ‘count_leading_zeros’ [-Wimplicit-function-declaration]
+   36 |     count_leading_zeros(lead, lo);
+      |     ^~~~~~~~~~~~~~~~~~~
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/set_d.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/sqrt.lo] Fehler 1
+make[2]: *** [../Makefile.subdirs:60: ../build/fmpr/set_round_ui_2exp_fmpz.lo] Fehler 1
+make[2]: Verzeichnis „/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0/fmpr“ wird verlassen
+make[1]: *** [Makefile:128: libarb.so.2.14.0] Fehler 2
+make[1]: Verzeichnis „/home/niklas/riemann/tracks/b-dbn/src/arb-2.23.0“ wird verlassen
+make: *** [Makefile:148: library] Fehler 2
