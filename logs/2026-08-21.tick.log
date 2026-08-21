@@ -280,3 +280,44 @@ next: Track B step 4 — the push BELOW 0.22 (design doc target: "then push belo
   Sec 9/10 of the paper + the dbn wiki for exactly which inputs (T, barrier X0, y0) feed the 0.20 claim,
   then pre-register a bounded experiment. Secondary: track A (week-4 milestone "one Lean PR opened
   upstream" is still open; check PNT+ issue list for a claimable small issue).
+
+## tick 70 (2026-08-21, interactive/frontier) — Track B step 4a: machine-check the 0.20 path (Table 1 + RH height formula) — verdict: PASS
+state one-liner: planned work = HANDOFF step 4 (push below 0.22; identify what feeds the 0.20 claim).
+  Not a dead end: B-001 killed our GL quadrature, B-002 was an ABI bug (fixed); this step uses the
+  paper's OWN Table 1 as oracle, which no earlier tick has touched.
+gate: track B OPEN (6/6).
+prior-art pre-flight: oracles = lit/text/polymath15-2019.txt (Table 1, lines 7233-7305; Theorem 1.2,
+  p.2; Sec 8 params line 149; Platt [18] height line 4286) + lit/text/platt-trudgian-2020.txt (already
+  fetched, abstract quote below). dbn-code card line 13: "Conditional results (0.20 target) need the
+  3e12 RH verification height swapped in."
+falsification (pre-registered): HYPOTHESIS = the 0.20 row of Table 1 is arithmetically consistent AND
+  its required RH height (Theorem 1.2(i)) is within Platt-Trudgian's verified 3e12. FALSIFIED if any
+  table row violates Lambda = t0 + y0^2/2 (2 dp), or winding != 0, or |f| bound < 0.03, or the formula
+  for the required RH height does not make the paper's OWN 0.22 run self-consistent, or X/2 > 3e12.
+key reading (machine-assisted): Theorem 1.2(i) via pdftohtml -xml coordinates (page 2): the two
+  fractions are (1+y0)/2 (numerator tokens 1,y,0,+ over 2, left 160-180) and X/2 (X top 750 over 2
+  top 762, left 339-340). So: no zeroes zeta(sigma+iT) with (1+y0)/2 <= sigma <= 1 and 0 <= T <= X/2.
+  Self-consistency: the 0.22 run has X/2 = 3.0000042e10 <= Platt 2017's 3.06e10 (line 4286) — the
+  alternative reading 2X/(1+y0) = 1.0e11 would NOT close the paper's own proof. Formula confirmed.
+machine said (verbatim, key lines — full output in evidence/2026-08-21-table1/run-output.txt):
+  PASS  C1 table parsed: X=12 t0=12 y0=12 rows=12
+  PASS  C2 Lambda = t0 + y0^2/2 (2 dp): max |t0+y0^2/2 - Lambda_col| = 0.0000
+  PASS  C3 winding 0 everywhere: winding = [0 x12]
+  PASS  C4 |f| lower bound >= 0.03: min lb = 0.0305
+  PASS  C5 Section-8 run consistent with X/2 formula: X/2 = 3e+10 <= 3.06e10
+  PASS  C6 0.20 row unlocked by Platt-Trudgian 3e12: X = 5000000194858 -> T_req = X/2 = 2.5000001e+12;
+      need <= 3e12 (platt-trudgian-2020 abstract) and > 3.06e10 (paper's own height) => UNLOCKED
+  PASS  C7 monotone in X
+  VERDICT: PASS — 0.20 path is arithmetically consistent and unlocked by existing RH data
+platt-trudgian-2020 abstract (verbatim, lit/text/platt-trudgian-2020.txt p.1): "We verify numerically,
+  in a rigorous way using interval arithmetic, that the Riemann hypothesis is true up to height
+  3 · 10^12. That is, all zeroes β + iγ of the Riemann zeta-function with 0 < γ ≤ 3 · 10^12 have β = 1/2."
+pre-registered next experiment (0.20 push, inputs from Table 1 row 2): X = 5e12+194858, t0 = 0.186,
+  y0 = 0.16733, N0 = 630783. Run: (iii) dbn T-loop (winding 0, no abort); (ii) asymptotic |f| lower
+  bound >= 0.03 (paper achieved 0.0376); (i) RH height X/2 = 2.5000001e12 <= 3e12 (above). FALSIFIED
+  if winding != 0, abort, or lower bound < 0.03. Success: Lambda <= 0.186 + 0.16733^2/2 = 0.20000.
+promotion: claim #8 NOTE -> NUMERIC via promote.sh (checker evidence/2026-08-21-table1/check.sh, exit 0).
+next: Track B step 4b — read the dbn repo to identify (a) the program that generates stored sums for
+  a new X (StoredSumSinglematv1.c? check its main + args + expected runtime at X=5e12) and (b) the
+  program that computes the hypothesis-(ii) |f| lower bound (N0 = 630783 truncation). Then run (a)
+  first (it is the long pole; the 6e10 file took several hours).
