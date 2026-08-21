@@ -1,0 +1,5 @@
+=== invocation: TloopSinglematv2 0 0.2 0.2 0 singlemat_X60000083951p5_d30.txt (paper Sec 8.4 params) ===
+start: 2026-08-21T22:10:24Z
+timeout: der beobachtete Befehl erzeugte einen Speicherauszug
+exit=139
+end: 2026-08-21T22:10:27Z
