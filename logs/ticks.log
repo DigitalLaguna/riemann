@@ -48,3 +48,4 @@
 2026-08-21T12:34:49.990163+00:00 tick 48 model=qwen3.8-27b steps=25 wall=265s next=Track B step 3a continued. Find correct Arb + ACB download URLs (inspect arblib.org downlo
 2026-08-21T13:05:49.996290+00:00 tick 49 model=qwen3.8-27b steps=25 wall=373s next=Track B step 3a continued. Find correct Arb + ACB download URLs (inspect arblib.org downlo
 2026-08-21T13:36:49.990532+00:00 tick 50 model=qwen3.8-27b steps=22 wall=1319s next=Track B step 3a continued. Find correct Arb + ACB download URLs (inspect arblib.org downlo
+2026-08-21T14:07:49.990330+00:00 tick 51 model=qwen3.8-27b steps=20 wall=1210s next=Track B step 3b — RUN the barrier program, reproduce the barrier LOCATION:

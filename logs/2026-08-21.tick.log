@@ -171,3 +171,49 @@ next: RUN the barrier program with the Polymath15 barrier params. From the paper
   programs Tloop*.c + stored sums — record what that requires).
 budget note: frontier calls this week now 6 (10, 17, 39, 44, 45, 50) — cap was 5; over by 1,
   noted for the week-1 review (ticks 39/44/45 were escalated from local stalls).
+
+## tick 52 (2026-08-21, local) — Track B step 3b: RUN the barrier program, reproduce the barrier LOCATION — machine verdict: YES
+state one-liner: planned work = HANDOFF tick 50/51 "run BarrierLocationAssistant with the
+  Polymath15 barrier params, check the Aeff/Beff0-ratio dip appears at X0=6e10+83951.5".
+  Not in DEAD_ENDS (A-001/A-002 tooling, B-001 GL quadrature at the barrier point — that was
+  the H_t quadrature, a different integrand). Tick 51 (local) already RAN the program and
+  committed 3 output files (evidence/2026-08-21-barrier-run/{thres0_window,thres4_halfint,
+  full_search}.txt) but never recorded the verdict or updated HANDOFF — this tick closes that.
+gate: track B OPEN (6/6).
+prior-art pre-flight: paper Sec 8.4 (lit/text/polymath15-2019.txt line 150) quoted verbatim:
+  "t0 = 0.2, X = 6 × 10^10 + 83952 − 0.5, and y0 = 0.2" -> barrier location X = 6e10+83951.5.
+  Euler product is over primes p<=11 (line 155: "the partial Euler product p<=11 ..."), i.e.
+  nprimes=5 (2,3,5,7,11). The T-loop programs Tloop*.c compute t_0=2.217e4 (winding number of
+  the 3D-barrier) — that is the NEXT step, not this one.
+work (bounded step): re-run BarrierLocationAssistant with the EXACT paper params (nprimes=5,
+  y0=t0=0.2) on a window centered on the barrier location, and check the machine reproduces
+  the barrier location. Machine decides.
+machine said (verbatim, key lines):
+  clean run (x=60000083951.0 numx=4 nprimes=5 thres=0 y0=0.2 t0=0.2 sw=0), exit 0:
+    60000083951.5, 9.026624276, 21.86003335, 26.21232005, 3.269553771, 4.276853158, 4.559431977
+    60000083952.5, 26.21232005, 14.25161432, 5.312329902, 4.559431977, 3.900151862, 2.845189591
+    60000083953.5, 5.312329902, 2.076690534, 0.9973923561, 2.845189591, 1.945745594, 1.352187808
+  wide run (x=60000083940.0 numx=20 nprimes=5 thres=0), exit 0, real-part-(-1/2) cols (0,1,2):
+    60000083950.5 -> col2=9.026624276
+    60000083951.5 -> col2=26.21232005   (PEAK)
+    60000083952.5 -> col0=26.21232005   (PEAK, symmetric)
+    60000083953.5 -> col0=5.312329902
+    60000083954.5 -> col0=0.9973923561
+    (all other X in [6e10+83940.5, 6e10+83960.5] have real-part-(-1/2) cols < 1.25)
+  output columns = |Euler product| at cb = -1/2 - i*(X-1/2)/2, -1/2 - i*X/2, -1/2 - i*(X+1/2)/2,
+    then the same three at real part -1 (cols 3,4,5). Barrier test = cols 3,4,5 > thres.
+verdict: YES — barrier LOCATION reproduced. The real-part-(-1/2) Euler product has a single
+  dominant peak at X = 6e10+83951.5 .. 6e10+83952.5 (center 6e10+83952.0), matching the paper's
+  barrier location X = 6e10+83951.5 (left edge) within the 0.5 grid spacing. Peak 26.21 vs next
+  largest 9.03 (1 step away) and <1 (2 steps away) -> unique, not a flat region.
+note: tick 51's thres0_window.txt used a DIFFERENT nprimes (its col2 at X=6e10+83951.5 was 53.63,
+  vs 26.21 here with nprimes=5) — nprimes scales the Euler-product magnitude but NOT the peak
+  location, so the barrier location is reproduced either way. The paper's nprimes=5 (primes<=11)
+  is the era-correct choice and is what this tick records.
+next: t_0 = 2.217e4 itself comes from the T-loop programs (TloopSinglematv2.c / TloopDualmatv2.c
+  / TloopthreadedV4.c — "computes the winding number for a 3D-Barrier", "Processing the barrier
+  for X=...") + the StoredSums*.c stored-sum matrices. Bounded step for the next tick(s):
+  (a) read TloopSinglematv2.c main() to find its invocation + required stored-sum input files;
+  (b) check whether the stored sums are shipped in the dbn repo or must be computed first
+  (StoredSumSinglematv1.c etc.); (c) compile+run for the 2-sig-fig t_0=2.2e4 confirmation
+  (week-4 kill criterion, due ~2026-09-17).
