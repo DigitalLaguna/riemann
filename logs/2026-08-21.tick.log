@@ -217,3 +217,21 @@ next: t_0 = 2.217e4 itself comes from the T-loop programs (TloopSinglematv2.c / 
   (b) check whether the stored sums are shipped in the dbn repo or must be computed first
   (StoredSumSinglematv1.c etc.); (c) compile+run for the 2-sig-fig t_0=2.2e4 confirmation
   (week-4 kill criterion, due ~2026-09-17).
+
+## tick 68 (2026-08-21, local) — Track B step 3c: diagnose TloopSinglematv2 segfault (exit 139 from tick 66)
+state one-liner: planned work = HANDOFF "next action" step 3c (t_0 from T-loop programs). Ticks 53-67
+  made partial progress not recorded in this log: compiled TloopSinglematv2 (+_asan, _dbg, v2 builds),
+  generated runs/singlemat_X60000083951p5_d30.txt (X=6e10+83951.5, 65x65 terms, 30 digits, 17:01),
+  and tick 66 RAN `TloopSinglematv2 0 0.2 0.2 0 singlemat_X60000083951p5_d30.txt` -> exit=139 (SIGSEGV)
+  after 3s (evidence/2026-08-21-tloop/run.txt). Not in DEAD_ENDS (B-001 is GL quadrature, different).
+gate: track B OPEN (6/6).
+prior-art pre-flight: program is the Polymath15 code itself (dbn-code card, lit/cards/dbn-code.md);
+  main() usage string verbatim: "This script computes the winding number for a '3D-Barrier', that runs
+  along rectangle: [X <= x <= X+1] + i[y0 <= y <= 1], and along: [ts <= t <= te]." (TloopSinglematv2.c
+  main(), finish: block). Invocation: <ts> <te> <y0> <Prt> <singlematfile>; file header line =
+  X, expterms, taylorterms, digits.
+falsification test (pre-registered, before run): HYPOTHESIS = the segfault is fopen(NULL) because tick 66
+  used the bare filename while the file lives in runs/ (wrong cwd), so fgets on a NULL FILE* crashes.
+  FALSIFIED if: with the file present in cwd (path runs/singlemat_X60000083951p5_d30.txt), the program
+  STILL segfaults before printing "Filling stored sums matrix with 65 X 65 terms" — then it is a code
+  bug, not a path issue, and ASan/gdb is the next tool.
