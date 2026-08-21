@@ -1,43 +1,46 @@
 # HANDOFF
-tick: 52 | 2026-08-21T17:10:00Z | track: b (numerics) | gate: A B C D E all OPEN (21/21)
+tick: 69 | 2026-08-21T23:15:00Z | track: b (numerics) | gate: A B C D E all OPEN (21/21)
 
 ## State
 Literature gate COMPLETE (21/21, all OPEN). Claims: #1 scaffold NOTE; #2 PNT+ FORMAL;
-#3 H_0 closed form NUMERIC; #4 H_t heat flow NUMERIC; #5 barrier diagnostic NOTE
-(GL quadrature does not reach X0=6e10 — aliasing, needs AFE or C code); #6 barrier
-LOCATION NUMERIC (NEW this tick). Dead ends: A-001, A-002 (tooling), B-001 (GL quadrature
-at barrier). C toolchain up (tick 50): Arb 2.23.0+BUNDLED ACb in flint-pfx,
-BarrierLocationAssistant.c compiled and runs.
+#3 H_0 closed form NUMERIC; #4 H_t heat flow NUMERIC; #5 barrier diagnostic NOTE (GL
+aliasing); #6 barrier LOCATION NUMERIC; #7 T-loop barrier run NUMERIC (NEW this tick:
+Polymath15's exact paper run reproduced, Lambda <= 0.22). Dead ends: A-001, A-002
+(tooling), B-001 (GL quadrature at barrier), B-002 (NEW: Arb/FLINT header layout bug).
+C toolchain: FLINT 3.2.0 + bundled ACb + Arb 2.23.0 in flint-pfx; dbn C programs build
+with FLINT headers (see B-002 for the trap).
 
-## Last tick (52)
-Machine said YES: ran BarrierLocationAssistant with the EXACT paper params (nprimes=5 =
-primes<=11, y0=t0=0.2, paper Sec 8.4 line 150: "t0=0.2, X=6e10+83952-0.5, y0=0.2"). The
-real-part-(-1/2) Euler product has a single dominant peak at X=6e10+83951.5 (value 26.21,
-symmetric at X=6e10+83952.5), unique in [6e10+83940.5,6e10+83960.5] (next 9.03, <1 two steps
-away). check.sh PASS (peak within 0.5 of 6e10+83951.5). Claim #6 NOTE -> NUMERIC.
-NOTE: tick 51 had already run the program (3 output files) but never recorded the verdict;
-this tick closed that. tick 51's thres0_window.txt used a different nprimes (col2=53.63 vs
-26.21 here) — nprimes scales magnitude, not peak location.
+## Last tick (69)
+Machine said YES: ran Polymath15's unmodified TloopSinglematv2.c (dbn repo) with the
+paper's shipped stored sums (singlemat_X60000083951p5_d30.txt), barrier X=6e10+83951.5,
+y0=0.2, t in [0,0.2]. 171 t-steps, exit 0, no abort (min modabb 1.5319 > 1), overall
+winding 0.000000, mesh 11076 (t=0) -> 56 (t=0.19623). Paper's reported values
+(lit/text/polymath15-2019.txt lines 5565/5582/5586): mesh 11076 -> 56 at t=0.195,
+winding 0 — EXACT match on both mesh counts, winding to 2 sig figs on final t. Theorem
+1.2 of the paper then gives Lambda <= t0 + y0^2/2 = 0.2 + 0.02 = 0.22 (Theorem 1.1).
+Week-4 kill criterion (numerics reproduced to 2 sig figs) MET. Root-caused the tick-66
+segfault (B-002: Arb 2.23 vs FLINT 3.2 acb_poly_struct layout; tick-53 binary used the
+wrong headers); recorded recipe in evidence/2026-08-21-tloop/ (compile.sh, run.sh,
+check.sh, full output, stored-sums archive). Claim #7 NOTE -> NUMERIC via promote.sh.
 
 ## Next action
-Track B step 3c — t_0=2.217e4 (the actual bound input) comes from the T-loop programs, NOT
-the barrier-location assistant. Bounded step:
-1. Read TloopSinglematv2.c main() (and TloopDualmatv2.c / TloopthreadedV4.c) to find the
-   invocation + the stored-sum input files it reads ("Processing the barrier for X=...").
-2. Check whether the stored sums are SHIPPED in the dbn repo or must be computed first
-   (StoredSumSinglematv1.c / StoredSumsDualmatv1.c / StoredSumsThreaded.c).
-3. Compile+run for the 2-sig-fig t_0=2.2e4 confirmation (week-4 kill criterion, due ~2026-09-17).
-All numerics in Arb ball arithmetic (the C programs already are).
+Track B step 4 — push BELOW 0.22 (design doc: "then push below 0.20 with rigorous
+bounds"). Bounded step: read paper Sec 9-10 + dbn wiki for what feeds the "Lambda <=
+0.20 with newer RH heights" claim (the card records the paper's conditional table:
+Lambda <= 0.1 if RH verified to T ~ 4.5e21), identify the exact inputs (RH height T,
+barrier X0, y0), then pre-register ONE bounded experiment. If the 0.20 path needs a new
+stored-sums file, budget for StoredSumSinglematv1.c first.
+Secondary: track A week-4 milestone ("one Lean PR opened upstream") still open — check
+PNT+ open issues for a small claimable one.
 
 ## Blocked
 - odlyzko-zeros full chapter text (AMS LibLynx login)
 - lean-zulip-pnt full thread (Zulip JS UI, no API key)
-- apt libflint-dev/libarb-dev (mostly moot — flint-pfx has FLINT 3.2 + Arb 2.23 + ACb;
-  python-flint 0.9 still the workhorse for track B Python)
+- apt libflint-dev/libarb-dev (moot — flint-pfx self-sufficient)
 
 ## Budget
-Frontier calls this week: 6 (10, 17, 39, 44, 45, 50) — cap was 5, over by 1 (escalations from
-local-model stalls; noted for week-1 review). Local model: ticks 46-49 = 4 ticks (~2h)
-re-attempting the same 404 URLs without checking GitHub API org moves — reliability data point.
-Week 1 ends 2026-08-24: week-1 milestone (track B closed form in Arb — DONE: claims #3, #4)
-+ first weekly review (frontier) due by 2026-08-24.
+Frontier calls this week: 7 (10, 17, 39, 44, 45, 50, 69) — cap was 5; overage was
+escalations from local-model stalls (46-49, 53-68). Local-model reliability: ticks
+53-67 did real work but logged nothing; tick 68 entry truncated. Week 1 ends
+2026-08-24: week-1 milestone DONE (B closed forms in Arb, claims #3/#4), first weekly
+review (frontier) due by 2026-08-24. Week-4 kill criterion MET 2026-08-21 (claim #7).

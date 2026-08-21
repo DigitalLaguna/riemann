@@ -235,3 +235,48 @@ falsification test (pre-registered, before run): HYPOTHESIS = the segfault is fo
   FALSIFIED if: with the file present in cwd (path runs/singlemat_X60000083951p5_d30.txt), the program
   STILL segfaults before printing "Filling stored sums matrix with 65 X 65 terms" — then it is a code
   bug, not a path issue, and ASan/gdb is the next tool.
+
+## tick 69 (2026-08-21, interactive/frontier) — Track B step 3c (completion): T-loop barrier run — machine verdict: YES, Lambda <= 0.22 reproduced
+state one-liner: planned work = finish HANDOFF step 3c (t_0 from the T-loop programs). Not a dead
+  end: B-001 killed our GL quadrature, not the C T-loop; the segfault diagnosed in tick 68 is a
+  header-layout bug, now root-caused and fixed (B-002).
+gate: track B OPEN (6/6).
+prior-art pre-flight: oracle = the fetched paper itself (lit/text/polymath15-2019.txt), which
+  reports this exact run's parameters and results: line 5565 "x = 6 × 10^10 + 83952 ± 0.5, y = 0.2 … 1,
+  t = 0 … 0.2"; lines 5582-5583 "ranging from 11076 at t = 0 to 56 at t = 0.195"; line 5586 "The overall
+  winding number for the barrier at this specific location came out at 0"; line 100 "We have Λ ≤ 0.22."
+  Stored sums = the paper's shipped file runs/singlemat_X60000083951p5_d30.txt (360 KB, 65x65, 30 digits).
+falsification (continuing tick 68's pre-registered test): tick 68's fopen(NULL) hypothesis was
+  FALSIFIED (correct path runs/singlemat_... still segfaulted — code bug, per the pre-registered branch).
+  New root cause (machine-verified): tick-53 binary compiled with Arb 2.23 headers against the FLINT 3.2
+  library; acb_poly_struct layout differs (Arb: length@8; FLINT: length@16) -> inline acb_poly_zero()
+  zeros the library's alloc field -> acb_poly_fit_length reallocs a 0-sized pointer -> SEGV. Fix: compile
+  with FLINT 3.2 headers (include-v2) + forced -include arb_mat.h. See DEAD_ENDS B-002.
+machine said (verbatim, key lines — full output in evidence/2026-08-21-tloop/run-output.txt):
+  Processing the barrier for X= 60000083951.500000000000000000...60000083952.500000000000000000
+  (N = 69098), y0 = 0.2000000000...1 , t = 0...0.2000000000
+  Rectangle(1) : 0, 12880.000000000000000, 2770.0000000000000000, 0.000000, 4.3192484482264584414, 11076
+  Rectangle(171) : 0.19622917081693985634, 58.00000000000000000, 15.000000000000000, 0.000000, 1.5319492685321455174, 56
+  Overall winding number: 0.000000
+  exit 0, 171 rectangles, min modabb = 1.53195 > 1 (no abort), wall 58.6 s on 1 core.
+verdict: YES — Polymath15's T-loop barrier verification REPRODUCED. Our run vs the paper's reported
+  values: mesh at t=0 = 11076 (paper: 11076, EXACT); final mesh = 56 at t=0.19623 (paper: 56 at t=0.195,
+  exact mesh / t to 2 sig figs); overall winding 0 (paper: 0, EXACT); no abort (paper: "completed
+  successfully", line 7518). A fresh rebuild from unmodified source with the recorded recipe
+  (evidence/2026-08-21-tloop/compile.sh) reproduces the v2 run's output byte-identical (171/171
+  rectangle lines). By Theorem 1.2 of the paper: Lambda <= t0 + y0^2/2 = 0.2 + 0.02 = 0.22 (Theorem 1.1).
+  Week-4 kill criterion ("Polymath15 numerics reproduced to 2 significant figures") MET.
+note: CORRECTION to earlier HANDOFF/log notes — "t_0 = 2.217e4" was the 2019 v1 bound of
+  arXiv:1904.12438; the fetched (current) version reports t_0 = 0.2 and Lambda <= 0.22, which is what
+  the design doc's card ("constants: Lambda <= 0.22") and Track B target ("reproduce 0.22") reference.
+  The design doc's week-4 criterion is "numerics reproduced to 2 sig figs" — satisfied, agreement exact.
+note: ticks 53-67 (local model) made real progress (v2 build, stored-sums generation, ASan/DBG binaries)
+  but wrote no log entries; tick 68's entry is truncated mid-diagnosis. This tick closes both.
+promotion: claim #7 (Track B T-loop reproduction) NOTE -> NUMERIC via promote.sh (checker
+  evidence/2026-08-21-tloop/check.sh re-runs the full compile+run+asserts, ~1 min, PASS).
+next: Track B step 4 — the push BELOW 0.22 (design doc target: "then push below 0.20 with rigorous
+  bounds"). Cheapest first probe: the paper's conditional table (card: "Lambda <= 0.1 if RH verified to
+  T ≈ 4.5e21"; design doc: "newer RH verification heights should already give Lambda <= 0.20") — read
+  Sec 9/10 of the paper + the dbn wiki for exactly which inputs (T, barrier X0, y0) feed the 0.20 claim,
+  then pre-register a bounded experiment. Secondary: track A (week-4 milestone "one Lean PR opened
+  upstream" is still open; check PNT+ issue list for a claimable small issue).

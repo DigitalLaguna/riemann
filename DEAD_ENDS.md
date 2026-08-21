@@ -34,3 +34,20 @@ failed: degree-difference (n=32 vs n=64) at the barrier point X0=6e10+83951.5+0.
   GL quadrature does NOT reach the barrier.
 evidence: evidence/2026-08-21-ht-barrier/machine-run.txt
 closed by: machine output (VERDICT: barrier rel radius LARGE; AFE needed)
+
+## B-002 tick-53 TloopSinglematv2 binary: Arb/FLINT header layout mismatch (segfault)
+tried: 2026-08-21, ticks 53-66 (14 ticks)
+failed: binary compiled tick 53 with Arb 2.23 headers ($PFX/include) against the FLINT 3.2
+  library (libflint.so.20) segfaulted at 0x168 in the first rectangle (ASan: SEGV on 0x168).
+  Root cause (machine-verified by nm + header diff, tick 67): 2018 dbn code expects
+  acb_poly_struct = { coeffs; length; alloc; } (Arb 2.23 layout, length@8); FLINT 3.2 is
+  { coeffs; alloc; length; } (length@16). Inline acb_poly_zero() compiled from Arb headers
+  zeros offset 8, which the FLINT library reads as alloc=0 -> acb_poly_fit_length does
+  realloc on a 0-sized pointer. Fix: compile with FLINT 3.2 headers (include-v2) + forced
+  -include arb_mat.h (FLINT acb headers don't pull in arb_mat.h). BarrierLocationAssistant
+  (claim #6) never hit the bug because it calls no acb_poly functions.
+evidence: evidence/2026-08-21-tloop/README.md "The segfault bug" section; nm -D of both
+  binaries (both import arb_mat_init; only the ACB header set differs); ASan log in
+  tracks/b-dbn/dbn/dbn_upper_bound/arb/ (TloopSinglematv2_asan, tick 64)
+closed by: tick 67 — FLINT-header build runs clean, output matches the paper exactly
+  (claim #7 NUMERIC).
