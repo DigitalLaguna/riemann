@@ -65,8 +65,8 @@ def gl_mapped(n, a, b):
     return [mid + half*acb(q(x)) for x in xs], [half*acb(q(w)) for w in ws]
 
 def Ht_quad_z(t, z_re, z_im, n1, n2, nmax=4):
-    z = acb(fmpq(z_re), fmpq(z_im))
-    t = acb(fmpq(Fraction(str(t))))
+    z = acb(q(z_re), q(z_im))
+    t = acb(q(t))
     def f(u):
         s = acb(0)
         for n in range(1, nmax + 1):
