@@ -116,3 +116,58 @@ next: find correct Arb+ACB download URLs (inspect arblib.org download page / a m
   version), build them into the SAME prefix, then
   gcc BarrierLocationAssistant.c -I$PFX/include -I$PFX/include/flint -L$PFX/lib -lflint -larb -lacb -lgmp -lmpfr -lm
   and run with the Polymath15 barrier params to reproduce t_0=2.217e4 (2 sig figs = week-4 kill criterion).
+
+## tick 50 (2026-08-21, interactive/frontier) — Track B step 3a: build Arb+ACb, compile the Polymath15 barrier program — machine verdict: YES
+state one-liner: planned work = HANDOFF tick 45 "find correct Arb+ACB download URLs, build
+  into same prefix, compile BarrierLocationAssistant.c"; not in DEAD_ENDS (A-001/A-002 tooling,
+  B-001 GL quadrature). Ticks 46-49 (local model, 4 ticks ~2h) all re-attempted the URL hunt
+  with the same 404s — the URLs were 404 because the repos MOVED org (benloko/ -> flintlib/).
+gate: track B OPEN (6/6).
+prior-art pre-flight: dbn repo is the direct prior art (Links.to.Arb.C.scripts.txt confirms
+  the arb-library dependency; BarrierLocationAssistant.c usage string read from source).
+work (bounded step): find+build Arb/ACb into the existing prefix, compile+run the barrier
+  binary. Machine decides at each stage.
+machine said (verbatim, key lines):
+  https://api.github.com/repos/benloko/arb -> 404; benloko has 13 repos, none arb/acb
+  https://github.com/flintlib/arb -> 200 (repo moved to flintlib org)
+  tags: 2.23.0, 2.22.1, ... 2.14.0 (40 tags); tarball:
+    https://github.com/flintlib/arb/archive/refs/tags/2.23.0.tar.gz (1.99 MB, 302->codeload OK)
+  Arb 2.23.0 tarball BUNDLES ACb (acb/ dir + acb.h inside) — one build covers both
+  configure --prefix=$PFX --with-flint=$PFX: "ARB was successfully configured"
+    (FLINT_LIB_DIR/FLINT_INC_DIR -> existing flint-pfx)
+  make #1: exit 2 — fmpr/*.c fail: ISO C90 (Makefile CFLAGS=-ansi) vs FLINT 3.2 _Thread_local
+  make #2 (after -std=c99): exit 2 — fmpz_extras.h statics clash with FLINT 3.2 public
+    fmpz_set_mpn_large/fmpz_ui_pow_ui (fmpz.h:240,378); flint_mpn_copyi moved to mpn_extras.h
+  make #3 (after renames + mpn_extras include): exit 2 — fmpzi.h: conflicting types
+    fmpzi_struct (FLINT 3.2 defines it in fmpz_types.h:145 without the FMPZI_H guard);
+    FLINT fmpzi.h verified strict superset (header diff) + libflint exports 114 fmpzi symbols
+  make #4 (fmpzi.h -> forwarder stub): exit 2 — "No rule to make target fmpzi.h" (Makefile
+    prerequisite)
+  make #5 (forwarder with FMPZI_H guard): exit 2 — fmpzi/*.c unknown fmpzi_t (self-guard
+    shadowed FLINT's identical guard)
+  make #6 (unguarded forwarder): exit 2 — mpz_ptr undeclared (FLINT 3 flint.h no longer
+    includes gmp.h)
+  make #7 (+ gmp.h/mpfr.h + ulong_extras.h + thread_support.h + thread_pool.h force-include):
+    exit 0 — LIBRARY BUILT (libarb.so.2.14.0 + bundled ACb)
+  make install: exit 0 (libarb.so.2 + acb.h/acb_poly.h/acb_mat.h into prefix include/)
+  gcc BarrierLocationAssistant.c -I$PFX/include -I$PFX/include/flint -include stdlib.h
+    -include flint/ulong_extras.h -include flint/mpn_extras.h -L$PFX/lib -lflint -larb
+    -lgmp -lmpfr -lm: exit 0 (only implicit-decl warnings, pre-existing 2018-code style)
+  LD_LIBRARY_PATH=$PFX/lib ./BarrierLocationAssistant (no args):
+    Usage:
+    BarrierLocationAssistant x xnum nprimes thres y0 t0 sw
+    (prints the full usage text, exits 0)
+verdict: YES — the C toolchain is up. Build+install+compile all exit 0; binary runs.
+note: the FLINT 3.2 drift was real but shallow: 5 small patches (all recorded with originals
+  in evidence/2026-08-21-arb-build/README.md). The era-matched 2017 combo (FLINT 2.6.4 +
+  Arb 2.2.3 + ACb 1.3.5) was NOT pursued — those versions have no git tags (arblib.org
+  tarballs 404), so the patch path was cheaper and the dbn code compiled cleanly against it.
+next: RUN the barrier program with the Polymath15 barrier params. From the paper (tick 44
+  quotes, Sec 8.4): x = 6e10+83952 +/- 0.5, y in [0.2,1], t in [0,0.2]. Bounded step:
+  (a) grep paper text + dbn docs for the exact assistant invocation (x, xnum, nprimes, thres);
+  (b) run with a search window around 6e10 and check the machine reproduces the dip at
+  X0 = 6e10+83951.5 (barrier region left edge); if the ratio dip appears at the expected
+  location, the barrier LOCATION is reproduced (t_0=2.217e4 itself comes from the T-loop
+  programs Tloop*.c + stored sums — record what that requires).
+budget note: frontier calls this week now 6 (10, 17, 39, 44, 45, 50) — cap was 5; over by 1,
+  noted for the week-1 review (ticks 39/44/45 were escalated from local stalls).

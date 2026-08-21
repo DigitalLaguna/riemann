@@ -1,0 +1,9 @@
+/* Arb 2.23.0 bundled fmpzi.h replaced by a forwarder to FLINT's public
+   fmpzi.h (FLINT >= 3.2 ships fmpzi, a strict superset of the Arb copy).
+   Original saved in evidence. Mirrors the original include preamble
+   (flint.h + fmpz.h -> gmp.h) plus FLINT's fmpzi.h. No guard here:
+   FLINT's fmpzi.h uses the same FMPZI_H guard a local one would shadow. */
+#include <limits.h>
+#include "flint/flint.h"
+#include "flint/fmpz.h"
+#include "flint/fmpzi.h"

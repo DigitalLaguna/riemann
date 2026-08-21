@@ -1,0 +1,17 @@
+/*
+  flint2_compat.h — FLINT 2.x -> 3.2 compat, force-included via -include.
+  In FLINT 2, flint.h pulled in gmp.h/mpfr.h and the n_primes/n_factor and
+  thread-pool APIs. In FLINT 3.2 users must include gmp.h themselves, and
+  these live in:
+    - n_primes/n_factor:             flint/ulong_extras.h (types in limb_types.h)
+    - do_func_t, FLINT_PARALLEL_*:   flint/thread_support.h
+    - global_thread_pool, thread_pool_wake/wait: flint/thread_pool.h
+*/
+#ifndef FLINT2_COMPAT_H
+#define FLINT2_COMPAT_H
+#include <gmp.h>
+#include <mpfr.h>
+#include "flint/ulong_extras.h"
+#include "flint/thread_support.h"
+#include "flint/thread_pool.h"
+#endif
