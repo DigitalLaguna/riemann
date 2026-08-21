@@ -1,48 +1,41 @@
 # HANDOFF
-tick: 39 | 2026-08-21T08:04:29Z | track: b (numerics) | gate: A B C D E all OPEN (21/21)
+tick: 45 | 2026-08-21T11:25Z | track: b (numerics) | gate: A B C D E all OPEN (21/21)
 
 ## State
-Literature gate COMPLETE (21/21, all OPEN). Claims: #1 scaffold NOTE; #2 PNT+ local build
-FORMAL; #3 H_0 closed form NUMERIC; #4 H_t(35+10i) t in {0,1,100,1000} NUMERIC (rigorous Arb GL
-quadrature); #5 NEW NOTE — barrier diagnostic: our GL quadrature (n=32/64) does NOT converge at
-the Polymath15 barrier point X0=6e10+83951.5+0.2i (degree-diff rel 0.227 vs 4.3e-39 at reference
-z=35+10i). Dead ends: A-001, A-002 (tooling), B-001 (GL quadrature does not reach the barrier).
+Literature gate COMPLETE (21/21, all OPEN). Claims: #1 scaffold NOTE; #2 PNT+ FORMAL; #3 H_0 closed
+form NUMERIC; #4 H_t(35+10i) t in {0,1,100,1000} NUMERIC; #5 barrier diagnostic NOTE (GL quadrature
+does not reach the barrier). Dead ends: A-001, A-002 (tooling), B-001 (GL quadrature).
 
-## Last tick
-Machine verdict on the pre-registered falsification (tick 39): TRIGGERED. Ran the built-but-unrun
-ht_barrier_test.py (local model built tick 32, fixed tick 38, never ran it). Degree-difference
-n=32 vs n=64 at t=0.2: reference z=35+10i rel 4.3e-39 (converges); moderate z=1000+0.2i rel 2.48;
-barrier X0+0.2i rel 0.227. VERDICT: barrier rel radius LARGE — quadrature does NOT converge; AFE
-or the Polymath15 C code is needed to reproduce t_0=2.217e4. Root cause: integrand cos(z*u)
-oscillates with period ~1e-10 in u at X0~6e10; GL n=32/64 (node spacing ~0.03) aliases it. Full
-verbatim output at evidence/2026-08-21-ht-barrier/machine-run.txt.
+## Last tick (45)
+Track B step 3a (path a = run the Polymath15 C code). Machine decided the build path:
+- python-flint 0.9.0 ships .so (acb_poly/acb_mat/arb/acb) but NO .h headers, and pyflint.abi3.so
+  exports 0 FLINT/Arb/ACb C symbols -> C code cannot compile/link against it. No system FLINT/Arb/ACb,
+  no conda. => build from source.
+- Built into gitignored prefix tracks/b-dbn/flint-pfx: GMP 6.3.0 OK, MPFR 4.2.1 OK, FLINT 3.2.0 OK
+  (libflint.so.20). Arb + ACb NOT built: arblib.org + github benloko/arb download URLs all 404;
+  arblib.org/arb.html+acb.html static HTML has no .tar.gz links (JS-rendered / other path).
+Machine verdict: from-source path WORKS (GMP->MPFR->FLINT clean); Arb+ACB blocked only on URLs.
 
 ## Next action
-Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics reproduced to 2
-sig figs", i.e. their t_0 lower bound 2.217e4, arXiv 1904.12438). Two candidate paths, pick one:
-  (a) C-code path (literal HANDOFF plan, cheaper): locate + run the Polymath15 C code
-      (dbn_upper_bound/arb/BarrierLocationAssistant.c or the barrier-t-loop scripts) to confirm
-      t_0=2.2e4 comes out. Needs FLINT/Arb C dev headers (apt libflint-dev/libarb-dev was blocked
-      by pkexec; python-flint bundles FLINT+ARB but the C scripts need the dev headers).
-  (b) AFE path (more work, our own verified barrier eval): implement the Approximate Functional
-      Equation to extend our quadrature to the barrier region.
-First bounded step either way: verify the barrier point X0=6e10+83951.5 against the
-polymath15-2019 card (the local model's docstring value, not yet re-checked against the fetched
-paper). Falsification (pre-registered): reproduced t_0 >= 2.2e4 (2 sig figs); if the barrier
-computation needs features beyond pointwise H_t (AFE, contour integrals), record exactly what is
-missing.
+Track B step 3a continued. Find correct Arb + ACB download URLs (inspect arblib.org download page,
+or a mirror, or the exact current version), build them into the SAME prefix tracks/b-dbn/flint-pfx,
+then compile + run the Polymath15 C code:
+  PFX=$HOME/riemann/tracks/b-dbn/flint-pfx
+  gcc tracks/b-dbn/dbn/dbn_upper_bound/arb/BarrierLocationAssistant.c \
+      -I$PFX/include -I$PFX/include/flint -L$PFX/lib -lflint -larb -lacb -lgmp -lmpfr -lm -o barrier
+Run with the Polymath15 barrier params to reproduce t_0=2.217e4 (2 sig figs = week-4 kill criterion).
+Falsification: if the C code needs inputs we don't have (stored sums, a specific t_0 grid), record
+exactly what is missing.
 
 ## Blocked
-- odlyzko-zeros full text: AMS CONM 290 chapter 4573 behind LibLynx login.
-- lean-zulip-pnt full thread: needs Zulip API key or guest session.
-- apt libflint-dev/libarb-dev: pkexec timeout; blocks the C-code path (a) unless python-flint's
-  bundled headers suffice.
-- Local model reliability (data for weekly review): ticks 18-38 (16 ticks, ~7h) all wrote the same
-  "next" action and only appended to ticks.log — built ht_barrier_test.py (tick 32) but never ran
-  it. Candidate: cap per-attempt ticks at ~4 before escalation; require a machine-yes/no or a
-  logged dead end per tick.
+- odlyzko-zeros full text: AMS CONM 290 ch. 4573 behind LibLynx login.
+- lean-zulip-pnt full thread: needs Zulip API key / guest session.
+- Arb + ACB download URLs: arblib.org static HTML has no .tar.gz links; github benloko/arb 2.2.4 tag 404.
+- Local model reliability (weekly-review data): ticks 18-44 repeatedly wrote the same next-action and
+  only appended to ticks.log (built ht_barrier_test.py tick 32, ran it tick 39). Candidate: cap
+  per-attempt local ticks at ~4 before escalation; require a machine yes/no or logged dead end per tick.
 
 ## Budget
-Frontier calls this week: 2 confirmed (tick 10 H_0 bug hunt, tick 17 GL fix) + this tick 39 if
-escalated = 3 (of 5). Local model: qwen3.8-27b on :8080. Weekly review due 2026-08-27 (week-1
-milestone met; decision point on track B path a vs b).
+Frontier this week: ticks 10, 17, 39, 44 (4 confirmed) + tick 45 = 5 (at cap if 45 is frontier).
+Local model: qwen3.8-27b on :8080. Weekly review due 2026-08-27 (week-1 milestone met; track B path a
+is now the active path; Arb+ACB build is the immediate blocker).

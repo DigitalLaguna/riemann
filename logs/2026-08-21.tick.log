@@ -83,3 +83,36 @@ next: path (a) — get BarrierLocationAssistant.c to build+run locally. First su
   check whether python-flint's bundled FLINT/Arb headers suffice (find the headers under
   site-packages, try compiling with -I pointing at them); if not, try pip-installing a
   flint wheel that ships headers, or build FLINT+Arb from source in the repo (no apt).
+
+## tick 45 (2026-08-21, frontier) — Track B step 3a (path a): get Polymath15 C code to build — machine verdict: GMP+MPFR+FLINT built OK; Arb+ACB pending (download URLs 404)
+state one-liner: planned work = tick-44 "path (a) — get BarrierLocationAssistant.c to build+run locally;
+  first sub-step: check whether python-flint's bundled FLINT/Arb headers suffice"; not in DEAD_ENDS
+  (A-001/A-002 tooling, B-001 quadrature). Ticks 40-44 (local model) stalled on the same next-action;
+  tick 44 (frontier) confirmed X0 and located the C code at tracks/b-dbn/dbn/dbn_upper_bound/arb/.
+gate: track B OPEN (6/6).
+pre-registered falsification: if python-flint's bundled headers suffice, compile the C code against
+  them (fast path); if not, build GMP->MPFR->FLINT->Arb->ACb from source (slow path). Machine decides.
+machine said (verbatim, key lines):
+  python-flint 0.9.0 (~/.local/lib/python3.12/site-packages/flint/) ships .so modules
+    (acb_poly.abi3.so, acb_mat.abi3.so, arb.abi3.so, acb.abi3.so, pyflint.abi3.so) but
+    `find ... -name "*.h"` => (empty): NO headers.
+  `nm -D --defined-only pyflint.abi3.so | grep -icE " (acb|arb|flint|arb_|acb_)"` => 0
+    (bundled lib exports 0 FLINT/Arb/ACb C symbols -> C code cannot link against it).
+  system: no /usr flint/arb/acb headers; no libflint/libarb/libacb in ldconfig; runtime
+    libgmp.so.10 + libmpfr.so.6 present (no dev headers); no conda; gcc/cmake/make present; internet OK.
+  => python-flint bundled headers do NOT suffice (fast path falsified); build from source.
+  GMP 6.3.0: "GMP BUILD OK" (libgmp.so.10.5.0 + gmp.h in prefix).
+  MPFR 4.2.1: "MPFR BUILD OK" (libmpfr.so.6 + mpfr.h in prefix).
+  FLINT 3.2.0: "FLINT BUILD OK" (libflint.so.20 in prefix; headers under include/flint/).
+  Arb 2.2.4 / ACB 1.4.0: NOT built — arblib.org/arb-2.2.4.tar.gz, arb-2.2.3.tar.gz,
+    github.com/benloko/arb tags 2.2.4 => all 404; arblib.org/arb.html + acb.html static HTML contain
+    no .tar.gz / arb-2.x / acb-1.x / download strings (likely JS-rendered or a different download path).
+verdict: PARTIAL. From-source build path WORKS (GMP->MPFR->FLINT all built clean into gitignored
+  prefix tracks/b-dbn/flint-pfx). Arb+ACB blocked only on finding the correct download URLs.
+note: prefix is gitignored (tracks/b-dbn/flint-pfx/ added to .gitignore) — build artifacts, not work;
+  the C code + its run result are the work.
+promotion: NOTE (build progress, not a math result).
+next: find correct Arb+ACB download URLs (inspect arblib.org download page / a mirror / exact current
+  version), build them into the SAME prefix, then
+  gcc BarrierLocationAssistant.c -I$PFX/include -I$PFX/include/flint -L$PFX/lib -lflint -larb -lacb -lgmp -lmpfr -lm
+  and run with the Polymath15 barrier params to reproduce t_0=2.217e4 (2 sig figs = week-4 kill criterion).
