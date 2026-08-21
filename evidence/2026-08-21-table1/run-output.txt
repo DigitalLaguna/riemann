@@ -1,0 +1,15 @@
+PASS  C1 table parsed: X=12 t0=12 y0=12 rows=12
+PASS  C2 Lambda = t0 + y0^2/2 (2 dp): max |t0+y0^2/2 - Lambda_col| = 0.0000 (rows: ['0.21', '0.20', '0.19', '0.18', '0.17', '0.16', '0.15', '0.14', '0.13', '0.12', '0.11', '0.10'])
+PASS  C3 winding 0 everywhere: winding = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+PASS  C4 |f| lower bound >= 0.03: min lb = 0.0305
+PASS  C5 Section-8 run consistent with X/2 formula: X/2 = 3e+10 <= 3.06e10 (Platt 2017 [18], paper line 4286)
+PASS  C6 0.20 row unlocked by Platt-Trudgian 3e12: X = 5000000194858 -> T_req = X/2 = 2.5000001e+12; need <= 3e12 (platt-trudgian-2020 abstract) and > 3.06e10 (paper's own height) => UNLOCKED by existing verified RH data
+PASS  C7 monotone in X: X grows x4499999710, t0 0.198->0.093, Lambda 0.21->0.1
+
+0.20-row inputs (pre-registered for the next experiment):
+  X = 5000000194858  (barrier center; left edge X-0.5 = 5000000194857.5)
+  t0 = 0.186, y0 = 0.16733, N0 = 630783, target |f| >= 0.03 (paper achieved 0.0376)
+  required RH height X/2 = 2.5000001e+12 <= 3e12 (Platt-Trudgian 2020)
+  bound: Lambda <= t0 + y0^2/2 = 0.20000 (table rounds to 0.20)
+
+VERDICT: PASS — 0.20 path is arithmetically consistent and unlocked by existing RH data
