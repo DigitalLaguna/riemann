@@ -20,3 +20,4 @@
 2026-08-20T22:31:42 tick 17 model=interactive(frontier) steps=manual wall=manual next=Track B step 3: locate t_0=2.217e4 computation in dbn_upper_bound, run their code (2 sig figs), pre-register Arb re-implementation
 2026-08-20T22:37:49.991649+00:00 tick 21 model=qwen3.8-27b steps=25 wall=138s next=Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics
 2026-08-20T23:08:49.985258+00:00 tick 22 model=qwen3.8-27b steps=25 wall=100s next=Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics
+2026-08-20T23:39:49.985383+00:00 tick 23 model=qwen3.8-27b steps=25 wall=123s next=Track B step 3 — the t_0 question (week-4 kill criterion = "Polymath15 numerics
