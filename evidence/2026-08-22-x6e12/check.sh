@@ -1,5 +1,5 @@
 #!/bin/bash
-# Track B X=6e12 row — machine checks (tick 95). Re-runnable.
+# Track B X=6e12 row — machine checks (tick 95; leg iii extended tick 107). Re-runnable.
 # Pre-registered falsification test: logs/2026-08-22.tick.log tick-91 section.
 # Row: X=6e12 (left edge 5999999999999.5), t0=0.185, y0=0.16733, N0=690988.
 # Target: Lambda = t0 + y0^2/2 < 0.19999966445 (claim #9's row-2 bound).
@@ -29,13 +29,16 @@ chk $? "Lambda = t0+y0^2/2 = 0.19899966445 < 0.19999966445 (exact rational)"
 # (i) RH height: X/2 <= 3e12 (Platt-Trudgian, claim #8)
 awk 'BEGIN{exit !((5999999999999.5+0.5)/2 <= 3e12)}'; chk $? "(i) RH height barrier-center X/2 = 3e12 <= 3e12 (Platt-Trudgian)"
 
-# (iii) T-loop: PENDING until storedsum file exists
-if [ -s $ARB/runs/singlemat_X5999999999999p5_d30.txt ]; then
-  echo "NOTE  (iii) storedsum file present -> run TloopSinglematv2 next"
+# (iii) T-loop winding number for X=6e12 barrier (run4): exit=0, winding 0, no Abort
+RUN4=$EV/tloop_x6e12_run4.txt
+STAT4=$EV/tloop_x6e12_run4.status
+if [ -s "$RUN4" ] && grep -q 'Overall winding number: 0.000000' "$RUN4" \
+   && ! grep -q 'Abort' "$RUN4" && grep -q 'exit=0' "$STAT4"; then
+  chk 0 "(iii) T-loop X=6e12 run4: exit=0, 'Overall winding number: 0.000000', no Abort ($(grep -c '^Rectangle' $RUN4) rects, final t=$(grep '^Rectangle' $RUN4 | tail -1 | awk -F': ' '{print $2}' | awk -F, '{print $1}'))"
 else
-  echo "PENDING (iii) T-loop: storedsum file not yet written (long pole running)"
+  chk 1 "(iii) T-loop X=6e12 run4: not complete (exit/winding/Abort check failed)"
 fi
 
 echo "----"
 echo "pass=$pass fail=$fail"
-[ $fail -eq 0 ] && echo "CHECK PASS (legs i,ii verified; iii pending storedsum)" || echo "CHECK FAIL"
+[ $fail -eq 0 ] && echo "CHECK PASS (all legs i,ii,iii verified)" || echo "CHECK FAIL"
