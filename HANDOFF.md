@@ -1,4 +1,4 @@
-# HANDOFF — session 2026-08-22 (tick 91, frontier)
+# HANDOFF — session 2026-08-22 20:07 CEST (owner manual, after tick 105; last frontier tick 91)
 # track: B | gate: all tracks OPEN (21/21 seeds)
 
 ## State
@@ -26,19 +26,17 @@ dismissed RH height as "external" — premature. NOTE #16 records the re-attribu
     (evidence/2026-08-22-pnt-ik-api/issue-816-draft.md ready; AI disclosure per
     PULL_REQUEST_STYLE.md) — closes the week-2 milestone fully.
 (b) TRACK B (weight 40): X=6e12 row pipeline — stored sums DONE, abeff 0.5274>=0.03 DONE,
-    Lambda=0.19899966445<target DONE (check.sh); REMAINING LEG = T-loop winding number.
-    CRASH STATE (diagnosed 2026-08-22 19:03, owner session): run2 died at 31 rects (no
-    stderr captured); run3 (launched tick 103) died at 191 rects, file frozen
-    (evidence/2026-08-22-x6e12/tloop_x6e12_run3.txt, last line truncated), run3.err EMPTY,
-    run3 PID never recorded in pids.txt, all pids.txt PIDs dead. Not OOM (112G RAM free),
-    not disk (517G free), no OOM/segfault lines in journalctl (kernel lines may be hidden
-    without sudo dmesg). NEXT TICK STEP: relaunch TloopSinglematv2 in a captured session
-    recording the EXIT CODE (setsid ... ; echo exit=$? >> status) or run the existing
-    TloopSinglematv2_asan/_dbg builds to catch a segfault; row-2 reference completes ~660
-    rects with "Overall winding number: 0.000000" + cpu/wall line. Also verify abeff argv:
-    launch.sh passed t0=0.185,y0=0.16733 but output prints "t=0.2, y=0.2" (0.5274 passes
-    either way). Pre-registered falsification (tick-91 log): winding!=0/abort OR valid row
-    with Lambda>=0.19999966445 kills "a better row exists in (5e12,6e12]".
+    Lambda=0.19899966445<target DONE (check.sh); T-loop = RUN4 IN FLIGHT (owner session
+    20:03 CEST, per tick-105 pre-registration): systemd-run --user --unit=tloop-x6e12-run4,
+    own cgroup (fixes the cgroup-kill that killed run2@31/run3@191 rects at tick exits),
+    binary /tmp/tloop (row-2-proven), exit code -> tloop_x6e12_run4.status. POLL:
+    systemctl --user status tloop-x6e12-run4 + tail run4.txt (8K stdout buffering: no
+    visible output until ~30+ rects, expected). Est. 1-4h (run3 rate ~6.6s/rect).
+    On completion: status file exit=0 + "Overall winding number: 0.000000" + no Abort ->
+    NEW ROW Lambda=0.19899966445 < 0.19999966445 -> promote candidate (claim #9 improved);
+    exit!=0 -> cgroup-kill diagnosis WRONG -> TloopSinglematv2_asan next (pre-registered).
+    Also pending: verify abeff argv (launch.sh passed t0=0.185,y0=0.16733, output prints
+    "t=0.2, y=0.2"; 0.5274 passes >=0.03 either way).
 
 ## Blocked
 - PNT+ PR filing (no gh/GitHub credentials on this box)

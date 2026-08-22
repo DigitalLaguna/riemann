@@ -413,3 +413,39 @@ falsification test for THIS step (written before run4):
     (run2/run3 died exactly at tick exit; isolated run4 does not).
   - tick-91 row-level falsification still applies to the final result: winding != 0 / abort, or a
     valid row with Lambda >= 0.19999966445 kills "a better row exists in (5e12,6e12]".
+
+## session (2026-08-22 19:50-20:07 CEST, manual/owner; after tick 105) — TRACK B: run4 launched per tick-105 pre-registration, isolated cgroup — verdict: ALIVE (pending winding)
+  Context: ticks 104/105 diagnosed run2/run3 deaths as cgroup-kill (riemann-tick.service,
+  default KillMode=control-group; run2 died at its launching tick's exit, run3 likewise;
+  OOM excluded: oom_kill=0, 112G free; setsid/nohup do not escape a cgroup kill).
+  Tick 105 pre-registered run4 (log section above) but the tick ended before the launch
+  step: unit tloop-x6e12-run4 "could not be found" at 19:52 CEST.
+  This session executed the pre-registered step:
+  - wrapper: evidence/2026-08-22-x6e12/run4_wrapper.sh (exit code -> tloop_x6e12_run4.status)
+  - binary: /tmp/tloop (md5 5cb383e799c6074082b82c71b3fd6a5c, built tick 71 2026-08-22 02:17,
+    B-002 recipe; the binary behind row-2's verified winding=0 run) — deviation note:
+    pre-registration named "TloopSinglematv2" (source name); path not fixed; /tmp/tloop is
+    the row-2-proven build. arb-dir TloopSinglematv2 (47816 B, Aug 21 17:00) NOT used.
+  - launch: systemd-run --user --unit=tloop-x6e12-run4 (own cgroup; survives session/tick exit)
+    command: /tmp/tloop 0 0.185 0.16733 0 runs/singlemat_X5999999999999p5_d30.txt
+    (from arb dir, LD_LIBRARY_PATH=/tmp/flint-3.2.0/build/lib)
+  Machine evidence (20:06 CEST, 130s in):
+    systemctl --user status: Active: active (running), CPU 2min10s of 2min10s wall (full core),
+    Memory 86.2M (peak 86.5M)
+    tloop_x6e12_run4.txt: 4096 bytes (first stdout buffer flushed; header not yet visible due
+    to 8K full buffering — expected, row-2 run shows same pattern)
+    tloop_x6e12_run4.status: "start 2026-08-22T18:03:47Z binary=/tmp/tloop md5=..."
+  Verdict: ALIVE — pre-registered confirmation test now live: if run4 is still running after
+  this session's exit (~20:10 CEST), cgroup-kill diagnosis CONFIRMED (run2/run3 died exactly
+  at tick exits; isolated run4 does not). Remaining checks per pre-registration:
+  - dies before "Overall winding number" with exit != 0 -> diagnosis WRONG -> asan build next
+  - completes -> tick-91 row-level test: winding=0 AND no abort (minmodabb>=1) -> NEW ROW
+    Lambda=0.19899966445 < 0.19999966445 (improvement over claim #9) -> promote candidate
+  Progress estimate: run3 did 191 rects in ~21min (~6.6s/rect at X=6e12, ~3-4x slower per rect
+  than row-2's 1.45s/rect); total rects unknown (adaptive dt=(minmodabb-1)/dtabb); expect O(10^3)
+  rects -> ~1-4h. Poll via: systemctl --user status tloop-x6e12-run4; tail run4.txt.
+  GitHub (owner): SSH key verified (DigitalLaguna); pnt origin->SSH, fork remote added;
+  upstream main +1 commit (e94b9fb) not touching IwaniecKowalskiCh1.lean; fork+PR still
+  postponed by owner.
+next: poll run4 (unit tloop-x6e12-run4); on completion read status file (exit code) + winding
+line; then per pre-registration: promote or asan-build or dead-end.
