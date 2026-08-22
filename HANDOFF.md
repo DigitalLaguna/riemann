@@ -25,12 +25,20 @@ dismissed RH height as "external" — premature. NOTE #16 records the re-attribu
 (a) OWNER: file the PNT+ PR from branch ik-additive-lemmas @ 0197a66
     (evidence/2026-08-22-pnt-ik-api/issue-816-draft.md ready; AI disclosure per
     PULL_REQUEST_STYLE.md) — closes the week-2 milestone fully.
-(b) TRACK B (weight 40): run the 0.20-push pipeline (stored sums + T-loop + |f| bound)
-    at a NEW X in (5e12, 6e12] (start X=6e12, N0~690618) to find a Table-1-style row with
-    Lambda = t0 + y0^2/2 < 0.19999966445. Lambda is strictly decreasing in X (claim #8 C7),
-    so a hit is EXPECTED if the pipeline runs clean; the table's discrete X grid skips this
-    range. Pre-registered falsification test is in the tick-91 log section (winding!=0/abort
-    at X=6e12, OR a valid row with Lambda >= 0.19999966445, kills "a better row exists").
+(b) TRACK B (weight 40): X=6e12 row pipeline — stored sums DONE, abeff 0.5274>=0.03 DONE,
+    Lambda=0.19899966445<target DONE (check.sh); REMAINING LEG = T-loop winding number.
+    CRASH STATE (diagnosed 2026-08-22 19:03, owner session): run2 died at 31 rects (no
+    stderr captured); run3 (launched tick 103) died at 191 rects, file frozen
+    (evidence/2026-08-22-x6e12/tloop_x6e12_run3.txt, last line truncated), run3.err EMPTY,
+    run3 PID never recorded in pids.txt, all pids.txt PIDs dead. Not OOM (112G RAM free),
+    not disk (517G free), no OOM/segfault lines in journalctl (kernel lines may be hidden
+    without sudo dmesg). NEXT TICK STEP: relaunch TloopSinglematv2 in a captured session
+    recording the EXIT CODE (setsid ... ; echo exit=$? >> status) or run the existing
+    TloopSinglematv2_asan/_dbg builds to catch a segfault; row-2 reference completes ~660
+    rects with "Overall winding number: 0.000000" + cpu/wall line. Also verify abeff argv:
+    launch.sh passed t0=0.185,y0=0.16733 but output prints "t=0.2, y=0.2" (0.5274 passes
+    either way). Pre-registered falsification (tick-91 log): winding!=0/abort OR valid row
+    with Lambda>=0.19999966445 kills "a better row exists in (5e12,6e12]".
 
 ## Blocked
 - PNT+ PR filing (no gh/GitHub credentials on this box)
