@@ -391,3 +391,25 @@ pre-registered falsification test (for the NEXT step, the X in (5e12,6e12] row s
 next: (a) OWNER: file the PNT+ PR from branch ik-additive-lemmas @ 0197a66 (closes week-2
   milestone fully); (b) TRACK B: run the 0.20-push pipeline at X=6e12 (N0~690618) to find a row
   with Lambda < 0.19999966445 (pre-registered above).
+
+## tick 105 pre-registration (2026-08-22T17:44:00Z, before run4 launch) — TRACK B: relaunch X=6e12 T-loop in an isolated cgroup
+diagnosis (machine evidence):
+  - riemann-tick.service is a user oneshot unit with NO KillMode override (systemctl --user cat:
+    [Service] Type=oneshot, WorkingDirectory=/home/niklas/riemann, ExecStart=tools/tick.sh)
+    -> default KillMode=control-group: when tick.sh exits, systemd kills ALL remaining processes
+    in the tick's cgroup. setsid/nohup do NOT protect against a cgroup-wide kill.
+  - timeline: run3 launched 16:37:49Z (tick 103); tick 103 wall=1258s -> exited 16:58:47Z;
+    run3 output file frozen at 16:58Z (mtime), last line truncated mid-buffer (size 24576 = 6x4K).
+  - OOM excluded: parent cgroups (user@1000.service, app.slice) memory.max=max, oom_kill=0; 112G free.
+  - run2 (31 rects) and run3 (191 rects) died at different rectangles, each at its launching tick's
+    exit -> external kill, not a code bug at a specific point.
+falsification test for THIS step (written before run4):
+  run4 = TloopSinglematv2 0 0.185 0.16733 0 runs/singlemat_X5999999999999p5_d30.txt launched via
+  systemd-run --user --unit=tloop-x6e12-run4 (own cgroup, survives the tick exit), exit code
+  captured to evidence/2026-08-22-x6e12/tloop_x6e12_run4.status.
+  - if run4 dies before "Overall winding number" with exit != 0 (e.g. 139 segfault): cgroup-kill
+    diagnosis WRONG, fault is in the binary -> next step: TloopSinglematv2_asan build.
+  - if run4 still running after this tick's exit (~18:0xZ): cgroup-kill diagnosis CONFIRMED
+    (run2/run3 died exactly at tick exit; isolated run4 does not).
+  - tick-91 row-level falsification still applies to the final result: winding != 0 / abort, or a
+    valid row with Lambda >= 0.19999966445 kills "a better row exists in (5e12,6e12]".
