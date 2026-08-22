@@ -1,0 +1,20 @@
+2010-06-02T08:54:20Z | A few equalities involving integrals of the logarithm of the Riemann zeta-function and equivalent to the Riemann hypothesis III. Exponential weight functions
+    http://arxiv.org/abs/1006.0323v2
+    ABS: This paper is a continuation of our recent papers with the same title, arXiv:0806.1596v1 [math.NT], arXiv:0904.1277v1 where a number of integral equalities involving integrals of the logarithm of the Riemann zeta-function were introduced and it was shown that some of them are equivalent to the Riemann hypothesis. A few new equalities of this type, 
+
+2009-03-16T15:53:27Z | Computing Hilbert class polynomials with the Chinese Remainder Theorem
+    http://arxiv.org/abs/0903.2785v4
+    ABS: We present a space-efficient algorithm to compute the Hilbert class polynomial H_D(X) modulo a positive integer P, based on an explicit form of the Chinese Remainder Theorem. Under the Generalized Riemann Hypothesis, the algorithm uses O(|D|^(1/2+o(1))log P) space and has an expected running time of O(|D|^(1+o(1)). We describe practical optimizatio
+
+2007-07-16T22:28:53Z | Other representations of the Riemann Zeta function and an additional reformulation of the Riemann Hypothesis
+    http://arxiv.org/abs/0707.2406v1
+    ABS: New expansions for some functions related to the Zeta function in terms of the Pochhammer's polynomials are given (coefficients b(k), d(k), d_(k) and d__(k). In some formal limit our expansion b(k) obtained via the alternating series gives the regularized expansion of Maslanka for the Zeta function. The real and the imaginary part of the function o
+
+2021-09-06T05:47:12Z | Improving bounds on prime counting functions by partial verification of the Riemann hypothesis
+    http://arxiv.org/abs/2109.02249v2
+    ABS: Using a recent verification of the Riemann hypothesis up to height $3\cdot 10^{12}$, we provide strong estimates on $π(x)$ and other prime counting functions for finite ranges of $x$. In particular, we get that $|π(x)-\text{li}(x)|<\sqrt{x}\log x/8π$ for $2657\leq x\leq 1.101\cdot 10^{26}$. We also provide weaker bounds that hold for a wider range 
+
+2020-04-21T05:50:50Z | The Riemann hypothesis is true up to $3\cdot 10^{12}$
+    http://arxiv.org/abs/2004.09765v1
+    ABS: We verify numerically, in a rigorous way using interval arithmetic, that the Riemann hypothesis is true up to height $3\cdot10^{12}$. That is, all zeroes $β+ iγ$ of the Riemann zeta-function with $0<γ\leq 3\cdot 10^{12}$ have $β= 1/2$.
+

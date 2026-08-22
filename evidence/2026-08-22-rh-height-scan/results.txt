@@ -1,0 +1,322 @@
+=== SWEEP (title:Riemann hypothesis, newest 40) ===
+2026-07-28T15:34:39Z | Euler's $\ell$-totients and Riemann hypothesis
+    http://arxiv.org/abs/2607.26114v1
+    ABS: This paper develops a new analytic framework for investigating the Riemann hypothesis. For each fixed integer $\ell \ge 1$, define Euler's $\ell$-totient function $\varphi_\ell$ by \[ \varphi_\ell(n):=n\prod_{\substack{p\ \mathrm{prime}\\ v_p(n)\ge \ell}}\left(1-\frac{1}{p}\right), \] and its summatory function by \[ Φ_\ell(x):=\sum_{n\le x}\varphi_\ell(n). \] An analytic study of the generalized 
+
+2026-07-27T18:58:35Z | How Random Is the Möbius Function? Smoothing, Probability, and the Riemann Hypothesis
+    http://arxiv.org/abs/2607.25002v2
+    ABS: This article is primarily expository, but it also contains several new observations and reformulations concerning the Möbius function, probabilistic models, dynamical systems, and the Riemann hypothesis. Its starting question is classical: in what sense can the Möbius function be said to behave randomly? We begin with Denjoy's random-walk heuristic and place it in the context of later work on rand
+
+2026-07-16T03:12:02Z | Beyond the Riemann Hypothesis bounds: A pair-correlation approach to the least prime in arithmetic progression and the smallest quadratic non-residue
+    http://arxiv.org/abs/2607.14515v1
+    ABS: The Generalized Riemann Hypothesis (GRH) has long defined the expected bounds for the smallest prime in an arithmetic progression and the least quadratic non-residue. However, this hypothesis primarily addresses the horizontal location of non-trivial zeros. In this paper, we show that incorporating the vertical spacing--or pair-correlation--of these zeros allows us to surpass these classical bound
+
+2026-07-09T12:12:21Z | Explicit formula for the discrete Laplace transform of the Möbius function, related special functions, and a criterion for the Riemann hypothesis
+    http://arxiv.org/abs/2607.09797v3
+    ABS: In this paper, we assume that all the zeros of the Riemann zeta function are simple. Under this assumption we give an explicit formula for the function $Φ(e^{-t})=\sum_{n=1}^{\infty}μ(n)e^{-nt}$, as a function of the values of $ζ(s)$ and $ζ'(s)$ at the odd integers and as a function of the zeros of $ζ(s)$. A structural feature distinguishes this formula from the classical explicit formula for the 
+
+2026-07-05T14:37:00Z | A proof of Riemann's hypothesis via Hadamard-Weierstrass factorization
+    http://arxiv.org/abs/2607.04338v2
+    ABS: Using the Hadamard-Weierstrass factorization theorem for Riemann's ξ function, we discuss and prove Riemann's hypothesis.
+
+2026-06-21T15:41:53Z | A Colombeau--Beurling criterion for the Riemann hypothesis
+    http://arxiv.org/abs/2606.22562v2
+    ABS: This paper establishes an equivalence between the Riemann hypothesis and the association, together with uniform $L^2$-boundedness, of a single moderate net in the Colombeau algebra $G(0,1)$, constructed from damped Báez--Duarte sums by multiplicative (Mellin) convolution. Two explicit damping strategies are introduced: an exponential damping $\exp(-k\varepsilon^2)$ combined with super-exponential 
+
+2026-06-20T17:39:57Z | Spectral Riccati--Gamma Concavity, Symmetric Zero Cancellation, and Conditional Criteria for the Riemann Hypothesis
+    http://arxiv.org/abs/2606.24924v2
+    ABS: We examine a Riccati--Gamma approach to the logarithmic derivative of the completed Riemann zeta function. The first part proves, in full local detail, that a naive two-sided vertical concavity criterion for $Ξ'/Ξ$ cannot be a proof of the Riemann Hypothesis, because every zero produces opposite vertical curvatures on the two horizontal sides of the pole of the logarithmic derivative. The second p
+
+2026-05-29T02:52:16Z | Musings on the Riemann Hypothesis
+    http://arxiv.org/abs/2605.30767v2
+    ABS: We present a few ideas on the Riemann Hypothesis based on properties of analytic functions in the complex plane. In particular, we focus on the real and imaginary parts of the Riemann xi ($ξ$) function whose zeros coincide with those of the zeta ($ζ$) function within the critical strip. We discuss the forms of the zero contour lines of the two conjugate harmonic functions (the real and imaginary p
+
+2026-05-23T02:59:37Z | The $θ= \infty$ Conjecture and the Riemann Hypothesis for Automorphic $L$-functions
+    http://arxiv.org/abs/2605.24363v1
+    ABS: The $θ=\infty$ conjecture asserts that the mollified second moments of the Riemann zeta function remain bounded for mollifiers of arbitrary polynomial length. We investigate an analogue of this conjecture for automorphic $L$-functions associated with cuspidal representations of $\text{GL}_m(\mathbb{A}_{\mathbb{Q}})$, exploring its implications for the distribution of their nontrivial zeros. Extend
+
+2026-04-19T11:13:41Z | LLM Framework for Discovering Major Mathematical Conjectures: AI's Quest for the Next Riemann Hypothesis
+    http://arxiv.org/abs/2607.28632v1
+    ABS: Major mathematical conjectures still depend heavily on expert intuition, so a unified method for the systematic generation and validation of conjectures with substantial mathematical potential remains unavailable. We present a three stage pipeline for major conjecture discovery, with region search from explicit local evidence modules, reflective validation for foundationality, novelty, and potenti
+
+2026-04-16T09:40:25Z | A new equivalence to the Riemann Hypothesis by means of the Salem integral equation
+    http://arxiv.org/abs/2604.15396v1
+    ABS: This note presents a new equivalence to the Riemann Hypothesis by means of the Salem integral equation.
+
+2026-04-14T02:34:37Z | Decaying Turbulence and the Riemann Hypothesis: The number theory behind the infinite-time singularity
+    http://arxiv.org/abs/2604.12207v6
+    ABS: We derive a formal statistical solution of freely decaying incompressible turbulence in arbitrary dimension \(d>1\) using Navier--Stokes loop equations. The loop Fourier transform maps smooth deterministic Cauchy data in infinite space to a one-dimensional momentum-loop quantum field theory, giving a geometric origin of spontaneous stochasticity. In bounded-variation calculus the nonlinear advecti
+
+2026-02-03T21:11:58Z | The Riemann Hypothesis: Past, Present and a Letter Through Time
+    http://arxiv.org/abs/2602.04022v1
+    ABS: This paper, commissioned as a survey of the Riemann Hypothesis, provides a comprehensive overview of 165 years of mathematical approaches to this fundamental problem, while introducing a new perspective that emerged during its preparation. The paper begins with a detailed description of what we know about the Riemann zeta function and its zeros, followed by an extensive survey of mathematical theo
+
+2026-01-29T23:50:56Z | The Riemann Hypothesis in Oaxaca
+    http://arxiv.org/abs/2601.22413v2
+    ABS: An equivalence of the Riemann Hypothesis (RH) enables a direct bridge to the Young lattice. In specific, the classical threshold $\lim_{n\to\infty} σ(n)/(n \log\log n) = e^γ \approx 1.78107$, derived from the asymptotic behavior of the sum-of-divisors function, can be realized combinatorially via limiting proportions associated to specific families of integer partitions.
+
+2026-01-16T07:37:05Z | On a relation to the Riemann Hypothesis and an analytic part for the divisor function
+    http://arxiv.org/abs/2601.11052v1
+    ABS: Let phi(n) denote the Euler totient function. We study the analytic part associated with the summatory function of sigma_1(n) and obtain explicit bounds under the Riemann Hypothesis. In particular, we establish an upper bound of order x^{delta'} exp((log x)/(log log x)), where delta' = max(1/2, delta).
+
+2025-12-20T03:20:31Z | Some Series Related to Extended Riemann Hypothesis for Dedekind Zeta Functions
+    http://arxiv.org/abs/2512.19761v1
+    ABS: We obtain closed form of some infinite series involving derivatives of an analogue of the Riemann xi function for Dedekind zeta function and nontrivial zeros of Dedekind zeta function assuming the Extended Riemann Hypothesis. Conversely, we prove that if this closed form holds, then all of the zeros of Dedekind zeta function beyond a certain height lie on the critical line. This yields a large num
+
+2025-12-13T16:03:33Z | On the Riemann Hypothesis for Drinfeld Modules
+    http://arxiv.org/abs/2512.12374v1
+    ABS: In this paper we provide a short proof of the Riemann Hypothesis for Drinfeld modules which uses only basic notions from the theory of global function fields and of Drinfeld modules.
+
+2025-12-02T23:16:13Z | Mean values of the Riemann zeta function at shifted zeros under the Riemann Hypothesis
+    http://arxiv.org/abs/2512.03297v1
+    ABS: Assuming the Riemann hypothesis, we obtain asymptotic formulas for $\sum_{0<γ<T}ζ(ρ+δ)ζ(1-ρ+\overlineδ)$ in the region $-\frac{a}{\log T} \leq \Re δ\leq \frac{1}{2}+\frac{a}{\log T}$, $|\Im δ|\ll 1$. Unconditionally, this asymptotic formula was recently obtained by Garunkštis and Novikas in essentially the same region, with a slight incompleteness. Assuming RH, we obtain a sharper error term, and 
+
+2025-11-14T11:56:16Z | The Riemann Hypothesis Emerges in Dynamical Quantum Phase Transitions
+    http://arxiv.org/abs/2511.11199v1
+    ABS: The Riemann Hypothesis (RH), one of the most profound unsolved problems in mathematics, concerns the nontrivial zeros of the Riemann zeta function. Establishing connections between the RH and physical phenomena could offer new perspectives on its physical origin and verification. Here, we establish a direct correspondence between the nontrivial zeros of the zeta function and dynamical quantum phas
+
+2025-11-10T05:50:43Z | Riemann Hypothesis for Non-Abelian Zeta Functions of Genus 2 Curves
+    http://arxiv.org/abs/2511.06729v1
+    ABS: In this paper, we investigate Weng zeta functions associated with curves of genus 2 over finite fields. Building upon Weng's framework for non-abelian zeta functions, we establish that, as the rank n tends to infinity, the Riemann Hypothesis holds for these zeta functions. Our proof relies on the geometric properties of the moduli space of semi-stable bundles, together with several established res
+
+2025-09-25T20:08:08Z | Some series equivalent to the extended Riemann hypothesis for Dedekind zeta functions
+    http://arxiv.org/abs/2509.21518v3
+    ABS: The extended Riemann hypothesis (ERH) for Dedekind zeta functions remains one of the most elusive open problems in number theory. Over the last century, many equivalent statements to the classical Riemann hypothesis alone have been discovered. We prove that the closed form of some infinite series over the non-trivial zeros of Dedekind zeta functions holds if and only if ERH is true.
+
+2025-09-16T19:59:06Z | Off Critical Zeros Contradict Contraction in the Dynamical Reformulation of the Riemann Hypothesis
+    http://arxiv.org/abs/2509.16240v1
+    ABS: We continue the dynamical reformulation of the Riemann Hypothesis initiated in [1]. The framework is built from an integer map in which composites advance by pi(m) and primes retreat by their prime gap, producing trajectories whose contraction properties encode the distribution of primes. In this setting, RH is equivalent to the persistence of contraction inequalities for trajectory-based error fu
+
+2025-09-12T08:59:19Z | A Dynamical Criterion Equivalent to the Riemann Hypothesis
+    http://arxiv.org/abs/2509.10588v1
+    ABS: We introduce a discrete dynamical system on the integers, defined by moving a composite $m$ forward to $m+π(m)$ and a prime $p$ backward to $p-\mathrm{prevprime}(p)$. This map produces trajectories whose contraction properties are closely tied to the distribution of primes.   We prove unconditional contraction inequalities for error terms derived from these trajectories, using explicit remainder b
+
+2025-08-19T14:44:32Z | Standard conjecture D and some conjectures around Weil's Riemann hypothesis
+    http://arxiv.org/abs/2508.13882v5
+    ABS: Let $X$ be a smooth projective variety defined on a finite field $\mathbb{F}_q$. On $X$ there is a special morphism $Fr_X$, which raises coordinates to exponent $q$: $t\mapsto t^q$. The two main results in this paper are:   Result 1: If Standard conjecture D holds (for algebraic cycles of dimension $=\dim (X)$) on $X\times X$, then all polarised endomorphisms on $X$ are semisimple.   Result 2: We 
+
+2025-07-04T14:51:00Z | On the dynamics of a semigroup and its relation with the Riemann Hypothesis
+    http://arxiv.org/abs/2507.03625v3
+    ABS: The semigroup of weighted composition operators $(W_n)_{n\in \mathbb{N}}$, defined by $$W_nf(z)=(1+z+\cdots +z^n)f(z^n),$$ acts on the classical Hardy-Hilbert space $H^{2}(\mathbb{D})$, and exhibits intriguing connections with both the Riemann Hypothesis (RH) and the Invariant Subspace Problem (ISP). In this paper, we prove that the adjoint operators $W^{\ast}_{n}$, for $n\geq 2$, are Devaney chao
+
+2025-05-03T18:12:44Z | FTNILO: Explicit Multivariate Function Inversion, Optimization and Counting, Cryptography Weakness and Riemann Hypothesis Solution Equation with Tensor Networks
+    http://arxiv.org/abs/2505.05493v1
+    ABS: In this paper, we present a new formalism, the Field Tensor Network Integral Logical Operator (FTNILO), to obtain the explicit equation that returns the minimum, maximum, and zeros of a multivariable injective function, and an algorithm for non-injective ones. This method extends the MeLoCoToN algorithm for inversion and optimization problems with continuous variables, by using Field Tensor Networ
+
+2025-03-12T06:35:32Z | A Majorana Relativistic Quantum Spectral Approach to the Riemann Hypothesis in (1+1)-Dimensional Rindler Spacetimes
+    http://arxiv.org/abs/2503.09644v3
+    ABS: Following the Hilbert-Pólya approach to the Riemann Hypothesis, we present an exact spectral realization of the nontrivial zeros of the Riemann zeta function $ζ(z)$ with a Mellin-Barnes integral that explicitly contains it. This integral defines the spectrum of the real-valued energy eigenvalues $E_n$ of a Majorana particle in a $(1+1)$-dimensional Rindler spacetime or equivalent Kaluza-Klein redu
+
+2025-01-17T14:33:19Z | Murmurations and Sato-Tate Conjectures for High Rank Zetas of Elliptic Curves II: Beyond Riemann Hypothesis
+    http://arxiv.org/abs/2501.10220v2
+    ABS: As a continuation of our earlier paper, we offer a new approach to murmurations and Sato-Tate laws for higher rank zetas of elliptic curves. Our approach here does not depend on the Riemann hypothesis for the so-called a-invariant in rank n>2 even for the Sato-Tate law, rather, on a much refined structure, a similar version of which was already observed by Zagier and the senior author when the ran
+
+2024-12-15T09:27:42Z | Investigation about a statement equivalent to Riemann Hypothesis (RH)
+    http://arxiv.org/abs/2412.11130v11
+    ABS: First idea is to compute a quantity like the angular momentum with respect to (0, 0), of an unitary mass of coordinates (<[Xi(s)], =[Xi(s)]) while =[s] is the time, and, <[s] = constant. If we impose that the derivative along <[s], at points <[s] = 1/2 is grater than zero, then, we find exactly a known RH equivalence statement about relative maxima and minima of Xi(1/2 + i=[s]) along critical line
+
+2024-11-29T15:49:55Z | Investigation about a statement equivalent to Riemann Hypothesis (RH) applied to Dirichlet primitive L functions
+    http://arxiv.org/abs/2412.00169v16
+    ABS: We try to apply a known equivalence, for RH about Riemann Z function, to Dirichlet L functions with primitive characters. The aim is to give a small contribution to the proof of the generalized version of Riemann Hypothesis (RH).
+
+2024-11-07T19:23:22Z | Fourier optimization and consequences of the generalized Riemann hypothesis
+    http://arxiv.org/abs/2411.05095v1
+    ABS: We give an exposition of some connections between Fourier optimization problems and problems in number theory. In particular, we present some recent conditional bounds under the generalized Riemann hypothesis, achieved via a Fourier optimization framework, on bounding the maximum possible gap between consecutive prime numbers represented by a given quadratic form; and on bounding the least quadrat
+
+2024-09-29T21:25:58Z | Analysis on Riemann Hypothesis with Cross Entropy Optimization and Reasoning
+    http://arxiv.org/abs/2409.19790v1
+    ABS: In this paper, we present a novel framework for the analysis of Riemann Hypothesis [27], which is composed of three key components: a) probabilistic modeling with cross entropy optimization and reasoning; b) the application of the law of large numbers; c) the application of mathematical inductions. The analysis is mainly conducted by virtue of probabilistic modeling of cross entropy optimization a
+
+2024-09-26T10:24:27Z | Equivalent criteria for the Riemann hypothesis for a general class of $L$-functions
+    http://arxiv.org/abs/2409.17708v2
+    ABS: In 1916, Riesz gave an equivalent criterion for the Riemann hypothesis (RH). Inspired from Riesz's criterion, Hardy and Littlewood showed that RH is equivalent to the following bound: \begin{align*} P_1(x):= \sum_{n=1}^\infty \frac{μ(n)}{n} \exp\left({-\frac{x}{n^2}}\right) = O_ε\left( x^{-\frac{1}{4}+ ε} \right), \quad \mathrm{as}\,\, x \rightarrow \infty. \end{align*} Recently, the authors exten
+
+2024-08-23T11:48:59Z | Proof of Riemann hypothesis by topological and analytical methods
+    http://arxiv.org/abs/2408.13292v5
+    ABS: We introduce a differential topological proof and an analytical proof of Riemann hypothesis according to the saddle point method because Riemann calculated the integral representation of zeta function on the critical line by this method. This topological proof of RH proves that the existence of integral representation of zeta functions requires certain differential topological conditions on its in
+
+2024-07-31T22:42:36Z | A method for verifying the generalized Riemann hypothesis
+    http://arxiv.org/abs/2408.00187v1
+    ABS: Riemann numerically approximated at least three zeta zeros. According to Edwards, Riemann even took steps to verify that the lowest zero he computed was indeed the first zeta zero. This approach to verification is developed, improved, and generalized to a large class of $L$-functions. Results of numerical calculations demonstrating the efficacy of the method are presented.
+
+2024-07-26T16:47:54Z | A Tauberian characterization of the Riemann hypothesis through the floor function
+    http://arxiv.org/abs/2407.18859v9
+    ABS: We introduce a new Tauberian framework through the theory of "regular arithmetic functions". This allows us to establish a characterization of the Riemann hypothesis by linking the floor function to the distribution of nontrivial zeros of the Riemann zeta function. We thereby obtain a novel Tauberian equivalence of the Riemann hypothesis, extending classical Tauberian theorems beyond their traditi
+
+2024-06-16T08:31:25Z | Sandwiching the Riemann hypothesis
+    http://arxiv.org/abs/2407.00060v2
+    ABS: We consider a system of three analytic functions, two of which are known to have all their zeros on the critical line $\Re (s)=σ=1/2$. We construct inequalities which constrain the third function, $ξ(s)$, on $\Im(s)=0$ to lie between the other two functions, in a sandwich structure. We investigate what can be said about the location of zeros and radius of convergence of expansions of $ξ(s)$, with 
+
+2024-05-29T09:49:25Z | Brenke polynomials with real zeros and the Riemann Hypothesis
+    http://arxiv.org/abs/2405.18940v1
+    ABS: If $A(z)=\sum_{n=0}^\infty a_nz^n$ and $B(z)=\sum_{n=0}^\infty b_nz^n$ are two formal power series, with $a_n,b_n\in \mathbb{R}$, the polynomials $(p_n)_n$ defined by the generating function $$ A(z)B(xz)=\sum_{n=0}^\infty p_n(x)z^n $$ are called the Brenke polynomials generated by $A$ and associated to $B$. We say that $A\in \mathcal{R}_B$ if the Brenke polynomials $(p_n)_n$ have only real zeros. 
+
+2024-05-09T15:13:34Z | The Riemann hypothesis and dynamics of Backtracking New Q-Newton's method
+    http://arxiv.org/abs/2405.05834v3
+    ABS: A new variant of Newton's method - named Backtracking New Q-Newton's method (BNQN) - was recently introduced by the second author. This method has good global convergence guarantees, specially concerning finding roots of meromorphic functions. This paper explores using BNQN for the Riemann xi function. We show in particular that the Riemann hypothesis is equivalent to that all attractors of BNQN l
+
+2024-04-30T15:46:19Z | Character Sums and the Riemann Hypothesis
+    http://arxiv.org/abs/2404.19647v1
+    ABS: We prove that an innocent looking inequality implies the Riemann Hypothesis and show a way to approach this inequality through sums of Legendre symbols.
+
+=== TARGETED (abs:Riemann hypothesis AND verified/verification, newest 40) ===
+2026-08-19T15:40:21Z | Eureka: Task-Conditioned Meta-Agent Orchestration for Scientific Discovery
+    http://arxiv.org/abs/2608.19047v1
+    ABS: We present Eureka, a task-conditioned Meta-Agent architecture that compiles long-horizon tasks into dynamic obligation graphs with explicit acceptance semantics. During execution, Eureka forms Macro-Agents with specialized state, memory, operators, tools, verifiers, and local topology via receding-horizon planning, architecture promotion, and minimal-sufficient compilation. When bottlenecks recur,
+
+2026-08-13T17:44:42Z | More than two thirds of the zeta zeros are simple and on the critical line
+    http://arxiv.org/abs/2608.13637v2
+    ABS: We prove unconditionally that at least two thirds of the nontrivial zeros of the Riemann zeta function, counted with multiplicity, are simple and lie on the critical line, and that at least five sixths are distinct; the previous unconditional records are $\frac{5}{12}$ and $0.6603$. With the Montgomery--Taylor window the constants become $0.6725$ and $0.8362$. The argument makes Montgomery's 1973 
+
+2026-07-18T12:23:13Z | An explicit uniform cubic wedge for consecutive Toeplitz minors of the Riemann xi coefficients
+    http://arxiv.org/abs/2607.16795v1
+    ABS: Let (a_k) be the positive coefficient sequence of the normalized Riemann xi-function, and let D_{r,k} denote its consecutive Toeplitz minors. The Riemann Hypothesis is equivalent to (a_k) being a Polya frequency sequence of infinite order, and hence to nonnegativity of all Toeplitz minors. We prove that D_{r,k} > 0 for every r >= 2 and k >= 10^18 r^3. This gives an explicit cubic tail scale unifor
+
+2026-07-02T23:39:38Z | A finite Guinand-Weil dictionary and archimedean tail order for the truncated Weil quadratic form
+    http://arxiv.org/abs/2607.02828v3
+    ABS: The Connes-van Suijlekom and Connes-Consani-Moscovici truncations of the Weil quadratic form, at a prime cutoff c>1 and frequency band N, produce finite Galerkin matrices whose spectra are the finite-rank window on Weil positivity. We prove two exact finite theorems about this truncation. First, every real even Galerkin coefficient vector v determines, in closed form, a band-limited Guinand-Weil t
+
+2026-06-13T04:12:25Z | VGPT-RSI for RH-Adjacent Formal Progress: Boundary Certificates, Verified Finite Lagarias Inequalities, and Explicit Failure Localization
+    http://arxiv.org/abs/2606.15096v1
+    ABS: The Riemann Hypothesis remains one of the central unsolved problems in mathematics. Rather than claiming proof, we investigate whether a verifiable AI-assisted reasoning system can produce reliable, formally checked partial progress while explicitly identifying the remaining mathematical obstructions. We apply the Verifiable Growing Physical Transformer with Recursive Self-Improvement (VGPT-RSI) t
+
+2026-04-17T09:05:50Z | Module Lattice Security (Part I): Unconditional Verification of Weber's Conjecture for $k \le 12$
+    http://arxiv.org/abs/2604.15858v2
+    ABS: Weber's conjecture (1886) governs three aspects of lattice-based cryptography: the solvability of the Principal Ideal Problem, the freeness of modules over rings of integers, and the tightness of worst-case-to-average-case reductions in Ring-LWE (R-LWE) and Module-LWE (MLWE). Existing verifications for $k \ge 9$ rely on Generalized Riemann Hypothesis (GRH). In this paper, we present the first unco
+
+2026-03-26T18:50:36Z | Theory of (Co)homological Invariants on Quantum LDPC Codes
+    http://arxiv.org/abs/2603.25831v1
+    ABS: With recent breakthroughs in the construction of good qLDPC codes and nearly good qLTCs, the study of (co)homological invariants of quantum code complexes, which fundamentally underlie their logical operations, has become evidently important. In this work, we establish a systematic framework for mathematically analyzing these invariants across a broad spectrum of constructions, from HGP codes to s
+
+2026-02-16T05:25:36Z | On the Lagarias Inequality and Superabundant Numbers
+    http://arxiv.org/abs/2602.15905v2
+    ABS: We study the Lagarias inequality, an elementary criterion equivalent to the Riemann Hypothesis. Using a continuous extension of the harmonic numbers, we show that the sequence $B_n=\frac{H_n+e^{H_n}\log(H_n)}{n}$ is strictly increasing for $n\ge 1$. As a consequence, if the Lagarias inequality has counterexamples, then the least counterexample must be a superabundant number; equivalently, it suffi
+
+2026-02-02T16:04:54Z | On the Spectral theory of Isogeny Graphs and Quantum Sampling of Secure Supersingular Elliptic curves
+    http://arxiv.org/abs/2602.02263v2
+    ABS: In this paper, we study the problem of sampling random supersingular elliptic curves with unknown endomorphism rings. This problem has recently gained considerable attention as many isogeny-based cryptographic protocols require such ``secure'' curves for instantation, while existing methods achieve this only in a trusted-setup setting. We present the first provable quantum polynomial-time algorith
+
+2026-01-20T20:14:34Z | Conjectures on Sums of Consecutive Primes
+    http://arxiv.org/abs/2601.15346v1
+    ABS: We study additive properties of consecutive prime numbers and the primality of the sums they generate. For a given prime number $p_n$, we consider the sums \[ S_k(p_n) = p_n + p_{n+1} + \cdots + p_{n+k-1}, \] where $k \ge 3$ is an odd integer. We first formulate an existence conjecture asserting that, for every prime number $p_n$, there exists at least one odd length $k \ge 3$ such that $S_k(p_n)$
+
+2025-11-23T03:31:54Z | Nonstandard Witnesses and Observational Barriers for Π0_1 Sentences in ZFC: Standard Cuts, Uniform Reflection Failure, and the Semantic Void
+    http://arxiv.org/abs/2511.18266v1
+    ABS: We isolate a model-theoretic "standard-cut" phenomenon for true Pi0_1 sentences: if a model M satisfies ZFC + not-phi, then omega^M is not the standard omega, and any internal "witness" to not-phi is computationally inaccessible by Tennenbaum's theorem. Such a witness exists only to maintain syntactic consistency and carries no standard observational semantics.   On the proof-theoretic side, we at
+
+2025-11-14T11:56:16Z | The Riemann Hypothesis Emerges in Dynamical Quantum Phase Transitions
+    http://arxiv.org/abs/2511.11199v1
+    ABS: The Riemann Hypothesis (RH), one of the most profound unsolved problems in mathematics, concerns the nontrivial zeros of the Riemann zeta function. Establishing connections between the RH and physical phenomena could offer new perspectives on its physical origin and verification. Here, we establish a direct correspondence between the nontrivial zeros of the zeta function and dynamical quantum phas
+
+2025-03-31T16:21:38Z | Davenport-Heilbronn Function Ratio Properties and Non-Trivial Zeros Study
+    http://arxiv.org/abs/2503.24275v1
+    ABS: This paper systematically investigates the analytic properties of the ratio $f(s)/f(1-s) = X(s)$ based on the Davenport-Heilbronn functional equation $f(s) = X(s)f(1-s)$. We propose a novel method to analyze the distribution of non-trivial zeros through the monotonicity of the ratio $|f(s)/f(1-s)|$. Rigorously proving that non-trivial zeros can only lie on the critical line $σ=1/2$, we highlight t
+
+2024-05-09T15:13:34Z | The Riemann hypothesis and dynamics of Backtracking New Q-Newton's method
+    http://arxiv.org/abs/2405.05834v3
+    ABS: A new variant of Newton's method - named Backtracking New Q-Newton's method (BNQN) - was recently introduced by the second author. This method has good global convergence guarantees, specially concerning finding roots of meromorphic functions. This paper explores using BNQN for the Riemann xi function. We show in particular that the Riemann hypothesis is equivalent to that all attractors of BNQN l
+
+2023-12-03T03:08:00Z | Zeros of the Goss zeta function
+    http://arxiv.org/abs/2312.01264v1
+    ABS: Let $X$ be a smooth proper curve over a finite field and let $\infty \in X$ be a closed point. Let $A$ be the ring of functions on $X - \infty$. The Goss zeta function $ζ_A$ of $A$ is an equicharacteristic analogue of the Riemann zeta function. In this article we study the zeros of $ζ_A$ under the generic condition that $X$ is ordinary. We prove an analogue of the Riemann hypothesis, which verifie
+
+2022-12-04T19:25:37Z | Chaos Analysis in the Hybrid Quintic Duffing-Riemann Zeta System via Decomposition
+    http://arxiv.org/abs/2212.12438v2
+    ABS: This paper presents a comprehensive analysis of the driven cubic-quintic Duffing oscillator \[ \ddotφ+\frac{1}{q}\dotφ+φ^3+φ^5=A\cos(ωt), \] advancing both analytical and numerical chaos theory. Using Melnikov analysis on explicit homoclinic orbits \[ φ_0(t) = 1-\tanh(t)-\tanh^2(t) \quad \text{and} \quad φ_0(t) = {\rm sech}_{\rm RZ}(t) -{\rm sech}_{\rm RZ}^2(t),\] we rigorously predict transverse 
+
+2021-09-06T05:47:12Z | Improving bounds on prime counting functions by partial verification of the Riemann hypothesis
+    http://arxiv.org/abs/2109.02249v2
+    ABS: Using a recent verification of the Riemann hypothesis up to height $3\cdot 10^{12}$, we provide strong estimates on $π(x)$ and other prime counting functions for finite ranges of $x$. In particular, we get that $|π(x)-\text{li}(x)|<\sqrt{x}\log x/8π$ for $2657\leq x\leq 1.101\cdot 10^{26}$. We also provide weaker bounds that hold for a wider range of $x$, and an application to an inequality of Ram
+
+2021-01-09T11:38:37Z | Asymptotic absence of poles of Ihara zeta function of large Erdos-Renyi random graphs
+    http://arxiv.org/abs/2101.03338v5
+    ABS: Using recent results on the concentration of the largest eigenvalue and maximal vertex degree of large random graphs, we show that the infinite sequence of Erd\H os-Rényi random graphs $G(n,ρ_n/n)$ such that $ρ_n/\log n$ infinitely increases as $n\to\infty$ verifies a version of the graph theory Riemann Hypothesis.
+
+2020-04-30T18:05:17Z | Bayesian Characterizations of Properties of Stochastic Processes with Applications
+    http://arxiv.org/abs/2005.00035v1
+    ABS: In this article, we primarily propose a novel Bayesian characterization of stationary and nonstationary stochastic processes. In practice, this theory aims to distinguish between global stationarity and nonstationarity for both parametric and nonparametric stochastic processes. Interestingly, our theory builds on our previous work on Bayesian characterization of infinite series, which was applied 
+
+2020-04-21T05:50:50Z | The Riemann hypothesis is true up to $3\cdot 10^{12}$
+    http://arxiv.org/abs/2004.09765v1
+    ABS: We verify numerically, in a rigorous way using interval arithmetic, that the Riemann hypothesis is true up to height $3\cdot10^{12}$. That is, all zeroes $β+ iγ$ of the Riemann zeta-function with $0<γ\leq 3\cdot 10^{12}$ have $β= 1/2$.
+
+2019-04-29T03:35:48Z | Effective approximation of heat flow evolution of the Riemann $ξ$ function, and a new upper bound for the de Bruijn-Newman constant
+    http://arxiv.org/abs/1904.12438v2
+    ABS: For each $t \in \mathbf{R}$, define the entire function $$ H_t(z) := \int_0^\infty e^{tu^2} Φ(u) \cos(zu)\ du$$ where $Φ$ is the super-exponentially decaying function $$ Φ(u) := \sum_{n=1}^\infty (2π^2 n^4 e^{9u} - 3πn^2 e^{5u} ) \exp(-πn^2 e^{4u} ).$$ This is essentially the heat flow evolution of the Riemann $ξ$ function. From the work of de Bruijn and Newman, there exists a finite constant $Λ$ 
+
+2018-11-14T15:44:21Z | Approximation of the derivatives of the logarithm of the Riemann zeta-function in the critical strip
+    http://arxiv.org/abs/1811.05861v1
+    ABS: Recently, we have established the generalized Li criterion equivalent to the Riemann hypothesis, viz. demonstrated that the sums over all non-trivial Riemann function zeroes k_n,a=Sum_(/rho)(1-(1-((/rho-a)/(/rho+a-1))^n) for any real a not equal to 1/2 are non-negative if and only if the Riemann hypothesis holds true, and proved the relation k_n,a=n*(1-2a)/(n-1)!*d^n/dz^n((z-a)^(n-1)*ln(ξ(z))) tak
+
+2018-04-07T03:26:57Z | Variants on Andrica's conjecture with and without the Riemann hypothesis
+    http://arxiv.org/abs/1804.02500v3
+    ABS: The gap between what we can explicitly prove regarding the distribution of primes and what we suspect regarding the distribution of primes is enormous. It is (reasonably) well-known that the Riemann hypothesis is not sufficient to prove Andrica's conjecture: $\forall n\geq 1$, is $\sqrt{p_{n+1}}-\sqrt{p_n} \leq 1$? But can one at least get tolerably close? I shall first show that with a logarithmi
+
+2017-12-22T13:27:49Z | The Fourier transform of the non-trivial zeros of the zeta function
+    http://arxiv.org/abs/1712.08434v1
+    ABS: The non-trivial zeros of the Riemann zeta function and the prime numbers can be plotted by a modified von Mangoldt function. The series of non-trivial zeta zeros and prime numbers can be given explicitly by superposition of harmonic waves. The Fourier transform of the modified von Mangoldt functions shows interesting connections between the series. The Hilbert-Polya conjecture predicts that the Ri
+
+2015-10-20T18:59:25Z | Exploring Riemann's Functional Equation
+    http://arxiv.org/abs/1510.06333v3
+    ABS: An equivalent, but variant form of the Riemann functional equation is explored, and several discoveries are made. Properties of the Riemann zeta function $ζ(s)$ from which a necessary and sufficient condition for the existence of zeros in the critical strip are deduced. This in turn, by an indirect route, eventually produces a simple, solvable, differential equation for $arg(ζ(s))$ on the critical
+
+2015-09-01T17:45:12Z | A note on the possibility of proving the Riemann hypothesis
+    http://arxiv.org/abs/1509.01554v7
+    ABS: As well known, the important hypothesis formulated by B.G. RIEMANN in 1859 states that all non-trivial zeroes of the Zeta function $Z(s)=\sum_{n=1}^{\infty } n^{-s}$ should fall on the Critical Line (C.L.) $Re(s)=\frac{1}{2}$.\\ Although direct numerical search of the zeroes failed to identify any outlier, i.e. any zeroes with $Re(s)\neq\frac{1}{2}$, a general proof of the Hypothesis has not yet b
+
+2015-07-13T12:54:30Z | On the zeros of Dirichlet $L$-functions
+    http://arxiv.org/abs/1507.03431v1
+    ABS: In this paper, we compute and verify the positivity of the Li coefficients for the Dirichlet $L$-functions using an arithmetic formula established in Omar and Mazhouda, J. Number Theory 125 (2007) no.1, 50-58; J. Number Theory 130 (2010) no.4, 1109-1114. Furthermore, we formulate a criterion for the partial Riemann hypothesis and we provide some numerical evidence for it using new formulas for the
+
+2015-02-27T16:21:27Z | Unconditional Class Group Tabulation of Imaginary Quadratic Fields to $|Δ| < 2^{40}$
+    http://arxiv.org/abs/1502.07953v1
+    ABS: We present an improved algorithm for tabulating class groups of imaginary quadratic fields of bounded discriminant. Our method uses classical class number formulas involving theta-series to compute the group orders unconditionally for all $Δ\not \equiv 1 \pmod{8}.$ The group structure is resolved using the factorization of the group order. The $1 \bmod 8$ case was handled using the methods of \cit
+
+2015-01-20T20:51:34Z | Worpitzky partitions for root systems and characteristic quasi-polynomials
+    http://arxiv.org/abs/1501.04955v2
+    ABS: We introduce a partition of (coweight) lattice points inside the dilated fundamental parallelepiped into those of partially closed simplices. This partition can be considered as a generalization and a lattice points interpretation of the classical formula of Worpitzky.   This partition, and the generalized Eulerian polynomial, recently introduced by Lam and Postnikov, can be used to describe the c
+
+2014-03-23T06:12:14Z | Algorithm, probability, and prime numbers
+    http://arxiv.org/abs/1403.8075v11
+    ABS: The results of the study provide guidelines for the development and applications of algorithms. When the number of steps for calculating an assumption tends to infinity, probability theory can be applied to predict whether the assumption holds or not. This characteristic is related to the number of steps for verifying arbitrarily large prime numbers. This study proved that $π(n)-Li(n)=o(M(n)\sqrt{
+
+2013-08-30T10:44:52Z | A method for proving the completeness of a list of zeros of certain L-functions
+    http://arxiv.org/abs/1308.6704v4
+    ABS: When it comes to partial numerical verification of the Riemann Hypothesis, one crucial part is to verify the completeness of a list of pre-computed zeros. Turing developed such a method, based on an explicit version of a theorem of Littlewood on the average of the argument of the Riemann zeta function. In a previous paper we suggested an alternative method based on the Weil-Barner explicit formula
+
+2013-07-29T20:17:54Z | Statistical and other properties of Riemann zeros based on an explicit equation for the $n$-th zero on the critical line
+    http://arxiv.org/abs/1307.8395v3
+    ABS: We show that there are an infinite number of Riemann zeros on the critical line, enumerated by the positive integers $n=1,2,\dotsc$, whose ordinates can be obtained as the solution of a new transcendental equation that depends only on $n$. Under weak assumptions, we show that the number of such zeros already saturates the counting formula for the numbers of zeros on the entire critical strip. Thes
+
+2013-05-14T10:06:17Z | Numerical Computations Concerning the GRH
+    http://arxiv.org/abs/1305.3087v1
+    ABS: We describe two new algorithms for the efficient and rigorous computation of Dirichlet L-functions and their use to verify the Generalised Riemann Hypothesis for all such L-functions associated with primitive characters of modulus q<=400,000. For even q, we check to height t_0=max(1e8/q,7.5e7/q+200) and for odd q to height t_0=max(1e8/q,3.75e7/q+200).
+
+2013-05-13T19:21:02Z | Major arcs for Goldbach's problem
+    http://arxiv.org/abs/1305.2897v4
+    ABS: The ternary Goldbach conjecture states that every odd number $n\geq 7$ is the sum of three primes. The estimation of the Fourier series $\sum_{p\leq x} e(αp)$ and related sums has been central to the study of the problem since Hardy and Littlewood (1923). Here we show how to estimate such Fourier series for $α$ in the so-called major arcs, i.e., for $α$ close to a rational of small denominator. Th
+
+2013-02-25T21:01:02Z | Quantum Computation of Prime Number Functions
+    http://arxiv.org/abs/1302.6245v3
+    ABS: We propose a quantum circuit that creates a pure state corresponding to the quantum superposition of all prime numbers less than 2^n, where n is the number of qubits of the register. This Prime state can be built using Grover's algorithm, whose oracle is a quantum implementation of the classical Miller-Rabin primality test. The Prime state is highly entangled, and its entanglement measures encode 
+
+2012-02-12T10:38:47Z | Generalised root identities for zeta functions of curves over finite fields
+    http://arxiv.org/abs/1202.4351v1
+    ABS: We consider generalised root identities for zeta functions of curves over finite fields, ζ_{k}, and compare with the corresponding analysis for the Riemann zeta function. We verify numerically that, as for ζ, the ζ_{k} do satisfy the generalised root identities and we investigate these in detail for the special cases of μ=0,-1\:\&\:-2. Unlike for ζ, however, we show that in the setting of zeta fun
+
+2012-01-31T19:37:03Z | Every odd number greater than 1 is the sum of at most five primes
+    http://arxiv.org/abs/1201.6656v4
+    ABS: We prove that every odd number $N$ greater than 1 can be expressed as the sum of at most five primes, improving the result of Ramaré that every even natural number can be expressed as the sum of at most six primes. We follow the circle method of Hardy-Littlewood and Vinogradov, together with Vaughan's identity; our additional techniques, which may be of interest for other Goldbach-type problems, i
+
+2011-12-05T06:44:28Z | Knottedness is in NP, modulo GRH
+    http://arxiv.org/abs/1112.0845v2
+    ABS: Given a tame knot K presented in the form of a knot diagram, we show that the problem of determining whether K is knotted is in the complexity class NP, assuming the generalized Riemann hypothesis (GRH). In other words, there exists a polynomial-length certificate that can be verified in polynomial time to prove that K is non-trivial. GRH is not needed to believe the certificate, but only to find 
+
+2010-02-02T10:26:44Z | Estimates of Some Functions Over Primes without R.H.
+    http://arxiv.org/abs/1002.0442v1
+    ABS: Some computations made about the Riemann Hypothesis and in particular, the verification that zeroes of zeta belong on the critical line and the extension of zero-free region are useful to get better effective estimates of number theory classical functions which are closely linked to zeta zeroes like psi(x), theta(x), pi(x) or the k-th prime number.
+
+2005-07-25T07:01:18Z | Artin's conjecture, Turing's method and the Riemann hypothesis
+    http://arxiv.org/abs/math/0507502v1
+    ABS: We present a group-theoretic criterion under which one may verify the Artin conjecture for some (non-monomial) Galois representations, up to finite height in the complex plane. In particular, the criterion applies to S5 and A5 representations. Under more general conditions, the technique allows for the possibility of verifying the Riemann hypothesis for Dedekind zeta functions of non-abelian exten
+

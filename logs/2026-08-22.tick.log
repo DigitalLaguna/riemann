@@ -263,3 +263,39 @@ pre-registered falsification test (before the B row-3 source search, this tick):
   card says "superseded: none known as of 2026-08-20"). Then row 3 WAITS and B
   pivots to the Phase-3 dominant-error-term audit. A hit requires a fetched
   document with the height quoted verbatim before row 3 may proceed.
+
+## tick 85 (2026-08-22T07:41:09Z, frontier) — TRACK B row-3 literature gate: arXiv sweep for RH-verified-to-1e13 source — verdict: NO (row 3 WAITS, pivot to Phase-3)
+state one-liner: HANDOFF next (c) TRACK B row-3 pre-registration. Not a dead end: this is the
+  pre-registered literature gate (set up tick 84) that decides whether row 3 proceeds or B
+  pivots to the Phase-3 dominant-error-term audit.
+gate: all tracks OPEN (21/21).
+work:
+  1) Ran the pre-registered arXiv sweep (export.arxiv.org/api/query, sortBy=submittedDate desc):
+     Q1 sweep:     ti:"Riemann hypothesis" (40)
+     Q2 targeted:  abs:"Riemann hypothesis" AND (abs:"verified" OR abs:"verification") (40)
+     Q3 height13:  abs:"Riemann hypothesis" AND (abs:"10^{13}" OR abs:"10^13" OR abs:"10,000,000,000,000") (30)
+     Q4 height12:  abs:"Riemann hypothesis" AND (abs:"10^{12}" OR abs:"10^12") (30)
+     Raw Atom XML + parsed output saved to evidence/2026-08-22-rh-height-scan/.
+  2) Machine verdict (grep across all four result sets for 10^13/10^{13}/1e13/10,000,000,000,000):
+     NONE. Only verification-height claims found are the 3e12 record and a 2021 paper that
+     CONSUMES it:
+       arXiv:2004.09765 (Platt-Trudgian 2020): "We verify numerically, in a rigorous way using
+         interval arithmetic, that the Riemann hypothesis is true up to height $3\cdot10^{12}..."
+       arXiv:2109.02249 (2021): "Using a recent verification of the Riemann hypothesis up to
+         height $3\cdot 10^{12}, we provide strong estimates on $π(x)$..."
+  3) check.sh (re-runs all 4 queries, asserts no 1e13 claim AND that the 3e12 record is still
+     present as a sweep-integrity guard) — verbatim:
+       "CHECK PASS: no RH-verified-to-1e13 source; record still Platt-Trudgian 3e12"
+     (first run FAILED: fetch.py wrote XML to a CWD-relative path and check.sh cd's into the
+      evidence dir; fixed by resolving output dir from __file__; re-run PASS.)
+  4) Ledger: NOTE #14 records the gate result + the row-3-WAITS / Phase-3-pivot consequence.
+pre-registered falsification test (for the NEXT step, Phase-3 dominant-error-term audit):
+  the audit must identify which of the three components (zero-free region for H_t, asymptotics,
+  zero dynamics) is binding in the 0.20 bound. OUTCOME THAT KILLS "Phase-3 audit is well-posed":
+  the audit finds NO single dominant term — i.e. all three components contribute comparable
+  error and none is clearly binding — in which case "put compute on the dominant term" has no
+  target and B must instead re-derive the 0.20 bound term-by-term from the Polymath15 code.
+  A hit requires a machine-computed per-term error budget (Arb) showing one term >= 2x the sum
+  of the others before B commits compute to it.
+next: (a) OWNER: file the PNT+ PR from branch ik-additive-lemmas @ 0197a66 (closes week-2
+  milestone fully); (b) TRACK B Phase-3 dominant-error-term audit (pre-registered above).

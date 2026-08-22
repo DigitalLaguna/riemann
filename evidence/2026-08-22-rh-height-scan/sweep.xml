@@ -1,0 +1,727 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/6gLLEwi70cvEkbGhqrIjr3LyEcs</id>
+  <title>arXiv Query: search_query=ti:"Riemann hypothesis"&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-08-22T07:38:26Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=ti:%22Riemann+hypothesis%22&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>388</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2607.26114v1</id>
+    <title>Euler's $\ell$-totients and Riemann hypothesis</title>
+    <updated>2026-07-28T15:34:39Z</updated>
+    <link href="https://arxiv.org/abs/2607.26114v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.26114v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper develops a new analytic framework for investigating the Riemann hypothesis. For each fixed integer $\ell \ge 1$, define Euler's $\ell$-totient function $\varphi_\ell$ by \[ \varphi_\ell(n):=n\prod_{\substack{p\ \mathrm{prime}\\ v_p(n)\ge \ell}}\left(1-\frac{1}{p}\right), \] and its summatory function by \[ Φ_\ell(x):=\sum_{n\le x}\varphi_\ell(n). \] An analytic study of the generalized Euler $\ell$-totient function $\varphi_\ell(n)$ is carried out, including its Euler product representation, meromorphic continuation, and pole structure. For each $\ell$, necessary and sufficient criteria for the Riemann hypothesis are established in terms of the asymptotic behavior of $Φ_\ell(x)$.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-28T15:34:39Z</published>
+    <arxiv:comment>16 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Ahmed Gaber</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.25002v2</id>
+    <title>How Random Is the Möbius Function? Smoothing, Probability, and the Riemann Hypothesis</title>
+    <updated>2026-08-14T15:07:34Z</updated>
+    <link href="https://arxiv.org/abs/2607.25002v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.25002v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This article is primarily expository, but it also contains several new observations and reformulations concerning the Möbius function, probabilistic models, dynamical systems, and the Riemann hypothesis. Its starting question is classical: in what sense can the Möbius function be said to behave randomly? We begin with Denjoy's random-walk heuristic and place it in the context of later work on random multiplicative functions, short intervals, and Möbius pseudorandomness. We then develop two smoothing forms of the classical Mertens criterion for the Riemann hypothesis. The first uses the discrete Laplace transform \[ Φ(t)=\sum_{n\geq1}μ(n)e^{-nt} \] and identifies RH with the condition \[ Φ\in L^p(0,\infty) \qquad\text{for every }1\leq p&lt;2. \] The second uses normalized Möbius Fourier polynomials and local moments on arcs of length comparable with \(1/N\). The paper also revisits the author's earlier criterion for RH in terms of discrete measures, as presented in Broughan's account of analytic equivalents of RH. Denjoy's heuristic is made precise in a simple independent coefficient model, and this model is carefully distinguished from the modern theory of random multiplicative functions. The resulting coefficient space also gives a measure--category contrast: the relevant \(L^p\)-property has full measure but is topologically meagre. A further point of the paper is dynamical: the multiplicative semigroup of positive integers acts naturally on the coefficient space, and the Möbius sequence is a distinguished arithmetic point for this action. The aim throughout is explanatory, while keeping these new observations visible: to show how arithmetic, probability, Fourier analysis, Mellin transforms, and dynamics fit together, and to indicate what modern results add to the older random-walk picture.</summary>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-27T18:58:35Z</published>
+    <arxiv:comment>Extends and subsumes results of arXiv:2607.25002</arxiv:comment>
+    <arxiv:primary_category term="math.PR"/>
+    <author>
+      <name>Alberto Verjovsky</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.14515v1</id>
+    <title>Beyond the Riemann Hypothesis bounds: A pair-correlation approach to the least prime in arithmetic progression and the smallest quadratic non-residue</title>
+    <updated>2026-07-16T03:12:02Z</updated>
+    <link href="https://arxiv.org/abs/2607.14515v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.14515v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Generalized Riemann Hypothesis (GRH) has long defined the expected bounds for the smallest prime in an arithmetic progression and the least quadratic non-residue. However, this hypothesis primarily addresses the horizontal location of non-trivial zeros. In this paper, we show that incorporating the vertical spacing--or pair-correlation--of these zeros allows us to surpass these classical bounds. By combining these two zero-distribution perspectives, we establish sharper estimates for both problems under GRH and specific pair-correlation hypotheses, thereby providing a new link between pair-correlation phenomena for Dirichlet L-functions and these two classical problems.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-16T03:12:02Z</published>
+    <arxiv:comment>26 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Neelam Kandhil</name>
+    </author>
+    <author>
+      <name>Alessandro Languasco</name>
+    </author>
+    <author>
+      <name>Pieter Moree</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.09797v3</id>
+    <title>Explicit formula for the discrete Laplace transform of the Möbius function, related special functions, and a criterion for the Riemann hypothesis</title>
+    <updated>2026-07-25T20:50:30Z</updated>
+    <link href="https://arxiv.org/abs/2607.09797v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.09797v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we assume that all the zeros of the Riemann zeta function are simple. Under this assumption we give an explicit formula for the function $Φ(e^{-t})=\sum_{n=1}^{\infty}μ(n)e^{-nt}$, as a function of the values of $ζ(s)$ and $ζ'(s)$ at the odd integers and as a function of the zeros of $ζ(s)$. A structural feature distinguishes this formula from the classical explicit formula for the Mertens function: the poles of $Γ(s)$ collide with the trivial zeros of $ζ(s)$, producing double poles whose residues contain a logarithmic term. Using this formula, we give a criterion for the Riemann hypothesis: the bound $O(x^{-1/2})$ on the transform implies the Riemann hypothesis unconditionally, while the converse direction requires additional hypotheses on the zeros. We also introduce special entire functions related to $ζ(s)$ and show that they admit absolutely convergent closed forms as Möbius-weighted series of Bessel functions of rotated argument.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-09T12:12:21Z</published>
+    <arxiv:comment>37 pages, includes computational appendix, 1 figure. Clearly explained non-circularity of the argument</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Sergey Liflandsky</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.04338v2</id>
+    <title>A proof of Riemann's hypothesis via Hadamard-Weierstrass factorization</title>
+    <updated>2026-07-08T21:20:40Z</updated>
+    <link href="https://arxiv.org/abs/2607.04338v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.04338v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Using the Hadamard-Weierstrass factorization theorem for Riemann's ξ function, we discuss and prove Riemann's hypothesis.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-05T14:37:00Z</published>
+    <arxiv:comment>Mistakes in main approach. Withdrawn</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Athanasios Christou Micheas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.22562v2</id>
+    <title>A Colombeau--Beurling criterion for the Riemann hypothesis</title>
+    <updated>2026-07-03T00:01:09Z</updated>
+    <link href="https://arxiv.org/abs/2606.22562v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.22562v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper establishes an equivalence between the Riemann hypothesis and the association, together with uniform $L^2$-boundedness, of a single moderate net in the Colombeau algebra $G(0,1)$, constructed from damped Báez--Duarte sums by multiplicative (Mellin) convolution. Two explicit damping strategies are introduced: an exponential damping $\exp(-k\varepsilon^2)$ combined with super-exponential truncation, and a polynomial damping $k^{-δ(\varepsilon)}$, where $δ(\varepsilon)=(\log(1/\varepsilon))^{-α}$, combined with polynomial truncation. Assuming the Riemann hypothesis, the corresponding nets are shown to be moderate, uniformly $L^2$-bounded, and associated with the negative characteristic function of $(0,1)$. Conversely, the existence of a moderate net of this form that is uniformly $L^2$-bounded and associated with the negative characteristic function of $(0,1)$ implies the Riemann hypothesis. The result provides a Colombeau--Beurling type criterion that reformulates the Riemann hypothesis in terms of generalized functions, weak association, and uniform $L^2$ control.</summary>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-21T15:41:53Z</published>
+    <arxiv:primary_category term="math.CV"/>
+    <author>
+      <name>Amaury Alvarez Cruz</name>
+    </author>
+    <author>
+      <name>Esteban A Alvarez Gutierrez</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.24924v2</id>
+    <title>Spectral Riccati--Gamma Concavity, Symmetric Zero Cancellation, and Conditional Criteria for the Riemann Hypothesis</title>
+    <updated>2026-06-27T19:35:46Z</updated>
+    <link href="https://arxiv.org/abs/2606.24924v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.24924v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We examine a Riccati--Gamma approach to the logarithmic derivative of the completed Riemann zeta function. The first part proves, in full local detail, that a naive two-sided vertical concavity criterion for $Ξ'/Ξ$ cannot be a proof of the Riemann Hypothesis, because every zero produces opposite vertical curvatures on the two horizontal sides of the pole of the logarithmic derivative. The second part replaces this obstruction by a rigorously formulated finite spectral averaging framework. We prove cancellation at the critical line, positivity of the off-critical paired contribution on the left of the critical line under a concrete low-frequency kernel condition, a conditional zero-density consequence, and a precise conditional theorem showing which additional localisation hypotheses would imply the Riemann Hypothesis. The results are therefore not presented as an unconditional proof of RH. They give a partial resolution of the Riccati--Gamma question: one natural route is ruled out unconditionally, a second symmetric mechanism is proved at the finite spectral level, and the remaining step is isolated as explicit analytic hypotheses. Reproducible Python routines and numerical figures accompany the analytic discussion.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-20T17:39:57Z</published>
+    <arxiv:comment>15 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Dragos-Patru Covei</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.30767v2</id>
+    <title>Musings on the Riemann Hypothesis</title>
+    <updated>2026-06-05T22:19:17Z</updated>
+    <link href="https://arxiv.org/abs/2605.30767v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.30767v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present a few ideas on the Riemann Hypothesis based on properties of analytic functions in the complex plane. In particular, we focus on the real and imaginary parts of the Riemann xi ($ξ$) function whose zeros coincide with those of the zeta ($ζ$) function within the critical strip. We discuss the forms of the zero contour lines of the two conjugate harmonic functions (the real and imaginary parts of xi) and consider where their intersections could conceivably occur. Those intersections would be the roots of both $ξ$ and $ζ$ functions. The question of whether a zero could occur away from the critical line becomes equivalent to whether the solutions of a pair of Laplace's equations with well-defined boundary conditions in some semi-infinite strip can possess zero contour lines that intersect within that strip.</summary>
+    <category term="math.AP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-29T02:52:16Z</published>
+    <arxiv:comment>12 pages, 6 figures</arxiv:comment>
+    <arxiv:primary_category term="math.AP"/>
+    <author>
+      <name>Ali Nadim</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.24363v1</id>
+    <title>The $θ= \infty$ Conjecture and the Riemann Hypothesis for Automorphic $L$-functions</title>
+    <updated>2026-05-23T02:59:37Z</updated>
+    <link href="https://arxiv.org/abs/2605.24363v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.24363v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The $θ=\infty$ conjecture asserts that the mollified second moments of the Riemann zeta function remain bounded for mollifiers of arbitrary polynomial length. We investigate an analogue of this conjecture for automorphic $L$-functions associated with cuspidal representations of $\text{GL}_m(\mathbb{A}_{\mathbb{Q}})$, exploring its implications for the distribution of their nontrivial zeros. Extending the framework of Bettin and Gonek, we prove that if the mollified second moments of these $L$-functions remain suitably bounded for mollifiers of arbitrary polynomial length, then the $L$-functions are non-vanishing in corresponding regions of the critical strip. Furthermore, we establish a version of this criterion for families of $L$-functions, demonstrating that the $θ= \infty$ conjecture for a family of $L$-functions implies a quasi-Riemann Hypothesis for that family.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-23T02:59:37Z</published>
+    <arxiv:comment>11 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Anji Dong</name>
+    </author>
+    <author>
+      <name>Nawapan Wattanawanichkul</name>
+    </author>
+    <author>
+      <name>Alexandru Zaharescu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.28632v1</id>
+    <title>LLM Framework for Discovering Major Mathematical Conjectures: AI's Quest for the Next Riemann Hypothesis</title>
+    <updated>2026-04-19T11:13:41Z</updated>
+    <link href="https://arxiv.org/abs/2607.28632v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.28632v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Major mathematical conjectures still depend heavily on expert intuition, so a unified method for the systematic generation and validation of conjectures with substantial mathematical potential remains unavailable. We present a three stage pipeline for major conjecture discovery, with region search from explicit local evidence modules, reflective validation for foundationality, novelty, and potential significance, and formal validation in Lean 4 and Mathlib. The objective is the discovery of mathematical problems with high problem taste, namely problems whose proofs could reorganize the language of a research area and provide durable help to human mathematical research. Experiments on twenty candidates showstable passage from natural language to formal checks, with twenty out of twenty candidates passing Lean parsing and type checking, twenty out of twenty candidates not directly absorbed by exact?,twenty out of twenty candidates not automatically discharged by aesop, and no explicit duplicates or near duplicates.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-19T11:13:41Z</published>
+    <arxiv:comment>25pages, 1 figure</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Alizer Wong</name>
+    </author>
+    <author>
+      <name>Zixin Zeng</name>
+    </author>
+    <author>
+      <name>Yi Tan</name>
+    </author>
+    <author>
+      <name>Wenyuan Li</name>
+    </author>
+    <author>
+      <name>Xuhang Chen</name>
+    </author>
+    <author>
+      <name>Xingru Lai</name>
+    </author>
+    <author>
+      <name>Yang Shi</name>
+    </author>
+    <author>
+      <name>Liangsi Lu</name>
+    </author>
+    <author>
+      <name>Yanhui Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.15396v1</id>
+    <title>A new equivalence to the Riemann Hypothesis by means of the Salem integral equation</title>
+    <updated>2026-04-16T09:40:25Z</updated>
+    <link href="https://arxiv.org/abs/2604.15396v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.15396v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This note presents a new equivalence to the Riemann Hypothesis by means of the Salem integral equation.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-16T09:40:25Z</published>
+    <arxiv:comment>A note of 2 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Benito J. González</name>
+    </author>
+    <author>
+      <name>Emilio R. Negrín</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.12207v6</id>
+    <title>Decaying Turbulence and the Riemann Hypothesis: The number theory behind the infinite-time singularity</title>
+    <updated>2026-07-06T04:47:06Z</updated>
+    <link href="https://arxiv.org/abs/2604.12207v6" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.12207v6" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We derive a formal statistical solution of freely decaying incompressible turbulence in arbitrary dimension \(d&gt;1\) using Navier--Stokes loop equations. The loop Fourier transform maps smooth deterministic Cauchy data in infinite space to a one-dimensional momentum-loop quantum field theory, giving a geometric origin of spontaneous stochasticity. In bounded-variation calculus the nonlinear advection term becomes a closed-loop total derivative and cancels on the compact spherical target, leaving a diffusive momentum-loop evolution.
+  The universal attractor is the planar Euler ensemble of rational star-polygon walks. Its continuum limit splits into two parity sectors, \(η=N\bmod 2\). Both Euler ensembles are marginally Lyapunov-stable in the continuum limit and give dimension-independent energy scaling functions \(H(k\sqrt{\tildeνt})\). Their Mellin amplitudes differ only by the odd-sector prime-\(2\) Euler factor \((1-2^{-(p+17/2)})^{-1}\). Both share the Riemann-wall poles \(p=-8+iρ_n\), generated by the non-trivial zeros \(1/2+iρ_n\) of \(ζ(s)\), while the odd ensemble also contains the dyadic wall \(p=-17/2+2πi m/\log2\), \(m\ne0\). Thus the two sectors have distinct Stokes staircases, although their spectra agree with present \(4096^3\) DNS within statistical uncertainty. Assuming the Riemann Hypothesis and simplicity of the zeros, the common Riemann-wall activations occur at \(t_n\proptoρ_n^3\) and condense into an infinite-time essential singularity.</summary>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="nlin.CD" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.flu-dyn" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-14T02:34:37Z</published>
+    <arxiv:comment>28 pages, 4 figures, revised version, ancillary supplement with detailed computations and thimble animation file included, the stability proof extended corrected in supplemental files S.3</arxiv:comment>
+    <arxiv:primary_category term="hep-th"/>
+    <author>
+      <name>Alexander Migdal</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.04022v1</id>
+    <title>The Riemann Hypothesis: Past, Present and a Letter Through Time</title>
+    <updated>2026-02-03T21:11:58Z</updated>
+    <link href="https://arxiv.org/abs/2602.04022v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.04022v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper, commissioned as a survey of the Riemann Hypothesis, provides a comprehensive overview of 165 years of mathematical approaches to this fundamental problem, while introducing a new perspective that emerged during its preparation. The paper begins with a detailed description of what we know about the Riemann zeta function and its zeros, followed by an extensive survey of mathematical theories developed in pursuit of RH -- from classical analytic approaches to modern geometric and physical methods. We also discuss several equivalent formulations of the hypothesis. Within this survey framework, we present an original contribution in the form of a "Letter to Riemann," using only mathematics available in his time. This letter reveals a method inspired by Riemann's own approach to the conformal mapping theorem: by extremizing a quadratic form (restriction of Weil's quadratic form in modern language), we obtain remarkable approximations to the zeros of zeta. Using only primes less than 13, this optimization procedure yields approximations to the first 50 zeros with accuracies ranging from $2.6 \times 10^{-55}$ to $10^{-3}$. Moreover we prove a general result that these approximating values lie exactly on the critical line. Following the letter, we explain the underlying mathematics in modern terms, including the description of a deep connection of the Weil quadratic form with the world of information theory. The final sections develop a geometric perspective using trace formulas, outlining a potential proof strategy based on establishing convergence of zeros from finite to infinite Euler products. While completing the commissioned survey, these new results suggest a promising direction for future research on Riemann's conjecture.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.QA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-03T21:11:58Z</published>
+    <arxiv:comment>Submitted to Journal of Open Mathematical Problems on 19/9/2025. 42 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Alain Connes</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.22413v2</id>
+    <title>The Riemann Hypothesis in Oaxaca</title>
+    <updated>2026-02-03T11:46:46Z</updated>
+    <link href="https://arxiv.org/abs/2601.22413v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.22413v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>An equivalence of the Riemann Hypothesis (RH) enables a direct bridge to the Young lattice. In specific, the classical threshold $\lim_{n\to\infty} σ(n)/(n \log\log n) = e^γ \approx 1.78107$, derived from the asymptotic behavior of the sum-of-divisors function, can be realized combinatorially via limiting proportions associated to specific families of integer partitions.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-29T23:50:56Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Carlos Segovia</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.11052v1</id>
+    <title>On a relation to the Riemann Hypothesis and an analytic part for the divisor function</title>
+    <updated>2026-01-16T07:37:05Z</updated>
+    <link href="https://arxiv.org/abs/2601.11052v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.11052v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let phi(n) denote the Euler totient function. We study the analytic part associated with the summatory function of sigma_1(n) and obtain explicit bounds under the Riemann Hypothesis. In particular, we establish an upper bound of order x^{delta'} exp((log x)/(log log x)), where delta' = max(1/2, delta).</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-16T07:37:05Z</published>
+    <arxiv:comment>11 pages Submitted to Acta Arithmetica</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Hideto Iwata</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.19761v1</id>
+    <title>Some Series Related to Extended Riemann Hypothesis for Dedekind Zeta Functions</title>
+    <updated>2025-12-20T03:20:31Z</updated>
+    <link href="https://arxiv.org/abs/2512.19761v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.19761v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We obtain closed form of some infinite series involving derivatives of an analogue of the Riemann xi function for Dedekind zeta function and nontrivial zeros of Dedekind zeta function assuming the Extended Riemann Hypothesis. Conversely, we prove that if this closed form holds, then all of the zeros of Dedekind zeta function beyond a certain height lie on the critical line. This yields a large number of equivalent statements of Riemann Hypothesis.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-20T03:20:31Z</published>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Muhammad Atif Zaheer</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.12374v1</id>
+    <title>On the Riemann Hypothesis for Drinfeld Modules</title>
+    <updated>2025-12-13T16:03:33Z</updated>
+    <link href="https://arxiv.org/abs/2512.12374v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.12374v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper we provide a short proof of the Riemann Hypothesis for Drinfeld modules which uses only basic notions from the theory of global function fields and of Drinfeld modules.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-13T16:03:33Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Giacomo Micheli</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.03297v1</id>
+    <title>Mean values of the Riemann zeta function at shifted zeros under the Riemann Hypothesis</title>
+    <updated>2025-12-02T23:16:13Z</updated>
+    <link href="https://arxiv.org/abs/2512.03297v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.03297v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Assuming the Riemann hypothesis, we obtain asymptotic formulas for $\sum_{0&lt;γ&lt;T}ζ(ρ+δ)ζ(1-ρ+\overlineδ)$ in the region $-\frac{a}{\log T} \leq \Re δ\leq \frac{1}{2}+\frac{a}{\log T}$, $|\Im δ|\ll 1$. Unconditionally, this asymptotic formula was recently obtained by Garunkštis and Novikas in essentially the same region, with a slight incompleteness. Assuming RH, we obtain a sharper error term, and we also correct an inaccuracy in the unconditional error term there.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-02T23:16:13Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Ramūnas Garunkštis</name>
+    </author>
+    <author>
+      <name>Julija Paliulionytė</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.11199v1</id>
+    <title>The Riemann Hypothesis Emerges in Dynamical Quantum Phase Transitions</title>
+    <updated>2025-11-14T11:56:16Z</updated>
+    <link href="https://arxiv.org/abs/2511.11199v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.11199v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Riemann Hypothesis (RH), one of the most profound unsolved problems in mathematics, concerns the nontrivial zeros of the Riemann zeta function. Establishing connections between the RH and physical phenomena could offer new perspectives on its physical origin and verification. Here, we establish a direct correspondence between the nontrivial zeros of the zeta function and dynamical quantum phase transitions (DQPTs) in two realizable quantum systems, characterized by the averaged accumulated phase factor and the Loschmidt amplitude, respectively. This precise correspondence reveals that the RH can be viewed as the emergence of DQPTs at a specific temperature. We experimentally demonstrate this correspondence on a five-qubit spin-based system and further propose an universal quantum simulation framework for efficiently realizing both systems with polynomial resources, offering a quantum advantage for numerical verification of the RH. These findings uncover an intrinsic link between nonequilibrium critical dynamics and the RH, positioning quantum computing as a powerful platform for exploring one of mathematics' most enduring conjectures and beyond.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-14T11:56:16Z</published>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>ShiJie Wei</name>
+    </author>
+    <author>
+      <name>Yue Zhai</name>
+    </author>
+    <author>
+      <name>Quanfeng Lu</name>
+    </author>
+    <author>
+      <name>Wentao Yang</name>
+    </author>
+    <author>
+      <name>Pan Gao</name>
+    </author>
+    <author>
+      <name>Chao Wei</name>
+    </author>
+    <author>
+      <name>Junda Song</name>
+    </author>
+    <author>
+      <name>Franco Nori</name>
+    </author>
+    <author>
+      <name>Tao Xin</name>
+    </author>
+    <author>
+      <name>GuiLu Long</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.06729v1</id>
+    <title>Riemann Hypothesis for Non-Abelian Zeta Functions of Genus 2 Curves</title>
+    <updated>2025-11-10T05:50:43Z</updated>
+    <link href="https://arxiv.org/abs/2511.06729v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.06729v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we investigate Weng zeta functions associated with curves of genus 2 over finite fields. Building upon Weng's framework for non-abelian zeta functions, we establish that, as the rank n tends to infinity, the Riemann Hypothesis holds for these zeta functions. Our proof relies on the geometric properties of the moduli space of semi-stable bundles, together with several established results for high rank zeta functions, complemented by detailed asymptotic analysis. This result provides new evidence supporting the general validity of the Riemann Hypothesis for Weng zeta functions and offers insight into the analytic structure of non-abelian zeta functions associated with higher-genus curves.</summary>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-10T05:50:43Z</published>
+    <arxiv:comment>24 pages</arxiv:comment>
+    <arxiv:primary_category term="math.AG"/>
+    <author>
+      <name>Shi Zhan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.21518v3</id>
+    <title>Some series equivalent to the extended Riemann hypothesis for Dedekind zeta functions</title>
+    <updated>2025-10-21T13:21:47Z</updated>
+    <link href="https://arxiv.org/abs/2509.21518v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.21518v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The extended Riemann hypothesis (ERH) for Dedekind zeta functions remains one of the most elusive open problems in number theory. Over the last century, many equivalent statements to the classical Riemann hypothesis alone have been discovered. We prove that the closed form of some infinite series over the non-trivial zeros of Dedekind zeta functions holds if and only if ERH is true.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-25T20:08:08Z</published>
+    <arxiv:comment>5 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Vincent Nguyen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.16240v1</id>
+    <title>Off Critical Zeros Contradict Contraction in the Dynamical Reformulation of the Riemann Hypothesis</title>
+    <updated>2025-09-16T19:59:06Z</updated>
+    <link href="https://arxiv.org/abs/2509.16240v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.16240v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We continue the dynamical reformulation of the Riemann Hypothesis initiated in [1]. The framework is built from an integer map in which composites advance by pi(m) and primes retreat by their prime gap, producing trajectories whose contraction properties encode the distribution of primes. In this setting, RH is equivalent to the persistence of contraction inequalities for trajectory-based error functionals E(X), E~(X) across multiplicative scales.
+  In the present paper we prove that if zeta(s) has a zero off the critical line Re(s)=1/2, then the Landau--Littlewood Omega-theorem forces oscillations of size x^beta in psi(x)-x. A window-capture lemma shows that these oscillations are inherited by the composite-only window suprema Esup(X), and hence by E(X), producing lower bounds that contradict contraction. Thus any off--critical zero is incompatible with contraction.
+  Headline result. Part I introduced the dynamical system and showed that RH is equivalent to the persistence of contraction inequalities. Part II proves that off--critical zeros force oscillations in psi(x)-x that inevitably violate contraction. Taken together, these two steps close the circle: contraction characterizes RH, and off--critical zeros contradict contraction. Hence every nontrivial zero of zeta(s) lies on the critical line. In particular, the Riemann Hypothesis holds.
+  More generally, the present result shows that whenever contraction holds, the critical line is forced as the only location of nontrivial zeros. In this sense, the critical line is not merely the conjectured locus of zeros, but the equilibrium point singled out by contraction itself.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-16T19:59:06Z</published>
+    <arxiv:comment>Part II of a two paper project on dynamical reformulation of the Riemann Hypothesis. 12 pages, 5 appendices. Companion to Part I: Dynamical Reformulation of the Riemann Hypothesis via Trajectory Contraction (arXiv:2509.10588v1)</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Hendrik Wladimir Albrecht Edwin Kuipers</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.10588v1</id>
+    <title>A Dynamical Criterion Equivalent to the Riemann Hypothesis</title>
+    <updated>2025-09-12T08:59:19Z</updated>
+    <link href="https://arxiv.org/abs/2509.10588v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.10588v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce a discrete dynamical system on the integers, defined by moving a composite $m$ forward to $m+π(m)$ and a prime $p$ backward to $p-\mathrm{prevprime}(p)$. This map produces trajectories whose contraction properties are closely tied to the distribution of primes.
+  We prove unconditional contraction inequalities for error terms derived from these trajectories, using explicit remainder bounds from the smoothed explicit formula. Building on this, we show that the Riemann Hypothesis is equivalent to a sharp contraction condition: the trajectory error functional satisfies $E(X)\ll X^{1/2}\log X$. The forward implication follows directly from von Koch's classical bound under RH. For the converse, we invoke the Landau--Littlewood $Ω$-results, which guarantee that any off-critical zero forces oscillations large enough to violate the contraction inequality.
+  This establishes a new dynamical reformulation of RH: the critical-line conjecture is equivalent to the assertion that integer trajectories remain uniformly contracted at the scale $X^{1/2}\log X$, equivalently, RH holds. The perspective is distinct from earlier analytic equivalents, as it arises from stability properties of a simple deterministic system rather than from Hilbert space or Dirichlet polynomial approximations.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-12T08:59:19Z</published>
+    <arxiv:comment>Comments: 25 pages; includes appendices with explicit constants and numerical audit</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Hendrik Wladimir Albrecht Edwin Kuipers</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.13882v5</id>
+    <title>Standard conjecture D and some conjectures around Weil's Riemann hypothesis</title>
+    <updated>2025-12-08T11:38:56Z</updated>
+    <link href="https://arxiv.org/abs/2508.13882v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.13882v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $X$ be a smooth projective variety defined on a finite field $\mathbb{F}_q$. On $X$ there is a special morphism $Fr_X$, which raises coordinates to exponent $q$: $t\mapsto t^q$. The two main results in this paper are:
+  Result 1: If Standard conjecture D holds (for algebraic cycles of dimension $=\dim (X)$) on $X\times X$, then all polarised endomorphisms on $X$ are semisimple.
+  Result 2: We provide heuristic arguments to show that Standard Conjecture D should imply both Dynamical degree comparison conjecture (a generalisation of both Weil's Riemann hypothesis and Tate's question on the absolute value of the eigenvalues of polarised endomorphisms), Norm comparison conjecture (allowing to bound the growth of the pullback of iterations of an endomorphism on cohomology groups in terms of that on algebraic cycles, in particularly implying the semisimplicity of polarised endomorphisms), and Conjecture $G_r$ (which together with Standard conjecture D imply the previous mentioned two conjectures), proposed in previous works by Fei Hu and the author. The heuristic argument relies on the possibility of defining the self-composition $Fr_X^s$ in a good way, where $s$ is an arbitrary rational number (allowed to be negative), and similarly for another object related to the Frobenius morphism.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-19T14:44:32Z</published>
+    <arxiv:comment>14 pages. Main changes: 1. Abstract is more concise. 2. Add a new (may be clearer and better) idea to take the k-th roots of the involved linear operators (see the new Section 0.4). 3. In Section 0.4, also a heuristic argument is given to support that Standard conjecture D should also imply Conjecture G_r</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Tuyen Trung Truong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.03625v3</id>
+    <title>On the dynamics of a semigroup and its relation with the Riemann Hypothesis</title>
+    <updated>2026-03-22T00:35:41Z</updated>
+    <link href="https://arxiv.org/abs/2507.03625v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.03625v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The semigroup of weighted composition operators $(W_n)_{n\in \mathbb{N}}$, defined by $$W_nf(z)=(1+z+\cdots +z^n)f(z^n),$$ acts on the classical Hardy-Hilbert space $H^{2}(\mathbb{D})$, and exhibits intriguing connections with both the Riemann Hypothesis (RH) and the Invariant Subspace Problem (ISP). In this paper, we prove that the adjoint operators $W^{\ast}_{n}$, for $n\geq 2$, are Devaney chaotic, frequently hypercyclic and mixing. In particular, these operators are hypercyclic and discuss connections with the RH and invariant subspaces.</summary>
+    <category term="math.FA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-04T14:51:00Z</published>
+    <arxiv:comment>9 pages. Comments are welcome</arxiv:comment>
+    <arxiv:primary_category term="math.FA"/>
+    <author>
+      <name>Carlos F. Álvarez</name>
+    </author>
+    <author>
+      <name>Juan Manzur</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.05493v1</id>
+    <title>FTNILO: Explicit Multivariate Function Inversion, Optimization and Counting, Cryptography Weakness and Riemann Hypothesis Solution Equation with Tensor Networks</title>
+    <updated>2025-05-03T18:12:44Z</updated>
+    <link href="https://arxiv.org/abs/2505.05493v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.05493v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we present a new formalism, the Field Tensor Network Integral Logical Operator (FTNILO), to obtain the explicit equation that returns the minimum, maximum, and zeros of a multivariable injective function, and an algorithm for non-injective ones. This method extends the MeLoCoToN algorithm for inversion and optimization problems with continuous variables, by using Field Tensor Networks. The fundamentals of the method are the conversion of the problem of minimization of $N$ continuous variables into a problem of maximization of a dependent functional of a single variable. It can also be adapted to determine other properties, such as the zeros of any function. For this purpose, we use an extension of the imaginary time evolution, the new method of continuous signals, and partial or total integration, depending on the case. In addition, we show a direct way to recover both the tensor networks and the MeLoCoToN from this formalism. We show some examples of application, such as the Riemann hypothesis resolution. We provide an explicit integral equation that gives the solution of the Riemann hypothesis, being that if it results in a zero value, it is correct; otherwise, it is wrong. This algorithm requires no deep mathematical knowledge and is based on simple mathematical properties.</summary>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-03T18:12:44Z</published>
+    <arxiv:comment>32 pages, 15 figures, any suggestions are welcome</arxiv:comment>
+    <arxiv:primary_category term="math.OC"/>
+    <author>
+      <name>Alejandro Mata Ali</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2503.09644v3</id>
+    <title>A Majorana Relativistic Quantum Spectral Approach to the Riemann Hypothesis in (1+1)-Dimensional Rindler Spacetimes</title>
+    <updated>2025-07-22T07:20:32Z</updated>
+    <link href="https://arxiv.org/abs/2503.09644v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2503.09644v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Following the Hilbert-Pólya approach to the Riemann Hypothesis, we present an exact spectral realization of the nontrivial zeros of the Riemann zeta function $ζ(z)$ with a Mellin-Barnes integral that explicitly contains it. This integral defines the spectrum of the real-valued energy eigenvalues $E_n$ of a Majorana particle in a $(1+1)$-dimensional Rindler spacetime or equivalent Kaluza-Klein reductions of $(n+1)$-dimensional geometries. We show that the Hamiltonian $H_M$ describing the particle is hermitian and the spectrum of energy eigenvalues $\{E_n\}_{n \in \mathbb{N}}$ is countably infinite in number in a bijective correspondence with the imaginary part of the nontrivial zeros of $ζ(z)$ having the same cardinality as required by Hardy-Littlewood's theorem from number theory. The correspondence between the two spectra with the essential self-adjointness of $H_M$, confirmed with deficiency index analysis, boundary triplet theory and Krein's extension theorem, imply that all nontrivial zeros have real part $\Re ( z )=1/2$, i.e., lie on the ``critical line''. In the framework of noncommutative geometry, $H_M$ is interpreted as a Dirac operator $D$ in a spectral triple $(\mathcal{A}, \mathcal{H}, D)$, linking these results to Connes' program for the Riemann Hypothesis. The algebra $\mathcal{A}$ encodes the modular symmetries underlying the spectral realization of $ζ(z)$ in the Hilbert space $\mathcal{H}$ of Majorana wavefunctions, integrating concepts from quantum mechanics, general relativity, and number theory. This analysis offers a promising Hilbert-Pólya-inspired path to prove the Riemann Hypothesis.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-03-12T06:35:32Z</published>
+    <arxiv:comment>73 pages, 2 columns, 84 references. Corrected typos in the text and in formulae, added in the appendix E a toy example of replacing ζ(2s) by the Dirichlet beta function $β(2s)$ validating the results with $ζ(2s)$ function. Part of the logical procedure was tested also with Isabelle 2025</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Fabrizio Tamburini</name>
+      <arxiv:affiliation>Rotonium - Quantum Computing, Le Village by CA, Padova, Italy</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2501.10220v2</id>
+    <title>Murmurations and Sato-Tate Conjectures for High Rank Zetas of Elliptic Curves II: Beyond Riemann Hypothesis</title>
+    <updated>2025-01-21T11:16:09Z</updated>
+    <link href="https://arxiv.org/abs/2501.10220v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2501.10220v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>As a continuation of our earlier paper, we offer a new approach to murmurations and Sato-Tate laws for higher rank zetas of elliptic curves. Our approach here does not depend on the Riemann hypothesis for the so-called a-invariant in rank n&gt;2 even for the Sato-Tate law, rather, on a much refined structure, a similar version of which was already observed by Zagier and the senior author when the rank n Riemann hypothesis was established. Namely, instead of the rank n Riemann hypothesis bounds, we use much stronger asymptotic bounds. Accordingly, rank n Sato-Tate law can be established and rank n murmuration can be formulated equally well, similar to the corresponding structures in the abelian framework for Artin zetas of elliptic curves.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-01-17T14:33:19Z</published>
+    <arxiv:comment>14 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Zhan Shi</name>
+    </author>
+    <author>
+      <name>Lin Weng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2412.11130v11</id>
+    <title>Investigation about a statement equivalent to Riemann Hypothesis (RH)</title>
+    <updated>2026-03-18T21:18:21Z</updated>
+    <link href="https://arxiv.org/abs/2412.11130v11" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2412.11130v11" rel="related" type="application/pdf" title="pdf"/>
+    <summary>First idea is to compute a quantity like the angular momentum with respect to (0, 0), of an unitary mass of coordinates (&lt;[Xi(s)], =[Xi(s)]) while =[s] is the time, and, &lt;[s] = constant. If we impose that the derivative along &lt;[s], at points &lt;[s] = 1/2 is grater than zero, then, we find exactly a known RH equivalence statement about relative maxima and minima of Xi(1/2 + i=[s]) along critical line. After representing this fictitious angular momentum by Euler Product, and, using PNT as a tool, it can be proved that this positivity condition is granted everywhere at least for Xi(1/2 + i=[s]) 6 = 0. So, if the above equivalence is true, it is found that off-critical line zeros must be excluded for Z(s) function along all critical strip . Further analysis on Euler Product(Lemma 2) has evidenced others shorter ways to same objective. Besides the converging spectrum of prime numbers is highlighted as a by-product.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-12-15T09:27:42Z</published>
+    <arxiv:comment>31 pages , 12 figures</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Giovanni Lodone</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2412.00169v16</id>
+    <title>Investigation about a statement equivalent to Riemann Hypothesis (RH) applied to Dirichlet primitive L functions</title>
+    <updated>2026-01-20T18:18:15Z</updated>
+    <link href="https://arxiv.org/abs/2412.00169v16" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2412.00169v16" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We try to apply a known equivalence, for RH about Riemann Z function, to Dirichlet L functions with primitive characters. The aim is to give a small contribution to the proof of the generalized version of Riemann Hypothesis (RH).</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-11-29T15:49:55Z</published>
+    <arxiv:comment>42 pages, 20 figures</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Giovanni Lodone</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2411.05095v1</id>
+    <title>Fourier optimization and consequences of the generalized Riemann hypothesis</title>
+    <updated>2024-11-07T19:23:22Z</updated>
+    <link href="https://arxiv.org/abs/2411.05095v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2411.05095v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We give an exposition of some connections between Fourier optimization problems and problems in number theory. In particular, we present some recent conditional bounds under the generalized Riemann hypothesis, achieved via a Fourier optimization framework, on bounding the maximum possible gap between consecutive prime numbers represented by a given quadratic form; and on bounding the least quadratic non-residue modulo a prime number. This is based on joint works with Emanuel Carneiro, Andrés Chirre, Micah Milinovich, and Antonio Pedro Ramos.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-11-07T19:23:22Z</published>
+    <arxiv:comment>7 pages, 1 figure. To appear in "Women in Mathematics Latin America" (Springer-Birkhäuser Trends in Mathematics Series)</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Emily Quesada-Herrera</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2409.19790v1</id>
+    <title>Analysis on Riemann Hypothesis with Cross Entropy Optimization and Reasoning</title>
+    <updated>2024-09-29T21:25:58Z</updated>
+    <link href="https://arxiv.org/abs/2409.19790v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2409.19790v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we present a novel framework for the analysis of Riemann Hypothesis [27], which is composed of three key components: a) probabilistic modeling with cross entropy optimization and reasoning; b) the application of the law of large numbers; c) the application of mathematical inductions. The analysis is mainly conducted by virtue of probabilistic modeling of cross entropy optimization and reasoning with rare event simulation techniques. The application of the law of large numbers [2, 3, 6] and the application of mathematical inductions make the analysis of Riemann Hypothesis self-contained and complete to make sure that the whole complex plane is covered as conjectured in Riemann Hypothesis. We also discuss the method of enhanced top-p sampling with large language models (LLMs) for reasoning, where next token prediction is not just based on the estimated probabilities of each possible token in the current round but also based on accumulated path probabilities among multiple top-k chain of thoughts (CoTs) paths. The probabilistic modeling of cross entropy optimization and reasoning may suit well with the analysis of Riemann Hypothesis as Riemann Zeta functions are inherently dealing with the sums of infinite components of a complex number series.
+  We hope that our analysis in this paper could shed some light on some of the insights of Riemann Hypothesis. The framework and techniques presented in this paper, coupled with recent developments with chain of thought (CoT) or diagram of thought (DoT) reasoning in large language models (LLMs) with reinforcement learning (RL) [1, 7, 18, 21, 24, 34, 39-41], could pave the way for eventual proof of Riemann Hypothesis [27].</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-09-29T21:25:58Z</published>
+    <arxiv:comment>13 pages, 3 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Kevin Li</name>
+    </author>
+    <author>
+      <name>Fulu Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2409.17708v2</id>
+    <title>Equivalent criteria for the Riemann hypothesis for a general class of $L$-functions</title>
+    <updated>2024-09-28T13:24:41Z</updated>
+    <link href="https://arxiv.org/abs/2409.17708v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2409.17708v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In 1916, Riesz gave an equivalent criterion for the Riemann hypothesis (RH). Inspired from Riesz's criterion, Hardy and Littlewood showed that RH is equivalent to the following bound: \begin{align*} P_1(x):= \sum_{n=1}^\infty \frac{μ(n)}{n} \exp\left({-\frac{x}{n^2}}\right) = O_ε\left( x^{-\frac{1}{4}+ ε} \right), \quad \mathrm{as}\,\, x \rightarrow \infty. \end{align*} Recently, the authors extended the above bound for the generalized Riemann hypothesis for Dirichlet $L$-functions and gave a conjecture for a class of ``nice'' $L$-functions. In this paper, we settle this conjecture. In particular, we give equivalent criteria for the Riemann hypothesis for $L$-functions associated to cusp forms. We also obtain an entirely novel form of equivalent criteria for the Riemann hypothesis of $ζ(s)$. Furthermore, we generalize an identity of Ramanujan, Hardy and Littlewood for Chandrasekharan-Narasimhan class of $L$-functions.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-09-26T10:24:27Z</published>
+    <arxiv:comment>30 pages, 2 tables</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Meghali Garg</name>
+    </author>
+    <author>
+      <name>Bibekananda Maji</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2408.13292v5</id>
+    <title>Proof of Riemann hypothesis by topological and analytical methods</title>
+    <updated>2024-11-27T11:06:03Z</updated>
+    <link href="https://arxiv.org/abs/2408.13292v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2408.13292v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce a differential topological proof and an analytical proof of Riemann hypothesis according to the saddle point method because Riemann calculated the integral representation of zeta function on the critical line by this method. This topological proof of RH proves that the existence of integral representation of zeta functions requires certain differential topological conditions on its integrand according to which the zeta function vanishes on the critical line. The analytical proof of RH is the local implementation of topological proof or its coordinate representation.</summary>
+    <category term="physics.gen-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-08-23T11:48:59Z</published>
+    <arxiv:comment>7 pages</arxiv:comment>
+    <arxiv:primary_category term="physics.gen-ph"/>
+    <author>
+      <name>Farhad Ghaboussi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2408.00187v1</id>
+    <title>A method for verifying the generalized Riemann hypothesis</title>
+    <updated>2024-07-31T22:42:36Z</updated>
+    <link href="https://arxiv.org/abs/2408.00187v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2408.00187v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Riemann numerically approximated at least three zeta zeros. According to Edwards, Riemann even took steps to verify that the lowest zero he computed was indeed the first zeta zero. This approach to verification is developed, improved, and generalized to a large class of $L$-functions. Results of numerical calculations demonstrating the efficacy of the method are presented.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-07-31T22:42:36Z</published>
+    <arxiv:comment>28 pages, 3 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Ghaith Hiary</name>
+    </author>
+    <author>
+      <name>Summer Ireland</name>
+    </author>
+    <author>
+      <name>Megan Kyi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2407.18859v9</id>
+    <title>A Tauberian characterization of the Riemann hypothesis through the floor function</title>
+    <updated>2024-12-16T17:28:40Z</updated>
+    <link href="https://arxiv.org/abs/2407.18859v9" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2407.18859v9" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce a new Tauberian framework through the theory of "regular arithmetic functions". This allows us to establish a characterization of the Riemann hypothesis by linking the floor function to the distribution of nontrivial zeros of the Riemann zeta function. We thereby obtain a novel Tauberian equivalence of the Riemann hypothesis, extending classical Tauberian theorems beyond their traditional confinement to the prime number theorem. We further uncover connections to combinatorial number theory and set the groundwork for a "combinatorial Tauberian theory", highlighting the broader applicability of regular arithmetic functions.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-07-26T16:47:54Z</published>
+    <arxiv:comment>36 pages. Major revisions: revised title and abstract to focus on Tauberian-floor function approach; restructured introduction with RAF framework; added combinatorial applications; streamlined presentation (reduced from 44 to 36 pages). All essential results preserved</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Benoit Cloitre</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2407.00060v2</id>
+    <title>Sandwiching the Riemann hypothesis</title>
+    <updated>2024-09-08T08:50:56Z</updated>
+    <link href="https://arxiv.org/abs/2407.00060v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2407.00060v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We consider a system of three analytic functions, two of which are known to have all their zeros on the critical line $\Re (s)=σ=1/2$. We construct inequalities which constrain the third function, $ξ(s)$, on $\Im(s)=0$ to lie between the other two functions, in a sandwich structure. We investigate what can be said about the location of zeros and radius of convergence of expansions of $ξ(s)$, with promising results.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-06-16T08:31:25Z</published>
+    <arxiv:comment>22 pages, 12 figures, 1 table</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>R. C. McPhedran</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2405.18940v1</id>
+    <title>Brenke polynomials with real zeros and the Riemann Hypothesis</title>
+    <updated>2024-05-29T09:49:25Z</updated>
+    <link href="https://arxiv.org/abs/2405.18940v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2405.18940v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>If $A(z)=\sum_{n=0}^\infty a_nz^n$ and $B(z)=\sum_{n=0}^\infty b_nz^n$ are two formal power series, with $a_n,b_n\in \mathbb{R}$, the polynomials $(p_n)_n$ defined by the generating function $$ A(z)B(xz)=\sum_{n=0}^\infty p_n(x)z^n $$ are called the Brenke polynomials generated by $A$ and associated to $B$. We say that $A\in \mathcal{R}_B$ if the Brenke polynomials $(p_n)_n$ have only real zeros. Among other results, in this paper we find necessary and sufficient conditions on $B$ such that $\mathcal{R}_B=\mathcal{L}\text{-}\mathcal{P}$, where $\mathcal{L}\text{-}\mathcal{P}$ denotes the Laguerre-Pólya class (of entire functions). These results can be considered an extension to Brenke polynomials of the Jensen, and Pólya and Schur characterization $\mathcal{R}_{e^z}=\mathcal{L}\text{-}\mathcal{P}$, for Appell polynomials. When applying our results to a relative of the Riemann zeta function, we find new equivalencies for the Riemann Hypothesis in terms of real-rootedness of some sequences of Brenke polynomials.</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-05-29T09:49:25Z</published>
+    <arxiv:primary_category term="math.CA"/>
+    <author>
+      <name>Antonio J. Durán</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2405.05834v3</id>
+    <title>The Riemann hypothesis and dynamics of Backtracking New Q-Newton's method</title>
+    <updated>2024-06-05T07:29:28Z</updated>
+    <link href="https://arxiv.org/abs/2405.05834v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2405.05834v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A new variant of Newton's method - named Backtracking New Q-Newton's method (BNQN) - was recently introduced by the second author. This method has good global convergence guarantees, specially concerning finding roots of meromorphic functions. This paper explores using BNQN for the Riemann xi function. We show in particular that the Riemann hypothesis is equivalent to that all attractors of BNQN lie on the critical line. We also explain how an apparent relation between the basins of attraction of BNQN and Voronoi's diagram can be helpful for verifying the Riemann hypothesis or finding a counterexample to it. Some illustrating experimental results are included, which convey some interesting phenomena. The experiments show that BNQN works very stably with highly transcendental functions like the Riemann xi function and its derivatives. Based on insights from the experiments, we discuss some concrete steps on using BNQN towards the Riemann hypothesis, by combining with de Bruijn -Newman's constant. Ideas and results from this paper can be extended to other zeta functions.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-05-09T15:13:34Z</published>
+    <arxiv:comment>20 pages. Some typos are fixed, references are updated. Exposition is improved. Main change: A further idea is added to Section 4, where we combine with de Bruijn -Newman's constant. Comments are welcome!</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Thuan Quang Tran</name>
+    </author>
+    <author>
+      <name>Tuyen Trung Truong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2404.19647v1</id>
+    <title>Character Sums and the Riemann Hypothesis</title>
+    <updated>2024-04-30T15:46:19Z</updated>
+    <link href="https://arxiv.org/abs/2404.19647v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2404.19647v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove that an innocent looking inequality implies the Riemann Hypothesis and show a way to approach this inequality through sums of Legendre symbols.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-04-30T15:46:19Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Brian Conrey</name>
+    </author>
+  </entry>
+</feed>

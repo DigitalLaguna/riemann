@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/3SWx2NscJ3WgiP0NJjMUbFU+kvo</id>
+  <title>arXiv Query: search_query=abs:"Riemann hypothesis" AND (abs:"10^{13}" OR abs:"10^13" OR abs:"10,000,000,000,000")&amp;id_list=&amp;start=0&amp;max_results=30</title>
+  <updated>2026-08-22T07:39:22Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22Riemann+hypothesis%22+AND+(abs:%2210%5E%7B13%7D%22+OR+(abs:%2210%5E13%22+OR+abs:%2210,000,000,000,000%22))&amp;start=0&amp;max_results=30&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>30</opensearch:itemsPerPage>
+  <opensearch:totalResults>3</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/1006.0323v2</id>
+    <title>A few equalities involving integrals of the logarithm of the Riemann zeta-function and equivalent to the Riemann hypothesis III. Exponential weight functions</title>
+    <updated>2012-07-26T09:40:35Z</updated>
+    <link href="https://arxiv.org/abs/1006.0323v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1006.0323v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper is a continuation of our recent papers with the same title, arXiv:0806.1596v1 [math.NT], arXiv:0904.1277v1 where a number of integral equalities involving integrals of the logarithm of the Riemann zeta-function were introduced and it was shown that some of them are equivalent to the Riemann hypothesis. A few new equalities of this type, which this time involve exponential functions, are established, and for the first time we have found equalities involving the integrals of the logarithm of the Riemann zeta-function taken exclusively along the real axis. Some of the equalities we have found are tested numerically. In particular, an integral equality involving the logarithm of abs(zeta(1/2+it)) and a weight function cosh(pi*t)^(-1) is shown numerically to be correct up to the 80 digits. For exponential weight function exp(-at), the possible contribution of the Riemann function zeroes non-lying on the critical line is rigorously estimated and shown to be extremely small, in particular, smaller than trillion of digits, 10^(-10^(13)), for a=4*pi.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-06-02T08:54:20Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Sergey K. Sekatskii</name>
+    </author>
+    <author>
+      <name>Stefano Beltraminelli</name>
+    </author>
+    <author>
+      <name>Danilo Merlini</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0903.2785v4</id>
+    <title>Computing Hilbert class polynomials with the Chinese Remainder Theorem</title>
+    <updated>2013-11-22T18:25:22Z</updated>
+    <link href="https://arxiv.org/abs/0903.2785v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0903.2785v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present a space-efficient algorithm to compute the Hilbert class polynomial H_D(X) modulo a positive integer P, based on an explicit form of the Chinese Remainder Theorem. Under the Generalized Riemann Hypothesis, the algorithm uses O(|D|^(1/2+o(1))log P) space and has an expected running time of O(|D|^(1+o(1)). We describe practical optimizations that allow us to handle larger discriminants than other methods, with |D| as large as 10^13 and h(D) up to 10^6. We apply these results to construct pairing-friendly elliptic curves of prime order, using the CM method.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2009-03-16T15:53:27Z</published>
+    <arxiv:comment>37 pages, corrected a typo that misstated the heuristic complexity</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Mathematics of Computation 80 (2011), 501-538</arxiv:journal_ref>
+    <author>
+      <name>Andrew V. Sutherland</name>
+    </author>
+    <arxiv:doi>10.1090/S0025-5718-2010-02373-7</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1090/S0025-5718-2010-02373-7" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0707.2406v1</id>
+    <title>Other representations of the Riemann Zeta function and an additional reformulation of the Riemann Hypothesis</title>
+    <updated>2007-07-16T22:28:53Z</updated>
+    <link href="https://arxiv.org/abs/0707.2406v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0707.2406v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  New expansions for some functions related to the Zeta function in terms of the Pochhammer's polynomials are given (coefficients b(k), d(k), d_(k) and d__(k). In some formal limit our expansion b(k) obtained via the alternating series gives the regularized expansion of Maslanka for the Zeta function. The real and the imaginary part of the function on the critical line is obtained with a good accuracy up to Im(s) = t &lt; 35.
+  Then, we give the expansion (coefficient d_(k)) for the derivative of ln((s-1)ζ(s)). The critical function of the derivative, whose bounded values for Re(s) &gt; 1/2 at large values of k should ensure the truth of the Riemann Hypothesis (RH), is obtained either by means of the primes or by means of the zeros (trivial and non-trivial) of the Zeta function. In a numerical experiment performed up to high values of k i.e. up to k = 10^13 we obtain a very good agreement between the two functions, with the emergence of twelve oscillations with stable amplitude.
+  For a special case of values of the two parameters entering in the general Pochhammer's expansion it is argued that the bound on the critical function should be given by the Euler constant gamma.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2007-07-16T22:28:53Z</published>
+    <arxiv:comment>14 pages, 7 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Stefano Beltraminelli</name>
+    </author>
+    <author>
+      <name>Danilo Merlini</name>
+    </author>
+  </entry>
+</feed>

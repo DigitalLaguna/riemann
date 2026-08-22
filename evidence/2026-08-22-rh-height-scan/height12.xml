@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/mHBowL+3EbtBTZRXRkTv2Ynp7sA</id>
+  <title>arXiv Query: search_query=abs:"Riemann hypothesis" AND (abs:"10^{12}" OR abs:"10^12")&amp;id_list=&amp;start=0&amp;max_results=30</title>
+  <updated>2026-08-22T07:39:23Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22Riemann+hypothesis%22+AND+(abs:%2210%5E%7B12%7D%22+OR+abs:%2210%5E12%22)&amp;start=0&amp;max_results=30&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>30</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2109.02249v2</id>
+    <title>Improving bounds on prime counting functions by partial verification of the Riemann hypothesis</title>
+    <updated>2022-06-14T11:43:58Z</updated>
+    <link href="https://arxiv.org/abs/2109.02249v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2109.02249v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Using a recent verification of the Riemann hypothesis up to height $3\cdot 10^{12}$, we provide strong estimates on $π(x)$ and other prime counting functions for finite ranges of $x$. In particular, we get that $|π(x)-\text{li}(x)|&lt;\sqrt{x}\log x/8π$ for $2657\leq x\leq 1.101\cdot 10^{26}$. We also provide weaker bounds that hold for a wider range of $x$, and an application to an inequality of Ramanujan.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-09-06T05:47:12Z</published>
+    <arxiv:comment>12 pages, to appear in Ramanujan J</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Daniel R. Johnston</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2004.09765v1</id>
+    <title>The Riemann hypothesis is true up to $3\cdot 10^{12}$</title>
+    <updated>2020-04-21T05:50:50Z</updated>
+    <link href="https://arxiv.org/abs/2004.09765v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2004.09765v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We verify numerically, in a rigorous way using interval arithmetic, that the Riemann hypothesis is true up to height $3\cdot10^{12}$. That is, all zeroes $β+ iγ$ of the Riemann zeta-function with $0&lt;γ\leq 3\cdot 10^{12}$ have $β= 1/2$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-04-21T05:50:50Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Dave Platt</name>
+    </author>
+    <author>
+      <name>Tim Trudgian</name>
+    </author>
+    <arxiv:doi>10.1112/blms.12460</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/blms.12460" title="doi"/>
+  </entry>
+</feed>

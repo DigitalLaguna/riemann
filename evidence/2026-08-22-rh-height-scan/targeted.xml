@@ -1,0 +1,772 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/bj+3gcFGW5ShPMavrxqB7GQhbqI</id>
+  <title>arXiv Query: search_query=abs:"Riemann hypothesis" AND (abs:"verified" OR abs:"verification")&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-08-22T07:38:27Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22Riemann+hypothesis%22+AND+(abs:%22verified%22+OR+abs:%22verification%22)&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>41</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2608.19047v1</id>
+    <title>Eureka: Task-Conditioned Meta-Agent Orchestration for Scientific Discovery</title>
+    <updated>2026-08-19T15:40:21Z</updated>
+    <link href="https://arxiv.org/abs/2608.19047v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.19047v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present Eureka, a task-conditioned Meta-Agent architecture that compiles long-horizon tasks into dynamic obligation graphs with explicit acceptance semantics. During execution, Eureka forms Macro-Agents with specialized state, memory, operators, tools, verifiers, and local topology via receding-horizon planning, architecture promotion, and minimal-sufficient compilation. When bottlenecks recur, cost-benefit-gated evolution updates the local architecture under constraints. Theoretically, we establish results on regret, planning invalidation, amortization, subtree interfaces, serializability, and verification. Experimentally, Eureka completes 170/170 recursive tasks and generates 3,948 certificates with no false acceptances. Active context compresses median input from 9,490 to 4,005 tokens; incremental processing avoids 65.38% recomputation across 12,000 tasks; 16,000 concurrent executions serialize consistently. The same Meta-Agent instantiates a Theory-Discovery Agent and a Math/Conjecture Agent. The former yields structural results in quantum-process and spacetime theory. The latter identifies bottlenecks in Riemann Hypothesis research and advances a positivity certificate for Suzuki's localized Weil quadratic form to 0 &lt; a &lt;= 69/200 = 0.345, reaching ~99.55% of (log 2)/2. These results suggest that scientific-agent capability depends not only on the base model but on whether an architecture can be formed to match the task's cognitive structure.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-19T15:40:21Z</published>
+    <arxiv:comment>62 pages, 1 figure</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Alizer Wong</name>
+    </author>
+    <author>
+      <name>Heng Cui</name>
+    </author>
+    <author>
+      <name>Yi Tan</name>
+    </author>
+    <author>
+      <name>Xiongchao Zhan</name>
+    </author>
+    <author>
+      <name>Liang Lin</name>
+    </author>
+    <author>
+      <name>Yuxiang Guo</name>
+    </author>
+    <author>
+      <name>Zhaorong Dai</name>
+    </author>
+    <author>
+      <name>Zixin Zeng</name>
+    </author>
+    <author>
+      <name>Wenyuan Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.13637v2</id>
+    <title>More than two thirds of the zeta zeros are simple and on the critical line</title>
+    <updated>2026-08-19T18:17:52Z</updated>
+    <link href="https://arxiv.org/abs/2608.13637v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13637v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove unconditionally that at least two thirds of the nontrivial zeros of the Riemann zeta function, counted with multiplicity, are simple and lie on the critical line, and that at least five sixths are distinct; the previous unconditional records are $\frac{5}{12}$ and $0.6603$. With the Montgomery--Taylor window the constants become $0.6725$ and $0.8362$. The argument makes Montgomery's 1973 deduction unconditional: the Riemann hypothesis, classically needed to read the zero side as a positive sum over real ordinates, is replaced by a rank-trace inequality applied to a finite compression of Weil's Hermitian form, with Sylvester's law of inertia handling off-line pairs. The analytic inputs are those of Aryan and of Baluyot, Goldston, Suriajaya and Turnage-Butterbaugh. The results extend to primitive Dirichlet $L$-functions and are formally verified in Lean 4.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-13T17:44:42Z</published>
+    <arxiv:comment>21 pages. Proof discovered autonomously by Claude (Anthropic); verified and communicated by the listed authors. See §1 for provenance. Lean formalization available</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Levent Alpöge</name>
+    </author>
+    <author>
+      <name>Ralph Furman</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.16795v1</id>
+    <title>An explicit uniform cubic wedge for consecutive Toeplitz minors of the Riemann xi coefficients</title>
+    <updated>2026-07-18T12:23:13Z</updated>
+    <link href="https://arxiv.org/abs/2607.16795v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.16795v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let (a_k) be the positive coefficient sequence of the normalized Riemann xi-function, and let D_{r,k} denote its consecutive Toeplitz minors. The Riemann Hypothesis is equivalent to (a_k) being a Polya frequency sequence of infinite order, and hence to nonnegativity of all Toeplitz minors. We prove that D_{r,k} &gt; 0 for every r &gt;= 2 and k &gt;= 10^18 r^3. This gives an explicit cubic tail scale uniform in r, in contrast with Katkova's fixed-order asymptotic positivity. The proof does not use numerically verified zeros of the Riemann zeta-function. It combines a certified complex saddle-point analysis of the moment transform, an exact q-Pascal dilation semigroup controlling every degree simultaneously, and a weighted Banach-algebra majorant for the nonlinear remainder, closed by an inertia-preservation argument. All analytic constants are certified with directed rounding in Arb ball arithmetic, and all algebraic identities are verified in exact rational arithmetic. The ancillary files reproduce every certificate. The result concerns only the tail regime k much larger than r^3 and makes no progress on the Riemann Hypothesis, which concerns the complementary region.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-18T12:23:13Z</published>
+    <arxiv:comment>15 pages; ancillary files provide reproducible Arb ball-arithmetic certificates, exact-arithmetic verification code, and 36 automated tests</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Wojciech Michalowski</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.02828v3</id>
+    <title>A finite Guinand-Weil dictionary and archimedean tail order for the truncated Weil quadratic form</title>
+    <updated>2026-08-14T14:49:04Z</updated>
+    <link href="https://arxiv.org/abs/2607.02828v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.02828v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Connes-van Suijlekom and Connes-Consani-Moscovici truncations of the Weil quadratic form, at a prime cutoff c&gt;1 and frequency band N, produce finite Galerkin matrices whose spectra are the finite-rank window on Weil positivity. We prove two exact finite theorems about this truncation. First, every real even Galerkin coefficient vector v determines, in closed form, a band-limited Guinand-Weil test function g_v whose zero sum over the nontrivial zeros of zeta equals the quadratic value &lt;v, Q v&gt; exactly: every value of the truncated form is an exact sum over the zeros. The construction factors through an exact source quotient of dimension 2N+1 and admits a non-collapsing pole-neutral subfamily. Second, beyond the Galerkin band the omitted archimedean tail is a totally positive Cauchy-Stieltjes increment. This yields a two-sided certification rule with an explicit budget B_T ~ (2N+1) rho log(T) / (pi^2 T), where T is the archimedean cutoff and rho = 2 pi / log c: finite-cutoff positivity certifies cutoff-free positivity, a finite-cutoff eigenvalue below -B_T certifies a cutoff-free negative, and a negative eigenvalue in the band [-B_T, 0) certifies nothing. Resolving a spectral scale of 10^-59 at c=100 by brute cutoff would require T of order 10^63; a cutoff-free interval LDL^T factorization resolves it directly. The dictionary is verified over the first 512 zeros of zeta and by three independent computational routes; all scripts and artifacts ship with the paper. The paper makes no Riemann Hypothesis, prime-counting, next-prime, or factoring claim.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-02T23:39:38Z</published>
+    <arxiv:comment>15 pages, 2 figures. Reproducibility package (scripts, data, certificates, checksums) in anc/; source: https://github.com/akivag613/connes-cvs-. v3: updates two Connes references to their journal versions and corrects the ancillary h_+' values at t=50, 100, 1000 (unconverged series acceleration). Every row still meets the Lemma 3.1 envelope; no bound changes. Archival DOI: 10.5281/zenodo.21124802</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Akiva Groskin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.15096v1</id>
+    <title>VGPT-RSI for RH-Adjacent Formal Progress: Boundary Certificates, Verified Finite Lagarias Inequalities, and Explicit Failure Localization</title>
+    <updated>2026-06-13T04:12:25Z</updated>
+    <link href="https://arxiv.org/abs/2606.15096v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.15096v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Riemann Hypothesis remains one of the central unsolved problems in mathematics. Rather than claiming proof, we investigate whether a verifiable AI-assisted reasoning system can produce reliable, formally checked partial progress while explicitly identifying the remaining mathematical obstructions. We apply the Verifiable Growing Physical Transformer with Recursive Self-Improvement (VGPT-RSI) to two RH-adjacent certification tasks. First, we construct and verify a finite RH-boundary certificate for inequality on a parameterized safe lower curve over a region. The numerical boundary curve is converted into a certificate-backed lower curve, audited using outward-rounded interval arithmetic and Arb/FLINT ball arithmetic, and then checked in Rocq/CoqInterval for the parameterized theorem. Second, we initiate a formal Lagarias-route certificate. Lagarias criterion states that RH is equivalent to the global inequality. We formalize the finite quantity and produce a Coq-checked finite certificate. The final system identifies the exact unresolved mathematical bottlenecks: formalizing the Lagarias equivalence, proving the global tail theorem beyond any finite cutoff, and potentially reducing counterexamples to colossally abundant or related extremal integers. These results demonstrate that VGPT-RSI can produce certified RH-adjacent formal progress, organize proof dependencies, and avoid overclaiming when the remaining obstruction is genuinely mathematical.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-13T04:12:25Z</published>
+    <arxiv:comment>31 pages, 3 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Zhixin Hu</name>
+    </author>
+    <author>
+      <name>Tao Xu</name>
+    </author>
+    <author>
+      <name>Xiaodian Sun</name>
+    </author>
+    <author>
+      <name>Li Jin</name>
+    </author>
+    <author>
+      <name>Momiao Xiong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.15858v2</id>
+    <title>Module Lattice Security (Part I): Unconditional Verification of Weber's Conjecture for $k \le 12$</title>
+    <updated>2026-05-07T13:53:40Z</updated>
+    <link href="https://arxiv.org/abs/2604.15858v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.15858v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Weber's conjecture (1886) governs three aspects of lattice-based cryptography: the solvability of the Principal Ideal Problem, the freeness of modules over rings of integers, and the tightness of worst-case-to-average-case reductions in Ring-LWE (R-LWE) and Module-LWE (MLWE). Existing verifications for $k \ge 9$ rely on Generalized Riemann Hypothesis (GRH). In this paper, we present the first unconditional proof for $k \le 12$. Our method combines the Fukuda-Komatsu computational sieve, inductive structure of the cyclotomic $\mathbb{Z}_2$-tower, and Herbrand's theorem.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-17T09:05:50Z</published>
+    <arxiv:comment>24 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Ming-Xing Luo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.25831v1</id>
+    <title>Theory of (Co)homological Invariants on Quantum LDPC Codes</title>
+    <updated>2026-03-26T18:50:36Z</updated>
+    <link href="https://arxiv.org/abs/2603.25831v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.25831v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>With recent breakthroughs in the construction of good qLDPC codes and nearly good qLTCs, the study of (co)homological invariants of quantum code complexes, which fundamentally underlie their logical operations, has become evidently important. In this work, we establish a systematic framework for mathematically analyzing these invariants across a broad spectrum of constructions, from HGP codes to sheaf codes, by synthesizing advanced math tools. We generalize the notion of canonical logical representatives from HGP codes to the sheaf code setting, resolving a long-standing challenge in explicitly characterizing sheaf codewords. Building on this foundation, we present the first comprehensive computation of cup products within the intricate framework of sheaf codes. Given Artin's primitive root conjecture which holds under the generalized Riemann hypothesis, we prove that $\tildeΘ(N)$ independent cup products can be supported on almost good qLDPC codes and qLTCs of length N, opening the possibility of achieving linearly many parallel, nontrivial, constant-depth multi-controlled-Z gates. Moreover, by interpreting sheaf codes as covering spaces of HGP codes via graph lifts, we propose a scheme that inductively generates families of both HGP and sheaf codes in an interlaced fashion from a constant-size HGP code. Notably, the induction preserves all (co)homological invariants of the initial code. This provides a general framework for lifting invariants or logical gates from small codes to infinite code families, and enables efficient verification of such features by checking on small instances. Our theory provides a substantive methodology for studying invariants in HGP codes and extends it to sheaf codes. In doing so, we reveal deep and unexpected connections between qLDPC codes and math, thereby laying the groundwork for future advances in quantum coding, fault tolerance, and physics.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.IT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-26T18:50:36Z</published>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>Zimu Li</name>
+    </author>
+    <author>
+      <name>Yuguo Shao</name>
+    </author>
+    <author>
+      <name>Fuchuan Wei</name>
+    </author>
+    <author>
+      <name>Yiming Li</name>
+    </author>
+    <author>
+      <name>Zi-Wen Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.15905v2</id>
+    <title>On the Lagarias Inequality and Superabundant Numbers</title>
+    <updated>2026-02-19T13:52:47Z</updated>
+    <link href="https://arxiv.org/abs/2602.15905v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.15905v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study the Lagarias inequality, an elementary criterion equivalent to the Riemann Hypothesis. Using a continuous extension of the harmonic numbers, we show that the sequence $B_n=\frac{H_n+e^{H_n}\log(H_n)}{n}$ is strictly increasing for $n\ge 1$. As a consequence, if the Lagarias inequality has counterexamples, then the least counterexample must be a superabundant number; equivalently, it suffices to verify the inequality on the superabundant numbers.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-16T05:25:36Z</published>
+    <arxiv:comment>7 pages. v2: Added the use of Corollary 2.1 to Theorem 3.1</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Andrew MacArevey</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.02263v2</id>
+    <title>On the Spectral theory of Isogeny Graphs and Quantum Sampling of Secure Supersingular Elliptic curves</title>
+    <updated>2026-03-22T20:42:26Z</updated>
+    <link href="https://arxiv.org/abs/2602.02263v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.02263v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we study the problem of sampling random supersingular elliptic curves with unknown endomorphism rings. This problem has recently gained considerable attention as many isogeny-based cryptographic protocols require such ``secure'' curves for instantation, while existing methods achieve this only in a trusted-setup setting. We present the first provable quantum polynomial-time algorithms for sampling such curves with high probability, one of which is based on an algorithm of Booher et. al. One variant runs heuristically in $\tilde{O}(\log^{4} p)$ quantum gate complexity, and in $\tilde{O}(\log^{13} p)$ under the Generalized Riemann Hypothesis, and outputs a curve that is provably secure assuming average-case hardness of the endomorphism ring problem. Another variant samples uniform $\mathcal{O}$-oriented curves with unknown endomorphism rings, for any imaginary quadratic order $\mathcal O$, with security based on the hardness of Vectorization problem. When accompanied by an interactive quantum computation verification protocol our algorithms provide a secure instantiation of the CGL hash function and related primitives.
+  Our analysis relies on a new spectral delocalization result for supersingular $\ell$-isogeny graphs: we prove the Quantum Unique Ergodicity conjecture and provide numerical evidence for complete eigenvector delocalization. We also prove a stronger $\varepsilon$-separation property for eigenvalues of isogeny graphs than that predicted in the quantum money protocol of Kane, Sharif, and Silverberg, thereby removing a key heuristic assumption in their construction.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-02T16:04:54Z</published>
+    <arxiv:comment>29 pages with two figures</arxiv:comment>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>Maher Mamah</name>
+    </author>
+    <author>
+      <name>Jake Doliskani</name>
+    </author>
+    <author>
+      <name>David Jao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.15346v1</id>
+    <title>Conjectures on Sums of Consecutive Primes</title>
+    <updated>2026-01-20T20:14:34Z</updated>
+    <link href="https://arxiv.org/abs/2601.15346v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.15346v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study additive properties of consecutive prime numbers and the primality of the sums they generate. For a given prime number $p_n$, we consider the sums \[ S_k(p_n) = p_n + p_{n+1} + \cdots + p_{n+k-1}, \] where $k \ge 3$ is an odd integer. We first formulate an existence conjecture asserting that, for every prime number $p_n$, there exists at least one odd length $k \ge 3$ such that $S_k(p_n)$ is itself a prime number. An exhaustive computational verification covering the first one million prime numbers revealed no counterexamples. We then propose a strengthened conjecture according to which, for every prime number $p_n$, there exist infinitely many odd lengths $k$ such that $S_k(p_n)$ is prime. This strong version is supported by a probabilistic heuristic showing that the series of the corresponding primality probabilities diverges, suggesting that the phenomenon is not exceptional but recurrent. We also analyze the possible modular obstructions, showing that they are local in nature and cannot persist when the length $k$ varies among odd integers. A Diophantine interpretation of the problem is proposed, together with a conceptual comparison with the generalized Goldbach conjecture. Finally, we discuss the role of the Generalized Riemann Hypothesis (GRH) in controlling the distribution of the sums under consideration. These structural, modular, Diophantine, and probabilistic (heuristic) arguments support both conjectures and formalize heuristic theorems of Cramér, GRH, and Hardy--Littlewood type explaining the expected absence of counterexamples.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-20T20:14:34Z</published>
+    <arxiv:comment>11 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Edwige Tolla</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.18266v1</id>
+    <title>Nonstandard Witnesses and Observational Barriers for Π0_1 Sentences in ZFC: Standard Cuts, Uniform Reflection Failure, and the Semantic Void</title>
+    <updated>2025-11-23T03:31:54Z</updated>
+    <link href="https://arxiv.org/abs/2511.18266v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.18266v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We isolate a model-theoretic "standard-cut" phenomenon for true Pi0_1 sentences: if a model M satisfies ZFC + not-phi, then omega^M is not the standard omega, and any internal "witness" to not-phi is computationally inaccessible by Tennenbaum's theorem. Such a witness exists only to maintain syntactic consistency and carries no standard observational semantics.
+  On the proof-theoretic side, we attribute the gap between pointwise verifiability and global provability to a failure of Uniform Reflection. We formalize this as a syntactic self-description failure SDF(T, phi) for proof systems T. Under this failure we obtain an observational barrier:
+  Con(T) implies not Prov_T(phi).
+  In this sense, undecidability in ZFC for Pi0_1 sentences does not describe any observable mathematical reality; it marks a "semantic void", a structural shadow arising not from a standard counterexample but from the expressive limitations of the formal system. We illustrate this with a fixed arithmetical representative of the Riemann Hypothesis.</summary>
+    <category term="math.LO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-23T03:31:54Z</published>
+    <arxiv:comment>6 pages. Submitted to the Journal of Symbolic Logic</arxiv:comment>
+    <arxiv:primary_category term="math.LO"/>
+    <author>
+      <name>Yusei Fukumoto</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.11199v1</id>
+    <title>The Riemann Hypothesis Emerges in Dynamical Quantum Phase Transitions</title>
+    <updated>2025-11-14T11:56:16Z</updated>
+    <link href="https://arxiv.org/abs/2511.11199v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.11199v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Riemann Hypothesis (RH), one of the most profound unsolved problems in mathematics, concerns the nontrivial zeros of the Riemann zeta function. Establishing connections between the RH and physical phenomena could offer new perspectives on its physical origin and verification. Here, we establish a direct correspondence between the nontrivial zeros of the zeta function and dynamical quantum phase transitions (DQPTs) in two realizable quantum systems, characterized by the averaged accumulated phase factor and the Loschmidt amplitude, respectively. This precise correspondence reveals that the RH can be viewed as the emergence of DQPTs at a specific temperature. We experimentally demonstrate this correspondence on a five-qubit spin-based system and further propose an universal quantum simulation framework for efficiently realizing both systems with polynomial resources, offering a quantum advantage for numerical verification of the RH. These findings uncover an intrinsic link between nonequilibrium critical dynamics and the RH, positioning quantum computing as a powerful platform for exploring one of mathematics' most enduring conjectures and beyond.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-14T11:56:16Z</published>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>ShiJie Wei</name>
+    </author>
+    <author>
+      <name>Yue Zhai</name>
+    </author>
+    <author>
+      <name>Quanfeng Lu</name>
+    </author>
+    <author>
+      <name>Wentao Yang</name>
+    </author>
+    <author>
+      <name>Pan Gao</name>
+    </author>
+    <author>
+      <name>Chao Wei</name>
+    </author>
+    <author>
+      <name>Junda Song</name>
+    </author>
+    <author>
+      <name>Franco Nori</name>
+    </author>
+    <author>
+      <name>Tao Xin</name>
+    </author>
+    <author>
+      <name>GuiLu Long</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2503.24275v1</id>
+    <title>Davenport-Heilbronn Function Ratio Properties and Non-Trivial Zeros Study</title>
+    <updated>2025-03-31T16:21:38Z</updated>
+    <link href="https://arxiv.org/abs/2503.24275v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2503.24275v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper systematically investigates the analytic properties of the ratio $f(s)/f(1-s) = X(s)$ based on the Davenport-Heilbronn functional equation $f(s) = X(s)f(1-s)$. We propose a novel method to analyze the distribution of non-trivial zeros through the monotonicity of the ratio $|f(s)/f(1-s)|$. Rigorously proving that non-trivial zeros can only lie on the critical line $σ=1/2$, we highlight two groundbreaking findings: 1. Contradiction of Off-Critical Zeros: Numerical "exceptional zeros" (e.g., Spira, 1994) violate the theoretical threshold $κ=1.21164$ and conflict with the monotonicity constraint of $|X(s)|=1$. 2. Essential Difference Between Approximate and Strict Zeros: Points satisfying $f(s) \to 0$ do not constitute strict zeros unless verified by analyticity. This work provides a new perspective for studying zero distributions of $L$-functions related to the Riemann Hypothesis.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-03-31T16:21:38Z</published>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Tao Liu</name>
+    </author>
+    <author>
+      <name>Juhao Wu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2405.05834v3</id>
+    <title>The Riemann hypothesis and dynamics of Backtracking New Q-Newton's method</title>
+    <updated>2024-06-05T07:29:28Z</updated>
+    <link href="https://arxiv.org/abs/2405.05834v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2405.05834v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A new variant of Newton's method - named Backtracking New Q-Newton's method (BNQN) - was recently introduced by the second author. This method has good global convergence guarantees, specially concerning finding roots of meromorphic functions. This paper explores using BNQN for the Riemann xi function. We show in particular that the Riemann hypothesis is equivalent to that all attractors of BNQN lie on the critical line. We also explain how an apparent relation between the basins of attraction of BNQN and Voronoi's diagram can be helpful for verifying the Riemann hypothesis or finding a counterexample to it. Some illustrating experimental results are included, which convey some interesting phenomena. The experiments show that BNQN works very stably with highly transcendental functions like the Riemann xi function and its derivatives. Based on insights from the experiments, we discuss some concrete steps on using BNQN towards the Riemann hypothesis, by combining with de Bruijn -Newman's constant. Ideas and results from this paper can be extended to other zeta functions.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-05-09T15:13:34Z</published>
+    <arxiv:comment>20 pages. Some typos are fixed, references are updated. Exposition is improved. Main change: A further idea is added to Section 4, where we combine with de Bruijn -Newman's constant. Comments are welcome!</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Thuan Quang Tran</name>
+    </author>
+    <author>
+      <name>Tuyen Trung Truong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2312.01264v1</id>
+    <title>Zeros of the Goss zeta function</title>
+    <updated>2023-12-03T03:08:00Z</updated>
+    <link href="https://arxiv.org/abs/2312.01264v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2312.01264v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $X$ be a smooth proper curve over a finite field and let $\infty \in X$ be a closed point. Let $A$ be the ring of functions on $X - \infty$. The Goss zeta function $ζ_A$ of $A$ is an equicharacteristic analogue of the Riemann zeta function. In this article we study the zeros of $ζ_A$ under the generic condition that $X$ is ordinary. We prove an analogue of the Riemann hypothesis, which verifies a corrected version of a conjecture of Goss. We also show that the zeros of $ζ_A$ at negative even integers are `simple' and that $ζ_A$ is nonzero at negative odd integers. This answers questions posed by Goss and Thakur. Both of these results were previously only known under the restrictive hypothesis that $A$ has class number one. Finally, we prove versions of these results for $v$-adic interpolations of the Goss zeta function.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-12-03T03:08:00Z</published>
+    <arxiv:comment>Comments welcome</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Joe Kramer-Miller</name>
+    </author>
+    <author>
+      <name>James Upton</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2212.12438v2</id>
+    <title>Chaos Analysis in the Hybrid Quintic Duffing-Riemann Zeta System via Decomposition</title>
+    <updated>2025-12-31T20:49:41Z</updated>
+    <link href="https://arxiv.org/abs/2212.12438v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2212.12438v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper presents a comprehensive analysis of the driven cubic-quintic Duffing oscillator \[ \ddotφ+\frac{1}{q}\dotφ+φ^3+φ^5=A\cos(ωt), \] advancing both analytical and numerical chaos theory. Using Melnikov analysis on explicit homoclinic orbits \[ φ_0(t) = 1-\tanh(t)-\tanh^2(t) \quad \text{and} \quad φ_0(t) = {\rm sech}_{\rm RZ}(t) -{\rm sech}_{\rm RZ}^2(t),\] we rigorously predict transverse homoclinic intersections and limit cycle bifurcations surrounding the hyperbolic saddle $(0,0)$, establishing chaos onset at $A_\mathrm{chaos}\approx0.34$. A groundbreaking contribution introduces the hybrid quintic Duffing-Riemann zeta system $\ddotφ+φ^3+φ^5=A\cos(ωt)+\Re[ζ(s)]$, where $ζ(s)=X(s)-Y(s)$ via C-transformation decomposition. Bifurcation portraits reveal zeta perturbation delays chaos by $24\%$ ($A_\text{chaos}\approx0.42$) while enhancing Lyapunov exponents by $27\%$ ($λ_\text{max}=0.14&gt;0.11$). Nontrivial zeros $s_k=1/2+it_k$ emerge as chaos suppressors through entropy-matching $|X(s_k,n)|^2=|Y(s_k,n)|^2$.
+  We prove nontrivial zeros manifest as global Lyapunov minimizers $λ(s_k)=\min_{σ\in[0,1]}λ(σ+it_k)$, reformulating the Riemann Hypothesis as a verifiable bifurcation prediction. The unperturbed Hamiltonian $H=\frac{1}{2}\dotφ^2+\frac{1}{4}φ^4+\frac{1}{6}φ^6$ and stochastic extensions for biomedical applications are analyzed, positioning number-theoretic chaos control as a novel paradigm bridging nonlinear dynamics and analytic number theory.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-12-04T19:25:37Z</published>
+    <arxiv:comment>English has been improved throughout. A new section "Chaos Analysis in the Hybrid Quintic Duffing-Riemann Zeta System via Decomposition'' has been added with theoretical implications. Special thanks to co-author Pedro Caceres for collaboration and to arXiv administrators for their attention in improving this version</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Zeraoulia Rafik</name>
+    </author>
+    <author>
+      <name>Pedro Caceres</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2109.02249v2</id>
+    <title>Improving bounds on prime counting functions by partial verification of the Riemann hypothesis</title>
+    <updated>2022-06-14T11:43:58Z</updated>
+    <link href="https://arxiv.org/abs/2109.02249v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2109.02249v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Using a recent verification of the Riemann hypothesis up to height $3\cdot 10^{12}$, we provide strong estimates on $π(x)$ and other prime counting functions for finite ranges of $x$. In particular, we get that $|π(x)-\text{li}(x)|&lt;\sqrt{x}\log x/8π$ for $2657\leq x\leq 1.101\cdot 10^{26}$. We also provide weaker bounds that hold for a wider range of $x$, and an application to an inequality of Ramanujan.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-09-06T05:47:12Z</published>
+    <arxiv:comment>12 pages, to appear in Ramanujan J</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Daniel R. Johnston</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2101.03338v5</id>
+    <title>Asymptotic absence of poles of Ihara zeta function of large Erdos-Renyi random graphs</title>
+    <updated>2022-03-07T11:01:44Z</updated>
+    <link href="https://arxiv.org/abs/2101.03338v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2101.03338v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Using recent results on the concentration of the largest eigenvalue and maximal vertex degree of large random graphs, we show that the infinite sequence of Erd\H os-Rényi random graphs $G(n,ρ_n/n)$ such that $ρ_n/\log n$ infinitely increases as $n\to\infty$ verifies a version of the graph theory Riemann Hypothesis.</summary>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-01-09T11:38:37Z</published>
+    <arxiv:comment>final version, accepted for publication in the Journal of Mathematical Physics, Analysis, Geometry (Kharkiv, Ukraine)</arxiv:comment>
+    <arxiv:primary_category term="math.PR"/>
+    <author>
+      <name>O. Khorunzhiy</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2005.00035v1</id>
+    <title>Bayesian Characterizations of Properties of Stochastic Processes with Applications</title>
+    <updated>2020-04-30T18:05:17Z</updated>
+    <link href="https://arxiv.org/abs/2005.00035v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2005.00035v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this article, we primarily propose a novel Bayesian characterization of stationary and nonstationary stochastic processes. In practice, this theory aims to distinguish between global stationarity and nonstationarity for both parametric and nonparametric stochastic processes. Interestingly, our theory builds on our previous work on Bayesian characterization of infinite series, which was applied to verification of the (in)famous Riemann Hypothesis. Thus, there seems to be interesting and important connections between pure mathematics and Bayesian statistics, with respect to our proposed ideas. We validate our proposed method with simulation and real data experiments associated with different setups. In particular, applications of our method include stationarity and nonstationarity determination in various time series models, spatial and spatio-temporal setups, and convergence diagnostics of Markov Chain Monte Carlo. Our results demonstrate very encouraging performance, even in very subtle situations. Using similar principles, we also provide a novel Bayesian characterization of mutual independence among any number of random variables, using which we characterize the properties of point processes, including characterizations of Poisson point processes, complete spatial randomness, stationarity and nonstationarity. Applications to simulation experiments with ample Poisson and non-Poisson point process models again indicate quite encouraging performance of our proposed ideas. We further propose a novel recursive Bayesian method for determination of frequencies of oscillatory stochastic processes, based on our general principle. Simulation studies and real data experiments with varieties of time series models consisting of single and multiple frequencies bring out the worth of our method.</summary>
+    <category term="math.ST" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-04-30T18:05:17Z</published>
+    <arxiv:comment>Not yet complete, much work still needed. Feedback welcome</arxiv:comment>
+    <arxiv:primary_category term="math.ST"/>
+    <author>
+      <name>Sucharita Roy</name>
+    </author>
+    <author>
+      <name>Sourabh Bhattacharya</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2004.09765v1</id>
+    <title>The Riemann hypothesis is true up to $3\cdot 10^{12}$</title>
+    <updated>2020-04-21T05:50:50Z</updated>
+    <link href="https://arxiv.org/abs/2004.09765v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2004.09765v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We verify numerically, in a rigorous way using interval arithmetic, that the Riemann hypothesis is true up to height $3\cdot10^{12}$. That is, all zeroes $β+ iγ$ of the Riemann zeta-function with $0&lt;γ\leq 3\cdot 10^{12}$ have $β= 1/2$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-04-21T05:50:50Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Dave Platt</name>
+    </author>
+    <author>
+      <name>Tim Trudgian</name>
+    </author>
+    <arxiv:doi>10.1112/blms.12460</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/blms.12460" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1904.12438v2</id>
+    <title>Effective approximation of heat flow evolution of the Riemann $ξ$ function, and a new upper bound for the de Bruijn-Newman constant</title>
+    <updated>2019-08-04T21:08:01Z</updated>
+    <link href="https://arxiv.org/abs/1904.12438v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1904.12438v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For each $t \in \mathbf{R}$, define the entire function $$ H_t(z) := \int_0^\infty e^{tu^2} Φ(u) \cos(zu)\ du$$ where $Φ$ is the super-exponentially decaying function $$ Φ(u) := \sum_{n=1}^\infty (2π^2 n^4 e^{9u} - 3πn^2 e^{5u} ) \exp(-πn^2 e^{4u} ).$$ This is essentially the heat flow evolution of the Riemann $ξ$ function. From the work of de Bruijn and Newman, there exists a finite constant $Λ$ (the \emph{de Bruijn-Newman constant}) such that the zeroes of $H_t$ are all real precisely when $t \geq Λ$. The Riemann hypothesis is equivalent to the assertion $Λ\leq 0$; recently, Rodgers and Tao established the matching lower bound $Λ\geq 0$. Ki, Kim and Lee established the upper bound $Λ&lt; \frac{1}{2}$.
+  In this paper we establish several effective estimates on $H_t(x+iy)$ for $t \geq 0$, including some that are accurate for small or medium values of $x$. By combining these estimates with numerical computations, we are able to obtain a new upper bound $Λ\leq 0.22$ unconditionally, as well as improvements conditional on further numerical verification of the Riemann hypothesis. We also obtain some new estimates controlling the asymptotic behavior of zeroes of $H_t(x+iy)$ as $x \to \infty$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-04-29T03:35:48Z</published>
+    <arxiv:comment>68 pages, 21 figures. To appear, Research in the Mathematical Sciences. This is the final version, incorporating referee comments and corrections</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>D. H. J. Polymath</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1811.05861v1</id>
+    <title>Approximation of the derivatives of the logarithm of the Riemann zeta-function in the critical strip</title>
+    <updated>2018-11-14T15:44:21Z</updated>
+    <link href="https://arxiv.org/abs/1811.05861v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1811.05861v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recently, we have established the generalized Li criterion equivalent to the Riemann hypothesis, viz. demonstrated that the sums over all non-trivial Riemann function zeroes k_n,a=Sum_(/rho)(1-(1-((/rho-a)/(/rho+a-1))^n) for any real a not equal to 1/2 are non-negative if and only if the Riemann hypothesis holds true, and proved the relation k_n,a=n*(1-2a)/(n-1)!*d^n/dz^n((z-a)^(n-1)*ln(ξ(z))) taken at z=1-a. Assuming that the function /zeta(s) is non-vanishing for Re(s)&gt;1/2+/Delta, where real 0&lt;/Delta&lt;1/2, using this relation together with the functional equation for the /xi-function and the explicit formula of Weil, we prove that in these conditions for n=1, 2, 3... and an arbitrary complex a with 1&gt;Re(a)&gt;1/2+/Delta+delta_0, where /delta_0 is an arbitrary small fixed positive number, one has d^n/ds^n(ln(/zeta(s))=Sum_(m&lt;=N)((-1)^n*/Lambda(m)*ln^(n-1)(m)/m^a) + Int_(0)^(N)(x^(-a)*ln^(n-1)(x)*dx)+O(N^(1/2+Delta-a)*ln^(n-1)(N)); derivative is taken at s=a. In particular, d(ln(/zeta(a))/da=-Sum_(m&lt;=N)(/Lambda(m)/m^a+N^(1-a)/(1-a)+O(N^(1/2+/Delta-a)). Numerical verifications of these equalities are also presented.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-11-14T15:44:21Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Sergey Sekatskii</name>
+    </author>
+    <author>
+      <name>Stefano Beltraminelli</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1804.02500v3</id>
+    <title>Variants on Andrica's conjecture with and without the Riemann hypothesis</title>
+    <updated>2018-11-28T20:06:23Z</updated>
+    <link href="https://arxiv.org/abs/1804.02500v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1804.02500v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The gap between what we can explicitly prove regarding the distribution of primes and what we suspect regarding the distribution of primes is enormous. It is (reasonably) well-known that the Riemann hypothesis is not sufficient to prove Andrica's conjecture: $\forall n\geq 1$, is $\sqrt{p_{n+1}}-\sqrt{p_n} \leq 1$? But can one at least get tolerably close? I shall first show that with a logarithmic modification, provided one assumes the Riemann hypothesis, one has \[ {\sqrt{p_{n+1}}\over\ln p_{n+1}} -{\sqrt{p_n}\over\ln p_n} &lt; {11\over25}; \qquad (n\geq1). \] Then, by considering more general $m^{th}$ roots, again assuming the Riemann hypothesis, I shall show that \[ {\sqrt[m]{p_{n+1}}} -{\sqrt[m]{p_n}} &lt; {44\over25 \,e\, (m-2)}; \qquad (n\geq 3;\; m &gt;2). \] In counterpoint, if we limit ourselves to what we can currently prove unconditionally, then the only explicit Andrica-like results seem to be variants on the results below: \[ \ln^2 p_{n+1} - \ln^2 p_n &lt; 9; \qquad (n\geq1). \] \[ \ln^3 p_{n+1} - \ln^3 p_n &lt; 52; \qquad (n\geq1). \] \[ \ln^4 p_{n+1} - \ln^4 p_n &lt; 991; \qquad (n\geq1). \] I shall also slightly update the region on which Andrica's conjecture is unconditionally verified.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-04-07T03:26:57Z</published>
+    <arxiv:comment>V1: 12 pages; V2: 9 pages. Discussion simplified and streamlined. Various numerical constants improved. Extra section added on what can be proved unconditionally. Updated discussion on using maximal prime gaps to verify the standard Andrica conjecture up to 1.8 x 10^{19}. V3: 10 pages; 4 references added; some cosmetic changes; more discussion of numerics; closely resembles published version</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Mathematics Vol 6, No 12, (2018), 289</arxiv:journal_ref>
+    <author>
+      <name>Matt Visser</name>
+      <arxiv:affiliation>Victoria University of Wellington</arxiv:affiliation>
+    </author>
+    <arxiv:doi>10.3390/math6120289</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.3390/math6120289" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1712.08434v1</id>
+    <title>The Fourier transform of the non-trivial zeros of the zeta function</title>
+    <updated>2017-12-22T13:27:49Z</updated>
+    <link href="https://arxiv.org/abs/1712.08434v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1712.08434v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The non-trivial zeros of the Riemann zeta function and the prime numbers can be plotted by a modified von Mangoldt function. The series of non-trivial zeta zeros and prime numbers can be given explicitly by superposition of harmonic waves. The Fourier transform of the modified von Mangoldt functions shows interesting connections between the series. The Hilbert-Polya conjecture predicts that the Riemann hypothesis is true, because the zeros of the zeta function correspond to eigenvalues of a positive operator and this idea encouraged to investigate the eigenvalues itself in a series. The Fourier transform computations is verifying the Riemann hypothesis and give evidence for additional conjecture that those zeros and prime numbers arranged in series that lie in the critical 1/2 positive upper half plane and over the positive integers, respectively.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-12-22T13:27:49Z</published>
+    <arxiv:comment>4 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Levente Csoka</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1510.06333v3</id>
+    <title>Exploring Riemann's Functional Equation</title>
+    <updated>2016-09-10T22:33:52Z</updated>
+    <link href="https://arxiv.org/abs/1510.06333v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1510.06333v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>An equivalent, but variant form of the Riemann functional equation is explored, and several discoveries are made. Properties of the Riemann zeta function $ζ(s)$ from which a necessary and sufficient condition for the existence of zeros in the critical strip are deduced. This in turn, by an indirect route, eventually produces a simple, solvable, differential equation for $arg(ζ(s))$ on the critical line $s=1/2+iρ$, the consequences of which are explored, and the "LogZeta" function is introduced. A singular linear transform between the real and imaginary components of $ζ$ and $ζ^\prime$ on the critical line is derived, and an implicit relationship for locating a zero ($ρ=ρ_0$) on the critical line is found between the arguments of $ζ(1/2+iρ)$ and $ζ^{\prime}(1/2+iρ)$. Notably, the Volchkov criterion, a Riemann Hypothesis (RH) equivalent is analytically evaluated and verified to be half equivalent to RH, but RH is not proven. Numerical results are presented, some of which lead to the identification of {\it anomalous zeros}, whose existence in turn suggests that well-established, traditional derivations such as the Volchkov criterion and counting theorems require re-examination. It is proven that the derivative $ζ^{\prime}(1/2+iρ)$ will never vanish on the perforated critical line ($ρ\neqρ_0$). Traditional asymptotic and counting results are obtained in an untraditional manner, yielding insight into the nature of $ζ(1/2+iρ)$ as well as very accurate asymptotic estimates for distribution bounds and the density of zeros on the critical line.</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-10-20T18:59:25Z</published>
+    <arxiv:comment>This is the final published version, Cogent Mathematics, 2016</arxiv:comment>
+    <arxiv:primary_category term="math.CA"/>
+    <arxiv:journal_ref>Cogent Mathematics, Vol. 3, number 1, June 14, 2016, Article: 1179246</arxiv:journal_ref>
+    <author>
+      <name>Michael Milgram</name>
+    </author>
+    <arxiv:doi>10.1080/23311835.2016.1179246</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1080/23311835.2016.1179246" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1509.01554v7</id>
+    <title>A note on the possibility of proving the Riemann hypothesis</title>
+    <updated>2019-02-17T18:22:18Z</updated>
+    <link href="https://arxiv.org/abs/1509.01554v7" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1509.01554v7" rel="related" type="application/pdf" title="pdf"/>
+    <summary>As well known, the important hypothesis formulated by B.G. RIEMANN in 1859 states that all non-trivial zeroes of the Zeta function $Z(s)=\sum_{n=1}^{\infty } n^{-s}$ should fall on the Critical Line (C.L.) $Re(s)=\frac{1}{2}$.\\ Although direct numerical search of the zeroes failed to identify any outlier, i.e. any zeroes with $Re(s)\neq\frac{1}{2}$, a general proof of the Hypothesis has not yet been found.\\ The present Note aims to approach the problem from a 'reductio ad absurdum' way, i.e. it assumes that an outlier pair of c.c. zero-points, $s=\frac{1}{2}+ξ\pm i.Y_H$ with $ξ\neq0$, has been found, and then proceeds to analyze what are the implications of this assumption. Starting from the well-known GRAM-BACKLUND formula for an explicit expression of the Zeta function, the Fundamental Theorem of Algebra (FTA) allows to evidence, through legitimate algebraic manipulations, the necessity that the assumed outlying pair of c.c. zero-points fulfils an implicit additional constraint. The zero-condition according to the GRAM- BACKLUND formulation and this additional constraint are seen to be mutually incompatible unless the pair of c.c. zero-points belong to the C.L.. This conclusion is equivalent to a verification of the RIEMANN Hypothesis.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-09-01T17:45:12Z</published>
+    <arxiv:comment>4 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Michele Fanelli</name>
+    </author>
+    <author>
+      <name>Alberto Fanelli</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1507.03431v1</id>
+    <title>On the zeros of Dirichlet $L$-functions</title>
+    <updated>2015-07-13T12:54:30Z</updated>
+    <link href="https://arxiv.org/abs/1507.03431v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1507.03431v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we compute and verify the positivity of the Li coefficients for the Dirichlet $L$-functions using an arithmetic formula established in Omar and Mazhouda, J. Number Theory 125 (2007) no.1, 50-58; J. Number Theory 130 (2010) no.4, 1109-1114. Furthermore, we formulate a criterion for the partial Riemann hypothesis and we provide some numerical evidence for it using new formulas for the Li coefficients.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-07-13T12:54:30Z</published>
+    <arxiv:comment>Proposition 1 page 143 is revised</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>LMS J. Comput. Math. 14 (2011), 140--154</arxiv:journal_ref>
+    <author>
+      <name>Sami Omar</name>
+    </author>
+    <author>
+      <name>Raouf Ouni</name>
+    </author>
+    <author>
+      <name>Kamel Mazhouda</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1502.07953v1</id>
+    <title>Unconditional Class Group Tabulation of Imaginary Quadratic Fields to $|Δ| &lt; 2^{40}$</title>
+    <updated>2015-02-27T16:21:27Z</updated>
+    <link href="https://arxiv.org/abs/1502.07953v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1502.07953v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present an improved algorithm for tabulating class groups of imaginary quadratic fields of bounded discriminant. Our method uses classical class number formulas involving theta-series to compute the group orders unconditionally for all $Δ\not \equiv 1 \pmod{8}.$ The group structure is resolved using the factorization of the group order. The $1 \bmod 8$ case was handled using the methods of \cite{jacobson}, including the batch verification method based on the Eichler-Selberg trace formula to remove dependence on the Extended Riemann Hypothesis. Our new method enabled us to extend the previous bound of $|Δ| &lt; 2 \cdot 10^{11}$ to $2^{40}$. Statistical data in support of a variety conjectures is presented, along with new examples of class groups with exotic structures.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-02-27T16:21:27Z</published>
+    <arxiv:comment>26 pages, 2 figures, to appear in Math. Comp</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>A. S. Mosunov</name>
+    </author>
+    <author>
+      <name>M. J. Jacobson</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1501.04955v2</id>
+    <title>Worpitzky partitions for root systems and characteristic quasi-polynomials</title>
+    <updated>2015-12-31T01:42:28Z</updated>
+    <link href="https://arxiv.org/abs/1501.04955v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1501.04955v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce a partition of (coweight) lattice points inside the dilated fundamental parallelepiped into those of partially closed simplices. This partition can be considered as a generalization and a lattice points interpretation of the classical formula of Worpitzky.
+  This partition, and the generalized Eulerian polynomial, recently introduced by Lam and Postnikov, can be used to describe the characteristic (quasi)polynomials of Shi and Linial arrangements. As an application, we prove that the characteristic quasi-polynomial of the Shi arrangement turns out to be a polynomial. We also present several results on the location of zeros of characteristic polynomials, related to a conjecture of Postnikov and Stanley. In particular, we verify the "functional equation" of the characteristic polynomial of the Linial arrangement for any root system, and give partial affirmative results on "Riemann hypothesis" for the root systems of type $E_6, E_7, E_8$, and $F_4$.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.RT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-01-20T20:51:34Z</published>
+    <arxiv:primary_category term="math.CO"/>
+    <arxiv:journal_ref>Tohoku Mathematical Journal, 70 (2018) 39-63</arxiv:journal_ref>
+    <author>
+      <name>Masahiko Yoshinaga</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1403.8075v11</id>
+    <title>Algorithm, probability, and prime numbers</title>
+    <updated>2026-01-09T08:52:13Z</updated>
+    <link href="https://arxiv.org/abs/1403.8075v11" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1403.8075v11" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The results of the study provide guidelines for the development and applications of algorithms. When the number of steps for calculating an assumption tends to infinity, probability theory can be applied to predict whether the assumption holds or not. This characteristic is related to the number of steps for verifying arbitrarily large prime numbers. This study proved that $π(n)-Li(n)=o(M(n)\sqrt{Li(n)})$ almost certainly holds without any assumptions. Here, $π(n)$ is the number of primes not greater than $n$, $Li(n)$ is a logarithmic integral function, and $M(n)$ is an arbitrary function such that $M(n)\rightarrow\infty$. This result implies that the Riemann hypothesis holds as the falseness of the Riemann hypothesis leads to a contradiction.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-03-23T06:12:14Z</published>
+    <arxiv:comment>Withdrawn due to a logical error in Section 4. In Proposition 4.1, the argument incorrectly treats primality verification as equivalent to checking leading digits in multiple base representations, and the subsequent independence assumption for fp(1),...,fp(n) is unjustified. This invalidates the derivation of Theorems 4.3-4.4</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Yasuo Nishii</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1308.6704v4</id>
+    <title>A method for proving the completeness of a list of zeros of certain L-functions</title>
+    <updated>2014-10-28T13:30:07Z</updated>
+    <link href="https://arxiv.org/abs/1308.6704v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1308.6704v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>When it comes to partial numerical verification of the Riemann Hypothesis, one crucial part is to verify the completeness of a list of pre-computed zeros. Turing developed such a method, based on an explicit version of a theorem of Littlewood on the average of the argument of the Riemann zeta function. In a previous paper we suggested an alternative method based on the Weil-Barner explicit formula. This method asymptotically sacrifices fewer zeros in order to prove the completeness of a list of zeros with imaginary part in a given interval. In this paper, we prove a general version of this method for an extension of the Selberg class including Hecke and Artin L-series, L-functions of modular forms, and, at least in the unramified case, automorphic L-functions. As an example, we further specify this method for Hecke L-series and L-functions of elliptic curves over the rational numbers.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-08-30T10:44:52Z</published>
+    <arxiv:comment>final version, 19 pages. To appear in Mathematics of Computation</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Math. Comp. 84 (2015), 2413-2431</arxiv:journal_ref>
+    <author>
+      <name>Jan Büthe</name>
+    </author>
+    <arxiv:doi>10.1090/S0025-5718-2015-02922-6</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1090/S0025-5718-2015-02922-6" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1307.8395v3</id>
+    <title>Statistical and other properties of Riemann zeros based on an explicit equation for the $n$-th zero on the critical line</title>
+    <updated>2014-03-10T22:50:21Z</updated>
+    <link href="https://arxiv.org/abs/1307.8395v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1307.8395v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We show that there are an infinite number of Riemann zeros on the critical line, enumerated by the positive integers $n=1,2,\dotsc$, whose ordinates can be obtained as the solution of a new transcendental equation that depends only on $n$. Under weak assumptions, we show that the number of such zeros already saturates the counting formula for the numbers of zeros on the entire critical strip. These results thus constitute a concrete proposal toward verifying the Riemann hypothesis. We perform numerical analyses of the exact equation, and its asymptotic limit of large ordinate. The starting point is an explicit analytical formula for an approximate solution to the exact equation in terms of the Lambert $W$ function. In this way, we neither have to use Gram points or deal with violations of Gram's law. Our numerical approach thus constitutes a novel method to compute the zeros. Employing these numerical solutions, we verify that solutions of the asymptotic version are accurate enough to confirm Montgomery's and Odlyzko's pair correlation conjectures and also to reconstruct the prime number counting function.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-07-29T20:17:54Z</published>
+    <arxiv:comment>Some arguments were improved and clarified</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Guilherme França</name>
+    </author>
+    <author>
+      <name>André LeClair</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1305.3087v1</id>
+    <title>Numerical Computations Concerning the GRH</title>
+    <updated>2013-05-14T10:06:17Z</updated>
+    <link href="https://arxiv.org/abs/1305.3087v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1305.3087v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We describe two new algorithms for the efficient and rigorous computation of Dirichlet L-functions and their use to verify the Generalised Riemann Hypothesis for all such L-functions associated with primitive characters of modulus q&lt;=400,000. For even q, we check to height t_0=max(1e8/q,7.5e7/q+200) and for odd q to height t_0=max(1e8/q,3.75e7/q+200).</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-05-14T10:06:17Z</published>
+    <arxiv:comment>15 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>David J. Platt</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1305.2897v4</id>
+    <title>Major arcs for Goldbach's problem</title>
+    <updated>2014-04-14T16:22:53Z</updated>
+    <link href="https://arxiv.org/abs/1305.2897v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1305.2897v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The ternary Goldbach conjecture states that every odd number $n\geq 7$ is the sum of three primes. The estimation of the Fourier series $\sum_{p\leq x} e(αp)$ and related sums has been central to the study of the problem since Hardy and Littlewood (1923). Here we show how to estimate such Fourier series for $α$ in the so-called major arcs, i.e., for $α$ close to a rational of small denominator. This is part of the author's proof of the ternary Goldbach conjecture. In contrast to most previous work on the subject, we will rely on a finite verification of the Generalized Riemann Hypothesis up to a bounded conductor and bounded height, rather than on zero-free regions. We apply a rigorous verification due to D. Platt; the results we obtain are both rigorous and unconditional. The main point of the paper will be the development of estimates on parabolic cylinder functions that make it possible to use smoothing functions based on the Gaussian. The generality of our explicit formulas will allow us to work with a wide variety of such functions.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-05-13T19:21:02Z</published>
+    <arxiv:comment>Title fixed</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>H. A. Helfgott</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1302.6245v3</id>
+    <title>Quantum Computation of Prime Number Functions</title>
+    <updated>2013-09-05T07:15:21Z</updated>
+    <link href="https://arxiv.org/abs/1302.6245v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1302.6245v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We propose a quantum circuit that creates a pure state corresponding to the quantum superposition of all prime numbers less than 2^n, where n is the number of qubits of the register. This Prime state can be built using Grover's algorithm, whose oracle is a quantum implementation of the classical Miller-Rabin primality test. The Prime state is highly entangled, and its entanglement measures encode number theoretical functions such as the distribution of twin primes or the Chebyshev bias. This algorithm can be further combined with the quantum Fourier transform to yield an estimate of the prime counting function, more efficiently than any classical algorithm and with an error below the bound that allows for the verification of the Riemann hypothesis. We also propose a Twin Prime state to measure the number of twin primes and another state to test the Goldbach conjecture. Arithmetic properties of prime numbers are then, in principle, amenable to experimental verifications on quantum systems.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-02-25T21:01:02Z</published>
+    <arxiv:comment>10 pages, 4 figures, one reference and additional comments concerning the Twin Prime state and the Goldbach conjecture added</arxiv:comment>
+    <arxiv:primary_category term="quant-ph"/>
+    <arxiv:journal_ref>Quantum Information and Computation, Vol. 14, 0577 (2014)</arxiv:journal_ref>
+    <author>
+      <name>Jose I. Latorre</name>
+    </author>
+    <author>
+      <name>German Sierra</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1202.4351v1</id>
+    <title>Generalised root identities for zeta functions of curves over finite fields</title>
+    <updated>2012-02-12T10:38:47Z</updated>
+    <link href="https://arxiv.org/abs/1202.4351v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1202.4351v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We consider generalised root identities for zeta functions of curves over finite fields, ζ_{k}, and compare with the corresponding analysis for the Riemann zeta function. We verify numerically that, as for ζ, the ζ_{k} do satisfy the generalised root identities and we investigate these in detail for the special cases of μ=0,-1\:\&amp;\:-2. Unlike for ζ, however, we show that in the setting of zeta functions of curves over finite fields the μ=-2 root identity is consistent with the Riemann hypothesis (RH) proved by Weil. Comparison of this analysis with the corresponding calculations for ζilluminates the fact that, even though both ζand ζ_{k} have both Euler and Hadamard product representations, it is the detailed structure of the counting function, N(T), which drives the Cesaro computations on the root side of these identities and thereby determines the implications of the root identities for RH in each setting.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-02-12T10:38:47Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Richard Stone</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1201.6656v4</id>
+    <title>Every odd number greater than 1 is the sum of at most five primes</title>
+    <updated>2012-07-03T23:28:53Z</updated>
+    <link href="https://arxiv.org/abs/1201.6656v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1201.6656v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove that every odd number $N$ greater than 1 can be expressed as the sum of at most five primes, improving the result of Ramaré that every even natural number can be expressed as the sum of at most six primes. We follow the circle method of Hardy-Littlewood and Vinogradov, together with Vaughan's identity; our additional techniques, which may be of interest for other Goldbach-type problems, include the use of smoothed exponential sums and optimisation of the Vaughan identity parameters to save or reduce some logarithmic losses, the use of multiple scales following some ideas of Bourgain, and the use of Montgomery's uncertainty principle and the large sieve to improve the $L^2$ estimates on major arcs. Our argument relies on some previous numerical work, namely the verification of Richstein of the even Goldbach conjecture up to $4 \times 10^{14}$, and the verification of van de Lune and (independently) of Wedeniwski of the Riemann hypothesis up to height $3.29 \times 10^9$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-01-31T19:37:03Z</published>
+    <arxiv:comment>45 pages, no figures, to appear, Mathematics of Computation. This is the final version, incorporating the referee's suggestions</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Terence Tao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1112.0845v2</id>
+    <title>Knottedness is in NP, modulo GRH</title>
+    <updated>2014-01-01T02:52:52Z</updated>
+    <link href="https://arxiv.org/abs/1112.0845v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1112.0845v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Given a tame knot K presented in the form of a knot diagram, we show that the problem of determining whether K is knotted is in the complexity class NP, assuming the generalized Riemann hypothesis (GRH). In other words, there exists a polynomial-length certificate that can be verified in polynomial time to prove that K is non-trivial. GRH is not needed to believe the certificate, but only to find a short certificate. This result complements the result of Hass, Lagarias, and Pippenger that unknottedness is in NP. Our proof is a corollary of major results of others in algebraic geometry and geometric topology.</summary>
+    <category term="math.GT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-12-05T06:44:28Z</published>
+    <arxiv:comment>7 pages; minor update</arxiv:comment>
+    <arxiv:primary_category term="math.GT"/>
+    <arxiv:journal_ref>Adv. Math. 256 (2014), 493-506</arxiv:journal_ref>
+    <author>
+      <name>Greg Kuperberg</name>
+      <arxiv:affiliation>UC Davis</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1002.0442v1</id>
+    <title>Estimates of Some Functions Over Primes without R.H.</title>
+    <updated>2010-02-02T10:26:44Z</updated>
+    <link href="https://arxiv.org/abs/1002.0442v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1002.0442v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  Some computations made about the Riemann Hypothesis and in particular, the verification that zeroes of zeta belong on the critical line and the extension of zero-free region are useful to get better effective estimates of number theory classical functions which are closely linked to zeta zeroes like psi(x), theta(x), pi(x) or the k-th prime number.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-02-02T10:26:44Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Pierre Dusart</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0507502v1</id>
+    <title>Artin's conjecture, Turing's method and the Riemann hypothesis</title>
+    <updated>2005-07-25T07:01:18Z</updated>
+    <link href="https://arxiv.org/abs/math/0507502v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0507502v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We present a group-theoretic criterion under which one may verify the Artin conjecture for some (non-monomial) Galois representations, up to finite height in the complex plane. In particular, the criterion applies to S5 and A5 representations. Under more general conditions, the technique allows for the possibility of verifying the Riemann hypothesis for Dedekind zeta functions of non-abelian extensions of Q. In addition, we discuss two methods for locating zeros of arbitrary L-functions. The first uses the explicit formula and techniques (developed jointly with Andreas Strombergsson) for computing with trace formulae. The second method generalizes that of Turing for verifying the Riemann hypothesis. In order to apply it we develop a rigorous algorithm for computing general L-functions on the critical line via the Fast Fourier Transform. Finally, we present some numerical results testing Artin's conjecture for S5 representations, and the Riemann hypothesis for Dedekind zeta functions of S5 and A5 fields.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2005-07-25T07:01:18Z</published>
+    <arxiv:comment>37 pages, 5 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Experimental Mathematics 15 (2006), no. 4, 385-407</arxiv:journal_ref>
+    <author>
+      <name>Andrew R. Booker</name>
+    </author>
+  </entry>
+</feed>

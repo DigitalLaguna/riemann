@@ -1,0 +1,6 @@
+### sweep
+QUERY: ti:"Riemann hypothesis"
+URL: http://export.arxiv.org/api/query?search_query=ti%3A%22Riemann%20hypothesis%22&sortBy=submittedDate&sortOrder=descending&max_results=40
+### targeted
+QUERY: abs:"Riemann hypothesis" AND (abs:"verified" OR abs:"verification")
+URL: http://export.arxiv.org/api/query?search_query=abs%3A%22Riemann%20hypothesis%22%20AND%20%28abs%3A%22verified%22%20OR%20abs%3A%22verification%22%29&sortBy=submittedDate&sortOrder=descending&max_results=40
