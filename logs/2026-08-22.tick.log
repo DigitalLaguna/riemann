@@ -524,3 +524,34 @@ next: tick 108 (~21:13 CEST): poll run4 again. On completion: status file exit=0
 exit!=0 -> cgroup-kill diagnosis WRONG -> TloopSinglematv2_asan next
 (pre-registered). Still running -> log rect count + t, re-estimate, hand off
 (no re-launch).
+
+## session (2026-08-22 20:52-21:00 CEST, manual/owner; after tick 107) — TRACK B: run4 COMPLETED, X=6e12 row closed, claim #18 NUMERIC — verdict: WINDING = 0, NEW ROW
+  run4 (unit tloop-x6e12-run4, isolated cgroup) finished 20:48:05 CEST:
+  - tloop_x6e12_run4.status: start 18:03:47Z, exit=0 end 18:48:05Z (44.3 min)
+  - tloop_x6e12_run4.txt: 1572 Rectangle lines, final t=0.17378709819414388239,
+    "Overall winding number: 0.000000", "cpu/wall(s): 2656.9 2657.77"
+  - no Abort (minmodabb stayed >= 1.14 across all 1572 rects; grep 'Abort' empty)
+  - pre-registered verdict (tick-91/tick-105 sections) APPLIED: exit=0 + winding=0 +
+    no abort -> NEW ROW at X=6e12 with Lambda = t0+y0^2/2 = 0.19899966445 < 0.19999966445
+  - cgroup-kill diagnosis CONFIRMED as a side result: run4 survived tick 106/107 exits
+    while running (run2/run3 died exactly at their launching ticks' exits)
+  Machine re-verification (this session, 20:54 CEST):
+    bash evidence/2026-08-22-x6e12/check.sh -> pass=4 fail=0, CHECK PASS
+    (ii) abeff 0.527400238236571 >= 0.03; Lambda exact-rational < 0.19999966445;
+    (i) RH height X/2 = 3e12 <= 3e12; (iii) run4 exit=0/winding=0/no Abort (1572 rects)
+  Ledger: TICK 107 had already added+promoted claim #18 (NUMERIC, promote.sh
+  2026-08-22T18:50:47Z) 2 min before this session's own `promote.sh add` created a
+  duplicate NOTE #19 -> garden-merged #19 into #18 (promote.sh merge). A-004 class
+  overlap (manual session vs concurrent tick): lesson = re-read the ledger AFTER the
+  checker run, before adding.
+  Ledger now: 19 rows — 8 NUMERIC (B: #3,4,6,7,8,9,18; E: #10), 2 FORMAL (A: #2,#12),
+  9 NOTE (#1,#5,#11,#13->#12,#14,#15,#16,#17,#19->#18).
+  Track B status: design-doc 0.2 target MET twice over (row X=5e12: 0.19999966445 #9;
+  row X=6e12: 0.19899966445 #18), week-4 kill criterion met (claim #7). Remaining B
+  options: (i) X-sweep to 7e12/8e12 (stored sums = long pole, O(hours) per row);
+  (ii) row-3 t=0.18 push (BLOCKED: needs RH to 1e13, Platt-Trudgian only 3e12);
+  (iii) Arb-port of the 0.20 pipeline (promotion of NOTE #11, one-tick checker).
+next: (a) OWNER: one-click Fork of AlexKontorovich/PrimeNumberTheoremAnd, then push
+  ik-additive-lemmas @ 0197a66 + PR (body: evidence/2026-08-22-pnt-ik-api/issue-816-draft.md);
+  (b) track B: choose next step at week-2 review (08-29) — X=7e12 sweep vs Arb port #11;
+  (c) tracks A/C/D/E have no in-flight work; A's PR leg is the only A-critical path.
