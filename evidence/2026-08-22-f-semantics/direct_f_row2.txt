@@ -1,0 +1,12 @@
+Re(s_*) = 1.08696672156
+Im(s_*) = -315391.573042
+|gamma| = 0.404313572548
+Re(kappa) = -2.73775662779e-13  Im(kappa) = 2.46704334139e-8
+|sum_beta|      = 1.12024756652
+|gamma*sum_alpha| = 1.12041820594
+|f| (direct)    = 1.06811120997
+|E_{t,5}|  (primes 2,3,5)      = 1.09517191255
+|E_{t,11}| (primes 2,3,5,7,11) = 0.923886987371
+program bounds: m=0 -> -0.394278366241688 ; m=3 -> 0.466572104328199 ; m=5 -> 0.519046677344531
+paper table   = 0.0376 (final |f| bound, O-terms included)
+all lower bounds <= direct |f|: True
