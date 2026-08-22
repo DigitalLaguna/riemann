@@ -54,7 +54,7 @@ python3 -c "v=float('$V'); assert v >= 0.03, v; print(f'  lemma bound {v} >= 0.0
 
 echo "[3/3] re-run tloop (stored sums $ARBDIR/runs/singlemat_X5000000194857p5_d30.txt)"
 head -1 "$ARBDIR/runs/singlemat_X5000000194857p5_d30.txt" | \
-  grep -q "^5000000194857\.5000000000000000000, 72, 72, 30" || { echo "stored-sums header mismatch"; exit 1; }
+  grep -qE '^5000000194857\.50*, 72, 72, 30' || { echo "stored-sums header mismatch"; exit 1; }
 OUT3=$(cd "$ARBDIR" && env LD_LIBRARY_PATH=$PFX/lib "$BIN/tloop" 0 0.186 0.16733 0 \
        runs/singlemat_X5000000194857p5_d30.txt 2>&1)
 echo "  $(echo "$OUT3" | grep 'Overall winding number')"
