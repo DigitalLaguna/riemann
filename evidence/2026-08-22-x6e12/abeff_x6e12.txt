@@ -1,0 +1,6 @@
+
+Lower Lemma bound for t=0.2, y=0.2 in the range [N1=690988,N2=690988] using 5 primes:
+
+0.527400238236571
+
+cpu/wall(s): 374.635 374.664
