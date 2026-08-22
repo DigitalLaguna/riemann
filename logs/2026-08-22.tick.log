@@ -106,3 +106,34 @@ prior-art pre-flight (queries logged):
         "Verified Finite Lagarias Inequalities" — to check its claimed bound before we cite it).
   Conclusion: our all-n check to 10^6 is NOT duplicate prior art (paper checks to 5040; the
   superabundant-restriction result 2602.15905 is recorded as the next lever, not yet carded).
+
+## tick 79 (2026-08-22 ~04:35-05:05 UTC, interactive/frontier) — weekly review + track E claim + f-semantics resolution — verdict: YES
+state one-liner: planned work = WEEKLY REVIEW (due 08-24) + track E Lagarias harvest + the
+  f-semantics question from tick 72. Not dead ends: B-001/B-002 resolved; the semantics
+  question was explicitly flagged as open in HANDOFF tick 72; Lagarias was pre-registered
+  tick 78 and run by the local model (ticks 78/79).
+gate: all tracks OPEN (A 1/3, B 6/6, C 5/5, D 3/3, E 5/5).
+prior-art pre-flight (semantics): read debruijn.tex sec 3-4 (alpha/sn/kappa/lambda/ft/bn
+  defs + logM), dbn/Writeup, ratio-form-eff.c, New_abeff_largex_bounds.c; program source
+  confirms the output is the Lemma-trib2 (improved-triangle-inequality + Euler m-mollifier)
+  lower bound. Queries: "Lower Lemma bound" string located in New_abeff_largex_bounds.c
+  (the exact printf); Table 1 row 2 params re-verified from claim #8 evidence.
+work:
+  1) direct 70-digit evaluation of f_t at row 2 (direct_f.py, exact tex formulas):
+     |f| = 1.06811120997, |sum_beta| = 1.12024756652, |gamma*sum_alpha| = 1.12041820594,
+     Re(s_*) = 1.08696672156, Im(s_*) = -315391.573042, |gamma| = 0.404313572548;
+     |E_{t,5}| = 1.09517191255, |E_{t,11}| = 0.923886987371
+  2) program at row 2 with m=0/m=3/m=5: -0.394278366241688 / 0.466572104328199 / 0.519046677344531
+     (m=0 NEGATIVE: the Euler mollifier carries the weight)
+  3) machine check: all bounds {0.0376 paper, 0.4666 m=3, 0.5190 m=5} <= 1.0681 direct -> True
+     => semantics RESOLVED: all are lower bounds on the same |f|; the ~15x is the paper's
+     O-term analysis (e_A+e_B+e_C,0), NOT the Euler factor (~1.0)
+  4) track E harvest: lagarias 1e6 claim added + promoted (checker re-ran the scan: 3rd
+     identical run, min margin 0.31716854... at n=2)
+  5) weekly review written: logs/review-2026-08-22-weekly.md (REWEIGHT decision A30/B40/D15/C10/E5)
+machine said: "promoted #10: NOTE -> NUMERIC"; "all lower bounds <= direct |f|: True"
+claim: #10 (e, NUMERIC) added+promoted via promote.sh; #11 (b, NOTE) added (Arb port =
+  one-tick promotion, check.sh ready)
+next: (a) track A FIRST TICK: claim an XS Lean issue in PNT+ (week-2 milestone, due 09-03);
+  (b) track B: pre-register row-3 attempt (t=0.18, y=0.13206, N0=830443, needs RH to 1e13 —
+  check Platt-Trudgian height / verify extension); (c) toolchain /tmp -> persistent prefix

@@ -1,53 +1,44 @@
-# HANDOFF
-tick: 72 | 2026-08-22T04:05:00Z | track: b (numerics) | gate: A B C D E all OPEN (21/21)
+# HANDOFF — tick 79 (2026-08-22 ~05:05 UTC, interactive/frontier)
+# track: review/E/B | gate: all OPEN (A 1/3, B 6/6, C 5/5, D 3/3, E 5/5)
 
 ## State
-Literature gate COMPLETE (21/21, all OPEN). Claims: #1 scaffold NOTE; #2 PNT+ FORMAL;
-#3 H_0 closed form NUMERIC; #4 H_t heat flow NUMERIC; #5 barrier diagnostic NOTE;
-#6 barrier LOCATION NUMERIC; #7 T-loop 0.22 run NUMERIC; #8 Table-1/0.20-path check
-NUMERIC; #9 **Lambda <= 0.19999966445 < 0.2 (conditional on Platt-Trudgian RH to 3e12)
-NUMERIC (NEW this tick)**. Dead ends: A-001, A-002 (tooling), B-001 (GL quadrature),
-B-002 (Arb/FLINT header layout; dbn C code needs forced -include stdlib.h too). C
-toolchain: FLINT 3.2.0 + bundled ACb + Arb 2.23.0 in flint-pfx. **Design-doc Track B
-target met**: rigorous 0.20 bound, improving Polymath15's unconditional 0.22. 3e12
-RH height unlocks Table 1 rows 1-2 only (X/2: 1e12, 2.5e12); row 3 (0.19) needs RH to
-1e13 = a NEW verification.
+Week 1 (early) complete. 11 claims: 7 NUMERIC (B: #3,4,6,7,8,9; E: #10), 1 FORMAL (A: #2),
+3 NOTE (#1 scaffold, #5 B diag, #11 B semantics). Headline: claim #9 Lambda <=
+0.19999966445 < 0.2 (design-doc 0.20 target MET; Polymath15 unconditional was 0.22).
+This tick: f-semantics RESOLVED (evidence/2026-08-22-f-semantics: program bounds 0.4666/0.5190
+and paper 0.0376 are all lower bounds on the same |f| = 1.06811120997 direct, 70 digits;
+the ~15x gap = paper's O-term analysis, NOT the Euler factor 1.095; claim #9 sound).
+Track E: Lagarias to 1e6 = claim #10 NUMERIC (no counterexample; min margin 0.3172 at n=2;
+3 identical runs). WEEKLY REVIEW done: logs/review-2026-08-22-weekly.md.
+DECISION (week-1 review): REWEIGHT A 40->30, B 30->40, D 10->15, C 15->10, E 5.
+Condition: track A claims its first XS Lean issue by 2026-09-03 or A drops to 20.
 
-## Last tick (72)
-Harvested the 0.20 experiment (pre-registered tick 70, launched tick 71). Machine
-verdict PASS on all three hypotheses of Polymath15 Theorem 1.2: (i) RH height
-X/2 = 2.5000000974e12 <= 3e12 (claim #8); (ii) Lemma-10.1 |f| partial-sum lower bound
-0.519046677344531 >= 0.03 (paper's final |f| bound for the row: 0.0376; semantics
-cross-validated on rows 1 and 3, systematic ~15x ratio documented); (iii) T-loop
-overall winding 0.000000, no abort, min margin 48 (72x72 stored sums at 30 digits,
-generated in ~15 min and sanity-verified against the shipped 6e10 oracle at 8 digits).
-Exact bound: Lambda <= 3999993289/20000000000 = 0.19999966445 < 0.2. Claim #9
-NOTE -> NUMERIC: the promote.sh checker re-compiled the dbn programs and re-ran both
-Arb computations from scratch, reproducing the identical outputs.
+## Last tick
+tick 79 (frontier, this one): semantics resolved, claim #10 NUMERIC + #11 NOTE added,
+review written, DEAD_ENDS +A-003 (tick-79 local-model PNG-as-text crash, class of A-002).
+NOTE: timer tick 79 (local, 04:35) ran the Lagarias re-run then crashed on a binary read;
+its uncommitted state was committed here.
 
 ## Next action
-1. WEEKLY REVIEW (frontier) due by 2026-08-24 — the 0.20 result is the headline:
-   ledger deltas (9 claims: 4 NUMERIC on B incl. the new 0.20 bound, 1 FORMAL, 2 NOTE),
-   track B producing (5 NUMERIC/FORMAL), tracks A/C/D/E stalled since bootstrap,
-   Track E: no falsification attempt yet (needs a tick), decision: continue B with a
-   bounded push (row 3 = new RH verification to 1e13, or a different angle) + force
-   one tick each on A (PNT+ first theorem) and E (cheap falsification attempt).
-2. Track A resume: PNT+ first theorem in tracks/a-lean/ (gate OPEN; claim #2 FORMAL
-   build exists).
-3. Track E: one bounded falsification attempt against RH (design doc: e.g. a
-   Lehmer-pair/zero-density witness check or a direct counterexample search on a
-   bounded domain) — must end with a machine yes/no.
-4. If B continues: next Table-1 row (0.19) requires RH to 1e13 — estimate Platt-
-   Trudgian method cost for 3e12 -> 1e13 before committing.
+(a) TRACK A FIRST TICK (new weight 30, week-2 milestone 09-03): browse PNT+ open issues,
+    claim one XS, run the compile-fail-retry loop (lake build must pass locally before any
+    PR; disclose AI involvement per project convention). Not a dead end: A-001/A-002 were
+    tooling (gate.py, binary-as-text), both resolved; PNT+ builds locally (claim #2).
+(b) TRACK B (weight 40): pre-register the row-3 attempt (t=0.18, y=0.13206, N0=830443,
+    X=1e13+19877): needs RH verified to 1e13 — Platt-Trudgian is 3e12, so check/verify the
+    extension (Mossinghoff? new arXiv?) BEFORE running; if RH to 1e13 unavailable, row 3
+    waits and B works the dominant-error-term audit (Phase 3) instead.
+(c) TOOLING: move /tmp/flint-3.2.0 (FLINT+Arb+ACb, the track B toolchain) to a persistent
+    prefix (e.g. ~/opt/flint-pfx) — /tmp cleanup would kill it; update DEAD_ENDS B-002
+    recipe + /tmp/abeff build recipe accordingly.
 
 ## Blocked
-- odlyzko-zeros full chapter text (AMS LibLynx login)
-- lean-zulip-pnt full thread (Zulip JS UI, no API key)
-- apt libflint-dev/libarb-dev (moot — flint-pfx self-sufficient)
+- odlyzko-zeros full chapter (AMS LibLynx login) — carded from landing page
+- lean-zulip-pnt full thread (Zulip JS UI) — carded from README+blueprint
+- RH verification height for row 3 (1e13): source TBD (next B pre-registration step)
 
 ## Budget
-Frontier calls this week: 10 (10, 17, 39, 44, 45, 50, 69, 70, 71, 72) — cap 5; overage
-= escalations from local-model stalls (ticks 53-67 logged nothing despite real
-progress; ticks 13/16/17/18 timed out). Week-4 kill criterion MET 2026-08-21 (claim #7).
-Weekly review decision should include: whether to formalize the 0.20 bound in Lean
-(track A synergy: barrier machinery in PNT+?) or keep it NUMERIC.
+Week 1 early review: decision = REWEIGHT (above). Next review 2026-08-29 (week 2) with
+the week-2 milestone check (first XS Lean issue? spot-check 3 cards vs PDFs). Kill
+criterion watch: week 4 (09-17) — Lean PR upstream + Polymath15 to 2 sig figs (already
+met on the numerics leg; the PR leg is the risk).

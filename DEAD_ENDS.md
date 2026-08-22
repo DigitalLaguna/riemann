@@ -51,3 +51,13 @@ evidence: evidence/2026-08-21-tloop/README.md "The segfault bug" section; nm -D 
   tracks/b-dbn/dbn/dbn_upper_bound/arb/ (TloopSinglematv2_asan, tick 64)
 closed by: tick 67 — FLINT-header build runs clean, output matches the paper exactly
   (claim #7 NUMERIC).
+
+## A-003 tick-79 (timer/local) PNG-as-text crash
+tried: 2026-08-22 04:35-04:41 UTC, timer tick 79 (local model)
+failed: tick crashed with "'utf-8' codec can't decode byte 0x89 in position 387:
+  invalid start byte" (0x89 = PNG signature) after 11 steps; the lagarias re-run it
+  launched completed (run_N1e6_rerun.txt, 04:41:37Z) but the tick died before committing.
+  Same class as A-002 (binary-as-text): the local model's file reader hit an image —
+  almost certainly a dbn-repo PNG (tradeoff.png / meshbarrier images) read as text.
+fix/avoid: treat *.png/*.jpg in the dbn repo as binaries; use `file` before read.
+  Residual state (ticks.log line, rerun file) committed by frontier tick 79.
