@@ -1,0 +1,9 @@
+⚠ [3567/3567] Replayed PrimeNumberTheoremAnd.IwaniecKowalskiCh1
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:114:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:131:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:689:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:911:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:1662:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:1829:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:1844:6: declaration uses `sorry`
+Build completed successfully (3567 jobs).

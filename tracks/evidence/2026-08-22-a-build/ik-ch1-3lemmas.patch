@@ -1,0 +1,797 @@
+diff --git a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24CheckedNumerics.lean b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24CheckedNumerics.lean
+new file mode 100644
+index 0000000..6be152f
+--- /dev/null
++++ b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24CheckedNumerics.lean
+@@ -0,0 +1,46 @@
++import PrimeNumberTheoremAnd.IEANTN.LeanCertEnclosures
++import LeanCert.Tactic.Enclosure
++import LeanCert.Tactic.IntervalAuto
++
++/-!
++# Checked small-window numerics for FKS2 Corollary 24
++
++This file replaces the trusted row-11 floor datum by a checked computation using
++the reusable PNT+ enclosures registered in `LeanCertEnclosures`.
++
++The calculation deliberately uses the larger rational box `[2, 34]`. LeanCert
++subdivides it into width-at-most-one leaves, verifies `Eπ x ≤ 19/20`, and separately
++checks that `19/20 ≤ x⁻¹˰⁰` there. Elementary exponential bounds place the FKS2
++window `[e, e³·⁵]` inside this box. As with PNT+'s existing finite table checks, the
++large decidable certificate uses `native_decide`; the enclosing theorems and analytic
++glue are checked by Lean's kernel.
++-/
++
++namespace FKS2.Cor24Checked
++
++set_option maxHeartbeats 1000000 in
++-- Reifying the 128-panel quadrature certificates needs more than the project default.
++/-- The former trusted row-11 floor calculation, discharged by checked interval arithmetic. -/
++theorem floor_row11 : ∀ x ∈ Set.Icc (Real.exp (1 : ℝ)) (Real.exp (3.5 : ℝ)),
++    Eπ x ≤ x ^ (-(1 : ℝ) / 100) := by
++  have hexpLo : (2 : ℝ) ≤ Real.exp 1 := by
++    have h := Real.add_one_le_exp (1 : ℝ)
++    norm_num at h
++    exact h
++  have hexpHi : Real.exp (3.5 : ℝ) ≤ 34 := by
++    interval_decide (trust := kernel)
++  have hEpi : ∀ x ∈ Set.Icc (2 : ℝ) 34, Eπ x ≤ (19 / 20 : ℚ) := by
++    enclosure_bound (subdivisions := 8) (trust := native)
++  have hCurve : ∀ x ∈ Set.Icc (2 : ℝ) 34, (19 / 20 : ℚ) ≤
++      Real.exp (Real.log x * (-(1 : ℝ) / 100)) := by
++    certify_bound (trust := kernel)
++  intro x hx
++  have hx' : x ∈ Set.Icc (2 : ℝ) 34 :=
++    ⟨hexpLo.trans hx.1, hx.2.trans hexpHi⟩
++  have hxpos : 0 < x := lt_of_lt_of_le (by norm_num) hx'.1
++  calc
++    Eπ x ≤ (19 / 20 : ℚ) := hEpi x hx'
++    _ ≤ Real.exp (Real.log x * (-(1 : ℝ) / 100)) := hCurve x hx'
++    _ = x ^ (-(1 : ℝ) / 100) := by rw [Real.rpow_def_of_pos hxpos]
++
++end FKS2.Cor24Checked
+diff --git a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row1.lean b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row1.lean
+index 1f96681..57fafa8 100644
+--- a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row1.lean
++++ b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row1.lean
+@@ -6,7 +6,7 @@ import PrimeNumberTheoremAnd.IEANTN.FKS2Cor24Row4
+ `table7` entry `(x ↦ 2 * log x * x^(-1/2), Icc 1 57)`.  Clone of row 4
+ (`FKS2Cor24Row4.lean`), reusing the generic `x^{-1/2}`-curve machinery in
+ `Table4Ext` (`Epi_le_evalLhsE_wide`, `xhalfCurveE`, `eval_xhalfCurveE`,
+-`xhalfCurve_sub_supported`, `floor_xhalf_of_check`).
++`floor_xhalf_of_check`).
+ 
+ Unlike row 4/5, the Buthe floor threshold `Lf = 3` used by rows 4/5 does **not**
+ certify here: at `L = 3` the Buthe polynomial (`≈ 6.12`) exceeds `c·L = 2·3 = 6`.
+@@ -63,7 +63,7 @@ theorem floor_row1 : ∀ x ∈ Set.Icc (Real.exp (4:ℝ)) (Real.exp (43:ℝ)),
+           rw [show (6.56:ℝ) = Real.sqrt (6.56 ^ 2) from (Real.sqrt_sq (by norm_num)).symm]
+           exact Real.sqrt_le_sqrt (by norm_num)
+         push_cast; linarith [h656])
+-    (xhalfCurve_sub_supported 2 2) floor_slab_check_row1 hcurve
++    floor_slab_check_row1 hcurve
+ 
+ /-- **Row-1 floor-trusted** `[e^1, e^4]` (`x ∈ [2.72, 54.6]`): the direct `π`/`Li`
+ interpolation for small `x` that the blueprint proof invokes
+diff --git a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row10.lean b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row10.lean
+index fbce839..63e626f 100644
+--- a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row10.lean
++++ b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row10.lean
+@@ -6,7 +6,7 @@ import PrimeNumberTheoremAnd.IEANTN.FKS2Cor24Row11
+ Row 10 (`n = 50`) of Table-7, cloned from the complete row 11 (`n = 100`) via the
+ generic `n`-parameterized helpers of `FKS2Cor24Row11`
+ (`Table4Ext.expSplitNegXpow`, `Table4Ext.eval_expSplitNegXpow_eq_xpow`,
+-`Table4Ext.lhsE_sub_negxpow_supported`, `Table4Ext.Epi_le_evalLhsE_low`,
++`Table4Ext.Epi_le_evalLhsE_low`,
+ `Table4Ext.floor_xpow_of_check`, `Table4Ext.mid_xpow_of`, `Table4Ext.checkXpowCell`,
+ `Table4Ext.cell_Epi_le_xpow_of_check`), all instantiated here at `n = 50`.
+ 
+@@ -92,7 +92,7 @@ theorem floor_row10 : ∀ x ∈ Set.Icc (Real.exp (4:ℝ)) (Real.exp (10:ℝ)),
+           rw [show (3.163:ℝ) = Real.sqrt (3.163^2) from (Real.sqrt_sq (by norm_num)).symm]
+           exact Real.sqrt_le_sqrt (by norm_num)
+         push_cast; linarith [h316])
+-    (lhsE_sub_negxpow_supported 50) floor_slab_check_row10 hcurve x hx
++    floor_slab_check_row10 hcurve x hx
+   simpa using h
+ 
+ /-- **Row-10 floor-trusted** `[e^1, e^4]` (`x ∈ [2.72, 54.6]`): the direct
+diff --git a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row11.lean b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row11.lean
+index 54900d7..52dd668 100644
+--- a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row11.lean
++++ b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row11.lean
+@@ -1,4 +1,5 @@
+ import PrimeNumberTheoremAnd.IEANTN.FKS2Cor24
++import PrimeNumberTheoremAnd.IEANTN.FKS2Cor24CheckedNumerics
+ import PrimeNumberTheoremAnd.IEANTN.FKS2Tables.Table4Ext
+ 
+ /-!
+@@ -26,7 +27,8 @@ the row-11 envelope certifies exactly `allCells.take 3746` (cells with `b' ≤ 3
+ 
+ The row-11 curve `corollary_24_row11 : ∀ x, log x ∈ [1, 3757.6] → Eπ x ≤ x^{-1/100}`
+ is assembled from four segments split at `e^3.5`, `e^10`, `e^3756`:
+-* **floor-trusted** `[e^1, e^3.5]` (`floor_trusted_row11`, trusted `sorry`);
++* **floor (checked)** `[e^1, e^3.5]` (`floor_checked_row11`, LeanCert interval
++  enclosure with a `native_decide` finite certificate);
+ * **floor (Buthe)** `[e^3.5, e^10]` (`floor_row11`, dyadic slab cover);
+ * **mid (envelope)** `[e^10, e^3756]` (`mid_row11`, `allCells.take 3746`);
+ * **sliver** `[e^3756, e^3757.6]` (`sliver_row11`, trusted `sorry`).
+@@ -86,17 +88,6 @@ def expSplitXpow (n : ℕ) : Expr :=
+     (Expr.exp (Expr.mul (Expr.const (xpowCoef n))
+       (Expr.mul (Expr.var 0) (Expr.var 0)))))))))
+ 
+-lemma sqE_supported {e : Expr} (h : ExprSupportedWithInv e) :
+-    ExprSupportedWithInv (sqE e) := ExprSupportedWithInv.mul h h
+-
+-lemma expSplitXpow_supported (n : ℕ) (q : ℚ) :
+-    ExprSupportedWithInv (Expr.sub (expSplitXpow n) (Expr.const q)) := by
+-  refine ExprSupportedWithInv.add ?_ (ExprSupportedWithInv.neg (ExprSupportedWithInv.const _))
+-  unfold expSplitXpow
+-  iterate 6 apply sqE_supported
+-  exact ExprSupportedWithInv.exp (ExprSupportedWithInv.mul (ExprSupportedWithInv.const _)
+-    (ExprSupportedWithInv.mul (ExprSupportedWithInv.var _) (ExprSupportedWithInv.var _)))
+-
+ lemma eval_expSplitXpow (n : ℕ) (s : ℝ) :
+     Expr.eval (fun _ => s) (expSplitXpow n)
+       = exp ((xpowCoef n : ℝ) * (s * s)) ^ (64 : ℕ) := by
+@@ -132,7 +123,7 @@ theorem checkXpowCell_sound (n : ℕ) (hn : 0 < n) (c : Cell)
+     -- semantic slab inequality: exp(s²/n) ≤ 1/eps on [slo, shi]
+     have hslab := verify_expr_le_on_interval_dyadic (expSplitXpow n)
+       (Expr.const (1 / c.eps)) ⟨c.slo, c.shi, hle⟩ (-50) 8
+-      (expSplitXpow_supported _ _) (by norm_num) hcheck
++      (by norm_num) hcheck
+     -- instantiate at s = shi (the right endpoint, where exp(s²/n) is largest)
+     have hshi_mem : (c.shi : ℝ) ∈ Set.Icc ((c.slo : ℝ)) ((c.shi : ℝ)) :=
+       ⟨by exact_mod_cast hle, le_refl _⟩
+@@ -224,19 +215,6 @@ lemma eval_expSplitNegXpow_eq_xpow (n : ℕ) (hn : 0 < n) (x : ℝ)
+   push_cast
+   field_simp
+ 
+-/-- Support of `lhsE - expSplitNegXpow n` for the dyadic slab kernel. -/
+-lemma lhsE_sub_negxpow_supported (n : ℕ) :
+-    ExprSupportedWithInv (Expr.sub FloorButhe.lhsE (expSplitNegXpow n)) := by
+-  refine ExprSupportedWithInv.add ?_ (ExprSupportedWithInv.neg ?_)
+-  · show ExprSupportedWithInv FloorButhe.lhsE
+-    simp only [FloorButhe.lhsE, FloorButhe.pow8, FloorButhe.sqx, FloorButhe.s2,
+-      FloorButhe.s4, FloorButhe.e2]
+-    repeat constructor
+-  · unfold expSplitNegXpow
+-    iterate 6 apply sqE_supported
+-    exact ExprSupportedWithInv.exp (ExprSupportedWithInv.mul (ExprSupportedWithInv.const _)
+-      (ExprSupportedWithInv.mul (ExprSupportedWithInv.var _) (ExprSupportedWithInv.var _)))
+-
+ /-- Buthe `Eπ`-upper-bound as `eval_lhsE` on the LOW range `[2, e^10]` (vs the
+ committed `FloorButhe.Epi_le_evalLhsE`'s `[e^5, e^10]`): identical reconciliation,
+ only the hypothesis is `2 ≤ x`.  Curve-independent (`FloorButhe.lhsE` is the Buthe
+@@ -310,7 +288,6 @@ theorem floor_xpow_of_check (rE : Expr) (n : ℕ) (Lf : ℝ) (slabLo : ℚ) (nsl
+     (hLf1 : (1 : ℝ) ≤ Lf)
+     (hslo : (slabLo : ℝ) ≤ Real.sqrt Lf)
+     (hshi : Real.sqrt 10 < (slabLo : ℝ) + (nslabs : ℝ) * 0.05)
+-    (hsupp : ExprSupportedWithInv (Expr.sub FloorButhe.lhsE rE))
+     (hchk : checkExprLeOnSlabsDyadic FloorButhe.lhsE rE (slabsFrom slabLo nslabs) (-50) 8 = true)
+     (hcurve : ∀ x, Real.exp Lf ≤ x →
+         Expr.eval (fun _ => Real.sqrt (Real.log x)) rE ≤ x ^ (-(1 : ℝ) / n)) :
+@@ -335,7 +312,7 @@ theorem floor_xpow_of_check (rE : Expr) (n : ℕ) (Lf : ℝ) (slabLo : ℚ) (nsl
+         Epi_le_evalLhsE_low x h2 h10
+     _ ≤ Expr.eval (fun _ => Real.sqrt (Real.log x)) rE :=
+         verify_expr_le_on_slabs_dyadic FloorButhe.lhsE rE (slabsFrom slabLo nslabs) (-50) 8
+-          hsupp (by norm_num) hchk I hI _ hmem
++          (by norm_num) hchk I hI _ hmem
+     _ ≤ x ^ (-(1:ℝ)/n) := hcurve x hlo
+ 
+ /-- Generic `x^{-1/n}` mid assembler: over the `allCells` prefix `take k` (chained
+@@ -369,7 +346,8 @@ set_option linter.style.nativeDecide false
+ The Table-7 row-11 curve, assembled from four segments split at `e^3.5`, `e^10`,
+ `e^3756`:
+ 
+-* **floor-trusted** `[e^1, e^3.5]` — direct `π`/`Li` for small `x` (trusted, `sorry`);
++* **floor (checked)** `[e^1, e^3.5]` — direct `π`/`Li` interval enclosure for
++  small `x`, with a `native_decide` finite certificate;
+ * **floor (Buthe)** `[e^3.5, e^10]` — `floor_xpow_of_check` + dyadic slab cover;
+ * **mid (envelope)** `[e^10, e^3756]` — `mid_xpow_of` over the certified `allCells`
+   prefix `take 3746`;
+@@ -432,18 +410,20 @@ theorem floor_row11 : ∀ x ∈ Set.Icc (Real.exp (3.5:ℝ)) (Real.exp (10:ℝ))
+           rw [show (3.163:ℝ) = Real.sqrt (3.163^2) from (Real.sqrt_sq (by norm_num)).symm]
+           exact Real.sqrt_le_sqrt (by norm_num)
+         push_cast; linarith [h316])
+-    (lhsE_sub_negxpow_supported 100) floor_slab_check hcurve x hx
++    floor_slab_check hcurve x hx
+   simpa using h
+ 
+-/-- **Row-11 floor-trusted** `[e^1, e^3.5]` (`x ∈ [2.72, 33.1]`): the direct
++/-- **Row-11 floor (checked)** `[e^1, e^3.5]` (`x ∈ [2.72, 33.1]`): the direct
+ `π`/`Li` interpolation for small `x` that the blueprint proof invokes
+ (\cite[Lemmas 5.2, 5.3]{FKS}; "checks directly for particularly small `x`",
+ FKS2.lean:4640).  No tight sub-`e^{3.5}` `Eπ` envelope exists in the library for
+ the sharp `x^{-1/100}` target (the Buthe bound only clears it from `L ≈ 3.44`).
+-Same accepted numerical-data trust class as `Table4Ext.allCells_trusted`. -/
+-theorem floor_trusted_row11 : ∀ x ∈ Set.Icc (Real.exp (1:ℝ)) (Real.exp (3.5:ℝ)),
++The endpoint quadrature and enclosure checks are proof-producing; the resulting
++finite certificate uses the same `native_decide` boundary as the existing table
++checks. -/
++theorem floor_checked_row11 : ∀ x ∈ Set.Icc (Real.exp (1:ℝ)) (Real.exp (3.5:ℝ)),
+     Eπ x ≤ x ^ (-(1:ℝ)/100) := by
+-  exact FKS2.Cor24Trusted.floor_trusted_row11
++  exact FKS2.Cor24Checked.floor_row11
+ 
+ /-- **Row-11 sliver** `[e^3756, e^3757.6]` (width `≈ 1.6` in `log x`, at the
+ threshold): the `x^{-1/100}` curve is `≤ 0.6%` above the `allCells` envelope on
+@@ -484,7 +464,7 @@ theorem corollary_24_row11 :
+       exact ⟨by rw [← Real.exp_log hxpos]; exact Real.exp_le_exp.mpr ha,
+              by rw [← Real.exp_log hxpos]; exact Real.exp_le_exp.mpr hb⟩
+     rcases le_total (Real.log x) 3.5 with h1 | h1
+-    · exact floor_trusted_row11 x (cvt 1 3.5 hlo h1)
++    · exact floor_checked_row11 x (cvt 1 3.5 hlo h1)
+     · rcases le_total (Real.log x) 10 with h2 | h2
+       · exact floor_row11 x (cvt 3.5 10 h1 h2)
+       · rcases le_total (Real.log x) 3756 with h3 | h3
+diff --git a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row2.lean b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row2.lean
+index 3addad6..9e9fe6e 100644
+--- a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row2.lean
++++ b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row2.lean
+@@ -6,7 +6,7 @@ import PrimeNumberTheoremAnd.IEANTN.FKS2Cor24Row4
+ `table7` entry `(x ↦ (log x)^(3/2) * x^(-1/2), Icc 1 65.65)`.  Clone of row 4
+ (`FKS2Cor24Row4.lean`), reusing the generic `x^{-1/2}`-curve machinery in
+ `Table4Ext` (`Epi_le_evalLhsE_wide`, `xhalfCurveE`, `eval_xhalfCurveE`,
+-`xhalfCurve_sub_supported`, `floor_xhalf_of_check`).
++`floor_xhalf_of_check`).
+ 
+ The exponent `3/2` here is stated as `Real.rpow` (`(3/2 : ℝ)`), matching the
+ mathematical Table-7 entry: `(log x)^{3/2}` (a fractional power, not the `Nat`
+@@ -69,7 +69,7 @@ theorem floor_row2 : ∀ x ∈ Set.Icc (Real.exp (8:ℝ)) (Real.exp (43:ℝ)),
+           rw [show (6.56:ℝ) = Real.sqrt (6.56 ^ 2) from (Real.sqrt_sq (by norm_num)).symm]
+           exact Real.sqrt_le_sqrt (by norm_num)
+         push_cast; linarith [h656])
+-    (xhalfCurve_sub_supported 1 3) floor_slab_check_row2 hcurve
++    floor_slab_check_row2 hcurve
+ 
+ /-- **Row-2 floor-trusted** `[e^1, e^8]` (`x ∈ [2.72, 2981]`): the direct `π`/`Li`
+ interpolation for small `x` that the blueprint proof invokes
+diff --git a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row3.lean b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row3.lean
+index 9a84582..8beb765 100644
+--- a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row3.lean
++++ b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row3.lean
+@@ -6,7 +6,7 @@ import PrimeNumberTheoremAnd.IEANTN.FKS2Cor24Row4
+ `table7` entry `(x ↦ (1/(8*π)) * (log x)^2 * x^(-1/2), Icc 8 60.8)`.  Clone of row 4
+ (`FKS2Cor24Row4.lean`), reusing the generic `x^{-1/2}`-curve machinery in
+ `Table4Ext` (`Epi_le_evalLhsE_wide`, `xhalfCurveE`, `eval_xhalfCurveE`,
+-`xhalfCurve_sub_supported`, `floor_xhalf_of_check`).
++`floor_xhalf_of_check`).
+ 
+ Two features distinguish this row from rows 1/2/4/5:
+ 
+@@ -84,7 +84,7 @@ theorem floor_row3 : ∀ x ∈ Set.Icc (Real.exp (9:ℝ)) (Real.exp (43:ℝ)),
+           rw [show (6.56:ℝ) = Real.sqrt (6.56 ^ 2) from (Real.sqrt_sq (by norm_num)).symm]
+           exact Real.sqrt_le_sqrt (by norm_num)
+         push_cast; linarith [h656])
+-    (xhalfCurve_sub_supported (79/2000) 4) floor_slab_check_row3 hcurve
++    floor_slab_check_row3 hcurve
+ 
+ /-- **Row-3 floor-trusted** `[e^8, e^9]` (`x ∈ [2981, 8103]`): the direct `π`/`Li`
+ interpolation for small `x` that the blueprint proof invokes
+diff --git a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row4.lean b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row4.lean
+index 7bdbefc..e22b20d 100644
+--- a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row4.lean
++++ b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row4.lean
+@@ -25,7 +25,7 @@ segments:
+ * `Epi_le_evalLhsE_wide` — the Buthe `Eπ`-bound reread as `eval FloorButhe.lhsE (√(log x))`
+   on the FULL `[2, e^43]` range (vs `Epi_le_evalLhsE_low`'s `[2, e^10]`);
+ * `xhalfCurveE c twoK` — the target expression `c·s^{2K}·exp(-s²/2)` (`= c·s^{2K}·x^{-1/2}`
+-  at `s = √(log x)`), with `eval_xhalfCurveE` and support lemma `xhalfCurve_sub_supported`;
++  at `s = √(log x)`), with semantic bridge `eval_xhalfCurveE`;
+ * `floor_xhalf_of_check` — the generic Buthe-floor assembler on `[e^{Lf}, e^43]`.
+ 
+ Row 4 (`c = 1`, `K = 2`, `2K = 4`) is the template.
+@@ -114,22 +114,6 @@ lemma eval_xhalfCurveE (c : ℚ) (twoK : ℕ) (x : ℝ) (hxpos : 0 < x) (hL : 0
+   simp only [xhalfCurveE, Expr.eval_mul, Expr.eval_const, Expr.eval_pow, Expr.eval_var, h2]
+   ring
+ 
+-/-- Support of `lhsE - xhalfCurveE c twoK` for the dyadic slab kernel. -/
+-lemma xhalfCurve_sub_supported (c : ℚ) (twoK : ℕ) :
+-    ExprSupportedWithInv (Expr.sub FloorButhe.lhsE (xhalfCurveE c twoK)) := by
+-  refine ExprSupportedWithInv.add ?_ (ExprSupportedWithInv.neg ?_)
+-  · show ExprSupportedWithInv FloorButhe.lhsE
+-    simp only [FloorButhe.lhsE, FloorButhe.pow8, FloorButhe.sqx, FloorButhe.s2,
+-      FloorButhe.s4, FloorButhe.e2]
+-    repeat constructor
+-  · unfold xhalfCurveE
+-    refine ExprSupportedWithInv.mul (ExprSupportedWithInv.const _) ?_
+-    refine ExprSupportedWithInv.mul (pow_supported (ExprSupportedWithInv.var 0) twoK) ?_
+-    unfold expSplitNegXpow
+-    iterate 6 apply sqE_supported
+-    exact ExprSupportedWithInv.exp (ExprSupportedWithInv.mul (ExprSupportedWithInv.const _)
+-      (ExprSupportedWithInv.mul (ExprSupportedWithInv.var _) (ExprSupportedWithInv.var _)))
+-
+ /-- Generic `x^{-1/2}` **Buthe-floor** assembler on `[e^{Lf}, e^43]` (`1 ≤ Lf`): the Buthe
+ `Eπ`-bound (`Epi_le_evalLhsE_wide`, valid from `x ≥ 2` up to `e^43 < 10^19`) below a
+ dyadic slab curve `rE` that dominates the row curve (`hcurve`).  Slabs
+@@ -139,7 +123,6 @@ theorem floor_xhalf_of_check (rE : Expr) (curve : ℝ → ℝ) (Lf : ℝ) (slabL
+     (hLf1 : (1 : ℝ) ≤ Lf)
+     (hslo : (slabLo : ℝ) ≤ Real.sqrt Lf)
+     (hshi : Real.sqrt 43 < (slabLo : ℝ) + (nslabs : ℝ) * 0.05)
+-    (hsupp : ExprSupportedWithInv (Expr.sub FloorButhe.lhsE rE))
+     (hchk : checkExprLeOnSlabsDyadic FloorButhe.lhsE rE (slabsFrom slabLo nslabs) (-50) 8 = true)
+     (hcurve : ∀ x, Real.exp Lf ≤ x →
+         Expr.eval (fun _ => Real.sqrt (Real.log x)) rE ≤ curve x) :
+@@ -172,7 +155,7 @@ theorem floor_xhalf_of_check (rE : Expr) (curve : ℝ → ℝ) (Lf : ℝ) (slabL
+         Epi_le_evalLhsE_wide x h2 h19
+     _ ≤ Expr.eval (fun _ => Real.sqrt (Real.log x)) rE :=
+         verify_expr_le_on_slabs_dyadic FloorButhe.lhsE rE (slabsFrom slabLo nslabs) (-50) 8
+-          hsupp (by norm_num) hchk I hI _ hmem
++          (by norm_num) hchk I hI _ hmem
+     _ ≤ curve x := hcurve x hlo
+ 
+ end Table4Ext
+@@ -225,7 +208,7 @@ theorem floor_row4 : ∀ x ∈ Set.Icc (Real.exp (3:ℝ)) (Real.exp (43:ℝ)),
+           rw [show (6.56:ℝ) = Real.sqrt (6.56 ^ 2) from (Real.sqrt_sq (by norm_num)).symm]
+           exact Real.sqrt_le_sqrt (by norm_num)
+         push_cast; linarith [h656])
+-    (xhalfCurve_sub_supported 1 4) floor_slab_check_row4 hcurve
++    floor_slab_check_row4 hcurve
+ 
+ /-- **Row-4 floor-trusted** `[e^1, e^3]` (`x ∈ [2.72, 20.1]`): the direct `π`/`Li`
+ interpolation for small `x` that the blueprint proof invokes
+diff --git a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row5.lean b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row5.lean
+index 95747e3..f26220d 100644
+--- a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row5.lean
++++ b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row5.lean
+@@ -6,7 +6,7 @@ import PrimeNumberTheoremAnd.IEANTN.FKS2Cor24Row4
+ `table7` entry `(x ↦ (log x)^3 * x^(-1/2), Icc 1 80)`.  Clone of row 4
+ (`FKS2Cor24Row4.lean`), reusing the generic `x^{-1/2}`-curve machinery in
+ `Table4Ext` (`Epi_le_evalLhsE_wide`, `xhalfCurveE`, `eval_xhalfCurveE`,
+-`xhalfCurve_sub_supported`, `floor_xhalf_of_check`).  Same three-segment split
++`floor_xhalf_of_check`).  Same three-segment split
+ at `e^3`, `e^43` as row 4; only the top of the trusted band moves to `e^80`
+ and the bridge exponent moves from `(√L)^4 = L^2` to `(√L)^6 = L^3`.
+ -/
+@@ -64,7 +64,7 @@ theorem floor_xhalf_row5 : ∀ x ∈ Set.Icc (Real.exp (3:ℝ)) (Real.exp (43:
+           rw [show (6.56:ℝ) = Real.sqrt (6.56 ^ 2) from (Real.sqrt_sq (by norm_num)).symm]
+           exact Real.sqrt_le_sqrt (by norm_num)
+         push_cast; linarith [h656])
+-    (xhalfCurve_sub_supported 1 6) floor_slab_check_row5 hcurve
++    floor_slab_check_row5 hcurve
+ 
+ /-- **Row-5 floor-trusted** `[e^1, e^3]` (`x ∈ [2.72, 20.1]`): the direct `π`/`Li`
+ interpolation for small `x` that the blueprint proof invokes
+diff --git a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row6.lean b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row6.lean
+index 1b62347..3162be9 100644
+--- a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row6.lean
++++ b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row6.lean
+@@ -6,7 +6,7 @@ import PrimeNumberTheoremAnd.IEANTN.FKS2Cor24Row11
+ Row 6 (`n = 3`) of Table-7, cloned from the complete row 11 (`n = 100`) via the
+ generic `n`-parameterized helpers of `FKS2Cor24Row11`
+ (`Table4Ext.expSplitNegXpow`, `Table4Ext.eval_expSplitNegXpow_eq_xpow`,
+-`Table4Ext.lhsE_sub_negxpow_supported`, `Table4Ext.Epi_le_evalLhsE_low`,
++`Table4Ext.Epi_le_evalLhsE_low`,
+ `Table4Ext.floor_xpow_of_check`, `Table4Ext.mid_xpow_of`, `Table4Ext.checkXpowCell`,
+ `Table4Ext.cell_Epi_le_xpow_of_check`), all instantiated here at `n = 3`.
+ 
+@@ -92,7 +92,7 @@ theorem floor_row6 : ∀ x ∈ Set.Icc (Real.exp (8:ℝ)) (Real.exp (10:ℝ)),
+           rw [show (3.163:ℝ) = Real.sqrt (3.163^2) from (Real.sqrt_sq (by norm_num)).symm]
+           exact Real.sqrt_le_sqrt (by norm_num)
+         push_cast; linarith [h316])
+-    (lhsE_sub_negxpow_supported 3) floor_slab_check_row6 hcurve x hx
++    floor_slab_check_row6 hcurve x hx
+   simpa using h
+ 
+ /-- **Row-6 floor-trusted** `[e^1, e^8]` (`x ∈ [2.72, 2981]`): the direct
+diff --git a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row7.lean b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row7.lean
+index 7856774..2745e50 100644
+--- a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row7.lean
++++ b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row7.lean
+@@ -6,7 +6,7 @@ import PrimeNumberTheoremAnd.IEANTN.FKS2Cor24Row11
+ Row 7 (`n = 4`) of Table-7, cloned from the complete row 11 (`n = 100`) via the
+ generic `n`-parameterized helpers of `FKS2Cor24Row11`
+ (`Table4Ext.expSplitNegXpow`, `Table4Ext.eval_expSplitNegXpow_eq_xpow`,
+-`Table4Ext.lhsE_sub_negxpow_supported`, `Table4Ext.Epi_le_evalLhsE_low`,
++`Table4Ext.Epi_le_evalLhsE_low`,
+ `Table4Ext.floor_xpow_of_check`, `Table4Ext.mid_xpow_of`, `Table4Ext.checkXpowCell`,
+ `Table4Ext.cell_Epi_le_xpow_of_check`), all instantiated here at `n = 4`.
+ 
+@@ -92,7 +92,7 @@ theorem floor_row7 : ∀ x ∈ Set.Icc (Real.exp (6:ℝ)) (Real.exp (10:ℝ)),
+           rw [show (3.163:ℝ) = Real.sqrt (3.163^2) from (Real.sqrt_sq (by norm_num)).symm]
+           exact Real.sqrt_le_sqrt (by norm_num)
+         push_cast; linarith [h316])
+-    (lhsE_sub_negxpow_supported 4) floor_slab_check_row7 hcurve x hx
++    floor_slab_check_row7 hcurve x hx
+   simpa using h
+ 
+ /-- **Row-7 floor-trusted** `[e^1, e^6]` (`x ∈ [2.72, 403.4]`): the direct
+diff --git a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row8.lean b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row8.lean
+index b44bbe2..086fb1a 100644
+--- a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row8.lean
++++ b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row8.lean
+@@ -6,7 +6,7 @@ import PrimeNumberTheoremAnd.IEANTN.FKS2Cor24Row11
+ Row 8 (`n = 5`) of Table-7, cloned from the complete row 11 (`n = 100`) via the
+ generic `n`-parameterized helpers of `FKS2Cor24Row11`
+ (`Table4Ext.expSplitNegXpow`, `Table4Ext.eval_expSplitNegXpow_eq_xpow`,
+-`Table4Ext.lhsE_sub_negxpow_supported`, `Table4Ext.Epi_le_evalLhsE_low`,
++`Table4Ext.Epi_le_evalLhsE_low`,
+ `Table4Ext.floor_xpow_of_check`, `Table4Ext.mid_xpow_of`, `Table4Ext.checkXpowCell`,
+ `Table4Ext.cell_Epi_le_xpow_of_check`), all instantiated here at `n = 5`.
+ 
+@@ -92,7 +92,7 @@ theorem floor_row8 : ∀ x ∈ Set.Icc (Real.exp (5:ℝ)) (Real.exp (10:ℝ)),
+           rw [show (3.163:ℝ) = Real.sqrt (3.163^2) from (Real.sqrt_sq (by norm_num)).symm]
+           exact Real.sqrt_le_sqrt (by norm_num)
+         push_cast; linarith [h316])
+-    (lhsE_sub_negxpow_supported 5) floor_slab_check_row8 hcurve x hx
++    floor_slab_check_row8 hcurve x hx
+   simpa using h
+ 
+ /-- **Row-8 floor-trusted** `[e^1, e^5]` (`x ∈ [2.72, 148.4]`): the direct
+diff --git a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row9.lean b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row9.lean
+index 6531575..a88ea0e 100644
+--- a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row9.lean
++++ b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24Row9.lean
+@@ -6,7 +6,7 @@ import PrimeNumberTheoremAnd.IEANTN.FKS2Cor24Row11
+ Row 9 (`n = 10`) of Table-7, cloned from the complete row 11 (`n = 100`) via the
+ generic `n`-parameterized helpers of `FKS2Cor24Row11`
+ (`Table4Ext.expSplitNegXpow`, `Table4Ext.eval_expSplitNegXpow_eq_xpow`,
+-`Table4Ext.lhsE_sub_negxpow_supported`, `Table4Ext.Epi_le_evalLhsE_low`,
++`Table4Ext.Epi_le_evalLhsE_low`,
+ `Table4Ext.floor_xpow_of_check`, `Table4Ext.mid_xpow_of`, `Table4Ext.checkXpowCell`,
+ `Table4Ext.cell_Epi_le_xpow_of_check`), all instantiated here at `n = 10`.
+ 
+@@ -92,7 +92,7 @@ theorem floor_row9 : ∀ x ∈ Set.Icc (Real.exp (4:ℝ)) (Real.exp (10:ℝ)),
+           rw [show (3.163:ℝ) = Real.sqrt (3.163^2) from (Real.sqrt_sq (by norm_num)).symm]
+           exact Real.sqrt_le_sqrt (by norm_num)
+         push_cast; linarith [h316])
+-    (lhsE_sub_negxpow_supported 10) floor_slab_check_row9 hcurve x hx
++    floor_slab_check_row9 hcurve x hx
+   simpa using h
+ 
+ /-- **Row-9 floor-trusted** `[e^1, e^4]` (`x ∈ [2.72, 54.6]`): the direct
+diff --git a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24TrustedNumerics.lean b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24TrustedNumerics.lean
+index 9b3a11b..7a81dcf 100644
+--- a/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24TrustedNumerics.lean
++++ b/PrimeNumberTheoremAnd/IEANTN/FKS2Cor24TrustedNumerics.lean
+@@ -6,10 +6,11 @@ import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+ /-!
+ # Trusted numerical boundaries introduced by FKS2 Corollary 24
+ 
+-This file collects, in one place and with **minimal imports**, the trusted numerical
++This file collects, in one place, the trusted numerical
+ `sorry`s that the formalisation of FKS2 Corollary 24 (`corollary_24_all`) **introduces**:
+-twenty-two bounds on compact windows `x ∈ [eᵃ, eᵇ]`, two per Table-7 row — a small-`x`
+-*floor* and a large-`x` *sliver*/*band* at the threshold.  Each is a finite-range
++twenty-one bounds on compact windows `x ∈ [eᵃ, eᵇ]`.  Row 11's small-`x` floor is
++now checked in `FKS2Cor24CheckedNumerics`; the remaining facts are small-`x`
++*floors* and large-`x` *slivers*/*bands* at the threshold.  Each is a finite-range
+ numerical datum taken from the published computations of
+ 
+ > M. Cully-Hugill, D. R. Johnston, T. S. Trudgian, A. Yang (FKS2),
+@@ -17,7 +18,7 @@ numerical datum taken from the published computations of
+ 
+ ## Scope
+ 
+-These twenty-two are the trust that Corollary 24 adds *on top of* the existing
++These twenty-one are the remaining trust that Corollary 24 adds *on top of* the existing
+ development.  `corollary_24_all` additionally relies on trusted numerical `sorry`s that
+ already live elsewhere in the repository and are **not** reproduced here:
+ 
+@@ -216,13 +217,11 @@ theorem sliver_row10 : ∀ x ∈ Set.Icc (Real.exp (1358:ℝ)) (Real.exp (1358.6
+     Epi x ≤ x ^ (-(1:ℝ)/50) := by
+   sorry
+ 
+-/-! ### Row 11 — curve `x^{-1/100}` -/
++/-! ### Row 11 — curve `x^{-1/100}`
+ 
+-/-- **Row 11 floor** `[e^1, e^3.5]` (`x ∈ [2.72, 33.1]`): direct `π`/`Li` check for small
+-`x` (FKS2 §5.2–§5.3); `E_π(x) ≤ x^{-1/100}`.  Purely computational. -/
+-theorem floor_trusted_row11 : ∀ x ∈ Set.Icc (Real.exp (1:ℝ)) (Real.exp (3.5:ℝ)),
+-    Epi x ≤ x ^ (-(1:ℝ)/100) := by
+-  sorry
++The Row 11 floor is checked in `FKS2Cor24CheckedNumerics`; only the trusted
++large-`x` sliver remains here.
++-/
+ 
+ /-- **Row 11 sliver** `[e^3756, e^3757.6]` (`x` astronomically large): trusted **tabular**
+ boundary at the Table-7 threshold — FKS2's refined Theorem-6 interpolation, far beyond
+diff --git a/PrimeNumberTheoremAnd/IEANTN/LeanCertEnclosures.lean b/PrimeNumberTheoremAnd/IEANTN/LeanCertEnclosures.lean
+new file mode 100644
+index 0000000..8247f36
+--- /dev/null
++++ b/PrimeNumberTheoremAnd/IEANTN/LeanCertEnclosures.lean
+@@ -0,0 +1,274 @@
++import PrimeNumberTheoremAnd.Defs
++import LeanCert.Tactic.Extension
++import LeanCert.Validity.Integration
++import Mathlib.Data.Rat.Floor
++
++/-!
++# LeanCert enclosures for prime-counting functions
++
++This module is the reusable, opt-in numerical interface between PNT+ and LeanCert.
++Importing it registers checked enclosures for the project definitions `pi`, `Li`, and
++`Eπ`.  The candidate generators are untrusted; the associated checker theorems establish
++the interval facts consumed by LeanCert.
++
++The default `Li` enclosure uses `liPanels = 128` checked quadrature panels at each
++endpoint. Candidates wider than one are deliberately rejected so LeanCert's focused
++enclosure tactic subdivides before composing the endpoint bounds into an `Eπ` enclosure.
++-/
++
++open MeasureTheory
++
++namespace PrimeNumberTheoremAnd.CheckedEnclosures
++
++open LeanCert.Core LeanCert.Tactic.Extension
++
++/-! ## Exact prime-counting enclosure -/
++
++/-- The natural-valued floor used by the exact prime-counting checker. -/
++def natFloorRat (q : ℚ) : ℕ := (⌊q⌋ : ℤ).toNat
++
++/-- Exact endpoint bounds for `pi` on a rational interval. -/
++def piBounds (I : IntervalRat) : Option IntervalRat :=
++  let lo := Nat.primeCounting (natFloorRat I.lo)
++  let hi := Nat.primeCounting (natFloorRat I.hi)
++  if h : lo ≤ hi then
++    some ⟨lo, hi, by exact_mod_cast h⟩
++  else none
++
++/-- Untrusted exact candidate generator for the PNT+ definition `pi`. -/
++def piCandidate (request : UnaryEnclosureRequest) :
++    Except EnclosureCandidateFailure IntervalRat :=
++  if 0 ≤ request.input.lo then
++    match piBounds request.input with
++    | some output => .ok output
++    | none => .error (.inconclusive "invalid prime-counting interval")
++  else .error (.domainObstruction "prime-counting enclosure requires nonnegative input")
++
++/-- Decidable checker for a generated prime-counting enclosure. -/
++def checkPi (request : UnaryEnclosureRequest) (output : IntervalRat) : Bool :=
++  decide (0 ≤ request.input.lo) && decide (piBounds request.input = some output)
++
++/-- Soundness theorem registered with LeanCert for downstream occurrences of `pi`. -/
++@[leancert_enclosure piCandidate]
++theorem pi_mem
++    {request : UnaryEnclosureRequest} {x : ℝ} {output : IntervalRat}
++    (hx : x ∈ request.input)
++    (hcheck : checkPi request output = true) :
++    _root_.pi x ∈ output := by
++  simp only [checkPi, Bool.and_eq_true, decide_eq_true_eq] at hcheck
++  obtain ⟨hlo0, hout⟩ := hcheck
++  have hfloor_lo : Nat.floor (request.input.lo : ℝ) = natFloorRat request.input.lo := by
++    simp only [natFloorRat]
++    rw [← Int.floor_toNat, Rat.floor_cast]
++  have hfloor_hi : Nat.floor (request.input.hi : ℝ) = natFloorRat request.input.hi := by
++    simp only [natFloorRat]
++    rw [← Int.floor_toNat, Rat.floor_cast]
++  have hpc_lo : Nat.primeCounting (natFloorRat request.input.lo) ≤
++      Nat.primeCounting ⌊x⌋₊ := by
++    apply Nat.monotone_primeCounting
++    rw [← hfloor_lo]
++    exact Nat.floor_mono hx.1
++  have hpc_hi : Nat.primeCounting ⌊x⌋₊ ≤
++      Nat.primeCounting (natFloorRat request.input.hi) := by
++    apply Nat.monotone_primeCounting
++    rw [← hfloor_hi]
++    exact Nat.floor_mono hx.2
++  dsimp [piBounds] at hout
++  split at hout
++  · simp only [Option.some.injEq] at hout
++    subst output
++    simp only [IntervalRat.mem_def, pi]
++    constructor
++    · exact_mod_cast hpc_lo
++    · exact_mod_cast hpc_hi
++  · simp at hout
++
++/-! ## Checked logarithmic-integral enclosure -/
++
++/-- Default panel count for checked `Li` endpoint quadrature. -/
++def liPanels : ℕ := 128
++
++/-- LeanCert expression for the logarithmic-integral integrand `1 / log x`. -/
++def liIntegrandExpr : LeanCert.Core.Expr :=
++  .inv (.log (.var 0))
++
++/-- Checked quadrature enclosure of `Li q` for a rational endpoint `q ≥ 2`. -/
++def liAt (q : ℚ) : Option IntervalRat :=
++  if h : 2 ≤ q then
++    LeanCert.Validity.Integration.integratePartitionChecked liIntegrandExpr
++      ⟨2, q, h⟩ liPanels
++  else none
++
++/-- Endpoint-and-monotonicity enclosure of `Li` on a rational interval. -/
++def liBounds (I : IntervalRat) : Option IntervalRat :=
++  match liAt I.lo, liAt I.hi with
++  | some lower, some upper =>
++      if h : lower.lo ≤ upper.hi then some ⟨lower.lo, upper.hi, h⟩ else none
++  | _, _ => none
++
++/-- Untrusted candidate generator for `Li`, requesting subdivision above width one. -/
++def liCandidate (request : UnaryEnclosureRequest) :
++    Except EnclosureCandidateFailure IntervalRat :=
++  if 2 ≤ request.input.lo then
++    if request.input.hi - request.input.lo ≤ 1 then
++      match liBounds request.input with
++      | some output => .ok output
++      | none => .error (.inconclusive "could not integrate Li endpoints")
++    else .error (.inconclusive "Li enclosure requires subdivision to width at most one")
++  else .error (.domainObstruction "Li enclosure requires x ≥ 2")
++
++/-- Decidable checker for a generated logarithmic-integral enclosure. -/
++def checkLi (request : UnaryEnclosureRequest) (output : IntervalRat) : Bool :=
++  decide (2 ≤ request.input.lo) &&
++    decide (request.input.hi - request.input.lo ≤ 1) &&
++    decide (liBounds request.input = some output)
++
++/-- The `Li` integrand is interval-integrable from `2` to every `b ≥ 2`. -/
++theorem liIntegrable {b : ℝ} (hb : 2 ≤ b) :
++    IntervalIntegrable (fun t : ℝ => 1 / Real.log t) volume 2 b := by
++  apply ContinuousOn.intervalIntegrable_of_Icc hb
++  intro t ht
++  have ht1 : 1 < t := by linarith [ht.1]
++  have ht0 : t ≠ 0 := by positivity
++  have hlog0 : Real.log t ≠ 0 :=
++    Real.log_ne_zero_of_pos_of_ne_one (by positivity) (by linarith)
++  exact ContinuousAt.continuousWithinAt <|
++    continuousAt_const.div (Real.continuousAt_log ht0) hlog0
++
++/-- The PNT+ logarithmic integral is monotone on `[2, ∞)`. -/
++theorem liMonoOn {a b : ℝ} (ha : 2 ≤ a) (hab : a ≤ b) : Li a ≤ Li b := by
++  unfold Li
++  apply intervalIntegral.integral_mono_interval (c := 2) (d := b)
++  · rfl
++  · exact ha
++  · exact hab
++  · filter_upwards [ae_restrict_mem measurableSet_Ioc] with t ht
++    exact one_div_nonneg.mpr (Real.log_nonneg (by linarith [ht.1]))
++  · exact liIntegrable (le_trans ha hab)
++
++/-- Soundness theorem registered with LeanCert for downstream occurrences of `Li`. -/
++@[leancert_enclosure liCandidate]
++theorem li_mem
++    {request : UnaryEnclosureRequest} {x : ℝ} {output : IntervalRat}
++    (hx : x ∈ request.input)
++    (hcheck : checkLi request output = true) :
++    _root_.Li x ∈ output := by
++  simp only [checkLi, Bool.and_eq_true, decide_eq_true_eq] at hcheck
++  obtain ⟨⟨hlo2, _hwidth⟩, hout⟩ := hcheck
++  have hhi2 : 2 ≤ request.input.hi := le_trans hlo2 request.input.le
++  dsimp [liBounds] at hout
++  cases hlo : liAt request.input.lo with
++  | none => simp [hlo] at hout
++  | some lower =>
++      cases hhi : liAt request.input.hi with
++      | none => simp [hlo, hhi] at hout
++      | some upper =>
++          simp only [hlo, hhi] at hout
++          split at hout
++          · simp only [Option.some.injEq] at hout
++            subst output
++            have hloInt : Li (request.input.lo : ℝ) ∈ lower := by
++              unfold liAt at hlo
++              split at hlo <;> rename_i hq
++              · have hqR : (2 : ℝ) ≤ (request.input.lo : ℝ) := by exact_mod_cast hq
++                have hInt : IntervalIntegrable
++                    (fun x => LeanCert.Core.Expr.eval (fun _ => x) liIntegrandExpr)
++                    volume (2 : ℝ) (request.input.lo : ℝ) := by
++                  simpa [liIntegrandExpr] using liIntegrable hqR
++                have hmem := LeanCert.Validity.Integration.integratePartitionChecked_correct
++                    liIntegrandExpr ⟨2, request.input.lo, hq⟩ liPanels (by norm_num [liPanels])
++                    lower hlo hInt
++                simpa [Li, liIntegrandExpr] using hmem
++              · exact (hq hlo2).elim
++            have hhiInt : Li (request.input.hi : ℝ) ∈ upper := by
++              unfold liAt at hhi
++              split at hhi <;> rename_i hq
++              · have hqR : (2 : ℝ) ≤ (request.input.hi : ℝ) := by exact_mod_cast hq
++                have hInt : IntervalIntegrable
++                    (fun x => LeanCert.Core.Expr.eval (fun _ => x) liIntegrandExpr)
++                    volume (2 : ℝ) (request.input.hi : ℝ) := by
++                  simpa [liIntegrandExpr] using liIntegrable hqR
++                have hmem := LeanCert.Validity.Integration.integratePartitionChecked_correct
++                    liIntegrandExpr ⟨2, request.input.hi, hq⟩ liPanels (by norm_num [liPanels])
++                    upper hhi hInt
++                simpa [Li, liIntegrandExpr] using hmem
++              · exact (hq hhi2).elim
++            simp only [IntervalRat.mem_def] at hloInt hhiInt ⊢
++            constructor
++            · exact hloInt.1.trans (liMonoOn (by exact_mod_cast hlo2) hx.1)
++            · exact (liMonoOn (le_trans (by exact_mod_cast hlo2) hx.1) hx.2).trans hhiInt.2
++          · simp at hout
++
++/-! ## Composed prime-counting error enclosure -/
++
++/-- Core expression composing input, `pi`, and `Li` enclosures into `Eπ`. -/
++def epiExpr : LeanCert.Core.Expr :=
++  .div (.abs (.sub (.var 1) (.var 2))) (.div (.var 0) (.log (.var 0)))
++
++/-- Compose checked `pi` and `Li` bounds into an enclosure of `Eπ` on `I`. -/
++def epiBounds (I : IntervalRat) : Option IntervalRat :=
++  match piBounds I, liBounds I with
++  | some piI, some liI =>
++      LeanCert.Engine.evalInterval? epiExpr fun i =>
++        if i = 0 then I else if i = 1 then piI else liI
++  | _, _ => none
++
++/-- Untrusted candidate generator for `Eπ`, requesting subdivision above width one. -/
++def epiCandidate (request : UnaryEnclosureRequest) :
++    Except EnclosureCandidateFailure IntervalRat :=
++  if 2 ≤ request.input.lo then
++    if request.input.hi - request.input.lo ≤ 1 then
++      match epiBounds request.input with
++      | some output => .ok output
++      | none => .error (.inconclusive "could not enclose Epi on this interval")
++    else .error (.inconclusive "Epi enclosure requires subdivision to width at most one")
++  else .error (.domainObstruction "Epi enclosure requires x ≥ 2")
++
++/-- Decidable checker for a composed `Eπ` enclosure. -/
++def checkEpi (request : UnaryEnclosureRequest) (output : IntervalRat) : Bool :=
++  decide (2 ≤ request.input.lo) &&
++    decide (request.input.hi - request.input.lo ≤ 1) &&
++    decide (epiBounds request.input = some output)
++
++/-- Soundness theorem registered with LeanCert for downstream occurrences of `Eπ`. -/
++@[leancert_enclosure epiCandidate]
++theorem epi_mem
++    {request : UnaryEnclosureRequest} {x : ℝ} {output : IntervalRat}
++    (hx : x ∈ request.input)
++    (hcheck : checkEpi request output = true) :
++    _root_.Eπ x ∈ output := by
++  simp only [checkEpi, Bool.and_eq_true, decide_eq_true_eq] at hcheck
++  obtain ⟨⟨hlo2, hwidth⟩, hout⟩ := hcheck
++  dsimp [epiBounds] at hout
++  cases hpi : piBounds request.input with
++  | none => simp [hpi] at hout
++  | some piI =>
++      cases hli : liBounds request.input with
++      | none => simp [hpi, hli] at hout
++      | some liI =>
++          simp only [hpi, hli] at hout
++          have hpichk : checkPi request piI = true := by
++            simp only [checkPi, Bool.and_eq_true, decide_eq_true_eq]
++            exact ⟨le_trans (by norm_num) hlo2, hpi⟩
++          have hlichk : checkLi request liI = true := by
++            simp [checkLi, hlo2, hwidth, hli]
++          have hpiMem : pi x ∈ piI := pi_mem hx hpichk
++          have hliMem : Li x ∈ liI := li_mem hx hlichk
++          have henv : LeanCert.Engine.envMem
++              (fun i => if i = 0 then x else if i = 1 then pi x else Li x)
++              (fun i => if i = 0 then request.input else if i = 1 then piI else liI) := by
++            intro i
++            by_cases hi0 : i = 0
++            · simp [hi0, hx]
++            · by_cases hi1 : i = 1
++              · simp [hi1, hpiMem]
++              · simp [hi0, hi1, hliMem]
++          have hmem := LeanCert.Engine.evalInterval?_correct epiExpr
++            (fun i => if i = 0 then request.input else if i = 1 then piI else liI)
++            output hout
++            (fun i => if i = 0 then x else if i = 1 then pi x else Li x) henv
++          have hsqrt : Real.sqrt ((pi x - Li x) * (pi x - Li x)) = |pi x - Li x| := by
++            rw [← pow_two, Real.sqrt_sq_eq_abs]
++          simpa [epiExpr, Eπ, LeanCert.Core.Expr.abs, hsqrt] using hmem
++
++end PrimeNumberTheoremAnd.CheckedEnclosures
+diff --git a/lake-manifest.json b/lake-manifest.json
+index 62b4cb8..0a1e571 100644
+--- a/lake-manifest.json
++++ b/lake-manifest.json
+@@ -25,10 +25,10 @@
+    "type": "git",
+    "subDir": null,
+    "scope": "",
+-   "rev": "58edbea59458e9b010262238eaca27b6e0240dae",
++   "rev": "6b11513512c9d27183fb4725bfc291ab38b4a6d7",
+    "name": "leancert",
+    "manifestFile": "lake-manifest.json",
+-   "inputRev": "v4.32.2.2",
++   "inputRev": "v4.32.2.4",
+    "inherited": false,
+    "configFile": "lakefile.toml"},
+   {"url": "https://github.com/PatrickMassot/checkdecls.git",
+diff --git a/lakefile.toml b/lakefile.toml
+index b01f1b4..1cb4c45 100644
+--- a/lakefile.toml
++++ b/lakefile.toml
+@@ -25,7 +25,7 @@ git = "https://github.com/PatrickMassot/checkdecls.git"
+ [[require]]
+ name = "leancert"
+ git = "https://github.com/alerad/leancert.git"
+-rev = "v4.32.2.2"
++rev = "v4.32.2.4"
+ 
+ [[require]]
+ name = "PrimeCert"

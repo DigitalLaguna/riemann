@@ -137,3 +137,31 @@ claim: #10 (e, NUMERIC) added+promoted via promote.sh; #11 (b, NOTE) added (Arb 
 next: (a) track A FIRST TICK: claim an XS Lean issue in PNT+ (week-2 milestone, due 09-03);
   (b) track B: pre-register row-3 attempt (t=0.18, y=0.13206, N0=830443, needs RH to 1e13 —
   check Platt-Trudgian height / verify extension); (c) toolchain /tmp -> persistent prefix
+
+## tick 82 (2026-08-22 ~06:10-06:25 UTC, frontier) — Track A FIRST TICK: compile-fail-retry on the unrecorded 3-lemma diff — verdict: PASS
+state one-liner: planned work = HANDOFF next (a) TRACK A FIRST TICK (new weight 30). Not a dead end:
+  A-001/A-002/A-003 were tooling (gate.py regex, binary-as-text x2), all resolved; PNT+ builds
+  locally (claim #2). The local diff (3 lemmas in IwaniecKowalskiCh1.lean) is unrecorded — no log
+  entry created it (ticks 79/80 crashed; tick 81 left no log section; flint-pfx move was tick 81).
+gate: track A OPEN (4/4 seeds carded).
+prior-art pre-flight (machine): git fetch origin main -> "commits ahead: 0" (origin/main == local
+  HEAD 7715064); git grep -n "map_prime_pow|isMultiplicative_log_isAdditive|IsCompletelyAdditive.map_one"
+  origin/main -- PrimeNumberTheoremAnd/*.lean -> EMPTY. Upstream has none of the 3 lemmas: not duplicate.
+pre-registered falsification test (before run): `lake build PrimeNumberTheoremAnd.IwaniecKowalskiCh1`
+  FAILS (any error line / nonzero exit) => the 3 unrecorded lemmas do not compile as written; read
+  first error, fix or record dead. PASS => machine-verified locally.
+machine said (verbatim, evidence/2026-08-22-a-build/lake-build-ik-ch1.txt):
+  "exit=0"; "⚠ [3567/3567] Replayed PrimeNumberTheoremAnd.IwaniecKowalskiCh1";
+  7x "warning: .../IwaniecKowalskiCh1.lean:<line>:<col>: declaration uses `sorry`" at lines
+  114, 131, 689, 911, 1662, 1829, 1844 — ALL below the inserted block (diff hunk @@ -60,6 +60,46 @@
+  => new lemmas occupy lines 63-105); "Build completed successfully (3567 jobs)."
+  => the 3 lemmas (IsCompletelyAdditive.map_one, IsCompletelyAdditive.map_prime_pow,
+     isMultiplicative_log_isAdditive) are sorry-free and compile.
+note: the tick-log heredoc append failed once (bash locale error "Zeile 1: .../2026-08-22.tick.log:
+  Datei oder Verzeichnis nicht gefunden" — the path was executed as a command; heredoc+cd+&& chain
+  interaction); re-appended via python3. Keep heredocs out of && chains.
+next: (a) claim the matching PNT+ issue (816 "[IK]: Make ToAdditive version of IsMultiplicative"
+  is the closest; verify fit before claiming) + fork/branch/PR with AI disclosure per
+  PULL_REQUEST_STYLE.md; (b) track B row-3 pre-registration (RH to 1e13: Platt-Trudgian card says
+  "superseded: none known as of 2026-08-20" — arXiv sweep for a newer verification);
+  (c) tick 81's flint-pfx move needs a log entry + DEAD_ENDS B-002 recipe update ($PFX path).
