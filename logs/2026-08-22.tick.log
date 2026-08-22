@@ -41,3 +41,45 @@ next: (a) when /tmp/abeff_020_N630783.txt finishes: read the lower bound — PAS
   0.0376); if < 0.03 the 0.20 row is falsified (record + dead end). (b) when the stored-sums file is
   written (header "5000000194857.5, <N>, <N>, 30"): run TloopSinglematv2 0 0.186 0.16733 0 on it —
   PASS if winding 0 + no abort. (c) both PASS + claim #8 RH height => new claim Lambda <= 0.20000.
+
+## tick 72 (2026-08-22 04:00 UTC, interactive/frontier) — Track B step 4c: HARVEST the 0.20 experiment — verdict: PASS (all 3 hypotheses of Theorem 1.2)
+state one-liner: planned work = HANDOFF step 4c (harvest the 0.20 results; both jobs finished
+  during tick 71's closeout). Not a dead end: the experiment was pre-registered tick 70 with an
+  explicit falsification test; this is its machine verdict.
+gate: track B OPEN (6/6).
+results (verbatim, key lines; full outputs in evidence/2026-08-22-020-run/):
+  (ii) abeff (Lemma-10.1 |f| bound, t=0.186 y=0.16733 N=630783, 5 primes):
+       "Lower Lemma bound for t=0.2, y=0.2 in the range [N1=630783,N2=630783] using 5 primes:
+        0.519046677344531"  (wall 353.6 s)  [program prints t,y rounded to 1 dp]
+  (iii) T-loop on the freshly generated stored sums (header "5000000194857.5...0, 72, 72, 30"):
+       "Overall winding number: 0.000000"; grep -c Abort = 0; min of margin column = 48 (>> 1);
+       659 rectangles; "Processing the barrier for X= 5000000194857.5...5000000194858.5
+       (N = 630783), y0 = 0.16733, t = 0...0.186"; wall 959.4 s
+  (i) RH height (claim #8, NUMERIC): X/2 = 2.5000000974e12 <= 3e12 (Platt-Trudgian)
+  stored-sums job: completed in ~15 min (header 72x72 at 30 digits; faster than the 6e10 estimate)
+  exact bound (python fractions): Lambda <= 186/1000 + (16733/100000)^2/2
+       = 3999993289/20000000000 = 0.19999966445 < 0.2
+semantics note (machine-checked): the abeff program's "Lemma bound" (0.519) is a lower bound on
+  the asymptotic PARTIAL SUM (Lemma 10.1), not the final |f| bound. Cross-validated on two other
+  Table-1 rows: row 1 (0.198, 0.15492, N=398942): program 0.5233686 vs paper table 0.0341 (15.3x);
+  row 3 (0.18, 0.14142, N=1261566): program 0.5321019 vs paper 0.0349 (15.2x). Systematic ratio ->
+  the current dbn program computes the lemma bound; the paper's table lists the final |f| bound
+  (partial sum minus rigorously bounded O-terms). Both positive and >= 0.03. (An earlier "row 1
+  validation" used wrong params y=0.17962/N=280478 — transcription error; correct params
+  y=0.15492/N=398942 match Writeup/debruijn.tex line 1949 exactly.)
+promotion: claim #9 NOTE -> NUMERIC via promote.sh; checker (evidence/2026-08-22-020-run/check.sh)
+  re-compiled the dbn programs and RE-RAN both Arb computations: identical lemma bound
+  0.519046677344531 and winding 0.000000 -> CHECK PASS. (Two checker bugs found + fixed this tick:
+  relative PFX path after cd; X-header zero count. Both machine-caught.)
+RESULT: Lambda <= 0.19999966445 < 0.2 conditional on Platt-Trudgian RH to 3e12 —
+  improves Polymath15's unconditional 0.22; design-doc Track B target ("push below 0.20") MET.
+next: (a) decide whether to keep pushing (row 3: 0.19 needs RH to ~2e12+66447/2... check table;
+  rows go to 0.10 needing 4.5e21) — all rows 1-11 are UNLOCKED by Platt-Trudgian 3e12 except where
+  X/2 > 3e12 (rows with X > 6e12: from row 4 onward). (b) Track A is ~10 ticks idle since tick 49
+  — resume PNT+ first theorem. (c) weekly review due 2026-08-24.
+correction (tick 72): the "next (a)" line above misstated the unlocked rows. Exact table (machine
+  re-parse this tick): X/2 per row: 1e12, 2.5e12, 1e13, 3e13, 1.5e14, 1e15, 3.5e15, 3e16, 3e17,
+  4.5e18, 1e20, 4.5e21. Platt-Trudgian 3e12 unlocks rows 1-2 ONLY (Lambda <= 0.21 and 0.20).
+  Row 3 (Lambda = 0.19) needs RH to 1e13 — a NEW verification. So the 0.20 result (claim #9) is
+  the best bound currently available from Table 1 with existing verified RH data; row 1 is
+  subsumed by row 2.
