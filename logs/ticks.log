@@ -77,3 +77,4 @@
 2026-08-22T03:33:49.985171+00:00 tick 77 model=qwen3.8-27b steps=14 wall=1425s next=1. WEEKLY REVIEW (frontier) due by 2026-08-24 — the 0.20 result is the headline:
 2026-08-22T04:04:49.992833+00:00 tick 78 model=qwen3.8-27b steps=18 wall=1489s next=1. WEEKLY REVIEW (frontier) due by 2026-08-24 — the 0.20 result is the headline:
 2026-08-22T04:35:49.989970+00:00 tick 79 ERROR 'utf-8' codec can't decode byte 0x89 in position 387: invalid start byte steps=11
+2026-08-22T05:06:49.994305+00:00 tick 80 ERROR 'utf-8' codec can't decode byte 0x89 in position 389: invalid start byte steps=3
