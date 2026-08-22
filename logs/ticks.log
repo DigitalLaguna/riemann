@@ -68,3 +68,4 @@
 2026-08-21T22:54:49.990254+00:00 tick 68 model=qwen3.8-27b steps=25 wall=1077s next=Track B step 3c — t_0=2.217e4 (the actual bound input) comes from the T-loop programs, NOT
 2026-08-21T23:25:49.990416+00:00 tick 69 model=qwen3.8-27b steps=16 wall=1302s next=Track B step 4 — push BELOW 0.22 (design doc: "then push below 0.20 with rigorous
 2026-08-21T23:56:49.987563+00:00 tick 70 model=qwen3.8-27b steps=24 wall=1204s next=Track B step 4c — harvest the 0.20 experiment results (check in this order each tick):
+2026-08-22T00:27:49.988141+00:00 tick 71 model=qwen3.8-27b steps=15 wall=1305s next=Track B step 4c — harvest the 0.20 experiment results (check in this order each tick):
