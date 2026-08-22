@@ -449,3 +449,44 @@ falsification test for THIS step (written before run4):
   postponed by owner.
 next: poll run4 (unit tloop-x6e12-run4); on completion read status file (exit code) + winding
 line; then per pre-registration: promote or asan-build or dead-end.
+
+=== tick 106 (2026-08-22 20:11-20:17 CEST, model qwen3.8-27b, track B) ===
+attempt: poll in-flight X=6e12 T-loop RUN4 (pre-registered tick 105); resolve pending
+abeff-argv question; re-run row check.sh.
+Machine output (verbatim):
+  systemctl --user status tloop-x6e12-run4 (20:11:15 CEST):
+    Active: active (running) since Sat 2026-08-22 20:03:47 CEST; 7min ago
+    Main PID: 619292 (run4_wrapper.sh); Tasks: 2; Memory: 85.9M (peak: 86.5M)
+    CPU: 7min 28.770s
+    619298 /tmp/tloop 0 0.185 0.16733 0 runs/singlemat_X5999999999999p5_d30.txt
+  tloop_x6e12_run4.txt: 16384 bytes; last visible line Rectangle(127);
+    header verbatim: "Filling stored sums matrix with 73 X 73 terms guaranteeing 30
+    digits accuracy... / Processing the barrier for X= 5999999999999.5000000...
+    6000000000000.5000000 (N = 690988), y0 = 0.1673300000...1 , t = 0...0.1850000000"
+    (matches pre-registration exactly: X=6e12 barrier, t0=0.185, y0=0.16733)
+  tloop_x6e12_run4.err: 0 bytes. tloop_x6e12_run4.status: start line only (no exit yet).
+  Rate: 127 rects in ~7.5min = ~3.5s/rect (FASTER than run3's 6.6s/rect; machine was
+    busier during run3). Calibration: row-2 verified run (X=5e12, same binary) =
+    659 rects, 959s, "Overall winding number: 0.000000". Total rects for X=6e12
+    unknown (adaptive dt); ETA 20:40-22:00 CEST.
+  check.sh (re-run 20:15 CEST): abeff value = 0.527400238236571
+    PASS ((ii) |f| bound 0.527400238236571 >= 0.03)
+    PASS (Lambda = t0+y0^2/2 = 0.19899966445 < 0.19999966445 (exact rational
+          3979993289/20000000000))
+    PASS ((i) RH height barrier-center X/2 = 3e12 <= 3e12 (Platt-Trudgian))
+    NOTE ((iii) storedsum file present -> run TloopSinglematv2 next)
+    pass=3 fail=0 CHECK PASS
+  abeff-argv resolution (machine: source inspection):
+    New_abeff_largex_bounds.c line 417-418: t_str = argv[1]; y_str = argv[2];
+    launch.sh line: /tmp/abeff 0.185 0.16733 690988 690988 5 15
+    print at line 363-368: arb_printn(t, 1, ARB_STR_NO_RADIUS) = 1 significant digit,
+    so 0.185 -> "0.2", 0.16733 -> "0.2". Computation point IS (0.185, 0.16733).
+    (Consistent: row-2 abeff launched with t0=0.186 also printed "t=0.2, y=0.2".)
+    -> NOTE #17 added.
+verdict: RUN4 ALIVE at rect 127, no errors, full core. Cgroup-kill diagnosis still
+holds (run4 survived past 20:10 CEST, the point where run2/run3 died at tick exits).
+Row legs (i),(ii) + Lambda arithmetic re-verified; leg (iii) winding number pending.
+next: tick 107 (~20:41 CEST): poll run4 again. On completion: status file exit=0 +
+"Overall winding number: 0.000000" + no Abort -> NEW ROW Lambda=0.19899966445
+(improvement over claim #9) -> promote candidate; exit!=0 -> cgroup-kill diagnosis
+WRONG -> TloopSinglematv2_asan next (pre-registered).
