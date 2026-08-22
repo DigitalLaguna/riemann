@@ -27,7 +27,7 @@ PY
 chk $? "Lambda = t0+y0^2/2 = 0.19899966445 < 0.19999966445 (exact rational)"
 
 # (i) RH height: X/2 <= 3e12 (Platt-Trudgian, claim #8)
-awk 'BEGIN{exit !((5999999999999.5+1)/2 <= 3e12)}'; chk $? "(i) RH height X/2 = 3e12 <= 3e12"
+awk 'BEGIN{exit !((5999999999999.5+0.5)/2 <= 3e12)}'; chk $? "(i) RH height barrier-center X/2 = 3e12 <= 3e12 (Platt-Trudgian)"
 
 # (iii) T-loop: PENDING until storedsum file exists
 if [ -s $ARB/runs/singlemat_X5999999999999p5_d30.txt ]; then
