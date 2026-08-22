@@ -490,3 +490,37 @@ next: tick 107 (~20:41 CEST): poll run4 again. On completion: status file exit=0
 "Overall winding number: 0.000000" + no Abort -> NEW ROW Lambda=0.19899966445
 (improvement over claim #9) -> promote candidate; exit!=0 -> cgroup-kill diagnosis
 WRONG -> TloopSinglematv2_asan next (pre-registered).
+
+=== tick 107 (2026-08-22 20:42-20:47 CEST, model qwen3.8-27b, track B) ===
+attempt: poll in-flight X=6e12 T-loop RUN4 (pre-registered tick 106 next-action (a));
+re-estimate completion ETA now that the rect-density is measurable.
+Machine output (verbatim):
+  systemctl --user status tloop-x6e12-run4 (20:42:04 CEST):
+    Active: active (running) since Sat 2026-08-22 20:03:47 CEST; 38min ago
+    Main PID: 619292 (run4_wrapper.sh); Tasks: 2; Memory: 64.0M (peak: 87.0M)
+    CPU: 38min 15.949s
+    619298 /tmp/tloop 0 0.185 0.16733 0 runs/singlemat_X5999999999999p5_d30.txt
+  tloop_x6e12_run4.txt: 147456 bytes; Rectangle count 1186 (growing); last t ~0.022.
+    tloop_x6e12_run4.err: 0 bytes. "Abort" count: 0. "Overall winding" count: 0.
+    tloop_x6e12_run4.status: start line only (no exit yet).
+  Rate (20s snapshot): 1154 -> 1186 rects in 20s = 32 rects/20s = 0.62 s/rect
+    (steady state). The tick-106 average (2.2 s/rect) was inflated by slow setup:
+    first ~130 rects took ~7 min (stored-sums fill + init).
+  Rect density (matched-t comparison, machine): at t~0.021-0.022, run4 is at rect
+    1186; the verified X=5e12 run (tloop_020_run.txt) is at rect ~359 (interp:
+    rect 300 t=0.0156, rect 400 t=0.0247). => run4 uses ~3x the rects of the
+    verified run to reach the same t. Verified total was 659 rects.
+  t progression (run4, verbatim samples): rect 1 t=0; rect 500 t=0.00697;
+    rect 600 t=0.00884; rect 1000 t=0.01950; rect 1026 t=0.02047.
+    (t-range target is 0...0.185; run4 has covered ~12% of it.)
+verdict: RUN4 ALIVE and healthy at rect 1186 (t~0.022, 12% of t-range), 0 err
+bytes, no Abort, no winding line yet. NOT close to done. Re-estimated total
+~2000-4000 rects (3x the verified 659; settle-phase t 0.066->0.185 uncertain).
+Remaining ~800-2800 rects at 0.62-1.5 s/rect => ~10-70 min. ETA ~21:00-22:00 CEST
+(consistent with tick-106's 20:40-22:00; run is on the slower side of that range).
+next: tick 108 (~21:13 CEST): poll run4 again. On completion: status file exit=0
++ "Overall winding number: 0.000000" + no Abort -> NEW ROW Lambda=0.19899966445
+(improvement over claim #9) -> extend check.sh leg (iii) + promote candidate;
+exit!=0 -> cgroup-kill diagnosis WRONG -> TloopSinglematv2_asan next
+(pre-registered). Still running -> log rect count + t, re-estimate, hand off
+(no re-launch).
