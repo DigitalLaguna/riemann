@@ -1,0 +1,191 @@
+# Greetings from The On-Line Encyclopedia of Integer Sequences! http://oeis.org/
+
+Search: "mertens function"
+Showing 1-10 of 69
+
+%I A051402 #48 Aug 20 2026 00:51:29
+%S A051402 1,5,13,31,110,114,197,199,443,659,661,665,1105,1106,1109,1637,2769,
+%T A051402 2770,2778,2791,2794,2795,2797,2802,2803,6986,6987,7013,7021,8503,
+%U A051402 8506,8507,8509,8510,8511,9749,9822,9823,9830,9831,9833,9857,9861,19043
+%N A051402 Inverse Mertens function: smallest k such that |M(k)| = n, where M(x) is Mertens's function A002321.
+%C A051402 From _Torlach Rush_, Oct 11 2018: (Start)
+%C A051402 For k <= 10^7:
+%C A051402 - a(n) is squarefree.
+%C A051402 - if a(n) > M(k) then A008683(a(n)) is negative.
+%C A051402 - if a(n) = M(k) then A008683(a(n)) is positive. (End)
+%H A051402 Charles R Greathouse IV, <a href="/A051402/b051402.txt">Table of n, a(n) for n = 1..10000</a> (first 1000 terms from T. D. Noe)
+%e A051402 M(31) = -4, smallest one equal to +-4.
+%p A051402 with(numtheory): k := 0: s := 0: for n from 1 to 20000 do s := s+mobius(n): if abs(s) > k then k := abs(s): print(n); fi; od:
+%t A051402 a = s = 0; Do[s = s + MoebiusMu[n]; If[ Abs[s] > a, a = Abs[s]; Print[n]], {n, 1, 20000}]
+%o A051402 (Haskell)
+%o A051402 import Data.List (elemIndex)
+%o A051402 import Data.Maybe (fromJust)
+%o A051402 a051402 = (+ 1) . fromJust . (`elemIndex` ms) where
+%o A051402    ms = map (abs . a002321) [1..]
+%o A051402 -- _Reinhard Zumkeller_, Dec 26 2012
+%o A051402 (PARI) M(n)=sum(k=1,n,moebius(k));
+%o A051402 print1(1,", "); c=M(1); n=2; while(n<10^3,if(abs(M(n))>c,print1(n,", "); c=abs(M(n))); n++) \\ _Derek Orr_, Jun 14 2016
+%o A051402 (PARI) M(n) = sum(k=1, n, moebius(k));
+%o A051402 a(n) = my(k = 1, s = moebius(1)); while (abs(s) != n, k++; s += moebius(k)); k; \\ _Michel Marcus_, Oct 12 2018
+%o A051402 (Python)
+%o A051402 from itertools import accumulate, count
+%o A051402 from sympy import mobius
+%o A051402 def A051402(n): return next(i for i,k in enumerate(accumulate(map(mobius, count(1))),1) if abs(k) == n) # _Chai Wah Wu_, Aug 19 2026
+%Y A051402 Cf. A002321, A008683, A051400, A051401.
+%Y A051402 Essentially same as A060434 except for initial terms.
+%K A051402 nonn,nice,changed
+%O A051402 1,2
+%A A051402 _Jud McCranie_
+
+%I A118684 #28 Feb 16 2025 08:33:01
+%S A118684 1,94,97,98,99,100,146,147,148,161,162,215,216,230,237,330,334,337,
+%T A118684 338,349,350,351,352,365,394,397,399,400,415,416,418,538,539,540,542,
+%U A118684 606,794,799,800,801,806,809,810,813,815,816,822,851,852,870,874,875
+%N A118684 Numbers k for which the Mertens function M(k) (A002321) is 1.
+%H A118684 Seiichi Manyama, <a href="/A118684/b118684.txt">Table of n, a(n) for n = 1..10000</a>
+%H A118684 Eric Weisstein's World of Mathematics, <a href="https://mathworld.wolfram.com/MertensFunction.html">Mertens Function</a>
+%e A118684 M(94) = Sum_{n=1..94} mu(n) = 1.
+%t A118684 Select[Range[500], Plus @@ MoebiusMu[Range[#]] == 1 &] (* _Carl Najafi_, Aug 17 2011 *)
+%o A118684 (PARI) isok(n) = sum(k=1, n, moebius(k)) == 1; \\ _Michel Marcus_, Nov 20 2017
+%Y A118684 Numbers k such that M(k) = b: A171395 (b=-12), A171394 (b=-11), A171393 (b=-10), A171392 (b=-9), A171391 (b=-8), A171383 (b=-7), A171374 (b=-6), A171236 (b=-5), A171235 (b=-4), A171098 (b=-3), A171097 (b=-2), A171096 (b=-1), A028442 (b=0), this sequence (b=1), A171403 (b=2), A171404 (b=3), A171406 (b=4), A171427 (b=5), A171428 (b=6), A171436 (b=7).
+%Y A118684 Cf. A002321, A051400.
+%K A118684 nonn
+%O A118684 1,2
+%A A118684 Yoav Kallus (colonelmustard(AT)gmail.com), May 20 2006
+
+%I A088004 #24 Aug 21 2026 01:03:26
+%S A088004 1,1,1,1,1,2,2,2,2,3,3,3,3,4,5,5,5,5,5,5,6,7,7,7,7,8,8,8,8,7,7,7,8,9,
+%T A088004 10,10,10,11,12,12,12,11,11,11,11,12,12,12,12,12,13,13,13,13,14,14,15,
+%U A088004 16,16,16,16,17,17,17,18,17,17,17,18,17,17,17,17,18,18,18,19,18,18,18,18
+%N A088004 "Truncated Mertens function": values of -1 at primes are left out, that is, summatory Moebius when argument runs through nonprimes.
+%C A088004 Since the principal source of negative excursions of the Mertens function is here eliminated, most probably this sequence increases ad infinitum albeit non-monotonically; it decreases at squarefree numbers with an odd number of prime divisors, e.g., 30 and 42.
+%C A088004 Positions of records of a(n) are in A030229. - _Michael De Vlieger_, May 15 2017
+%H A088004 Michael De Vlieger, <a href="/A088004/b088004.txt">Table of n, a(n) for n = 1..10000</a>
+%F A088004 a(n) = A002321(n) - (-1)*pi(n) = A002321(n) + A000720(n).
+%t A088004 mer[x_] := mer[x-1]+MoebiusMu[x]; mer[0]=0; $RecursionLimit=1000; Table[mer[w]+PrimePi[w], {w, 1, 256}]
+%t A088004 (* Alternative: *)
+%t A088004 Accumulate@ Array[MoebiusMu@ # + Boole[PrimeQ@ #] &, 81] (* _Michael De Vlieger_, May 15 2017 *)
+%o A088004 (Python)
+%o A088004 from sympy import primepi
+%o A088004 from oeis_sequences.OEISsequences import mertens
+%o A088004 def A088004(n): return mertens(n)+primepi(n) # _Chai Wah Wu_, Aug 20 2026
+%Y A088004 Cf. A000720, A002321, A008683, A030229.
+%K A088004 nonn,changed
+%O A088004 1,6
+%A A088004 _Labos Elemer_, Oct 14 2003
+
+%I A100765 #20 Dec 22 2024 12:13:25
+%S A100765 3,41,59,66,102,151,165,167,233,239,255,354,357,359,367,402,406,409,
+%T A100765 421,426,429,609,638,782,786,797,826,854,885,887,890,894,897,907,911,
+%U A100765 1015,1019,1221,1259,1281,1283,1298,1301,1303,1307,1319,1327,1493,1526,1533
+%N A100765 Numbers for which the values of the Moebius function (A008683) and the Mertens function (A002321) are both -1.
+%C A100765 This sequence is a subsequence of A100306, Numbers for which the values of the Moebius function and the Mertens function agree.
+%H A100765 Donovan Johnson, <a href="/A100765/b100765.txt">Table of n, a(n) for n = 1..10000</a>
+%H A100765 PrimeFan, <a href="http://primefan.tripod.com/EsotericIntegerSequences.html">Esoteric Integer Sequences</a>
+%H A100765 PrimeFan, <a href="/A031214/a031214.pdf">Esoteric Integer Sequences</a> [Cached copy]
+%e A100765 102 is in the sequence because it is a sphenic number (exactly 3 distinct prime factors, A007304) number, so the Mobius function yields -1 and the sum of that value and the previous Mobius values (the Mertens function) is also -1.
+%t A100765 (* If not already defined *) If[Names["Mertens"] == {}, Mertens[x_] := Plus @@ MoebiusMu[Range[1, x]]]; Select[Range[2500], MoebiusMu[ # ] == -1 && Mertens[ # ] == -1 &]
+%Y A100765 Cf. A100306, A100766, A100767.
+%K A100765 nonn
+%O A100765 1,1
+%A A100765 _Alonso del Arte_, Jan 03 2005
+%E A100765 Offset corrected by _Donovan Johnson_, Jun 19 2012
+
+%I A093772 #9 Mar 19 2017 01:01:58
+%S A093772 1,6,10,14,15,21,22,26,34,35,38,39,51,55,57,58,62,65,77,85,86,87,91,
+%T A093772 93,94,95,119,122,123,129,134,142,143,145,146,158,159,161,185,202,203,
+%U A093772 205,206,209,210,213,214,215,217,218,219,221,253,254,265,278,299,301,302
+%N A093772 a(n) is the smallest integer at which the value of the "truncated Mertens function" (= A088004) equals n.
+%C A093772 Truncated Mertens function = summatory Moebius when argument runs through nonprimes.
+%t A093772 mer[x_] :=mer[x]=mer[x-1]+MoebiusMu[x]; mer[0]=0;$RecursionLimit=1000; t=Table[mer[w]+PrimePi[w], {w, 1, 1000}] Table[Min[Flatten[Position[t, j]]], {j, 1, 200}]
+%Y A093772 Cf. A002321, A008682, A059071, A088004, A093773.
+%K A093772 nonn
+%O A093772 1,2
+%A A093772 _Labos Elemer_, Apr 28 2004
+
+%I A093773 #12 Mar 19 2017 01:02:05
+%S A093773 6,10,15,22,38,51,62,77,91,123,134,159,203,206,214,253,302,305,330,
+%T A093773 341,365,395,454,489,526,542,545,554,566,586,723,753,781,794,866,870,
+%U A093773 914,933,966,1059,1138,1141,1198,1202,1214,1219,1293,1351,1383,1387,1403
+%N A093773 a(n) is the smallest integer at which the value of the "truncated Mertens function" (= A088004) equals the n-th prime number.
+%C A093773 Truncated Mertens function = summatory Moebius when argument runs through nonprimes. See A088004(n) = A002321(n) + A000720(n).
+%F A093773 a(n) = A093772(prime(n)) = A093772(A000040(n)). Solutions to min{x; A002321(x) + A000720(x) = A000040(n) = prime(n)} = a(n).
+%t A093773 mer[x_] :=mer[x]=mer[x-1]+MoebiusMu[x]; mer[0]=0;$RecursionLimit=1000; t=Table[mer[w]+PrimePi[w], {w, 1, 1000}] Table[Min[Flatten[Position[t, Prime[j]]]], {j, 1, 200}]
+%Y A093773 Cf. A000720, A002321, A008682, A059071, A088004, A093772.
+%K A093773 nonn
+%O A093773 1,1
+%A A093773 _Labos Elemer_, Apr 28 2004
+
+%I A100306 #30 Dec 22 2024 12:10:43
+%S A100306 1,3,40,41,59,66,94,102,146,150,151,160,161,164,165,167,215,232,233,
+%T A100306 236,237,239,255,330,332,333,334,354,356,357,359,363,364,365,367,394,
+%U A100306 402,404,405,406,408,409,414,415,420,421,423,424,425,426,428,429,538,542
+%N A100306 Numbers for which the values of the Moebius function (A008683) and the Mertens function (A002321) agree.
+%H A100306 Donovan Johnson, <a href="/A100306/b100306.txt">Table of n, a(n) for n = 1..10000</a>
+%H A100306 PrimeFan, <a href="http://primefan.tripod.com/EsotericIntegerSequences.html">Esoteric Integer Sequences</a>
+%H A100306 PrimeFan, <a href="/A031214/a031214.pdf">Esoteric Integer Sequences</a> [Cached copy]
+%p A100306 with(numtheory): p:=proc(n) if mobius(n)=sum(mobius(k),k=1..n) then n else fi end: seq(p(n),n=1..700); # _Emeric Deutsch_, Feb 14 2005
+%t A100306 Select[Range[500], Plus @@ MoebiusMu[Range[#]] == MoebiusMu[#] &] (* _Carl Najafi_, Aug 17 2011 *)
+%o A100306 (PARI) s=0; for(n=1,1e4, s+=t=moebius(n); if(t==s, print1(n", "))) \\ _Charles R Greathouse IV_, Jan 28 2014
+%Y A100306 Cf. A100765, A100766, A100767.
+%K A100306 nonn
+%O A100306 1,2
+%A A100306 _N. J. A. Sloane_, Dec 30 2004
+%E A100306 More terms from _Emeric Deutsch_, Feb 14 2005
+
+%I A100766 #19 Dec 22 2024 12:14:09
+%S A100766 40,150,160,164,232,236,332,333,356,363,364,404,405,408,414,420,423,
+%T A100766 424,425,428,608,636,637,796,812,824,825,850,884,896,904,916,920,1014,
+%U A100766 1220,1256,1280,1292,1300,1336,1492,1519,1520,1521,1524,1525,1528,1532,1544
+%N A100766 Numbers for which the values of the Moebius function (A008683) and the Mertens function (A002321) are both 0.
+%C A100766 This sequence is a subset of A100306, numbers for which the values of the Moebius function and the Mertens function agree and, in a different way, a subset of A028442, zeros of the Mertens function. There are no prime numbers in this sequence.
+%C A100766 Numbers k such that k-1 and k are consecutive zeros of the Mertens function. - _Amiram Eldar_, Jun 13 2020
+%H A100766 Donovan Johnson, <a href="/A100766/b100766.txt">Table of n, a(n) for n = 1..10000</a>
+%H A100766 PrimeFan, <a href="http://primefan.tripod.com/EsotericIntegerSequences.html">Esoteric Integer Sequences</a>
+%H A100766 PrimeFan, <a href="/A031214/a031214.pdf">Esoteric Integer Sequences</a> [Cached copy]
+%t A100766 (* If not already defined *) If[Names["Mertens"] == {}, Mertens[x_] := Plus @@ MoebiusMu[Range[1, x]]]; Select[Range[2500], MoebiusMu[ # ] == 0 && Mertens[ # ] == 0 &]
+%Y A100766 Cf. A100306, A100765, A100767.
+%K A100766 nonn
+%O A100766 1,1
+%A A100766 _Alonso del Arte_, Jan 03 2005
+%E A100766 Offset corrected by _Donovan Johnson_, Jun 19 2012
+
+%I A100767 #15 Dec 22 2024 12:14:35
+%S A100767 1,94,146,161,215,237,330,334,365,394,415,538,542,794,799,813,815,851,
+%T A100767 870,878,899,905,914,917,921,1003,1006,1011,1257,1262,1267,1271,1286,
+%U A100767 1290,1293,1330,1337,1339,1343,1522,1529,1538,1858,1865,1939,2018,2098
+%N A100767 Numbers for which the values of the Moebius function (A008683) and the Mertens function (A002321) are both 1.
+%C A100767 This sequence is a subsequence of A100306, Numbers for which the values of the Moebius function and the Mertens function agree.
+%H A100767 Donovan Johnson, <a href="/A100767/b100767.txt">Table of n, a(n) for n = 1..10000</a>
+%H A100767 PrimeFan, <a href="http://primefan.tripod.com/EsotericIntegerSequences.html">Esoteric Integer Sequences</a>
+%H A100767 PrimeFan, <a href="/A031214/a031214.pdf">Esoteric Integer Sequences</a> [Cached copy]
+%t A100767 (* If not already defined *) If[Names["Mertens"] == {}, Mertens[x_] := Plus @@ MoebiusMu[Range[1, x]]]; Select[Range[2500], MoebiusMu[ # ] == 1 && Mertens[ # ] == 1 &]
+%Y A100767 Cf. A100306, A100765, A100766.
+%K A100767 nonn
+%O A100767 1,2
+%A A100767 _Alonso del Arte_, Jan 03 2005
+%E A100767 Offset corrected by _Donovan Johnson_, Jun 19 2012
+
+%I A304239 #14 Jan 03 2022 21:07:52
+%S A304239 1,31,43,61,73,95,114,146,154,161,165,199,221,233,237,246,286,330,341,
+%T A304239 354,357,359,365,374,395,402,406,410,417,421,426,443,538,586,619,665,
+%U A304239 782,787,794,797,803,813,818,830,851,861,871,879,885,887,890,894,897,901,905,907,911
+%N A304239 Indices for which the Mertens function A002321 reaches its extremum between subsequent zeros for the first time.
+%C A304239 This is related to the Mertens conjecture, more precisely to record values of Mertens function A002321 in the following sense: Due to the short-scale and long-scale oscillations of A002321, it is less appealing to consider record values in the usual sense (cf. A051402), which yields many slowly growing records and record indices lying closely together, during the approach of a "long-scale" record. Therefore this sequence considers maxima or minima between two subsequent zeros, ignoring the empty intervals between immediately adjacent zeros A002321(k) = A002321(k+1) = 0.
+%C A304239 The values of these extrema are listed in A304240(n) = A002321(A304239(n)).
+%C A304239 Then one can consider the sequence of indices where the corresponding values of A002321 have opposite sign, and/or are larger in absolute value than the preceding record amplitude in the above sense, cf. A304240 & A304241: These are the points which one would really consider as record maxima / minima when looking at the graph on a larger scale.
+%e A304239 The initial value a(1) = 1 may be considered conventional, or the maximum reached between M(0) = 0 (empty sum) and M(2) = 0, where we write M for the Mertens function A002321.
+%e A304239 After M(2) = 0, Mertens's function has negative values up to the next zero, M(39) = 0. The largest negative value is -4 = M(31) = M(32). Therefore a(2) = 31.
+%e A304239 Since M(39) = M(40) = 0, the maximum amplitude between these two consecutive zeros would be zero, and is ignored by definition.
+%e A304239 The next "local minimum" of this type is reached at M(43) = -3, this value is taken several times up to the next zero at n = 58. Therefore a(3) = 43.
+%e A304239 The next such "local minima" are M(61) = -2 and M(73) = -4, so a(4) = 61, a(5) = 73.
+%e A304239 It is only at n = 94 that M takes a positive value for the first time after M(1) = 1, and M(95) = 2 is the largest value reached until the next zero (at n = 101), so a(6) = 95.
+%e A304239 And so on.
+%o A304239 (PARI) M=0; for(n=1,oo, if(m=A002321(n),abs(m)>abs(M)&& [M,N]=[m,n], M&& M=printf(N",")))
+%Y A304239 Cf. A002321, A028442 (zeros of M), A051400, A051401, A051402 (where M, -M, |M| reaches k = 1, 2, 3, ...).
+%Y A304239 Cf. A304240 (values of the extrema), A304241 (indices of increasingly larger extrema), A304242 (the associated values).
+%K A304239 nonn
+%O A304239 1,2
+%A A304239 _M. F. Hasler_, May 08 2018
+
+# Content is available under The OEIS End-User License Agreement: http://oeis.org/LICENSE

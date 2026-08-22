@@ -555,3 +555,29 @@ next: (a) OWNER: one-click Fork of AlexKontorovich/PrimeNumberTheoremAnd, then p
   ik-additive-lemmas @ 0197a66 + PR (body: evidence/2026-08-22-pnt-ik-api/issue-816-draft.md);
   (b) track B: choose next step at week-2 review (08-29) — X=7e12 sweep vs Arb port #11;
   (c) tracks A/C/D/E have no in-flight work; A's PR leg is the only A-critical path.
+
+--- tick 108 (track D, first experiment) ---
+2026-08-22T~21:1x CEST. Track choice: B parked until week-2 review (HANDOFF next (b));
+A's critical path is owner's fork; D (weight 15) has no first experiment yet -> start D.
+Experiment: Mertens function M(x)=sum_{n<=x} mu(n) by exact integer sieve, N=10^8;
+record max |M(x)|, argmax, M(10^k) k=1..8, max |M(x)|/sqrt(x).
+Citation: conrey-2003 card (RH <=> M(x)=O(x^{1/2+eps}), p. 342 verbatim in card).
+PRIOR-ART PRE-FLIGHT (queries, before run):
+  Q1: arXiv API ti:"Mertens function" -> 8 hits incl. "Computing the Mertens function
+      on a GPU" (2011-07-31) => done at far larger scale; this run is pipeline
+      establishment + record at 10^8, not a new bound.
+  Q2: OEIS search "Mertens function" -> A002321 (M(n), b-file n<=10000 fetched),
+      A051402 (inverse Mertens: first k with |M(k)|=n, b-file n<=10000 fetched,
+      a(10000)=902718903). Saved: evidence/2026-08-22-mertens/prior-art-oeis-search.txt.
+  NOTE: A002558 is NOT the Mertens function (it is "Coefficients of a Dirichlet
+      series", Bernoulli-polynomial related) — caught before use; b002558.txt kept
+      as evidence of the near-miss.
+FALSIFICATION TEST (pre-registered, before run):
+  F1: pipeline WRONG if sieve M(10) != -1 (hand-computed from mu(1..10)).
+  F2: pipeline WRONG if M(n) != OEIS A002321 b-file value for any n <= 10000.
+  F3: pipeline WRONG if M(n) != independent sympy trial-division M(n) for any n <= 10^5.
+  F4: pipeline WRONG if first-k-with-|M(k)|=n != OEIS A051402 b-file a(n) for any n
+      up to max|_{x<=1e8}|M(x)| (record-envelope check, ~10^3-10^4 values).
+  F5: prior-art flag (not a kill) if computed M(10^k) disagrees with any fetched
+      source; must be resolved before promotion.
+  Idea is dead if F1-F4 fire; if all pass, the record at 10^8 is machine-verified.
