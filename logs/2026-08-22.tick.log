@@ -225,3 +225,41 @@ next: (a) OWNER files the PNT+ PR from ik-additive-lemmas @ 0197a66
   (b) GARDEN: merge claim #13 into #12; (c) TRACK B (weight 40): row-3 pre-registration
   (RH-to-1e13 source check; Platt-Trudgian is 3e12); (d) verify+log tick 81's
   flint-pfx move (it left no log section).
+
+## tick 84 (2026-08-22 ~07:00-07:20 UTC, frontier) — GARDEN: merge #13 into #12 + verify tick 81's flint-pfx move — verdict: YES
+state one-liner: HANDOFF next (b) GARDEN. Not a dead end: bookkeeping on the A-004
+  concurrency residual + the unlogged tick-81 move; no new approach.
+gate: all tracks OPEN (21/21).
+work:
+  1) flint-pfx move (tick 81, previously unlogged): the FLINT/Arb/GMP/MPFR prefix
+     lives at tracks/b-dbn/flint-pfx (79M; gitignored via .gitignore line 9).
+     Old /tmp build trees (arb-2.23.0, flint-3.2.0, gmp-6.3.0 sources + logs) still
+     in /tmp (ephemeral, not cleaned). Binaries carry no RPATH (ldd:
+     "libflint.so.20 => not found" without LD_LIBRARY_PATH) -> runtime resolution
+     via LD_LIBRARY_PATH=$PFX/lib, $PFX = tracks/b-dbn/flint-pfx.
+  2) VERIFY (machine): bash evidence/2026-08-21-barrier-run/check.sh (PFX =
+     $HOME/riemann/tracks/b-dbn/flint-pfx) — verbatim:
+       "peak X = 60000083951.5000000000000000000  (real-part-(-1/2) Euler-product max = 26.21232005)"
+       "CHECK PASS: peak at 60000083951.5000000000000000000 is within 0.5 of barrier location 6e10+83951.5"
+     => the moved prefix serves the claim-#6 binary correctly (0.01s wall: 20-point
+     grid, 5 primes; Arb is fast).
+  3) GARDEN merge: added a `merge` subcommand to tools/promote.sh (the only ledger
+     writer; status column untouched, statement prefixed "MERGED into #12",
+     promoted_by records the merge). Ran: "merged #13 (was NOTE) into #12 (FORMAL);
+     status of #13 unchanged". promote.sh list confirms:
+       "#13 NOTE [a] MERGED into #12 (2026-08-22T07:09:47Z): PNT+ additive-API lemmas (issue #816 fam..."
+     #12 stays FORMAL with evidence/2026-08-22-pnt-ik-api.
+note: DEAD_ENDS B-002 left untouched (append-only; its "$PFX/include" wording is
+  historically accurate for the tick-53 bug). Current recipe ($PFX =
+  tracks/b-dbn/flint-pfx; gcc ... -I$PFX/include-v2 -I$PFX/include/flint
+  -include arb_mat.h -include stdlib.h -L$PFX/lib -lflint -lgmp -lmpfr -lm) is
+  recorded here and in evidence/2026-08-22-020-run/check.sh.
+pre-registered falsification test (before the B row-3 source search, this tick):
+  the search is a literature gate for row 3 (t=0.18, y=0.13206, N0=830443,
+  X=1e13+19877, needs RH verified to 1e13). OUTCOME THAT KILLS "row 3 now":
+  an arXiv sweep (title contains "Riemann hypothesis", sorted by submittedDate,
+  plus a targeted abs query for verification-height claims) returns NO fetchable
+  document claiming RH verified up to >= 1e13 (Platt-Trudgian 2020 is 3e12; its
+  card says "superseded: none known as of 2026-08-20"). Then row 3 WAITS and B
+  pivots to the Phase-3 dominant-error-term audit. A hit requires a fetched
+  document with the height quoted verbatim before row 3 may proceed.

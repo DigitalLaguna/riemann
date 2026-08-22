@@ -84,6 +84,18 @@ elif cmd == "verdict":
                (" ".join(args[2:]), int(args[1])))
     db.commit()
     print(f"verdict recorded for #{args[1]}")
+elif cmd == "merge":
+    # garden: mark a duplicate claim as merged into another; status column untouched
+    cid, into = int(args[1]), int(args[2])
+    cur = db.execute("SELECT statement,status FROM CLAIM WHERE id=?", (cid,)).fetchone()
+    ref = db.execute("SELECT status FROM CLAIM WHERE id=?", (into,)).fetchone()
+    if not cur or not ref:
+        sys.exit("no such claim")
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    db.execute("UPDATE CLAIM SET statement=?, promoted_by=? WHERE id=?",
+               (f"MERGED into #{into} ({now}): {cur[0]}", f"promote.sh merge {now}", cid))
+    db.commit()
+    print(f"merged #{cid} (was {cur[1]}) into #{into} ({ref[0]}); status of #{cid} unchanged")
 else:
-    sys.exit("usage: promote.sh add|list|promote|verdict ...")
+    sys.exit("usage: promote.sh add|list|promote|verdict|merge ...")
 EOF
