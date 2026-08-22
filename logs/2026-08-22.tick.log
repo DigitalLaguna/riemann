@@ -342,3 +342,52 @@ pre-registered falsification test (for the NEXT step, improving the |f| bound):
 next: (a) OWNER: file the PNT+ PR from branch ik-additive-lemmas @ 0197a66 (closes week-2
   milestone fully); (b) TRACK B: commit compute to the ASYMPTOTICS — improve the |f| bound
   (hypothesis ii) to lower the feasible t0 and beat 0.19999966445.
+
+## tick 91 (2026-08-22T10:40:00Z, frontier) — TRACK B re-attribution: the Phase-3 "ASYMPTOTICS binding" attribution is KILLED by its own pre-registered falsification test — verdict: RH HEIGHT binds
+state one-liner: HANDOFF next (b) "commit compute to the ASYMPTOTICS (|f| bound)". Not a dead
+  end: this is the pre-registered falsification test (tick 89) for that attribution, and tick 90
+  (local) already ran the machine leg (abeff at t0=0.18 -> 0.5321, committed as
+  evidence/2026-08-22-f-bound-t018/abeff_t018_N1261566.txt). This tick verifies + records the
+  verdict and re-attributes.
+gate: all tracks OPEN (21/21).
+work:
+  1) Recovered tick-90 residual: untracked evidence/2026-08-22-f-bound-t018/abeff_t018_N1261566.txt
+     (the pre-registered falsification run: New_abeff_largex_bounds 0.18 0.1 1261566 1261566 5 15)
+     + uncommitted logs/ticks.log tick-90 line.
+  2) Machine verdict (evidence/2026-08-22-f-bound-t018/check.sh, re-runnable):
+       PASS  (1) abeff t0=0.18 partial-sum |f| bound = 0.532101858344813 >= 0.03 (falsification condition MET)
+       PASS  (2) Table 1 final |f| bound >= 0.03 in all 12 rows (min lb = 0.0305)
+       PASS  (3) row2 X/2=2.5e+12 <= 3e12 (available, Lambda=0.19999966445); row3 X/2=1e+13 > 3e12 (blocked, Lambda=0.1899998082 < 0.19999966445)
+       VERDICT: RH HEIGHT (X/2) is the binding constraint, NOT the asymptotics (|f| bound)
+       CHECK PASS: re-attribution machine-verified (ASYMPTOTICS attribution killed)
+  3) Attribution logic (verified against sources, not just the script):
+     - The pre-registered test (tick 89 log, quoted in the evidence README) KILLS "improve the |f|
+       bound to lower t0" if a re-run at t0=0.18 still gives |f| >= 0.03. It did (0.5321).
+     - Authoritative cross-check: claim #8 C4 (machine-checked Polymath15 Table 1) shows the FINAL
+       |f| bound >= 0.03 in ALL 12 rows (min 0.0305); the t0=0.180 row (X=2e13+131252, y0=0.14142,
+       N0=1261566) has final |f| = 0.0349. So the |f| bound never binds any row.
+     - The 0.20 bound (claim #9) uses row 2 (X=5e12+194858, X/2=2.5e12<=3e12, available). The next
+       row, row 3 (X=2e13+131252, X/2=1e13>3e12), would give Lambda<=0.1899998082 but is BLOCKED by
+       the RH height (Platt-Trudgian 3e12). Max X allowed: X<=6e12.
+     - NOTE #15's own margin table had RH height (20.00%) TIGHTER than asymptotics (25.33%); it
+       dismissed RH height as "external". The falsification test shows that dismissal was premature:
+       RH height is exactly what stops the bound improving.
+  4) Ledger: NOTE #16 records the re-attribution (supersedes NOTE #15's attribution; #15 left in
+     place, append-only).
+  5) NUANCE (recorded, not a contradiction): the abeff program prints the Lemma-10.1 PARTIAL-SUM
+     bound (~15x the paper's final |f| bound; see NOTE #11). The 0.5321 is an upper envelope; the
+     authoritative final values are the Table 1 column (check (2)). The verdict rests on (2)+(3),
+     with (1) as the pre-registered machine leg.
+pre-registered falsification test (for the NEXT step, the X in (5e12,6e12] row search):
+  B now searches for a Table-1-style row with X in (5e12, 6e12] (so X/2 <= 3e12, available) giving
+  Lambda = t0 + y0^2/2 < 0.19999966445. OUTCOME THAT KILLS "a better row exists in (5e12,6e12]":
+  running the full 0.20-push pipeline (stored sums + T-loop winding=0 + |f|>=0.03) at the LARGEST
+  admissible X (X = 6e12, N0 = round(0.282*sqrt(6e12)) ~ 690618) yields either (a) T-loop winding
+  != 0 / abort (no valid barrier there), or (b) a valid row with t0 + y0^2/2 >= 0.19999966445
+  (Lambda not monotone-improving inside the table's X grid). A hit requires a machine run with
+  winding=0, no abort, |f|>=0.03, and t0 + y0^2/2 < 0.19999966445 at some X in (5e12,6e12].
+  (Lambda is strictly decreasing in X per claim #8 C7, so a hit is EXPECTED if the pipeline runs
+  clean at X=6e12; the test guards against the table's discrete X grid hiding a local failure.)
+next: (a) OWNER: file the PNT+ PR from branch ik-additive-lemmas @ 0197a66 (closes week-2
+  milestone fully); (b) TRACK B: run the 0.20-push pipeline at X=6e12 (N0~690618) to find a row
+  with Lambda < 0.19999966445 (pre-registered above).
