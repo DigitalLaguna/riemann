@@ -1,0 +1,30 @@
+=== 1. BOUND DECOMPOSITION (exact rational) ===
+  t0            = 93/500 = 0.18600000000
+  y0^2/2        = 279993289/20000000000 = 0.01399966445
+  bound         = 3999993289/20000000000 = 0.19999966445  (claim #9: 0.19999966445)
+  fraction from t0 term      = 93.0002%
+  fraction from y0^2/2 term  = 6.9998%
+  ratio t0 / (y0^2/2)        = 13.2860x
+
+=== 2. PER-TERM ERROR BUDGET (component attribution) ===
+  ASYMPTOTICS (t0 term)                 = 0.18600000000
+  ZERO-FREE REGION + ZERO DYNAMICS (y0^2/2) = 0.01399966445
+  sum of all terms                      = 0.19999966445
+
+=== 3. FEASIBILITY MARGINS (relative slack before violation) ===
+  ASYMPTOTICS  |f|=0.0376 vs target 0.03: margin = 25.33%
+  BARRIER      tloop min margin=48 vs threshold 1: margin = 4700%
+  RH HEIGHT    T_RH=3.000e+12 vs X/2=2.500e+12: margin = 20.00%
+
+=== 4. VERDICT (pre-registered: one term >= 2x sum of others) ===
+  dominant term = ASYMPTOTICS = 0.18600000000
+  sum of others = 0.01399966445
+  dominant / sum-of-others = 13.2860x  (need >= 2x)
+  HIT = True
+  => BINDING COMPONENT: ASYMPTOTICS (the |f| lower bound).
+     Put compute on improving the |f| bound (hypothesis ii of ubc-0).
+
+=== 5. CROSS-CHECK vs prior art (paper line 165) ===
+  paper: hypothesis (ii) [asymptotics/|f|] 'close to the limit of our ability to
+  numerically verify'; hypothesis (iii) [barrier] 'does not present the main
+  bottleneck'. => prior art predicts ASYMPTOTICS binding. Audit agrees: YES.

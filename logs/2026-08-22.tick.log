@@ -299,3 +299,46 @@ pre-registered falsification test (for the NEXT step, Phase-3 dominant-error-ter
   of the others before B commits compute to it.
 next: (a) OWNER: file the PNT+ PR from branch ik-additive-lemmas @ 0197a66 (closes week-2
   milestone fully); (b) TRACK B Phase-3 dominant-error-term audit (pre-registered above).
+
+## tick 89 (2026-08-22T09:40:00Z, frontier) — TRACK B Phase-3 audit: recover + verify tick-88's completed-but-uncommitted work
+state one-liner: HANDOFF next (b) TRACK B Phase-3 dominant-error-term audit. Not a dead end:
+  tick 88 (local, ERROR at step 11, utf-8 decode byte 0x84) had ALREADY run the audit to
+  completion (evidence/2026-08-22-phase3-audit/ existed untracked with full machine-run.txt)
+  but crashed before committing. This tick verifies and commits it.
+gate: all tracks OPEN (21/21).
+work:
+  1) Found tick-88 residual: untracked evidence/2026-08-22-phase3-audit/ (audit.py, README.md,
+     check.sh, machine-run.txt) + modified logs/ticks.log (tick 87/88 lines).
+  2) Re-ran the audit checker (machine says yes):
+       $ bash evidence/2026-08-22-phase3-audit/check.sh
+       CHECK PASS: per-term budget machine-computed; ASYMPTOTICS binding (13.286x >= 2x)
+     (check.sh re-runs audit.py -> exact-rational per-term budget, asserts bound =
+      3999993289/20000000000 = 0.19999966445, ratio 13.286x, HIT=True, ASYMPTOTICS binding.)
+  3) Verified the attribution logic against the sources (not just the script):
+     - Polymath15 card: three components = zero-free region (Thm 1.2), asymptotics (Thm 1.3),
+       zero dynamics (Prop 3.1); bound Lambda <= t0 + y0^2/2 (Theorem debr-bound, line 443).
+     - 0.20-run README: the three machine checks map to (1) bound+RH height, (2) |f| bound
+       (Lemma 10.1, asymptotics), (3) T-loop winding (barrier/zero dynamics).
+     - audit.py: t0 term (0.186, 93%) -> ASYMPTOTICS; y0^2/2 term (0.014, 7%) ->
+       ZERO-FREE REGION + ZERO DYNAMICS. Margins: asymptotics 25.33%, barrier 4700%,
+       RH height 20.00%.
+  4) NUANCE recorded (not a contradiction, a refinement): the RH-height margin (20.00%) is
+     slightly TIGHTER than the asymptotics margin (25.33%). But RH height is an EXTERNAL
+     input (Platt-Trudgian 3e12 verification), not something B can improve with compute alone;
+     the asymptotics (|f| bound) IS a compute target. So "put compute on the asymptotics"
+     stands. The t0 TERM dominates the bound (93%), and the asymptotics is the compute-
+     addressable constraint on t0.
+  5) Ledger: NOTE #15 records the audit result (machine-computed per-term budget + binding
+     component + margins + next step).
+pre-registered falsification test (for the NEXT step, improving the |f| bound):
+  B now commits compute to the ASYMPTOTICS (|f| lower bound, hypothesis ii). OUTCOME THAT
+  KILLS "improve the |f| bound to lower t0": a re-run of New_abeff_largex_bounds at a LOWER
+  t0 (e.g. t0 = 0.18) with the CURRENT asymptotics still gives |f| >= 0.03, meaning the |f|
+  bound was NOT actually the binding constraint on t0 (the 0.186 choice was for the <0.2
+  target, not the |f| floor) — in which case the audit's attribution is wrong and B must
+  re-attribute. A hit requires a machine run showing |f| < 0.03 at t0 < 0.186 with current
+  asymptotics (confirming the |f| floor is at ~0.186) OR a better asymptotic that pushes the
+  |f| floor to a lower t0 (giving a new bound < 0.19999966445).
+next: (a) OWNER: file the PNT+ PR from branch ik-additive-lemmas @ 0197a66 (closes week-2
+  milestone fully); (b) TRACK B: commit compute to the ASYMPTOTICS — improve the |f| bound
+  (hypothesis ii) to lower the feasible t0 and beat 0.19999966445.
