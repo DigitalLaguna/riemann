@@ -1,0 +1,43 @@
+# Tick log for 2026-08-22 (UTC)
+
+## tick 71 (2026-08-22 00:05 UTC, interactive/frontier) — Track B step 4b: compile the 0.20 toolchain, sanity-test, launch both long jobs — verdict: YES
+state one-liner: planned work = HANDOFF step 4b (run the 0.20 experiment; stored sums are the long
+  pole). Not a dead end: B-001 (GL quadrature) and B-002 (ABI bug, fixed) both resolved; the
+  programs used here are the paper's own, unmodified.
+gate: track B OPEN (6/6).
+prior-art pre-flight: programs = dbn repo StoredSumSinglematv1.c (usage: "X digits", t0 fixed at 0)
+  and New_abeff_largex_bounds.c (usage: "t y N1 N2 m d"; m = Euler mollifier primes). Parameters
+  from Table 1 row 2 (claim #8): X = 5e12+194858 (center), t0 = 0.186, y0 = 0.16733, N0 = 630783,
+  5-prime mollifier.
+falsification (pre-registered in tick 70, evidence/2026-08-21-table1/README.md): 0.20 bound
+  FALSIFIED if the T-loop winding != 0, the T-loop aborts (min modabb <= 1), or the |f| lower bound
+  at N0 < 0.03 (paper achieved 0.0376).
+machine said (verbatim, key lines):
+  compile: gcc <prog>.c -O2 -I$PFX/include-v2 -I$PFX/include/flint -include arb_mat.h
+           -include stdlib.h -L$PFX/lib -lflint -lgmp -lmpfr -lm
+    -> StoredSumSinglematv1.c: exit 0 (needed -include stdlib.h: 2018 code relied on transitive
+       stdlib for EXIT_SUCCESS; FLINT-3.2 headers no longer pull it)
+    -> New_abeff_largex_bounds.c: exit 0 (same)
+  sanity test (StoredSumSinglematv1 60000083951.5 8, the 6e10 barrier at 8 digits):
+    header: 60000083951.5, 39, 39, 8  (39x39 matrix; N auto-selected 39 at 87-bit prec vs 65 at 160-bit)
+    first row vs the shipped 30-digit oracle (runs/singlemat_X60000083951p5_d30.txt):
+      40.90746805606  vs 40.907468056056650590...  (agree to 8 digits)
+      -2.60204619479  vs -2.602046194794450520...
+      270.89993064469 vs 270.899930644696722296...
+      19.72370876913  vs 19.72370876913...
+      1928.05890129397 vs 1928.0589012939702316...
+      107.4588323625   vs 107.4588...
+    -> program verified against the shipped oracle at 8 digits
+  abeff smoke (t=0.2 y=0.2 N1=100 N2=200 m=5 d=10): exit 0,
+    "Lower Lemma bound for t=0.2, y=0.2 in the range [N1=100,N2=200] using 5 primes: -4.526198233"
+    (negative at small N, as expected — the bound becomes >= 0.03 only near the Table-1 N0 values;
+     to be verified against the paper's 0.0376 at N0 = 630783)
+  jobs launched (nohup, machine output pending):
+    PID 513995: /tmp/storedsum 5000000194857.5 30  -> tracks/b-dbn/dbn/dbn_upper_bound/arb/
+               runs/singlemat_X5000000194857p5_d30.txt  (LONG POLE; 6e10/30-digit took several hours)
+    PID 514062: /tmp/abeff 0.186 0.16733 630783 630783 5 15 -> /tmp/abeff_020_N630783.txt
+verdict: YES — toolchain compiled, stored-sums program verified against oracle, both 0.20 jobs running.
+next: (a) when /tmp/abeff_020_N630783.txt finishes: read the lower bound — PASS if >= 0.03 (paper:
+  0.0376); if < 0.03 the 0.20 row is falsified (record + dead end). (b) when the stored-sums file is
+  written (header "5000000194857.5, <N>, <N>, 30"): run TloopSinglematv2 0 0.186 0.16733 0 on it —
+  PASS if winding 0 + no abort. (c) both PASS + claim #8 RH height => new claim Lambda <= 0.20000.
