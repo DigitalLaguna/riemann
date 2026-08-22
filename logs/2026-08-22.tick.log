@@ -581,3 +581,29 @@ FALSIFICATION TEST (pre-registered, before run):
   F5: prior-art flag (not a kill) if computed M(10^k) disagrees with any fetched
       source; must be resolved before promotion.
   Idea is dead if F1-F4 fire; if all pass, the record at 10^8 is machine-verified.
+
+--- tick 109 (track D, bookkeeping for tick 108's Mertens run) ---
+2026-08-22T19:51:03Z. Tick 108 ran D's first experiment (Mertens N=10^8, exact integer sieve;
+all 4 pre-registered checks F1-F4 PASS; run.txt committed in e749f39) but left it
+unclaimed: no check.sh, no ledger row, HANDOFF still the owner's post-tick-107
+version (stale: said D had not started). This tick completed the bookkeeping:
+  1. wrote evidence/2026-08-22-mertens/check.sh (re-runs the full script, asserts
+     C1-C4 + record values);
+  2. ran it: exit 0, "CHECK PASS: Mertens record at 10^8 reproduced
+     (max |M| = 3448, first at x = 76015339)";
+  3. promote.sh add -> NOTE #20; promote.sh promote 20 NUMERIC -> checker re-run
+     exit 0 -> "promoted #20: NOTE -> NUMERIC".
+Machine output (check.sh, verbatim, abridged to asserted lines):
+  C1 M(10) = -1 (expect -1): PASS
+  C2 OEIS A002321 n<=10000: 10000 values, mismatches=0: PASS
+  C3 sympy independent n<=10^5: mismatches=0: PASS
+  C4 OEIS A051402 envelope: checked=3448 n-values, mismatches=0: PASS
+  max |M(x)| for x <= 100000000: 3448, first at x = 76015339, M = -3448
+  M(10^8) = 1928
+  VERDICT: ALL CHECKS PASS
+  CHECK PASS: Mertens record at 10^8 reproduced (max |M| = 3448, first at x = 76015339)
+Machine class: direct evaluation of witnesses (exact integer arithmetic; three
+independent cross-checks). Precedent: claim #10 (Lagarias, same class).
+Next: D's second experiment (Robin-criterion near-misses over colossally abundant
+numbers; pre-register falsification tests first) or Mertens at 10^9; B parked
+until 08-29 review; A's PR leg is owner's.
