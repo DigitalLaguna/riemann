@@ -1,0 +1,14 @@
+PASS C1 CA-gen==A004490 (<=1e8, excl 1) gen=13 ref=13
+PASS C2 sigma==A000203 (n<=10000) mism=0
+PASS C2b hand sigma(12)=28, sigma(5040)=19344 
+PASS C3 near-miss n=10080 n=10080
+PASS C3b R(10080)=0.985818611972329 (12dp) 0.985818611972329
+PASS C3c sigma(10080)=39312 sigma=39312
+PASS C4 no witness R>=1 (superabundant 5040<n<=1e8) hits=[]
+PASS C5 full-scan[5041,1e6] argmax=10080 n=10080 R=0.985818611972
+PASS C5b full-scan max R<1 (margin) margin=1.418e-02
+PASS C6 reduction R(n)<=R(s(n)) sample violations=0
+
+G(10080)= 1.7558143389253
+e^gamma= 1.7810724179902
+VERDICT: ALL CHECKS PASS

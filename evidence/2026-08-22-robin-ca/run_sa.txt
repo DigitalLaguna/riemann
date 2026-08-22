@@ -1,0 +1,21 @@
+superabundant <=1e8: 42
+top 15 superabundant near-misses R(n)=sigma/(e^gamma n loglog n):
+  n=         4 sigma=           7 R=3.00811707965779 1-R=-2.00812 CA=False
+  n=         6 sigma=          12 R=1.92545038150125 1-R=-0.92545 CA=True
+  n=        12 sigma=          28 R=1.43926787471919 1-R=-0.439268 CA=True
+  n=        24 sigma=          60 R=1.21394649613542 1-R=-0.213946 CA=False
+  n=        60 sigma=         168 R=1.11526613326487 1-R=-0.115266 CA=True
+  n=        36 sigma=          91 R=1.11195994427874 1-R=-0.11196 CA=False
+  n=       120 sigma=         360 R=1.07558832682514 1-R=-0.0755883 CA=True
+  n=        48 sigma=         124 R=1.07156820401315 1-R=-0.0715682 CA=False
+  n=       180 sigma=         546 R=1.03386778414275 1-R=-0.0338678 CA=False
+  n=       360 sigma=        1170 R=1.02941958960464 1-R=-0.0294196 CA=True
+  n=       240 sigma=         744 R=1.02310264051187 1-R=-0.0231026 CA=False
+  n=      2520 sigma=        9360 R=1.01321589864371 1-R=-0.0132159 CA=True
+  n=       840 sigma=        2880 R=1.0093983688873 1-R=-0.00939837 CA=False
+  n=      5040 sigma=       19344 R=1.00555898145672 1-R=-0.00555898 CA=True
+  n=       720 sigma=        2418 R=1.00087432420743 1-R=-0.000874324 CA=False
+
+MAX R over superabundant <=1e8: 3.00811707965779 at n= 4
+any R>=1 (witness)? [4, 6, 12, 24, 60, 36, 120, 48, 180, 360, 240, 2520, 840, 5040, 720]
+R(10080) recompute: 0.985818611972329

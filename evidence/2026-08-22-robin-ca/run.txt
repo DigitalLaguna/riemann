@@ -1,0 +1,60 @@
+[gen] distinct s(eps) values collected: 21; <=1e8: 14; <=1e6: 11
+[ref] OEIS CA <=1e8: 42; <=1e6: 31
+[F1] generated CA<=1e6 == OEIS CA<=1e6 : False
+   only-in-gen: []
+   only-in-ref: [4, 24, 36, 48, 180, 240, 720, 840, 1260, 1680, 10080, 15120, 25200, 27720, 110880, 166320, 277200, 332640, 554400, 665280]
+[F1b] generated CA<=1e8 == OEIS CA<=1e8 : False
+   only-in-gen: []
+   only-in-ref: [4, 24, 36, 48, 180, 240, 720, 840, 1260, 1680, 10080, 15120, 25200, 27720, 110880, 166320, 277200, 332640, 554400, 665280]
+[sigma] sieve done, sigma[1000000]=2480437
+[F3] sigma==OEIS A000203 for n<=10000 : True (mismatches=0 [])
+[F5] sigma(12)=28 (exp 28), sigma(5040)=19344 (exp 19344) : True
+
+[main] CA numbers >5040 and <=1e8: 23
+[main] top 12 near-misses (largest R(n)=sigma/(e^gamma n loglog n)):
+   n=     10080  sigma=       39312  R=0.985818611972329  (1-R=0.0141814)
+   n=     55440  sigma=      232128  R=0.98325396384704  (1-R=0.016746)
+   n=     27720  sigma=      112320  R=0.978363769048844  (1-R=0.0216362)
+   n=     15120  sigma=       59520  R=0.976130255417046  (1-R=0.0238697)
+   n=    110880  sigma=      471744  R=0.974047429391448  (1-R=0.0259526)
+   n=    720720  sigma=     3249792  R=0.973045979901084  (1-R=0.026954)
+   n=   1441440  sigma=     6604416  R=0.970056126930581  (1-R=0.0299439)
+   n=    166320  sigma=      714240  R=0.969600519947418  (1-R=0.0303995)
+   n=   2162160  sigma=     9999360  R=0.968837769366675  (1-R=0.0311622)
+   n=   4324320  sigma=    20321280  R=0.967701617550317  (1-R=0.0322984)
+   n=  21621600  sigma=   104993280  R=0.964531211516607  (1-R=0.0354688)
+   n=  73513440  sigma=   365783040  R=0.96445596938021  (1-R=0.035544)
+
+[F6-CA] CA witness R(n)>=1 among CA>5040<=1e8 : 0 []
+
+[F2] full float scan [5041,1e6]: argmax R at n=10080, R=0.985818611972
+[F2] argmax n=10080 is CA? True
+[F2] top 10 float near-misses (n, R, is_CA):
+   n=   10080 R=0.985818611972 CA=True
+   n=   55440 R=0.983253963847 CA=True
+   n=   27720 R=0.978363769049 CA=True
+   n=    7560 R=0.976892630321 CA=False
+   n=   15120 R=0.976130255417 CA=True
+   n=  110880 R=0.974047429391 CA=True
+   n=  720720 R=0.973045979901 CA=True
+   n=  166320 R=0.969600519947 CA=True
+   n=   65520 R=0.964525071410 CA=False
+   n=  332640 R=0.963518921537 CA=True
+[F6-full] max R over [5041,1e6] (float) = 0.985818611972; margin to 1 = 1.418e-02
+[F6-rig] top-10 candidates at 60 digits:
+   n=   10080 R=0.985818611972329 
+   n=   55440 R=0.98325396384704 
+   n=   27720 R=0.978363769048844 
+   n=    7560 R=0.976892630321074 
+   n=   15120 R=0.976130255417046 
+   n=  110880 R=0.974047429391448 
+   n=  720720 R=0.973045979901084 
+   n=  166320 R=0.969600519947418 
+   n=   65520 R=0.964525071409629 
+   n=  332640 R=0.963518921536645 
+[F6-rig] rigorous hits among top-10: []
+
+[F4] Robin explicit bound (2.2) violations in [3,1e6]: 1 [12]
+
+[time] 18.5s
+SUMMARY F1=False F1b=False F3=True F5=True F2_argmax_CA=True F6_CA_hits=0 F6_full_margin=1.418e-02 F4_viol=1

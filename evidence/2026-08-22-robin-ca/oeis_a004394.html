@@ -1,0 +1,492 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+  
+  <head>
+  <link rel="stylesheet" href="/styles.css">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="OEIS,integer sequences,Sloane" />
+  
+  
+  
+  <title>A004394 - OEIS</title>
+  <link rel="search" type="application/opensearchdescription+xml" title="OEIS" href="/oeis.xml">
+  <script>
+  var myURL = "\/A004394"
+  function redir() {
+      var host = document.location.hostname;
+      if(host != "oeis.org" && host != "127.0.0.1" && !/^([0-9.]+)$/.test(host) && host != "localhost" && host != "localhost.localdomain") {
+          document.location = "https"+":"+"//"+"oeis"+".org/" + myURL;
+      }
+  }
+  function sf() {
+      if(document.location.pathname == "/" && document.f) document.f.q.focus();
+  }
+  </script>
+  </head>
+  <body bgcolor=#ffffff onload="redir();sf()"><a href="https://oeis.org/cdn-cgi/content?id=tpBGp_ovudGcqLkdOTB_VEEo9DEws_pP6edCaxeX42g-1787435493.290678-1.2.1.1-U9t0ZiI.QD7bswdmjM514R0UEtcNue_KRnI7BK1xh8xeKUfgJete79mWkSUefGgF" aria-hidden="true" rel="nofollow noopener" style="display: none !important; visibility: hidden !important"></a>
+    <div class=loginbar>
+      <div class=login>
+      
+        <a href="/login?redirect=%2FA004394" rel="nofollow">login</a>
+      
+      </div>
+    </div>
+
+    <div class=center><div class=top>
+    <center>
+    <div class=donors>
+    The OEIS is supported by <a href="http://oeisf.org/#DONATE">the many generous donors to the OEIS Foundation</a>.
+    </div>
+
+    <div class=banner>
+    <a href="/"><img class=banner border="0" width="600" src="/banner2021.jpg" alt="A004394 - OEIS"></a>
+    </div>
+
+    
+    </center>
+    </div></div>
+
+    <div class=center><div class=pagebody>
+      
+    
+    <div class=searchbarcenter>
+        <form name=f action="/search" method="GET">
+            <div class=searchbargreet>
+                <div class=searchbar>
+                    <div class=searchq>
+                        <input class=searchbox maxLength=1024 name=q value="" title="Search Query">
+                        
+                        
+                        
+                        
+                    </div>
+                    <div class=searchsubmit>
+                        <input type=submit value="Search" name=go>
+                    </div>
+                    <div class=hints>
+                        <span class=hints><a href="/hints.html">Hints</a></span>
+                    </div>
+                </div>
+                <div class=searchgreet>
+                    (Greetings from <a href="/welcome">The On-Line Encyclopedia of Integer Sequences</a>!)
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class=sequence>
+        <div class=space1></div>
+        <div class=line></div>
+        
+        <div class=seqhead>
+            <div class=seqnumname>
+                <div class=seqnum>
+                    
+                        A004394
+                    
+                </div>
+                <div class=seqname>
+                    Superabundant [or super-abundant] numbers: n such that sigma(n)/n &gt; sigma(m)/m for all m &lt; n, sigma(n) being <a href="/A000203" title="a(n) = sigma(n), the sum of the divisors of n. Also called sigma_1(n).">A000203</a>(n), the sum of the divisors of n.
+                    
+                </div>
+            </div>
+            <div class=scorerefs>
+                        
+                        104
+            </div>
+        </div>
+        
+            
+    
+    
+    <div>
+        <div class=seqdatabox>
+            <div class=seqdata>1, 2, 4, 6, 12, 24, 36, 48, 60, 120, 180, 240, 360, 720, 840, 1260, 1680, 2520, 5040, 10080, 15120, 25200, 27720, 55440, 110880, 166320, 277200, 332640, 554400, 665280, 720720, 1441440, 2162160, 3603600, 4324320, 7207200, 8648640, 10810800, 21621600</div>
+            
+                <div class=seqdatalinks>
+                (<a href="/A004394/list">list</a>;
+                
+                
+                
+                    <a href="/A004394/graph">graph</a>;
+                
+                <a href="/search?q=A004394+-id:A004394">refs</a>;
+                <a href="/A004394/listen">listen</a>;
+                <a href="/history?seq=A004394">history</a>;
+                
+                <a href="/search?q=id:A004394&fmt=text">text</a>;
+                <a href="/A004394/internal">internal format</a>)
+                </div>
+            
+        </div>
+    </div>
+    <div class=entry>
+        
+            
+        
+            
+        
+            
+        
+            
+                 
+                 
+                 
+                 
+                     <div class=section>
+                         <div class=sectname>OFFSET</div>
+                         <div class=sectbody>
+                             
+                                 <div class=sectline>1,2</div>
+                             
+                         </div>
+                     </div>
+                 
+            
+        
+            
+                 
+                 
+                 
+                 
+                     <div class=section>
+                         <div class=sectname>COMMENTS</div>
+                         <div class=sectbody>
+                             
+                                 <div class=sectline><a href="/wiki/User:Matthew_Conroy">Matthew Conroy</a> points out that these are different from the highly composite numbers - see <a href="/A002182" title="Highly composite numbers: numbers n where d(n), the number of divisors of n (A000005), increases to a record.">A002182</a>. Jul 10 1996</div>
+                             
+                                 <div class=sectline>With respect to the comment above, neither sequence is subsequence of the other. - <a href="/wiki/User:Ivan_N._Ianakiev">Ivan N. Ianakiev</a>, Feb 11 2020</div>
+                             
+                                 <div class=sectline>Also n such that sigma_{-1}(n) &gt; sigma_{-1}(m) for all m &lt; n, where sigma_{-1}(n) is the sum of the reciprocals of the divisors of n. - <a href="/wiki/User:Matthew_Vandermast">Matthew Vandermast</a>, Jun 09 2004</div>
+                             
+                                 <div class=sectline>Ramanujan (1997, Section 59; written in 1915) called these numbers &quot;generalized highly composite.&quot; Alaoglu and Erdős (1944) changed the terminology to &quot;superabundant.&quot; - <a href="/wiki/User:Jonathan_Sondow">Jonathan Sondow</a>, Jul 11 2011</div>
+                             
+                                 <div class=sectline>Alaoglu and Erdős show that: (1) n is superabundant =&gt; n=2^{e_2} * 3^{e_3} * ...* p^{e_p}, with e_2 &gt;= e_3 &gt;= ... &gt;= e_p (and e_p is 1 unless n=4 or n=36); (2) if q &lt; r are primes, then | e_r - floor(e_q*log(q)/log(r)) | &lt;= 1; (3) q^{e_q} &lt; 2^{e_2+2} for primes q, 2 &lt; q &lt;= p. - <a href="/wiki/User:Keith_Briggs">Keith Briggs</a>, Apr 26 2005</div>
+                             
+                                 <div class=sectline>It follows from Alaoglu and Erdős finding 1 (above) that, for n &gt; 7, a(n) is a Zumkeller Number (<a href="/A083207" title="Zumkeller or integer-perfect numbers: numbers n whose divisors can be partitioned into two disjoint sets with equal sum.">A083207</a>); for details, see Proposition 9 and Corollary 5 at Rao/Peng link (below). - <a href="/wiki/User:Ivan_N._Ianakiev">Ivan N. Ianakiev</a>, Feb 11 2020</div>
+                             
+                                 <div class=sectline>See <a href="/A166735" title="Superabundant numbers (A004394) that are not highly composite (A002182).">A166735</a> for superabundant numbers that are not highly composite, and <a href="/A189228" title="Superabundant numbers (A004394) that are not colossally abundant (A004490).">A189228</a> for superabundant numbers that are not colossally abundant.</div>
+                             
+                                 <div class=sectline>Pillai called these numbers &quot;highly abundant numbers of the 1st order&quot;. - <a href="/wiki/User:Amiram_Eldar">Amiram Eldar</a>, Jun 30 2019</div>
+                             
+                                 <div class=sectline>We can compare sigma(m) with m in a slightly different manner using logarithms instead of division. See <a href="/A234517" title="Numbers k &gt; 1 such that for all m &gt;= k, e(m) &lt;= e(k), where e(m) = log_m(sigma(m)), the exponent such that m^e(m) = sigma(m)...">A234517</a>, which lists 72 rather than 48, then inserts 420, 480, 7560, 12600, 20160 before omitting 25200, and generally seems to continue to list more numbers than this sequence. - <a href="/wiki/User:Peter_Munn">Peter Munn</a>, Aug 19 2026</div>
+                             
+                         </div>
+                     </div>
+                 
+            
+        
+            
+                 
+                 
+                 
+                 
+                     <div class=section>
+                         <div class=sectname>REFERENCES</div>
+                         <div class=sectbody>
+                             
+                                 <div class=sectline>R. Honsberger, Mathematical Gems, M.A.A., 1973, p. 112.</div>
+                             
+                                 <div class=sectline>J. Sandor, &quot;Abundant numbers&quot;, In: M. Hazewinkel, Encyclopedia of Mathematics, Supplement III, Kluwer Acad. Publ., 2002 (see pp. 19-21).</div>
+                             
+                                 <div class=sectline>James J. Tattersall, Elementary Number Theory in Nine Chapters, Cambridge University Press, 1999, page 147.</div>
+                             
+                                 <div class=sectline>David Wells, The Penguin Dictionary of Curious and Interesting Numbers. Penguin Books, NY, 1986, 128.</div>
+                             
+                         </div>
+                     </div>
+                 
+            
+        
+            
+                 
+                 
+                 
+                     
+                 
+                 
+                     <div class=section>
+                         <div class=sectname>LINKS</div>
+                         <div class=sectbody>
+                             
+                                 <div class=sectline>D. Kilminster, <a href="/A004394/b004394.txt">Table of n, a(n) for n = 1..2000</a> (extends to n = 8436 in the comments; first 500 terms from T. D. Noe)</div>
+                             
+                                 <div class=sectline>A. Akbary and Z. Friggstad, <a href="https://www.jstor.org/stable/40391073">Superabundant numbers and the Riemann hypothesis</a>, Amer. Math. Monthly, 116 (2009), 273-275.</div>
+                             
+                                 <div class=sectline>L. Alaoglu and P. Erdős, <a href="http://www.renyi.hu/~p_erdos/1944-03.pdf">On highly composite and similar numbers,</a> Trans. Amer. Math. Soc., 56 (1944), 448-469. <a href="http://upforthecount.com/math/errata.html">Errata</a>.</div>
+                             
+                                 <div class=sectline>Christian Axler, <a href="https://arxiv.org/abs/2406.04018">Inequalities involving the primorial counting function</a>, arXiv:2406.04018 [math.NT], 2024. See p. 12.</div>
+                             
+                                 <div class=sectline>Yu. Bilu, P. Habegger, and L. Kühne, <a href="https://arxiv.org/abs/1805.07167">Effective bounds for singular units</a>, arXiv:1805.07167 [math.NT], 2018.</div>
+                             
+                                 <div class=sectline>Benjamin Braun and Brian Davis, <a href="https://arxiv.org/abs/1901.01417">Antichain Simplices</a>, arXiv:1901.01417 [math.CO], 2019.</div>
+                             
+                                 <div class=sectline>Keith Briggs, <a href="https://projecteuclid.org/euclid.em/1175789744">Abundant numbers and the Riemann Hypothesis</a>, Experimental Math., Vol. 16 (2006), p. 251-256.</div>
+                             
+                                 <div class=sectline>Tibor Burdette and Ian Stewart, <a href="https://arxiv.org/abs/2009.03306">Counterexamples to a Conjecture by Alaoglu and Erdős</a>, arXiv:2009.03306 [math.NT], 2020.</div>
+                             
+                                 <div class=sectline>Geoffrey Caveney, Jean-Louis Nicolas and Jonathan Sondow, <a href="http://math.colgate.edu/~integers/l33/l33.Abstract.html">Robin's theorem, primes, and a new elementary reformulation of the Riemann Hypothesis</a>, INTEGERS 11 (2011), #A33.</div>
+                             
+                                 <div class=sectline>Geoffrey Caveney, J.-L. Nicolas and J. Sondow, <a href="https://arxiv.org/abs/1112.6010">On SA, CA, and GA numbers</a>, arXiv preprint arXiv:1112.6010 [math.NT], 2011. - From <a href="/wiki/User:N._J._A._Sloane">N. J. A. Sloane</a>, Apr 14 2012</div>
+                             
+                                 <div class=sectline>Geoffrey Caveney, J.-L. Nicolas and J. Sondow, <a href="https://doi.org/10.1007/s11139-012-9371-0">On SA, CA, and GA numbers</a>, Ramanujan J., 29 (2012), 359-384.</div>
+                             
+                                 <div class=sectline>François Clément and Stefan Steinerberger, <a href="https://arxiv.org/abs/2502.09489">On the largest singular vector of the Redheffer matrix</a>, arXiv:2502.09489 [math.NT], 2025. See p. 2.</div>
+                             
+                                 <div class=sectline>P. Erdős and J.-L. Nicolas, <a href="https://doi.org/10.24033/bsmf.1793">Répartition des nombres superabondants (Text in French)</a>, Bulletin de la S. M. F., tome 103 (1975), pp. 65-90.</div>
+                             
+                                 <div class=sectline>F. Jokar, <a href="https://arxiv.org/abs/2003.11309">On k-layered numbers and some labeling related to k-layered numbers</a>, arXiv:2003.11309 [math.NT], 2020.</div>
+                             
+                                 <div class=sectline>Stepan Kochemazov, Oleg Zaikin, Eduard Vatutin, and Alexey Belyshev, <a href="https://cs.uwaterloo.ca/journals/JIS/VOL23/Zaikin/zaikin3.html">Enumerating Diagonal Latin Squares of Order Up to 9</a>, J. Int. Seq., Vol. 23 (2020), Article 20.1.2.</div>
+                             
+                                 <div class=sectline>J. C. Lagarias, <a href="http://arXiv.org/abs/math.NT/0008177">An elementary problem equivalent to the Riemann hypothesis</a>, Am. Math. Monthly 109 (#6, 2002), 534-543.</div>
+                             
+                                 <div class=sectline>A. Morkotun, <a href="https://arxiv.org/abs/1307.0083">On the increase of Gronwall function value at the multiplication of its argument by a prime</a>, arXiv preprint arXiv:1307.0083 [math.NT], 2013.</div>
+                             
+                                 <div class=sectline>S. Nazardonyavi and S. Yakubovich, <a href="https://arxiv.org/abs/1211.2147">Superabundant numbers, their subsequences and the Riemann hypothesis</a>, arXiv preprint arXiv:1211.2147 [math.NT], 2012.</div>
+                             
+                                 <div class=sectline>S. Nazardonyavi and S. Yakubovich, <a href="https://arxiv.org/abs/1306.3434">Delicacy of the Riemann hypothesis and certain subsequences of superabundant numbers</a>, arXiv preprint arXiv:1306.3434 [math.NT], 2013.</div>
+                             
+                                 <div class=sectline>S. Nazardonyavi and S. Yakubovich, <a href="https://cs.uwaterloo.ca/journals/JIS/VOL17/Nazar/nazar4.html">Extremely Abundant Numbers and the Riemann Hypothesis</a>, Journal of Integer Sequences, 17 (2014), Article 14.2.8.</div>
+                             
+                                 <div class=sectline>Walter Nissen, <a href="http://upforthecount.com/math/abundance.html">Abundancy : Some Resources</a>.</div>
+                             
+                                 <div class=sectline>T. D. Noe, <a href="http://www.sspectra.com/math/SAN.txt">First 500 superabundant numbers</a>.</div>
+                             
+                                 <div class=sectline>T. D. Noe, <a href="http://www.sspectra.com/math/SAN_1000000.zip">First 1000000 superabundant numbers (21 MB, zipped)</a>.</div>
+                             
+                                 <div class=sectline>S. Sivasankaranarayana Pillai, <a href="https://web.archive.org/web/20150912090449/http://www.calmathsoc.org/bulletin/article.php?ID=B.1943.35.20">Highly abundant numbers</a>, Bulletin of the Calcutta Mathematical Society, Vol. 35,  No. 1 (1943), pp. 141-156.</div>
+                             
+                                 <div class=sectline>S. Sivasankaranarayana Pillai, <a href="https://archive.org/details/in.ernet.dli.2015.282686/page/n825">On numbers analogous to highly composite numbers of Ramanujan</a>, Rajah Sir Annamalai Chettiar Commemoration Volume, ed. Dr. B. V. Narayanaswamy Naidu, Annamalai University, 1941, pp. 697-704.</div>
+                             
+                                 <div class=sectline>S. Ramanujan, <a href="https://doi.org/10.1023/A:1009764017495">Highly composite numbers</a>, Annotated and with a foreword by J.-L. Nicolas and G. Robin, Ramanujan J., 1 (1997), 119-153.</div>
+                             
+                                 <div class=sectline>K. P. S. Bhaskara Rao and Yuejian Peng, <a href="https://doi.org/10.1016/j.jnt.2012.09.020">On Zumkeller Numbers</a>, Journal of Number Theory, Volume 133, Issue 4, April 2013, pp. 1135-1155.</div>
+                             
+                                 <div class=sectline>T. Schwabhäuser, <a href="https://arxiv.org/abs/1308.3678">Preventing Exceptions to Robin's Inequality</a>, arXiv preprint arXiv:1308.3678 [math.NT], 2013.</div>
+                             
+                                 <div class=sectline>Eric Weisstein's World of Mathematics, <a href="https://mathworld.wolfram.com/SuperabundantNumber.html">Superabundant Number</a>.</div>
+                             
+                                 <div class=sectline>Wikipedia, <a href="https://en.wikipedia.org/wiki/Superabundant_number">Superabundant number</a>.</div>
+                             
+                         </div>
+                     </div>
+                 
+            
+        
+            
+                 
+                 
+                 
+                 
+                     <div class=section>
+                         <div class=sectname>FORMULA</div>
+                         <div class=sectbody>
+                             
+                                 <div class=sectline>a(n+1) &lt;= 2*a(n). - <a href="/wiki/User:A.H.M._Smeets">A.H.M. Smeets</a>, Jul 10 2021</div>
+                             
+                         </div>
+                     </div>
+                 
+            
+        
+            
+                 
+                 
+                 
+                 
+            
+        
+            
+                 
+                 
+                 
+                 
+            
+        
+            
+                 
+                 
+                 
+                 
+                     <div class=section>
+                         <div class=sectname>MATHEMATICA</div>
+                         <div class=sectbody>
+                             
+                                 <div class=sectline>a=0; Do[b=DivisorSigma[1, n]/n; If[b&gt;a, a=b; Print[n]], {n, 1, 10^7}]</div>
+                             
+                                 <div class=sectline>(* Alternative: convert all 8436 terms in b-file into a list of terms: *)</div>
+                             
+                                 <div class=sectline>f[w_] := Times @@ Flatten@ {Complement[#1, Union[#2, #3]], Product[Prime@ i, {i, PrimePi@ #}] &amp; /@ #2, Factorial /@ #3} &amp; @@ ToExpression@ {StringSplit[w, _?(! DigitQ@ # &amp;)], StringCases[w, (x : DigitCharacter ..) ~~ &quot;#&quot; :&gt; x], StringCases[w, (x : DigitCharacter ..) ~~ &quot;!&quot; :&gt; x]}; Map[Which[StringTake[#, 1] == {&quot;#&quot;}, f@ Last@ StringSplit@ Last@ #, StringTake[#, 1] == {}, Nothing, True, ToExpression@ StringSplit[#][[1, -1]]] &amp;, Drop[Import[&quot;b004394.txt&quot;, &quot;Data&quot;], 3] ] (* <a href="/wiki/User:Michael_De_Vlieger">Michael De Vlieger</a>, May 08 2018 *)</div>
+                             
+                         </div>
+                     </div>
+                 
+            
+        
+            
+                 
+                 
+                 
+                 
+                     <div class=section>
+                         <div class=sectname>PROG</div>
+                         <div class=sectbody>
+                             
+                                 <div class=sectline>(PARI) print1(r=1); forstep(n=2, 1e6, 2, t=sigma(n, -1); if(t&gt;r, r=t; print1(&quot;, &quot;n))) \\ <a href="/wiki/User:Charles_R_Greathouse_IV">Charles R Greathouse IV</a>, Jul 19 2011</div>
+                             
+                         </div>
+                     </div>
+                 
+            
+        
+            
+                 
+                 
+                     
+                 
+                 
+                 
+                     <div class=section>
+                         <div class=sectname>CROSSREFS</div>
+                         <div class=sectbody>
+                             
+                                 <div class=sectline>Almost the same as <a href="/A077006" title="Numbers k such that sigma(k)/k &gt;= sigma(m)/m for all m &lt;= k.">A077006</a>.</div>
+                             
+                                 <div class=sectline>The colossally abundant numbers <a href="/A004490" title="Colossally abundant numbers: m for which there is a positive exponent epsilon such that sigma(m)/m^{1 + epsilon} &gt;= sigma(k)...">A004490</a> are a subsequence, as are <a href="/A023199" title="a(n) is the least k with sigma(k) &gt;= n*k.">A023199</a>.</div>
+                             
+                                 <div class=sectline>Subsequence of <a href="/A025487" title="Least integer of each prime signature A124832; also products of primorial numbers A002110.">A025487</a>; apart from a(3) = 4 and a(7) = 36, a subsequence of <a href="/A102750" title="Numbers n such that square of largest prime dividing n does not divide n.">A102750</a>.</div>
+                             
+                                 <div class=sectline>Cf. <a href="/A000203" title="a(n) = sigma(n), the sum of the divisors of n. Also called sigma_1(n).">A000203</a>, <a href="/A002093" title="Highly abundant numbers: numbers k such that sigma(k) &gt; sigma(m) for all m &lt; k.">A002093</a>, <a href="/A002182" title="Highly composite numbers: numbers n where d(n), the number of divisors of n (A000005), increases to a record.">A002182</a>, <a href="/A234517" title="Numbers k &gt; 1 such that for all m &gt;= k, e(m) &lt;= e(k), where e(m) = log_m(sigma(m)), the exponent such that m^e(m) = sigma(m)...">A234517</a>.</div>
+                             
+                                 <div class=sectline>Cf. <a href="/A112974" title="Number of superabundant numbers between two consecutive colossally abundant numbers.">A112974</a> (number of superabundant numbers between colossally abundant numbers).</div>
+                             
+                                 <div class=sectline>Cf. <a href="/A091901" title="Values of n for which sigma(n) &lt; e^gamma * n * log(log(n)).">A091901</a> (Robin's inequality), <a href="/A189686" title="Superabundant numbers (A004394) satisfying the reverse of Robin's inequality (A091901).">A189686</a> (superabundant and the reverse of Robin's inequality), <a href="/A192884" title="Non-superabundant numbers satisfying the reverse of Robin's inequality (A091901).">A192884</a> (non-superabundant and the reverse of Robin's inequality).</div>
+                             
+                                 <div class=sectline>Sequence in context: <a href="/A340840" title="Union of the highly composite and superabundant numbers.">A340840</a> <a href="/A077006" title="Numbers k such that sigma(k)/k &gt;= sigma(m)/m for all m &lt;= k.">A077006</a> <a href="/A166981" title="Superabundant numbers (A004394) that are highly composite (A002182).">A166981</a> * <a href="/A189686" title="Superabundant numbers (A004394) satisfying the reverse of Robin's inequality (A091901).">A189686</a> <a href="/A355304" title="Integers whose number of normal undulating divisors sets a new record.">A355304</a> <a href="/A137425" title="a(1) = 1;l for n&gt;1, a(n) = smallest number such that: 1. the number of divisors is strictly increasing, 2. the differences b...">A137425</a></div>
+                             
+                                 <div class=sectline>Adjacent sequences:  <a href="/A004391" title="Binomial coefficient C(8n,n-10).">A004391</a> <a href="/A004392" title="Binomial coefficient C(8n,n-11).">A004392</a> <a href="/A004393" title="Binomial coefficient C(8n,n-12).">A004393</a> * <a href="/A004395" title="Ratios of successive terms are 1,1,2,3,3,4,5,5,6,7,7,...">A004395</a> <a href="/A004396" title="One even number followed by two odd numbers.">A004396</a> <a href="/A004397" title="a(n) = prime(n) + Fibonacci(n).">A004397</a></div>
+                             
+                         </div>
+                     </div>
+                 
+            
+        
+            
+                 
+                 
+                 
+                 
+                     <div class=section>
+                         <div class=sectname>KEYWORD</div>
+                         <div class=sectbody>
+                             
+                                 <div class=sectline><span title="a sequence of nonnegative numbers">nonn</span>,<span title="an exceptionally nice sequence">nice</span>,<span title="edited within the last two weeks">changed</span></div>
+                             
+                         </div>
+                     </div>
+                 
+            
+        
+            
+                 
+                 
+                 
+                 
+                     <div class=section>
+                         <div class=sectname>AUTHOR</div>
+                         <div class=sectbody>
+                             
+                                 <div class=sectline><a href="/wiki/User:Matthew_Conroy">Matthew Conroy</a></div>
+                             
+                         </div>
+                     </div>
+                 
+            
+        
+            
+                 
+                 
+                 
+                 
+                     <div class=section>
+                         <div class=sectname>EXTENSIONS</div>
+                         <div class=sectbody>
+                             
+                                 <div class=sectline>Name edited by <a href="/wiki/User:Peter_Munn">Peter Munn</a>, Mar 13 2019</div>
+                             
+                         </div>
+                     </div>
+                 
+            
+        
+            
+                 
+                 
+                 
+                 
+                     <div class=section>
+                         <div class=sectname>STATUS</div>
+                         <div class=sectbody>
+                             
+                                 <div class=sectline>approved</div>
+                             
+                         </div>
+                     </div>
+                 
+            
+        
+
+        
+    </div>
+
+        
+        <div class=space10></div>
+    </div>
+
+    </div></div>
+
+    <p>
+
+    <div class=footerpad></div>
+    <div class=footer>
+    <center>
+    <div class=bottom>
+    <div class=linksbar>
+      <a href="/">Lookup</a>
+      <a href="/wiki/Welcome"><font color="red">Welcome</font></a>
+      <a href="/wiki/Main_Page"><font color="red">Wiki</font></a>
+      <a href="/account">Register</a>
+      
+      <a href="/play.html">Music</a>
+      <a href="/plot2.html">Plot 2</a>
+      <a href="/demo1.html">Demos</a>
+      <a href="/wiki/Index_to_OEIS">Index</a>
+      <a href="/webcam">WebCam</a>
+      <a href="/Submit.html">Contribute</a>
+      <a href="/eishelp2.html">Format</a>
+      <a href="/wiki/Style_Sheet">Style Sheet</a>
+      <a href="/transforms.html">Transforms</a>
+      <a href="/ol.html">Superseeker</a>
+      <a href="/recent">Recents</a>
+    </div>
+    <div class=linksbar>
+      <a href="/community.html">The OEIS Community</a>
+    </div>
+    <div class=linksbar>
+      Maintained by <a href="http://oeisf.org">The OEIS Foundation Inc.</a>
+    </div>
+
+    <div class=dbinfo>Last modified August 22 17:50 EDT 2026.  Contains 398541 sequences.</div>
+    <div class=legal>
+    <a href="/wiki/Legal_Documents">License Agreements, Terms of Use, Privacy Policy</a>
+    </div>
+
+    </div>
+    </center>
+    </div>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2f519790cff65a8',t:'MTc4NzQzNTQ5Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
