@@ -83,3 +83,26 @@ correction (tick 72): the "next (a)" line above misstated the unlocked rows. Exa
   Row 3 (Lambda = 0.19) needs RH to 1e13 — a NEW verification. So the 0.20 result (claim #9) is
   the best bound currently available from Table 1 with existing verified RH data; row 1 is
   subsumed by row 2.
+
+## tick 78 pre-registration (2026-08-22T04:24:48Z, before run) — Track E: Lagarias Problem E bounded counterexample search, N = 10^6
+attempt: direct 100-digit evaluation of margin(n) = H_n + e^{H_n} log H_n - sigma(n) for ALL
+  n in [1, 10^6]; sigma exact integer (divisor sieve); H_n = digamma(n+1)+euler at 100 digits.
+falsification test (pre-registered): RH is FALSIFIED (witness found) iff margin(n) <= 1e-80 for
+  any n in [2, 10^6] at 100 digits (threshold >> per-op error ~1e-95, so sign is rigorous).
+  If no such n: claim "Lagarias inequality holds for all n <= 10^6" (extends the paper's own
+  computer verification to 5040, lagarias-2002 p. 5 / line 613 of lit/text).
+prior-art pre-flight (queries logged):
+  (1) grep lit/text/lagarias-2002.txt "comput|check|verif" -> line 613: "For 1 <= n <= 5040 one
+      verifies (1.1) directly by computer, the only case of equality being n = 1." (Rains check;
+      proof of Theorem 1.1 uses Robin bound e^gamma n log log n < RHS for n >= 5041)
+  (2) arXiv API all:"Lagarias inequality" -> 3 hits:
+      arXiv:2602.15905 (2026-02-16) "On the Lagarias Inequality and Superabundant Numbers":
+        B_n = (H_n + e^{H_n} log H_n)/n strictly increasing; least counterexample (if any) must
+        be superabundant; suffices to verify on superabundant numbers. (abstract, fetched verbatim)
+      arXiv:2503.03159 (2025-03-05) "On Robin's Inequality and the Kaneko-Lagarias Inequality":
+        Lagarias inequality holds for almost every n (all n not divisible by 2,3,5; primorials;
+        21-free integers; ...).
+      arXiv:2606.15096 (2026-06-13) "VGPT-RSI for RH-Adjacent Formal Progress" (agent paper;
+        "Verified Finite Lagarias Inequalities" — to check its claimed bound before we cite it).
+  Conclusion: our all-n check to 10^6 is NOT duplicate prior art (paper checks to 5040; the
+  superabundant-restriction result 2602.15905 is recorded as the next lever, not yet carded).
