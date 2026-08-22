@@ -607,3 +607,18 @@ independent cross-checks). Precedent: claim #10 (Lagarias, same class).
 Next: D's second experiment (Robin-criterion near-misses over colossally abundant
 numbers; pre-register falsification tests first) or Mertens at 10^9; B parked
 until 08-29 review; A's PR leg is owner's.
+
+--- tick 112 (track D, Robin-criterion near-misses over colossally abundant numbers) ---
+PRE-REGISTERED FALSIFICATION TESTS (before run):
+  F1: CA list generated independently via Lagarias eq (2.3) eps-sweep must EQUAL
+      fetched OEIS A004394 for all CA numbers <= 10^6. (else generation is wrong)
+  F2: REDUCTION CHECK: max of R(n)=sigma(n)/(e^gamma*n*log log n) over all
+      n in [5041, 10^6] must be attained at a colossally abundant number.
+      (else CA-only search is not extremal for the near-miss; record argmax instead)
+  F3: sigma(n) exact-integer sieve must EQUAL fetched OEIS A000203 for n <= 10000.
+  F4: Robin explicit bound (2.2) [unconditional theorem]: sigma(n) < e^gamma*n*log log n
+      + 0.6482*n/log log n for all n >= 3, n <= 10^6. (independent theorem-based check)
+  F5: hand values: sigma(12)=28, sigma(5040)=19344 (hand-computed) must match sieve.
+  F6 (WITNESS, constraint 5): if R(n) >= 1 for ANY n >= 5041, n <= 10^6, then
+      sigma(n) >= e^gamma*n*log log n violates Robin (1.2) => RH FALSE => STOP, page owner.
+  EXPECTED (RH-consistent): no F6 hit; near-miss = max R(n) < 1, attained at a CA number.
