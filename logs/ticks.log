@@ -94,3 +94,5 @@
 2026-08-22T12:06:55.487223+00:00 tick 94 model=qwen3.8-27b steps=25 wall=560s next=(a) OWNER: file the PNT+ PR from branch ik-additive-lemmas @ 0197a66
 2026-08-22T12:36:55.987084+00:00 tick 95 model=qwen3.8-27b steps=25 wall=929s next=(a) OWNER: file the PNT+ PR from branch ik-additive-lemmas @ 0197a66
 2026-08-22T13:06:56.238167+00:00 tick 96 model=qwen3.8-27b steps=26 wall=432s next=(a) OWNER: file the PNT+ PR from branch ik-additive-lemmas @ 0197a66
+2026-08-22T13:36:56.488378+00:00 tick 97 model=qwen3.8-27b steps=22 wall=1250s next=(a) OWNER: file the PNT+ PR from branch ik-additive-lemmas @ 0197a66
+2026-08-22T14:06:56.985166+00:00 tick 98 ERROR 'utf-8' codec can't decode byte 0xd0 in position 32224: invalid continuation byte steps=9
