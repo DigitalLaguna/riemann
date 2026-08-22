@@ -165,3 +165,63 @@ next: (a) claim the matching PNT+ issue (816 "[IK]: Make ToAdditive version of I
   PULL_REQUEST_STYLE.md; (b) track B row-3 pre-registration (RH to 1e13: Platt-Trudgian card says
   "superseded: none known as of 2026-08-20" — arXiv sweep for a newer verification);
   (c) tick 81's flint-pfx move needs a log entry + DEAD_ENDS B-002 recipe update ($PFX path).
+
+## session (2026-08-22 08:22-09:00 CEST, manual; after tick 82, CONCURRENT with timer tick 83) — Track A: 3-lemma refinement -> commit -> FULL build PASS -> claim #12 FORMAL
+state one-liner: planned work = HANDOFF next (a) TRACK A FIRST TICK. Not a dead end:
+  tick 82 (frontier) already verified the unrecorded 3-lemma diff compiles (target
+  build, 3567 jobs, exit 0); this session finishes the loop — refine proofs, commit,
+  full build. The 4 error classes found below were all in the crashed-tick DRAFTS,
+  not in PNT+ upstream (base 7715064 builds clean — claim #2).
+gate: track A OPEN (4/4 seeds carded).
+prior-art (from tick 82, machine): git grep on origin/main for the 3 lemma names ->
+  EMPTY (not duplicate upstream); PNT+ issue #816 verified OPEN via public GitHub API
+  (title "[IK]: Make ToAdditive version of IsMultiplicative for Arithmetic functions",
+  label task) — the additive-API family this work fills.
+pre-registered falsification test (before run): FULL `lake build` (all 4343 targets)
+  FAILS (any error / nonzero exit) => refined lemmas do not compile; read first error,
+  fix or record dead. PASS => machine-verified.
+work:
+  1) refined the 3 lemmas (drafted by crashed ticks 79/80, verified target-build by
+     tick 82). Four draft error classes root-caused this session:
+     (i)  add_left_inj direction: draft equality had 0 on the wrong side
+          (f 1 + f 1 = f 1 + 0 vs needed f 1 + f 1 = f 1 + f 1 + 0); fixed via
+          congrArg/rw [h1.symm] + simpa [add_assoc].
+     (ii) simp [Nat.pow_zero, map_one hf]: Nat.pow_zero unused in this mathlib
+          (linter); fixed: simp [map_one hf].
+     (iii) Nat.pow_ne_zero argument order: this mathlib wants (n != 0) FIRST;
+          fixed ordering in the induction step.
+     (iv) log bridge: (a) Real.log_mul needs x != 0, y != 0 but context has
+          0 < f n — closed with `by linarith [hpos m]`; (b) toArithmeticFunction
+          introduces ite (n = 0) branches — bare `simp` does NOT discharge them with
+          local != hypotheses in this mathlib version; explicit `simp [hm, hn]`
+          required.
+  2) branch ik-additive-lemmas (from feat/ik-additive-api-816 @ 7715064, created
+     08:22:00); commit 0197a66 "feat(IK): prove IsCompletelyAdditive.map_one,
+     map_prime_pow, isMultiplicative_log_isAdditive" (40 insertions, 0 deletions).
+  3) pre-registered FULL build run.
+machine said (verbatim, evidence/2026-08-22-pnt-ik-api/build-final.txt):
+  "warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:1662:6: declaration uses `sorry`"
+  "warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:1829:6: declaration uses `sorry`"
+  "warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:1844:6: declaration uses `sorry`"
+  "Build completed successfully (4343 jobs)."   exit 0
+  (7 sorry warnings total — all pre-existing at base 7715064: lines 114, 131, 689,
+   911, 1662, 1829, 1844 of the new file; none in the new lemmas)
+  => PASS: the 3 lemmas are machine-verified by the Lean 4 compiler on a FULL build.
+claim: #12 (a, NOTE->FORMAL via promote.sh; checker re-ran the full build:
+  "CHECK PASS: branch ik-additive-lemmas @ 0197a66 f, 3 lemmas present, sorry count
+  7 (base 7), lake build exit 0"). #13 (a, NOTE) = this session's add, a DUPLICATE
+  of #12 — see A-004 (concurrency race); GARDEN: merge #13 into #12.
+evidence: evidence/2026-08-22-pnt-ik-api/ (README with provenance, iwaniec-ik-api.patch
+  = git show 0197a66, build-final.txt, issue-816-draft.md for owner, check.sh).
+note (A-004 concurrency incident): timer tick 83 (local, 08:36-09:00) ran in parallel;
+  created #12 at 08:54; this session's add became #13 at 08:56; this session's
+  `promote 12 FORMAL` (aimed at its own claim) promoted tick 83's #12 — same state,
+  shared checker, PASS. Tick 83's auto-commit 62937f8 (08:57:11) swept this session's
+  in-flight evidence/ + claims.db. DEAD_ENDS +A-004 (no shared lock between manual
+  sessions and tick.sh).
+next: (a) OWNER files the PNT+ PR from ik-additive-lemmas @ 0197a66
+  (issue-816-draft.md ready; AI disclosure per PULL_REQUEST_STYLE.md) — closes the
+  week-2 milestone (first XS Lean issue: claimed+verified this session, PR leg pending);
+  (b) GARDEN: merge claim #13 into #12; (c) TRACK B (weight 40): row-3 pre-registration
+  (RH-to-1e13 source check; Platt-Trudgian is 3e12); (d) verify+log tick 81's
+  flint-pfx move (it left no log section).

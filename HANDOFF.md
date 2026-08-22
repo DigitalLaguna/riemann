@@ -1,44 +1,44 @@
-# HANDOFF — tick 79 (2026-08-22 ~05:05 UTC, interactive/frontier)
-# track: review/E/B | gate: all OPEN (A 1/3, B 6/6, C 5/5, D 3/3, E 5/5)
+# HANDOFF — session 2026-08-22 09:00 CEST (manual; after tick 82, concurrent with timer tick 83)
+# track: A | gate: A OPEN (4/4) — all tracks OPEN (21/21 seeds)
 
 ## State
-Week 1 (early) complete. 11 claims: 7 NUMERIC (B: #3,4,6,7,8,9; E: #10), 1 FORMAL (A: #2),
-3 NOTE (#1 scaffold, #5 B diag, #11 B semantics). Headline: claim #9 Lambda <=
-0.19999966445 < 0.2 (design-doc 0.20 target MET; Polymath15 unconditional was 0.22).
-This tick: f-semantics RESOLVED (evidence/2026-08-22-f-semantics: program bounds 0.4666/0.5190
-and paper 0.0376 are all lower bounds on the same |f| = 1.06811120997 direct, 70 digits;
-the ~15x gap = paper's O-term analysis, NOT the Euler factor 1.095; claim #9 sound).
-Track E: Lagarias to 1e6 = claim #10 NUMERIC (no counterexample; min margin 0.3172 at n=2;
-3 identical runs). WEEKLY REVIEW done: logs/review-2026-08-22-weekly.md.
-DECISION (week-1 review): REWEIGHT A 40->30, B 30->40, D 10->15, C 15->10, E 5.
-Condition: track A claims its first XS Lean issue by 2026-09-03 or A drops to 20.
+13 claims: 8 NUMERIC (B: #3,4,6,7,8,9; E: #10), 2 FORMAL (A: #2 PNT+ local build,
+#12 IK additive-API lemmas), 3 NOTE (#1 scaffold, #5 B diag, #11 B semantics),
+#13 NOTE = duplicate of #12 (A-004 concurrency race; garden merge pending).
+WEEK-2 MILESTONE (first XS Lean issue, due 09-03): MET in substance — PNT+ issue #816
+(open, "[IK]: Make ToAdditive version of IsMultiplicative for Arithmetic functions")
+claimed: 3 API lemmas — IsCompletelyAdditive.map_one, map_prime_pow (the file's TODO
+example f(p^k)=k*f p), isMultiplicative_log_isAdditive — on branch ik-additive-lemmas
+@ 0197a66 (base main HEAD 7715064), FULL lake build exit 0 (4343 jobs, pinned lean4
+v4.32.2 + mathlib v4.32.2), no new sorries. PR filing itself needs owner (no gh auth).
 
 ## Last tick
-tick 79 (frontier, this one): semantics resolved, claim #10 NUMERIC + #11 NOTE added,
-review written, DEAD_ENDS +A-003 (tick-79 local-model PNG-as-text crash, class of A-002).
-NOTE: timer tick 79 (local, 04:35) ran the Lagarias re-run then crashed on a binary read;
-its uncommitted state was committed here.
+this session: refined the crashed-tick (79/80) 3-lemma diff — 4 draft bug classes
+root-caused (add_left_inj direction; unused simp arg; pow_ne_zero arg order; log-bridge
+ite needs explicit simp [hm,hn]); committed 0197a66; pre-registered FULL build PASS;
+claim #12 FORMAL via promote.sh (checker re-ran the build); evidence/2026-08-22-pnt-ik-api
+(README+provenance, patch, issue draft, check.sh); DEAD_ENDS +A-004 (manual session vs
+timer tick: no shared lock; tick 83 created #12, this session's add became #13).
 
 ## Next action
-(a) TRACK A FIRST TICK (new weight 30, week-2 milestone 09-03): browse PNT+ open issues,
-    claim one XS, run the compile-fail-retry loop (lake build must pass locally before any
-    PR; disclose AI involvement per project convention). Not a dead end: A-001/A-002 were
-    tooling (gate.py, binary-as-text), both resolved; PNT+ builds locally (claim #2).
-(b) TRACK B (weight 40): pre-register the row-3 attempt (t=0.18, y=0.13206, N0=830443,
-    X=1e13+19877): needs RH verified to 1e13 — Platt-Trudgian is 3e12, so check/verify the
-    extension (Mossinghoff? new arXiv?) BEFORE running; if RH to 1e13 unavailable, row 3
-    waits and B works the dominant-error-term audit (Phase 3) instead.
-(c) TOOLING: move /tmp/flint-3.2.0 (FLINT+Arb+ACb, the track B toolchain) to a persistent
-    prefix (e.g. ~/opt/flint-pfx) — /tmp cleanup would kill it; update DEAD_ENDS B-002
-    recipe + /tmp/abeff build recipe accordingly.
+(a) OWNER: file the PNT+ PR from branch ik-additive-lemmas @ 0197a66
+    (evidence/2026-08-22-pnt-ik-api/issue-816-draft.md ready; AI disclosure per
+    PULL_REQUEST_STYLE.md) — closes the week-2 milestone fully.
+(b) GARDEN: merge claim #13 into #12 (keep #12 FORMAL; #13's extra detail is already
+    in the evidence README); verify+log tick 81's flint-pfx move (left no log section).
+(c) TRACK B (weight 40): row-3 pre-registration (t=0.18, y=0.13206, N0=830443,
+    X=1e13+19877) — first find a RH-verified-to-1e13 source (Platt-Trudgian is 3e12);
+    if none, row 3 waits and B does the dominant-error-term audit (Phase 3).
 
 ## Blocked
+- PNT+ PR filing (no gh/GitHub credentials on this box)
 - odlyzko-zeros full chapter (AMS LibLynx login) — carded from landing page
 - lean-zulip-pnt full thread (Zulip JS UI) — carded from README+blueprint
-- RH verification height for row 3 (1e13): source TBD (next B pre-registration step)
+- RH verification height 1e13 source (track B row 3)
 
 ## Budget
-Week 1 early review: decision = REWEIGHT (above). Next review 2026-08-29 (week 2) with
-the week-2 milestone check (first XS Lean issue? spot-check 3 cards vs PDFs). Kill
-criterion watch: week 4 (09-17) — Lean PR upstream + Polymath15 to 2 sig figs (already
-met on the numerics leg; the PR leg is the risk).
+Week-1 review decision: REWEIGHT A30/B40/D15/C10/E5; condition "A claims first XS
+Lean issue by 09-03" MET in substance this session (PR leg pending owner).
+Next review 2026-08-29 (week 2): milestone check + spot-check 3 cards vs PDFs.
+Week-4 kill (09-17): Lean PR upstream + Polymath15 to 2 sig figs — numerics leg met
+(claim #7); the PR leg is the risk.

@@ -61,3 +61,18 @@ failed: tick crashed with "'utf-8' codec can't decode byte 0x89 in position 387:
   almost certainly a dbn-repo PNG (tradeoff.png / meshbarrier images) read as text.
 fix/avoid: treat *.png/*.jpg in the dbn repo as binaries; use `file` before read.
   Residual state (ticks.log line, rerun file) committed by frontier tick 79.
+
+## A-004 manual session vs timer tick concurrency (no shared lock)
+tried: 2026-08-22 08:22-09:00 CEST, manual session (track A, 3-lemma refinement)
+  ran CONCURRENT with timer tick 83 (local, 08:36-09:00 CEST, same track A plan).
+failed: both sessions worked the same pnt file and the same claim: tick 83 created
+  claim #12 (08:54); the manual session's `promote.sh add` became #13 (08:56) and its
+  `promote.sh promote 12 FORMAL` (aimed at its own claim) promoted tick 83's #12 via
+  the shared checker (PASS — same state). Tick 83's auto-commit 62937f8 swept the
+  manual session's in-flight evidence/ + claims.db into git mid-work.
+  Root cause: flock in tools/tick.sh guards tick.sh invocations against each other,
+  but a manual session takes no lock at all.
+fix/avoid: manual sessions must `flock ledger/.tick.lock` (or a second lock that
+  tick.sh also checks) for the whole session; or park manual work in a branch.
+  Residual: claim #13 is a duplicate of #12 — GARDEN merge #13 into #12 (keep #12
+  FORMAL; #13's extra detail already in evidence/2026-08-22-pnt-ik-api/README.md).
