@@ -1,0 +1,29 @@
+C5 large-prime batching: 220098288 primes p>5000000000 flipped 1->-1: PASS
+C1 M(10) = -1 (expect -1): PASS
+C2 OEIS A002321 n<=10000: 10000 values, mismatches=0: PASS
+C3 sympy independent n<=10^5: mismatches=0: PASS
+C4 OEIS A051402 envelope: checked=10000 n-values, mismatches=0: PASS
+max |M(x)| for x <= 10000000000: 50286, first at x = 7766842813, M = 50286
+max |M(x)|/sqrt(x) for x <= 10000000000: 1.000000000 at x = 1 (M = 1)
+M(10^1) = -1
+M(10^2) = 1
+M(10^3) = 2
+M(10^4) = -23
+M(10^5) = -48
+M(10^6) = 212
+M(10^7) = 1037
+M(10^8) = 1928
+M(10^9) = -222
+M(10^10) = -33722
+top-10 |M(x)| locations:
+  x=7766842813 M=50286
+  x=7766842817 M=50286
+  x=7766854409 M=50286
+  x=7766842779 M=50285
+  x=7766842780 M=50285
+  x=7766842812 M=50285
+  x=7766842814 M=50285
+  x=7766842815 M=50285
+  x=7766842839 M=50285
+  x=7766842840 M=50285
+VERDICT: ALL CHECKS PASS
