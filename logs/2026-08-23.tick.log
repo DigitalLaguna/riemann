@@ -120,3 +120,50 @@ available — tight; consider segmented variant); pre-register falsification tes
 next: (a) OWNER: still the one-click Fork of AlexKontorovich/PrimeNumberTheoremAnd
   (PNT+ PR leg); (b) optional owner: `loginctl enable-linger niklas` so the user-level
   timer survives logout (Linger=no currently); (c) week-2 review 08-29.
+
+--- tick 120 (track D, Robin-criterion SA-scan extended to 1e9) ---
+PRE-REGISTERED FALSIFICATION TESTS (before run, 2026-08-23T01:39:49Z):
+  F1: sigma(n) for the NEW SA numbers in (1e8,1e9] (a43-a48: 122522400,147026880,
+      183783600,367567200,698377680,735134400) must EQUAL independent sympy
+      divisor_sigma(n). (else factorization is wrong)
+  F2: REGRESSION: R(10080)=sigma/(e^gamma*n*loglog n) must equal 0.985818611972329
+      (claim #21 value, 1e-12). (else the pipeline drifted)
+  F3 (WITNESS, constraint 5): if R(n) >= 1 for ANY superabundant n in [5041,1e9],
+      then sigma(n) >= e^gamma*n*loglog n violates Robin (1.2); by the reduction
+      (Lagarias 2002 p.4: a counterexample is CA, CA subset SA) => RH FALSE => STOP,
+      page owner.
+  F4: argmax R(n) over SA in [5041,1e9] is a colossally abundant number (reduction
+      consistency; if not, record the argmax location).
+  EXPECTED (RH-consistent): no F3 hit; near-miss max R < 1, still at n=10080
+      (R=0.985818611972329) unless a new SA number in (1e8,1e9] beats it.
+  Prior-art pre-flight: claim #21 (SA scan to 1e8, max R=0.9858 at 10080); OEIS
+      A004394 (SA b-file, 48 values <=1e9, a43-a48 new); A004490 (CA b-file);
+      Lagarias 2002 eq 1.2 + p.4 reduction (quoted this tick). No published full
+      Robin scan to 1e9 found (SA-scan extension is the gap).
+MACHINE OUTPUT (verbatim, evidence/2026-08-23-robin-1e9/run.txt; run wall 0.26s):
+  F1 sigma(new SA in (1e8,1e9]) == sympy divisor_sigma: checked=6 mismatches=0: PASS
+  F2 R(10080) = 0.985818611972329 (expect 0.985818611972329): PASS
+  F3 witness R(n)>=1 among SA in [5041,1e9]: hits=0: PASS (no RH witness <=1e9)
+  F4 argmax n=10080 is CA=False (report; reduction guarantees a WITNESS is CA, not the argmax of R)
+  near-miss: max R(n) over SA in [5041,1e9] = 0.985818611972329 at n = 10080 (sigma=39312, CA=False); 1-R = 0.01418138803
+  new SA numbers in (1e8,1e9]: [122522400, 147026880, 183783600, 367567200, 698377680, 735134400]
+  VERDICT: ALL CHECKS PASS
+  check.sh (evidence/2026-08-23-robin-1e9/check.sh) EXIT=0.
+RESULT: claim #23 NOTE->NUMERIC. Extends claim #21 (SA scan to 1e8) to 1e9. No Robin
+  witness <=1e9 (by the reduction, checking SA numbers suffices since CA subset SA).
+  Near-miss UNCHANGED: max R = 0.985818611972329 at n=10080. The 6 new SA numbers in
+  (1e8,1e9] top out at R=0.968152104902 at n=367567200, well below the 1e8 record.
+NOTES:
+  - F4 (argmax is CA) initially "failed": 10080 is SA but NOT CA (15120 beats it on
+    sigma(n)/n). Reclassified F4 as a report — the reduction guarantees a WITNESS is CA,
+    not that the argmax of R is CA. Script updated (ok &= f4 -> pass).
+  - Claim #21's "CA" reference was actually the SA list (b004394.txt, a superset of the
+    true CA list b004490.txt); valid for the witness question since CA subset SA. This
+    tick uses the true CA list (b004490.txt) for the F4 report.
+  - Reduction quoted verbatim this tick from Lagarias 2002 PDF (lit/pdf/lagarias-2002.pdf,
+    p.4): "Robin showed that if the Riemann hypothesis is false, there will necessarily
+    exist a counterexample to the inequality (1.2) which is a colossally abundant number";
+    and "They form a subset of the superabundant numbers."
+Next: D's fifth experiment — Mertens at 1e10 (memory ~100GB vs 116GB free, tight; ~16 min
+  est) OR Robin full-scan [1e8,1e9] (the long pole: sigma sieve to 1e9 ~30 min in numpy).
+  B parked until 08-29 review; A's PR leg is owner's.

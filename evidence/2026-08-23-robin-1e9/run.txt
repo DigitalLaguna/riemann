@@ -1,0 +1,18 @@
+F1 sigma(new SA in (1e8,1e9]) == sympy divisor_sigma: checked=6 mismatches=0: PASS
+F2 R(10080) = 0.985818611972329 (expect 0.985818611972329): PASS
+F3 witness R(n)>=1 among SA in [5041,1e9]: hits=0: PASS (no RH witness <=1e9)
+F4 argmax n=10080 is CA=False (report; reduction guarantees a WITNESS is CA, not the argmax of R)
+near-miss: max R(n) over SA in [5041,1e9] = 0.985818611972329 at n = 10080 (sigma=39312, CA=False); 1-R = 0.01418138803
+top-10 R(n) over SA in [5041,1e9]:
+  n=       10080 sigma=       39312 R=0.985818611972 CA=False
+  n=       55440 sigma=      232128 R=0.983253963847 CA=True
+  n=       27720 sigma=      112320 R=0.978363769049 CA=False
+  n=       15120 sigma=       59520 R=0.976130255417 CA=False
+  n=      110880 sigma=      471744 R=0.974047429391 CA=False
+  n=      720720 sigma=     3249792 R=0.973045979901 CA=True
+  n=     1441440 sigma=     6604416 R=0.970056126931 CA=True
+  n=      166320 sigma=      714240 R=0.969600519947 CA=False
+  n=     2162160 sigma=     9999360 R=0.968837769367 CA=False
+  n=   367567200 sigma=  1889879040 R=0.968152104902 CA=True
+new SA numbers in (1e8,1e9]: [122522400, 147026880, 183783600, 367567200, 698377680, 735134400]
+VERDICT: ALL CHECKS PASS
