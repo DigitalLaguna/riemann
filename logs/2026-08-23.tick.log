@@ -831,3 +831,51 @@ NEXT (tick 149+):
       experiment; card it (continuous intake, 1/day).
   (c) OWNER: PNT+ PR (see HANDOFF).
   (d) TRACK B: PARKED until 08-29 weekly review.
+
+=== tick 149 (2026-08-23 16:24-16:40 UTC, model qwen3.8-27b) ===
+STEP 1 (state): HANDOFF/DEAD_ENDS/ledger read. Doing: S(t) scan status check,
+then card 2510.14309 (continuous intake per tick-148 pre-flight). Not in
+DEAD_ENDS: new prior-art finding, card not yet written.
+STEP 2 (gate): all OPEN (21/21 seeds).
+STEP 3 (prior-art): pre-flight already logged tick 148
+(evidence/2026-08-23-zerogap-preflight/preflight.txt); this tick executes its
+conclusion (card 2510.14309).
+STEP 4a (bounded step 1): S(t) scan [1,1e5] status (machine: ps + stderr).
+  pid 732546 alive, 44:00 elapsed, 100% CPU. Latest stderr flush (verbatim):
+    "progress 60000/333331 (18%) elapsed 2025s"
+  Per-20000-point intervals: 356s, 687s, 982s -> per-point cost growing with t.
+  Remaining 273331 pts at current rate ~982s/20000 -> ~3.7h -> ETA ~20:00Z or
+  later (worse than tick-148's 19:45Z estimate). Result file still 0 bytes.
+  NOT done. No action; let it run.
+STEP 4b (bounded step 2): CARD 2510.14309 (continuous intake, 1/day).
+  Fetched arXiv v2 (7 Apr 2026) PDF (8 pp) -> lit/pdf/inoue-kobayashi-toma-2025.pdf;
+  pdftotext -> lit/text/inoue-kobayashi-toma-2025.txt (936 lines).
+  Card written: lit/cards/inoue-kobayashi-toma-2025.md.
+  Machine verification of quotes (python substring search on the text file,
+  whitespace-collapsed):
+    FOUND: "Assume RH. For any large T and any h ∈ [C/ log T, c/ log log T ] with positive constants C large and c small, we have" (Thm 1, p. 2)
+    FOUND: "Assume RH. For any sufficiently large r, we have" (Thm 2, p. 2)
+    FOUND: "we can improve the constant A0 to 2 = 1.4142" (p. 2; radical typeset over the 2)
+    FOUND: "the limitations of large/small gaps of zeros in the method of Montgomery-Odlyzko are λ1 ≥ 3.022, µ1 ≤ 0.508 when L ≤ T" (p. 3)
+    FOUND: "they showed that (1.3) holds for Θ = 0.599648 and ϑ = 0.379674 with α = 1/2 uniformly for r ≥ 1 under RH" (p. 2; after stripping a stray \x01 pdftotext control char between "uniformly" and "for")
+    FOUND: "λ1 > 3.18 by Bui-Milinovich", "µ1 < 0.515396 by Preobrazhenski" (p. 2)
+  Theta codepoints in card match file exactly (U+0398 / U+03D1).
+  gate.card_ok('inoue-kobayashi-toma-2025') -> (True, '')
+STEP 5 (checker): card_ok PASS (above). No ledger claim eligible for promotion
+(scan not done; card is literature, not a claim).
+KEY CONTENT (for the zero-spacing experiment scoping):
+  - Thm 1 (RH): sup_{T<=t<=2T} ±(S(t+h)-S(t)) >= (1-E) sqrt(h log T / pi),
+    h in [C/log T, c/log log T], E ≪ h log log T + min{...} (resonance method).
+  - Thm 2 (RH): λr >= 1 + sqrt(2/r) - C1 (log r)^{3/2}/r, µr <= 1 - sqrt(2/r) + C2 (log r)^{3/2}/r.
+    Improves A0 = 0.9064997... (Inoue) to sqrt(2) = 1.4142...; supersedes
+    Conrey-Turnage-Butterbaugh Θ=0.599648, ϑ=0.379674.
+  - Thm 3: Montgomery-Odlyzko method limitation λ1 >= 3.022, µ1 <= 0.508 (L<=T);
+    improves CGG 3.74 / GTTB 3.6747 (λ1 side). Best known under RH: λ1 > 3.18
+    (Bui-Milinovich), µ1 < 0.515396 (Preobrazhenskii).
+NEXT (tick 150+):
+  (a) TRACK D: read st_run-1e5.txt for "ST-SCAN-1e5 DONE rc=0" + max|S|/zero-count/
+      max-arg-jump (ETA ~20:00Z+). mpmath -> NOTE not NUMERIC.
+  (b) TRACK D: design the zero-spacing / Lehmer-pair scan scoped against
+      inoue-kobayashi-toma-2025 (record target: normalized gap vs 3.18 / sqrt(2)/r).
+  (c) OWNER: PNT+ PR (see HANDOFF).
+  (d) TRACK B: PARKED until 08-29 weekly review.

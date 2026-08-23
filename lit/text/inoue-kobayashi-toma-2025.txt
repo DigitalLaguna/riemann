@@ -1,0 +1,937 @@
+                                                EXPLICIT EXTREME VALUES OF THE ARGUMENT OF THE
+                                                             RIEMANN ZETA-FUNCTION
+
+                                                           SHŌTA INOUE, HIROTAKA KOBAYASHI, AND YUICHIRO TOMA
+
+
+                                                 Abstract. We investigate explicit extreme values of the argument of the Riemann zeta-
+                                                 function in short intervals. As an application, we improve the result of Conrey and Turnage-
+arXiv:2510.14309v2 [math.NT] 7 Apr 2026
+
+
+
+
+                                                 Butterbaugh concerning r-gaps between zeros of the Riemann zeta-function.
+
+
+
+
+                                                                   1. Introduction and statement of results
+                                             The argument of the Riemann zeta-function ζ on the critical line, usually denoted as S(t),
+                                          is a fascinating and intricate aspect of one of the most celebrated functions in number theory.
+                                                                                                        R 1/2 ′
+                                          The function is defined by S(t) := π1 arg ζ( 12 + it) = π1 Im ∞ ζζ (α + it) dα if t is equal to
+                                          neither 0 nor the imaginary part of a zero of ζ. If t is equal to 0 or the imaginary part
+                                          of a zero, then S(t) = (S(t + 0) + S(t − 0))/2. By the argument principle, this function
+                                          is influenced by the distribution of zeros of the Riemann zeta-function. The relationship is
+                                          visualized by the Riemann-von Mangoldt formula:
+                                                                                                           
+                                                                             T         T      7               1
+                                                                   N (T ) =     log         + + S(T ) + O        ,
+                                                                            2π        2πe     8               T
+                                          where N (T ) denotes the number of zeros ρ = β + iγ satisfying 0 < γ < T of ζ counted with
+                                          multiplicity. If T is equal to the imaginary part of a zero, N (T ) = (N (T + 0) + N (T − 0))/2.
+                                             In this paper, we discuss extreme values of S(t + h) − S(t). The values of S(t + h) − S(t)
+                                          capture information on the number of zeros, as expressed by
+                                                                                                                        
+                                                                                h                                      1
+                                                         N (T + h) − N (T ) =      log T + S(T + h) − S(T ) + O h +        .         (1.1)
+                                                                               2π                                      T
+                                          Since detailed information about the zeros of the Riemann zeta-function has rich applications
+                                          to the prime numbers, the study of S(t+h)−S(t) is therefore also important. For this object,
+                                          Selberg showed in an unpublished work that there exists a positive number c = c(a, b),
+                                          depending   on arbitrary absolute positive constants a, b, such that for any large T and any
+                                          h ∈ a(log T )−1 , b(log log T )−1 ,
+                                               
+
+                                                                        sup {±(S(t + h) − S(t))} ≥ c(h log T )η                                 (1.2)
+                                                                      t∈[T,2T ]
+
+                                          holds with η = 1/2 under the Riemann Hypothesis (RH). Later, Tsang gave a proof of this
+                                          result in [13] and also proved that (1.2) holds with η = 1/3 unconditionally. More recently,
+                                          the first author in [8] used his results to study the distribution of zeros. In the paper, under
+                                          RH, the first author also considered the explicit extreme values of S(t + h) − S(t) and showed
+                                          that c = c(a, b) in inequality (1.2) can be calculated by (4.1) in [8, §4], which is essentially
+                                          obtained by following the √ argument of Selberg/Tsang straightforwardly. With this approach,
+                                          one inevitably has c < 1/ 2eπ when a is large, and b is small. The aim of this paper is to
+                                            2020 Mathematics Subject Classification. 11M06; 11M26.
+                                            Key words and phrases. the Riemann zeta-function, gaps of zeros, extreme values, the resonance method.
+                                                                                              1
+2                              S. INOUE, H. KOBAYASHI, Y. TOMA
+
+improve the explicit extreme values by using the method of Montgomery-Odlyzko [9]. The
+first result is the following.
+Theorem 1. Assume RH. For any large T and any h ∈ [C/ log T, c/ log log T ] with positive
+constants C large and c small, we have
+                                                         r
+                                                           h
+                       sup {±(S(t + h) − S(t))} ≥ (1 − E)    log T ,
+                     T ≤t≤2T                               π
+where the error term E satisfies
+                                      s                                
+                    p                  log3 (h log T ) (log log T )3/2 
+                 E ≪ h log log T + min                 ,                 .
+                                          h log T        h3/2 log T 
+
+  This theorem can be applied to evaluate gaps of zeros of the Riemann zeta-function. Let
+0 < γ1 ≤ γ2 ≤ · · · ≤ γn ≤ · · · denote the sequence of ordinates of the zeros of ζ in the upper
+half plane. We define the normalized large/small r-gap of nontrivial zeros by
+                                γn+r − γn                       γn+r − γn
+                     λr = lim sup           ,    µr = lim inf               .
+                           n→+∞ 2πr/ log γn            n→+∞ 2πr/ log γn
+
+From the Riemann-von Mangoldt formula, we have the trivial bounds µr ≤ 1 ≤ λr . The non-
+trivial bounds in the case r = 1 have been studied by many mathematicians. The current best
+bounds under RH are λ1 > 3.18 by Bui-Milinovich [3] and µ1 < 0.515396 by Preobrazhenskiı̆
+[10]. For general r, Selberg [11, p.355] announced the nontrivial bounds of λr , µr of the form
+                                          Θ                ϑ
+                                   λr ≥ 1 + , µr ≤ 1 − α                               (1.3)
+                                         rα                r
+for all positive integer r. The numbers Θ, ϑ which may depend on r are greater than
+some absolute positive constants. Here, we may take α as 2/3 unconditionally, and as
+1/2 under RH. Recently, Conrey and Turnage-Butterbaugh [5] proved an explicit result for
+the conditional bound. Specifically, they showed that (1.3) holds for Θ = 0.599648 and
+ϑ = 0.379674 with α = 1/2 uniformly for r ≥ 1 under RH. These results have been improved
+to Θ = A0 := maxB>0 2B             π
+                         π arctan B 2 = 0.9064997 · · · , and ϑ = 0.484604 in [8]. Moreover,
+Conrey and Turnage-Butterbaugh proved that Θ = ϑ = A0 + o(1) as r → +∞. As a con-
+sequence of Theorem √ 1 combined with the Riemann-von Mangoldt formula, we can improve
+the constant A0 to 2 = 1.4142 . . . .
+Theorem 2. Assume RH. For any sufficiently large r, we have
+                     √                               √
+                       2     (log r)3/2                2    (log r)3/2
+            λr ≥ 1 + √ − C 1            , µr ≤ 1 − √ + C2              .                   (1.4)
+                       r         r                     r        r
+Here, C1 and C2 are some absolute positive constants.
+   To prove Theorem 1, we employ the resonance method established by Soundararajan [12].
+From the celebrated works due to Soundararajan [12], and Bondarenko and Seip [1], the
+resonance method is now widely regarded as a powerful tool for detecting extreme values of
+number-theoretic objects. Inspired by these studies, we apply the resonance method to S(t +
+h) − S(t). The method due to Montgomery and Odlyzko is a precursor of our approach. In
+fact, by combining our method using the resonance method with the Riemann-von Mangoldt
+formula, we can recover the original result of Montgomery and Odlyzko.
+      EXPLICIT EXTREME VALUES OF THE ARGUMENT OF THE RIEMANN ZETA-FUNCTION                        3
+
+   In [9], Montgomery and Odlyzko showed that λ1 > 1.9799 and µ1 < 0.5179. For a large
+real number T and L ≤ T /(log T )2 , they studied the function τ defined by
+                                                                                    
+                                                                       X
+                            2  X    Λ(k)            log k
+       τ (ξ; f ) := ξ − Re        √         sin(πξ log T )f (m)f (km)      |f (n)|2 ,
+                            π        k log k
+                              km≤L                                      n≤L
+
+where ξ is a positive number, and f is a certain arithmetic function. They showed (for the
+case r = 1 and extended r ≥ 2 by Conrey and Turnage-Butterbaugh [5]) that if there exists
+ξr such that τ (ξr ; f ) < r, then λr ≥ ξr , and if there exists ξr such that τ (ξr ; f ) > r, then
+µr ≤ ξr .
+   To conclude this section, we give a limitation of the method of Montgomery and Odlyzko.
+
+Theorem 3. Let f be an arithmetic function not identically zero, let L be large, and let
+h > 0. For any W > 0, we have
+                                                                      X
+                        2 X Λ(k)
+                     Re        √                h
+                                           sin( 2 log k)f (m)f (km)         |f (n)|2     (1.5)
+                        π         k log k
+                          km≤L                                          n≤L
+                            (√                                   )
+                               W                         h log l        √
+                                       h
+                                                    
+                    ≤ max          φ 2π   log(L/l) + √             + O(h W ).
+                       1≤l≤L   2                         π W
+                Rx
+Here, φ(x) = 0 (sin(πu)/πu)2 du. In particular, we have
+                             (√                                      )
+                                                                                ξ √
+                                                                                    
+                                 W         log(L/l)         2ξ log l
+      |τ (ξ; f ) − ξ| ≤ max          φ ξ               +√              +O            W
+                        1≤l≤L    2           log T           W log T          log T
+
+for any ξ > 0, any large L, T , and any W > 0.
+
+   By this theorem together with a numerical calculation, we obtain that the limitations
+of large/small gaps of zeros in the method of Montgomery-Odlyzko are λ1 ≥ 3.022, µ1 ≤
+0.508 when L ≤ T . There are previous works on such limitations in the method [4], [6].
+Conrey, Ghosh, and Gonek [4] showed that λ1 ≥ 3.74 and µ1 < 1/2 are limitations of
+the Montgomery-Odlyzko method. Moreover, the recent work by Goldston, Trudgian, and
+Turnage-Butterbaugh [6] improved on the result on their limitation of small gaps to µ1 ≤
+0.5042. They also remarked that their method can be applied to the bound of λ1 , which leads
+us to λ1 ≥ 3.6747. Our result gives an improvement on those results. On the other hand, Bui
+and Milinovich [3] applied Hall’s method [7] to prove λ1 > 3.18 under RH. Our limitation for
+λ1 shows that the result of Bui-Milinovich goes beyond the barrier imposedpby the method
+of Montgomery-Odlyzko.
+           p                  Furthermore, we can also see that λr ≥ 1 + 2/r − O(1/r),
+µr ≤ 1 − 2/r + O(1/r) are limitations √      of their method for r-gaps of zeros when L ≤ T .
+This observation shows that the constant 2 in Theorem 2 is optimal.
+   This paper is organized as follows. In Section 2 we discuss the relationship between large
+values of S(t) in short intervals and the gaps between consecutive r zeros of the Riemann zeta-
+function. In Section 3, we apply the resonance method to S(t) in short intervals. Combining
+this result and Proposition 4, we prove Theorem 1 in Section 4. In Section 5, we prove
+Theorem 2 by using Theorem 1 and the relationship between S(t) and gaps of zeros established
+in Section 2. In Section 6, we prove Theorem 3, and finally in Section 7, we derive the resulting
+limitations on large and small gaps between zeros that follow from Theorem 3.
+4                                       S. INOUE, H. KOBAYASHI, Y. TOMA
+
+    2. A relationship between S(t) and large/small gaps of consecutive r zeros
+  By the same strategy as in the proof of Theorem 1 in [8], we obtain the following relation
+between S(t) and gaps of zeros.
+Proposition 1. Let r be a positive integer, and let θ be a positive number which may depend
+on r. Then the inequality λr > θ holds if and only if there exist numbers b > 0, θ′ > 1 and a
+sequence {Tn } satisfying θ′ > θ, b > r(θ′ − 1), and Tn → +∞ as n → +∞ such that
+                                    S t + 2πrθ′ / log Tn − S(t) ≤ −b.
+                                                       
+                            inf
+                               t∈[Tn ,2Tn ]
+
+Similarly, the inequality µr < θ holds if and only if there exist numbers b > 0, 0 < θ′ < 1 and
+a sequence {Tn } satisfying θ′ < θ, b > r(1 − θ′ ), and Tn → +∞ as n → +∞ such that
+                                    S t + 2πrθ′ / log Tn − S(t) ≥ b.
+                                                       
+                             sup
+                                t∈[Tn ,2Tn ]
+
+Proof. Since the first and second assertion can be proved by the same argument, we only give
+the proof of the first assertion. We use the simple equivalence which is that, for any {Tn }
+satisfying Tn → +∞ as n → +∞, there exists some t ∈ [Tn , 2Tn ] such that
+                                               N (t + h) − N (t) < r                                        (2.1)
+if and only if the inequality
+                                                              γm+r − γm
+                                               sup                      >1                                  (2.2)
+                                       γm ,γm+r ∈[Tn ,2Tn +h]     h
+holds.
+   First, we assume λr > θ. Then there exist a number θ′ and a sequence {Tn } satisfying
+ ′
+θ > θ and Tn → +∞ as n → +∞ such that
+                                  γm+r − γm                             γm+r − γm
+                   sup               ′
+                                               ≥        sup               ′
+                                                                                        >1
+            γm ,γm+r ∈[Tn ,2Tn ] 2πrθ / log Tn   γm ,γm+r ∈[Tn ,2Tn ] 2πrθ / log(γm /2)
+
+holds for any sufficiently large n. Therefore, (2.2) holds when h = 2πrθ′ / log Tn and n
+is sufficiently large. Hence, there exists a t ∈ [Tn , 2Tn ] such that (2.1) holds with h =
+2πrθ′ / log Tn , which is also equivalent to
+                                   N (t + 2πrθ′ / log Tn ) − N (t) ≤ r − 1/2.
+Combining this with (1.1), we have
+            inf        (S(t + 2πrθ′ / log Tn ) − S(t)) ≤       inf        (S(t + 2πrθ′ / log Tn ) − S(t))
+        t∈[Tn ,2Tn ]                                       t∈[Tn ,2Tn ]
+
+                                                        ≤ r − 1/2 − rθ′ + o(1) ≤ −b
+with b = r(θ′ − 1) + 1/3.
+  Next, we assume that there exist numbers b, θ′ and a sequence {Tn } satisfying θ′ > θ,
+b > r(θ′ − 1), and Tn → +∞ as n → +∞ such that
+                                S t + 2πrθ′ / log Tn − S(t) ≤ −b
+                                                          
+                          inf
+                               t∈[Tn ,2Tn ]
+
+for any sufficiently large n. Then, it holds by (1.1) that for any large n
+                                                  log t
+    N (t + 2πrθ′ / log Tn ) − N (t) ≤ rθ′               − b + o(1) ≤ r − (b − r(θ′ − 1)) + o(1)
+                                                 log Tn
+       EXPLICIT EXTREME VALUES OF THE ARGUMENT OF THE RIEMANN ZETA-FUNCTION                         5
+
+for some t ∈ [Tn , 2Tn ]. Therefore, (2.1) holds when h = 2πrθ′ / log Tn and n is sufficiently
+large. Hence, we find that
+                          γm+r − γm                                   γm+r − γm
+           λr = lim sup               ≥ lim            sup
+                  m→+∞    2πr/ log γm    n→+∞  γm ,γm+r ∈[Tn ,2Tn +h] 2πr/ log γm
+                                              γm+r − γm     h       log γm
+                = lim            sup                                       ≥ θ′ > θ,
+                  n→+∞ γ ,γ
+                        m m+r ∈[Tn ,2Tn +h]
+                                                  h     2πr/ log Tn log Tn
+which completes the proof of Proposition 1.                                                        □
+Remark 1. In Proposition 1, if we change the interval [Tn , 2Tn ] to [Tna , 2Tn ] for some 0 < a < 1,
+then the equivalence no longer holds. Although the statement can be suitably modified, the
+resulting inequalities for λr , µr become weaker than the original form. Hence, we consider
+the extreme value of S(t + h) − S(t) over the interval [T, 2T ] in Theorem 1.
+
+                                     3. Resonance method
+   The resonance method aims to extract the large values of an objective function by com-
+paring the mean value of the objective function multiplied by a “resonator” with that of the
+resonator itself. In this paper, we take the resonator to be the Dirichlet polynomial
+                                             X
+                                      R(t) =     f (n)n−it ,
+                                               n≤L
+
+following the works [1], [2], [9], and [12]. Here, the arithmetic function f is chosen suitably
+depending on the objective function. In this section, we evaluate the extreme value of S(t +
+h) − S(t) by means of general forms of resonators. We construct a suitable resonator for our
+purpose in Section 4.
+   In this section, we aim to prove the following proposition.
+Proposition 2. Assume RH. For any arithmetic function f that is not identically zero, any
+large L, T satisfying L ≤ T /(log T )2 , and any h > 0 we have
+     sup {±(S(t + h) − S(t))}
+   T ≤t≤2T
+                                                    X              
+           1   2    X Λ(k)
+                                    h                             2     1
+   ≥∓ 1+O        Re  √         sin( 2 log k)f (m)f (km)    |f (n)| + O     .
+           T   π       k log k                                          T
+                              km≤L                                        n≤L
+
+Here, the implicit constant is absolute.
+                                                                      2
+3.1. Preliminaries. Throughout this paper, we set Φ(t) = e−t /2 . As an auxiliary result,
+we first prove the following proposition.
+Proposition 3. Assume RH. For any arithmetic function f , any L, T ≥ 3 satisfying L ≤
+T /(log T )2 , and any h > 0 we have
+     Z ∞                                                 
+                  h          h          2    t − 3T /2
+            S(t + 2 ) − S(t − 2 ) |R(t)| Φ                  dt
+      −∞                                      T / log T
+                                                                                        
+          √       T 2       X      Λ(k)                                   1 X
+     = − 2π             Re       √         sin( h2 log k)f (m)f (km) + O       |f (n)|2 .
+                log T π            k log k                                T
+                           km≤L                                             n≤L
+
+  To show this proposition, we require some auxiliary lemmas.
+6                                     S. INOUE, H. KOBAYASHI, Y. TOMA
+
+Lemma 3.1. For any arithmetic function f and any L ≥ 3 we have
+                               X                     X
+                    |R(t)|2 ≤       |f (m)f (n)| ≤ L   |f (n)|2 .                                  (3.1)
+                                           m,n≤L                  n≤L
+
+Proof. The first inequality of (3.1) is obvious by the triangle inequality. We also find by the
+Cauchy-Schwarz inequality that
+                                       2
+       X                     X                X       X                  X
+           |f (m)f (n)| =       |f (n)| ≤       1×      |f (n)|2 = L ×     |f (n)|2 .
+         m,n≤L                    n≤L               n≤L     n≤L                  n≤L
+
+Hence, we obtain inequality (3.1).                                                                    □
+
+    The following lemma gives an explicit bound for estimates shown in Lemma 5 of [2].
+Lemma 3.2. For any arithmetic function f and any L, T ≥ 3 satisfying L ≤ T /(log T )2 we
+have
+         Z ∞                            √
+                                                      X
+                   2    t − 3T /2             T          1
+             |R(t)| Φ               dt = 2π        1+O              |f (n)|2 .
+          −∞            T / log T           log T        T
+                                                                              n≤L
+
+Proof. It holds from the definition of R(t) that
+   Z ∞                              √
+                                                          m −3iT /2  T          
+               2    t − 3T /2             T    X                                   m
+         |R(t)| Φ               dt = 2π          f (m)f (n)            Φ       log
+    −∞              T / log T           log T                n           log T     n
+                                                    m,n≤L
+         R∞      −ixu du =
+                                √
+since    −∞ Φ(u)e                   2πΦ(x). Using (3.1), we find that
+
+                         m 3iT /2  T                  T (log T )2
+                                                                    X
+     X                                         m
+              f (m)f (n)           Φ       log     ≤Φ                    |f (m)f (n)|
+                          n          log T     n       log T 2T
+    m,n≤L                                                                       m,n≤L
+     m̸=n
+                                                                   X            1 X
+                                                      ≤ Φ 12 log T L  |f (n)|2 ≤     |f (n)|2 .
+                                                                                 T
+                                                                        n≤L                  n≤L
+
+Adding the diagonal-terms to this, we complete the proof of Lemma 3.2.                  □
+Lemma 3.3. Let V be an analytic function in the horizontal strip z ∈ C : − 32 ≤ Im z ≤ 0
+                                                                  
+
+satisfying sup |V (x + iy)| ≪ (|x| log2 x)−1 . For any v ∈ R, we have
+               − 32 ≤y≤0
+    Z ∞
+           log ζ( 12 + i(t + v))V (t) dt
+      −∞
+       ∞                                    X Z β− 12                        Z 1
+       X          Λ(n)           log n                                            2
+     =           1           V
+                             b           + 2π           V (γ − v − iσ) dσ − 2π      V (−v − iσ) dσ.
+               n 2 +iv log n      2π             0                              0
+         n=2                                   1
+                                             β> 2
+                                                                   R∞           −2πixz dx.
+Here, Vb is the Fourier transform of V defined by Vb (z) =          −∞ V (x)e
+
+Proof. This is obtained by (2.14) in [13] and the argument below (2.14).                              □
+        EXPLICIT EXTREME VALUES OF THE ARGUMENT OF THE RIEMANN ZETA-FUNCTION                                     7
+
+3.2. Proof of Proposition 3. We write
+            Z ∞                                            
+                       1         h         2     t − 3T /2
+                log ζ( 2 + i(t ± 2 ))|R(t)| Φ                 dt
+             −∞                                  T / log T
+               X                Z ∞                         m −it  t − 3T /2 
+                                             1         h
+            =       f (m)f (n)        log ζ( 2 + i(t ± 2 ))        Φ              dt.
+                                 −∞                          n        T / log T
+                    m,n≤L
+
+We use Lemma 3.3 with Vm,n (z) = (n/m)iz Φ((z − 3T /2)/(T / log T )) to find that this equals
+                 (∞                               
+   X              X        Λ(k)              log k
+       f (m)f (n)       1             V
+                                      [m,n
+                          ±ih/2                2π
+                  k=2 k         log k
+                        2
+ m,n≤L
+                                            Z 1                                     )
+                                                2 m −σ±i(h/2)     ∓(h/2) − iσ − 3T /2
+                                      − 2π                    Φ                        dσ
+                                              0    n                   T / log T
+
+under RH. The latter term is
+                       X                                    1 X
+                  ≪         |f (m)f (n)| × L1/2 Φ(log T ) ≪     |f (n)|2
+                                                            T
+                                m,n≤L                                                 n≤L
+
+by (3.1). Also, the former term is
+                       ∞
+        √                            Λ(k) ∓ih/2 km −3iT /2
+                                                                          
+                 T   X X                                         T         km
+   =        2π           f (m)f (n) √         k            Φ         log
+               log T                  k log k     n            log T        n
+                    m,n≤L k=2
+        R∞      −ixu du =
+                                     √
+since   −∞ Φ(u)e                      2πΦ(x). Simple calculations using (3.1) show that
+                                                                            
+                          X          X                  1        T         km
+                                          |f (m)f (n)| 1/2 Φ         log
+                                        2
+                                                      k        log T        n
+                         m,n≤L 2≤k≤T
+                             km̸=n
+                                 X                    X           1                 1 X
+                         ≪L              |f (n)|2                     Φ(log T ) ≪       |f (n)|2 ,
+                                                              k   1/2               T2
+                                 n≤L                2≤k≤T 2                            n≤L
+
+and that
+                                                  
+   X X                               1 T         km
+                  |f (m)f (n)| 1/2 Φ       log
+                2
+                              k      log T        n
+  m,n≤L k>T
+     km̸=n
+         X                       X         1                           X                        1 X
+   ≪            |f (m)f (n)|                      k −T /2 log T ≪ L         |f (n)|2 × T −3 ≪       |f (n)|2 .
+                                          k 1/2                                                 T2
+        m,n≤L                    k>T 2                                n≤L                          n≤L
+
+Following these, we have
+            Z ∞                                          
+                        1         h         2   t − 3T /2
+                 log ζ( 2 + i(t ± 2 ))|R(t)| Φ              dt
+             −∞                                 T / log T
+                                                                                                        
+                    √          T     X     Λ(k) ∓ih/2                                     1 X
+                =       2π                √         k f (m)f (km) + O       |f (n)|2 .
+                             log T          k log k                    T
+                                     km≤L                                n≤L
+8                                     S. INOUE, H. KOBAYASHI, Y. TOMA
+
+This also leads to
+    Z ∞                                             
+                h          h         2    t − 3T /2
+          S(t + 2 ) − S(t − 2 ) |R(t)| Φ               dt
+     −∞                                    T / log T
+                                                                             
+        √     T 2      X Λ(k)                                    1 X
+     = − 2π         Re  √         sin( h2 log k)f (m)f (km) + O     |f (n)|2 .
+            log T π       k log k                                T
+                             km≤L                                                           n≤L
+
+Thus, we complete the proof of Proposition 3.                                                                   □
+
+3.3. Proof of Proposition 2. Let L, T be large numbers that satisfy L ≤ T /(log T )2 , and
+let h > 0. Those parameters are chosen later. Write
+                      Z ∞                                            
+                                 h           h         2   t − 3T /2
+                  I=        S(t + 2 ) − S(t − 2 ) |R(t)| Φ              dt.
+                       −∞                                   T / log T
+We then find by Proposition 3 that
+          √
+                                                                                                        
+            2πT 2        X     Λ(k)                        X                                1 X
+    I=−           Re          √         sin( h2 log k)      f (m)f (km) + O       |f (n)|2 . (3.2)
+          log T π               k log k                                      T
+                        2≤k≤L                          km≤L                    n≤L
+
+First, we show that
+                                                                                               
+                                                                                    t − 3T /2
+                   Z
+                                           S(t + h2 ) − S(t − h2 ) |R(t)|2 Φ
+                                                                  
+               I=                                                                                   dt
+                         4T /3≤t≤5T /3                                              T / log T
+                                                
+                                1 X
+                        + O              |f (n)|2 .                                                        (3.3)
+                                T
+                                    n≤L
+
+Using Lemma 3.1 and the estimate S(t) ≪ log(|t| + 3), we find by simple calculations that
+                                                            
+                                                   t − 3T /2
+         Z
+                                              2                     1 X
+                        h           h
+                                                                        |f (n)|2 ,
+                                       
+                  S(t + 2 ) − S(t − 2 ) |R(t)| Φ               dt ≪
+          t≤4T /3                                  T / log T        T
+                                                                                         n≤L
+
+and that
+                                                                           
+                                                                t − 3T /2
+              Z
+                                                                                       1 X
+                        S(t + h2 ) − S(t − h2 ) |R(t)|2 Φ                                  |f (n)|2 .
+                                                  
+                                                                                dt ≪
+              t>5T /3                                           T / log T              T
+                                                                                         n≤L
+
+Therefore, we obtain (3.3).
+  We extract extreme values of ±{S(t + h) − S(t)} by
+                                                                           
+                                                                 t − 3T /2
+                Z
+                                     h            h         2
+                                                    
+              ±                S(t + 2 ) − S(t − 2 ) |R(t)| Φ                 dt
+                 4T /3≤t≤5T /3                                    T / log T
+                                                Z ∞                       
+                                                          2     t − 3T /2
+              ≤ sup {±(S(t + h) − S(t))}            |R(t)| Φ                 dt
+                T ≤t≤2T                          −∞             T / log T
+                √              
+                   2πT            1                                     X
+              ≤          1+O              sup {±(S(t + h) − S(t))}          |f (n)|2 .
+                 log T           T      T ≤t≤2T                                        n≤L
+          EXPLICIT EXTREME VALUES OF THE ARGUMENT OF THE RIEMANN ZETA-FUNCTION                   9
+
+In the last step, we have used Lemma 3.2. Combining this with (3.2), we obtain
+                                X
+   sup {±(S(t + h) − S(t))} ×     |f (n)|2
+T ≤t≤2T                          n≤L
+                                                                                     
+        
+         1   2     X     Λ(k)                     X                    1 X
+ ≥∓ 1+O        Re       √         sin( h2 log k)      f (m)f (km) + O       |f (n)|2 .
+         T   π            k log k                                      T
+                  2≤k≤L                          km≤L                    n≤L
+
+This completes the proof of Proposition 2.                                                      □
+
+
+                                   4. Proof of Theorem 1
+  In this section, we let L denote a large number, h ∈ [C/ log L, c/ log log L] with positive
+constants C large and c small. We choose f = f± as the multiplicative function supported
+on square-free numbers such that for any prime p
+
+                                           p     sin( h2 log p)
+                                f± (p) := ± Q · 1/2+κh
+                                               p          h log p
+       √          √
+if exp( log log L/ h) =: M < p ≤ L and f± (p) = 0 otherwise. Here, the numbers κ and Q
+are to be chosen as
+                             Z h log L/2π
+                                           sin2 (πu) e2κπu − 1             log(h log L)
+      Q = 4κ(1 − y)h log L π                      3     4κπu
+                                                                du, κ =                 ,
+                                  0          (πu)      e                     yh log L
+           p
+where y = log(h log L)/h log L. It then holds that Q ≍ h log L and κ, y are sufficiently small
+when h ∈ [C/ log L, c/ log log L]. These parameters are determined to optimize quantity (4.2)
+below. For this f± , we give a lower bound of the ratio of resonator in the following proposition.
+
+Proposition 4. Let L be large, and let C/ log L ≤ h ≤ c/ log log L with positive constants C
+large and c small. Then we have
+                                                   X  ∞
+       2 X Λ(k)
+      ±       √        sin( h2 log k)f± (m)f± (km)        f± (n)2
+       π       k log k
+         km≤L                                         n=1
+                                    s                               r
+                                             3                     3/2
+               p                        log (h log L) (log log L)  h
+      ≥ 1 + O h log log L + min                       ,                    log L.
+                                           h log L      h3/2 log L   π
+
+   Theorem 1 immediately follows from Proposition 2 and this proposition in the case L =
+T /(log T )2 .
+
+Proof. Put α = κh. First, we observe by the definition of f± that
+
+      2 X Λ(k)                                      p 2 X sin2 ( h log p) X
+  ±          √         sin( h2 log k)f± (m)f± (km) = Q              2
+                                                                                   f± (m)2 .
+      π        k log k                                 π        p1+α h log p
+        km≤L                                             M <p≤L              m≤L/p
+                                                                                  p∤m
+                                                                                            (4.1)
+10                                   S. INOUE, H. KOBAYASHI, Y. TOMA
+
+We find by the definition of f± and Rankin’s trick that
+ X              X∞                    ∞
+                                p α X
+      f± (m)2 ≥      f± (n)2 −          f± (n)2 nα
+                                 L
+m≤L/p               n=1                    n=1
+ p∤m                p∤n                    p∤n
+                     Y                    p α       Y
+                             1 + f± (q)2 −                    1 + f± (q)2 q α
+                                                                                
+              =
+                                            L
+                    M <q≤L                           M <q≤L
+                     q̸=p                             q̸=p
+                    1        Y
+                                              2
+                                                  p α       1       Y
+                                                                                       2 α
+                                                                                           
+              =                   1 +  f ± (q)   −                          1 + f ± (q) q
+               1 + f± (p)2                          L 1 + f± (p)2 pα
+                           M <q≤L                                    M <q≤L
+                                                                  
+                      1           (p/L)α         Y 1 + f± (q)2 q α      Y
+                                                                              1 + f± (q)2 .
+                                                                                          
+              =           2
+                             −            2  α                   2
+                                                                   ×
+                 1 + f± (p)    1 + f± (p) p            1 + f± (q)
+                                                      M <q≤L                        M <q≤L
+
+Since the estimate f± (p)2 pα ≪ Q/ log L ≍ h holds and f± is supported on square-free and
+M < p ≤ L, this is also equal to
+                                                                   
+                                              2  α
+                                                                     ∞
+                                                                    X
+                     Q        p α   Y    1 + f± (q) q          Q
+       1− 1+O                                            +O             f± (n)2 .
+                   log L      L           1 + f± (q)2        log L 
+                                          M <q≤L                                    n=1
+
+Observe that
+                    1 + f± (q)2 q α       Y      f± (q)2 (q α − 1)
+           Y                                                        
+                                    =          1+
+                     1 + f± (q)2                     1 + f± (q)2
+           M <q≤L                       M <q≤L
+                                                                                      
+                                                          X
+                                                       Q
+                                      = exp 1 + O                    f± (q)2 (q α − 1).
+                                                     log L
+                                                                   M <q≤L
+
+Routine calculations using the prime number theorem and partial summation show that
+                     X sin2 ( h log p)    π                p           
+                               2
+                                        =   φ2 (L ; κ) + O   h log log L  ,
+                           p1+α h log p   2
+                     M <p≤L
+                  X                                 p            π
+                           f± (q)2 (q α − 1) = 1 + O   h log log L     Qφ3 (L ; κ),
+                                                                     4
+               M <q≤L
+and that
+                           X       sin2 ( h2 log p)  π          p            
+                                                    = φ(L ) + O    h log log L ,
+                                      ph log p       2
+                          M <p≤L
+
+where L = 2π
+           h
+             log L, and φ is as in the statement of Theorem 3, and φ2 , φ3 are by
+                                       Z L
+                                             sin(πu) 2 −2πκu
+                                                     
+                         φ2 (L ; κ) :=                  e      du,
+                                        0       πu
+                                       Z L
+                                           sin2 (πu) e2πκu − 1
+                         φ3 (L ; κ) :=                         du.
+                                        0    (πu)3     e4πκu
+Therefore, quantity (4.1) is
+    n                                                   π                op
+  ≥ φ2 (L ; κ) − (1 + E1 )φ(L ) exp −κh log L + (1 + E2 ) Qφ3 (L ; κ) + E3    Q.             (4.2)
+                                                         4
+        EXPLICIT EXTREME VALUES OF THE ARGUMENT OF THE RIEMANN ZETA-FUNCTION                    11
+                                                                   √
+Here, the error terms E1 , E2 , E3 satisfy E1 ≪ h, and E2 , E3 ≪       h log log L. By the choice
+of Q, we find that this lower bound is
+                                                                       s
+                                                                           4κ(1 − y) p
+  {φ2 (L ; κ) − (1 + E1 )φ(L ) exp(−κ(y − (1 − y)E2 )h log L) + E3 }                   h log L.
+                                                                           πφ3 (L ; κ)
+                                                                                             (4.3)
+                                                        p
+Noting the choices of y and κ, we see that for l = 1/κ log(1/κ)
+                                                              Z L        !
+                             sin(πu) 2
+                       Z l           
+                                                                     du
+          φ2 (L ; κ) =                  (1 + O(κu)) du + O
+                        0       πu                              l     u2
+                               sin(πu) 2
+                       Z ∞                                 
+                                                            1        1
+                     =                    du + O κ log l +       = + O(κ log(1/κ)),
+                        0         πu                        l        2
+and that
+                                                           Z L       !
+                         sin(πu) 2
+                    Z l           
+                                                                 du
+    φ3 (L ; κ) = 2κ                  (1 + O(κu)) du + O
+                     0      πu                              l     u3
+                           sin(πu) 2
+                    Z ∞                                  
+                                                         1
+               = 2κ                    du + O κ2 log l + 2 = κ(1 + O(κ log(1/κ))).
+                     0        πu                         l
+Hence, (4.3) is
+                             s                                
+               p               log3 (h log T ) (log log T )3/2  r h
+       1 + O h log log T + min                 ,                      log L,
+                                  h log T        h3/2 log T   π
+
+which completes the proof of (4.1).                                                             □
+  The above proof gives a good lower bound of the ratio of resonators. In particular, we
+obtain the following theorem by combining the lower bound with Theorem 3.
+Theorem 4. Let A be the set of arithmetic functions such that the value at one is not equal
+zero. For any large L and for h ∈ [C/ log L, c/ log log L] with positive constants C large and
+c small, we have
+                                                                             r
+             X Λ(k)                                  X
+       
+                                 h                                2
+                                                                                h
+  sup ± Re        √         sin( 2 log k)f (m)f (km)       |f (n)|    = (1 + E)    log L,
+  f ∈A             k log k                                                     π
+             km≤L                                    n≤L
+
+where
+                         s                              
+                          log3 (h log L) (log log L)3/2  p
+                 E ≪ min                 ,                 + h log log L.
+                             h log L       h3/2 log L 
+
+Proof. The lower bound has already shown in (4.1). The upper bound can be also proved by
+Theorem 3. Actually, we use Theorem 3 with W = π4 h log L to obtain that
+         X Λ(k)                                   X
+    Re         √              h
+                         sin( 2 log k)f (m)f (km)       |f (n)|2
+        km≤L
+                 k log k                            n≤L
+           h
+                    r                                                       r
+       φ( 2π log L) 4                   h log L       p                       h
+    ≤                    h log T + q             + O(h h log L) ≤ (1 + O(h))    log L
+             2         π             π 4 h log L                              π
+                                      π
+12                              S. INOUE, H. KOBAYASHI, Y. TOMA
+
+since φ(x) ≤ 1/2. Thus, we also obtain the upper bound.                                          □
+
+                                     5. Proof of Theorem 2
+  Let r be a sufficiently large positive integer. For any θ′ > 0 and any large T ≥ T0 (r, θ′ ),
+we have
+                                                                         !!
+                                ′                             (log r)3/2     √
+               inf S(t + 2πrθ / log T ) − S(t) ≤ − 1 + O           1/2
+                                                                                2rθ′
+            T ≤t≤2T                                              r
+                                                       r                        !!
+                                                         2 ′         (log r)3/2
+                                                = −r       θ +O
+                                                         r               r
+by Theorem 1. Therefore, if θ is chosen as
+                                         √
+                                           2    (log r)3/2
+                                 θ = 1 + √ − C1
+                                           r        r
+with C1 a sufficiently large absolute positive constant, then the inequality
+                                   S(t + 2πrθ′ / log T ) − S(t) ≤ −b
+                                  
+                             inf
+                           T ≤t≤2T
+
+holds for any large T , where
+                                      √
+                                 ′      2 C1 (log r)3/2
+                                θ =1+ √ −               > θ,
+                                        r 2      r
+and
+                                         C1
+                            b = r(θ′ − 1) + (log r)3/2 > r(θ′ − 1).
+                                          3
+Hence, by Proposition 1, we obtain the inequality of λr in (1.4). Similarly, we can prove the
+inequality of µr .                                                                         □
+
+                                     6. Proof of Theorem 3
+    Let h be an arbitrary positive   √ number,√ and let L be large. Let W be an arbitrary pos-
+itive number. Define g(n) = W /h n log n. Then we adapt Soundararajan’s method,
+which uses an inequality similar to 2|f (m) sin( h2 log k)f (km)| ≤ |f (m)|2 sin2 ( h2 log k)g(k) +
+|f (km)|2 /g(k), to obtain
+                     2 X Λ(k)
+                Re            √         sin( h2 log k)f (m)f (km)
+                    π           k log k
+                       km≤L
+                                                                                 |f (km)|2
+                                                                                          
+                   1 X         Λ(k) X                       2    2 h
+               ≤             √                   |f (m)| sin ( 2 log k)g(k) +
+                  π            k log k                                              g(k)
+                      2≤k≤L             km≤L
+                                                                                  
+                   1 X              √       X sin2 ( h log pa ) X hΛ(k)
+               =          |f (n)|2  W                        2
+                                                         2 pa h log p
+                                                                       +      √    
+                  π                                    l                        W
+                      n≤L                 pa ≤L/n                        k|n
+                                                                               
+                   1  X             √       X             2 h        a
+                                                     sin ( 2 log p ) h log n
+               =          |f (n)|2  W                   2 pa h log p
+                                                                       + √      .
+                  π                                   a                      W
+                      n≤L                 pa ≤L/n
+      EXPLICIT EXTREME VALUES OF THE ARGUMENT OF THE RIEMANN ZETA-FUNCTION                   13
+
+Routine calculations using the prime number theorem and partial summation show that
+    X sin2 ( h log pa )     X sin2 ( h log p)
+               2                      2
+            2 pa h log p
+                         =                    + O(h)
+   a
+           a                       ph log p
+   p ≤L/n                      p≤L/n
+
+                                       sin2 ( h2 log ξ)
+                               Z L/n
+                                                                   π   h
+                                                                                 
+                           =                         2
+                                                        dξ + O(h) = φ 2π log(L/n) + O(h).
+                                2       ξh(log ξ)                  2
+Therefore, it holds that
+                                                                
+            1 X            √      X sin2 ( h log pa ) h log n 
+                  |f (n)|2    W                 2
+                                            2 pa h log p
+                                                         + √
+            π                    a
+                                          l                   W 
+              n≤L               p ≤L/n
+                          √ π                                      √
+                                                                     X
+               1                                   h log n
+            ≤      max              h
+                            W φ 2π log(L/n) + √               + O(h W )        |f (n)|2
+               π n≤L          2                          W               n≤L
+                       (√                                )           !
+                            W                  h log l          √     X
+            ≤ max                h
+                              φ 2π  log(L/l) + √           + O(h W )       |f (n)|2 .
+                 1≤l≤L     2                        π W                n≤L
+
+Hence, we have
+               2 X Λ(k)
+              Re      √         sin( h2 log k)f (m)f (km)
+               π        k log k
+                 km≤L
+                    (√                                   )          !
+                        W                        h log l        √     X
+                               h
+                                                                        |f (n)|2 .
+                                            
+             ≤ max         φ 2π   log(L/l) + √             + O(h W )
+               1≤l≤L   2                         π W                      n≤L
+
+Since the parameter W is arbitrary, we have (1.5).                                           □
+
+                   7. Limitations of λ1 and µ1 deduced from Theorem 3
+   If τ (ξ; f ) > 1 for any L ≤ T , any arithmetic function f , and any ξ ≥ ξ0 , then the bound
+λ1 ≥ ξ0 becomes the limitation for the Montgomery-Odlyzko method. Note that the right
+hand side of the inequality in Theorem 3 is increasing for L, and hence we may assume L = T
+in the following argument. Using Theorem 3 with l = T x , W = 22.6, we have
+                                           (√                       )
+                                              W                 2ξx
+                       τ (ξ; f ) ≥ ξ − max      φ(ξ(1 − x)) + √       − o(1)
+                                      0≤x≤1  2                   W
+for any arithmetic function f that is not identically zero. The right hand side exceeds one
+when ξ ≥ ξ0 = 3.022. From this observation, we deduce that the limitation of λ1 for the
+Montgomery-Odlyzko method is λ1 ≥ 3.022. Similarly, we conclude that the limitation of µ1
+for the Montgomery-Odlyzko method is µ1 ≤ 0.508 by using Theorem 3 with W = 4.9.
+Remark 2. We should mention the difference between our work and Goldston, Trudgian,
+Turnage-Butterbaugh [6]. The works [4], [6] used the inequality |zw| ≤ (|z|2 + |w|2 )/2 for
+w, z ∈ C, partial summation, and the inequality | sin x| ≤ |x| for x ∈ R. On the other hand,
+we avoid using the final inequality and instead derive the result by a direct analysis of the
+sine function.
+Acknowledgments. The authors would like to thank Professor Timothy Trudgian for pro-
+viding us with valuable comments. The first author is supported by JSPS KAKENHI Grant
+Number 24K16907. The second author is supported by JSPS KAKENHI Grant Number
+14                                 S. INOUE, H. KOBAYASHI, Y. TOMA
+
+25K17245. The third author is supported by Grant-in-Aid for JSPS Research fellow Grant
+Number 24KJ1235.
+
+                                              References
+ [1] A. Bondarenko and K. Seip, Large greatest common divisor sums and extreme values of the Riemann
+     zeta function, Duke Math. J. 166 no.9 (2017) 1685–1701.
+ [2] A. Bondarenko and K. Seip, Extreme values of the Riemann zeta function and its argument, Math. Ann.
+     372 (2018), 999–1015.
+ [3] H. M. Bui and M. B. Milinovich, Gaps between zeros of the Riemann zeta-function, Quart. J. Math. 69
+     (2018), 403–423.
+ [4] J. B. Conrey, A. Ghosh, and S. M. Gonek, A note on Gaps between zeros of the zeta function, Bull. Lond.
+     Math. Soc. 16 (1984), 421–424.
+ [5] J. B. Conrey and C. L. Turnage-Butterbaugh, On r-gaps between zeros of the Riemann zeta-function,
+     Bull. Lond. Math. Soc. 50 (2018), 349–356.
+ [6] D. A. Goldston, T. S. Trudgian, and C. L. Turnage-Butterbaugh, On the Montgomery–Odlyzko method
+     regarding gaps between zeros of the zeta-function, J. Math. Anal. Appl. 527 (2023), no. 2, Paper No.
+     127548, 7 pp.
+ [7] R. R. Hall, A new unconditional result about large spaces between zeta zeros, Mathematika 52 (2005),
+     103–113.
+ [8] S. Inoue, A note on r-gaps between zeros of the Riemann zeta-function, Bull. Lond. Math. Soc. 56, no.7
+     (2024), 2268–2277.
+ [9] H. L. Montgomery and A. M. Odlyzko, Gaps between zeros of the zeta function, Topics in classical
+     number theory, Vol. I, II (Budapest, 1981), 1079–1106. Colloq. Math. Soc. János Bolyai, 34, North-
+     Holland Publishing Co., Amsterdam, 1984.
+[10] S. Preobrazhenskiı̆, A small improvement in the gaps between consecutive zeros of the Riemann zeta-
+     function, Res. Number Theory 2 (2016) Art. 28, 11.
+[11] A. Selberg, Collected papers, vol. I (Springer, Berlin, 1989), With a foreword by K. Chandrasekharan.
+[12] K. Soundararajan, Extreme values of zeta and L-functions, Math. Ann. 342 (2008), 467–486.
+[13] K. M. Tsang, Some Ω-theorems for the Riemann zeta-function, Acta Arith. 46 (1986), no.4, 369–395.
+
+  (S. Inoue) Department of Liberal Arts and Basic Sciences, College of Industrial Technology,
+Nihon University, 2-11-1 Shin-ei, Narashino, Chiba 275-8576, Japan
+  Email address: inoue.shota@nihon-u.ac.jp
+
+  (H. Kobayashi) National Fisheries University, 2-7-1, Nagatahon-machi, Shimonoseki-shi, Yam-
+aguchi 759-6595, Japan
+  Email address: h.kobayashi@fish-u.ac.jp
+
+  (Y. Toma) Global Education Center, Waseda University, 1-6-1 Nishiwaseda, Shinjuku-ku,
+Tokyo 169-8050, Japan
+  Email address: yuichiro.toma@aoni.waseda.jp
+
