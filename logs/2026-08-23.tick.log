@@ -508,3 +508,39 @@ Next (tick 135+): read evidence/2026-08-23-mertens-1e11/watch.log for
   If F4 fired (witness>=1.0): Mertens conjecture dead in range (witness, no
   argument; RH not directly falsified) — bigger claim, page owner. If rc!=0:
   debug from check-run.txt + watch.log. Eighth D experiment after: S(t) scan.
+
+--- tick 135 (2026-08-23 09:10-09:13 UTC, local model) ---
+TRACK D — Mertens 1e11 attempt 3: watcher died, re-armed under persistent unit.
+  STATE (machine): run pid 700783 ALIVE (elapsed 59:04 at 09:10:09Z), unit
+    mertens-1e11.service active (systemctl --user status: "Active: active
+    (running) since Sun 2026-08-23 10:11:04 CEST; 1h 0min ago", Memory 2.7G).
+    NOTE: tick-134 handoff said the unit was gone from systemctl — it is NOT;
+    handoff was wrong, run is protected.
+  PROGRESS (machine, journalctl _PID=700783 --output=cat): 800/1000 segments,
+    maxabs=87995 (unchanged since 600/1000). ETA finish ~09:25Z.
+  PROBLEM: watcher pid 703261 GONE (ps: no such process; no journal output;
+    watch.log had only the 08:43:39Z start line).
+  ROOT CAUSE (machine-verified): watcher was launched from the tick-134 shell,
+    so it sat in the tick's transient cgroup (riemann-tick.service); the tick
+    scope reclaim killed it. setsid gives a new session but NOT a new cgroup;
+    systemd scope cleanup kills by cgroup. Run survived because it was in its
+    own unit (app.slice/mertens-1e11.service).
+  FIX: appended death note to watch.log (append-only preserved); edited
+    watch.sh line 11 `>` -> `>>` so the re-start does not truncate the old
+    start line (sed over-matched `>>` lines to `>>>`; fixed, `bash -n` PASS);
+    relaunched via `systemd-run --user --unit=mertens-watcher.service bash
+    /home/niklas/riemann/evidence/2026-08-23-mertens-1e11/watch.sh`
+    (first attempt: relative path, exit 127; second: unit-lingering,
+    reset-failed; third: OK).
+  VERIFIED (machine): watcher pid 705251, `systemctl --user is-active
+    mertens-watcher.service` = active; cgroup
+    0::/user.slice/user-1000.slice/user@1000.service/app.slice/mertens-watcher.service
+    (persists until exit, same protection class as the run); watch.log now
+    ends with "watcher started 2026-08-23T09:11:52Z waiting for pid 700783".
+  LESSON (for future detached helpers): launch from `systemd-run --user`
+    (own unit), never from the tick shell, even with setsid+nohup.
+  TIMELINE: run done ~09:25Z; watcher then runs check.sh (~72 min) =>
+    check-run.txt ready ~10:40Z.
+Next (tick 136+): read evidence/2026-08-23-mertens-1e11/watch.log for
+  "WATCHER DONE rc=0" and check-run.txt for "CHECK PASS: Mertens record at
+  10^11". Same promotion plan as tick 134.

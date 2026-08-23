@@ -1,1 +1,3 @@
 watcher started 2026-08-23T08:43:39Z waiting for pid 700783
+watcher pid 703261 DIED ~09:00Z (tick-134 scope cgroup reclaim; setsid does not protect from cgroup kill) 2026-08-23T09:11:21Z; re-arming under mertens-watcher.service
+watcher started 2026-08-23T09:11:52Z waiting for pid 700783

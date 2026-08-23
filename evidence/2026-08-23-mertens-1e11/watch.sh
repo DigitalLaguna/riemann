@@ -8,7 +8,7 @@ set -uo pipefail
 EV=evidence/2026-08-23-mertens-1e11
 PID=700783
 cd "$(dirname "$0")/../.."
-echo "watcher started $(date -u +%FT%TZ) waiting for pid $PID" > "$EV/watch.log"
+echo "watcher started $(date -u +%FT%TZ) waiting for pid $PID" >> "$EV/watch.log"
 while kill -0 "$PID" 2>/dev/null; do sleep 30; done
 echo "pid $PID exited $(date -u +%FT%TZ)" >> "$EV/watch.log"
 journalctl _PID=$PID --output=cat --no-pager > "$EV/run3.txt" 2>>"$EV/watch.log"
