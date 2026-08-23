@@ -1,0 +1,12 @@
+range: [1.0, 100.0], step 0.1, 15 dps
+zero count N = 29 (Riemann-von Mangoldt ~ 29.0)
+first zero = 14.134725 (known gamma_1 ~ 14.1347)
+mean normalized gap = 0.977099 (should be ~1)
+max normalized gap = 1.552441 at t = 88.8091 (gap #25)
+min normalized gap = 0.526343 at t = 94.6513 (gap #27)
+max r=1 gap = 1.552441 at zero #25 (t=88.8091)
+max r=2 gap = 1.231367 at zero #25 (t=88.8091)
+max r=3 gap = 1.088066 at zero #21 (t=79.3374)
+Lehmer pairs = 0
+elapsed 3s
+wrote zeros_1_100.txt (29 zeros)
