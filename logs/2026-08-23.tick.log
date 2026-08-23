@@ -167,3 +167,40 @@ NOTES:
 Next: D's fifth experiment — Mertens at 1e10 (memory ~100GB vs 116GB free, tight; ~16 min
   est) OR Robin full-scan [1e8,1e9] (the long pole: sigma sieve to 1e9 ~30 min in numpy).
   B parked until 08-29 review; A's PR leg is owner's.
+
+--- tick 121 (track D, fifth experiment: Mertens record at N = 10^10) ---
+One-liner: raise N in the exact-integer Mertens pipeline (claim #20/#22) from 1e9 to
+1e10 to extend the extremal-Mertens record. Why not in DEAD_ENDS: first run of this
+pipeline at 1e10; #20 (1e8) and #22 (1e9) are different N. The 1e10 run is the
+"extremal Mertens" Track D item; a new record is a NUMERIC record, not an RH witness.
+Script changes (git-tracked, output format unchanged so the 1e9 check.sh still passes):
+  (1) mu_sieve batches the sign-flip for primes p > N/2 (whose only multiple <= N is
+      p itself) into one vectorized op -> cuts the Python loop ~2x; C5 sanity check
+      verifies mu[p] goes 1 -> -1 for those primes (direct check of the speed-up).
+  (2) del mu after the prefix sum (peak 90GB -> 80GB at N=1e10).
+  (3) first_attainment via np.bincount (values bounded by maxabs) -> faster.
+  (4) top-10 via a chunked heap -> avoids the ~120GB np.argpartition(-absM) temporary
+      that would OOM at N=1e10.
+PRIOR-ART PRE-FLIGHT (queries logged):
+  Q1: OEIS A084237 (fetched tick 118, saved evidence/2026-08-23-mertens-1e9/
+      oeis-a084237-m10n.txt): "a(n) = M(10^n)". a(9) = -222 (matches our 1e9 run),
+      a(10) = -33722 => M(10^10) must equal -33722 (F2).
+  Q2: OEIS A051402 (fetched tick 118, saved oeis-a051402-def.txt): "smallest k such
+      that |M(k)| = n", b-file k=1..10000, a(10000) = 902718903 < 1e10 => firstk[10000]
+      must be 902718903 (F3).
+  Q3: known Mertens-conjecture counterexample ~1.05e11 (Odlyzko-te Riele 1985, carded)
+      => |M(x)| < sqrt(x) still expected to hold at 1e10 (no witness framing needed).
+  Conclusion: no published max_{x<=1e10} |M(x)| found; A084237 a(10) + A051402 envelope
+  are the cross-checks.
+PRE-REGISTERED FALSIFICATION TESTS (before run, 2026-08-23T02:10:14Z):
+  F1 (regression): the N=1e7 run of the MODIFIED script must pass C1-C5 and reproduce
+      M(10^7)=1037 (known from the 1e9 run). DONE: PASS (12.7s, C5: 316066 large primes
+      flipped 1->-1; max |M| at 1e7 = 1143 first at x=9993034).
+  F2 (literature cross-check): M(10^10) must equal -33722 (OEIS A084237 a(10)). If not,
+      the sieve or the indexing is wrong -> run void.
+  F3 (envelope): firstk[10000] (smallest x with |M(x)|=10000) must equal 902718903
+      (A051402 a(10000)); C4 checks all k=1..10000. If maxabs < 10000, sieve or b-file wrong.
+  F4 (trivial bound): |M(x)| <= x for all x <= 1e10 (violation = bug).
+  F5 (witness framing, constraint 5): Mertens does not decide RH; a new record is a
+      NUMERIC record claim, not a proof. No STOP condition; F2/F3 failure voids the run.
+  EXPECTED (RH-consistent): maxabs in [10246, ~20000]; M(1e10) = -33722; C1-C5 PASS.
