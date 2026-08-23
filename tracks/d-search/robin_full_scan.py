@@ -20,8 +20,12 @@ Pre-registered checks (falsification tests, see logs/2026-08-23.tick.log tick 12
      in [1e8,1e9], 20 seeded-random n, and edge cases. Any mismatch => sieve bug => result invalid.
   F2 (WITNESS, constraint 5): if R(n) >= 1 for ANY n in [1e8,1e9] => RH FALSE => STOP.
      Verified in mpmath (50 digits) at the argmax.
-  F3 (consistency): max R over [1e8,1e9] >= 0.968152104902 (the SA near-miss from claim #23,
-     since the full scan includes all SA numbers). If lower => sieve missed an SA number.
+  F3a (consistency, 50 digits): full-scan max R >= SA max R, both computed in-script at
+     50 digits from exact (sympy-cross-checked) sigmas. If lower => sieve missed an SA number.
+  F3b (regression, display): the 12-significant-digit display of the full-scan max equals
+     claim #23's recorded display 0.968152104902. (Tick-128 F3 FAIL was a display-rounding
+     artifact: the 12-sig-digit display rounds UP, so the 50-digit value sits just below the
+     rounded constant; resolved at 80 digits, evidence f3-resolution.txt.)
 Exit 0 iff F1 and F3 pass and no F2 witness hit.
 
 Usage: robin_full_scan.py [A] [B] [L]   (defaults 1e8, 1e9+1, 1e8)
@@ -39,7 +43,9 @@ EULER_GAMMA = mp.mpf("0.57721566490153286060651209008240243104215933593992")
 EG_MP = mp.e ** EULER_GAMMA
 EG = float(math.exp(0.57721566490153286060651209008240243104215933593992))
 SA_IN_RANGE = [122522400, 147026880, 183783600, 367567200, 698377680, 735134400]
-SA_MAX_R_1E9 = "0.968152104902"   # claim #23: max R over SA in (1e8,1e9], at n=367567200
+SA_MAX_R_1E9 = "0.968152104902"   # claim #23: 12-SIG-DIGIT DISPLAY of the SA max R in (1e8,1e9]
+# (robin_sa_1e9.py prints mp.nstr(r,12) at 60 dps; the underlying 60-digit value is
+# 0.96815210490180933969..., which ROUNDS UP to this display — see f3-resolution.txt)
 
 
 def primes_upto(n):
@@ -147,11 +153,14 @@ def main():
     print(f"F1 cross-check: checked={len(check_sigma)} mismatches={mism}: "
           f"{'PASS' if mism == 0 else 'FAIL'}", flush=True)
 
-    f3 = R_best_mp >= mp.mpf(SA_MAX_R_1E9)
-    print(f"F3 consistency: max R {nstr(R_best_mp)} >= {SA_MAX_R_1E9} (claim #23 SA max): "
-          f"{'PASS' if f3 else 'FAIL'}", flush=True)
+    f3a = R_best_mp >= sa_max_mp
+    print(f"F3a consistency: full-scan max R {nstr(R_best_mp)} >= SA max (50-digit) "
+          f"{nstr(sa_max_mp)}: {'PASS' if f3a else 'FAIL'}", flush=True)
+    f3b = mp.nstr(R_best_mp, 12) == SA_MAX_R_1E9
+    print(f"F3b regression: 12-sig-digit display of full-scan max == claim #23 display "
+          f"{SA_MAX_R_1E9}: {'PASS' if f3b else 'FAIL'}", flush=True)
 
-    ok = (mism == 0) and (not witness) and f3
+    ok = (mism == 0) and (not witness) and f3a and f3b
     print(f"VERDICT: {'ALL CHECKS PASS' if ok else 'CHECK FAILURE'}", flush=True)
     sys.exit(0 if ok else 1)
 

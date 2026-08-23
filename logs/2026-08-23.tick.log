@@ -315,3 +315,49 @@ PRE-REGISTERED FALSIFICATION TESTS (before run, 2026-08-23T05:4xZ):
       [1e8,1e9], which #23 did not report (it reported the global max at n=10080 < 1e8).
       No published full all-n Robin scan to 1e9 found in lit/cards (standard refs use the CA
       reduction or stop below 1e9).
+
+--- tick 129 (track D, resolving tick-128 F3 CHECK FAILURE on Robin full scan [1e8,1e9]) ---
+One-liner: tick 128's full scan ended VERDICT: CHECK FAILURE on F3 (full-scan max R
+  0.9681521049018093 < pre-registered constant 0.968152104902). Per constraint 7 the
+  unexplained mismatch blocks; this tick resolves it against the machine. Not a new
+  experiment: F1/F2/F3 were pre-registered in tick 128 (this log, line ~298).
+PRE-REGISTERED RESOLUTION TESTS (before run, 2026-08-23T06:09:48Z):
+  R1: R(367567200) computed at 80 digits from the EXACT sigma=1889879040 (sympy-verified
+      in both runs) must display as 0.968152104902 at 12 significant digits (claim #23's
+      recorded value: robin_sa_1e9.py prints mp.nstr(r,12) at 60 dps) AND as
+      0.9681521049018093 at 16 significant digits (tick-128 full-scan value, 50 dps).
+      If either fails, F3 mismatch is NOT display rounding => sieve bug or #23 bug =>
+      full-scan result invalid (record dead end).
+  R2: 50-digit and 60-digit values of R(367567200) agree to 40 digits (dps not the issue).
+  R3: re-run of the fixed script (F3a: 50-digit full-scan max >= 50-digit SA max computed
+      in-script; F3b: 12-sig-digit display regression vs #23's recorded display) exits 0
+      with VERDICT: ALL CHECKS PASS.
+Prior-art pre-flight (repo-internal, this tick): #21 (full scan to 1e6), #23 (SA scan to
+  1e9; top-10 table printed at 12 sig digits — source of the F3 constant), tick-128
+  pre-registration; Lagarias 2002 eq 1.2 (carded, lit/cards/lagarias-2002). No new external
+  prior art needed: this is a check-logic fix, the scan's math is unchanged.
+machine said (verbatim):
+  R1/R2 resolution (evidence/2026-08-23-robin-full-scan/f3-resolution.txt):
+    R(367567200) at 80 digits = 0.96815210490180933969150300830411163758125062660989349558152224824350009104015825
+    "R1a 12-digit display == 0.968152104902 (claim #23): True"
+    "R1b 16-digit display == 0.9681521049018093 (tick 128): True"
+    "R2 50-vs-60 agree to 40 digits: True"
+    => F3 mismatch WAS display rounding: #23's robin_sa_1e9.py prints mp.nstr(r,12) at 60 dps;
+    the 13th significant digit is 8, so the 12-sig-digit display rounds UP and the 50-digit
+    value sits ~1.8e-12 below the rounded constant. Constraint 7 satisfied: resolved, not annotated.
+  R3 re-run (run2.txt, 5m19s, deterministic — same max/argmax/sigma as run.txt):
+    "FULL SCAN [100000000,1000000001): max R = 0.9681521049018093 at n = 367567200 (sigma=1889879040)"
+    "F1 cross-check: checked=33 mismatches=0: PASS"
+    "F2 witness R(n)>=1 in [100000000,1000000001): none (max R < 1)"
+    "F3a consistency: full-scan max R 0.9681521049018093 >= SA max (50-digit) 0.9681521049018093: PASS"
+    "F3b regression: 12-sig-digit display of full-scan max == claim #23 display 0.968152104902: PASS"
+    "VERDICT: ALL CHECKS PASS"  EXIT=0
+  promote.sh: "running checker: evidence/2026-08-23-robin-full-scan/check.sh"
+    "CHECK PASS: Robin full scan [1e8,1e9] (max R=0.9681521049018093 at n=367567200, CA; no witness R>=1)"
+    "promoted #26: NOTE -> NUMERIC"
+Booked: claim #26 NUMERIC (track d).
+Next: (a) OWNER: open PR (unchanged, see HANDOFF). (b) D seventh experiment: S(t) scan
+  (Riemann-Siegel S(t) extremal values — needs RS implementation, bounded step) OR Mertens 1e11
+  (exact integer sieve; 1e10 took 28 min => 1e11 ~2.5h, background run across ticks);
+  pre-register falsification FIRST (witness => RH false => STOP, c5). (c) B parked until
+  week-2 review 08-29.
