@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
-"""Track D first experiment: Mertens function M(x) = sum_{n<=x} mu(n), N = 10^8.
+"""Track D experiment: Mertens function M(x) = sum_{n<=x} mu(n).
 
-Exact integer arithmetic: mu as numpy int8, M as int32 prefix sums.
-Cross-checks = pre-registered falsification tests F1-F4 (logs/2026-08-22.tick.log):
-  C1 (F1): M(10) == -1 (hand-computed from mu(1..10)).
-  C2 (F2): M(n) == OEIS A002321 b-file for all n <= 10000.
-  C3 (F3): M(n) == independent sympy trial-division M(n) for all n <= 10^5.
-  C4 (F4): first k with |M(k)| == n equals OEIS A051402 b-file a(n) for all
-           n <= max_{x<=N} |M(x)| (record-envelope check).
-Outputs M(10^k) k=1..8, the |M| record, the |M(x)|/sqrt(x) record, top-10 |M(x)|.
-Exit 0 iff all checks pass.
+N = 10^8 (default) or int(argv[1]). Exact integer arithmetic: mu as numpy
+int8, M as int32 prefix sums. Cross-checks (pre-registered falsification
+tests, see logs/2026-08-22.tick.log and logs/2026-08-23.tick.log):
+  C1: M(10) == -1 (hand-computed from mu(1..10)).
+  C2: M(n) == OEIS A002321 b-file for all n <= 10000.
+  C3: M(n) == independent sympy trial-division M(n) for all n <= 10^5.
+  C4: first k with |M(k)| == n equals OEIS A051402 b-file a(n) for all n in
+      the b-file with n <= max_{x<=N} |M(x)| (inverse-Mertens envelope;
+      A051402: "smallest k such that |M(k)| = n").
+Outputs M(10^k) for k <= log10(N), the |M| record, the |M(x)|/sqrt(x)
+record, top-10 |M(x)| locations. Exit 0 iff all checks pass.
 """
 import math
 import sys
 import numpy as np
 
-N = 10**8
+N = int(sys.argv[1]) if len(sys.argv) > 1 else 10**8
 EV = "evidence/2026-08-22-mertens"
 
 
@@ -115,13 +117,19 @@ def main():
     i_max = int(np.nonzero(absM == maxabs)[0][0])
     print(f"max |M(x)| for x <= {N}: {maxabs}, first at x = {i_max}, "
           f"M = {int(M[i_max])}")
-    idx = np.arange(N + 1, dtype=np.float64)
-    ratio = absM.astype(np.float64) / np.sqrt(idx)
-    ratio[0] = 0.0
-    i_r = int(ratio.argmax())
-    print(f"max |M(x)|/sqrt(x) for x <= {N}: {ratio[i_r]:.9f} at x = {i_r} "
+    CH = 10**7
+    best_r, i_r = 0.0, 1
+    for start in range(1, N + 1, CH):
+        stop = min(start + CH, N + 1)
+        r = absM[start:stop].astype(np.float64) / np.sqrt(
+            np.arange(start, stop, dtype=np.float64))
+        j = int(r.argmax())
+        if r[j] > best_r:
+            best_r, i_r = float(r[j]), start + j
+    print(f"max |M(x)|/sqrt(x) for x <= {N}: {best_r:.9f} at x = {i_r} "
           f"(M = {int(M[i_r])})")
-    for k in range(1, 9):
+    kmax = int(round(math.log10(N)))
+    for k in range(1, kmax + 1):
         print(f"M(10^{k}) = {int(M[10**k])}")
     top = np.argpartition(-absM, 10)[:10]
     print("top-10 |M(x)| locations:")

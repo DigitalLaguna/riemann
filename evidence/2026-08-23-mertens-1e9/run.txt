@@ -1,0 +1,27 @@
+C1 M(10) = -1 (expect -1): PASS
+C2 OEIS A002321 n<=10000: 10000 values, mismatches=0: PASS
+C3 sympy independent n<=10^5: mismatches=0: PASS
+C4 OEIS A051402 envelope: checked=10000 n-values, mismatches=0: PASS
+max |M(x)| for x <= 1000000000: 10246, first at x = 903087703, M = 10246
+max |M(x)|/sqrt(x) for x <= 1000000000: 1.000000000 at x = 1 (M = 1)
+M(10^1) = -1
+M(10^2) = 1
+M(10^3) = 2
+M(10^4) = -23
+M(10^5) = -48
+M(10^6) = 212
+M(10^7) = 1037
+M(10^8) = 1928
+M(10^9) = -222
+top-10 |M(x)| locations:
+  x=903087703 M=10246
+  x=903087704 M=10246
+  x=903087701 M=10245
+  x=903087702 M=10245
+  x=903087705 M=10245
+  x=903087646 M=10244
+  x=903087697 M=10244
+  x=903087699 M=10244
+  x=903087715 M=10244
+  x=903087716 M=10244
+VERDICT: ALL CHECKS PASS

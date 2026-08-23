@@ -1,35 +1,35 @@
-# HANDOFF — session 2026-08-23 02:06 CEST (tick 117)
+# HANDOFF — session 2026-08-23 00:55 UTC (tick 118)
 # track: D | gate: all tracks OPEN (21/21 seeds)
 
 ## State
-21 claim rows: 10 NUMERIC (B: #3,4,6,7,8,9,18; E: #10; D: #20,21), 2 FORMAL (A: #2 PNT+
-local build, #12 IK additive-API lemmas), 9 NOTE (#1 scaffold, #5 B diag, #11 B abeff
-semantics, #13->#12, #14 B row-3 gate, #15 B Phase-3 audit, #16 B re-attribution,
-#17 B x6e12 abeff argv, #19->#18). NEW: #21 NUMERIC — Track D 2nd experiment:
-Robin-criterion near-miss (n<=1e8). R(n)=sigma(n)/(e^gamma*n*log log n) max =
-0.985818611972329 at n=10080 (sigma=39312); NO Robin witness (R>=1) in (5040,1e8].
-Verified: full scan [5041,1e6] + superabundant/CA check (1e6,1e8] + Robin reduction.
-Sequence confusion resolved: A004394=superabundant, A004490=colossally abundant;
-eps-sweep generator matches A004490 exactly (13 terms <=1e8 excl 1); sigma matches
-A000203 (n<=10000). checker evidence/2026-08-22-robin-ca/check.sh exit 0.
+22 claim rows: 11 NUMERIC (B: #3,4,6,7,8,9,18; E: #10; D: #20,21,22), 2 FORMAL
+(A: #2 PNT+ local build, #12 IK additive-API lemmas), 9 NOTE (#1 scaffold, #5 B diag,
+#11 B abeff semantics, #13->#12, #14 B row-3 gate, #15 B Phase-3 audit, #16 B
+re-attribution, #17 B x6e12 abeff argv, #19->#18). NEW: #22 NUMERIC — Track D 3rd
+experiment: Mertens record at 1e9. max_{x<=1e9} |M(x)| = 10246, first at x=903087703
+(M=+10246, positive side); M(1e9) = -222 = OEIS A084237 a(9); A051402 inverse-Mertens
+envelope k=1..10000 fully verified; |M(x)|<=sqrt(x) holds at 1e9 (Mertens conjecture
+still holds; known counterexample ~1.05e11). checker evidence/2026-08-23-mertens-1e9/
+check.sh exit 0.
 
 ## Last tick
-tick 117 (track D, 02:06 CEST): robin-ca had run (tick 112) + check.sh written
-(ticks 113/115) but was UNCLAIMED (no ledger row, no log section for 113-116, HANDOFF
-stale). This tick: resolved the A004394/A004490 sequence identity from fetched OEIS
-html (A004394=superabundant per b-file header; A004490=colossally abundant; CA subset
-of SA so SA list covers all CA; SA list complete to 1e8, largest SA<1e8=73513440),
-re-ran check.sh (EXIT=0, ALL CHECKS PASS, 17.1s), added #21 NOTE and promoted
-NOTE->NUMERIC (promote.sh ran the checker).
+tick 118 (track D, 00:55 UTC): D's 3rd experiment — Mertens at 1e9. Refactored
+tracks/d-search/mertens_extremal.py (N via argv, default 1e8; chunked ratio for
+memory); F1 regression byte-identical to claim #20's run.txt (21.6s). Prior art:
+OEIS A084237 (a(n)=M(10^n), a(9)=-222; a(1..8) match our 1e8 run exactly), A051402
+(b-file k<=10000, a(10000)=902718903<1e9 => record >=10000 forced); no published
+max |M| at 1e9 found (queries logged). Pre-registered F1-F5; run 2m23s EXIT=0 all
+PASS; check.sh EXIT=0; #22 NOTE->NUMERIC.
 
 ## Next action
 (a) OWNER: one-click Fork of AlexKontorovich/PrimeNumberTheoremAnd -> then
     git push fork ik-additive-lemmas (branch @ 0197a66 in tracks/a-lean/pnt) + file PR
     (body ready: evidence/2026-08-22-pnt-ik-api/issue-816-draft.md, AI disclosure per
     PULL_REQUEST_STYLE.md) — closes the week-2 milestone fully.
-(b) TRACK D (weight 15): third experiment — Mertens at 1e9 (pipeline exists from #20,
-    just raise N) OR Robin at 1e9 (extend SA/CA b-files past 73513440 + full scan to
-    1e9). Pre-register falsification tests FIRST (witness R(n)>=1 => RH false => STOP,
+(b) TRACK D (weight 15): fourth experiment — Robin at 1e9 (extend SA/CA b-files past
+    73513440; next SA = 122522400; full scan [1e8,1e9] is the long pole) OR Mertens at
+    1e10 (memory ~100GB vs 111GB available — tight; consider segmented variant).
+    Pre-register falsification tests FIRST (witness R(n)>=1 => RH false => STOP,
     constraint 5).
 (c) TRACK B (weight 40): PARKED until week-2 review (08-29): (i) X-sweep to 7e12
     (stored sums = long pole); (ii) Arb-port of the 0.20 pipeline (promotes NOTE #11);
@@ -44,9 +44,9 @@ NOTE->NUMERIC (promote.sh ran the checker).
 
 ## Budget
 Week-1 review decision: REWEIGHT A30/B40/D15/C10/E5; condition "A claims first XS Lean
-issue by 09-03" MET in substance (PR leg pending owner). D now producing (2 NUMERIC:
-#20 Mertens, #21 Robin).
+issue by 09-03" MET in substance (PR leg pending owner). D now producing (3 NUMERIC:
+#20 Mertens 1e8, #21 Robin 1e8, #22 Mertens 1e9).
 Next review 2026-08-29 (week 2): milestone check + spot-check 3 cards vs PDFs +
-decide B next step (X-sweep vs Arb port) + D's third experiment.
+decide B next step (X-sweep vs Arb port) + D's fourth experiment.
 Week-4 kill (09-17): Lean PR upstream + Polymath15 to 2 sig figs — numerics leg met
 (claims #7,#9,#18); the PR leg is the risk.

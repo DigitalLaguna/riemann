@@ -1,0 +1,2 @@
+Fetched 2026-08-23 from https://oeis.org/A051402 (verbatim):
+A051402 Inverse Mertens function: smallest k such that |M(k)| = n, where M(x) is Mertens's function A002321 . 14 1, 5, 13, 31, 110, 114, 197, 199, 443, 659, 661, 665, 1105, 1106, 1109, 1637, 2769, 2770, 2778, 2791, 2794,

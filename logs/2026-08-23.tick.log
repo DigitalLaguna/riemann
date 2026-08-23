@@ -44,3 +44,63 @@ Next: (a) OWNER: PNT+ fork/PR (A's critical path, unchanged); (b) TRACK D 3rd
 experiment — Mertens at 1e9 (pipeline exists from #20) OR Robin at 1e9 (extend SA/CA
 list + full scan); pre-register falsification tests first; (c) TRACK B parked until
 08-29 review.
+
+--- tick 118 (track D, third experiment: Mertens record at N = 10^9) ---
+Plan: raise N in the existing exact-integer pipeline (tracks/d-search/mertens_extremal.py,
+claim #20) from 1e8 to 1e9. N now via argv (default 1e8 unchanged); ratio record
+computed in chunks (memory). Why not in DEAD_ENDS: first run of this pipeline at 1e9;
+the 1e8 run (claim #20) and the Robin run (claim #21) are different N / different
+criterion.
+PRIOR-ART PRE-FLIGHT (queries logged):
+  Q1: OEIS sequence search "-1, 1, 2, -23, -48, 212, 1037, 1928" (our M(10^1..8))
+      -> A084237 "a(n) = M(10^n), where M(n) is Mertens's function." (fetched, saved
+      evidence/2026-08-23-mertens-1e9/oeis-a084237-m10n.txt). a(9) = -222, a(10) = -33722.
+      Our 1e8 run matches a(1..8) exactly, fixing the indexing.
+  Q2: OEIS A051402 page (fetched, saved oeis-a051402-def.txt): "Inverse Mertens
+      function: smallest k such that |M(k)| = n". b-file covers k=1..10000;
+      a(10000) = 902718903 < 1e9 => record at 1e9 is FORCED >= 10000.
+  Q3: arXiv API abs:"Mertens" AND abs:"maximum" -> 1 hit ("Two elementary formulae
+      and some complicated properties for Mertens function"), not a record computation.
+  Q4: Wikipedia Mertens_function (fetched): table of known upper bounds only
+      (Cohen-Dress 1979 at 1e8, Dress 1993 at 7.8e9, ...), no record values.
+  Conclusion: no published max_{x<=1e9} |M(x)| found; closest published data is the
+  A051402 b-file envelope (k<=10000).
+PRE-REGISTERED FALSIFICATION TESTS (before run):
+  F1 (regression): default N=1e8 run must reproduce claim #20 byte-identically
+      (C1-C4 PASS, max 3448 first at x=76015339, M(1e8)=1928). DONE: PASS
+      (diff vs committed run.txt empty modulo a stderr warning line that no longer
+      occurs; 21.6 s).
+  F2 (literature cross-check): M(10^9) must equal -222 (OEIS A084237 a(9), fetched
+      above). If not, the sieve or the indexing is wrong -> run void.
+  F3 (envelope): first-attainment of |M| = k for k = 1..min(maxabs, 10000) must
+      equal A051402 b-file; in particular firstk[10000] must be 902718903.
+      (If maxabs < 10000, either our sieve or the b-file is wrong.)
+  F4 (trivial bound): |M(x)| <= x for all x <= 1e9 (violation = bug).
+  F5 (witness framing, constraint 5): Mertens does not decide RH; a new record is a
+      NUMERIC record claim, not a proof. No STOP condition; F2/F3 failure voids run.
+  EXPECTED (RH-consistent): maxabs in [10000, ~15000]; M(1e9) = -222; C1-C4 PASS.
+Machine (run, 2m23s, EXIT=0, verbatim from run.txt):
+  C1 M(10) = -1 (expect -1): PASS
+  C2 OEIS A002321 n<=10000: 10000 values, mismatches=0: PASS
+  C3 sympy independent n<=10^5: mismatches=0: PASS
+  C4 OEIS A051402 envelope: checked=10000 n-values, mismatches=0: PASS
+  max |M(x)| for x <= 1000000000: 10246, first at x = 903087703, M = 10246
+  max |M(x)|/sqrt(x) for x <= 1000000000: 1.000000000 at x = 1 (M = 1)
+  M(10^9) = -222
+  VERDICT: ALL CHECKS PASS
+F2: M(10^9) = -222 == A084237 a(9): PASS. F3: envelope k=1..10000 all match
+(incl. firstk[10000] = 902718903): PASS. F4: 10246 <= 1e9: PASS.
+check.sh re-run: EXIT=0, "CHECK PASS: Mertens record at 10^9 (max |M| = 10246,
+first at x = 903087703; M(10^9) = -222 = OEIS A084237 a(9))".
+Claim #22 added (NOTE) then promoted NOTE->NUMERIC (promote.sh ran check.sh, exit 0).
+Machine class: direct evaluation of witnesses (exact integer arithmetic; cross-verified
+against OEIS A002321, independent sympy, A051402 envelope k<=10000, A084237 a(9)).
+Precedent: #20 (Mertens 1e8).
+Result: max_{x<=1e9} |M(x)| = 10246 (POSITIVE side, x=903087703); supersedes the 1e8
+record (-3448, negative side). Mertens conjecture |M(x)| < sqrt(x) still holds at 1e9
+(known counterexample ~1.05e11, Odlyzko-te Riele 1985).
+Next: (a) OWNER: PNT+ fork/PR (A's critical path, unchanged); (b) TRACK D 4th
+experiment — Robin at 1e9 (extend SA/CA b-files past 73513440; next SA = 122522400;
+full scan [1e8,1e9] is the long pole) OR Mertens at 1e10 (memory ~100GB vs 111GB
+available — tight; consider segmented variant); pre-register falsification tests first;
+(c) TRACK B parked until 08-29 review.
