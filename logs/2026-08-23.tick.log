@@ -1088,3 +1088,40 @@ NEXT (tick 156+):
       10% (next flush ~50000/999990). On completion: F5a/b/c + F3/F4 verdicts
       + records max/min g [1,1e5] -> NOTE claim via promote.sh.
   (c) OWNER: PNT+ PR (see HANDOFF). (d) TRACK B: PARKED until 08-29.
+
+TICK 156 (2026-08-23 ~20:01-20:10 UTC, model qwen3.8-27b, track D monitoring)
+attempt: refine both in-flight scan ETAs from a MEASURED mpmath zeta cost profile
+  (tick 155 used a power-law fit E=a*N^b; the S(t) scan's rate had dropped 2.5x,
+  an unexplained mismatch that blocks per constraint 7).
+prior-art pre-flight: not a new math attempt; the "prior art" is mpmath's own
+  dispatch source, quoted verbatim into the evidence file (zeta.py:558-560).
+machine said (verbatim, key lines):
+  - systemctl: st-scan-1e5.service active (running) 4h20m, pid 732546 99.9% CPU;
+    zero-scan-1e5.service active (running) 1h28m, pid 745484 99.9% CPU; nproc=48,
+    load 3.04 -> no CPU contention (rules out contention as cause of rate drop).
+  - st_run-1e5.stderr: "progress 220000/333331 (66%) elapsed 15066s"
+  - full.stderr: "coarse 55000/999990 elapsed 5210s"
+  - direct zeta timing (30 dps): t=24000:85.3ms t=36000:85.8ms t=45000:154.2ms
+    t=54000:44.7ms t=60000:42.0ms t=66000:41.8ms t=80000:41.7ms t=99000:42.0ms
+    -> cost is NON-MONOTONIC in t: generic 0.8-86ms (t<44k), plateau 155ms
+    (t in [44k,51k]), RS regime 42ms (t>52k). Scan segment rates 0.085/0.137/
+    0.109/0.042 match this profile exactly -> anomaly RESOLVED (mpmath property,
+    not noise). Mechanism: zeta.py dispatches to rs_zeta when |im|>500*prec
+    (t>50000 at prec=100 bits / 30 dps).
+  - work integration (200k-step trapz of w(t)=cost(t)*[10+30*(1/2pi)*ln(t/2pi)]):
+    zero scan REMAINING = 299262s = 83.1h = 3.46d; TOTAL = 302532s = 3.50d.
+    S(t) scan REMAINING = 113331*0.0425 = 4817s = 1.34h.
+result: ETAs now machine-based:
+  - S(t) scan [1,1e5] completes ~21:25 UTC 08-23 (was 00:00-00:30Z).
+  - zero scan [1,1e5] completes ~08-27 ~09:00 UTC (was 4.7-5.1d / 08-28..08-29;
+    power-law over-estimated because cost drops 2x at t>52k).
+  - zero scan 5.5% of points = 1.7% of total work (early pts cheap) - consistent.
+evidence: evidence/2026-08-23-zero-scan/zeta-cost-profile.md (profile table +
+  mpmath source citation + integration method + falsification).
+next: (a) S(t) scan done ~21:25Z -> read st_run-1e5.txt for "ST-SCAN-1e5 DONE rc=0",
+  max|S|, zero count (<= zero-scan count), max arg jump (<pi); mpmath=NOTE.
+  (b) zero scan: re-estimate at 10% (~point 100000, t=10001); on completion F5a/b/c
+  + F3/F4 verdicts + max/min g records -> NOTE via promote.sh.
+  (c) OWNER: PNT+ PR (see handoff). (d) TRACK B parked until 08-29 review.
+no new ledger claim this tick (cost profile = NOTE-grade tooling, recorded as
+  evidence; promote to NOTE if a future tick needs to cite it).

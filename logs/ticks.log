@@ -152,3 +152,4 @@
 2026-08-23T17:56:49.986203+00:00 tick 152 model=qwen3.8-27b steps=16 wall=974s next=(a) TRACK D (weight 15): check both scans: st_run-1e5.txt (ETA ~00:30Z 08-24)
 2026-08-23T18:27:49.985289+00:00 tick 153 model=qwen3.8-27b steps=15 wall=625s next=(a) TRACK D (weight 15): S(t) scan completion ETA ~22:30Z 08-23: read
 2026-08-23T18:58:49.993190+00:00 tick 154 ERROR timed out steps=8
+2026-08-23T19:29:49.989998+00:00 tick 155 model=qwen3.8-27b steps=11 wall=425s next=(a) TRACK D (weight 15): S(t) scan completion ETA ~00:00-00:30 UTC 08-24:

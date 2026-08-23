@@ -1,39 +1,41 @@
-# HANDOFF — session 2026-08-23 ~21:30 CEST (tick 155)
+# HANDOFF — session 2026-08-23 ~20:10 CEST (tick 156)
 # track: D | gate: all tracks OPEN (21/21 seeds)
 
 ## State
 27 claim rows: 15 NUMERIC (B: #3,4,6,7,8,9,18; E: #10; D: #20,21,22,23,24,26,27),
 3 FORMAL (A: #2 PNT+ local build, #12 IK lemmas v1 [SUPERSEDED by #25], #25 IK
 lemmas v2), 9 NOTE (#1,#5,#11,#13->#12,#14,#15,#16,#17,#19->#18).
-Track D: 7 NUMERIC. TWO scans in flight (both own systemd units, verified active):
-(1) S(t) scan [1,1e5] st-scan-1e5.service pid 732546: 54% (180000/333331),
-elapsed 13312s; rate SLOWING (0.0849/0.1368/0.1094 s/pt per 20k seg, noisy,
-most recent 0.1094). ETA ~00:00-00:30 UTC 08-24 (02:00-02:30 CEST), ~4.5-5h.
-(2) FULL zero scan [1,1e5] step 0.1 zero-scan-1e5.service pid 745484: 4%
-(40000/999990), elapsed 3246s; rate CLEARLY INCREASING (0.0498->0.1220 s/pt,
-cost~t^0.5-0.55 Riemann-Siegel). ETA ~4-5 days, completion ~08-27..08-29,
-best ~4.7 days (~08-28). (Handoff-153 "3-4 days" was the low end.)
+Track D: 7 NUMERIC. TWO scans in flight (both own systemd units, verified active,
+99.9% CPU each, 48-core box load 3 -> no contention):
+(1) S(t) scan [1,1e5] st-scan-1e5.service pid 732546: 66% (220000/333331),
+elapsed 15066s. ETA ~21:25 UTC 08-23 (1.34h left) — MACHINE-MEASURED.
+(2) FULL zero scan [1,1e5] step 0.1 zero-scan-1e5.service pid 745484: 5.5%
+(55000/999990), elapsed 5210s. ETA ~08-27 ~09:00 UTC (3.46d left) — MACHINE-
+INTEGRATED. (5.5% of points = 1.7% of total work; early pts cheap.)
 
 ## Last work
-Tick 155 (this one): monitoring tick. (1) Verified BOTH scans alive via
-systemctl (own cgroups, survived 5+ ticks; A-005 nohup-kill already closed).
-(2) Re-estimated ETAs from fresh progress: S(t) rate rose from the 85s/20k
-plateau to ~110-137s/20k -> ETA pushed 22:30Z -> ~00:00-00:30Z 08-24. Zero
-scan rate rising 0.0498->0.1220 s/pt; power-law fit cost~t^a (a~0.45-0.56),
-a=0.5 gives 4.7 days -> ~08-28. (3) MACHINE-CHECK: rvn(1e5) per zero_scan.py
-= 138067.55841923953 EXACTLY matches design F5a threshold 138067.56 -> no
-anomaly (my hand estimate 137986 was a log-precision slip). No new claims
-(both scans in flight; mpmath = NOTE when done).
+Tick 156 (this one): ETA refinement + anomaly closure. Tick-155 S(t) rate had
+dropped 2.5x (0.1094->0.042 s/pt) — an unexplained mismatch (blocks per
+constraint 7). MEASURED mpmath zeta(0.5+it) cost at 30 dps across t: it is
+NON-MONOTONIC — generic 0.8-86ms (t<44k), 155ms PLATEAU (t in [44k,51k]), then
+42ms RS regime (t>52k, flat to 1e5). Scan segment rates 0.085/0.137/0.109/0.042
+match the profile exactly -> anomaly RESOLVED (mpmath property, not noise).
+Mechanism (source quoted): zeta.py:558-560 dispatches to rs_zeta when
+|im|>500*prec (t>50000 at prec=100 bits/30dps). Re-integrated zero-scan work
+with the measured profile: REMAINING 83.1h (was 5.1d by power-law, which
+over-estimated because cost DROPS 2x at t>52k). S(t) remaining 113331 pts all in
+42ms regime = 1.34h. No new claims (both scans in flight; mpmath = NOTE when done).
+Evidence: evidence/2026-08-23-zero-scan/zeta-cost-profile.md (table + citation +
+integration + falsification).
 
 ## Next action
-(a) TRACK D (weight 15): S(t) scan completion ETA ~00:00-00:30 UTC 08-24:
-    read evidence/2026-08-23-st-scan/st_run-1e5.txt for "ST-SCAN-1e5 DONE
-    rc=0": max|S|, zero count (cross-check: must be <= zero-scan count), max
-    arg jump (< pi else step 0.3 too large -> re-run smaller). mpmath = NOTE.
-(b) TRACK D: zero scan: check full.stderr progress; re-estimate ETA at 10%
-    (next flush ~50000/999990). On completion: F5a/b/c + F3/F4 verdicts +
-    records max/min g [1,1e5] -> NOTE claim via promote.sh (pilot was
-    [1,1e3]-scoped only).
+(a) TRACK D (weight 15): S(t) scan completes ~21:25 UTC 08-23: read
+    evidence/2026-08-23-st-scan/st_run-1e5.txt for "ST-SCAN-1e5 DONE rc=0":
+    max|S|, zero count (cross-check: must be <= zero-scan count), max arg jump
+    (< pi else step 0.3 too large -> re-run smaller). mpmath = NOTE.
+(b) TRACK D: zero scan: re-estimate ETA at 10% (next flush ~100000/999990,
+    t=10001). On completion: F5a/b/c + F3/F4 verdicts + records max/min g
+    [1,1e5] -> NOTE claim via promote.sh (pilot was [1,1e3]-scoped only).
 (c) OWNER: open PR via
     https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/compare/main...DigitalLaguna:ik-additive-lemmas?expand=1
     (title/body: evidence/2026-08-22-pnt-ik-api/pr-body.md rev 2), then comment
@@ -57,8 +59,9 @@ anomaly (my hand estimate 137986 was a log-precision slip). No new claims
 
 ## Budget
 Week-1 reweight A30/B40/D15/C10/E5 stands. D 7 NUMERIC (#20-#24,#26,#27).
-In flight: S(t) scan [1,1e5] (54%, ETA ~00:00-00:30Z 08-24) + full zero scan
-[1,1e5] (4%, ETA ~4-5 days, completion ~08-27..08-29, best ~08-28). Next review
-2026-08-29 (week 2): milestone check + spot-check 3 cards vs PDFs + decide B
-next step. Week-4 kill (09-17): Lean PR upstream + Polymath15 to 2 sig figs —
-numerics leg met (#7,#9,#18); PR leg still the risk.
+In flight: S(t) scan [1,1e5] (66%, ETA ~21:25Z 08-23) + full zero scan [1,1e5]
+(5.5%, ETA ~08-27 09:00Z). Both ETAs now machine-based (measured cost profile,
+evidence/2026-08-23-zero-scan/zeta-cost-profile.md). Next review 2026-08-29
+(week 2): milestone check + spot-check 3 cards vs PDFs + decide B next step.
+Week-4 kill (09-17): Lean PR upstream + Polymath15 to 2 sig figs — numerics leg
+met (#7,#9,#18); PR leg still the risk.
