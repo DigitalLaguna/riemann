@@ -214,6 +214,10 @@ def main():
 
         M_offset = int(Mval[-1])
         del Mval, absM
+        segi = a // SEG
+        if segi % 100 == 99:
+            print(f"progress: {segi + 1}/{(N + SEG - 1) // SEG} segments, "
+                  f"maxabs={maxabs}", file=sys.stderr, flush=True)
 
     env = {}
     with open(f"{EV}/b051402.txt") as f:

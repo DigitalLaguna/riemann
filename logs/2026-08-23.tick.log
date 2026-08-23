@@ -398,3 +398,55 @@ PRE-REGISTERED FALSIFICATION TESTS (before any run):
      no argument; RH not directly falsified).
   F5 (record sanity): max |M|(1e11) >= 50286; if it exceeds 50286 the first
      attainment must be > 1e10; if equal, first attainment = 7766842813.
+
+--- tick 132 (2026-08-23 ~07:43 UTC, local) ---
+Track D experiment 7 (Mertens 1e11): diagnosed dead attempt 1, restarted as
+attempt 2. Why not in DEAD_ENDS: new scale of a live approach; attempt 1's
+death was a process-management bug (SIGHUP), not a method failure.
+  Attempt 1 (started 07:17:19Z, tick 131 residual): died with run.txt = 0
+  bytes, run.stderr = 0 bytes, no process, no OOM in dmesg, no traceback =>
+  killed by signal (SIGHUP from tick session exit most likely; stdout was
+  block-buffered so nothing flushed).
+  F1 validation run (N=1e8, started 07:15:57Z, tick 131 residual) PASSED:
+    "C5 segmented mu == full-array mu n<=10^6: PASS"
+    "C1 M(10) = -1 (expect -1): PASS"
+    "C2 OEIS A002321 n<=10000: 10000 values, mismatches=0: PASS"
+    "C3 sympy independent n<=10^5: mismatches=0: PASS"
+    "C4 OEIS A051402 envelope: checked=3448 n-values, mismatches=0: PASS"
+    "max |M(x)| for x <= 100000000: 3448, first at x = 76015339, M = -3448"
+    "VERDICT: ALL CHECKS PASS"
+  => F1 (implementation) machine-verified: segmented sieve reproduces the
+     verified full-array 1e8 result (claim #20) EXACTLY.
+PRIOR-ART (this tick, local source lit/text/odlyzko-teriele-1985.txt):
+  - "In fact, we suspect that there are no counterexamples to the Mertens
+     conjecture for x ~ 1020 or perhaps even 10 30 ." (Section 1, lines
+     126-127; '~' = '<=', '1020' = 10^20, '10 30' = 10^30 as printed)
+  - "we therefore do not expect IM(x) x - 2 1>1 to occur for x < 1020 and
+     maybe not even for x < 10 30 ." (Section 5, lines 1595-1598)
+  - "Our results do not provide explicit counterexamples to the Mertens
+     conjecture." (Section 5, line 1602)
+  => F4 (witness |M|/sqrt(x) >= 1 at x <= 1e11) expected NOT to fire; the
+     scan is a record extension, not a conjecture-kill. Card
+     odlyzko-teriele-1985 already carries these quotes; no new card needed.
+  - Context (lines 85-100): Jurkat's 1960 disproof was indirect; Neubauer
+     computed M(n) for n <= 1e8 and part of (1e8,1e10); first
+     M(n)/sqrt(n) > 1/2 near 7.77e9 (card: n = 7,725,038,629).
+CHANGE: mertens_segmented.py — progress line to stderr every 100 segments
+  (inserted after 'del Mval, absM', end of segment loop; computation path
+  unchanged; py_compile OK). F1 validated the computation path pre-edit.
+RESTART (attempt 2): setsid nohup python3 -u mertens_segmented.py
+  100000000000 100000000, PID 698831 (run.pid), started 07:43 UTC (see
+  run.timing). Liveness at +120s: ALIVE pid=698831 cpu=102 rss_mb=2794.57;
+  run.txt (unbuffered) shows C5/C1/C2/C3 PASS for the first segment.
+  Progress lines every 100 segments in run.stderr; final result + VERDICT in
+  run.txt. ETA ~1-1.5h (1000 segments; per-segment cost higher than F1's 1e8
+  run: 27290 primes <= 316228 vs 1229 primes <= 1e4).
+FALSIFICATION: F1-F5 as pre-registered tick 131 (log above). F1 now PASS.
+  F2: M(10^11) = -87856 (OEIS A084237). F3: M(10^k) k<=10 == verified 1e10
+  run. F4: witness => Mertens conjecture dead in range (RH not directly
+  falsified). F5: max |M|(1e11) >= 50286; if > 50286 first attainment > 1e10;
+  if == 50286 first attainment = 7766842813.
+Next: tick 133+ check run.stderr progress; on completion write check.sh
+  (re-run script, assert C1-C7 + record lines + VERDICT; pattern:
+  evidence/2026-08-23-mertens-1e10/check.sh), then promote.sh add+promote.
+  Eighth D experiment after this: S(t) scan (needs RS implementation).
