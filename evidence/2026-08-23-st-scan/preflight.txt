@@ -1,0 +1,6 @@
+=== PRIOR-ART PRE-FLIGHT (track D, S(t) scan) 2026-08-23T11:19:27Z ===
+Q1: arXiv all:'Riemann-Siegel S(t)' (submittedDate desc, max 15)
+
+Q2: arXiv all:'maximum of S(t)' OR all:'extremal S(t)' (max 15)
+
+Q3: arXiv ti:'S(t)' AND abs:'zeta' (max 15)
