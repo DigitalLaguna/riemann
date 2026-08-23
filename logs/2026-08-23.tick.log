@@ -1,0 +1,46 @@
+# tick log 2026-08-23
+
+--- tick 117 (track D, bookkeeping for robin-ca experiment from ticks 112-116) ---
+One-liner: complete the Robin-criterion near-miss experiment (run tick 112, check.sh
+ticks 113/115) by recording + promoting the claim. Not in DEAD_ENDS (D's 2nd
+experiment, first attempt at Robin/CA).
+
+State found: robin-ca ran (run.txt) but was left UNCLAIMED (no ledger row, no
+tick-log section for ticks 113-116, HANDOFF stale). check.sh existed and passed.
+Sequence confusion RESOLVED this tick (was the open risk):
+  - OEIS A004394 = SUPERABUNDANT numbers (b004394.txt; b-file header comment:
+    "extend the table to all superabundant numbers less than 10^1200"). NOT CA.
+  - OEIS A004490 = COLOSSALLY ABUNDANT numbers (b004490.txt). The eps-sweep
+    generator (e_p=floor(log_p(1+(p-1)/(p^(1+eps)-p)))) matches A004490 EXACTLY
+    (13 terms <=1e8 excl 1) — check.sh C1.
+  - CA is a subset of SA, so checking the SA list (b004394.txt) covers all CA.
+  - SA list complete to 1e8: largest SA < 1e8 is 73513440 (next SA is 122522400);
+    the 3 CA numbers in (1e6,1e8] (1441440, 4324320, 21621600) are all in the SA list.
+
+Machine (check.sh re-run this tick, 17.1s, EXIT=0, verbatim):
+  PASS C1 CA-gen==A004490 (<=1e8, excl 1) gen=13 ref=13
+  PASS C2 sigma==A000203 (n<=10000) mism=0
+  PASS C2b hand sigma(12)=28, sigma(5040)=19344
+  PASS C3 near-miss n=10080 n=10080
+  PASS C3b R(10080)=0.985818611972329 (12dp) 0.985818611972329
+  PASS C3c sigma(10080)=39312 sigma=39312
+  PASS C4 no witness R>=1 (superabundant 5040<n<=1e8) hits=[]
+  PASS C5 full-scan[5041,1e6] argmax=10080 n=10080 R=0.985818611972
+  PASS C5b full-scan max R<1 (margin) margin=1.418e-02
+  PASS C6 reduction R(n)<=R(s(n)) sample violations=0
+  VERDICT: ALL CHECKS PASS
+
+Claim #21 added (NOTE) then promoted NOTE->NUMERIC (promote.sh ran check.sh, exit 0).
+Machine class: direct evaluation of witnesses (exact-integer sigma via sieve n<=1e6
++ trial factoring n>1e6; 60-digit mpmath for e^gamma and log log n; margin to 1 is
+1.4e-2 >> 1e-60 working precision). Precedent: #10 (Lagarias), #20 (Mertens).
+
+Result: Robin's inequality sigma(n) < e^gamma*n*log log n holds for all 5040<n<=1e8
+(full scan [5041,1e6] + SA/CA check (1e6,1e8] + Robin reduction: first counterexample
+is colossally abundant). Closest near-miss n=10080, R=0.985818611972329 (1-R=0.01418).
+No RH witness <= 1e8.
+
+Next: (a) OWNER: PNT+ fork/PR (A's critical path, unchanged); (b) TRACK D 3rd
+experiment — Mertens at 1e9 (pipeline exists from #20) OR Robin at 1e9 (extend SA/CA
+list + full scan); pre-register falsification tests first; (c) TRACK B parked until
+08-29 review.
