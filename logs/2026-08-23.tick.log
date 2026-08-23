@@ -450,3 +450,61 @@ Next: tick 133+ check run.stderr progress; on completion write check.sh
   (re-run script, assert C1-C7 + record lines + VERDICT; pattern:
   evidence/2026-08-23-mertens-1e10/check.sh), then promote.sh add+promote.
   Eighth D experiment after this: S(t) scan (needs RS implementation).
+
+--- tick 134 (2026-08-23 ~08:39-08:57 UTC, local) ---
+Track D experiment 7 (Mertens 1e11): diagnosed attempt-3 output location,
+machine-verified liveness, installed a detached completion watcher. Why not in
+DEAD_ENDS: live approach at a new scale; this tick is process-management +
+liveness, not a method failure.
+  STATE FOUND (handoff was stale at tick 132; tick 133 had advanced further):
+    - tick 133 restarted the run as ATTEMPT 3 under a transient systemd unit
+      mertens-1e11.service (pid 700783, started 08:11:04Z, see run.timing) and
+      wrote check.sh (committed in residual 2edca8c). Tick 133 did NOT append
+      to this daily log nor rewrite HANDOFF.md (process gap; residual commit
+      2edca8c only swept push.log/ticks.log + the run3.* + check.sh files).
+    - run3.txt was 0 bytes and run3.stderr only had the launcher line
+      "Running as unit: mertens-1e11.service; invocation ID:
+      6a4936940bb34b479705cd392a52c68b".
+  DIAGNOSIS (machine): /proc/700783/fd shows fd0->/dev/null, fd1 AND fd2 ->
+    socket:[4376080] (the systemd journal socket). So attempt-3 stdout+stderr
+    go to the JOURNAL, not run3.txt. The transient unit is already gone from
+    `systemctl` ("Unit mertens-1e11.service could not be found"), so output is
+    retrieved by PID/invocation-ID, not by unit name.
+  LIVENESS (machine, verbatim, `journalctl _PID=700783 --output=cat`):
+    C5 segmented mu == full-array mu n<=10^6: PASS
+    C1 M(10) = -1 (expect -1): PASS
+    C2 OEIS A002321 n<=10000: 10000 values, mismatches=0: PASS
+    C3 sympy independent n<=10^5: mismatches=0: PASS
+    progress: 100/1000 segments, maxabs=50286
+    progress: 200/1000 segments, maxabs=60442
+    progress: 300/1000 segments, maxabs=62880
+    progress: 400/1000 segments, maxabs=81220
+    progress: 500/1000 segments, maxabs=81220
+    progress: 600/1000 segments, maxabs=87995
+    => run is ALIVE and correct (C5/C1/C2/C3 PASS; 600/1000 segments at
+       08:47Z; ~7 min per 100 segments => ETA finish ~09:15 UTC).
+  F5 LOCKED (machine): maxabs already 87995 > 50286 (the 1e10 record, claim
+    #24) => final max |M|(1e11) > 50286 => per pre-registered F5 the first
+    attainment of the max MUST be > 1e10. F4 (witness |M|/sqrt(x)>=1 for
+    x>=100) not evaluable until the final witness line is printed.
+  ACTION: wrote evidence/2026-08-23-mertens-1e11/watch.sh and launched it
+    detached (setsid nohup). It: (1) waits for pid 700783 to exit; (2)
+    `journalctl _PID=700783 --output=cat --no-pager > run3.txt` (clean lines,
+    verified --output=cat strips the journal prefix on systemd 255); (3)
+    `bash check.sh > check-run.txt 2>&1` (check.sh re-runs the exact-integer
+    scan ~72 min and asserts C1-C7 + record/witness determinism vs run3.txt +
+    F4 witness<1.0 + F5 maxabs>=50286); (4) logs each step to watch.log and
+    ends with "WATCHER DONE rc=<n>".
+    Watcher verified alive: pid 703261, STAT=Ss (session leader), child
+    `sleep 30` (in wait loop). A leftover `bash -c` wrapper (pid 703257) from
+    the launch command held the tool pipe and caused a 600s tool timeout;
+    killed it; watcher reparented (PPID 3078) and still alive.
+  TIMELINE: mertens run done ~09:15Z; watcher then runs check.sh (~72 min) =>
+    check-run.txt ready ~10:30Z.
+Next (tick 135+): read evidence/2026-08-23-mertens-1e11/watch.log for
+  "WATCHER DONE rc=0" and check-run.txt for "CHECK PASS: Mertens record at
+  10^11". If PASS: promote.sh add+promote (claim: max |M(x)| x<=1e11 + first
+  attainment (>1e10) + M(10^11)=-87856 cross-check + max |M|/sqrt(x) x>=100).
+  If F4 fired (witness>=1.0): Mertens conjecture dead in range (witness, no
+  argument; RH not directly falsified) — bigger claim, page owner. If rc!=0:
+  debug from check-run.txt + watch.log. Eighth D experiment after: S(t) scan.
