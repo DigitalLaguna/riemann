@@ -32,3 +32,17 @@ F4: record scope: max/min g_n is a record for [1,1e3] only (later [1,1e5]). Obse
 
 ## Pilot
 zero_scan.py 1.0 1000.0 0.05 -> expect ~647 zeros, ~8 min.
+
+## Full run [1,1e5] — pre-registered BEFORE launch (tick 152, 2026-08-23T19:45Z)
+Command: zero_scan.py 1.0 100000.0 0.1 (step 0.1, ~1e6 coarse points, ETA 10-40 h).
+RvM main term at T=1e5: 138067.5584 (computed from the carded formula, wiki-rvm.html).
+F5a: |count - 138067.56| <= 6 -> PASS. Rationale: RvM error term O(log T) ~ 11.5 at T=1e5;
+     observed deviation at T=1e3 was +1.38 (pilot). At step 0.1 a missed zero pair needs
+     delta < 0.1 = normalized g < 0.154; missing even 1% of gaps gives |delta| ~ 1400 >> 6,
+     so the +/-6 band separates pipeline error from step aliasing cleanly.
+F5b: 6 < |count - 138067.56| <= 50 -> step aliasing suspected -> re-run step 0.05 (fallback).
+F5c: |count - 138067.56| > 50 -> pipeline error -> dead until fixed.
+F3/F4 carry over to [1,1e5]: all normalized gaps in (0.1, 10); max/min g are records for
+[1,1e5] only (mpmath -> NOTE, not NUMERIC).
+Cross-check (post-hoc, not a gate): the S(t) scan's approximate zero count (step 0.3,
+aliased LOWER bound, cf. 1e4 run: 9644 vs main term 10141.7) must be <= the zero-scan count.

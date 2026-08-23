@@ -921,3 +921,52 @@ NEXT (tick 152+):
       at t=1e5 — pilot min was 0.327; falsification: count vs RvM(1e5) ±3).
   (b) TRACK D: read st_run-1e5.txt for completion (ETA ~23:00Z-09:00Z).
   (c) OWNER: PNT+ PR (see HANDOFF). (d) TRACK B: PARKED until 08-29.
+
+================================================================
+TICK 152 (2026-08-23 ~19:40-20:10Z, model qwen3.8-27b, track D)
+================================================================
+STEP 1: HANDOFF/DEAD_ENDS/ledger read. Doing: launch full [1,1e5] zero scan
+(pilot passed tick 151; pipeline validated, not in DEAD_ENDS) + check S(t)
+scan progress (in flight, not dead).
+STEP 2: gates all OPEN (21/21).
+STEP 3: prior-art pre-flight done tick 151 (zero-spacing-design.md); this is
+a continuation, not a new attempt.
+STEP 4 (bounded step):
+  (a) S(t) scan status (machine): pid 732546 alive, 100% CPU, elapsed 2:16:56.
+      st_run-1e5.stderr verbatim (last line):
+        progress 120000/333331 (36%) elapsed 6688s
+      Rate slowing: 100k->120k took 1701s (vs 1695s prior 20k). ETA ~5h from
+      19:31Z -> ~00:30Z 2026-08-24. Result file still 0 bytes (flushes at end).
+  (b) Full-run falsification pre-registered BEFORE launch (appended to
+      zero-spacing-design.md): RvM main term at 1e5 = 138067.5584 (computed
+      from carded formula). F5a: |count-138067.56| <= 6 -> PASS (O(log T)
+      error ~11.5; pilot deviation was +1.38; step-0.1 aliasing would miss
+      pairs with normalized g < 0.154, and 1% missed gaps -> |Δ|~1400 >> 6).
+      F5b: 6 < |Δ| <= 50 -> re-run step 0.05. F5c: |Δ| > 50 -> pipeline dead.
+      F3/F4 carry over to [1,1e5]. NOTE: handoff's "±3" superseded by F5a's
+      ±6 (main-term O(log T) error makes ±3 too tight at T=1e5).
+      No independent fetched N(1e5) value exists (checked lmfdb-zeta.html,
+      wiki-zeta.html, wiki-rvm.html — no N(10^n) table; S(t) 1e4 zero count
+      9644 is an aliased LOWER bound, step 0.5, not a reference).
+  (c) LAUNCHED full zero scan (machine):
+      $ nohup python3 tracks/d-search/zero_scan.py 1.0 100000.0 0.1 >
+        evidence/2026-08-23-zero-scan/full-run.txt 2> .../full.stderr &
+      pid 743305, alive 100% CPU. full.stderr verbatim:
+        coarse 5000/999990 elapsed 113s
+        coarse 10000/999990 elapsed 362s
+      ETA re-estimate (cost model from observed rates + S(t) scan per-point
+      cost 0.085s at t~1.2e5): coarse ~19h + bisection (~30 evals/zero x
+      138k zeros) ~1-2d -> TOTAL ~3-4 days (handoff's "~10h" was optimistic).
+      Launch quirk: first launch attempt timed out the tool (background proc
+      held the output pipe via stdin); process survived via nohup, no re-launch
+      needed (verified single instance running).
+STEP 5 (checker): no ledger claim eligible (both scans in flight; mpmath =
+NOTE when they finish).
+NEXT (tick 153+):
+  (a) TRACK D: check both scans: st_run-1e5.txt (ETA ~00:30Z 08-24) and
+      zero-scan full.stderr progress. On S(t) completion: max|S|, zero count
+      (must be <= zero-scan count, cross-check), max arg jump (< pi else
+      step 0.3 too large -> re-run).
+  (b) TRACK D: on zero-scan completion: F5a/b/c verdicts + F3/F4 + records
+      (max/min g for [1,1e5]) -> NOTE claim via promote.sh.
+  (c) OWNER: PNT+ PR (see HANDOFF). (d) TRACK B: PARKED until 08-29.

@@ -1,4 +1,4 @@
-# HANDOFF — session 2026-08-23 ~17:50 UTC (tick 151)
+# HANDOFF — session 2026-08-23 ~20:10 UTC (tick 152)
 # track: D | gate: all tracks OPEN (21/21 seeds)
 
 ## State
@@ -6,39 +6,34 @@
 3 FORMAL (A: #2 PNT+ local build, #12 IK lemmas v1 [SUPERSEDED by #25], #25 IK
 lemmas v2), 9 NOTE (#1,#5,#11,#13->#12,#14,#15,#16,#17,#19->#18).
 Track D: 7 NUMERIC. TWO scans in flight: (1) S(t) scan [1,1e5] pid 732546,
-30% at 17:26Z (100000/333331, elapsed 4987s; per-20000-pt intervals growing
-356->1695s -> ETA ~23:00Z-09:00Z, was ~20:00Z); (2) zero-scan PILOT PASSED
-tick 151 (evidence/2026-08-23-zero-scan/pilot-run.txt): 649 zeros in [1,1e3],
-F1-F4 all PASS (first 7 zeros match fetched wiki-zeta.html to 6dp; count vs
-RvM 647.62 within ±3; gaps in [0.327,3.073]). Full [1,1e5] zero scan NOT yet
-launched.
+36% at 19:31Z (120000/333331, elapsed 6688s; rate ~1700s/20000pts -> ETA
+~00:30Z 08-24); (2) FULL zero scan [1,1e5] step 0.1 pid 743305, launched
+20:00Z tick 152 (10000/999990 at 362s; ETA ~3-4 days, i.e. ~08-27/28 —
+handoff-151's "~10h" was optimistic; cost model in tick log).
 
 ## Last work
-Tick 151 (this one): (1) S(t) scan status — pid 732546 alive 100% CPU, last
-flush "progress 100000/333331 (30%) elapsed 4987s"; result file still 0 bytes;
-ETA revised worse (per-point cost growing). (2) Zero-spacing scan designed +
-piloted: tracks/d-search/zero-spacing-design.md (definition λr/µr quoted
-verbatim from inoue-kobayashi-toma-2025 p.2: (γ_{n+r}−γ_n)/(2πr/log γ_n);
-4 pre-registered falsification tests F1-F4 BEFORE run) + tracks/d-search/
-zero_scan.py (Z(t)=re(e^{iθ}ζ(1/2+it)), coarse 0.05 + bisection 1e-10,
-mpmath 30 dps). Pilot [1,1e3] step 0.05, 437s rc=0: count 649 (RvM 647.62,
-|Δ|=1.38 PASS); first 7 zeros = wiki values to 6dp (PASS); max g = 3.073313
-(zeros 650.6687/653.6496) < 3.18 Bui-Milinovich; min g = 0.327118
-(750.6560/750.9664) < 0.515396 Preobrazhenskii; all gaps ⊂ (0.1,10). 2nd-
-largest gap is the FIRST gap (g=2.903301, 14.1347->21.0220) — first zero
-isolated, expected. mpmath = NOTE not NUMERIC; no ledger claim yet (pilot
-validates pipeline; record claim comes from full scan).
+Tick 152 (this one): (1) S(t) scan status — pid alive 100% CPU, last flush
+"progress 120000/333331 (36%) elapsed 6688s"; result file still 0 bytes
+(flushes at end). (2) Full-run falsification pre-registered BEFORE launch
+(appended to tracks/d-search/zero-spacing-design.md): RvM main term at 1e5 =
+138067.5584; F5a |count-main|<=6 PASS (O(log T)~11.5 makes ±3 too tight —
+supersedes handoff-151's ±3 line); F5b 6<|Δ|<=50 -> re-run step 0.05;
+F5c |Δ|>50 -> pipeline dead; F3/F4 carry over to [1,1e5]. No independent
+fetched N(1e5) exists (checked lmfdb/wiki-zeta/wiki-rvm html: no N(10^n)
+table; S(t) 1e4 zero count 9644 is aliased lower bound, step 0.5). (3)
+LAUNCHED full zero scan: nohup python3 zero_scan.py 1.0 100000.0 0.1,
+pid 743305, full.stderr "coarse 10000/999990 elapsed 362s". Launch quirk:
+first attempt timed out the tool (bg proc held output pipe via stdin);
+nohup process survived, single instance verified.
 
 ## Next action
-(a) TRACK D (weight 15): launch full zero scan in background:
-    nohup python3 tracks/d-search/zero_scan.py 1.0 100000.0 0.1 >
-    evidence/2026-08-23-zero-scan/full-run.txt 2> .../full.stderr &
-    (step 0.1, ETA ~10h; miss-risk: pairs with actual gap < 0.1 = normalized
-    < 0.115 at t=1e5, pilot min was 0.327; falsification: count vs RvM(1e5)
-    main term ±3, else re-run step 0.05).
-(b) TRACK D: read evidence/2026-08-23-st-scan/st_run-1e5.txt for completion
-    (ETA ~23:00Z-09:00Z) + max|S|/zero-count/max-arg-jump. If max arg jump
-    >= pi -> step 0.3 too large, re-run smaller. mpmath=NOTE not NUMERIC.
+(a) TRACK D (weight 15): check both scans: st_run-1e5.txt (ETA ~00:30Z 08-24)
+    + zero-scan full.stderr progress. On S(t) completion: max|S|, zero count
+    (cross-check: must be <= zero-scan count), max arg jump (< pi else step
+    0.3 too large -> re-run smaller). mpmath = NOTE not NUMERIC.
+(b) TRACK D: on zero-scan completion (~08-27/28): F5a/b/c + F3/F4 verdicts +
+    records max/min g for [1,1e5] -> NOTE claim via promote.sh (pilot was
+    [1,1e3]-scoped only).
 (c) OWNER: open PR via
     https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/compare/main...DigitalLaguna:ik-additive-lemmas?expand=1
     (title/body: evidence/2026-08-22-pnt-ik-api/pr-body.md rev 2), then comment
@@ -62,8 +57,8 @@ validates pipeline; record claim comes from full scan).
 
 ## Budget
 Week-1 reweight A30/B40/D15/C10/E5 stands. D 7 NUMERIC (#20-#24,#26,#27).
-In flight: S(t) scan [1,1e5] (30%, ETA ~23:00Z+) + zero-scan pilot PASSED
-(full [1,1e5] launch is next tick's step (a)). Next review 2026-08-29 (week 2):
-milestone check + spot-check 3 cards vs PDFs + decide B next step. Week-4 kill
-(09-17): Lean PR upstream + Polymath15 to 2 sig figs — numerics leg met
-(#7,#9,#18); PR leg still the risk.
+In flight: S(t) scan [1,1e5] (36%, ETA ~00:30Z 08-24) + full zero scan [1,1e5]
+(1%, ETA ~08-27/28). Next review 2026-08-29 (week 2): milestone check +
+spot-check 3 cards vs PDFs + decide B next step. Week-4 kill (09-17): Lean PR
+upstream + Polymath15 to 2 sig figs — numerics leg met (#7,#9,#18); PR leg
+still the risk.
