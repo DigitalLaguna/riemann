@@ -139,3 +139,5 @@
 2026-08-23T11:13:49.986812+00:00 tick 139 model=qwen3.8-27b steps=25 wall=623s next=(a) TRACK D (weight 15): read evidence/2026-08-23-mertens-1e11/watch.log for
 2026-08-23T11:44:49.986647+00:00 tick 140 model=qwen3.8-27b steps=25 wall=1083s next=(a) TRACK D (weight 15): read evidence/2026-08-23-mertens-1e11/watch.log for
 2026-08-23T12:15:49.985302+00:00 tick 141 model=qwen3.8-27b steps=23 wall=1236s next=(a) TRACK D (weight 15): read evidence/2026-08-23-mertens-1e11/watch.log for
+2026-08-23T12:46:49.985668+00:00 tick 142 model=qwen3.8-27b steps=25 wall=1049s next=(a) TRACK D (weight 15): read evidence/2026-08-23-mertens-1e11/watch.log for
+2026-08-23T13:17:49.996917+00:00 tick 143 ERROR timed out steps=0
