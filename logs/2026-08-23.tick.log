@@ -1125,3 +1125,40 @@ next: (a) S(t) scan done ~21:25Z -> read st_run-1e5.txt for "ST-SCAN-1e5 DONE rc
   (c) OWNER: PNT+ PR (see handoff). (d) TRACK B parked until 08-29 review.
 no new ledger claim this tick (cost profile = NOTE-grade tooling, recorded as
   evidence; promote to NOTE if a future tick needs to cite it).
+
+TICK 163 (2026-08-24 ~01:40 CEST)
+attempt: confirm S(t) scan [1,1e5] completion (ETA was 21:25Z; ticks 158-162 lost to
+  timeout/crash without checking) and record result; re-estimate zero-scan ETA.
+machine (verbatim):
+  $ tail -5 evidence/2026-08-23-st-scan/st_run-1e5.txt
+    max |S(t)| = 4059.01503522 at t = 99996.4000
+    zero count (sign changes of Z, approximate) = 134011
+    max arg jump between grid points = 3.0209 rad (valid unwrap needs < pi)
+    elapsed 19854s
+    ST-SCAN-1e5 DONE rc=0 2026-08-23T21:11:10Z
+  $ systemctl --user status st-scan-1e5.service  -> "Unit could not be found" (reaped, clean)
+  $ tail -2 evidence/2026-08-23-zero-scan/full.stderr
+    coarse 110000/999990 elapsed 16288s
+    coarse 115000/999990 elapsed 17918s
+  $ systemctl --user status zero-scan-1e5.service -> Active: active (running) since 20:32:55 CEST
+result:
+  - S(t) scan DONE rc=0. Result already recorded as claim #28 (NOTE, created
+    21:55:29Z during tick 159, committed). max |(1/pi)unwrap(arg zeta(1/2+it))|
+    = 4059.01503522 at t=99996.4; zero count (sign changes, lower bound) = 134011;
+    max arg jump 3.0209 rad < pi (step 0.3 valid). mpmath 30 dps = NOTE, not NUMERIC.
+  - ANOMALY (constraint 7): claim #28 text says "RvM main term 138067.558, gap 3056
+    = missed close pairs". Recompute: 138067.558 - 134011 = 4056.558 (and the RvM
+    main term itself recomputes to 138068.558, gap 4057.56). "3056" is a
+    transposed-digit typo of "4056". RESOLVED: the gap is ~4057 missed zeros
+    (close pairs landing in one 0.3-grid-interval -> no sign change -> undercount).
+    NOTE has no authority; main result (max|S|, zero count) unaffected. Not
+    re-editing claims.db by hand (promote.sh is the only status writer); correction
+    recorded here.
+  - zero scan: 115000/999990 (11.5%), rate 6.418 pts/s, linear ETA 137889s = 38.3h
+    = 1.60d -> completion ~2026-08-25 14:00Z. Cost drops 2x at t>52k (RS regime),
+    so actual ETA <= 1.6d. (Supersedes tick-156 integrated 3.46d, which assumed the
+    expensive generic-regime cost for all remaining points.)
+next: (a) zero scan completes ~08-25: F5a/b/c + F3/F4 verdicts + max/min g records
+  -> NOTE via promote.sh; cross-check its zero count >= 134011 (S(t) sign-change
+  lower bound). (b) OWNER: PNT+ PR (see handoff). (c) TRACK B parked until 08-29.
+no new ledger claim this tick (S(t) result already #28; anomaly is a typo in #28).
