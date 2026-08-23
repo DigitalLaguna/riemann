@@ -1,3 +1,12 @@
 watcher started 2026-08-23T08:43:39Z waiting for pid 700783
 watcher pid 703261 DIED ~09:00Z (tick-134 scope cgroup reclaim; setsid does not protect from cgroup kill) 2026-08-23T09:11:21Z; re-arming under mertens-watcher.service
 watcher started 2026-08-23T09:11:52Z waiting for pid 700783
+pid 700783 exited 2026-08-23T09:21:22Z
+captured run3.txt (43 lines) 2026-08-23T09:21:22Z
+--- run3.txt tail ---
+  x=99481473376 M=-94908
+  x=99481473377 M=-94908
+  x=99481473402 M=-94908
+  x=99481473568 M=-94908
+witness: max |M(x)|/sqrt(x) for x >= 100: 0.570590889 at x = 7766842813 (M = 50286)
+VERDICT: ALL CHECKS PASS

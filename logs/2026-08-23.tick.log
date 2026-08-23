@@ -544,3 +544,63 @@ TRACK D — Mertens 1e11 attempt 3: watcher died, re-armed under persistent unit
 Next (tick 136+): read evidence/2026-08-23-mertens-1e11/watch.log for
   "WATCHER DONE rc=0" and check-run.txt for "CHECK PASS: Mertens record at
   10^11". Same promotion plan as tick 134.
+
+--- tick 136 (2026-08-23 09:41-09:55 UTC, local model) ---
+One-liner: Mertens 1e11 run (attempt 3) finished 09:21:22Z with C1-C7 ALL PASS;
+record max |M(x)| = 94909 at x = 99481473379 (M = -94909); independent
+direct-factorization mu check at the record location PASS 9/9; determinism
+re-run (check.sh) in flight, ETA ~10:32Z. Not in DEAD_ENDS (experiment 7,
+attempt 3, was live and on track; no approach died).
+
+RUN COMPLETE (machine, watch.log + run3.txt, captured by watcher pid 705251):
+  - pid 700783 exited 2026-08-23T09:21:22Z (70 min 18 s; ETA 09:25Z was right)
+  - run3.txt captured from journal (43 lines)
+  - C1 M(10)=-1 PASS; C2 OEIS A002321 n<=10000 mismatches=0 PASS;
+    C3 sympy n<=1e5 mismatches=0 PASS; C4 OEIS A051402 envelope mismatches=0 PASS;
+    C5 segmented mu == full-array mu n<=1e6 PASS;
+    C6 M(10^11) = -87856 (expect -87856, OEIS A084237) PASS;
+    C7 M(10^k) k<=10 vs verified 1e10 run mismatches=0 PASS
+  - VERDICT: ALL CHECKS PASS
+  - max |M(x)| for x <= 1e11: 94909, first at x = 99481473379, M = -94909
+    (NEW record; 1e10 record was 50286, claim #24; first attainment > 1e10)
+  - F4 witness: max |M(x)|/sqrt(x) for x >= 100: 0.570590889 at x = 7766842813
+    (M = 50286) < 1.0 -> Mertens conjecture alive in range
+  - progress: maxabs flat at 87995 through 900/1000 segments, 94909 at 1000/1000
+    (record in the last segment, consistent with first attainment 9.948e10)
+
+INDEPENDENT MU CHECK (this tick, machine):
+  FALSIFICATION (pre-registered): if any mu value implied by the run3.txt
+  top-10 list disagrees with direct factorization, the record location is
+  suspect (x-indexing or mu bug at the record).
+  tracks/d-search/mu_direct.py: mu(n) for n in [99481473374, 99481473568] by
+  trial division (primes <= 316228 = sqrt(1e11)); checks all 9 implications of
+  the top-10 list (equal M values => interval mu-sum 0; the -94908 -> -94909
+  step => mu(99481473378)+mu(99481473379) = -1).
+  Output (evidence/2026-08-23-mertens-1e11/mu-direct-check.txt, rc=0):
+    mu(99481473375)=0  [M(374)=M(375)=-94908]: PASS
+    mu(99481473376)=0  [M(375)=M(376)=-94908]: PASS
+    mu(99481473377)=0  [M(376)=M(377)=-94908]: PASS
+    mu(99481473378)+mu(99481473379)=-1  [M(377)=-94908 -> M(379)=-94909]: PASS
+    mu(99481473380)=0  [M(379)=M(380)=-94909]: PASS
+    sum mu(381..419)=0  [M(380)=M(419)=-94909]: PASS
+    mu(99481473420)=0  [M(419)=M(420)=-94909]: PASS
+    sum mu(375..402)=0  [M(374)=M(402)=-94908]: PASS
+    sum mu(403..568)=0  [M(402)=M(568)=-94908]: PASS
+    mu(99481473378) = 0
+    mu(99481473379) = -1
+    VERDICT: ALL PASS
+  NOTE: this checks the record LOCATION's consistency, not the record VALUE;
+  the value rests on the scan + C6/C7 anchors + the determinism re-run.
+
+IN FLIGHT: check.sh (determinism re-run, pid 705988, started 09:21:22Z,
+~70 min) -> check-run.txt (0 bytes until done; watcher writes it at the end),
+then watch.log gets "check.sh rc=N" + "WATCHER DONE rc=N". ETA ~10:32Z.
+Watcher pid 705251 alive under mertens-watcher.service (persistent cgroup).
+
+Next (tick 137): read evidence/2026-08-23-mertens-1e11/watch.log for
+"WATCHER DONE rc=0" and check-run.txt for "CHECK PASS: Mertens record at
+10^11". If PASS: promote.sh add+promote (claim: max |M(x)| x<=1e11 = 94909
+first at x=99481473379 (M=-94909) + M(10^11)=-87856 cross-check + witness
+0.570590889<1.0 at x=7766842813). If F4 fired (witness>=1.0): Mertens
+conjecture dead in range (witness, no argument; RH not directly falsified)
+— page owner. If rc!=0: debug from check-run.txt + watch.log.
