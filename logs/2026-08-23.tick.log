@@ -970,3 +970,58 @@ NEXT (tick 153+):
   (b) TRACK D: on zero-scan completion: F5a/b/c verdicts + F3/F4 + records
       (max/min g for [1,1e5]) -> NOTE claim via promote.sh.
   (c) OWNER: PNT+ PR (see HANDOFF). (d) TRACK B: PARKED until 08-29.
+
+================================================================
+TICK 153 (2026-08-23 ~20:28-20:40 CEST, model qwen3.8-27b, track D)
+================================================================
+STEP 1: HANDOFF/DEAD_ENDS/ledger read. Doing: check both in-flight scans;
+the full zero scan (pid 743305) is DEAD — diagnose and relaunch (S(t) scan
+alive at 42%). Not in DEAD_ENDS: process-management failure of an in-flight
+run, not a dead approach.
+STEP 2: gates all OPEN (21/21) — unchanged.
+STEP 3: not a new attempt (continuation of the tick-152 launch).
+STEP 4 (bounded step):
+  (a) S(t) scan (machine): pid 732546 alive, 100% CPU, unit st-scan-1e5.service
+      active (own cgroup, tick-147 launch). st_run-1e5.stderr verbatim (last):
+        progress 140000/333331 (42%) elapsed 8387s
+      Per-20k-pt intervals: 356/687/982/1267/1695/1701/1699s — plateaued at
+      ~1700s/20k pts (0.085 s/pt). Remaining 193331 pts -> ~4.6h from the
+      18:00Z last flush -> ETA ~22:30Z 2026-08-23 (handoff's ~00:30Z was from
+      the pre-plateau slowdown). Result file still 0 bytes (flushes at end).
+  (b) Zero scan (machine): pid 743305 DEAD (not in ps; no DONE line;
+      full-run.txt 0 bytes). full.stderr last line of dead run:
+        coarse 15000/999990 elapsed 688s
+      written 20:11:28 CEST (start 20:00 CEST + 688s); file mtime 20:12 CEST.
+  (c) ROOT CAUSE (machine-verified): tick 152 launched the scan with plain
+      `nohup ... &` INSIDE riemann-tick.service (Type=oneshot, no KillMode ->
+      default KillMode=control-group). journalctl verbatim:
+        Aug 23 20:13:04 Workbench1 tick.sh[743010]: tick 152 done: steps=16 wall=974s ...
+        Aug 23 20:13:06 Workbench1 systemd[3078]: Finished riemann-tick.service - Riemann research operator tick.
+      systemd killed the service cgroup's remaining processes at 20:13:06 CEST
+      (18:13:06Z) — after the last flush (20:11:28), before the next (20000
+      pts, ~20:15). nohup ignores SIGHUP only, not the cgroup SIGTERM/SIGKILL.
+      The S(t) scan survived 5+ ticks because tick 147 launched it as a
+      transient systemd unit st-scan-1e5.service (own cgroup) — the "tick-138
+      lesson" was applied there but forgotten for the zero scan. No OOM
+      (free: 80G free, swap 0), no segfault (no new /var/crash entry).
+  (d) RELAUNCHED (machine): systemd-run --user --unit=zero-scan-1e5.service
+      (own cgroup app.slice/zero-scan-1e5.service, same pattern as
+      st-scan-1e5.service). Verified: unit "Active: active (running)",
+      python pid 745484 100% CPU, full.stderr (append-only, dead run's 3
+      lines preserved) new line verbatim:
+        coarse 5000/999990 elapsed 113s
+      Restart cost: ~12 min compute (dead run reached t=1501, 1.5%).
+      ETA: tick-152 cost model 3-4 days stands (observed low-t rate
+      21.8 pts/s -> 12.7h is a LOWER bound; per-point cost grows with t).
+      Re-estimate at the 10% mark.
+STEP 5 (checker): no ledger claim eligible (both scans in flight; mpmath =
+NOTE when they finish).
+NEXT (tick 154+):
+  (a) TRACK D: S(t) scan completion ETA ~22:30Z 08-23: read st_run-1e5.txt
+      for "ST-SCAN-1e5 DONE rc=0": max|S|, zero count (cross-check: must be
+      <= zero-scan count), max arg jump (< pi else step 0.3 too large ->
+      re-run smaller).
+  (b) TRACK D: zero scan: check full.stderr progress; re-estimate ETA at
+      10%. On completion: F5a/b/c + F3/F4 verdicts + records max/min g
+      [1,1e5] -> NOTE claim via promote.sh (pilot was [1,1e3]-scoped only).
+  (c) OWNER: PNT+ PR (see HANDOFF). (d) TRACK B: PARKED until 08-29.

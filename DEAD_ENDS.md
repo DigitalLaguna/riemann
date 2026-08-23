@@ -76,3 +76,23 @@ fix/avoid: manual sessions must `flock ledger/.tick.lock` (or a second lock that
   tick.sh also checks) for the whole session; or park manual work in a branch.
   Residual: claim #13 is a duplicate of #12 — GARDEN merge #13 into #12 (keep #12
   FORMAL; #13's extra detail already in evidence/2026-08-22-pnt-ik-api/README.md).
+
+## A-005 nohup background launch inside riemann-tick.service cgroup
+tried: 2026-08-23, tick 152 (launch) / tick 153 (diagnosis + relaunch)
+failed: full zero scan (pid 743305) launched with plain `nohup python3 ... &`
+  inside the tick's bash tool call died at 20:13:06 CEST = the moment
+  riemann-tick.service (Type=oneshot, default KillMode=control-group) finished
+  tick 152 — systemd killed all remaining processes in the service cgroup.
+  nohup only ignores SIGHUP, not the cgroup-wide SIGTERM/SIGKILL. Lost 1.5%
+  of the run (t=1501). The S(t) scan survived 5+ ticks because tick 147
+  launched it as a transient systemd unit (st-scan-1e5.service, own cgroup) —
+  the "tick-138 lesson" was applied there but forgotten for the zero scan.
+fix/avoid: launch long background jobs with
+  `systemd-run --user --unit=<name>.service bash -c 'cd /home/niklas/riemann && ...'`
+  (own cgroup, survives tick service end). Zero scan relaunched tick 153 as
+  zero-scan-1e5.service (pid 745484), verified active + progressing.
+evidence: logs/2026-08-23.tick.log (TICK 153, journalctl verbatim);
+  evidence/2026-08-23-zero-scan/full.stderr (dead run's 3 lines + new run's
+  lines, append-only)
+closed by: machine output — systemctl --user status zero-scan-1e5.service
+  "Active: active (running)" + new progress line in full.stderr
