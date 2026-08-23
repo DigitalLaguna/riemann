@@ -15,3 +15,16 @@ if ! flock -n 9; then
 fi
 
 python3 tools/agent_tick.py
+rc=$?
+
+# Backup push (added 2026-08-23, owner-approved): remote origin =
+# git@github.com:DigitalLaguna/riemann.git (SSH). Non-fatal: a failed push
+# must not fail the tick; failures are logged and retried next tick.
+if git remote get-url origin >/dev/null 2>&1; then
+  if git push -q origin main >> logs/push.log 2>&1; then
+    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) push ok $(git rev-parse --short HEAD)" >> logs/push.log
+  else
+    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) push FAILED (see logs/push.log)" >> logs/ticks.log
+  fi
+fi
+exit $rc

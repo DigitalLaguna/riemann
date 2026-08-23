@@ -104,3 +104,19 @@ experiment — Robin at 1e9 (extend SA/CA b-files past 73513440; next SA = 12252
 full scan [1e8,1e9] is the long pole) OR Mertens at 1e10 (memory ~100GB vs 111GB
 available — tight; consider segmented variant); pre-register falsification tests first;
 (c) TRACK B parked until 08-29 review.
+## session (2026-08-23 03:10-03:16 CEST, manual/owner) — META: repo backed up to GitHub + per-tick auto-push — verdict: PUSH OK
+  Owner decision: upload the repo to a remote for safety (SSH key DigitalLaguna, verified 08-22).
+  Machine evidence:
+  - remote origin = git@github.com:DigitalLaguna/riemann.git already configured (SSH);
+    git ls-remote origin -> exit 0, zero refs -> repo exists on GitHub, empty
+  - tracked size 211M (max file 16.3M lit/pdf/conrey-2003.pdf, well under GitHub 100M/file);
+    the 9.2G PNT+ clone + .lake caches are gitignored (tracks/a-lean/pnt/), .git = 44M
+  - git push -u origin main -> exit 0, "* [new branch] main -> main" (commit 3aa15d6)
+  - removed stray remote "riemann" (https://github.com/digitallagna/riemann — typo account, unused)
+  - tools/tick.sh: after agent_tick.py, non-fatal `git push -q origin main` with
+    per-tick line to logs/push.log + failure line to logs/ticks.log (bash -n OK)
+  -> every tick (30 min) now pushes the committed state to GitHub; a failed push never
+  fails the tick (next tick retries). Initial push.log entry seeded at 3aa15d6.
+next: (a) OWNER: still the one-click Fork of AlexKontorovich/PrimeNumberTheoremAnd
+  (PNT+ PR leg); (b) optional owner: `loginctl enable-linger niklas` so the user-level
+  timer survives logout (Linger=no currently); (c) week-2 review 08-29.
