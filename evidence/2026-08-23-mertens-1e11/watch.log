@@ -10,3 +10,14 @@ captured run3.txt (43 lines) 2026-08-23T09:21:22Z
   x=99481473568 M=-94908
 witness: max |M(x)|/sqrt(x) for x >= 100: 0.570590889 at x = 7766842813 (M = 50286)
 VERDICT: ALL CHECKS PASS
+check.sh rc=0 2026-08-23T10:31:16Z
+--- check-run.txt tail ---
+M(10^9) = -222
+M(10^10) = -33722
+M(10^11) = -87856
+witness: max |M(x)|/sqrt(x) for x >= 100: 0.570590889 at x = 7766842813 (M = 50286)
+VERDICT: ALL CHECKS PASS
+recorded: max |M(x)| for x <= 100000000000: 94909, first at x = 99481473379, M = -94909
+recorded: witness: max |M(x)|/sqrt(x) for x >= 100: 0.570590889 at x = 7766842813 (M = 50286)
+CHECK PASS: Mertens record at 10^11 (max |M(x)| for x <= 100000000000: 94909, first at x = 99481473379, M = -94909; witness 0.570590889 < 1.0)
+WATCHER DONE rc=0 2026-08-23T10:31:16Z

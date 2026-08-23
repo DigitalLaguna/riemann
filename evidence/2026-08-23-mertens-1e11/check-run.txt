@@ -1,0 +1,25 @@
+C5 segmented mu == full-array mu n<=10^6: PASS
+C1 M(10) = -1 (expect -1): PASS
+C2 OEIS A002321 n<=10000: 10000 values, mismatches=0: PASS
+C3 sympy independent n<=10^5: mismatches=0: PASS
+C4 OEIS A051402 envelope: checked=10000 n-values, mismatches=0: PASS
+C6 M(10^11) = -87856 (expect -87856, OEIS A084237): PASS
+C7 M(10^k) k<=10 vs verified 1e10 run: mismatches=0: PASS
+max |M(x)| for x <= 100000000000: 94909, first at x = 99481473379, M = -94909
+max |M(x)|/sqrt(x) for x <= 100000000000: 1.000000000 at x = 1 (M = 1)
+M(10^1) = -1
+M(10^2) = 1
+M(10^3) = 2
+M(10^4) = -23
+M(10^5) = -48
+M(10^6) = 212
+M(10^7) = 1037
+M(10^8) = 1928
+M(10^9) = -222
+M(10^10) = -33722
+M(10^11) = -87856
+witness: max |M(x)|/sqrt(x) for x >= 100: 0.570590889 at x = 7766842813 (M = 50286)
+VERDICT: ALL CHECKS PASS
+recorded: max |M(x)| for x <= 100000000000: 94909, first at x = 99481473379, M = -94909
+recorded: witness: max |M(x)|/sqrt(x) for x >= 100: 0.570590889 at x = 7766842813 (M = 50286)
+CHECK PASS: Mertens record at 10^11 (max |M(x)| for x <= 100000000000: 94909, first at x = 99481473379, M = -94909; witness 0.570590889 < 1.0)
