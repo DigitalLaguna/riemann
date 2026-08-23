@@ -714,3 +714,31 @@ clears, or journal search); (b) write the falsification test for the S(t) scan
 zero counts / argument principle vs verified counts; F2 if max |S(t)| on
 [1,1e6] exceeds the fetched record value -> HIT, cross-check before claiming;
 (c) implement the scan with Arb acb_zeta on a t-grid in [1, 1e6].
+
+--- tick 142 (track D, S(t) scan step 1: RS implementation check) ---
+One-liner: #27 is NUMERIC (promote rc=0, collected tick 140); this tick runs the
+pre-registered implementation check (F1/F2) for the S(t) scan's Riemann-Siegel
+sum. Not in DEAD_ENDS: S(t) scan is the new eighth D experiment (preflight
+tick 140, 14 arXiv queries logged).
+State notes (anomalies from ticks 139-141, resolved this tick):
+- evidence/2026-08-23-st-scan/odlyzko-first1000-zeros.txt and odlyzko-dir.html
+  are 404 HTML pages, NOT data (the /~odlyzko/zeta_zeros/ URL 404s). Treat as
+  no data until re-fetched.
+- Tick 141's log entry was never appended (log ended at tick 140's "Next");
+  its work (wiki RS pages + st_scan.py stub) is committed in 0c5e428.
+- HANDOFF.md was stale (still tick 138) - rewritten at end of this tick.
+- st_scan.py stub's theta_asym does NOT match the fetched wiki expansion
+  (wiki: +1/(48t) + 7/(5760t^3); stub: -1/(48t) + 1/(7680t^3)) - fixed this
+  tick to the wiki coefficients (wiki-rs-theta.html, verbatim in evidence).
+FALSIFICATION TEST (pre-registered BEFORE running st_check.py):
+F1: for t in {10, 100, 1e3}, min over the 4 combos {e^{+iθ}, e^{-iθ}} x
+  {S = 2*sum cos(θ-t log n)/sqrt(n), S = 2*sum cos(θ-t log n)/sqrt(2n)} of
+  |zeta(1/2+it) - e^{±iθ} S| must be < 1e-8 (N = floor(sqrt(t/2π)), θ =
+  arg Γ(1/4+it/2) - (t/2)log π per fetched wiki-rs-theta.html). If none is:
+  RS sum implementation wrong -> dead end, debug derivation.
+F1-diag: report best-combo abs error at t in {1e4, 1e5}; expected O(t^{-1/4})
+  <= 0.032 (bare-sum remainder). If O(1) -> convention/coefficient still wrong.
+F2: |θ_exact - θ_asym| (mod 2π) < 1e-10 at t=1e4 and < 1e-12 at t=1e5 with
+  wiki coefficients. If not: asymptotic coefficients wrong (θ_exact still valid).
+NOTE: mpmath (50 dps) is a development tool, not a rigorous machine; a NUMERIC
+claim from the scan will need Arb ball arithmetic or an explicit error bound.
