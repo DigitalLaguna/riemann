@@ -1,0 +1,81 @@
+=== PRIOR-ART PRE-FLIGHT: extreme zero spacings / Lehmer pairs (track D) ===
+run: 2026-08-23T15:55:42Z
+
+### QUERY 1: arXiv all:'Lehmer pairs' ###
+
+### QUERY 2: arXiv all:'zero spacings' AND all:'Riemann' ###
+
+### QUERY 1 (retry, spaced): arXiv all:'Lehmer pairs' ###
+503
+
+### QUERY 2 (spaced): arXiv all:'zero spacings' AND all:'Riemann' ###
+
+### QUERY 3: Semantic Scholar 'Lehmer pairs zeta zeros' ###
+
+### QUERY 4: Semantic Scholar 'extreme zero spacings Riemann zeta' ###
+  2025 | Distributions of consecutive level spacings of circular unitary ensemble and their ratio: finite-size corrections and Riemann $\zeta$ zeros | 2507.10193
+  2025 | Explicit extreme values of the argument of the Riemann zeta-function | 2510.14309
+  2025 | Numerical Behavior of the Riemann Zeta Function Using Real-to-Complex Conversion Without Gram Points or Bracketing | 2512.09960
+  2021 | Multi-step prediction of zero series and gap series of Riemann zeta function | 
+  2006 | Extreme values of the Riemann zeta-function on short zero intervals | 
+  2025 | The Alternative Hypothesis for Zeros of the Riemann Zeta-Function | 2508.10857
+  2021 | Maxima of a random model of the Riemann zeta function over intervals of varying length | 2103.04817
+  2012 | Riemann Zero spacings and Montgomery's pair correlation conjecture | 
+  2007 | 82 102 ZEROS AND EXTREME VALUES OF THE RIEMANN ZETA-FUNCTION ON THE CRITICAL LINE | 
+  2021 | Modeling of the distribution of spacing between zeros of the Riemann zeta function by a non-recursive function | 
+  2021 | A Physical Match for the Riemann Zeta Function | 
+  2016 | A quadratic divisor problem and moments of the Riemann zeta-function | 1609.02539
+  2013 | Normalized spacings between zeros of Riemann zeta function follow normalized Maxwell-Boltzmann distribution | 
+  2010 | Normalized spacings between zeros of Riemann zeta function given by normalized Maxwell-Boltzmann distribution | 
+  None | Primorial Anomalies in Riemann Zeta Zero Distribution: Statistical Evidence for Arithmetic Dynamical Structure | 
+
+### QUERY 5 (retry): Semantic Scholar 'Lehmer pair' ###
+
+### QUERY 6: Semantic Scholar 'largest gap consecutive zeros Riemann' ###
+
+### FETCH: arXiv 2510.14309 abstract (S(t) extreme values) ###
+Abstract:We investigate explicit extreme values of the argument of the Riemann zeta-function in short intervals. As an application, we improve the result of Conrey and Turnage-Butterbaugh concerning $r$-gaps between zeros of the Riemann zeta-function.
+
+### FETCH: arXiv 2510.14309 authors + full abstract + comments ###
+AUTHORS: Authors: Shōta Inoue , Hirotaka Kobayashi , Yuichiro Toma
+
+ABSTRACT: Abstract: We investigate explicit extreme values of the argument of the Riemann zeta-function in short intervals. As an application, we improve the result of Conrey and Turnage-Butterbaugh concerning $r$-gaps between zeros of the Riemann zeta-function.
+
+COMMENTS: 13 pages
+
+TITLE: [2510.14309] Explicit extreme values of the argument of the Riemann zeta-function
+
+
+### QUERY 7 (retry, longer sleep): Semantic Scholar 'Lehmer pair' ###
+
+### QUERY 8: arXiv search UI 'Lehmer pair' ###
+  6 results
+  [2509.00906] Lehmer pairs and binomial series  (?)
+  [2411.07909] $n$-defective Lehmer pairs for small $n$: Corrections and Clarifications  (?)
+  [1612.08627] Lehmer pairs and derivatives of Hardy's $Z$-function  (?)
+  [1508.05870] Lehmer pairs revisited  (?)
+  [1304.6413] On the Diophantine equation N X^2 + 2^L 3^M = Y^N  (?)
+  [1301.3158] Notes on Low discriminants and the generalized Newman conjecture  (?)
+
+=== FINDINGS (tick 148) ===
+Both topics are well-studied with recent (2024-2025) papers. Prior art:
+
+EXTREME ZERO SPACINGS / r-GAPS:
+  [2510.14309] Inoue, Kobayashi, Toma (2025) "Explicit extreme values of the
+    argument of the Riemann zeta-function" — improves Conrey-Turnage-Butterbaugh
+    on r-gaps between zeros. DIRECT prior art; NEWER than carded seed
+    turnage-butterbaugh-2026. Continuous-intake candidate (escalate for real read).
+  [2012] "Riemann Zero spacings and Montgomery's pair correlation conjecture"
+  [2006] "Extreme values of the Riemann zeta-function on short zero intervals"
+
+LEHMER PAIRS:
+  [2509.00906] "Lehmer pairs and binomial series" (2025)
+  [2411.07909] "n-defective Lehmer pairs for small n: Corrections and Clarifications" (2024)
+  [1612.08627] "Lehmer pairs and derivatives of Hardy's Z-function" (2016)
+  [1508.05870] "Lehmer pairs revisited" (2015)
+
+CONCLUSION: the next D experiment (extreme zero spacings / Lehmer pairs) is NOT
+greenfield. Must scope against 2510.14309 (r-gaps, 2025) and the Lehmer-pairs
+line (2015-2025) to avoid reproducing existing work. A computational
+"max/min spacing up to height T" scan is likely already covered by 2510.14309
+or the Lehmer-pairs papers; READ 2510.14309 before choosing the specific scan.

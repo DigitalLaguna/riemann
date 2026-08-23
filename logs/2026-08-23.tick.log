@@ -797,3 +797,37 @@ Next (tick 148+): read evidence/2026-08-23-st-scan/st_run-1e5.txt for
   "ST-SCAN-1e5 DONE rc=0" and the max|S| / zero-count / max-arg-jump lines.
   If max arg jump >= pi -> step too large, re-run with smaller step.
   Then: identify the S(t) record paper (S2 / journal search) and compare.
+
+=== TICK 148 (2026-08-23 ~15:53 UTC, model qwen3.8-27b) ===
+STEP 1 (read state): HANDOFF/DEAD_ENDS/ledger read. All tracks OPEN (21/21 seeds).
+  27 claims: 15 NUMERIC, 3 FORMAL, 9 NOTE.
+STEP 2 (gate): all OPEN.
+STEP 3 (prior-art pre-flight, NEW attempt: extreme zero spacings / Lehmer pairs, track D):
+  arXiv API rate-limited (429/503, shared IP) -> used Semantic Scholar + arXiv search UI.
+  Queries + verbatim results: evidence/2026-08-23-zerogap-preflight/preflight.txt.
+  FINDINGS (machine: search results):
+   - EXTREME SPACINGS / r-GAPS: [2510.14309] Inoue-Kobayashi-Toma (2025)
+     "Explicit extreme values of the argument of the Riemann zeta-function"
+     improves Conrey-Turnage-Butterbaugh on r-gaps between zeros. NEWER than
+     carded seed turnage-butterbaugh-2026 -> continuous-intake candidate.
+   - LEHMER PAIRS: [2509.00906] (2025), [2411.07909] (2024), [1612.08627] (2016),
+     [1508.05870] (2015).
+  CONCLUSION: next D experiment NOT greenfield; scope against 2510.14309 +
+  Lehmer-pairs line before choosing the specific scan.
+STEP 4 (bounded step): S(t) scan [1,1e5] status check (machine: process + stderr).
+  pid 732546 alive, 100% CPU, started 15:40 UTC. Last flushed progress (verbatim):
+    "progress 20000/333331 (6%) elapsed 356s"
+  Result file st_run-1e5.txt still 0 bytes (single pass, no partial output;
+  stdout block-buffered). NOT done. ETA ~19:45Z (per-point cost grows with t, so
+  the linear 1.65h extrapolation underestimates).
+  FALSIFICATION (pre-registered tick 147): if max arg jump >= pi on completion,
+  step 0.3 too large -> re-run smaller. (1e4 run, step 0.5, had max jump 2.9369 < pi.)
+STEP 5 (checker): nothing eligible for promotion this tick (scan not done;
+  pre-flight is a NOTE-level literature check, not a claim).
+NEXT (tick 149+):
+  (a) TRACK D: read st_run-1e5.txt for "ST-SCAN-1e5 DONE rc=0" + max|S|/zero-count/
+      max-arg-jump lines. mpmath -> NOTE not NUMERIC.
+  (b) TRACK D: read 2510.14309 (Inoue-Kobayashi-Toma) to scope the zero-spacing
+      experiment; card it (continuous intake, 1/day).
+  (c) OWNER: PNT+ PR (see HANDOFF).
+  (d) TRACK B: PARKED until 08-29 weekly review.

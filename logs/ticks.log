@@ -144,3 +144,4 @@
 2026-08-23T13:48:49.984443+00:00 tick 144 model=qwen3.8-27b steps=10 wall=1460s next=(a) TRACK D (weight 15): read evidence/2026-08-23-mertens-1e11/watch.log for
 2026-08-23T14:19:49.989687+00:00 tick 145 model=qwen3.8-27b steps=15 wall=1654s next=(a) TRACK D (weight 15): read evidence/2026-08-23-mertens-1e11/watch.log for
 2026-08-23T14:50:49.986011+00:00 tick 146 model=qwen3.8-27b steps=0 wall=1143s next=(a) TRACK D (weight 15): read evidence/2026-08-23-mertens-1e11/watch.log for
+2026-08-23T15:21:49.989512+00:00 tick 147 model=qwen3.8-27b steps=18 wall=1219s next=(a) TRACK D (weight 15): read evidence/2026-08-23-st-scan/st_run-1e5.txt for
