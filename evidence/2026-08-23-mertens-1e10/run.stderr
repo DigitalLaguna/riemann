@@ -1,4 +1,0 @@
-/home/niklas/riemann/tracks/d-search/mertens_extremal.py:48: RuntimeWarning: overflow encountered in scalar multiply
-  if p * p <= n:
-/home/niklas/riemann/tracks/d-search/mertens_extremal.py:49: RuntimeWarning: overflow encountered in scalar multiply
-  mu[p * p::p * p] = 0

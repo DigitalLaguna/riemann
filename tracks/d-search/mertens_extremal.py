@@ -43,9 +43,10 @@ def mu_sieve(n):
     # primes <= n//2: slice mu[p::p] has >= 2 elements -> per-prime loop
     # primes >  n//2: slice mu[p::p] is just [mu[p]] -> one vectorized flip
     split = int(np.searchsorted(primes, n // 2 + 1))
+    isqrt_n = math.isqrt(n)  # p*p overflows int64 for p>3.03e9; use isqrt guard
     for p in primes[:split]:
         mu[p::p] *= -1
-        if p * p <= n:
+        if p <= isqrt_n:
             mu[p * p::p * p] = 0
     if split < len(primes):
         large = primes[split:]
