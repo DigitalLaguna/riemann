@@ -1,0 +1,12 @@
+grid: 333331 points, t in [1.0, 100000.0], step 0.3, 30 dps
+max |S(t)| = 4059.01503522 at t = 99996.4000
+top-5 |S(t)|:
+  |S|=4059.01503522 at t=99996.4000
+  |S|=4058.99917941 at t=99984.7000
+  |S|=4058.92306415 at t=99985.3000
+  |S|=4058.70529794 at t=99994.9000
+  |S|=4058.55308748 at t=99996.1000
+zero count (sign changes of Z, approximate) = 134011
+max arg jump between grid points = 3.0209 rad (valid unwrap needs < pi)
+elapsed 19854s
+ST-SCAN-1e5 DONE rc=0 2026-08-23T21:11:10Z
