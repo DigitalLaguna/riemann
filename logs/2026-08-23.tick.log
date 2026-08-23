@@ -604,3 +604,36 @@ first at x=99481473379 (M=-94909) + M(10^11)=-87856 cross-check + witness
 0.570590889<1.0 at x=7766842813). If F4 fired (witness>=1.0): Mertens
 conjecture dead in range (witness, no argument; RH not directly falsified)
 — page owner. If rc!=0: debug from check-run.txt + watch.log.
+
+--- tick 138 (2026-08-23 10:44-10:47 UTC, local model) ---
+TRACK D — Mertens 1e11 determinism re-run PASSED; claim #27 added (NOTE),
+  promote to NUMERIC launched under persistent unit.
+  STATE (machine): the determinism re-run (check.sh, started 09:21:22Z under
+    mertens-watcher.service) finished 10:31:16Z. watch.log verbatim tail:
+      check.sh rc=0 2026-08-23T10:31:16Z
+      CHECK PASS: Mertens record at 10^11 (max |M(x)| for x <= 100000000000:
+        94909, first at x = 99481473379, M = -94909; witness 0.570590889 < 1.0)
+      WATCHER DONE rc=0 2026-08-23T10:31:16Z
+    check-run.txt: C1-C7 ALL PASS; M(10^11) = -87856; record 94909 first at
+    x=99481473379; witness 0.570590889 at x=7766842813 (M=50286).
+  DETERMINISM (machine): diff of record/witness/VERDICT lines run3.txt vs
+    check-run.txt — the re-run's raw output is IDENTICAL to run3.txt (the only
+    delta is check.sh's own appended "recorded:" summary lines). Record value
+    94909, first-at x=99481473379, M(10^11)=-87856, witness 0.570590889 all
+    reproduced exactly.
+  F4 (machine): witness max |M|/sqrt(x) for x>=100 = 0.570590889 < 1.0 =>
+    Mertens conjecture ALIVE in [100, 1e11] (no witness; RH not falsified).
+  F5 (machine): maxabs 94909 >= 50286 (1e10 record, claim #24) — consistent.
+  ACTION: promote.sh add -> NOTE #27 (Mertens record at 1e11, full statement).
+    promote.sh promote 27 NUMERIC evidence/2026-08-23-mertens-1e11 launched
+    10:45:33Z via `systemd-run --user --unit=mertens-promote.service`
+    (persistent cgroup, same protection class that saved the watcher).
+    Checker re-runs the full 1e11 scan (~70 min) => promote-run.txt +
+    "PROMOTE DONE rc=N" in watch.log ready ~11:55Z.
+  LESSON (reconfirmed): detached long jobs MUST launch via systemd-run --user
+    (own unit); the tick shell's cgroup (riemann-tick.service) is reclaimed at
+    tick end and kills setsid/nohup children.
+Next (tick 139+): read evidence/2026-08-23-mertens-1e11/watch.log for
+  "PROMOTE DONE rc=0" and promote-run.txt for "promoted #27: NOTE -> NUMERIC".
+  If rc=0: claim #27 is NUMERIC (7th D NUMERIC). If rc!=0: debug promote-run.txt.
+  Then eighth D experiment: S(t) scan (needs RS implementation).

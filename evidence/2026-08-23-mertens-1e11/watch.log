@@ -21,3 +21,4 @@ recorded: max |M(x)| for x <= 100000000000: 94909, first at x = 99481473379, M =
 recorded: witness: max |M(x)|/sqrt(x) for x >= 100: 0.570590889 at x = 7766842813 (M = 50286)
 CHECK PASS: Mertens record at 10^11 (max |M(x)| for x <= 100000000000: 94909, first at x = 99481473379, M = -94909; witness 0.570590889 < 1.0)
 WATCHER DONE rc=0 2026-08-23T10:31:16Z
+promote started 2026-08-23T10:45:33Z for claim #27
