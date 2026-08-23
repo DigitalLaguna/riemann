@@ -879,3 +879,45 @@ NEXT (tick 150+):
       inoue-kobayashi-toma-2025 (record target: normalized gap vs 3.18 / sqrt(2)/r).
   (c) OWNER: PNT+ PR (see HANDOFF).
   (d) TRACK B: PARKED until 08-29 weekly review.
+
+=== tick 151 (2026-08-23T17:26-17:50Z, model qwen3.8-27b) ===
+STEP 1: HANDOFF/DEAD_ENDS/ledger read. Doing: (a) S(t) scan status check,
+(b) zero-spacing scan design + pilot (next action b from tick 150). Neither in
+DEAD_ENDS: scan in flight; spacing scan not yet attempted.
+STEP 2 (gate): all tracks OPEN (21/21 seeds). Track D work.
+STEP 3 (prior-art): not a new attempt class — design scoped against card
+inoue-kobayashi-toma-2025 (carded tick 149); definition λr/µr quoted verbatim
+from lit/text/inoue-kobayashi-toma-2025.txt p. 2 (γ_{n+r}−γ_n over 2πr/log γ_n).
+S(t) scan status: pid 732546 alive, elapsed 01:45:57, 100% CPU. stderr last line
+"progress 100000/333331 (30%) elapsed 4987s" (~23 min old). Per-20000-pt intervals
+356/687/982/1267/1695s (growing). ETA revised: ~23:00Z-09:00Z (was ~20:00Z).
+  st_run-1e5.txt still 0 bytes. NOT done.
+STEP 4 (bounded step): wrote tracks/d-search/zero-spacing-design.md (scope,
+method, 4 pre-registered falsification tests F1-F4 BEFORE run) and
+tracks/d-search/zero_scan.py (Z(t)=re(e^{iθ}ζ(1/2+it)), coarse step 0.05 +
+bisection to 1e-10, mpmath 30 dps). Pilot run:
+  $ python3 zero_scan.py 1.0 1000.0 0.05   (437s, rc=0)
+  verbatim output (evidence/2026-08-23-zero-scan/pilot-run.txt):
+    zero count = 649 (RvM main term = 647.62, tolerance ±3)
+    first 10 zeros: 14.134725 21.022040 25.010858 30.424876 32.935062
+                     37.586178 40.918719 43.327073 48.005151 49.773832
+    max normalized gap g = 3.073313 between zeros 650.6687 and 653.6496
+    min normalized gap g = 0.327118 between zeros 750.6560 and 750.9664
+FALSIFICATION VERDICTS (machine):
+  F1 PASS: first 7 zeros match fetched wiki-zeta.html values to 6 decimals
+    (14.134725/21.022040/25.010858/30.424876/32.935062/37.586178/40.918719).
+  F2 PASS: 649 vs RvM 647.62, |Δ| = 1.38 <= 3.
+  F3 PASS: all g in [0.327118, 3.073313] ⊂ (0.1, 10).
+  F4: max g 3.073313 < 3.18 (Bui-Milinovich λ1 lower bound) and min g 0.327118
+    < 0.515396 (Preobrazhenskii) — both consistent, no contradiction.
+  Note: 2nd-largest gap is the FIRST gap (14.1347->21.0220, g=2.903301) —
+  first zero is isolated; expected, not an anomaly.
+  mpmath -> NOTE, not NUMERIC. No ledger claim yet (pilot validates the
+  pipeline; the record claim comes from the full [1,1e5] scan).
+STEP 5 (checker): no ledger claim eligible.
+NEXT (tick 152+):
+  (a) TRACK D: launch full zero scan [1,1e5] step 0.1 in background (nohup,
+      ETA ~10h; miss-risk: pairs with actual gap < 0.1, i.e. normalized < 0.115
+      at t=1e5 — pilot min was 0.327; falsification: count vs RvM(1e5) ±3).
+  (b) TRACK D: read st_run-1e5.txt for completion (ETA ~23:00Z-09:00Z).
+  (c) OWNER: PNT+ PR (see HANDOFF). (d) TRACK B: PARKED until 08-29.
