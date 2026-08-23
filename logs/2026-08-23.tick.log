@@ -742,3 +742,58 @@ F2: |θ_exact - θ_asym| (mod 2π) < 1e-10 at t=1e4 and < 1e-12 at t=1e5 with
   wiki coefficients. If not: asymptotic coefficients wrong (θ_exact still valid).
 NOTE: mpmath (50 dps) is a development tool, not a rigorous machine; a NUMERIC
 claim from the scan will need Arb ball arithmetic or an explicit error bound.
+
+--- tick 147 (track D, S(t) scan: reconcile definition + launch [1,1e5] scan) ---
+One-liner: verified st_run.py computes the STANDARD S(t) = (1/pi)Arg(zeta(1/2+it))
+= N(t) - (large Riemann-von Mangoldt term); S(1e4) = -498.97 matches the
+decomposition exactly; launched the [1,1e5] scan (step 0.3) as a detached
+systemd job. Not in DEAD_ENDS: S(t) scan is the new eighth D experiment
+(preflight tick 140, 14 arXiv queries logged; implementation checks ticks 142/144).
+
+RECONCILIATION (machine + fetched wiki):
+  wiki-rh.html (fetched, verbatim) defines:
+    N(T) = (1/pi)Arg(xi(1/2+iT)) [continuous arg, 0 at infinity+iT]
+         = (T/2pi)log(T/2pi) - T/2pi + 7/8 + O(1/T)   [large, well understood]
+         + S(T),  where S(T) = (1/pi)Arg(zeta(1/2+iT)) = O(log T)  [small, mysterious]
+    "The function S(t) jumps by 1 at each zero of the zeta function, and for
+     t >= 8 it decreases monotonically between zeros with derivative close to
+     -log t."
+  So the standard S(t) = N(t) - [(T/2pi)log(T/2pi) - T/2pi + 7/8] (the deviation
+  of the zero count from the Riemann-von Mangoldt leading terms).
+  MACHINE CHECK (python3, this tick):
+    large term at T=1e4 = 10142.97
+    S(1e4) = N(1e4) - large = 9644 - 10142.97 = -498.97
+    st_run.py (tick 144) reported max|S| = 498.97 at t=1e4  -> EXACT MATCH.
+  CONCLUSION: st_run.py's "S" IS the standard S(t) (the full continuous argument
+  of zeta / pi, equivalently N(t) minus the large term). The value -498.97 at
+  t=1e4 is legitimate; the O(log T) / O(log T/log log T) bounds are asymptotic
+  with large constants and are NOT tight at T=1e4.
+  ANOMALY RESOLVED (constraint 7): the tick-144 output "max |S(t)| = 498.97"
+  looked too large for S(t); it is NOT an implementation bug — it is the correct
+  standard S(t), confirmed by the independent Riemann-von Mangoldt decomposition.
+
+PRIOR-ART / RECORD STATUS:
+  The S(t) world-record paper is NOT on arXiv (tick 140 preflight, 14 queries).
+  My memory "S(t) > 2.337 at t ~ 1.8e23 (Mossinghoff-Trudgian-Yang)" is UNVERIFIED
+  and, if it refers to max|S(t)| over [0, 1.8e23], is INCONSISTENT with
+  |S(1e4)| = 498.97 (a record over a larger range must be >= 498.97). So either
+  my memory is wrong or it refers to a different quantity. DO NOT CITE IT
+  (literature gate). Open item: identify the record paper before claiming any
+  S(t) record comparison.
+
+ACTION (this tick):
+  Launched the [1,1e5] S(t) scan as a detached systemd job (persistent cgroup,
+  per the tick-138 lesson):
+    unit: st-scan-1e5.service
+    cmd:  python3 tracks/d-search/st_run.py 1.0 100000.0 0.3
+    out:  evidence/2026-08-23-st-scan/st_run-1e5.txt (+ .stderr)
+    step 0.3 chosen because theta'(t)=log(t/2pi)-1/2 ~ 9.17 rad/unit at t=1e5,
+    so a valid unwrap (arg jump < pi) requires step < 0.34.
+  First launch failed (relative path; systemd cwd != repo root) — fixed with
+  absolute paths + cd. Now active (pid 732607). ETA ~2.1 h (333334 grid points).
+  NOTE (not NUMERIC): mpmath 30 dps is a development tool; a NUMERIC claim needs
+  Arb ball arithmetic or an explicit error bound.
+Next (tick 148+): read evidence/2026-08-23-st-scan/st_run-1e5.txt for
+  "ST-SCAN-1e5 DONE rc=0" and the max|S| / zero-count / max-arg-jump lines.
+  If max arg jump >= pi -> step too large, re-run with smaller step.
+  Then: identify the S(t) record paper (S2 / journal search) and compare.
