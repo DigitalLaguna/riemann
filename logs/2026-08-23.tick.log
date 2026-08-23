@@ -361,3 +361,40 @@ Next: (a) OWNER: open PR (unchanged, see HANDOFF). (b) D seventh experiment: S(t
   (exact integer sieve; 1e10 took 28 min => 1e11 ~2.5h, background run across ticks);
   pre-register falsification FIRST (witness => RH false => STOP, c5). (c) B parked until
   week-2 review 08-29.
+
+--- tick 131 (2026-08-23 ~07:00 UTC, frontier) ---
+Track D experiment 7: Mertens M(x) scan to 1e11 via SEGMENTED mu sieve
+(mertens_segmental.py). Why segmented: full-array mertens_extremal.py needs
+~800 GB at N=1e11 (M int32 + absM int32 + mu int8); machine has 125 GB.
+Segmented mu: per segment [a,b), mu starts at 1; for each prime p <= sqrt(N):
+flip sign at multiples of p, multiply small-radical s(n) by p at multiples of
+p, zero mu at multiples of p^2; then n/s(n) > 1 iff n has its one possible
+prime factor > sqrt(N) (n <= N => at most one) => flip sign once. Exact ints.
+
+PRIOR-ART PRE-FLIGHT (queries, 2026-08-23):
+  Q1: curl oeis.org/A084237/b084237.txt -> "11 -87856" i.e. M(10^11) = -87856
+      (entry text: "a(n) = M(10^n), where M(n) is Mertens's function"; values
+      1,-1,1,2,-23,-48,212,1037,1928,-222,-33722,-87856,62366,...).
+  Q2: duckduckgo html "Mertens function maximum abs 10^11 record value" ->
+      Wikipedia/Mertens_function, MathWorld, arXiv 2012.11756 (Bounds of the
+      Mertens Function), ResearchGate 350636795; no published max |M(x)|
+      record at 1e11 found. Record at 1e11 is our contribution; M(10^11) is
+      the citable cross-check.
+  Q3: b051402.txt (local, fetched tick ~90): max a(n) for n<=10000 is
+      902718903 < 1e11 => all C4 first-attainments lie inside the scan.
+
+PRE-REGISTERED FALSIFICATION TESTS (before any run):
+  F1 (implementation): segmented run at N=1e8 must reproduce the
+     machine-verified full-array 1e8 result EXACTLY: max |M| = 3448, first at
+     x = 76015339, M = -3448; M(10^k) k=1..8 identical to
+     evidence/2026-08-22-mertens/run.txt; C1-C4 all PASS. Any differing line
+     => segmented implementation wrong, 1e11 run not bookable.
+  F2 (OEIS cross-check): 1e11 run must give M(10^11) = -87856 (A084237).
+     Mismatch => investigate (our sieve or OEIS value wrong) before booking.
+  F3 (consistency): 1e11 run must give M(10^k) equal to the verified 1e10
+     run's values for k=1..10 (M(10^10) = -33722).
+  F4 (witness): if max_{x>=100} |M(x)|/sqrt(x) >= 1.0 at some x <= 1e11 =>
+     verified counterexample to the Mertens conjecture at that x (witness,
+     no argument; RH not directly falsified).
+  F5 (record sanity): max |M|(1e11) >= 50286; if it exceeds 50286 the first
+     attainment must be > 1e10; if equal, first attainment = 7766842813.
