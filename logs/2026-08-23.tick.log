@@ -229,3 +229,30 @@ PRE-REGISTERED FALSIFICATION TEST (before checker run, 2026-08-23T04:06:20Z):
 Note: tick-121 "EXPECTED maxabs in [10246, ~20000]" was a heuristic, not a
 falsification test; actual maxabs = 50286 < sqrt(1e10) = 1e5 is RH-consistent
 (Mertens-conjecture counterexample ~1.05e11, Odlyzko-te Riele 1985, carded).
+
+--- manual session (2026-08-23 04:05-04:30 UTC, after tick 125; owner online) — Track A: fork done, branch pushed, PR staged ---
+state one-liner: planned work = HANDOFF next (a) OWNER fork -> push branch -> file PR.
+  Owner forked PNT+ to DigitalLaguna/PrimeNumberTheoremAnd (~04:10 UTC). This session
+  pushes the verified branch and stages the PR sheet.
+machine said (verbatim, abridged):
+  `git push fork ik-additive-lemmas` -> "* [new branch]  ik-additive-lemmas ->
+   ik-additive-lemmas" (remote: DigitalLaguna/PrimeNumberTheoremAnd).
+  GitHub API: fork branch ik-additive-lemmas @ 0197a66f3440c636a3ce3ba434389be873c24f04
+  = claim #12 commit exactly (no rebase needed).
+  Upstream drift since base 7715064: 2 commits (e94b9fb, 751a8c2) touching only FKS2
+  files (FKS2Cor24Row1/Row10/TrustedNumerics, LeanCertEnclosures) -> zero overlap with
+  IwaniecKowalskiCh1.lean -> branch cleanly mergeable as-verified.
+findings:
+  - `fork` remote (git@github.com:DigitalLaguna/PrimeNumberTheoremAnd.git) and SSH key
+    id_ed25519_github already configured on box; `ssh -T git@github.com` ->
+    "Hi DigitalLaguna! You've successfully authenticated".
+  - Issue #816 (public API 04:15 UTC): open, label task, ASSIGNED to IlPreteRosso
+    (claim 2026-01-28; note 2026-02-04 "Waiting for Mathlib to merge relevant code").
+    CONTRIBUTING additional guideline 1 -> contact claimant before working assigned
+    issue. Owner decision recorded in pr-body.md.
+next: (a) OWNER opens PR via
+  https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/compare/main...DigitalLaguna:ik-additive-lemmas?expand=1
+  (title+body: evidence/2026-08-22-pnt-ik-api/pr-body.md, disclosure per
+  PULL_REQUEST_STYLE.md sec 13.1) then comments `propose #<PR>` on #816 — closes
+  week-2 milestone fully. (b) D sixth experiment: Robin full-scan [1e8,1e9] (needs
+  segmented/faster sigma sieve) or S(t) scan; pre-register falsification FIRST.
