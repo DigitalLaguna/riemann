@@ -1025,3 +1025,66 @@ NEXT (tick 154+):
       10%. On completion: F5a/b/c + F3/F4 verdicts + records max/min g
       [1,1e5] -> NOTE claim via promote.sh (pilot was [1,1e3]-scoped only).
   (c) OWNER: PNT+ PR (see HANDOFF). (d) TRACK B: PARKED until 08-29.
+
+================================================================
+TICK 155  2026-08-23 19:30 UTC (21:30 CEST)  model=qwen3.8-27b
+================================================================
+STEP 1 (read state): HANDOFF (tick 153) + DEAD_ENDS + ledger. Doing: verify
+both in-flight Track D scans alive + re-estimate ETAs with fresh progress
+data. Not in DEAD_ENDS: A-005 (nohup cgroup kill) already closed by the
+systemd-unit relaunch; this tick just confirms both units survived + measures
+the slowing rate.
+STEP 2 (gate): all tracks OPEN (21/21 seeds). Track D weight 15.
+STEP 3 (prior-art): monitoring tick, no new attempt -> no pre-flight needed.
+STEP 4 (bounded step): verify both scans + re-estimate.
+  (a) S(t) scan st-scan-1e5.service (pid 732546): ACTIVE (running) since
+      17:40:16 CEST (15:40:16Z), 3h50m. Progress (st_run-1e5.stderr, verbatim):
+        progress 120000/333331 (36%) elapsed 6688s
+        progress 140000/333331 (42%) elapsed 8387s
+        progress 160000/333331 (48%) elapsed 11124s
+        progress 180000/333331 (54%) elapsed 13312s
+      Rate per 20000-pts segment: 1699s / 2737s / 2188s = 0.0849 / 0.1368 /
+      0.1094 s/pt (noisy; 0.1368 is an outlier; most recent 0.1094).
+      Remaining 153331 pts. At 0.1094 s/pt -> 16774s (4.66h); at 0.12 s/pt
+      (conservative, rate still rising) -> 18400s (5.1h).
+      ETA: 13312s + 16774..18400s = 30086..31712s from start = 8.34..8.81h
+      from 15:40:16Z -> ~00:00..00:30 UTC 08-24 (02:00..02:30 CEST).
+      ~4.5-5h from now. (Handoff's 22:30Z was pre-slowdown, at the 85s/20k
+      plateau; the rate has since risen to ~110-137s/20k.)
+  (b) Zero scan zero-scan-1e5.service (pid 745484): ACTIVE (running) since
+      20:32:55 CEST (18:32:55Z), 57m. Progress (full.stderr, verbatim, new run):
+        coarse 5000/999990  elapsed 113s
+        coarse 10000/999990 elapsed 362s
+        coarse 15000/999990 elapsed 688s
+        coarse 20000/999990 elapsed 1090s
+        coarse 25000/999990 elapsed 1510s
+        coarse 30000/999990 elapsed 2040s
+        coarse 35000/999990 elapsed 2636s
+        coarse 40000/999990 elapsed 3246s
+      Rate per 5000-pts (dt=500) segment: 249/326/402/420/530/596/610s
+      = 0.0498/0.0652/0.0804/0.0840/0.1060/0.1192/0.1220 s/pt. CLEAR
+      increasing trend (cost grows with t, ~t^0.5-0.55, Riemann-Siegel
+      scaling). At 4% (40000/999990), elapsed 3246s.
+      Power-law fit cost~t^a: a~0.45-0.56 from the 7 segments. Using a=0.5
+      (physically motivated): rate(t)=C*sqrt(t), C=0.01929 (from 1.22 s/unit
+      at t=4001). Remaining integral 4001->1e5 = 403414s (112h). Total
+      3246+403414 = 406660s = 112.96h = 4.71 days -> ~11:35 UTC 08-28.
+      Range over a in [0.45,0.56]: ~4.0-5.2 days -> completion ~08-27..08-29.
+      Handoff's "3-4 days" was the LOW end; the measured slowing pushes the
+      best estimate to ~4.7 days (~08-28).
+  (c) MACHINE-CHECK (design F5a threshold): rvn(1e5) per zero_scan.py formula
+      (T/2pi)ln(T/2pi)-T/2pi-1/8 = 138067.55841923953. Design pre-registered
+      F5a threshold 138067.56. EXACT MATCH -> no anomaly (my earlier hand
+      estimate 137986 was a log-precision slip; the machine value is
+      authoritative and agrees with the design).
+STEP 5 (checker): no ledger claim eligible (both scans in flight; mpmath =
+NOTE when they finish).
+NEXT (tick 156+):
+  (a) TRACK D: S(t) scan completion ETA ~00:00-00:30 UTC 08-24: read
+      st_run-1e5.txt for "ST-SCAN-1e5 DONE rc=0": max|S|, zero count
+      (cross-check: must be <= zero-scan count), max arg jump (< pi else
+      step 0.3 too large -> re-run smaller). mpmath = NOTE.
+  (b) TRACK D: zero scan: check full.stderr progress; re-estimate ETA at
+      10% (next flush ~50000/999990). On completion: F5a/b/c + F3/F4 verdicts
+      + records max/min g [1,1e5] -> NOTE claim via promote.sh.
+  (c) OWNER: PNT+ PR (see HANDOFF). (d) TRACK B: PARKED until 08-29.

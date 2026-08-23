@@ -150,3 +150,5 @@
 2026-08-23T16:54:49.985131+00:00 tick 150 model=qwen3.8-27b steps=15 wall=1299s next=(a) TRACK D (weight 15): read evidence/2026-08-23-st-scan/st_run-1e5.txt for
 2026-08-23T17:25:49.984236+00:00 tick 151 model=qwen3.8-27b steps=22 wall=953s next=(a) TRACK D (weight 15): launch full zero scan in background:
 2026-08-23T17:56:49.986203+00:00 tick 152 model=qwen3.8-27b steps=16 wall=974s next=(a) TRACK D (weight 15): check both scans: st_run-1e5.txt (ETA ~00:30Z 08-24)
+2026-08-23T18:27:49.985289+00:00 tick 153 model=qwen3.8-27b steps=15 wall=625s next=(a) TRACK D (weight 15): S(t) scan completion ETA ~22:30Z 08-23: read
+2026-08-23T18:58:49.993190+00:00 tick 154 ERROR timed out steps=8
