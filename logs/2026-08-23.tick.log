@@ -290,3 +290,28 @@ next: (a) OWNER opens PR (compare link + title/body: evidence/2026-08-22-pnt-ik-
   pr-body.md rev 2), then `propose #<PR>` on #816 + ping to claimant IlPreteRosso
   (assigned since 2026-01-28). (b) D sixth experiment: Robin full-scan [1e8,1e9]
   (segmented sigma sieve) or S(t); pre-register falsification FIRST.
+
+--- tick 128 (track D, sixth experiment: Robin-criterion FULL scan over [1e8,1e9]) ---
+One-liner: first FULL (all-n, reduction-free) Robin scan over [1e8,1e9] via a segmented
+  multiplicative sigma sieve; not in DEAD_ENDS (B-001/B-002 are track B; A-00x are
+  track A; no prior D full-scan died — #21 was full only to 1e6, #23 was SA-only to 1e9).
+PRE-REGISTERED FALSIFICATION TESTS (before run, 2026-08-23T05:4xZ):
+  F1 (cross-check): sieve sigma(n) == sympy.divisor_sigma(n) for the argmax, the 6 SA
+      numbers in [1e8,1e9] (122522400,147026880,183783600,367567200,698377680,735134400),
+      20 seeded-random n (seed 128), and edge cases (1e8,1e9,1e8+1,1e9-1, prime 999999937,
+      prime powers 134217728=2^27, 387420489=3^18). Any mismatch => sieve bug => result invalid.
+  F2 (WITNESS, constraint 5): if R(n)=sigma(n)/(e^gamma*n*loglog n) >= 1 for ANY n in
+      [1e8,1e9], then Robin (1.2) is violated => RH FALSE => STOP, write disproof_candidate.md,
+      run Adversary, page owner. Verified in mpmath (50 digits) at the argmax.
+  F3 (consistency): max R over [1e8,1e9] >= 0.968152104902 (claim #23's SA near-miss at
+      n=367567200, since the full scan includes all SA numbers). If lower => sieve missed an SA number.
+  EXPECTED (RH-consistent): no F2 hit; max R ~ 0.968 at an SA number in [1e8,1e9]; 1-R ~ 0.032.
+  Prior-art pre-flight (repo-internal, this tick): claim #21 (full scan (5040,1e6] + SA
+      (1e6,1e8], max R=0.985818611972329 at n=10080); claim #23 (SA scan [5041,1e9], no witness,
+      new SA in (1e8,1e9] top out at R=0.968152104902 at n=367567200); Lagarias 2002 eq 1.2 +
+      p.4 reduction (a Robin counterexample is CA, CA subset SA) — so the WITNESS question for
+      [1e8,1e9] is already implied by #23; the NEW content of this scan is (a) a direct
+      reduction-free verification over all n in [1e8,1e9] and (b) the near-miss (max R) in
+      [1e8,1e9], which #23 did not report (it reported the global max at n=10080 < 1e8).
+      No published full all-n Robin scan to 1e9 found in lit/cards (standard refs use the CA
+      reduction or stop below 1e9).
