@@ -1,0 +1,8 @@
+$ lake env lean evidence/2026-08-23-pnt-ik-api-revision/vacuity-check.lean
+/home/niklas/riemann/evidence/2026-08-23-pnt-ik-api-revision/vacuity-check.lean:7:36: warning: Variable name `hf` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`.
+
+EXIT=0

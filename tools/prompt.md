@@ -42,6 +42,13 @@ human would sit through. Play to that.
 
 6. Never modify or delete evidence files from previous runs. Append only.
 
+7. An unexplained mismatch blocks; it does not annotate. If you notice an
+   anomaly — a hypothesis stronger than needed, a constant you cannot
+   account for, a source that does not quite agree — resolve it within the
+   attempt or record a dead end. A docstring, log line, or NOTE that merely
+   records the anomaly does not clear it, because shipping an annotated
+   anomaly to a stranger costs more than a resolved one costs your own ledger.
+
 == REPOSITORY DISCIPLINE ==
 
 Your context resets. The repository does not. The repository is your memory,

@@ -256,3 +256,37 @@ next: (a) OWNER opens PR via
   PULL_REQUEST_STYLE.md sec 13.1) then comments `propose #<PR>` on #816 — closes
   week-2 milestone fully. (b) D sixth experiment: Robin full-scan [1e8,1e9] (needs
   segmented/faster sigma sieve) or S(t) scan; pre-register falsification FIRST.
+
+--- manual session (2026-08-23 04:40-05:40 UTC, after tick 125; owner online, pre-PR review) — Track A: owner's review objections resolved, branch v2 on fork ---
+state one-liner: owner reviewed the staged PR body and raised 3 substantive objections
+  (vacuous lemma 3, over-assumed lemma 1, naming) + 2 housekeeping (rebase, workflow
+  keywords). This session resolves all of them against the machine.
+machine said (verbatim, abridged):
+  Vacuity check (vacuity-check.lean): `example (f : ArithmeticFunction ℝ)
+  (hf : f.IsMultiplicative) (hpos : ∀ n, 0 < f n) : False := by have := hpos 0;
+  simp at this` — `lake env lean` EXIT=0 => the ORIGINAL lemma-3 hypothesis set is
+  unsatisfiable (ArithmeticFunction.map_zero: f 0 = 0). Reviewer objection CONFIRMED.
+  Attempt 1: map_prime_pow context [AddMonoid R] — BUILD FAILED (84:20 type mismatch
+  in `simp [map_one hf]`; AddMonoid lacks cancellation needed by map_one).
+  Attempt 2: [AddCancelMonoid R] for both lemmas — target build 3567 jobs exit 0,
+  FULL `lake build` 4343 jobs exit 0, sorry count 7 = 7 (base 751a8c2).
+changes on branch ik-additive-lemmas (now 1 commit over 751a8c2 = current main):
+  - map_one: [AddGroupWithOne R] -> [AddCancelMonoid R], proof via add_left_cancel
+  - map_prime_pow: [AddGroupWithOne R] -> [AddCancelMonoid R] (proof unchanged)
+  - isMultiplicative_log_isAdditive -> ArithmeticFunction.IsMultiplicative.isAdditive_log
+    (dot-notation hf.isAdditive_log); hypothesis (hpos : ∀ n, 0 < f n) ->
+    (hpos : ∀ n ≠ 0, 0 < f n); proof uses hpos m hm / hpos n hn
+  - rebased 7715064 -> 751a8c2 (2 FKS2 commits, no overlap)
+new commit: 67661abc6ff51bc570aca7f93f85a3565bfe2afb (supersedes 0197a66); 41 added
+  lines; force-pushed to DigitalLaguna fork (replaced web-UI merge commit 192dd05 that
+  owner's PR-form fiddling had created on the fork branch; no PR was opened, nothing
+  dangles; verified via API: fork branch @ 67661ab).
+ledger: claim #25 NOTE->FORMAL via evidence/2026-08-23-pnt-ik-api-revision/check.sh
+  (CHECK PASS twice: standalone + promote).
+contract: HARD CONSTRAINT 7 added to tools/prompt.md + design doc sec 4:
+  "An unexplained mismatch blocks; it does not annotate" (owner review, tick-72
+  shape: agent documented the AddGroupWithOne anomaly instead of resolving it).
+next: (a) OWNER opens PR (compare link + title/body: evidence/2026-08-22-pnt-ik-api/
+  pr-body.md rev 2), then `propose #<PR>` on #816 + ping to claimant IlPreteRosso
+  (assigned since 2026-01-28). (b) D sixth experiment: Robin full-scan [1e8,1e9]
+  (segmented sigma sieve) or S(t); pre-register falsification FIRST.

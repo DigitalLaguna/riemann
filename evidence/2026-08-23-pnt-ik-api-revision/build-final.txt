@@ -1,0 +1,15 @@
+warning: PrimeNumberTheoremAnd/IEANTN/Kadiri.lean:2592:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Kadiri.lean:2618:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IEANTN/Kadiri.lean:3224:8: declaration uses `sorry`
+⚠ [4336/4343] Replayed PrimeNumberTheoremAnd.IwaniecKowalskiCh1
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:95:8: The namespace `ArithmeticFunction` is duplicated in the declaration `ArithmeticFunction.ArithmeticFunction.IsMultiplicative.isAdditive_log`.
+
+Note: This linter can be disabled with `set_option linter.dupNamespace false`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:115:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:132:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:690:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:912:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:1663:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:1830:6: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/IwaniecKowalskiCh1.lean:1845:6: declaration uses `sorry`
+Build completed successfully (4343 jobs).
