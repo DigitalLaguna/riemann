@@ -204,3 +204,28 @@ PRE-REGISTERED FALSIFICATION TESTS (before run, 2026-08-23T02:10:14Z):
   F5 (witness framing, constraint 5): Mertens does not decide RH; a new record is a
       NUMERIC record claim, not a proof. No STOP condition; F2/F3 failure voids the run.
   EXPECTED (RH-consistent): maxabs in [10246, ~20000]; M(1e10) = -33722; C1-C5 PASS.
+
+--- tick 125 (track D, completing the fifth experiment: Mertens record at N = 10^10) ---
+One-liner: the N=1e10 Mertens run (started tick 123 03:05:53Z, restarted tick 124
+03:34:07Z, finished 03:48Z, auto-committed in aba690b) completed with ALL CHECKS
+PASS but never got a check.sh or a ledger claim; this tick completes the cycle:
+check.sh (full re-run of the committed script + assertions), claim #24, promote
+NOTE->NUMERIC via the checker. Why not in DEAD_ENDS: the run is recorded
+(evidence/2026-08-23-mertens-1e10/run.txt); this tick verifies + books an existing
+machine output, not a new approach.
+Provenance: script last changed in 98bba4c (tick-123 auto-commit; only change since
+the 1e9 run is the isqrt_n int64-overflow guard, committed BEFORE the successful
+03:34:07Z run); run.txt mtime 03:48Z is from the second run; no stray python
+processes at tick start (ps checked).
+PRE-REGISTERED FALSIFICATION TEST (before checker run, 2026-08-23T04:06:20Z):
+  G1: the check.sh re-run must reproduce run.txt's record line EXACTLY:
+      "max |M(x)| for x <= 10000000000: 50286, first at x = 7766842813, M = 50286",
+      "M(10^10) = -33722", and C1-C5 all PASS. Any mismatch => the committed run is
+      not reproducible from the committed script => claim #24 stays NOTE.
+  G2 (literature, already asserted in the run): M(10^k) for k=1..10 equals OEIS
+      A084237 a(1)..a(10) (fetched file
+      evidence/2026-08-23-mertens-1e9/oeis-a084237-m10n.txt):
+      -1,1,2,-23,-48,212,1037,1928,-222,-33722.
+Note: tick-121 "EXPECTED maxabs in [10246, ~20000]" was a heuristic, not a
+falsification test; actual maxabs = 50286 < sqrt(1e10) = 1e5 is RH-consistent
+(Mertens-conjecture counterexample ~1.05e11, Odlyzko-te Riele 1985, carded).
