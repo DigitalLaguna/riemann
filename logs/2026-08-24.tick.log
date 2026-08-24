@@ -878,3 +878,69 @@ next: (a) C: the actual re-optimization (vary a_k / smoothing, minimize 1/A*)
   mertens-1e12 ~18:15Z: F1-F6 + C1-C7, M(1e12) vs OEIS A084237 a(12)=62366,
   promote record. (c) D: robin-full-1e11 ~21:50Z: F1/F2/F3a/F3b, promote.
   (d) D: zero scan ~08-27 00:00Z. (e) OWNER: PNT+ PR. (f) B: PARKED.
+
+--- tick 196 (2026-08-24 ~16:41-16:55 UTC, qwen3.8-27b) ---
+TRACK C: promote claim #38 (missing factor of kappa) NOTE -> NUMERIC.
+plan: #38 (ticks 188/192/194) is a NOTE claiming the paper's final line
+  (line 2576: 'eta log t > 1.02928/(a*kappa*w(0)/2) = 0.204248...') is missing
+  one factor of kappa in the denominator. The arithmetic was machine-verified
+  (kappa-factor.py, kappa-sum.py, F1-F3 PASS) but the claim stayed NOTE. This
+  tick: (a) re-trace the proof to confirm the LOGICAL step (not just the
+  arithmetic), (b) run the existing checker, (c) promote.
+why not in DEAD_ENDS: continuation of #38 (ticks 188,192,194,195); no dead end
+  touches the factor-of-kappa question. The corrigendum check (tick 195) left
+  #38 as a NOTE; this tick resolves it.
+gate: track C OPEN (4/4 seeds carded, bellotti-trudgian-yang-2026 PASS).
+prior-art pre-flight: not a new attempt (promotion of the existing machine-
+  verified claim #38); source paper carded (lit/cards/).
+
+LOGICAL STEP re-traced this tick (verbatim quotes re-verified against
+lit/text/bellotti-trudgian-yang-2026.txt):
+  Lemma 12 (line 1887, eq 45): sum_k a_k sum_m kappa_m (...) <= (a*kappa/2)
+    log t - 1.568,  where a := sum_{k>=1} a_k = 2919857/828465,
+    kappa := sum_{m=0..M} kappa_m = 433/859.
+  Definition 2 (lines 456-463): f(u) := eta*w(eta*u) * sum_m kappa_m
+    exp(-(2sigma-1)mu)  =>  f(0) = eta*w(0)*sum_m kappa_m = eta*w(0)*kappa.
+  Final chain (lines 2540-2565): "(a*kappa/2) f(0) log t > ... > 1.02928 ...
+    Therefore eta log t > 1.02928/(a*kappa*w(0)/2) = 0.204248...".
+  => LHS = (a*kappa/2)*f(0)*log t = (a*kappa/2)*(eta*w(0)*kappa)*log t
+         = (a*kappa^2*w(0)/2)*(eta*log t).
+  => correct final line: eta log t > 1.02928/(a*kappa^2*w(0)/2) = B_paper/kappa.
+  The paper divides by (a*kappa*w(0)/2) instead of (a*kappa^2*w(0)/2):
+  ONE factor of kappa missing. Since kappa = 433/859 < 1, B_corr = B_paper/kappa
+  > B_paper, so the proof establishes a STRONGER bound than stated.
+
+machine (evidence/2026-08-24-zfree-kappa/check.sh, re-runs kappa-sum.py,
+exact Fraction arithmetic, 60-dp Decimal):
+  F1 kappa = sum_m kappa_m = 433/859 exactly -> PASS
+  F2 max|sum kappa_m x^m - 1/(1+x)| on [0,1] = 4.09e-3 < 0.05 -> PASS
+  F3 kappa < 1 (improvement direction correct) -> PASS
+  B_paper = 0.2042607196, A_paper = 1/B_paper = 4.8957038933 (headline 4.896)
+  B_corr  = 0.4052193028, A_corr  = 1/B_corr = A_paper*kappa = 2.4677995178
+  improvement factor A_paper/A_corr = 1/kappa = 1.9838337182
+  VERDICT: ALL CHECKS PASS; byte-identical regression vs recorded run.
+  => CHECK PASS.
+RESULT: promoted #38 NOTE -> NUMERIC (promote.sh, checker CHECK PASS). The
+  paper's 4.896 zero-free constant is valid but NOT tight: the proof actually
+  supports the stronger constant A_corr = 2.4678 (zero-free region
+  sigma > 1 - 1/(2.4678 log t), ~1.98x wider than stated). This unblocks the
+  re-optimization: the objective should minimize 1/A* starting from A_corr
+  (= 2.4678), not A_paper (= 4.896).
+residual (carried, not cleared): whether the REST of the proof (derivation of
+  (a*kappa/2) f(0) log t > 1.02928, i.e. the 1.02928 lower bound and the
+  decreasing argument) is valid. #33 machine-verified the 1.02928 = g(76.47)
+  and the decreasing claim (F1-F5), so the residual is largely cleared; the
+  full re-audit is the re-optimization's job.
+scan status (re-measured 16:50Z):
+  robin-full-1e11.service: subseg 564/1000, best_R=0.972015886980 at
+    n=13967553600 (unchanged; the SA number). ~40.4 s/subseg. ETA ~21:35Z.
+  mertens-1e12.service: 9000/10000 segments, maxabs=331302 (unchanged).
+    ~4.5 s/seg. ETA ~17:56Z.
+  zero-scan-1e5.service: coarse 260000/999990 (26%). ~0.302 s/step (rising
+    with t; was 0.262 at 230000). ETA ~08-26 (later than 04:41Z at current rate).
+change: ledger/claims.db (#38 NOTE -> NUMERIC); log entry.
+next: (a) C: the actual re-optimization (vary a_k / smoothing, minimize 1/A*)
+  starting from A_corr = 2.4678 (NOT 4.896) — the next C step, now unblocked.
+  (b) D: mertens-1e12 ~17:56Z: F1-F6 + C1-C7, M(1e12) vs OEIS A084237
+  a(12)=62366, promote record. (c) D: robin-full-1e11 ~21:35Z: F1/F2/F3a/F3b,
+  promote. (d) D: zero scan ~08-26. (e) OWNER: PNT+ PR. (f) B: PARKED.
