@@ -467,3 +467,58 @@ next: (a) E: F1a (B_{n+1}-B_n > 0 for 1<=n<=54 at 100 digits, B_n =
   consecutive b-file entries). All pass -> promote extension claim.
   (b) D: mertens-1e12 completes ~08-24 19:10Z: F1-F6 + C1-C7 (M(1e12) vs OEIS
   A084237 a(12)=62366), promote record. (c) D: zero scan ~08-27 04:00-11:00Z.
+
+================================================================
+TICK 182 (2026-08-24T09:35Z, local model)
+track: E (Lagarias SA restriction, macarevey-2026; continuation of 177-181)
+plan: close the (1e7, 10810800) record-holder gap in the pre-registration, so the
+  extension claim (Lagarias for ALL n <= 1e10) has a complete machine chain.
+state at tick start (machine-verified, from evidence/):
+  F1a PASS (B_n inc, n<=55, 100dig)   F1b PASS (B_n inc to 1e7)
+  F1c PASS (B_n inc to 1e10, tick 181) F2  PASS (b-file==record-holders, n<=1e7)
+  F3  PASS (Lagarias, 55 SA n<=1e10)   F4  PASS (sigma cross-check 55/55)
+  F2b RUNNING (lagarias-f2b.service, own cgroup, 25 min elapsed, buffered out)
+why not in DEAD_ENDS: new sub-step of the in-flight E attempt; the gap is a
+  defect in the tick-177 pre-registration, not a previously-tried approach.
+GAP FOUND (this tick): F2's record-holder scan stops at n=1e7 (last holder
+  8648640); F2b's gap list starts at a>=1e7 (first gap (10810800,21621600)).
+  The interval (1e7, 10810800) is covered by NEITHER, so a record-holder could
+  hide there and the b-file-completeness leg would be incomplete.
+pre-registration F2c (falsification test, BEFORE run):
+  F2c: strict record-holders of sigma(n)/n for n <= 10810800 (exact int64
+       divisor sieve, same method as F2) == b-file entries <= 10810800.
+       This confirms (i) 10810800 IS a record-holder and (ii) NO record-holder
+       in (8648640, 10810800), closing the (1e7,10810800) gap.
+       DEAD on any mismatch (a record-holder in (1e7,10810800) missing from the
+       b-file, or 10810800 not a record-holder) -> b-file incomplete, extension
+       claim scoped down, F2c recorded as the wall.
+monitoring (machine):
+  F2b (lagarias-f2b.service, own cgroup): 34 min elapsed, single-core, output
+    buffered (f2b-run.txt 0 bytes); est ~38 min total (calibrated 3.47e6
+    Q-smooth nodes/s on smallest gap; ~8e9 total nodes over 17 gaps).
+  mertens-1e12.service: 3200/10000 segments, maxabs=207478 (record so far).
+  zero-scan-1e5.service: 215000/999990 (21.5%), ETA ~08-27.
+work:
+  1. GAP FOUND: F2 (record-holders, n<=1e7, last holder 8648640) and F2b
+     (gaps a>=1e7, first (10810800,21621600)) leave (1e7,10810800) uncovered.
+     A record-holder could hide there -> b-file-completeness leg incomplete.
+  2. F2c (pre-registered above): exact int64 divisor-sum sieve record-holder
+     scan to 10810800.
+     RESULT (evidence/2026-08-24-lagarias-bseq/f2c-run.txt):
+       strict record-holders (exact): 38 == b-file entries <= 10810800: 38
+       holders in (1e7,10810800]: [10810800]  (only 10810800 itself)
+       VERDICT F2c: PASS  (sieve 18.0s, scan 20.2s)
+     => 10810800 IS a record-holder; NO record-holder in (8648640,10810800).
+     The (1e7,10810800) gap is CLOSED. Record-holder chain now complete:
+     F2c (<=10810800) + F2b ((10810800,1e10]) => b-file == record-holders <=1e10.
+  3. Added extension claim NOTE #36 (Lagarias for ALL n <= 1e10) + wrote
+     evidence/2026-08-24-lagarias-all/check.sh (re-runs F1a,F1b,F1c,F2c,F2b,
+     F3,F4; greps all verdicts; runtime ~40 min dominated by F2b).
+change: F2c PASS (gap closed); #36 NOTE + check.sh staged. #36 promotion
+  BLOCKED on F2b verdict (running).
+next: (a) E: when f2b-run.txt shows "VERDICT F2b: PASS", run
+  `bash tools/promote.sh promote 36 NUMERIC evidence/2026-08-24-lagarias-all/`
+  as a BACKGROUND unit (check.sh re-runs F2b, ~40 min); verify #36 -> NUMERIC.
+  If F2b DEAD -> extension claim scoped to n<=10810800, F2b = the wall.
+  (b) D: mertens-1e12 ~08-24 19:10Z (F1-F6+C1-C7, M(1e12) vs OEIS A084237
+  a(12)=62366). (c) D: zero scan ~08-27.
