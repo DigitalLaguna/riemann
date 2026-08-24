@@ -98,3 +98,56 @@ full-scan [1e9,1e10) pre-registered falsification tests (BEFORE launch):
   (checks enumerated in committed docstring 99740d1, tick 167, before this run;
    the docstring's pointer to "tick 167 log entry" is dangling — tick 167 ended
    in a residual auto-commit without a log entry; accepted as pre-registered.)
+
+## TICK 169 (2026-08-24 ~02:45-03:15 UTC, model qwen3.8-27b, track D)
+one-liner: tick 168's full Robin scan [1e9,1e10) launch was UNVERIFIED (log entry
+  ends before any launch output; at tick 169: no process, no systemd unit, no
+  output file) -> A-005 class. This tick: (1) regression-test the tick-167
+  generalized robin_full_scan.py argv path against known run2.txt values on
+  [1e8,3e8); (2) relaunch the full scan [1e9,1e10) as a systemd transient unit
+  (A-005 fix); (3) verify alive + first output line. Not in DEAD_ENDS: same
+  method as #26/#30 at a new range; the dead launch is process management, not
+  method.
+gate: all tracks OPEN (21/21 seeds).
+prior-art pre-flight: none new (method = #26 full scan; pre-flights done ticks
+  128/167/168 incl. Choie et al 2006 math/0604314 — structural, no conflict).
+zero scan (in parallel): coarse 150000/999990 elapsed 29404s; marginal
+  (145k->150k) = 5000/1657 = 3.017 pts/s (prev window 3.043; tick 165: 3.07);
+  slowly declining, consistent with ln(t) work-per-point growth; ETA unchanged
+  ~08-29 08:00Z (within [08-27,08-30] validity window).
+pre-registered falsification tests (BEFORE regression run):
+  R1: regression run [1e8,3e8) L=1e8 SA_REF=0.964355756956 must give
+      max R = 0.9643557569555255 at n = 183783600 (run2.txt subseg 1-2 values,
+      16-digit nstr) and VERDICT: ALL CHECKS PASS. Any mismatch => tick-167
+      generalization broke the script => do NOT launch the full scan.
+  R2: full-scan launch: run.txt must contain "range [1000000000,10000000001)"
+      within 60s and unit robin-full-1e10.service must be active (running).
+      Otherwise => launch failed => A-005 again.
+machine said (R1, regression [1e8,3e8) L=1e8 SA_REF=0.964355756956):
+  $ python3 tracks/d-search/robin_full_scan.py 100000000 300000000 100000000 0.964355756956
+    (rc=0, 70.2s)
+    FULL SCAN [100000000,300000000): max R = 0.9643557569555255 at n = 183783600 (sigma=929940480)
+    F2 witness R(n)>=1 in [100000000,300000000): none (max R < 1)
+    F1 cross-check: checked=28 mismatches=0: PASS
+    F3a consistency: full-scan max R 0.9643557569555255 >= SA max (50-digit) 0.9643557569555255: PASS
+    F3b regression: 12-sig-digit display of full-scan max == SA_REF 0.964355756956: PASS
+    VERDICT: ALL CHECKS PASS
+  -> matches run2.txt subseg 1-2 values EXACTLY (max R, argmax n, subseg timings
+     34.6s/70.2s vs 34.8s/70.4s). Tick-167 argv generalization verified. R1 PASS.
+machine said (R2, full-scan launch):
+  $ systemd-run --user --unit=robin-full-1e10.service bash -c '... robin_full_scan.py
+    1000000000 10000000001 100000000 0.973669798383 > evidence/2026-08-24-robin-full-1e10/run.txt ...'
+  $ systemctl --user status robin-full-1e10.service
+    Active: active (running) since Mon 2026-08-24 04:51:13 CEST; 25s ago
+    Main PID: 780213 (bash)
+  $ cat evidence/2026-08-24-robin-full-1e10/run.txt
+    range [1000000000,10000000001)  subseg width 100000000  primes<=100000: 9592  SA in range: 7
+  -> header present <60s, unit active, SA count 7 == claim #30's F1 checked=7.
+     R2 PASS. ETA ~53 min (10x the 318.6s [1e8,1e9) run) -> ~03:45 UTC.
+  check.sh committed for later promotion (verifies run.txt self-checks F1/F2/F3a/
+  F3b + VERDICT + DONE rc=0).
+next: (a) robin-full-1e10 completes ~03:45 UTC: read run.txt for
+  "ROBIN-FULL-1e10 DONE rc=0" + "VERDICT: ALL CHECKS PASS"; bash check.sh;
+  promote.sh add NOTE -> promote NUMERIC. F2 witness HIT => RH FALSE => STOP,
+  page owner (constraint 5). (b) zero scan ~08-29 08:00Z (see handoff).
+  (c) OWNER: PNT+ PR (see handoff). (d) TRACK B parked until 08-29 review.
