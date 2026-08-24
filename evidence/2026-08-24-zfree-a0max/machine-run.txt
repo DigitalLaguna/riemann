@@ -1,0 +1,23 @@
+=== baseline (A0 = 1/4.896, claim #41) ===
+logH = 28.7296334046  log(KH+T0) = 31.5024304385
+eta0 = 0.007109327263  sigma0 = 0.9935164251  mu0 = 0.9119814885
+(2*sigma0-1)/eta0 = 138.8363222  (paper: > 138)
+
+=== Lemma 5 constraint: (2*sigma0-1)/eta0 > 138 ===
+A0 at which (2*sigma0-1)/eta0 = 138:  A0 = 0.205470026688  (1/A0 = 4.866889911)
+  current A0 = 0.204248366  ->  margin = 0.0012216607  (0.5981%)
+  target A0  = 0.4204834678  ->  Lemma 5 holds? False
+
+=== Lemma 14 constraint: x1 = (2*sigma0-1)*m - mu0*eta0 > 0 (m=1) ===
+A0 at which x1(m=1) = 0 (approx):  A0 = 10.5008101462  (1/A0 = 0.09523074754)
+  target A0 = 0.4204834678  ->  Lemma 14 x1 holds? True
+
+=== Lemma 13 constraint: 51*eta0^2/H^2 < 5e-13 (approx) ===
+A0 at which Lemma 13 binds (approx):  A0 = 8533972.77785
+  target A0 = 0.4204834678  ->  Lemma 13 holds? True
+
+=== VERDICT ===
+A0_max = 0.205470026688  (binding: Lemma 5)
+  current A0 = 0.204248366  ->  improvement? True
+  unconditional constant = 1/A0_max = 4.866889911  (vs current 4.896)
+  A0_cur < A0_max < target -> PARTIAL win: constant = 4.866889911
