@@ -1,0 +1,35 @@
+=== sanity: w(0) from formula (paper: 5.672787598) ===
+w(0) = 5.672787599
+
+=== C(nu,r) values ===
+C(138,138)        = 21.57083788
+T0/eta0(A0_max)   = 1.39823962977e+12
+C(-1,T0/eta0)     = 21.19049753
+C(0,T0/eta0)      = 21.19049753
+
+=== CONSTRAINT 2: Lemma 5 internal, eta0^2 C(138,138) < eps0 (2sigma0-1) w(0) ===
+at A0_max: LHS = 0.001103325869  RHS = 0.002799393866  holds? True
+  binds at A0 = 0.326015468165  (1/A0 = 3.067339122)  -> above A0_max? True
+
+=== CONSTRAINT 3: B(y) > 0 for all y (p(y) no real roots, p(0)>0) ===
+P(0) = 1.12359769562e+29  > 0? True
+num roots = 6; real roots = 2; real & >=0 = 0
+   real root u = -1027.94379483
+   real root u = -35.1549196463
+scan u in [0,200] step 0.001: #negative samples = 0  (0 => P>0 on [0,200])
+B(y)>0 for all y? True
+
+=== CONSTRAINT 4: eq (22) W0-term, eta0^2 [C(-1,T0/eta0)+C(0,T0/eta0)] < 5.7 T0 ===
+at A0_max: LHS = 0.002167743713  RHS = 5.7e+10  holds? True
+  ratio LHS/RHS = 3.80306e-14
+  w(0)-term: 2 w(0) eta0(A0_max) = 0.0811418512 < 5.7? True
+
+=== CONSTRAINT 5: Lemma 6 A-range, A0 > 1/6 ===
+A0_max = 0.205470026688  > 1/6 = 0.16666666666666666?  True
+
+=== VERDICT ===
+A0_max (Lemma 5 main) = 0.205470026688
+A0 bind (C138,138)    = 0.326015468165
+overall A0_max        = 0.205470026688  (1/A0 = 4.866889911)
+CONFIRMED: Lemma 5 main still binds; internal constraints (C138, B(y), eq22, L6-range) all hold at A0_max
+  PARTIAL win stands: unconditional constant = 4.866889911 (vs 4.896)
