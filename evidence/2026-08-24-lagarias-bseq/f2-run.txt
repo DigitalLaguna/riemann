@@ -1,0 +1,9 @@
+sieve 16.6s; record-holder scan 18.5s
+strict record-holders (exact): 37
+b-file entries <= 10000000: 37
+first 12 holders: [1, 2, 4, 6, 12, 24, 36, 48, 60, 120, 180, 240]
+first 12 b-file:  [1, 2, 4, 6, 12, 24, 36, 48, 60, 120, 180, 240]
+last 5 holders:   [2162160, 3603600, 4324320, 7207200, 8648640]
+last 5 b-file:    [2162160, 3603600, 4324320, 7207200, 8648640]
+VERDICT F2: PASS
+total 18.5s

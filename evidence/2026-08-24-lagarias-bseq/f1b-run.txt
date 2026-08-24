@@ -1,0 +1,9 @@
+scan: 9999999 gaps checked, 3.3s
+min gap: 1.066790e-08 at n=9999991 (gap B_9999992-B_9999991)
+ERR_H=1.0e-13  LIP=8.815  ERR_B=9.015e-13  ERR_GAP=1.803e-12
+min_gap / ERR_GAP = 5.917e+03  (spec requires > 10)
+spot checks: 202 points (min-gap endpoints + 200 random, seed 177)
+max |B_100dig - B_64| = 2.220e-14 at n=7192513  (spec requires < 1e-12)
+no computed decrease: True
+VERDICT F1b: PASS
+total 3.3s
