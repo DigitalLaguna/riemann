@@ -1,0 +1,593 @@
+arXiv:2602.15905v2 [math.NT] 19 Feb 2026
+
+On the Lagarias Inequality and Superabundant
+Numbers
+Andrew MacArevey
+February 2026
+Abstract
+We study the Lagarias inequality, an elementary criterion equivalent
+to the Riemann Hypothesis. Using a continuous extension of the harmonic
+numbers, we show that the sequence
+Bn :=
+
+Hn + exp(Hn ) log(Hn )
+n
+
+is strictly increasing for n ≥ 1. As a consequence, if the Lagarias inequality has counterexamples, then the least counterexample must be a
+superabundant number; equivalently, it suffices to verify the inequality on
+the superabundant numbers.
+
+1
+
+Introduction
+
+P
+Pn
+Let Hn = j=1 1j denote the nth harmonic number, and let σ(n) =
+d|n d
+denote the sum-of-divisors function. Lagarias [2] proved that the Riemann Hypothesis is true if and only if, for every n ≥ 1,
+σ(n) ≤ Hn + exp(Hn ) log(Hn ).
+
+(1)
+
+A number n ∈ N is called superabundant if for all m < n,
+σ(m)
+σ(n)
+<
+.
+m
+n
+
+2
+
+The Lagarias Inequality
+′
+
+(x)
+Let ψ(x) = ΓΓ(x)
+denote the digamma function and γ the Euler–Mascheroni
+constant. For x ≥ 0, define the continuous extension of the harmonic numbers
+by
+H(x) := ψ(x + 1) + γ,
+
+which satisfies H(n) = Hn for all n ∈ N.
+
+1
+
+Lemma 2.1. Define
+L(x) :=
+
+H(x) + eH(x) log(H(x))
+.
+x
+
+Then
+L′ (x) =
+
+N (x)
+,
+x2
+
+where the numerator N (x) is
+′
+
+N (x) = xH (x) − H(x) + e
+
+H(x)
+
+
+
+H ′ (x)
+(xH (x) − 1) log(H(x)) + x
+H(x)
+′
+
+
+.
+
+Proof. By the quotient rule,
+
+
+
+d
+H(x)
+log(H(x)) x − H(x) + eH(x) log(H(x))
+′
+dx H(x) + e
+.
+L (x) =
+x2
+Also
+
+
+d H(x)
+H ′ (x)
+e
+log(H(x)) = eH(x) H ′ (x) log(H(x)) + eH(x)
+.
+dx
+H(x)
+
+Substituting gives L′ (x) = Nx(x)
+with N (x) as stated.
+2
+Lemma 2.2. For every x ≥ 1, the following hold:
+H(x) ≥ log(x + 1),
+1
+H ′ (x) ≥
+.
+x+1
+
+(2)
+(3)
+
+Proof. Define f (x) := H(x) − log(x + 1) = ψ(x + 1) + γ − log(x + 1). Then
+f ′ (x) = ψ ′ (x + 1) −
+
+1
+.
+x+1
+
+For y > 0, one has the series representation
+ψ ′ (y) =
+
+∞
+X
+k=0
+
+1
+.
+(y + k)2
+
+Apply this with y = x + 1 > 0:
+ψ ′ (x + 1) =
+
+∞
+X
+k=0
+
+1
+.
+(x + 1 + k)2
+
+1
+Consider g(t) = (x+1+t)
+2 on [0, ∞). Since g is positive and strictly decreasing,
+for each integer k ≥ 0 and all t ∈ [k, k + 1] we have g(t) ≤ g(k), so
+
+Z k+1
+g(t) dt ≤ g(k) =
+k
+
+2
+
+1
+.
+(x + 1 + k)2
+
+Summing over k ≥ 0 gives
+Z ∞
+g(t) dt =
+0
+
+∞ Z k+1
+X
+
+g(t) dt ≤
+
+∞
+X
+
+1
+= ψ ′ (x + 1).
+(x + 1 + k)2
+
+k
+
+k=0
+
+Z ∞
+
+1
+1
+dt =
+.
+2
+(x + 1 + t)
+x+1
+
+k=0
+
+Compute the integral:
+
+0
+
+1
+Hence ψ ′ (x + 1) ≥ x+1
+and therefore f ′ (x) ≥ 0 for all x ≥ 0. Since f (0) = 0,
+we have f (x) ≥ 0 for all x ≥ 0, i.e. H(x) ≥ log(x + 1) for x ≥ 0, in particular
+1
+.
+for x ≥ 1. Finally, (3) follows since H ′ (x) = ψ ′ (x + 1) ≥ x+1
+
+Lemma 2.3. For every x ≥ 1,
+H(x) ≤ 1 + log x.
+
+(4)
+
+Proof. Define f (x) := 1 + log x − H(x). Then f ′ (x) = x1 − ψ ′ (x + 1). For x ≥ 1,
+ψ ′ (x + 1) =
+
+∞
+X
+k=0
+
+∞
+
+X
+1
+1
+=
+.
+2
+(x + 1 + k)
+(x + k)2
+k=1
+
+1
+Consider g(t) = (x+t)
+2 on [0, ∞). Since g is strictly decreasing, for each integer
+k ≥ 1 and all t ∈ [k − 1, k] we have g(t) ≥ g(k), so
+
+Z k
+g(t) dt ≥ g(k) =
+k−1
+
+1
+.
+(x + k)2
+
+Summing over k ≥ 1 gives
+Z ∞
+g(t) dt =
+0
+
+∞ Z k
+X
+k=1
+
+Compute the integral:
+
+g(t) dt ≥
+
+k−1
+
+Z ∞
+0
+
+∞
+X
+k=1
+
+1
+= ψ ′ (x + 1).
+(x + k)2
+
+1
+1
+dt = .
+2
+(x + t)
+x
+
+′
+
+Hence ψ (x+1) ≤ x1 , so f ′ (x) ≥ 0 for all x ≥ 1. Since f (1) = 1+log 1−H(1) = 0,
+
+we have f (x) ≥ 0 for x ≥ 1, i.e. H(x) ≤ 1 + log x.
+Lemma 2.4. For every x ≥ 1,
+N (x) ≥
+
+x
+eH(x)
+− H(x) +
+x+1
+x+1
+
+3
+
+
+
+
+x
+− log(H(x)) .
+H(x)
+
+(5)
+
+1
+x
+Proof. From (3), H ′ (x) ≥ x+1
+, so xH ′ (x) ≥ x+1
+and hence
+
+xH ′ (x) − 1 ≥ −
+Also
+x
+
+1
+.
+x+1
+
+x
+H ′ (x)
+≥
+.
+H(x)
+(x + 1)H(x)
+
+1
+By Lemma 2.2, H ′ (x) ≥ x+1
+> 0 for x ≥ 1, so H(x) is increasing on [1, ∞).
+Since H(1) = 1, it follows that H(x) ≥ 1 for all x ≥ 1, hence log(H(x)) ≥ 0.
+Therefore
+1
+(xH ′ (x) − 1) log(H(x)) ≥ −
+log(H(x)).
+x+1
+
+Substitute these bounds into the definition of N (x) in Lemma 2.1:
+
+
+x
+1
+′
+H(x)
+log(H(x)) +
+.
+N (x) ≥ xH (x) − H(x) + e
+−
+x+1
+(x + 1)H(x)
+Factor:
+
+eH(x)
+N (x) ≥ xH (x) − H(x) +
+x+1
+′
+
+
+
+
+x
+− log(H(x)) .
+H(x)
+
+x
+Finally use xH ′ (x) ≥ x+1
+to obtain (5).
+
+Lemma 2.5. For every x ≥ 1,
+x
+− log(1 + log x) ≥ 0.
+1 + log x
+
+(6)
+
+Proof. Let t = log x ≥ 0. Then x = et and (6) becomes
+et
+− log(1 + t) ≥ 0
+1+t
+
+⇐⇒
+
+p(t) := et − (1 + t) log(1 + t) ≥ 0.
+
+Compute derivatives:
+p′ (t) = et − log(1 + t) − 1,
+
+p′′ (t) = et −
+
+1
+.
+1+t
+
+1
+For t > 0, we have 1+t
+< 1 < et , so p′′ (t) > 0 for all t > 0. Thus p′ is strictly
+increasing on (0, ∞). Since p′ (0) = 1 − 0 − 1 = 0, it follows that p′ (t) > 0 for all
+t > 0. Therefore p is strictly increasing on (0, ∞). Since p(0) = 1−(1)·0 = 1 > 0,
+we have p(t) ≥ 1 > 0 for all t ≥ 0. This proves (6).
+
+Lemma 2.6. For every x ≥ 1, N (x) ≥ G(x), where
+G(x) :=
+
+x
+x
+− (1 + log x) +
+− log(1 + log x).
+x+1
+1 + log x
+
+4
+
+(7)
+
+Proof. Start from (5):
+N (x) ≥
+
+x
+eH(x)
+− H(x) +
+x+1
+x+1
+
+
+
+
+x
+− log(H(x)) .
+H(x)
+
+From (4), H(x) ≤ 1 + log x, so
+−H(x) ≥ −(1 + log x).
+Since H(x) > 0 and 1 + log(x) > 0 for x ≥ 1, we have
+1
+1
+≥
+,
+H(x)
+1 + log x
+Thus
+
+log(H(x)) ≤ log(1 + log x).
+
+x
+x
+− log(H(x)) ≥
+− log(1 + log x).
+H(x)
+1 + log x
+H(x)
+
+Using (2), eH(x) ≥ x + 1, so ex+1 ≥ 1. Lemma 2.5 yields
+eH(x)
+x+1
+
+
+
+x
+− log(1 + log x)
+1 + log x
+
+
+
+
+≥
+
+
+x
+− log(1 + log x) .
+1 + log x
+
+Combining these inequalities gives
+N (x) ≥
+
+x
+x
+− (1 + log x) +
+− log(1 + log x) = G(x).
+x+1
+1 + log x
+
+Lemma 2.7. For every t ≥ 4,
+et ≥ 2t2 + 3t + 1.
+
+(8)
+
+Proof. Define s(t) := et − (2t2 + 3t + 1). Then
+s′ (t) = et − (4t + 3),
+
+s′′ (t) = et − 4,
+
+s′′′ (t) = et > 0.
+
+Since s′′′ (t) > 0, s′′ is strictly increasing. At t = 4, s′′ (4) = e4 − 4 > 0,
+so s′′ (t) > 0 for all t ≥ 4. Thus s′ is strictly increasing on [4, ∞). Since
+s′ (4) = e4 − 19 > 0, we have s′ (t) > 0 for all t ≥ 4. Therefore s is strictly
+increasing on [4, ∞). Since
+s(4) = e4 − 45 > 0,
+we conclude s(t) > 0 for all t ≥ 4, proving (8).
+Proposition 2.1. For all real x ≥ e4 , we have L′ (x) > 0. Consequently,
+Bn+1 > Bn for all integers n ≥ 55, where
+Bn =
+
+Hn + eHn log(Hn )
+.
+n
+5
+
+Proof. Fix x ≥ e4 . By Lemma 2.1, it suffices to show N (x) > 0. By Lemma 2.6,
+it suffices to show G(x) > 0. Set t = log x and u = t + 1 = 1 + log x. Then t ≥ 4
+and (7) gives
+x
+x
+G(x) =
+− u + − log u.
+x+1
+u
+By Lemma 2.7,
+x = et ≥ 2t2 + 3t + 1 = (2t + 1)(t + 1) = (2t + 1)u,
+so ux ≥ 2t + 1. Hence
+G(x) ≥
+
+x
+x
+− u + (2t + 1) − log u =
++ t − log(1 + t).
+x+1
+x+1
+
+Since 1 + t < et for all t > 0, we have log(1 + t) < t, so
+G(x) >
+
+x
+> 0.
+x+1
+
+Therefore N (x) ≥ G(x) > 0, so L′ (x) = Nx(x)
+> 0 for all x ≥ e4 . If n ≥ 55, then
+2
+n ≥ e4 and Bn+1 − Bn = L(n + 1) − L(n) > 0.
+Corollary 2.1. The sequence
+
+∞
+Hn + exp(Hn ) log(Hn )
+n
+n=1
+
+(9)
+
+is strictly increasing.
+Proof. Proposition 2.1 gives Bn+1 > Bn for all n ≥ 55. Direct computation
+verifies Bn+1 − Bn > 0 for 1 ≤ n ≤ 54.
+
+3
+
+Superabundant Numbers
+
+The proof strategy in this section is inspired by [1].
+Theorem 3.1. If there are counterexamples to the Lagarias inequality, the
+smallest such counterexample must be a superabundant number.
+Proof. Suppose, for the sake of contradiction, that m is the smallest counterexample to (1) and that m is not superabundant. Let n < m be the greatest
+superabundant number less than m. Since m is not superabundant, there exists
+σ(k)
+≥ σ(m)
+is
+j < m with σ(j)
+j
+m . Let k be the least integer < m for which
+k
+maximal among 1 ≤ j < m. Then k is superabundant, so k ≤ n, and hence
+σ(n)
+σ(k)
+σ(m)
+n ≥ k ≥ m . Corollary 2.1 implies Bm > Bn . Thus
+σ(n)
+σ(m)
+≥
+> Bm > Bn ,
+n
+m
+so n < m is also a counterexample, contradicting the minimality of m. Hence
+m must be superabundant.
+6
+
+References
+[1] I. Assani, A. Chester, and B. Paschal, On Robin’s Inequality and the Kaneko–
+Lagarias Inequality, arXiv:2503.03159 (2025).
+[2] J. C. Lagarias, An Elementary Problem Equivalent to the Riemann Hypothesis, American Mathematical Monthly 109 (2002), no. 6, 534–543.
+
+7
+
+
