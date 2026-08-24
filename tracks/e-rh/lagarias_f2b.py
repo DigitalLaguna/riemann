@@ -74,7 +74,7 @@ def main():
 
     def dfs(m, prod, i, a, b, T0f, T0):
         nodes[0] += 1
-        if m > a and prod > T0f:
+        if m > a and prod > T0f - 1e-12:
             if sigma_frac(m) > T0:
                 found.append((a, b, m))
         for j in range(i, len(PRIMES)):
