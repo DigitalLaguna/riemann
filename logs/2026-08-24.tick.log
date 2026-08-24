@@ -706,3 +706,50 @@ next: (a) D: when robin-full-1e11.service goes inactive (~20:30Z):
   (c) D: zero scan ~08-26 21:00Z: F5a/b/c + F3/F4 + max/min g [1,1e5].
   (d) OWNER: PNT+ PR (pr-body.md rev 2) + `propose #<PR>` on #816.
   (e) B: PARKED until 08-29 review.
+
+================================================================
+TICK 187 (2026-08-24 ~12:02-12:10 UTC, qwen3.8-27b)
+track: C (promotion) + D (scan monitoring)
+plan: promote claim #33 (4.896 headline justification, machine-verified
+  F1-F5 ALL PASS at tick 175) which was sitting as NOTE without an
+  evidence dir/check.sh; re-measure the three in-flight scan ETAs.
+why not in DEAD_ENDS: continuation of #29/#33 (ticks 166, 175); no dead
+  end touches the 4.896 constant; scans are continuations of the
+  #20-#27/#28/#30/#31 families.
+gate: track C OPEN (4/4 seeds carded, bellotti-trudgian-yang-2026 PASS).
+prior-art pre-flight: not a new attempt (promotion of an existing
+  machine-verified claim); source paper carded, quotes re-verified
+  against lit/pdf/bellotti-trudgian-yang-2026.pdf at tick 175 and
+  copied verbatim into the new evidence README.
+machine (evidence/2026-08-24-zfree-4896/check.sh, first run):
+  CHECK PASS
+  (re-ran final-bound.py: F1-F5 all PASS, VERDICT: ALL CHECKS PASS,
+   rerun byte-identical to recorded machine-run-final-bound.txt)
+machine (tools/promote.sh promote 33 NUMERIC evidence/2026-08-24-zfree-4896):
+  CHECK PASS
+  running checker: evidence/2026-08-24-zfree-4896/check.sh
+  promoted #33: NOTE -> NUMERIC
+scan status (re-measured 12:02Z):
+  robin-full-1e11.service: subseg 133/1000, best_R=0.972015886980 at
+    n=13967553600 (unchanged since start; the SA number). Pace ~40 s/
+    subseg (1.48 subseg/min). ETA ~21:40Z. ANOMALY RESOLVED: handoff
+    said "~11:45Z (41/100 subseg at 11:00Z)" — "41/100" was a typo for
+    41/1000 (range [1e10,1e11), width 1e8 -> 1000 subsegs); the 11:45Z
+    ETA assumed 100 subsegs total.
+  mertens-1e12.service: 5200/10000 segments, maxabs=294816 (unchanged).
+    ETA ~18:15Z (consistent with handoff).
+  zero-scan-1e5.service: 230000/999990 (23%), last line
+    "coarse 230000/999990 elapsed 60296s" (~11:18Z). Re-measured
+    0.262 s/step (was 0.219 at 180000, tick 175 — rate rising with t).
+    ETA ~08-26 21:00Z (earlier than handoff's ~08-27 window).
+change: evidence/2026-08-24-zfree-4896/ (new: check.sh,
+  machine-run-final-bound.txt copy, README.md with verbatim quotes);
+  ledger #33 NOTE -> NUMERIC.
+next: (a) D: robin-full-1e11 ~21:40Z: read full-run.txt for
+  "ROBIN-FULL-1e11 DONE rc=0", run pre-registered F1/F2/F3a/F3b (tick
+  184 log), promote claim (Robin full scan [1e10,1e11): max R, no
+  witness R>=1). (b) D: mertens-1e12 ~18:15Z: F1-F6 + C1-C7,
+  M(1e12) vs OEIS A084237 a(12)=62366, promote record. (c) D: zero
+  scan ~08-26 21:00Z: F5a/b/c + F3/F4 + max/min g [1,1e5]. (d) OWNER:
+  PNT+ PR (compare link + `propose #<PR>` on #816). (e) B: PARKED
+  until week-2 review 08-29.
