@@ -1,0 +1,12 @@
+kappa_m = ['1', '-851/859', '780/859', '-525/859', '171/859', '28/859', '-29/859']
+kappa = sum kappa_m = 433/859 = 0.5040745052386496
+F1 kappa == 433/859: True -> PASS
+F2 max|sum kappa_m x^m - 1/(1+x)| on [0,1] = 4.089884e-03 at x=0.9782
+F2 approx property (err < 0.05): True -> PASS
+F3 kappa < 1: True -> PASS
+B_paper  = 1.02928*2/(a*kappa*w0)     = 0.2042607196
+A_paper  = 1/B_paper                  = 4.8957038933  (paper headline 4.896)
+B_corr   = 1.02928*2/(a*kappa^2*w0)   = 0.4052193028
+A_corr   = 1/B_corr = A_paper*kappa   = 2.4677995178
+improvement factor A_paper/A_corr     = 1.9838337182 (= 1/kappa)
+VERDICT: ALL CHECKS PASS
