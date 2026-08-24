@@ -1,0 +1,35 @@
+C5 segmented mu == full-array mu n<=10^6: PASS
+C1 M(10) = -1 (expect -1): PASS
+C2 OEIS A002321 n<=10000: 10000 values, mismatches=0: PASS
+C3 sympy independent n<=10^5: mismatches=0: PASS
+C4 OEIS A051402 envelope: checked=10000 n-values, mismatches=0: PASS
+C6 M(10^12) = 62366 (expect 62366, OEIS A084237): PASS
+C7 M(10^k) k<12 vs verified runs/OEIS: mismatches=0: PASS
+max |M(x)| for x <= 1000000000000: 331302, first at x = 661066575037, M = 331302
+max |M(x)|/sqrt(x) for x <= 1000000000000: 1.000000000 at x = 1 (M = 1)
+M(10^1) = -1
+M(10^2) = 1
+M(10^3) = 2
+M(10^4) = -23
+M(10^5) = -48
+M(10^6) = 212
+M(10^7) = 1037
+M(10^8) = 1928
+M(10^9) = -222
+M(10^10) = -33722
+M(10^11) = -87856
+M(10^12) = 62366
+top-10 |M(x)| locations:
+  x=661066575037 M=331302
+  x=661066575233 M=331302
+  x=661066575205 M=331301
+  x=661066575221 M=331301
+  x=661066575223 M=331301
+  x=661066575225 M=331301
+  x=661066575230 M=331301
+  x=661066575231 M=331301
+  x=661066575232 M=331301
+  x=661066575234 M=331301
+witness: max |M(x)|/sqrt(x) for x >= 100: 0.570590889 at x = 7766842813 (M = 50286)
+VERDICT: ALL CHECKS PASS
+MERTENS-1e12 DONE rc=0 2026-08-24T18:05:48Z

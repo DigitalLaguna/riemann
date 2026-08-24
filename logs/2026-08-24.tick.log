@@ -944,3 +944,62 @@ next: (a) C: the actual re-optimization (vary a_k / smoothing, minimize 1/A*)
   (b) D: mertens-1e12 ~17:56Z: F1-F6 + C1-C7, M(1e12) vs OEIS A084237
   a(12)=62366, promote record. (c) D: robin-full-1e11 ~21:35Z: F1/F2/F3a/F3b,
   promote. (d) D: zero scan ~08-26. (e) OWNER: PNT+ PR. (f) B: PARKED.
+
+================================================================
+TICK 199 (2026-08-24 ~18:14-18:22 UTC, local model)
+track: D
+plan: collect the completed mertens-1e12 scan (ETA 17:56Z; actually
+  completed 18:05:48Z), run the pre-registered F1-F6 (tick 174) against
+  the machine output, add claim #39, launch the NUMERIC promotion (full
+  1e12 determinism re-run) as a background unit.
+why not in DEAD_ENDS: continuation of the #20/#22/#24/#27 Mertens record
+  series; 1e12 is a new range, pre-registered tick 174.
+gate: track D OPEN (4/4 seeds carded).
+prior-art pre-flight: pre-registered tick 174 (Q1 MathWorld MertensFunction
+  — no exact max |M(x)| at 1e12; Q2 Kuznetsov arXiv:1108.0135 — witness
+  ratio extreme -0.585768, approximate, x up to 1e22; Q3 OEIS A084237
+  a(12)=62366, fetched 2026-08-23). No published EXACT max |M(x)| for
+  x<=1e12 found.
+
+machine (evidence/2026-08-24-mertens-1e12/run.txt, "MERTENS-1e12 DONE
+rc=0 2026-08-24T18:05:48Z"):
+  C1 M(10) = -1: PASS; C2 OEIS A002321 n<=10000 mismatches=0: PASS;
+  C3 sympy n<=1e5 mismatches=0: PASS; C4 OEIS A051402 envelope
+  mismatches=0: PASS; C5 segmented mu == full-array mu n<=1e6: PASS;
+  C6 M(10^12) = 62366 (expect 62366, OEIS A084237): PASS;
+  C7 M(10^k) k<12 vs verified runs/OEIS: mismatches=0: PASS;
+  max |M(x)| for x <= 10^12: 331302, first at x = 661066575037, M = 331302
+  witness: max |M(x)|/sqrt(x) for x >= 100: 0.570590889 at x = 7766842813
+  (M = 50286)
+  M(10^12) = 62366
+  VERDICT: ALL CHECKS PASS
+
+pre-registered F1-F6 (tick 174) vs machine output:
+  F1 C1-C7 all PASS -> no 1e12-scale sieve bug: PASS
+  F2 M(10^12) = 62366 = OEIS A084237 a(12): PASS
+  F3 witness(x>=100) = 0.570590889 < 1.0 -> no Mertens counterexample: PASS
+  F4 331302 >= 94909 (1e11 record, claim #27): PASS
+  F5 0.570590889 < 0.585768 (Kuznetsov global extreme): PASS (soft)
+  F6 M(10^k) k=1..11 identical to verified 1e11 run (run3.txt): PASS
+     (-1,1,2,-23,-48,212,1037,1928,-222,-33722,-87856)
+  => ALL F-TESTS PASS; no constraint-5 stop (no witness).
+
+change: evidence/2026-08-24-mertens-1e12/check.sh (full 1e12 re-run +
+  C1-C7 + record/witness determinism + F3/F4/F5 + OEIS cross-check);
+  claim #39 NOTE (promote.sh add); mertens-1e12-promote.service launched
+  18:18:41Z (PID 844907, active running) — runs check.sh (full 1e12
+  sieve re-run, ~12.75 h, ETA ~08-25 07:00Z) then promotes #39
+  NOTE -> NUMERIC on CHECK PASS.
+scan status (re-measured 18:15Z):
+  robin-full-1e11.service: subseg 681/1000, best_R=0.972015886980 at
+    n=13967553600 (unchanged; the SA number), 27612.5s elapsed,
+    40.55 s/subseg -> ETA ~21:50Z.
+  zero-scan-1e5.service: coarse 270000/999990 (27%), 84609s elapsed,
+    0.313 s/step (rising with t) -> ETA ~08-27 or later.
+next: (a) D: mertens-1e12-promote.service ~08-25 07:00Z: read
+  evidence/2026-08-24-mertens-1e12/promote-run.txt (expect "PROMOTE-1e12
+  DONE rc=0" + "promoted #39: NOTE -> NUMERIC"). (b) D: robin-full-1e11
+  ~21:50Z: F1/F2/F3a/F3b (see logs tick 184), promote. (c) C: the actual
+  re-optimization (vary a_k / smoothing, minimize 1/A*) from A_corr =
+  2.4678 — new attempt, prior-art pre-flight first. (d) D: zero scan
+  ~08-27. (e) OWNER: PNT+ PR. (f) B: PARKED until 08-29 review.
