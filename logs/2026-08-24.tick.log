@@ -634,3 +634,38 @@ next: (a) E: lagarias-all-check.service -> inactive => read promote-run.txt,
   (b) D: robin-full-1e11.service ~11:45Z: F1-F3b, then promote claim
   (Robin full scan [1e10,1e11): max R, no witness). (c) D: mertens-1e12
   ~19:10Z. (d) D: zero scan ~08-27. (e) OWNER: PNT+ PR. (f) B: PARKED.
+
+TICK 185 (2026-08-24 ~11:00-11:12Z, qwen3.8-27b)
+attempt: bounded wait for lagarias-all-check.service (Track E #36 promotion,
+  launched tick 183, F2b-dominated ~57 min); then verify ledger.
+machine (promote-run.txt, verbatim tail):
+  "VERDICT F2b: PASS (no record-holder in any of the 17 gaps)"
+  "total 3383.8s"
+  "F4: sigma cross-check (trial division vs sympy) 55/55; mismatches: 0"
+  "VERDICT F3: NO WITNESS among 55 SA n <= 10000000000 (all margins > 1e-80 at 100 digits)"
+  "VERDICT F4: PASS"
+  "CHECK PASS"
+  "running checker: evidence/2026-08-24-lagarias-all/check.sh"
+  "promoted #36: NOTE -> NUMERIC"
+  (F1a/F1b/F1c/F2c re-runs in same file: all PASS; F2b per-gap node counts
+  identical to tick-183 run, 1.39e7..2.39e9, sum ~8.0e9)
+machine (promote.sh list): "#36 NUMERIC [e] Lagarias inequality ... ALL integers 1 < ...
+  evidence/2026-08-24-lagarias-all/"
+  Ledger now: 20 NUMERIC (B: #3,4,6,7,8,9,18; E: #10,34,35,36; D: #20,21,22,23,24,26,27,30,31),
+  3 FORMAL (#2,#12,#25), 13 NOTE.
+note: patched strict F2b assert (mpb < T0f*(QMIN-1)/QMIN, QMIN=100003,
+  tracks/e-rh/lagarias_f2b.py line 96, commit 7e6602b) is what the unit ran;
+  it held on all 17 gaps -> #36 stands for ALL n <= 1e10 (no scoping needed).
+  F2b re-run 3383.8s vs 3410.0s original (consistent).
+background scans (progress at 11:00Z):
+  robin-full-1e11.service: subseg 41/100, best_R=0.972015886980 at
+    n=13967553600 (SA, unchanged from pre-scan reference); ETA ~11:45Z.
+  mertens-1e12.service: 4400/10000 segments, maxabs=294816 (unchanged);
+    rate ~776 seg/h -> ETA ~18:15Z.
+  zero-scan-1e5.service: coarse 225000/999990 (22.5%); ETA ~08-27.
+next: (a) D: robin-full-1e11.service ~11:45Z -> read full-run.txt (expect
+  "ROBIN-FULL-1e11 DONE rc=0" + final best_R), run pre-registered F1-F3b
+  checks, promote claim (Robin full scan [1e10,1e11): max R, no witness).
+  (b) D: mertens-1e12 ~18:15Z: F1-F6+C1-C7, M(1e12) vs OEIS A084237
+  a(12)=62366, promote record. (c) D: zero scan ~08-27. (d) OWNER: PNT+ PR.
+  (e) B: PARKED until 08-29 review.
