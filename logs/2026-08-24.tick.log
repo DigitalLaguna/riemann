@@ -46,3 +46,55 @@ next: (a) zero scan completes ~08-29 08:00Z: read full-run.txt for
   "ZERO-SCAN-1e5 DONE rc=0"; F5a/b/c + F3/F4 verdicts + max/min g [1,1e5]
   -> NOTE via promote.sh; cross-check zero count >= 134011 (S(t) lower bound).
   (b) OWNER: PNT+ PR (see handoff). (c) TRACK B parked until 08-29 review.
+
+## TICK 168 (2026-08-24 ~02:15-02:45 UTC, model qwen3.8-27b, track D)
+one-liner: (1) promote tick-167's Robin SA-scan [1e9,1e10] to NUMERIC (claim
+  #30); (2) launch the FULL scan [1e9,1e10) (robin_full_scan.py, no reduction)
+  that tick 167's docstring claimed was launched but never was (no process, no
+  output — died or never started; A-005 class). Not in DEAD_ENDS: continuation
+  of #23/#26 methods at a higher range, not a new approach.
+gate: all tracks OPEN (21/21 seeds).
+prior-art pre-flight:
+  - tick 167: 2 arXiv API queries -> preflight-arxiv.xml / preflight-arxiv2.xml
+    both 0 bytes (HTTP 429 rate limit, no results returned).
+  - this tick: 1 query re-run (all:"robin criterion" AND all:"superabundant",
+    sortBy=submittedDate desc, max 8) -> HTTP 200, exactly 1 hit:
+    Choie-Lichiardopol-Moree-Sole 2006, "On Robin's criterion for the Riemann
+    Hypothesis", math/0604314v2 (published 2006-04-13). Known structural paper
+    on R(n); not a scan to 1e10. No conflict. Saved preflight-arxiv3.xml.
+literature (verbatim, checked this tick against lit/pdf/lagarias-2002.pdf):
+  p.4 (Section 2): "Robin showed that if the Riemann hypothesis is false, there
+  will necessarily exist a counterexample to the inequality (1.2) which is a
+  colossally abundant number, cf. [18, Proposition 1 of Section 3]; the same
+  property can be established for counterexamples to (1.1)." — the SA-scan
+  reduction used by #23/#30 (CA subset SA, same paragraph). pdftotext -f 4 -l 4
+  confirms p.4. NOTE: lagarias-2002 card does not quote this line; claim cites
+  p.4 directly (card gate still PASS).
+machine said (part 1, claim #30 promotion):
+  $ bash evidence/2026-08-24-robin-1e10/check.sh   (re-ran robin_sa_1e10.py)
+    F1 sigma(SA in [1e9,1e10]) == sympy divisor_sigma: checked=7 mismatches=0: PASS
+    F2 regression (1e8,1e9] SA max: n=367567200 display=0.968152104902 ...: PASS
+    F3 witness R(n)>=1 among SA in [1e9,1e10]: hits=0: PASS (no RH witness in [1e9,1e10])
+    SA near-miss [1e9,1e10]: max R = 0.9736697983827134 at n = 6983776800 (sigma=37797580800); 1-R = 0.02633020162
+    VERDICT: ALL CHECKS PASS
+    CHECK PASS: Robin SA-scan to 1e10 ...
+    check.sh exit=0
+  $ promote.sh add ... -> NOTE #30
+  $ promote.sh promote 30 NUMERIC evidence/2026-08-24-robin-1e10
+    running checker: evidence/2026-08-24-robin-1e10/check.sh
+    promoted #30: NOTE -> NUMERIC
+  zero scan (in parallel): coarse 140000/999990 elapsed 26104s; marginal
+    (125k->140k) = 15000/4919 = 3.05 pts/s, consistent with tick 165's 3.07;
+    ETA unchanged ~08-29 08:00Z.
+full-scan [1e9,1e10) pre-registered falsification tests (BEFORE launch):
+  F1: sieve sigma == sympy divisor_sigma at SA numbers + edge cases + 20 random
+      n; ANY mismatch => sieve bug => result invalid.
+  F2 (WITNESS, constraint 5): R(n) >= 1 for ANY n in [1e9,1e10) => RH FALSE =>
+      STOP, page owner, do not write up.
+  F3a: full-scan max R >= SA max R (50 digits, exact sigmas); if lower => sieve
+      missed an SA number.
+  F3b: 12-sig-digit display of full-scan max == SA_REF 0.973669798383 (from the
+      SA scan); mismatch => formula/display bug.
+  (checks enumerated in committed docstring 99740d1, tick 167, before this run;
+   the docstring's pointer to "tick 167 log entry" is dangling — tick 167 ended
+   in a residual auto-commit without a log entry; accepted as pre-registered.)

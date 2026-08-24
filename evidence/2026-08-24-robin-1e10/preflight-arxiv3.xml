@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/OyhaQtD09Vf+vpIx5xiv2IWzd3E</id>
+  <title>arXiv Query: search_query=all:"robin criterion" AND all:"superabundant"&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-08-24T02:20:53Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22robin+criterion%22+AND+all:%22superabundant%22&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/math/0604314v2</id>
+    <title>On Robin's criterion for the Riemann Hypothesis</title>
+    <updated>2006-09-07T15:09:49Z</updated>
+    <link href="https://arxiv.org/abs/math/0604314v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0604314v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  Robin's criterion states that the Riemann Hypothesis (RH) is true if and only if Robin's inequality sum_{d|n}d&lt;e^{gamma}n loglog n is satisfied for n&gt;=5041, where gamma denotes the Euler(-Mascheroni) constant. We show by elementary methods that if n&gt;=37 does not satisfy Robin's criterion it must be even and is neither squarefree nor squarefull. Using a bound of Rosser and Schoenfeld we show, moreover, that n must be divisible by a fifth power &gt;1. As a consequence we infer that RH holds true if and only if every natural number divisible by a fifth power &gt;1 satisfies Robin's inequality.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2006-04-13T14:54:05Z</published>
+    <arxiv:comment>15 pages. Corrected version. In the first version in Theorem 5 (main result) it was falsely asserted that n must be superabundant, invalidating the proof. An alternative proof is provided in this version, some typos have been corrected, and the presentation has been improved</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>J. Theor. Nombres Bordeaux 19 (2007), 351-366.</arxiv:journal_ref>
+    <author>
+      <name>Y. -J. Choie</name>
+    </author>
+    <author>
+      <name>N. Lichiardopol</name>
+    </author>
+    <author>
+      <name>P. Moree</name>
+    </author>
+    <author>
+      <name>P. Sole</name>
+    </author>
+  </entry>
+</feed>
