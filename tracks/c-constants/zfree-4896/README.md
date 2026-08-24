@@ -53,3 +53,36 @@ Re-derive the 1.02928 lower bound (resolve the open question), then set up the
 re-optimization: vary the trigonometric-polynomial coefficients a_k (Section 4)
 and the smoothing parameters (Section 3) to minimize 1/A* (i.e. maximize the
 zero-free region) with a modern solver, subject to the paper's constraints.
+
+## Resolution of the open question (tick 175, 2026-08-24 ~05:55 UTC)
+Machine: final-bound.py -> machine-run-final-bound.txt. F1-F5 ALL PASS.
+- The stated 1.02928 = g(76.47) rounded to 5 dp, where g is the paper's
+  displayed polynomial 1.00582 + 1.86088/L - 4.4106/L^2 - 55.0584/L^3
+  (g(76.47) = 1.0292773953...).
+- g is the exact Taylor polynomial (in 1/L) of C1(1-2.78/L) + C2(1/(6L))
+  with the displayed C1/C2 coefficients, rounded to 5 dp (F5: all four
+  coefficients within display-rounding tolerance).
+- True expression E(76.47) = 1.0292874008 >= g(76.47) (margin 1.0e-5,
+  purely display rounding of the polynomial) -> the paper's claimed
+  inequality holds with the displayed coefficients (F2).
+- B := 1.02928/(a*kappa*w0/2) = 0.2042607196 >= 1/4.896 = 0.2042483660
+  (margin 1.235e-5) -> the headline A = 4.896 IS justified by the stated
+  intermediates (F3). The README's "0.00007 gap" was a misreading: the
+  paper does not need 1.02928 to round to 1.02921; it needs B >= 1/4.896.
+  Derived 1/B = 4.8957038933; the headline 4.896 is the 3-dp rounding in
+  the WEAKER direction (stated region slightly smaller than proved).
+- g decreasing on [ln(3e12), 76.47] (min dg/dL = -0.001640) -> the
+  t = exp(76.47) value is the minimum (F4).
+- Residual display anomaly (resolved, quantified): the paper's "0.204248"
+  for B is a misdisplay — true B from the stated intermediates is
+  0.204261; the displayed 0.204248 equals the target 1/4.896 =
+  0.2042484. Display-level only: the required inequality B > A holds with
+  the true B (margin 1.235e-5).
+Ledger: NOTE #33.
+
+## Next
+Re-optimization (the actual Track C goal): vary the trigonometric-polynomial
+coefficients a_k (Section 4) and smoothing parameters (Section 3) to
+minimize 1/B (maximize the zero-free region) with a modern solver, subject
+to the paper's constraints. The reproduction leg is now DONE (4.896
+justified; exact derived value 4.8957038933 from stated intermediates).

@@ -282,3 +282,73 @@ change: tracks/d-search/mertens_segmented.py — M10K gains 12: 62366 (OEIS
   kmax = round(log10 N) (for N=1e11 this is the identical check as before:
   M(10^11)==-87856); C7 now checks k=1..kmax-1 (for N=1e11: k=1..10, identical
   to before). Backward-compatible with the verified 1e11 run.
+
+================================================================
+TICK 175 (2026-08-24 ~05:51-06:00 UTC, local model)
+track: C
+plan: resolve the parked open question of claim #29 (4.896 reproduction):
+  does the stated 1.02928 justify the headline 4.896, or is there an
+  unexplained gap? Machine step: evaluate the paper's displayed polynomial
+  g and the true expression E at L = 76.47, check the theorem's logic
+  (B >= 1/4.896), the decreasing claim, and the Taylor identity.
+why not in DEAD_ENDS: no dead end touches the 4.896 constant; #29's open
+  question was explicitly parked for this step.
+gate: track C OPEN (4/4 seeds carded, bellotti-trudgian-yang-2026 PASS).
+prior-art pre-flight: not a new approach (continuation of #29); the source
+  paper is carded and the quotes below were re-verified against the PDF
+  this tick (pdftotext -layout p. 20, p. 25; line 163 for H).
+quotes re-verified against lit/pdf/bellotti-trudgian-yang-2026.pdf:
+  p. 25: "(a*kappa/2) f(0) log t > C1(1 - 2.78/log t) + C2(1/(6 log t))
+         - 1e-7 > 1.00582 + 1.86088/log t - 4.4106/(log t)^2
+         - 55.0584/(log t)^3"; "Since the right side is decreasing for
+         t in [H, exp(76.47)], we may lower-bound this expression by its
+         value at t = exp(76.47), which is 1.02928... Therefore
+         eta log t > 1.02928/(a*kappa*w(0)/2) = 0.204248... > A0 + eps
+         >= A + eps, as required."
+  p. 20 (Lemma 14): "C1(x) := 0.87637 + 0.12002x + 0.01017x^2
+         - 0.00073x^3"
+  p. 25: "C2(eta) := 13.47 eta - 161 eta^2 - 11896 eta^3"
+  line 163: "H := 3*10^12"
+pre-registered falsification tests (BEFORE run):
+  F1: g(76.47) does not round to 1.02928 at 5 dp -> misread polynomial
+      or evaluation point.
+  F2: E(76.47) < g(76.47) -> paper's claimed inequality fails with
+      displayed coefficients -> misread C1/C2 or arguments.
+  F3: B = 1.02928/(a*kappa*w0/2) < 1/4.896 -> stated 1.02928 does NOT
+      justify the headline -> open question stays open (constraint 7).
+  F4: dg/dL >= 0 somewhere in [ln(3e12), 76.47] -> "decreasing" claim
+      false -> t=exp(76.47) value is not the minimum.
+  F5: Taylor coefficients of E(L)+1e-7 in 1/L deviate from the paper's
+      polynomial beyond display-rounding tolerance -> misread formula.
+machine (final-bound.py, 50-dp Decimal, exact Fraction a*kappa):
+  ln(3e12)        = 28.729633404596657899611142693134896195860708421368
+  a*kappa*w0/2    = 5.039050103279844744499110017251633870449512969787
+  g(76.47)        = 1.0292773953493096701281019903188982794812879796091
+  E(76.47)        = 1.0292874007620183616197793041441853476411491453229
+  E - g           = 0.0000100054127086914916773138252870681598611657138
+  B               = 0.20426071956102531158405521177218295730322414643655
+  1/4.896         = 0.20424836601307189542483660130718954248366013071895
+  B - 1/4.896     = 0.00001235354795341615921861046499341481956401571760
+  1/B             = 4.8957038932844753074956377441042611052867178705378
+  B - 0.204248    = 0.00001271956102531158405521177218295730322414643655
+  min dg/dL       = -0.0016400947609373567003099038320341862641092490162238
+  F1 PASS (g rounds to 1.02928); F2 PASS; F3 PASS; F4 PASS; F5 PASS
+  VERDICT: ALL CHECKS PASS
+resolution: the headline 4.896 IS justified by the stated 1.02928. The
+  README's "0.00007 gap" was a misreading: the theorem needs B >= 1/4.896
+  (margin 1.235e-5), not 1.02928 rounding to 1.02921. Derived 1/B =
+  4.8957038933; 4.896 is the 3-dp rounding in the weaker direction.
+  Residual display anomaly (resolved): the paper's "0.204248" for B is a
+  misdisplay (true B = 0.204261; displayed value equals target 1/4.896).
+  Display-level only; the required inequality holds with the true B.
+change: tracks/c-constants/zfree-4896/final-bound.py (new),
+  machine-run-final-bound.txt (new), README.md (appended Resolution +
+  updated Next), ledger NOTE #33.
+in-flight check: zero-scan-1e5.service 180000/999990 (18.0%), 0.219 s/step,
+  ETA ~08-26 07:20Z (EARLIER than the handoff's 08-27 window -> re-measure
+  cost profile at completion); mertens-1e12.service active, 300/10000
+  segments, maxabs=62880 (F4 check: record so far >= 94909? NO — 62880 <
+  94909, but the scan is only at x ~ 1.03e10, below the 1e11 record range;
+  F4 as pre-registered applies to the FINAL value, not intermediate).
+next: (a) mertens-1e12 completes ~08-24 19:00-23:00Z: read run.txt for
+  "MERTENS-1e12 DONE rc=0", run F1-F6, promote; (b) zero scan ~08-26 07:20Z.
