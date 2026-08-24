@@ -206,3 +206,38 @@ anomaly resolved (constraint 7): the 4th argv 0.973669798383 = SA_REF, the
 next: tick 171/172 (~03:45-04:16 UTC): robin-full-1e10 completes ~03:53 UTC ->
   read run.txt for "ROBIN-FULL-1e10 DONE rc=0" + "VERDICT: ALL CHECKS PASS",
   bash check.sh, promote NOTE->NUMERIC. If F2 witness HIT => RH FALSE => STOP.
+
+TICK 171 (2026-08-24 ~03:46-04:00 UTC, model=qwen3.8-27b, track D)
+attempt: robin-full-1e10 completion (ETA 03:53 UTC) -> read run.txt, run
+  check.sh, promote NOTE->NUMERIC. Not a new attempt: continuation of the
+  in-flight scan launched tick 169 (fb83493); no prior-art pre-flight.
+machine said:
+  $ systemctl --user status robin-full-1e10.service  (03:46Z: active, subseg 88/100)
+  $ sleep 450; tail run.txt
+  FULL SCAN [1000000000,10000000001): max R = 0.9736697983827134 at n = 6983776800 (sigma=37797580800)
+  1 - R = 0.02633020161728659
+  F2 witness R(n)>=1 in [1000000000,10000000001): none (max R < 1)
+  F1 cross-check: checked=31 mismatches=0: PASS
+  F3a consistency: full-scan max R 0.9736697983827134 >= SA max (50-digit) 0.9736697983827134: PASS
+  F3b regression: 12-sig-digit display of full-scan max == SA_REF 0.973669798383: PASS
+  VERDICT: ALL CHECKS PASS
+  ROBIN-FULL-1e10 DONE rc=0 2026-08-24T03:47:08Z
+  $ bash evidence/2026-08-24-robin-full-1e10/check.sh
+  CHECK PASS: Robin full scan [1e9,1e10)
+  $ bash tools/promote.sh add "..." d   -> NOTE #31
+  $ bash tools/promote.sh promote 31 NUMERIC evidence/2026-08-24-robin-full-1e10
+  CHECK PASS: Robin full scan [1e9,1e10)
+  promoted #31: NOTE -> NUMERIC
+result: claim #31 NUMERIC. Full-scan max R over [1e9,1e10) = 0.9736697983827134
+  at n=6983776800 (superabundant) — the argmax IS the SA-scan argmax (#30), so
+  F3a holds with equality. No Robin witness in [1e9,1e10) (F2 none, max R<1)
+  => RH still consistent; with #26 the full-scan max over [1e8,1e10) is
+  0.9736697983827134 @ 6983776800. Ledger now 17 NUMERIC (was 16).
+  F2-witness branch NOT taken (no RH-false witness), so no constraint-5 stop.
+zero scan (in flight): 160000/999990 (16.0%), elapsed 32731s, 0.333 s/step
+  (rate stable vs tick 170's 3.008 pts/s); ETA ~08-27 08:00Z (window [08-27,08-30]).
+next: (a) zero scan completes ~08-27 08:00Z -> read full-run.txt for
+  "ZERO-SCAN-1e5 DONE rc=0" + F5a/b/c + F3/F4 verdicts + max/min g [1,1e5] ->
+  NOTE via promote.sh (pilot was [1,1e3]-scoped only); cross-check zero count
+  >= 134011. (b) OWNER: open PNT+ PR (see HANDOFF (c)). (c) TRACK B parked
+  until week-2 review 08-29.
