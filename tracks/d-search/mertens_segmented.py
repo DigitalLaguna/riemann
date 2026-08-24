@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Track D experiment 7: Mertens M(x) = sum_{n<=x} mu(n), N up to 1e11.
+"""Track D experiment 7: Mertens M(x) = sum_{n<=x} mu(n), N up to 1e12.
 
 Segmented mu sieve: memory O(SEG) instead of O(N). The full-array
-mertens_extremal.py needs ~800 GB at N=1e11 (M int32 + absM int32 + mu int8);
+mertens_extremal.py needs ~8 TB at N=1e12 (M int32 + absM int32 + mu int8);
 the machine has 125 GB.
 
 mu per segment [a,b): start at 1; for each prime p <= sqrt(N): flip sign at
@@ -19,8 +19,10 @@ Checks (pre-registered F1-F5: logs/2026-08-23.tick.log, tick 131):
       the b-file (n <= 10000) with n <= max_{x<=N} |M(x)|.
   C5: segmented mu for [0,1e6] == full-array mu_sieve(1e6) exactly
       (cross-check against the verified full-array code).
-  C6: M(10^11) == -87856 (OEIS A084237, fetched 2026-08-23) [N >= 1e11].
-  C7: M(10^k) k=1..10 == machine-verified 1e10 run values [N >= 1e10].
+  C6: M(10^kmax) == M10K[kmax] (kmax = round(log10 N); OEIS A084237,
+      fetched 2026-08-23) [N >= 1e11].
+  C7: M(10^k) k=1..kmax-1 == machine-verified run values / OEIS
+      [N >= 1e10].
   W:  witness line: max |M(x)|/sqrt(x) for x >= 100; >= 1.0 at x <= N would
       falsify the Mertens conjecture |M(x)| < sqrt(x) at that x.
 Exit 0 iff all checks pass.
@@ -37,9 +39,13 @@ CH = 10**7
 
 # M(10^k): k<=10 from the machine-verified full-array runs (claims #20/#22/#24,
 # evidence/2026-08-23-mertens-1e10/run.txt); k=11 from OEIS A084237 (fetched
-# 2026-08-23, see logs/2026-08-23.tick.log tick 131 prior-art pre-flight).
+# 2026-08-23, see logs/2026-08-23.tick.log tick 131 prior-art pre-flight);
+# k=11 confirmed by the machine-verified 1e11 run (claim #27,
+# evidence/2026-08-23-mertens-1e11/promote-run.txt); k=12 = 62366 from
+# OEIS A084237 a(12) (Weisstein 2003 term; file fetched 2026-08-23,
+# evidence/2026-08-23-mertens-1e9/oeis-a084237-m10n.txt).
 M10K = {1: -1, 2: 1, 3: 2, 4: -23, 5: -48, 6: 212, 7: 1037,
-        8: 1928, 9: -222, 10: -33722, 11: -87856}
+        8: 1928, 9: -222, 10: -33722, 11: -87856, 12: 62366}
 
 
 def full_mu(n):
@@ -241,15 +247,17 @@ def main():
           f"{'PASS' if c4 else 'FAIL'}")
     ok &= c4
 
+    kmax = int(round(math.log10(N)))
     if N >= 10**11:
-        c6 = M10.get(11) == -87856
-        print(f"C6 M(10^11) = {M10.get(11)} (expect -87856, OEIS A084237): "
-              f"{'PASS' if c6 else 'FAIL'}")
+        c6 = M10.get(kmax) == M10K[kmax]
+        print(f"C6 M(10^{kmax}) = {M10.get(kmax)} (expect {M10K[kmax]}, "
+              f"OEIS A084237): {'PASS' if c6 else 'FAIL'}")
         ok &= c6
     if N >= 10**10:
-        bad7 = [k for k in range(1, 11) if M10.get(k) != M10K[k]]
+        bad7 = [k for k in range(1, kmax) if M10.get(k) != M10K[k]]
         c7 = not bad7
-        print(f"C7 M(10^k) k<=10 vs verified 1e10 run: mismatches={len(bad7)}"
+        print(f"C7 M(10^k) k<{kmax} vs verified runs/OEIS: "
+              f"mismatches={len(bad7)}"
               f"{' first=' + str(bad7) if bad7 else ''}: "
               f"{'PASS' if c7 else 'FAIL'}")
         ok &= c7
@@ -258,7 +266,6 @@ def main():
           f"M = {M_at_first}")
     print(f"max |M(x)|/sqrt(x) for x <= {N}: {best_r:.9f} at x = {i_r} "
           f"(M = {M_r})")
-    kmax = int(round(math.log10(N)))
     for k in range(1, kmax + 1):
         print(f"M(10^{k}) = {M10[k]}")
     print("top-10 |M(x)| locations:")

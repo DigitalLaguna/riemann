@@ -1,0 +1,26 @@
+C5 segmented mu == full-array mu n<=10^6: PASS
+C1 M(10) = -1 (expect -1): PASS
+C2 OEIS A002321 n<=10000: 10000 values, mismatches=0: PASS
+C3 sympy independent n<=10^5: mismatches=0: PASS
+C4 OEIS A051402 envelope: checked=368 n-values, mismatches=0: PASS
+max |M(x)| for x <= 1000000: 368, first at x = 926265, M = -368
+max |M(x)|/sqrt(x) for x <= 1000000: 1.000000000 at x = 1 (M = 1)
+M(10^1) = -1
+M(10^2) = 1
+M(10^3) = 2
+M(10^4) = -23
+M(10^5) = -48
+M(10^6) = 212
+top-10 |M(x)| locations:
+  x=926265 M=-368
+  x=926278 M=-368
+  x=926279 M=-368
+  x=926280 M=-368
+  x=926263 M=-367
+  x=926264 M=-367
+  x=926266 M=-367
+  x=926273 M=-367
+  x=926277 M=-367
+  x=926281 M=-367
+witness: max |M(x)|/sqrt(x) for x >= 100: 0.000000000 at x = -1 (M = 0)
+VERDICT: ALL CHECKS PASS

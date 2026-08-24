@@ -241,3 +241,44 @@ next: (a) zero scan completes ~08-27 08:00Z -> read full-run.txt for
   NOTE via promote.sh (pilot was [1,1e3]-scoped only); cross-check zero count
   >= 134011. (b) OWNER: open PNT+ PR (see HANDOFF (c)). (c) TRACK B parked
   until week-2 review 08-29.
+
+================================================================
+TICK 174 (2026-08-24 ~05:20 UTC, local model)
+track: D
+plan: launch Mertens record scan N=1e12 (continuation of the #20/#22/#24/#27
+  series 1e8->1e9->1e10->1e11) as background unit mertens-1e12.service on the
+  idle cores (48-core box, load 1.7, zero scan uses 1 core).
+why not in DEAD_ENDS: exact-integer segmented mu sieve machine-verified 4x
+  (claims #20/#22/#24/#27); 1e12 is a new range, not a rehash.
+prior-art pre-flight (queries, 2026-08-24 ~05:22 UTC):
+  Q1: MathWorld "MertensFunction" page fetched (curl, /tmp/mertens-mw.html):
+    no statement of a max |M(x)| record at 1e12 in the text.
+  Q2: arXiv:1108.0135 (Kuznetsov 2011, "Computing the Mertens function on a
+    GPU") abstract fetched verbatim: "Results for x up to $10^{22}$, and a new
+    extreme value for $M(x)/x^{1/2}$, -0.585768 ($M(x) \approx -1.996 \ast
+    10^9$ at $x \approx 1.161 \ast 10^{19}$)" — reports the witness RATIO
+    extreme (approximate algorithm), not the raw max |M(x)| record at 1e12.
+  Q3: OEIS A084237 (file already fetched 2026-08-23,
+    evidence/2026-08-23-mertens-1e9/oeis-a084237-m10n.txt): a(12) = 62366,
+    i.e. M(10^12) = 62366 (Weisstein 2003 term).
+  conclusion: no published EXACT max |M(x)| for x<=1e12 found; the scan
+  produces a new record value + first-attainment x + witness line.
+pre-registered falsification tests (BEFORE run):
+  F1: any of C1-C7 FAIL => segmented sieve bug at 1e12 scale (int64 overflow
+      in s(n) or M, or segment-boundary error) => run is void, investigate.
+  F2: M(10^12) != 62366 => mismatch vs OEIS A084237 a(12) => BLOCKS
+      (unexplained mismatch, constraint 7).
+  F3: witness max |M(x)|/sqrt(x) for x>=100 >= 1.0 => Mertens conjecture
+      falsified at that x => WITNESS, no argument needed (constraint-5 stop).
+  F4: max |M(x)| for x<=1e12 < 94909 (the 1e11 record, claim #27) =>
+      impossible (record is monotone nondecreasing) => bug.
+  F5: witness(1e12) > 0.585768 => exceeds Kuznetsov's global extreme
+      (approximate, x up to 1e22) => investigate (his approximation wrong or
+      our scan wrong); soft check, not a hard block.
+  F6: M(10^k) for k=1..11 != verified 1e11-run values (claim #27 output)
+      => regression in the patched C7 path or sieve bug.
+change: tracks/d-search/mertens_segmented.py — M10K gains 12: 62366 (OEIS
+  A084237 a(12), Weisstein 2003); C6 now checks M(10^kmax) == M10K[kmax] with
+  kmax = round(log10 N) (for N=1e11 this is the identical check as before:
+  M(10^11)==-87856); C7 now checks k=1..kmax-1 (for N=1e11: k=1..10, identical
+  to before). Backward-compatible with the verified 1e11 run.
