@@ -1055,3 +1055,38 @@ next: (a) D: mertens-1e12-promote ~08-25 07:00Z (promote #39). (b) D:
   (c) C: path to 2.3782 = re-audit lemmas 5-14 to raise A0 (NEW attempt,
   prior-art pre-flight first). (d) D: zero scan ~08-27 (27%). (e) OWNER: PNT+ PR.
   (f) B: PARKED until 08-29 review.
+
+=== TICK 201 (2026-08-24 ~19:16-19:30 UTC) ===
+track: C (A0-constraint audit, new attempt)
+step1: HANDOFF/DEAD_ENDS/ledger read. Doing (c): re-audit BTY-2026 lemmas 5-14
+  A0 constraint. Not in DEAD_ENDS (new attempt; baseline #40 recorded tick 200).
+step2: gate C OPEN (4/4).
+step3 (prior-art pre-flight, queries logged):
+  - grep lit/text/bellotti-trudgian-yang-2026.txt for "4.859" -> lines 144,146,545,550
+  - grep "^Lemma [0-9]*\." -> Lemma 1 (L101), 2 (L146), 3 (L493), 5 (L~553),
+    6 (L833), 10 (L1538), 12 (L1875), 13 (L2010), 14 (L2058)
+  - read table L543-552, defs L530-541 (eta0=A0/logH, sigma0=1-A0/log(KH+T0)),
+    H=3e12 (L163 eq5), K=16 (L534), T0=1e10 (L532), final line L2500-2580
+  - prior art: no other paper re-optimizes BTY-2026's A0 chain (it is the
+    current live constant per card; mossinghoff-trudgian-yang-2022 superseded)
+step4 (bounded step, machine): a0_check.py (mpmath 50 dps) in
+  evidence/2026-08-24-zfree-a0-audit/. Pre-registered falsification F-A0/F-FL
+  (in README). Machine output (machine-run.txt):
+    printed L1 (4.8596)^-1  A0=0.2057782534 eta0=0.0071625785 sigma0=0.99346786
+    L1 headline (4.896)^-1  A0=0.204248366  eta0=0.0071093273 sigma0=0.99351643
+    L2          (4.8594)^-1 A0=0.2057867226 eta0=0.0071628733 sigma0=0.99346759
+    table L1 row prints eta0=0.0071093 sigma0=0.9935164  -> matches (4.896)^-1
+    final-line req A0<A_final=0.2042621883: (4.8596)^-1 FALSE(-0.0015),
+      (4.896)^-1 TRUE(+1.38e-5), (4.8594)^-1 FALSE(-0.0015)
+  check.sh: CHECK PASS (RC=0)
+result: NOTE #41. The printed A0=(4.8596)^-1 in the BTY-2026 table Lemma-1 row
+  is a TYPO; true A0=(4.896)^-1. Claim #40's unconditional improvement
+  4.896->4.8596 is VOID (true cap 4.896). Re-audit target now: raise A0 above
+  (4.896)^-1=0.2042484 (to 0.4204835 for full 2.3782 payoff).
+anomaly resolved (constraint 7): the "A0=1/4.8596 from Lemma 2's 4.8594"
+  provenance in #40's README was wrong — the table row's own eta0/sigma0
+  contradict the printed A0; machine picks (4.896)^-1.
+next: (a) C: re-audit lemmas 5,6,13,14 for A0_max (which is binding?).
+  (b) D: robin-full-1e11 ~21:50Z (subseg 773/1000, best_R=0.972015886980).
+  (c) D: mertens-1e12-promote ~08-25 07:00Z (promote #39).
+  (d) D: zero scan ~08-27 (27.5%). (e) OWNER: PNT+ PR. (f) B: PARKED 08-29.

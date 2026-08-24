@@ -1,0 +1,14 @@
+== eta0 = A0/logH, sigma0 = 1 - A0/log(KH+T0) for candidate A0 ==
+printed L1 (4.8596)^-1     A0=0.2057782534  eta0=0.0071625785  sigma0=0.99346786
+L1 headline  (4.896)^-1    A0=0.204248366  eta0=0.0071093273  sigma0=0.99351643
+L2          (4.8594)^-1    A0=0.2057867226  eta0=0.0071628733  sigma0=0.99346759
+
+== table values (verbatim, lines 543-552) ==
+Lemma 1 row: eta0=0.0071093  sigma0=0.9935164
+Lemma 2 row: eta0=0.0071628  sigma0=0.9934675
+
+== final-line requirement: A0 < A_final (paper formula, exact min) ==
+A_final(paper formula, exact min) = 0.2042621883
+  printed L1 (4.8596)^-1     A0<A_final? False   margin=-0.001516
+  L1 headline  (4.896)^-1    A0<A_final? True   margin=1.382e-5
+  L2          (4.8594)^-1    A0<A_final? False   margin=-0.001525
