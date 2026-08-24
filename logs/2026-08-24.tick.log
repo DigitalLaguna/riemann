@@ -1,0 +1,48 @@
+# tick log 2026-08-24 (UTC)
+
+## TICK 165 (2026-08-24 ~00:40-00:55 UTC, model qwen3.8-27b, track D)
+one-liner: re-estimate the in-flight zero-scan ETA, because the handoff's
+  "~08-25 14:00Z (<=1.6d)" used the overall average rate while the marginal
+  rate had visibly dropped; not in DEAD_ENDS (the scan is alive, this is an
+  ETA correction, not a dead approach).
+gate: all tracks OPEN (21/21 seeds). Prior-art pre-flight: n/a (tooling
+  re-measurement of an in-flight scan; the "prior art" is the tick-156 cost
+  profile in evidence/2026-08-23-zero-scan/zeta-cost-profile.md).
+machine said (verbatim, key lines):
+  $ systemctl --user status zero-scan-1e5.service
+    Active: active (running) since Sun 2026-08-23 20:32:55 CEST; 6h ago
+    Main PID: 745483 (bash) ; python3 zero_scan.py 1.0 100000.0 0.1 99.9% CPU
+  $ tail full.stderr
+    coarse 120000/999990 elapsed 19556s
+    coarse 125000/999990 elapsed 21185s
+  marginal rate per 5000-pt window (computed from progress lines):
+    t=10001:5.00  t=10501:4.98  t=11001:3.86  t=11501:3.07  t=12001:3.05
+    t=12501:3.07 pts/s   (overall avg 125000/21185 = 5.90 pts/s)
+  dense cost re-measure Z(t) 30dps 10-rep warm (cost-profile-10k-30k.json):
+    t=10000:31.3ms t=10500:31.5ms t=11000:49.4ms t=12500:49.4ms t=15000:49.3ms
+    t=20000:49.6ms t=25000:85.0ms t=30000:84.9ms
+  -> generic-regime cost is STEPPED, not smooth: 31.4ms (t<=~10750) -> 49.5ms
+     (t~10750..~22500) -> 85ms (t~22500..~42000) -> 155ms plateau [44k,51k]
+     -> 42ms RS (>52k). The abrupt 4.98->3.07 pts/s drop at t~11000 is the
+     31->49ms step (the 11001 window straddles it; 11501 is fully in 49.5ms).
+  work integration w(t)=cost(t)*[10+30*(1/2pi)ln(t/2pi)] with REFINED profile:
+    model t=1..12501 = 13647s vs observed 21185s -> ratio 0.644
+    model t=1..5501  = 3270s  vs observed 5210s  -> ratio 0.628
+    -> stable ~1.55x bias (actual slower than model); bisection=40 explains
+       part (ratio->0.809), residual ~1.24x unexplained (profile under-est +
+       bisection tail). NOT a growing anomaly (ratio stable 0.628->0.644).
+    model remaining t=12501..1e5 = 295770s = 3.42d
+    bias-corrected remaining     = 459149s = 5.31d
+result:
+  - zero scan ETA CORRECTED: completion ~2026-08-29 08:00Z (range 08-28..08-29),
+    NOT the handoff's ~08-25 14:00Z (<=1.6d). The 1.6d figure linearly
+    extrapolated the OVERALL average rate (6.418 pts/s), which is inflated by
+    cheap early points; the marginal rate is 3.07 and still falling (cost steps
+    up at t~22500 and t~44000 before the RS drop at t>52k).
+  - cost profile now has discrete steps in the generic regime (31/49/85ms);
+    appended to zeta-cost-profile.md (append-only) + raw json.
+  - no new ledger claim (NOTE-grade tooling/ETA measurement, mpmath).
+next: (a) zero scan completes ~08-29 08:00Z: read full-run.txt for
+  "ZERO-SCAN-1e5 DONE rc=0"; F5a/b/c + F3/F4 verdicts + max/min g [1,1e5]
+  -> NOTE via promote.sh; cross-check zero count >= 134011 (S(t) lower bound).
+  (b) OWNER: PNT+ PR (see handoff). (c) TRACK B parked until 08-29 review.

@@ -51,3 +51,37 @@ NOT comparable to the 30-dps profile above.)
 This is a NOTE-grade tooling measurement (mpmath = development tool, not rigorous).
 It refines ETAs only; it makes no claim about RH. If either scan's actual
 completion deviates from these ETAs by >20%, re-measure the profile.
+
+## Tick 165 refinement (2026-08-24 ~00:45 UTC): cost profile has DISCRETE STEPS
+Dense re-measurement of Z(t)=re(e^{i theta_asym(t)} zeta(1/2+it)) at 30 dps,
+10 reps warm, t in [10000,30000] (raw: cost-profile-10k-30k.json):
+  t=10000:31.3ms t=10500:31.5ms t=11000:49.4ms t=12500:49.4ms t=15000:49.3ms
+  t=20000:49.6ms t=25000:85.0ms t=30000:84.9ms
+The generic-regime cost is NOT smooth: it steps 31.4ms (t<=~10750) -> 49.5ms
+(t~10750..~22500) -> 85ms (t~22500..~42000), then the known 155ms plateau
+[44k,51k] and 42ms RS regime (>52k). The tick-156 profile linearly interpolated
+across these steps (only t=10000 and t=20000 were measured in 10k-30k),
+under-estimating cost in (10750,20000). This explains the abrupt observed rate
+drop 4.98->3.86->3.07 pts/s between t=10501 and t=11501 (the 11001 window
+straddles the 31->49ms step; the 11501 window is fully in the 49.5ms regime).
+
+## Tick 165 ETA re-estimate (zero scan, at point 125000 = t=12501, 12.5%)
+Work density w(t)=cost(t)*[10 + 30*(1/2pi)*ln(t/2pi)] integrated with the
+REFINED (stepped) profile:
+  model work t=1..12501   = 13647 s ; observed elapsed = 21185 s ; ratio 0.644
+  model work t=1..5501    = 3270  s ; observed          = 5210  s ; ratio 0.628
+  -> stable systematic bias: actual scan runs ~1.55x SLOWER than the model
+     (bisection=40 instead of 30 explains part: ratio->0.809; residual ~1.24x
+     unexplained, likely cost-profile under-estimate + bisection tail).
+  model remaining t=12501..1e5 = 295770 s = 82.2 h = 3.42 d
+  bias-corrected remaining     = 459149 s = 127.5 h = 5.31 d
+  -> completion ~2026-08-29 08:00Z (range 08-28..08-29).
+SUPERSEDES the tick-163 handoff ETA "~08-25 14:00Z (<=1.6d)", which linearly
+extrapolated the OVERALL average rate (6.418 pts/s = 115000/17918). That is
+wrong because (a) the marginal rate is 3.07 pts/s and still falling (cost steps
+up at t~22500 and t~44000), and (b) the average rate is inflated by the cheap
+early points. The tick-156 "3.50d total" was closer; the true completion is
+~08-29, not ~08-25.
+Status: NOTE-grade tooling measurement (mpmath = development tool); refines ETA
+only, no RH claim. Falsification: if the scan completes outside [08-27,08-30],
+re-measure the profile (a step was missed or the bias is not constant).
