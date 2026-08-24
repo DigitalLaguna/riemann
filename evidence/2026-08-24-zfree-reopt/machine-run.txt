@@ -1,0 +1,22 @@
+c_mu_sharp = log(K+T0/H) = 2.77279703387  (paper uses 2.78)
+den_paper = 5.03905010328
+den_corr  = 2.54005668768
+A0 = 1/4.8596 = 0.205778253354
+
+CASE 1 (paper): B = 0.204262188243  headline 1/B = 4.89566869229
+  target B_paper=0.2042607196  match: False
+
+CASE 2 (corrected, no fixed pt): B = 0.405222216399  headline 1/B = 2.46778177388
+  target B_corr=0.4052193028  match: False
+
+CASE 3 (reopt fixed point): A* = 0.420483467794  headline 1/A* = 2.37821478511
+  iterations: 32  converged: True
+
+Monotonicity (numerator, min should be at xT):
+  case1 paper: decreasing on [xH,xT] = True  min-at-xT value = 1.029287401  max-at-xH = 1.062936875
+  case3 reopt: decreasing on [xH,xT] = True  min-at-xT value = 1.068051844  max-at-xH = 1.117931688
+
+A0 constraint (lemmas require A <= A0 = 1/4.8596):
+  paper      A_final=0.2042621882  A0=0.2057782534  effective A=0.2042621882  headline 1/A=4.895668692
+  corrected  A_final=0.4052222164  A0=0.2057782534  effective A=0.2057782534  headline 1/A=4.8596
+  reopt      A_final=0.4204834678  A0=0.2057782534  effective A=0.2057782534  headline 1/A=4.8596
