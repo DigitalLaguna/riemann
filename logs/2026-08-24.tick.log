@@ -753,3 +753,33 @@ next: (a) D: robin-full-1e11 ~21:40Z: read full-run.txt for
   scan ~08-26 21:00Z: F5a/b/c + F3/F4 + max/min g [1,1e5]. (d) OWNER:
   PNT+ PR (compare link + `propose #<PR>` on #816). (e) B: PARKED
   until week-2 review 08-29.
+
+--- tick 188 (2026-08-24 ~12:34 UTC) ---
+TRACK C: re-optimization step 1 — pin down the exact formula for B (the final
+lower bound on eta*log t) and check for a missing factor of kappa.
+
+Reading (from lit/text/bellotti-trudgian-yang-2026.txt, verified against PDF):
+  Definition 2: f(u) := eta*w(eta*u) * sum_{m=0..M} kappa_m * exp(-(2sigma-1)*m*u)
+    => f(0) = eta*w(0)*sum_m kappa_m = eta*w(0)*kappa, kappa = sum_m kappa_m = 433/859.
+  Lemma 9 (explicit formula): main term = f(0)*sum_m kappa_m*(Gamma'/Gamma((s+delta_m)/2)+1)/2.
+  (45): sum_k a_k * sum_m kappa_m * (...) <= (a*kappa/2)*log t - 1.568.
+  Final chain: (a*kappa/2)*f(0)*log t > 1.02928.
+    => eta*log t > 1.02928 / ((a*kappa/2)*(f(0)/eta))
+    => eta*log t > 1.02928 / ((a*kappa/2)*w(0)*kappa)   [since f(0)/eta = w(0)*kappa]
+    => B_correct = 1.02928/(a*kappa^2*w(0)/2) = B_paper/kappa.
+  Paper writes: B_paper = 1.02928/(a*kappa*w(0)/2) = 0.204248 (display).
+
+HYPOTHESIS: the paper's final line is missing a factor of kappa in the denominator.
+  B_correct = B_paper/kappa, A_correct = 1/B_correct = A_paper*kappa.
+
+Pre-registered falsification tests (BEFORE the run):
+  F1: B_paper = 1.02928/(a*kappa*w(0)/2) does NOT equal 0.2042607196 (the recorded
+      machine-run value from final-bound.py) -> I misread the paper's parameters
+      (a, kappa, w(0)) or the formula.
+  F2: kappa = 1 (i.e. sum_m kappa_m = 1) -> there is no factor-of-kappa issue;
+      the paper's final line is correct as written.
+  F3: A_correct = A_paper*kappa is NOT < A_paper (i.e. kappa > 1) -> the "improvement"
+      goes the wrong way; re-examine the direction of the inequality.
+
+Positive result (if F1-F3 all pass): the factor of kappa is missing, and the
+correct zero-free-region constant is A_correct = A_paper*kappa (~2.47 vs 4.896).
