@@ -1003,3 +1003,55 @@ next: (a) D: mertens-1e12-promote.service ~08-25 07:00Z: read
   re-optimization (vary a_k / smoothing, minimize 1/A*) from A_corr =
   2.4678 — new attempt, prior-art pre-flight first. (d) D: zero scan
   ~08-27. (e) OWNER: PNT+ PR. (f) B: PARKED until 08-29 review.
+
+TICK 200 (2026-08-24 ~18:45-18:52 UTC, qwen3.8-27b)
+track: C
+plan: the zfree-reopt re-optimization (BTY-2026 Lemma-1 final line) was
+  DONE + committed in tick 197 (evidence/2026-08-24-zfree-reopt/, commit
+  26f8390) but was NOT in the ledger and the tick-199 HANDOFF wrongly said
+  it was "not started". This tick: verify the machine output is
+  reproducible, fix the stale machine-run.txt, add + promote the claim.
+why not in DEAD_ENDS: continuation of the C 4.896 re-optimization series
+  (#33, #38); the re-opt itself was started tick 197, this tick records it.
+gate: track C OPEN (4/4 seeds carded).
+prior-art pre-flight: pre-registered tick 166 (tracks/c-constants/zfree-4896/
+  README.md): arXiv API cat:math.NT all:"zero-free region" sortBy=submittedDate
+  desc -> HTTP 429 rate-limited, no known re-optimization of the 4.896
+  constant; source paper very recent (arXiv v1, 23 Mar 2026). Not a definitive
+  negative (API rate-limited).
+attempt:
+  1. Re-ran reopt.py (mpmath 60 dps). Output matched machine-run.txt EXCEPT
+     the last 3 lines were missing from the recorded file.
+  2. Root cause (machine-verified by diff): machine-run.txt was captured
+     17:26:40Z but reopt.py was updated 17:27:47Z to add the "Paper's own
+     fixed point" provenance block (3 lines). diff = "22a23,25": first 22
+     lines identical, 3 lines appended. Current output is a strict superset.
+  3. Fixed by APPENDING the 3-line delta to machine-run.txt (append-only,
+     respects the evidence rule; verified first 22 lines identical first).
+  4. Wrote check.sh (F1-F5: CASE1 paper repro, CASE3 reopt value + converged,
+     A0 cap 4.8596, 4.8596<4.896, byte-identical regression). Ran it.
+  5. Added claim #40 (NOTE), promoted to NUMERIC (checker ran, PASS).
+machine (verbatim, reopt.py re-run == machine-run.txt after append):
+  CASE 1 (paper): B = 0.204262188243  headline 1/B = 4.89566869229
+  CASE 2 (corrected, no fixed pt): B = 0.405222216399  headline 1/B = 2.46778177388
+  CASE 3 (reopt fixed point): A* = 0.420483467794  headline 1/A* = 2.37821478511
+    iterations: 32  converged: True
+  A0 constraint: reopt A_final=0.4204834678 A0=0.2057782534 effective
+    A=0.2057782534 headline 1/A=4.8596
+  Paper's own fixed point (missing kappa, sharp c_eta): A = 0.205519965205
+    headline 1/A = 4.86570732437  ->  A0 is the paper's fixed point: False
+  check.sh: CHECK PASS (RC=0)
+  promote.sh: "promoted #40: NOTE -> NUMERIC" (RC=0)
+result: claim #40 NUMERIC. Re-optimizing the BTY-2026 Lemma-1 final line
+  (corrected kappa^2 + sharp c_mu + eta=A/x fixed point) gives A_final=2.3782,
+  but the lemmas 5-14 A0 constraint (A0=1/4.8596, from Lemma 2's 4.8594) caps
+  the UNCONDITIONAL constant at 4.8596. Machine-verified improvement over the
+  published 4.896: 4.896 -> 4.8596 (0.75% wider region).
+anomaly resolved: the tick-199 HANDOFF "C re-optimization not started" was
+  stale — the work was done tick 197 (17:26-17:29Z, commit 26f8390); the
+  "future timestamps" were a +0200 (CEST) vs UTC display artifact.
+next: (a) D: mertens-1e12-promote ~08-25 07:00Z (promote #39). (b) D:
+  robin-full-1e11 ~21:46Z (subseg 735/1000, best_R=0.972015886980 unchanged).
+  (c) C: path to 2.3782 = re-audit lemmas 5-14 to raise A0 (NEW attempt,
+  prior-art pre-flight first). (d) D: zero scan ~08-27 (27%). (e) OWNER: PNT+ PR.
+  (f) B: PARKED until 08-29 review.

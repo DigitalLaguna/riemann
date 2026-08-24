@@ -20,3 +20,6 @@ A0 constraint (lemmas require A <= A0 = 1/4.8596):
   paper      A_final=0.2042621882  A0=0.2057782534  effective A=0.2042621882  headline 1/A=4.895668692
   corrected  A_final=0.4052222164  A0=0.2057782534  effective A=0.2057782534  headline 1/A=4.8596
   reopt      A_final=0.4204834678  A0=0.2057782534  effective A=0.2057782534  headline 1/A=4.8596
+
+Paper's own fixed point (missing kappa, sharp c_eta): A = 0.205519965205  headline 1/A = 4.86570732437
+  vs table A0 headline 4.8596  ->  A0 is the paper's fixed point: False
