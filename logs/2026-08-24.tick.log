@@ -783,3 +783,63 @@ Pre-registered falsification tests (BEFORE the run):
 
 Positive result (if F1-F3 all pass): the factor of kappa is missing, and the
 correct zero-free-region constant is A_correct = A_paper*kappa (~2.47 vs 4.896).
+
+--- tick 192 (2026-08-24 ~14:40 UTC) ---
+TRACK C: resolve the open factor-of-kappa question (tick 188 hypothesis).
+
+Question: the paper's final line divides by (a*kappa*w(0)/2), but the LHS of
+the Lemma-14 application is (a*kappa/2)*f(0)*log t, and Definition 2 gives
+f(0) = eta*w(0)*kappa (since sum_m kappa_m = kappa = 433/859). So the LHS is
+(a*kappa^2*w(0)/2)*eta*log t, and the correct final division is by
+(a*kappa^2*w(0)/2), i.e. one more factor of kappa.
+
+Verbatim quotes re-verified against lit/text (this tick):
+  Definition 2 (lines 456-463): "f(u) := eta*w(eta*u) * sum_{0<=m<=M}
+    kappa_m * exp(-(2sigma-1)*m*u)"  =>  f(0) = eta*w(0)*sum_m kappa_m.
+  (18) (lines 444-454): [kappa_m] = 1, -851/859, 780/859, -525/859, 171/859,
+    28/859, -29/859.  sum_m kappa_m = 1 - 426/859 = 433/859 = kappa.
+  line 489: "c = 859/433 = 1.98... in the case of (19)"  (= 1/kappa).
+  Final chain (lines 2551-2577): "(a*kappa/2) f(0) log t > C1(1-2.78/log t)
+    + C2(1/(6 log t)) - 1e-7 > 1.00582 + 1.86088/log t - 4.4106/(log t)^2
+    - 55.0584/(log t)^3" ... "Therefore eta log t > 1.02928/(a*kappa*w(0)/2)
+    = 0.204248... > A0 + eps >= A + eps, as required."
+  Assumption (43) (line 2359): "A <= (1-beta0) log t < A + eps and t >= H".
+
+Pre-registered falsification tests (tick 188 log, BEFORE this run):
+  F1: B_paper = 1.02928/(a*kappa*w(0)/2) != 0.2042607196 -> misread params.
+  F2: kappa = 1 -> no factor-of-kappa issue.
+  F3: A_corr = A_paper*kappa is NOT < A_paper -> improvement wrong direction.
+
+Machine (tracks/c-constants/zfree-4896/kappa-factor.py ->
+machine-run-kappa.txt, 60-dp Decimal, exact Fraction a and kappa):
+  a            = 2919857/828465 = 3.524418050250
+  kappa        = 433/859 = 0.504074505239
+  B_paper      = 0.204260719561025311584055211772182957303224146436555970256526
+  A_paper      = 4.89570389328447530749563774410426110528671787053761616998373
+  B_corr       = B_paper/kappa = 0.405219302778107950694465189173914919915634045702082167321837
+  A_corr       = A_paper*kappa = 2.46779951780230245418581041117246223351472507327449103795455
+  F1 PASS, F2 PASS, F3 PASS, VERDICT: ALL CHECKS PASS
+
+RESULT: the factor-of-kappa issue is REAL. The paper's final line is missing
+one factor of kappa in the denominator. The true lower bound on eta*log t is
+B_corr = 0.4052 (not B_paper = 0.2043), so the zero-free-region constant can
+be improved from 4.896 to A_corr = 2.4678 (a factor of kappa = 0.504
+improvement, i.e. the region widens by ~2x).
+
+CAVEAT (not yet resolved): this is a claim about an error in the paper. The
+margin in the paper's proof is only 1.2e-5 (B_paper - A = 0.0000124), so the
+authors may not have noticed. But if B_corr = 0.4052 is correct, they could
+have claimed c = 2.468 instead of c = 4.896. The fact that they claimed
+4.896 is consistent with the missing factor of kappa. To fully resolve:
+check whether the authors have issued a corrigendum, or whether the "a" in
+(a*kappa/2) is not sum_k a_k (unlikely, but not yet excluded).
+
+change: tracks/c-constants/zfree-4896/machine-run-kappa.txt (new, recorded
+run); log entry.
+next: (a) C: check for a corrigendum / erratum to bellotti-trudgian-yang-2026
+  (arXiv v2+?); if none, draft a NOTE claim for the factor-of-kappa issue.
+  (b) C: re-run the re-optimization (reopt-theta.py / reopt-theta-full.py)
+  with the corrected objective (B_corr instead of B_paper).
+  (c) D: robin-full-1e11 ~21:45Z, mertens-1e12 ~18:05Z, zero-scan ~08-26
+  02:00Z (re-measured this tick: robin 363/1000, mertens 7200/10000
+  maxabs=331302, zero-scan 245000/999990).
