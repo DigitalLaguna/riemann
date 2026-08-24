@@ -564,3 +564,73 @@ next: (a) E: when lagarias-all-check.service goes inactive, read
   a(12)=62366, promote record. (c) D: zero scan ~08-27 (22%).
   (d) OWNER: PNT+ PR (form + `propose #N` on #816). (e) B: PARKED until
   week-2 review (08-29).
+
+================================================================
+TICK 184 (2026-08-24 ~10:29Z, local model)
+plan: TRACK D — extend Robin-criterion FULL scan to [1e10, 1e11).
+  Prerequisite: SA scan of (1e10, 1e11] (6 SA numbers per b-file) to
+  produce the F3b regression reference SA_REF for the full scan.
+  Not in DEAD_ENDS: continuation of the #26/#31 scan family (ticks 128,
+  167); the [1e9,1e10) full scan finished 03:47Z with ALL CHECKS PASS.
+PRIOR-ART PRE-FLIGHT (2026-08-24 10:31Z, export.arxiv.org API):
+  query 1: abs:"Robin criterion" (max_results=8) -> 5 hits:
+    math/0604314 "On Robin's criterion for the Riemann Hypothesis" (2006)
+      — structural (counterexample even, not squarefree/squarefull;
+      Rosser-Schoenfeld bound), no full-n scan to 1e11.
+    2511.02106 "A family of analogues to the Robin criterion" (2025)
+      — analogues, no scan.
+    1612.05186 "Robin's inequality for new families of integers" (2016)
+      — 2-adic-order structural, no scan.
+    2008.04787 "Analogues of the Robin-Lagarias Criteria" (2020)
+      — odd-number analogue, no scan.
+    1605.08273 "Robin's inequality, Lagarias' criterion, and RH" (2016)
+      — claimed proof (unverified), no scan.
+  verdict: no prior full-n scan of [1e10,1e11); not pre-empted.
+FALSIFICATION TESTS (pre-registered, constraint 4):
+  SA scan (robin_sa_1e11.py, (1e10,1e11]):
+    F1: sigma(n) == sympy divisor_sigma for all 6 SA numbers in range.
+        Any mismatch => b-file/formula bug => SA_REF invalid.
+    F2 (regression): SA max in (1e9,1e10] reproduces claim #30's
+        12-sig-digit display 0.973669798383 at n=6983776800.
+        Fail => R() formula drift.
+    F3 (WITNESS, constraint 5): R(n) >= 1 for ANY SA n in (1e10,1e11]
+        => RH FALSE => STOP, page owner.
+  Full scan (robin_full_scan.py [1e10, 1e11), L=1e8, SA_REF from SA scan):
+    F1: sieve sigma == sympy for SA numbers in range + edges + 20 random n.
+    F2 (WITNESS): R(n) >= 1 for ANY n in [1e10,1e11) => RH FALSE => STOP.
+    F3a: full-scan max R >= SA max R (50 digits, in-script).
+    F3b: 12-sig-digit display of full-scan max == SA_REF.
+  Idea is WRONG if: any F1/F3a/F3b fails (sieve or formula bug), or an F2
+  witness hits (in which case the idea is right and RH is dead).
+machine (SA scan, evidence/2026-08-24-robin-1e11/sa-scan.txt, rc=0):
+  F1 sigma(SA in (1e10,1e11]) == sympy divisor_sigma: checked=6 mismatches=0: PASS
+  F2 regression (1e9,1e10] SA max: n=6983776800 display=0.973669798383
+    (expect 0.973669798383 at 6983776800): PASS
+  F3 witness R(n)>=1 among SA in (1e10,1e11]: hits=0: PASS
+  SA near-miss (1e10,1e11]: max R = 0.9720158869800256 at n = 13967553600
+    (sigma=76195123200); 1-R = 0.02798411302
+  F3b reference for full scan: 12-sig-digit display = 0.97201588698
+  VERDICT: ALL CHECKS PASS
+  (SA values in range: 13967553600 R=0.97201588698, 80313433200 R=0.968132341438,
+   20951330400 R=0.967116969106, 27935107200 R=0.966870417839,
+   41902660800 R=0.966026665306, 48886437600 R=0.965574975876;
+   next SA after 1e11: 160626866400)
+change: robin_sa_1e11.py added; full scan launched:
+  systemd-run --user --unit=robin-full-1e11.service
+  (robin_full_scan.py 1e10 1e11+1 1e8 0.97201588698; own cgroup; output ->
+  evidence/2026-08-24-robin-1e11/full-run.txt).
+machine (full scan startup, full-run.txt):
+  "range [10000000000,100000000001)  subseg width 100000000  primes<=316227: 27293  SA in range: 6"
+  "subseg 1: [10000000000,10100000000) running best_R=0.926465485047 at n=10046836800 (40.1s)"
+  systemctl is-active: active. 100 subsegs x ~40s => ETA ~11:45Z.
+also checked this tick (both progressing):
+  lagarias-all-check.service: active, in F2b stage (22 min in; F1a/F1b/F1c/F2c
+    already PASS in promote-run.txt); ETA ~11:10Z.
+  mertens-1e12.service: 4000/10000 segments, maxabs=294816 (unchanged).
+  zero-scan-1e5.service: coarse 225000/999990 (22.5%).
+next: (a) E: lagarias-all-check.service -> inactive => read promote-run.txt,
+  expect CHECK PASS + promote line; verify #36 -> NUMERIC (promote.sh list).
+  If patched F2b assert fails -> #36 scoped to n<=10810800, F2b = wall.
+  (b) D: robin-full-1e11.service ~11:45Z: F1-F3b, then promote claim
+  (Robin full scan [1e10,1e11): max R, no witness). (c) D: mertens-1e12
+  ~19:10Z. (d) D: zero scan ~08-27. (e) OWNER: PNT+ PR. (f) B: PARKED.

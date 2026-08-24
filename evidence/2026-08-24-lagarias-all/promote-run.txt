@@ -70,3 +70,23 @@ no computed decrease: True
 VERDICT F1b: PASS
 total 3.2s
 ### F1c (B_n increasing to 1e10)
+scan: 9989999999 gaps checked (n in [10000000, 9999999999]), 248.9s
+min gap: 7.524648e-12 at n=9999123573 (gap B_9999123574-B_9999123573)
+gap at n=9999999999: 7.555734e-12
+ERR_H_c=1.0e-14  LIP_c=6.737  ERR_B_c=7.737e-14  ERR_GAP_c=1.547e-13
+min_gap / ERR_GAP_c = 4.863e+01  (spec requires > 10)
+spot checks: 202 points (min-gap endpoints + 200 random, seed 181)
+max |B_100dig - B_64| = 2.220e-14 at n=3894381122  (spec requires < 1e-12)
+no computed decrease: True
+VERDICT F1c: PASS
+total 248.9s
+### F2c (b-file == record-holders, n<=10810800, exact)
+sieve 17.6s; record-holder scan 19.7s
+strict record-holders (exact): 38
+b-file entries <= 10810800: 38
+last 6 holders:   [2162160, 3603600, 4324320, 7207200, 8648640, 10810800]
+last 6 b-file:    [2162160, 3603600, 4324320, 7207200, 8648640, 10810800]
+holders in (1e7, 10810800]: [10810800]
+VERDICT F2c: PASS
+total 19.7s
+### F2b (no record-holder in (10810800,1e10], exact) [SLOW ~30-40 min]
