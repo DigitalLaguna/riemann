@@ -1,0 +1,20 @@
+gaps in (1e7,1e10]: 17
+gap (10810800,21621600) width=10810800 T0=4.778866: DFS nodes=13921863, candidates checked, max_prod_below(b/Q)=4.375000
+gap (21621600,36756720) width=15135120 T0=4.855944: DFS nodes=22500888, candidates checked, max_prod_below(b/Q)=4.375000
+gap (36756720,61261200) width=24504480 T0=4.896750: DFS nodes=35685070, candidates checked, max_prod_below(b/Q)=4.375000
+gap (61261200,73513440) width=12252240 T0=4.933476: DFS nodes=42059134, candidates checked, max_prod_below(b/Q)=4.375000
+gap (73513440,122522400) width=49008960 T0=4.975730: DFS nodes=66603828, candidates checked, max_prod_below(b/Q)=4.375000
+gap (122522400,147026880) width=24504480 T0=5.013048: DFS nodes=78456087, candidates checked, max_prod_below(b/Q)=4.375000
+gap (147026880,183783600) width=36756720 T0=5.015220: DFS nodes=95847918, candidates checked, max_prod_below(b/Q)=4.375000
+gap (183783600,367567200) width=183783600 T0=5.059975: DFS nodes=178221851, candidates checked, max_prod_below(b/Q)=4.812500
+gap (367567200,698377680) width=330810480 T0=5.141588: DFS nodes=315722694, candidates checked, max_prod_below(b/Q)=4.812500
+gap (698377680,735134400) width=36756720 T0=5.154474: DFS nodes=330447124, candidates checked, max_prod_below(b/Q)=4.812500
+gap (735134400,1102701600) width=367567200 T0=5.182394: DFS nodes=473483409, candidates checked, max_prod_below(b/Q)=4.812500
+gap (1102701600,1163962800) width=61261200 T0=5.184434: DFS nodes=496700360, candidates checked, max_prod_below(b/Q)=4.812500
+gap (1163962800,1396755360) width=232792560 T0=5.193133: DFS nodes=583618129, candidates checked, max_prod_below(b/Q)=4.812500
+gap (1396755360,2327925600) width=931170240 T0=5.237611: DFS nodes=915652491, candidates checked, max_prod_below(b/Q)=4.812500
+gap (2327925600,2793510720) width=465585120 T0=5.276893: DFS nodes=1074751867, candidates checked, max_prod_below(b/Q)=4.812500
+gap (2793510720,3491888400) width=698377680 T0=5.279179: DFS nodes=1307024214, candidates checked, max_prod_below(b/Q)=5.213542
+gap (3491888400,6983776800) width=3491888400 T0=5.326290: DFS nodes=2392546852, candidates checked, max_prod_below(b/Q)=5.213542
+VERDICT F2b: PASS (no record-holder in any of the 17 gaps)
+total 3410.0s

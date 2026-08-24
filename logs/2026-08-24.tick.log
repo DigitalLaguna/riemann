@@ -522,3 +522,45 @@ next: (a) E: when f2b-run.txt shows "VERDICT F2b: PASS", run
   If F2b DEAD -> extension claim scoped to n<=10810800, F2b = the wall.
   (b) D: mertens-1e12 ~08-24 19:10Z (F1-F6+C1-C7, M(1e12) vs OEIS A084237
   a(12)=62366). (c) D: zero scan ~08-27.
+
+================================================================
+TICK 183 (2026-08-24T10:00Z, local model)
+track: E (Lagarias SA restriction, macarevey-2026; continuation of 177-182)
+plan: obtain the F2b verdict (sole blocker for #36); if PASS, launch the
+  promote unit in the background.
+state at tick start (machine-verified):
+  F2b RUNNING (lagarias-f2b.service, 51 min elapsed, output buffered 0 bytes)
+  mertens-1e12: 3600/10000 segments, maxabs=294816
+  zero-scan-1e5: 220000/999990 (22%)
+why not in DEAD_ENDS: F2b is an in-flight leg of the E attempt, not a
+  previously-tried approach.
+F2b VERDICT (machine, evidence/2026-08-24-lagarias-bseq/f2b-run.txt):
+  17 gaps in (1e7,1e10]; per-gap DFS node counts 1.39e7 .. 2.39e9 (sum
+  ~8.0e9, matches the pre-registered estimate); no m in any gap with
+  sigma(m)/m > sigma(a)/a (exact Fraction).
+  "VERDICT F2b: PASS (no record-holder in any of the 17 gaps)"
+  "total 3410.0s" (57 min; the 38-min estimate was calibrated on the smallest
+  gap, larger gaps are slower per node).
+  Completeness assert passed all 17 gaps; worst margin: gap
+  (3491888400,6983776800): 5.213542 < 5.326290.
+ANOMALY RESOLVED (constraint 7): docstring claimed the completeness check
+  verifies max prod < T0*(q-1)/q, but the code assert only checked
+  mpb < T0f — 0.001% weaker than the argument requires (min of (q-1)/q over
+  primes q > Q is 100002/100003). Actual margin >= 2% on all gaps, so the
+  strict bound holds; patched the assert in lagarias_f2b.py to
+  `mpb < T0f*(QMIN-1)/QMIN` (QMIN = nextprime(Q) = 100003) so the promote
+  re-run machine-checks the strict form.
+change: F2b PASS (evidence committed); lagarias_f2b.py assert tightened;
+  promote unit launched:
+  systemd-run --user --unit=lagarias-all-check.service (check.sh re-runs
+  F1a,F1b,F1c,F2c,F2b,F3,F4 then promote.sh promote 36 NUMERIC; output ->
+  evidence/2026-08-24-lagarias-all/promote-run.txt; ~65 min, F2b-dominated;
+  own cgroup, survives ticks).
+next: (a) E: when lagarias-all-check.service goes inactive, read
+  promote-run.txt: expect "CHECK PASS" + promote line; verify #36 -> NUMERIC
+  via `bash tools/promote.sh list`. If patched F2b assert fails -> #36 scoped
+  to n<=10810800, F2b = the wall (DEAD_ENDS). (b) D: mertens-1e12 ~08-24
+  19:10Z (3700/10000, maxabs=294816): F1-F6+C1-C7, M(1e12) vs OEIS A084237
+  a(12)=62366, promote record. (c) D: zero scan ~08-27 (22%).
+  (d) OWNER: PNT+ PR (form + `propose #N` on #816). (e) B: PARKED until
+  week-2 review (08-29).

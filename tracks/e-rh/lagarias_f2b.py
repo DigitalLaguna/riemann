@@ -14,20 +14,22 @@ Method:
   sigma(m)/m = prod_{p^k||m}(1-p^{-(k+1)})/(1-1/p) < prod_{p|m} p/(p-1)).
   COMPLETENESS BOUND: let q = largest prime factor of a candidate m, m = R q^k,
   R q-smooth, R < b/q. Then prod_{p|R} p/(p-1) > T0 (q-1)/q. If q > Q = 1e5,
-  then R < b/Q and max_{R < b/Q} prod_{p|R} p/(p-1) < T0 (q-1)/q < T0 for every
-  gap (verified below per gap), contradiction. Hence q <= Q and the DFS over
-  primes <= Q is complete.
+  then R < b/Q and max_{R < b/Q} prod_{p|R} p/(p-1) < T0 (q-1)/q for every
+  gap (verified below per gap, with (q-1)/q replaced by its minimum
+  (QMIN-1)/QMIN over primes q > Q, QMIN = nextprime(Q) = 100003),
+  contradiction. Hence q <= Q and the DFS over primes <= Q is complete.
   DFS enumerates every Q-smooth m in (a,b) exactly once (increasing-prime
   order), tracks prod_{p|m} p/(p-1) as a float for pruning, and for each m with
   float prod > T0 checks sigma(m)/m > T0 exactly (Fraction).
 """
 import sys, time
 from fractions import Fraction
-from sympy import divisor_sigma, primerange
+from sympy import divisor_sigma, primerange, nextprime
 
 Q = 10**5
 BFILE = "evidence/2026-08-24-lagarias-sa/a004394.txt"
 PRIMES = list(primerange(2, Q + 1))
+QMIN = nextprime(Q)  # smallest prime > Q (= 100003)
 PF = [p / (p - 1) for p in PRIMES]   # float p/(p-1)
 
 def parse_bfile(path, bound):
@@ -87,9 +89,11 @@ def main():
     for (a, b) in gaps:
         T0 = sigma_frac(a)
         T0f = float(T0)
-        # completeness check: max prod for R < b/Q must be < T0 (q-1)/q < T0
+        # completeness check: a candidate with largest prime factor q > Q
+        # needs prod_{p|R} p/(p-1) > T0*(q-1)/q >= T0*(QMIN-1)/QMIN with R < b/Q
         mpb = max_prod_below(b // Q + 1)
-        assert mpb < T0f, f"completeness bound fails for gap ({a},{b}): {mpb} >= {T0f}"
+        need = T0f * (QMIN - 1) / QMIN
+        assert mpb < need, f"completeness bound fails for gap ({a},{b}): {mpb} >= {need}"
         n0 = nodes[0]
         dfs(1, 1.0, 0, a, b, T0f, T0)
         dn = nodes[0] - n0
