@@ -1,0 +1,13 @@
+# Corrigendum check for bellotti-trudgian-yang-2026 (arXiv:2603.21490)
+# Fetched: 2026-08-24T16:16:25Z
+# Source: https://arxiv.org/abs/2603.21490
+
+## Verbatim arXiv abs page (relevant lines)
+  [Submitted on 23 Mar 2026]</div>
+              <a href="https://arxiv.org/abs/2603.21490v1">arXiv:2603.21490v1</a> [math.NT]</span> for this version)
+      <h2>Submission history</h2> From: Timothy Trudgian [<a href="/show-email/b7bacad5/2603.21490" rel="nofollow">view email</a>]      <br/>    <strong>[v1]</strong>
+
+## Result
+Only v1 exists (submitted 23 Mar 2026). No v2+ / corrigendum / erratum as of 2026-08-24.
+Consistent with the missing factor of kappa (claim #38): the authors have not
+fixed the final line, so the 4.896 headline stands as published.

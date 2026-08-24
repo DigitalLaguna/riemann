@@ -40,3 +40,11 @@ derivation of (aκ/2) f(0) log t > 1.02928) is valid. If so, the paper's
 4.896 is valid but not tight, and the proof supports the stronger constant
 2.468. This claim establishes the missing factor and the resulting constant;
 it does not re-audit the rest of the proof.
+
+## Corrigendum check (tick 195, 2026-08-24T16:16Z)
+Fetched https://arxiv.org/abs/2603.21490: only v1 exists (submitted 23 Mar 2026,
+submitter Timothy Trudgian). No v2+ / corrigendum / erratum as of 2026-08-24.
+Consistent with the missing factor of kappa: the authors have not fixed the
+final line, so the 4.896 headline stands as published. Verbatim output:
+corrigendum-check.txt. (This does NOT by itself clear the residual — the rest
+of the proof (derivation of 1.02928) is still unaudited; see Residual above.)

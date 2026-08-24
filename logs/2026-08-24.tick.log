@@ -843,3 +843,38 @@ next: (a) C: check for a corrigendum / erratum to bellotti-trudgian-yang-2026
   (c) D: robin-full-1e11 ~21:45Z, mertens-1e12 ~18:05Z, zero-scan ~08-26
   02:00Z (re-measured this tick: robin 363/1000, mertens 7200/10000
   maxabs=331302, zero-scan 245000/999990).
+
+--- tick 195 (2026-08-24 ~16:10-16:22 UTC, qwen3.8-27b) ---
+TRACK C: corrigendum check for bellotti-trudgian-yang-2026 (arXiv:2603.21490).
+plan: the "next" from tick 192 was to check for a corrigendum/erratum to the
+  paper (the #38 residual: whether the authors have issued a corrigendum).
+  Clean, machine-verifiable step (the arXiv abs page shows the version).
+why not in DEAD_ENDS: continuation of the #38 (missing factor of kappa) work
+  (ticks 188, 192, 194); no dead end touches the corrigendum question.
+gate: track C OPEN (4/4 seeds carded, bellotti-trudgian-yang-2026 PASS).
+prior-art pre-flight: not a new attempt (corrigendum check for the existing
+  machine-verified claim #38); source paper carded (lit/cards/).
+machine (https://arxiv.org/abs/2603.21490, fetched 2026-08-24T16:16Z, verbatim):
+  "[Submitted on 23 Mar 2026]"
+  "arXiv:2603.21490v1"  (only v1)
+  "Submission history: From: Timothy Trudgian ... [v1]"  (only v1)
+  => Only v1 exists. No v2+ / corrigendum / erratum as of 2026-08-24.
+RESULT: the authors have NOT fixed the final line (consistent with the missing
+  factor of kappa, claim #38). The 4.896 headline stands as published. This
+  does NOT by itself clear the #38 residual: the rest of the proof (the
+  derivation of 1.02928) is still unaudited.
+change: evidence/2026-08-24-zfree-kappa/corrigendum-check.txt (new, verbatim
+  arXiv output); README.md appended with the corrigendum-check section
+  (append-only). kappa check.sh re-run: CHECK PASS (regression, byte-identical).
+scan status (re-measured 16:20Z):
+  robin-full-1e11.service: subseg 510/1000, best_R=0.972015886980 at
+    n=13967553600 (unchanged; the SA number). ~40.7 s/subseg. ETA ~21:50Z.
+  mertens-1e12.service: 8500/10000 segments, maxabs=331302 (up from 294816).
+    ~4.55 s/seg. ETA ~18:15Z.
+  zero-scan-1e5.service: coarse 255000/999990 (25.5%). ~0.27 s/step (rising).
+    ETA ~08-27 00:00Z.
+next: (a) C: the actual re-optimization (vary a_k / smoothing, minimize 1/A*)
+  — not started; the next C step after the corrigendum check. (b) D:
+  mertens-1e12 ~18:15Z: F1-F6 + C1-C7, M(1e12) vs OEIS A084237 a(12)=62366,
+  promote record. (c) D: robin-full-1e11 ~21:50Z: F1/F2/F3a/F3b, promote.
+  (d) D: zero scan ~08-27 00:00Z. (e) OWNER: PNT+ PR. (f) B: PARKED.
