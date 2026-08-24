@@ -430,3 +430,40 @@ pre-registration (falsification tests, BEFORE run):
        => RH FALSE => STOP, write disproof_candidate.md, page owner.
   F4: sigma(n) for the SA n <= 1e10: sympy.divisor_sigma == independent
        trial-division factorization (exact). DEAD on any mismatch.
+
+================================================================
+TICK 179 (2026-08-24T07:54Z, local model)
+track: E (continuation of tick 177/178 attempt: Lagarias SA restriction, macarevey-2026)
+plan: run pre-registered F3 (witness, constraint 5) + F4 (sigma cross-check) on the
+  55 b-file SA entries <= 1e10; promote the scoped claim.
+why not in DEAD_ENDS: tick 177 pre-registered F1a-F4 (log above); tick 178 fetched
+  the b-file and timed out before writing any script; F3/F4 not yet run.
+monitoring (machine):
+  zero-scan-1e5.service: 205000/999990 (20.5%), 0.312 s/step over [160000,205000]
+    (tick 171 -> now); ETA ~08-27 04:00Z, inside validity window [08-27,08-30].
+  mertens-1e12.service: 2000/10000 segments, maxabs=170358 (record so far,
+    > 94909 @1e11 claim #27); ~5 s/segment; ETA ~08-24 19:10Z.
+work:
+  1. b-file sanity: 55 plain-integer entries <= 1e10, strictly increasing,
+     first=1, last=6983776800 == argmax of claim #31 (consistent).
+  2. wrote tracks/e-rh/lagarias_sa_check.py (F3: 100-digit margins, threshold
+     1e-80, same method as claim #10; F4: exact trial-division sigma vs sympy).
+  3. FIRST RUN: F4 DEAD — 53/55 mismatches; bug in my own sigma_trial
+     (k=d should be k=1, missing the d^1 term; n=4: trial=13 vs sympy=7).
+     The "witness" was bogus (sigma too large). Fixed; spot-checked sigma_trial
+     vs sympy on 216 values (0 mismatches, seed 179).
+  4. RE-RUN (evidence/2026-08-24-lagarias-sa/f3f4-run.txt):
+     F4: sigma cross-check 55/55 (trial division vs sympy): PASS
+     F3: NO WITNESS among 55 SA n <= 1e10 (all margins > 1e-80 at 100 digits);
+        min margin 0.317168543411802178318076190657731331426992001541688388494929786324983712271535441221974808112455188136501644843008242305975017947822367428845045266213
+        at n=2 (150-dps re-evaluation agrees to ~34 digits)
+  5. check.sh written + run: CHECK PASS. promoted #34 NOTE -> NUMERIC.
+change: #34 NUMERIC (scoped: the 55 b-file SA entries <= 1e10; extension to ALL
+  n <= 1e10 awaits F1a/F1b + F2/F2b).
+next: (a) E: F1a (B_{n+1}-B_n > 0 for 1<=n<=54 at 100 digits, B_n =
+  (H_n + e^{H_n} log H_n)/n) + F1b (B_n strictly increasing to 1e7, float64 EM
+  + 100-digit spot checks); then F2 (b-file == strict sigma(n)/n record holders
+  n <= 1e7, exact sieve) + F2b (no record holder in (1e7,1e10] between
+  consecutive b-file entries). All pass -> promote extension claim.
+  (b) D: mertens-1e12 completes ~08-24 19:10Z: F1-F6 + C1-C7 (M(1e12) vs OEIS
+  A084237 a(12)=62366), promote record. (c) D: zero scan ~08-27 04:00-11:00Z.
