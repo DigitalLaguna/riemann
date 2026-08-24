@@ -151,3 +151,58 @@ next: (a) robin-full-1e10 completes ~03:45 UTC: read run.txt for
   promote.sh add NOTE -> promote NUMERIC. F2 witness HIT => RH FALSE => STOP,
   page owner (constraint 5). (b) zero scan ~08-29 08:00Z (see handoff).
   (c) OWNER: PNT+ PR (see handoff). (d) TRACK B parked until 08-29 review.
+
+## TICK 170 (2026-08-24 ~03:15-03:40 UTC, model qwen3.8-27b, track D)
+one-liner: both scans in flight (robin-full-1e10 subseg 38/100, ETA ~03:53 UTC;
+  zero-scan 155000/999990, ETA ~08-27 09:00Z within [08-27,08-30] window).
+  Bounded step: independently verify the robin scan's running best
+  R(3491888400)=0.967846059640 and the SA_REF R(6983776800)=0.9736697983827134
+  by direct evaluation (sympy factorint + 50-digit mpmath), independent of the
+  segmented sieve. Not in DEAD_ENDS: cross-check of in-flight scan, not a new
+  method.
+gate: all tracks OPEN (21/21 seeds).
+prior-art pre-flight: none new (direct evaluation of two specific n; method =
+  F1-style cross-check already used in #26/#30).
+pre-registered falsification test (BEFORE run):
+  V1: 50-digit R(3491888400) must equal 0.967846059640 to 12 sig digits
+      (scan's running best). Mismatch => scan R-computation or sieve bug.
+  V2: 50-digit R(6983776800) must equal 0.9736697983827134 to 14 digits
+      (SA scan value). Mismatch => SA scan bug => SA_REF (F3b target) wrong.
+  Either mismatch => do NOT trust the full scan's final max until resolved.
+machine said (scan status at 03:15 UTC):
+  robin-full-1e10.service: active (running), subseg 38/100, 1407.3s,
+    running best_R=0.967846059640 at n=3491888400.
+  zero-scan-1e5.service: active (running), coarse 155000/999990 elapsed 31066s;
+    marginal (150k->155k) = 5000/1662 = 3.008 pts/s (declining slowly, consistent
+    with ln(t) work-per-point growth); remaining 844990/3.008 = 280917s = 78.0h
+    -> ETA ~08-27 09:15 UTC, within [08-27,08-30] validity window.
+machine said (V1/V2, independent verification of running best + SA_REF):
+  $ python3 (heredoc, sympy factorint/divisor_sigma + mpmath 50 dps)
+    -> evidence/2026-08-24-robin-full-1e10/verify-running-best.txt
+  n=3491888400 = 2^4*3^3*5^2*7*11*13*17*19 sigma=18598809600
+    R(50d) = 0.96784605963954512188216892126610734007262793664319
+  n=6983776800 = 2^5*3^3*5^2*7*11*13*17*19 sigma=37797580800
+    R(50d) = 0.97366979838271341367761413946036933601121202983457
+  FIRST RUN: V1 FAIL, V2 FAIL -> harness artifact, NOT value mismatch:
+    mp.nstr(r,12) strips the trailing zero ("0.96784605964" != "0.967846059640"),
+    and I compared the 16-sig-digit SA value at 14 sig digits.
+  CORRECTED RUN (same file, appended):
+    R(3491888400) .12f display = 0.967846059640  (scan: 0.967846059640)
+    R(6983776800) 16-sig       = 0.9736697983827134  (SA scan: 0.9736697983827134)
+    V1 (running best, 12-decimal display match): PASS
+    V2 (SA_REF, 16-sig match): PASS
+    VERDICT: ALL CHECKS PASS
+  -> the scan's running best and the F3b target SA_REF are independently
+     verified by direct evaluation; the segmented sieve's R-computation is
+     trusted for the final max. Note: script nstr = mp.nstr(x,16) (16 sig
+     digits) for the final max-R line.
+  -> n=3491888400 is itself a superabundant number (2nd in the SA list for
+     [1e9,1e10)); the SA argmax n=6983776800 lies in subseg 60 (not yet
+     scanned), so the final full-scan max must be >= 0.9736697983827134 (F3a).
+anomaly resolved (constraint 7): the 4th argv 0.973669798383 = SA_REF, the
+  12-sig-digit display of the SA-scan max R in [1e9,1e10) (source:
+  evidence/2026-08-24-robin-1e10/sa-scan.txt, "F3b reference for full scan");
+  used only by the F3b regression check. No unexplained constant.
+next: tick 171/172 (~03:45-04:16 UTC): robin-full-1e10 completes ~03:53 UTC ->
+  read run.txt for "ROBIN-FULL-1e10 DONE rc=0" + "VERDICT: ALL CHECKS PASS",
+  bash check.sh, promote NOTE->NUMERIC. If F2 witness HIT => RH FALSE => STOP.

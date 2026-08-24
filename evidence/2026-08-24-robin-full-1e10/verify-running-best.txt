@@ -1,0 +1,20 @@
+independent verification (sympy factorint/divisor_sigma, mpmath 50 dps)
+n=3491888400 factors={2: 4, 3: 3, 5: 2, 7: 1, 11: 1, 13: 1, 17: 1, 19: 1} sigma=18598809600
+  R(50d) = 0.96784605963954512188216892126610734007262793664319
+  scan running best expected = 0.967846059640
+  12-sig display = 0.96784605964
+
+n=6983776800 factors={2: 5, 3: 3, 5: 2, 7: 1, 11: 1, 13: 1, 17: 1, 19: 1} sigma=37797580800
+  R(50d) = 0.97366979838271341367761413946036933601121202983457
+  SA scan / SA_REF expected = 0.9736697983827134
+  12-sig display = 0.973669798383
+
+V1 (running best 12-sig match): FAIL
+V2 (SA_REF 14-sig match): FAIL
+VERDICT: MISMATCH - INVESTIGATE
+CORRECTED (harness fix: .12f = 12 decimal places; SA value = 16 sig digits):
+  R(3491888400) .12f display = 0.967846059640  (scan: 0.967846059640)
+  R(6983776800) 16-sig       = 0.9736697983827134  (SA scan: 0.9736697983827134)
+V1 (running best, 12-decimal display match): PASS
+V2 (SA_REF, 16-sig match): PASS
+VERDICT: ALL CHECKS PASS

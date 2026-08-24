@@ -1,4 +1,4 @@
-# HANDOFF — session 2026-08-24 ~03:00 UTC (tick 169)
+# HANDOFF — session 2026-08-24 ~03:20 UTC (tick 170)
 # track: D | gate: all tracks OPEN (21/21 seeds)
 
 ## State
@@ -6,30 +6,34 @@
 3 FORMAL (A: #2 PNT+ local build, #12 IK lemmas v1 [SUPERSEDED by #25], #25 IK
 lemmas v2), 11 NOTE (#1,#5,#11,#13->#12,#14,#15,#16,#17,#19->#18,#28,#29).
 Track D: 8 NUMERIC + 1 NOTE (#28 S(t) scan). TWO scans in flight:
-1. zero-scan-1e5.service: 15.0% (150000/999990), marginal 3.02 pts/s,
-   ETA ~08-29 08:00Z (validity window [08-27,08-30]).
-2. robin-full-1e10.service: launched tick 169 (pid 780213), full Robin scan
-   [1e9,1e10) no reduction, L=1e8, ETA ~53 min -> ~03:45 UTC.
+1. zero-scan-1e5.service: 15.5% (155000/999990), marginal 3.008 pts/s,
+   ETA ~08-27 09:15Z (validity window [08-27,08-30]).
+2. robin-full-1e10.service: subseg 44/100 at 03:18Z, 37.1 s/subseg,
+   ETA ~03:53 UTC. Running best_R=0.967846059640 at n=3491888400 (an SA number).
 
 ## Last work
-Tick 169: tick 168's full Robin scan [1e9,1e10) launch was UNVERIFIED (log
-entry ends before any launch output; at 169: no process, no unit, no output
-file) -> A-005 class. Machine: (1) regression of the tick-167 generalized
-robin_full_scan.py argv path on [1e8,3e8): max R = 0.9643557569555255 at
-n=183783600, VERDICT ALL CHECKS PASS rc=0 — matches run2.txt exactly (R1 PASS).
-(2) relaunched full scan as systemd transient unit robin-full-1e10.service:
-active (running), run.txt header "range [1000000000,10000000001) subseg width
-100000000 primes<=100000: 9592 SA in range: 7" (R2 PASS; SA count 7 == #30).
-Zero scan: 150000/999990, marginal 3.017 pts/s (145k->150k), ETA unchanged.
-check.sh committed for the full scan (verifies run.txt self-checks).
+Tick 170: both scans verified alive + progressing (robin subseg 38->44 during
+tick; zero 155000/999990). Bounded step: independent verification of the robin
+scan's running best + F3b target by direct evaluation (sympy factorint +
+50-digit mpmath, independent of the segmented sieve):
+  R(3491888400)=0.9678460596395451... -> .12f display 0.967846059640 == scan (V1 PASS)
+  R(6983776800)=0.97366979838271341367... == SA scan 0.9736697983827134 (V2 PASS)
+  VERDICT: ALL CHECKS PASS (evidence/2026-08-24-robin-full-1e10/verify-running-best.txt).
+  First run showed V1/V2 FAIL = harness artifact (mp.nstr strips trailing zero;
+  14-vs-16 sig-digit miscount), resolved in-tick by corrected comparison.
+  Anomaly resolved (constraint 7): 4th argv 0.973669798383 = SA_REF (12-sig
+  display of SA-scan max R in [1e9,1e10), sa-scan.txt), used only by F3b.
+  NOTE: SA argmax n=6983776800 is in subseg 60 (not yet scanned) -> final
+  full-scan max must be >= 0.9736697983827134 (F3a). Script nstr = 16 sig digits.
 
 ## Next action
-(a) TRACK D: robin-full-1e10 completes ~03:45 UTC: read
+(a) TRACK D: robin-full-1e10 completes ~03:53 UTC (tick 171 or 172): read
     evidence/2026-08-24-robin-full-1e10/run.txt for "ROBIN-FULL-1e10 DONE rc=0"
     + "VERDICT: ALL CHECKS PASS"; bash evidence/2026-08-24-robin-full-1e10/check.sh;
-    promote.sh add NOTE -> promote NUMERIC. If F2 witness HIT => RH FALSE =>
-    STOP, page owner (constraint 5).
-(b) TRACK D: zero scan completes ~08-29 08:00Z: read
+    promote.sh add NOTE -> promote NUMERIC (max R + argmax + 1-R + F1/F2/F3a/F3b).
+    Expect max R >= 0.9736697983827134 (SA floor). If F2 witness HIT => RH FALSE
+    => STOP, page owner (constraint 5).
+(b) TRACK D: zero scan completes ~08-27 09:15Z: read
     evidence/2026-08-23-zero-scan/full-run.txt for "ZERO-SCAN-1e5 DONE rc=0";
     F5a/b/c + F3/F4 verdicts + max/min g [1,1e5] -> NOTE via promote.sh
     (pilot was [1,1e3]-scoped only). Cross-check: zero count >= 134011.
@@ -58,8 +62,8 @@ check.sh committed for the full scan (verifies run.txt self-checks).
 
 ## Budget
 Week-1 reweight A30/B40/D15/C10/E5 stands. D 8 NUMERIC + 1 NOTE (#28).
-In flight: zero scan [1,1e5] (15.0%, ETA ~08-29 08:00Z) + robin full scan
-[1e9,1e10) (~53 min, ETA ~03:45 UTC). Next review 2026-08-29 (week 2):
+In flight: zero scan [1,1e5] (15.5%, ETA ~08-27 09:15Z) + robin full scan
+[1e9,1e10) (44%, ETA ~03:53 UTC). Next review 2026-08-29 (week 2):
 milestone check + spot-check 3 cards vs PDFs + decide B next step.
 Week-4 kill (09-17): Lean PR upstream + Polymath15 to 2 sig figs — numerics
 leg met (#7,#9,#18); PR leg still the risk.
