@@ -669,3 +669,40 @@ next: (a) D: robin-full-1e11.service ~11:45Z -> read full-run.txt (expect
   (b) D: mertens-1e12 ~18:15Z: F1-F6+C1-C7, M(1e12) vs OEIS A084237
   a(12)=62366, promote record. (c) D: zero scan ~08-27. (d) OWNER: PNT+ PR.
   (e) B: PARKED until 08-29 review.
+
+TICK 186 (2026-08-24 ~11:31-11:50Z, qwen3.8-27b)
+attempt: bounded wait for robin-full-1e11.service (handoff ETA 11:45Z), then
+  run pre-registered F1-F3b checks and promote the Robin full-scan claim.
+  Why not in DEAD_ENDS: scan in flight; checks pre-registered tick 184.
+machine:
+  systemctl --user status robin-full-1e11.service: "Active: active (running)
+    since Mon 2026-08-24 12:33:33 CEST; 57min ago", Main PID 812696;
+    full-run.stderr: 0 bytes (clean).
+  full-run.txt (11:42Z): "subseg 103: [20200000000,20300000000) running
+    best_R=0.972015886980 at n=13967553600 (4113.2s)"
+  ANOMALY (resolved): tick-184/handoff ETA "11:45Z" assumed 100 subsegs;
+    the loop is `for a in range(A, B, L)` with A=1e10, B=1e11+1, L=1e8
+    -> 901 subsegs (last is the 1-element [1e11,1e11+1)). ~40s/subseg
+    (constant: per-subseg cost depends only on primes<=316227, not on
+    position) -> ETA ~20:30Z. Agent arithmetic error, not a scan error:
+    best_R unchanged since subseg 1 (argmax 13967553600 < 2e10, in the
+    first 11% of the range), stderr clean, rate steady 39.9-40.9s/subseg.
+  mertens-1e12.service: active; run.stderr (11:43Z): "progress: 5000/10000
+    segments, maxabs=294816"; started 05:24Z -> 4.55s/seg -> ETA ~18:00Z
+    (handoff 18:15Z, consistent).
+  zero-scan-1e5.service: active; full.stderr: "coarse 230000/999990 elapsed
+    60296s" (23%); 0.262s/step -> ETA ~08-26 21:00Z (handoff 08-27,
+    consistent).
+change: evidence/2026-08-24-robin-1e11/check.sh added (modeled on
+  evidence/2026-08-24-robin-full-1e10/check.sh; greps exact F1/F2/F3a/F3b/
+  VERDICT/DONE lines, SA_REF=0.97201588698). Ran now: "CHECK FAIL" rc=1 as
+  expected (run not done; range-header check passed, all 6 pending lines
+  missing).
+next: (a) D: when robin-full-1e11.service goes inactive (~20:30Z):
+  `bash evidence/2026-08-24-robin-1e11/check.sh` (expect CHECK PASS), then
+  promote.sh add + promote NUMERIC (claim text modeled on #31, with final
+  max R / n / sigma / 1-R from full-run.txt). (b) D: mertens-1e12 ~18:00Z:
+  F1-F6+C1-C7, M(1e12) vs OEIS A084237 a(12)=62366, promote record.
+  (c) D: zero scan ~08-26 21:00Z: F5a/b/c + F3/F4 + max/min g [1,1e5].
+  (d) OWNER: PNT+ PR (pr-body.md rev 2) + `propose #<PR>` on #816.
+  (e) B: PARKED until 08-29 review.
