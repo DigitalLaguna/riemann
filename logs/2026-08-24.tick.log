@@ -1141,3 +1141,18 @@ next: (a) C: A0_max audit REMAINING caveats per #42 — Lemma 6 (A-range) + Lemm
   win shrinks. NEW attempt -> prior-art pre-flight first. (b) D:
   mertens-1e12-promote.service ~08-25 07:00Z (promote #39). (c) D: zero scan
   ~08-27 (27.5%). (d) OWNER: PNT+ PR. (e) B: PARKED 08-29 review.
+
+--- tick 208 (22:53Z) TRACK C: A0_max remaining-caveat audit (Lemma 5 internal + Lemma 6 A-range) ---
+PRIOR-ART PRE-FLIGHT (new attempt):
+  q1: grep BTY-2026 (arXiv:2603.21490) for "Lemma 5"/"Lemma 6"/"C(138, 138)"/"C(-1, T0" ->
+      found proof of Lemma 5 (p.9-10) + Lemma 6 statement (p.11); the internal bounds
+      (B(y)>0, eta0^2 C(138,138) < eps0 (2sigma0-1) w(0), eq-22 C(-1,T0/eta0) term) are
+      stated in the proof but NOT separately tabulated -> no prior re-audit in the paper.
+  q2: grep our ledger #42 + evidence/2026-08-24-zfree-a0max/ -> existing audit covers only
+      Lemma 5 MAIN ((2sigma0-1)/eta0>138), Lemma 13, Lemma 14. Internal bounds NOT yet audited.
+  q3: arXiv sweep (today's, claim #32) -> no new paper re-optimizing BTY Lemma 5 internals.
+  CONCLUSION: not already done; proceed.
+FALSIFICATION TEST (pre-registered): if ANY of {B(y)>0 fails (p has a real root),
+  eta0^2 C(138,138) >= eps0 (2sigma0-1) w(0) at A0=0.205470026688, eq-22 W0-term >= 5.7 T0,
+  or A0_max <= 1/6} then the 4.8669 win SHRINKS (record new binding A0). Otherwise the
+  PARTIAL win 4.866889911 is CONFIRMED (all internal constraints hold at A0_max).
