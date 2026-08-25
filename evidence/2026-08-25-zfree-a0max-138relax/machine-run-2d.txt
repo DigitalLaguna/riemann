@@ -1,0 +1,6 @@
+A0=0.3242049542  L=86.79168904  C(L,L)=21.81499434
+
+2D scan: min C(nu,r) over nu,r in [tanθ, L]  (tanθ=2.1408)
+  grid min: nu=50.815273 r=86.791903 C=21.81499267
+  C(L,L)   = 21.81499434   (ratio gridmin/C(L,L) = 1.0)
+  min over r of C(L,r): r=86.791903 C=21.81499267

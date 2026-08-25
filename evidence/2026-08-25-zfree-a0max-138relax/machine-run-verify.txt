@@ -1,0 +1,15 @@
+=== VERIFY all constraints at A0_new = 0.324204954225 ===
+  (L = 86.79168904, eta0 = 0.01128468817, sigma0 = 0.9897085733)
+[1] relaxed Lemma5 g(A0_new) = 1.0  (binding: g=1 by construction)
+[2] C(138,138) internal: LHS=0.002746920815 RHS=0.002778012722 holds? True
+[3] B(y)>0: A0-independent (verified #44)  holds? True
+[4] eq22 W0-term: LHS=0.005396973366 RHS=5.7e+10 ratio=9.468e-14 holds? True
+[5] Lemma6 A0>1/6: 0.3242049542 > 0.16667? True
+[6] Lemma14 x1(m=1) = 0.9691257199 > 0? True
+[7] Lemma13: 51*eta0^2/H^2 = 7.216e-28 < 5e-13? True
+
+=== RESULT ===
+all non-binding constraints hold at A0_new? True
+NEW A0_max = 0.324204954225  ->  constant = 1/A0_max = 3.084468596
+  old (paper 138 wall, #42): 1/0.2054700267 = 4.866889911
+  target (full reopt, #40):  1/0.420483467794 = 2.378214785
