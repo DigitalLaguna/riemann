@@ -1,0 +1,4 @@
+theta_min (2*theta*cot(theta)=x_max) = 0.980175494979204
+check: 2*theta_min*cot(theta_min) = 1.31432746286474
+paper: 2*th*cot(th)=1.059232939  -> bound HOLDS (th >= theta_min)
+theta* #46: 2*th*cot(th)=1.997821961  -> bound FAILS (th < theta_min)

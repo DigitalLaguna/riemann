@@ -102,3 +102,43 @@ next: (a) D: mertens promote ~07:00Z. (b) C: next wall = g(A0)<1 at 0.3242;
   path to 2.3782 = better W0 estimate (theta reopt or new C/decomposition)
   - new attempt, prior-art pre-flight first. (c) D: zero scan ~08-29.
   (d) OWNER: PNT+ PR. (e) B: PARKED 08-29.
+
+================================================================
+TICK 219 (2026-08-25 ~04:35 UTC) — TRACK C: m=0-term theta constraint
+  (completes tick 218's half-done step; scripts committed, no outputs)
+================================================================
+One-line: claim #46's theta*=0.0572 maximizes the 7-constraint A0_max
+sub-problem, but the paper's m=0-term Taylor bound (line 2210: "For all
+0 <= x <= 2*theta*cot(theta) = 1.05923293 (at theta=1.1338), e^x -
+(1+x+x^2/2+x^3/6) < x^4/18") is asserted on the theta-dependent range
+[0, 2*theta*cot(theta)] of the m=0 integral (lines 2199-2207), so theta is
+constrained to theta >= theta_min where 2*theta_min*cot(theta_min) = x_max
+= sup{x: bound holds on [0,x]}. Compute theta_min and A0_max at the best
+feasible theta. NOT in DEAD_ENDS.md: #46's README explicitly scoped the
+full-theta re-verification as "the follow-up"; tick 218 started it, died
+before running.
+PRIOR-ART PRE-FLIGHT (2026-08-25 ~04:38 UTC):
+  - sed -n '2195,2230p' lit/text/bellotti-trudgian-yang-2026.txt: m=0 term
+    = integral over [0, 2*theta*cot(theta)]; bound stated on that range;
+    paper evaluates 2*theta*cot(theta) = 1.05923293 at theta=1.1338.
+  - grep "1.05923293|1.3143" -> line 2210 only; the paper never computes
+    x_max or theta_min (it fixes theta=1.1338 "via numerical
+    experimentation", lines 528-529) -> the constraint is novel to our audit.
+  - 2*theta*cot(theta) strictly decreasing on (0,pi/2) (derivative
+    2*(tan-th*sec^2)/tan^2 < 0) -> feasible set is theta >= theta_min.
+FALSIFICATION TEST (pre-registered, before run):
+  - x_max = first crossing of R(x)=e^x-(1+x+x^2/2+x^3/6)-x^4/18 > 0.
+    Expect x_max ~ 1.31 (paper's 1.0592 < x_max, so paper's theta feasible).
+  - DEAD if: the bound HOLDS at theta*=0.0572 (max[R - x^4/18] on
+    [0, 2*theta*cot(theta)] <= 0 there) -> #46's 0.3967 survives in the
+    full theorem and this constraint is spurious (my paper reading wrong).
+  - NO-GAIN if: A0_max(theta_min) <= 0.324204954225 (#45 value) -> the
+    m=0 constraint eats all of #46's gain; theta reopt is a dead end for
+    the full theorem (record dead end).
+  - EXPECTED (PARTIAL): 0.3242 < A0_max(theta_min) < 0.396708119308,
+    attained at theta = theta_min (boundary), since A0_max(theta) decreases
+    for theta > 0.0572 (#46 scans cover (0,pi/2)).
+  - Sanity: theta_min must satisfy 2*theta_min*cot(theta_min) = x_max and
+    0.98 < theta_min < 1.1338 (between paper theta and #46 theta*);
+    m0term check at paper theta=1.1338 must say BOUND HOLDS (validates the
+    reading of the bound's direction).

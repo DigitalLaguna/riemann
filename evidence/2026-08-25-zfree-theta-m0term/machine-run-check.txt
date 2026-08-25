@@ -1,0 +1,24 @@
+V1 x_max = 1.31432746286474  (hardcoded 1.31432746286474) match? True
+V1 theta_min = 0.980175494979203  (hardcoded 0.980175494979204) match? True
+V1 2*theta_min*cot(theta_min) = 1.31432746286474
+V2 bound at theta_min: range [0,1.31432746286] max[R-x^4/18] = 0.0 at x=0.0 -> HOLDS
+V2 bound at theta* #46: range [0,1.99782196124] max[R-x^4/18] = 0.16550656781 at x=1.99782196124 -> FAILS
+V3 at theta_min: A0_g=0.350566297741 A0_r2(C138 internal)=0.352527892494 A0_tan=8.66528307
+V3 A0_max(theta_min) = 0.350566297741  constant = 2.852527486
+[1] g(A0,theta_min) = 1.0 holds? True
+[2] C(138,138) internal: LHS=0.0006756320694 RHS=0.0006833012584 ratio=0.98877627 holds? True
+[3] B(y)>0: A0-independent (verified #44)  holds? True
+[4] eq22 W0-term: LHS=0.001331336452 RHS=5.7e+10 ratio=2.33568e-14 holds? True
+[5] Lemma6 A0>1/6: 0.3505662977 > 0.16667? True
+[6] Lemma14 x1(m=1) = 0.9666153094 > 0? True
+[7] Lemma13: 51*eta0^2/H^2 = 8.437e-28 < 5e-13? True
+V3 all 7 constraints hold at (A0_max(theta_min), theta_min): True
+V4 scan [theta_min, pi/2) N=2001: max A0_max_full = 0.350566297741 at theta = 0.980175494979
+V4 max at left endpoint theta_min? True  value matches A0_max(theta_min)? True
+V4 A0_r2(theta_min) > A0_g(theta_min) (C138 non-binding at boundary)? True
+V5 bracket 0.324204954225 < A0_max < 0.396708119308: True
+
+VERDICT: m=0-term constraint theta >= theta_min = 0.980175494979203; A0_max = 0.350566297741 (constant 2.852527486) at theta = theta_min
+  #45 (theta=1.1338): 0.324204954225 (3.084468596)   #46 infeasible: 0.396708119308 (2.520744979)   target #40: 0.420483467794 (2.378214785)
+OVERALL: ALL PASS
+CHECK PASS
