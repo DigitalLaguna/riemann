@@ -1,0 +1,21 @@
+F1: A0_max(1.1338)=0.324204954225 (#45: 0.324204954225) -> PASS
+
+theta* = 0.05715196073   A0_max* = 0.396708119308   (1/A0_max* = 2.520744979)
+  A0_g(theta*)=0.396708119308  A0_tan(theta*)=15.27215656  tan(theta*)=0.057214268
+  L(A0*)=70.59611619  eta0=0.01380832514  sigma0=0.9874070631
+
+=== VERIFY all 7 constraints at (A0*, theta*) ===
+[1] relaxed Lemma5 g(A0*) = 1.0  (binding g=1)  holds? True
+[2] C(138,138;theta*) internal: LHS=1.378478996e-9 RHS=1.39341449e-9 holds? True
+[3] B(y)>0: A0-independent (verified #44)  holds? True
+[4] eq22 W0-term: LHS=2.726865863e-9 RHS=5.7e+10 ratio=4.784e-20 holds? True
+[5] Lemma6 A0>1/6: 0.3967081193 > 0.16667? True
+[6] Lemma14 x1(m=1) = 0.9622211892 > 0? True
+[7] Lemma13: 51*eta0^2/H^2 = 1.08e-27 < 5e-13? True
+
+F2 all 7 constraints hold at (A0*,theta*): True -> PASS
+F3 0.3242 < A0_max* < 0.4205 (partial win): True -> PASS
+
+VERDICT: theta reopt A0_max* = 0.396708119308 (constant 2.520744979) at theta*=0.057151961
+  #45 (theta=1.1338): 0.324204954225 (3.084468596)   target: 0.420483467794 (2.378214785)
+OVERALL: ALL PASS
