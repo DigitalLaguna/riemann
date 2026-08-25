@@ -1,0 +1,18 @@
+=== F1 pipeline validation at paper theta = 1.1338 ===
+w(0) computed = 5.67278759886  formula = 5.67278759886  paper = 5.672787598  match? True
+w >= 0 on [0, 1.05923] (grid 2001)? min = 0.0 -> True
+c0: computed = 0.876370626206  paper = 0.8763706262  match8? True
+c1: computed = 0.12002727385  paper = 0.1200272738  match8? True
+c2: computed = 0.0203537951785  paper = 0.0203537951  match8? True
+c3: computed = 0.000438272226419  paper = 0.0004382722  match8? True
+c*: computed = 0.0190418913961  paper = 0.0190417514  match8? False
+F1 PIPELINE: FAIL
+
+=== F2 exact m=0 integral ===
+mu0 = (1-sigma0)/eta0 = log H/log(KH+T0) = 0.911981488562 (A0-independent)
+theta* = 0.057151961  2*theta*cot(theta) = 1.997821961
+I(theta*, mu0) = -7.67586050156e-8  -> NEGATIVE
+I(theta*, mu=1 (worst case)) = -1.36632911752e-7  -> NEGATIVE
+I(paper theta, mu0) = 0.994218247199  (reference: paper C1(mu) lower bound)
+I(paper theta, mu=1) = 1.00644898623  (reference: paper C1(mu) lower bound)
+C1(1) (paper-style polynomial, paper theta) = 1.00647152911

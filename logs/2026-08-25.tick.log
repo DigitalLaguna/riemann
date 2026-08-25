@@ -142,3 +142,116 @@ FALSIFICATION TEST (pre-registered, before run):
     0.98 < theta_min < 1.1338 (between paper theta and #46 theta*);
     m0term check at paper theta=1.1338 must say BOUND HOLDS (validates the
     reading of the bound's direction).
+
+TICK 219 (cont., completed at tick 220) — machine + result (the entry above
+  ended before the run; claim #47 was added + promoted NUMERIC in tick 219)
+machine (verbatim, evidence/2026-08-25-zfree-theta-m0term/machine-run-check.txt):
+  V1 x_max = 1.31432746286474 (hardcoded 1.31432746286474) match? True
+  V1 theta_min = 0.980175494979203 (hardcoded 0.980175494979204) match? True
+  V2 bound at theta_min: range [0,1.31432746286] max[R-x^4/18] = 0.0 at x=0.0
+    -> HOLDS
+  V2 bound at theta* #46: range [0,1.99782196124] max[R-x^4/18] =
+    0.16550656781 at x=1.99782196124 -> FAILS
+  V3 A0_max(theta_min) = 0.350566297741  constant = 2.852527486
+  V3 all 7 constraints hold at (A0_max(theta_min), theta_min): True
+  V4 scan [theta_min, pi/2) N=2001: max A0_max_full = 0.350566297741 at
+    theta = 0.980175494979; max at left endpoint theta_min? True
+  V5 bracket 0.324204954225 < A0_max < 0.396708119308: True
+  VERDICT: m=0-term constraint theta >= theta_min = 0.980175494979203;
+    A0_max = 0.350566297741 (constant 2.852527486) at theta = theta_min
+  OVERALL: ALL PASS / CHECK PASS
+result (per pre-registered test): PARTIAL (the EXPECTED branch):
+  0.3242 < 0.3506 < 0.3967. The m=0 Taylor-bound constraint eats most of
+  #46's gain but not all: full-theorem A0_max improves
+  0.324204954225 (3.084468596, #45) -> 0.350566297741 (2.852527486, #47).
+  #46's 0.3967 (2.5207) infeasible (theta* = 0.0572 < theta_min = 0.9802).
+ledger delta: +1 NUMERIC (C: #47). 47 rows: 29 NUMERIC, 3 FORMAL, 15 NOTE.
+next: (a) D: mertens-1e12 promote re-run ETA ~07:00Z. (b) C: is the m=0
+  constraint real or an artifact of the Taylor bound? Compute the EXACT m=0
+  integral at theta* (tick 220). (c) D: zero scan ~08-30. (d) OWNER: PR.
+  (e) B: PARKED 08-29.
+
+================================================================
+TICK 220 (2026-08-25 ~05:05 UTC) — TRACK C: exact m=0 term at theta*
+================================================================
+One-line: #47's m=0 constraint (theta >= theta_min = 0.9802) comes from the
+paper's Taylor-remainder bound R(x) = e^x-(1+x+x^2/2+x^3/6) <= x^4/18, which
+holds only on [0, 1.3143]; the EXACT m=0 integral I(theta,mu) =
+int_0^{2theta cot theta} e^{mu u}(a1 e^{-u}-a0) w(u) du (a0 = 1,
+a1 = 865534/497079, w = Heath-Brown Definition 1) is well-defined for ALL
+theta. If I(theta*, mu) > 0 at theta* = 0.0572, the m=0 constraint is an
+artifact of the Taylor bound and #46's 0.3967 (constant 2.5207) survives.
+NOT in DEAD_ENDS.md: #47 verified the Taylor bound's RANGE; the exact
+integral was never computed.
+PRIOR-ART PRE-FLIGHT (2026-08-25 ~05:10 UTC):
+  - Paper lines 2203-2268: m=0 term = I(theta,mu); lower bound C1(mu) via
+    R(x) <= x^4/18 on [0, 2theta cot theta]; cn = int u^n(a1e^{-u}-a0)w du,
+    c* = int u^3|a1e^{-u}-a0|w du; paper values at theta=1.1338 (line
+    2262-2268): c0=0.8763706262 c1=0.1200272738 c2=0.0203537951
+    c3=0.0004382722 c*=0.0190417514.
+  - Paper line 2289: "Recall that mu0 <= mu <= 1, eta <= eta0 and delta_m >=
+    d_m" -> mu in [mu0, 1], mu0 = (1-sigma0)/eta0 = log H/log(KH+T0)
+    (A0-independent, ~0.9119).
+  - Combination (lines 2290-2300): a1F(sigma-eta) > 6.848eta+15eta^2-708eta^3;
+    (41) m>=1 sum > -2.939eta+11eta^2-3193eta^3; (42) m=0 > C1(mu); "The
+    result follows from combining this bound with (41) and (42)."
+  - w(0) = sec^2(theta)(theta tan theta + 3 theta cot theta - 3) =
+    5.672787598 at theta=1.1338 (line 530) -> second pipeline anchor.
+  - No external paper computes the exact m=0 integral (the paper uses the
+    Taylor bound; the cn are "using computer assistance").
+FALSIFICATION TEST (pre-registered, before run):
+  F1 (pipeline): computed cn (n=0..3) and c* at theta=1.1338 must match the
+    paper's 10-digit values to 8+ digits, and w(0) must match 5.672787598.
+    If not -> my w/a0/a1/integration is wrong; no conclusion from F2.
+  F2 (the question): I(theta*, mu) at theta* = 0.057151961, mu = 1 (worst
+    case: (a1e^{-u}-a0) changes sign at u = log a1 ~ 0.55, e^{mu u} weights
+    the negative tail more as mu grows) and mu = mu0:
+    - DEAD if I(theta*, 1) < 0: exact m=0 term negative at theta* -> the m=0
+      constraint is real (not a Taylor artifact) -> #47's 0.3506 stands;
+      record dead end for "exact m=0 at theta*".
+    - ALIVE if I(theta*, mu) > 0 for mu in {mu0, 1}: exact m=0 term positive
+      at theta* -> m=0 constraint vacuous at theta* (pending full-total
+      check) -> A0_max = 0.3967 (2.5207) survives.
+    - MARGINAL if I(theta*, 1) in (-0.05, 0]: need the full total (m>=1 +
+      a1F bounds at theta*, A0 = 0.3967) next tick.
+machine (verbatim, evidence/2026-08-25-zfree-m0term-exact/machine-run-m0term-exact.txt
+  + machine-run-m0term-exact2.txt):
+  F1 pipeline (theta=1.1338):
+    w(0) computed = 5.67278759886  paper = 5.672787598  match? True
+    w >= 0 on [0,1.05923] (grid 2001)? min = 0.0 -> True
+    c0 = 0.876370626206  paper 0.8763706262  match8? True
+    c1 = 0.12002727385   paper 0.1200272738  match8? True
+    c2 = 0.0203537951785 paper 0.0203537951  match8? True
+    c3 = 0.000438272226419 paper 0.0004382722 match8? True
+    c* (unsplit) = 0.0190418913961 paper 0.0190417514 match8? False  [kink artifact]
+    c* (split at u=log a1 = 0.5545976903) = 0.019041751466834
+      paper 0.0190417514  diff = 6.68e-11  match8? True   -> F1 PIPELINE: PASS
+  F2 exact m=0 integral (100 dps, split+unsplit agree to 1e-40):
+    mu0 = log H/log(KH+T0) = 0.911981488562 (A0-independent)
+    I(theta*, mu0) = -7.67586050155803e-8  -> NEGATIVE
+    I(theta*, mu=1) = -1.36632911752135e-7 -> NEGATIVE
+    I(paper theta, mu0) = 0.994218247199   (reference)
+    I(paper theta, mu=1) = 1.00644898623   (reference)
+  Sign structure I(theta, mu=1):
+    theta=0.02: -2.08e-9   0.05: -8.04e-8   0.0572: -1.37e-7
+    0.1: -1.23e-6   0.3: -4.40e-5   0.5: +7.75e-4
+    0.9802: +0.2280   1.1338: +1.0064
+    -> I(theta,1) < 0 for theta <~ 0.4, zero crossing near theta ~ 0.45,
+       strongly positive at the paper theta.
+result (per pre-registered test): MARGINAL (I(theta*,1) = -1.37e-7 in
+  (-0.05, 0]). The exact m=0 term at theta* is essentially zero (slightly
+  negative, |I| ~ 1e-7). So the m=0 constraint theta >= theta_min (claim
+  #47) is NOT "eating" the gain via the m=0 term's value: the gain from
+  theta* vs theta_min (0.3967 vs 0.3506) comes from the OTHER constraints
+  (g(A0,theta), C(138,138), etc.) being more favorable at smaller theta.
+  The m=0 term is ~0 at theta* anyway. Open question for next tick: does the
+  FINAL COMBINATION (a1F lower bound at theta* + exact m=0 at theta* + m>=1
+  lower bound at theta*) > 0 at (A0 = 0.3967, theta* = 0.0572)? If yes, the
+  m=0 constraint is vacuous at theta* and A0_max = 0.3967 (constant 2.5207)
+  survives (up from #47's 0.3506 / 2.8525).
+ledger delta: +1 NOTE (C: exact m=0 term at theta*). 48 rows: 29 NUMERIC,
+  3 FORMAL, 16 NOTE.
+next: (a) C: full-total check at theta* (a1F + m>=1 lower bounds at theta*,
+  A0 = 0.3967; verify sum + I(theta*,mu) > 0). (b) D: mertens-1e12 promote
+  re-run ETA ~07:00Z. (c) D: zero scan ~08-30. (d) OWNER: PR. (e) B: PARKED
+  08-29.

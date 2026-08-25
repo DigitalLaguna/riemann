@@ -1,0 +1,16 @@
+c* split at u=log(a1)=0.5545976903: 0.019041751466834
+paper c* = 0.0190417514  diff = 6.68e-11  match8? True
+
+=== I(theta*, mu) at 100 dps, split at kink ===
+I(theta*, mu0) = -7.67586050155803e-8  (unsplit: -7.67586050155803e-8, agree? True)
+I(theta*, mu=1) = -1.36632911752135e-7  (unsplit: -1.36632911752135e-7, agree? True)
+
+=== I(theta, mu=1) grid (sign structure) ===
+theta=0.02: I = -2.084326398e-9
+theta=0.05: I = -8.041003772e-8
+theta=0.057151961: I = -1.366329118e-7
+theta=0.1: I = -1.228296741e-6
+theta=0.3: I = -4.404076551e-5
+theta=0.5: I = 0.0007754172906
+theta=0.980175494979: I = 0.2279782725
+theta=1.1338: I = 1.006448986
