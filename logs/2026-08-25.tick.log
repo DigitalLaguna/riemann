@@ -60,3 +60,45 @@ FALSIFICATION TEST (pre-registered, before run):
   Sanity anchor: at A0=1/4.896, L=138.836, and the paper's own C(138,138)
   internal condition holds (per #44: binds at A0=0.3260), so g(1/4.896) must
   be < 1 and close to the #44 ratio.
+
+================================================================
+TICK 214 (2026-08-25 ~02:00-02:15 UTC) — TRACK C: 138 relaxation -> #45 NUMERIC
+================================================================
+One-line: finish the 138-relaxation attempt tick 213 left half-done
+(scripts + outputs existed, no checker/claim): verify outputs against the
+paper, run check.sh, add + promote claim #45. NOT in DEAD_ENDS.md: the
+138 wall itself was never attacked (#42/#44 audited all OTHER internals).
+machine (verbatim):
+  bash check.sh -> "CHECK PASS" RC=0 (re-ran relax138_verify.py, 5 grep
+    assertions: NEW A0_max = 0.324204954225; constant = 3.084468596;
+    all non-binding constraints hold? True; 4.866889911 sanity;
+    relaxed Lemma5 g(A0_new) = 1.0)
+  tools/promote.sh add ... c -> "NOTE #45: Track C 138 relaxation ..."
+  tools/promote.sh promote 45 NUMERIC evidence/2026-08-25-zfree-a0max-138relax
+    -> "running checker: evidence/2026-08-25-zfree-a0max-138relax/check.sh"
+       "promoted #45: NOTE -> NUMERIC"
+paper cross-check (lit/text/bellotti-trudgian-yang-2026.txt):
+  - Lemma 4 (line 507): C(nu,r) formula, requires r > tan theta, Re z >= nu,
+    |z| >= r -> nu=r=L valid since L = 86.79 >> tan theta = 2.1408.
+  - Lemma 5 proof (lines 627-632): "|z| >= Re z >= (2sigma0-1)/eta0 > 138.
+    Thus, applying Lemma 4, ... eta0^2 C(138,138) ... < eps0/((2sigma0-1)
+    w(0) m|delta_m+iy|^2) with eps0 = 1/2000" -> both the L>138 precondition
+    AND the C(138,138) internal bound are replaced by g(A0)<1 under the
+    relaxation.
+result (per pre-registered falsification test, tick 213): PARTIAL win.
+  A0_max = 0.324204954225 (constant 3.084468596), up from 0.205470026688
+  (4.866889911, #42); target 2.378214785 (A0=0.4204835, #40) NOT reached.
+  Relaxed constraint g(A0)=eta0^2*C(L,L)/(eps0*(2sigma0-1)*w0)<1 is now the
+  binding wall (g=1 at A0_max; g(0.4204835)=1.709). 2D scan: nu=r=L optimal
+  (grid min differs from C(L,L) by rel 7.7e-8: grid-endpoint artifact
+  r>L by 2.1e-4 + e^(-2nu*theta) underflow <1e-50 for nu>50.8). All other
+  #42/#44 internals hold at A0_new (tightest: C(138,138) internal ratio
+  0.9888, binds at 0.326015468165).
+ledger delta: +1 NUMERIC (C: #45). 45 rows: 27 NUMERIC, 3 FORMAL, 15 NOTE.
+D in-flight: mertens-1e12-promote.service 7h49m elapsed (started 18:18Z),
+  ETA ~07:00Z. zero-scan-1e5.service: 315000/999990 (31.5%), elapsed
+  112386s, rate 1.62/s -> ETA ~08-29 21:00Z (slipped from 08-27 estimate).
+next: (a) D: mertens promote ~07:00Z. (b) C: next wall = g(A0)<1 at 0.3242;
+  path to 2.3782 = better W0 estimate (theta reopt or new C/decomposition)
+  - new attempt, prior-art pre-flight first. (c) D: zero scan ~08-29.
+  (d) OWNER: PNT+ PR. (e) B: PARKED 08-29.

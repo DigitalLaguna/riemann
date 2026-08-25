@@ -1,35 +1,41 @@
-# HANDOFF — session 2026-08-25 ~00:40 UTC (tick 211)
-# track: GARDEN (a0max_audit.py dedupe) | gate: all tracks OPEN (21/21 seeds)
+# HANDOFF — session 2026-08-25 ~02:15 UTC (tick 214)
+# track: C (138 relaxation -> #45 NUMERIC) | gate: all tracks OPEN (21/21 seeds)
 
 ## State
-44 claim rows: 26 NUMERIC (B: #3,4,6,7,8,9,18; E: #10,#34,#35,#36; D:
-#20,21,22,23,24,26,27,30,31,#43; C: #33,#38,#40,#42,#44), 3 FORMAL (A: #2,
-#12 [SUPERSEDED by #25], #25), 15 NOTE (#1,#5,#11,#13->#12,#14,#15,#16,#17,
-#19->#18,#28,#29,#32,#37,#39,#41). No ledger delta this tick (garden step).
+45 claim rows: 27 NUMERIC (B: #3,4,6,7,8,9,18; E: #10,#34,#35,#36; D:
+#20,21,22,23,24,26,27,30,31,#43; C: #33,#38,#40,#42,#44,#45), 3 FORMAL (A:
+#2, #12 [SUPERSEDED by #25], #25), 15 NOTE (#1,#5,#11,#13->#12,#14,#15,#16,
+#17,#19->#18,#28,#29,#32,#37,#39,#41).
 
 ## Last work
-Tick 211: GARDEN (handoff item f). Deduped a0max_audit.py: the copies in
-evidence/2026-08-24-zfree-a0-audit/ (a0max_audit.py, check_a0max.sh, added
-21:58-22:00 tick 205) were byte-identical (diff -q) to the canonical copies
-in evidence/2026-08-24-zfree-a0max/ (claim #42's evidence_path). git rm'd
-the two redundant files, appended a GARDEN note to zfree-a0-audit/README.md
-(append-only; a0_check.py/check.sh/machine-run.txt stay = claim #41
-evidence). Post-deletion machine re-runs: zfree-a0max/check.sh "CHECK PASS"
-RC=0; zfree-a0-audit/check.sh "CHECK PASS" RC=0. Ledger refs verified: #42
--> zfree-a0max, #44 -> zfree-a0max-internal (runs canonical script), #41
-NOTE evidence_path=None.
+Tick 214: TRACK C (handoff item b). Finished the 138-relaxation attempt
+tick 213 left half-done (scripts+outputs existed, no checker/claim):
+cross-checked against the paper (Lemma 4 line 507; Lemma 5 proof lines
+627-632: "|z| >= Re z >= (2sigma0-1)/eta0 > 138. Thus, applying Lemma 4,
+... eta0^2 C(138,138) ... < eps0/((2sigma0-1)w(0) m|delta_m+iy|^2) with
+eps0 = 1/2000"), ran check.sh ("CHECK PASS" RC=0), added + promoted claim
+#45 NUMERIC. Result per pre-registered falsification test (tick 213):
+PARTIAL win — A0_max = 0.324204954225 (constant 3.084468596), up from
+0.205470026688 (4.866889911, #42); full reopt target 2.378214785
+(A0=0.4204835, #40) NOT reached. Relaxed constraint
+g(A0)=eta0^2*C(L,L)/(eps0*(2sigma0-1)*w0)<1 with nu=r=L=(2sigma0-1)/eta0
+(optimal per 2D scan) is now the binding wall (g=1 at A0_max;
+g(0.4204835)=1.709). All other #42/#44 internals hold at A0_new (tightest:
+C(138,138) internal ratio 0.9888).
 
 ## Next action
-(a) TRACK D: mertens-1e12-promote.service ETA ~08-25 07:00Z (6h09m at
-    00:26Z; checker re-running the 1e12 sieve, pid 844915 alive). When done:
-    read evidence/2026-08-24-mertens-1e12/promote-run.txt (expect
+(a) TRACK D: mertens-1e12-promote.service ETA ~08-25 07:00Z (7h49m elapsed
+    at 02:08Z; checker re-running the 1e12 sieve, pid 844915 alive). When
+    done: read evidence/2026-08-24-mertens-1e12/promote-run.txt (expect
     "PROMOTE-1e12 DONE rc=0" + "promoted #39: NOTE -> NUMERIC"); ledger
-    +1 NUMERIC (27).
-(b) TRACK C: path to full 2.3782 = raise A0 past 0.20547, i.e. relax Lemma
-    5's |z|>=138 requirement itself (new attempt -> prior-art pre-flight
-    first; #42+#44 confirmed all OTHER internals hold at A0_max).
-(c) TRACK D: zero scan 30.5% (305000/999990, 106208s elapsed) ETA ~08-27
-    14:30-18:00Z: F5a/b/c + F3/F4 + max/min g [1,1e5].
+    +1 NUMERIC (28).
+(b) TRACK C: next wall = relaxed Lemma 5 g(A0)<1 at 0.3242 (was: 138 wall
+    at 0.20547). Path to full 2.3782 (A0=0.4204835): better W0 estimate —
+    theta reopt (paper fixes 1.1338 "via numerical experimentation") or a
+    different C(nu,r)/W decomposition. New attempt -> prior-art pre-flight
+    first.
+(c) TRACK D: zero scan 31.5% (315000/999990, 112386s, 1.62/s) ETA ~08-29
+    21:00Z (slipped from 08-27): F5a/b/c + F3/F4 + max/min g [1,1e5].
 (d) OWNER: open PR via
     https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/compare/main...DigitalLaguna:ik-additive-lemmas?expand=1
     (title/body: evidence/2026-08-22-pnt-ik-api/pr-body.md rev 2), then
@@ -50,12 +56,12 @@ NOTE evidence_path=None.
 ## Budget
 Week-1 reweight A30/B40/D15/C10/E5 stands. D: 10 NUMERIC + #39 NOTE
 (promotion in flight, ETA ~07:00Z) + 2 NOTE (#28,#37); in flight:
-mertens-1e12 promotion (6h09m at 00:26Z), zero-scan ETA ~08-27 14:30-18:00Z.
-C: 5 NUMERIC (#33,#38,#40,#42,#44) + #41 NOTE (A0 typo); #42+#44 = A0_max
-PARTIAL win 4.866889911 CONFIRMED (Lemma 5 main binds; all internals hold);
-next C step = attack Lemma 5's 138 requirement (path to full 2.3782) — not
-started. E: 4 NUMERIC (#10,#34,#35,#36); next E attempt next week
-(frontier-escalated). Next review 2026-08-29 (week 2): milestone check +
-spot-check 3 cards vs PDFs + decide B next step. Week-4 kill (09-17): Lean
-PR upstream + Polymath15 to 2 sig figs — numerics leg met (#7,#9,#18); PR
-leg still the risk.
+mertens-1e12 promotion (7h49m at 02:08Z), zero-scan ETA ~08-29 21:00Z.
+C: 6 NUMERIC (#33,#38,#40,#42,#44,#45) + #41 NOTE (A0 typo); #45 = 138
+relaxation PARTIAL win 3.084468596 CONFIRMED (relaxed Lemma 5 g<1 now
+binds at 0.3242; all other internals hold); next C step = better W0
+estimate (theta reopt or new C) — not started. E: 4 NUMERIC (#10,#34,#35,
+#36); next E attempt next week (frontier-escalated). Next review 2026-08-29
+(week 2): milestone check + spot-check 3 cards vs PDFs + decide B next step.
+Week-4 kill (09-17): Lean PR upstream + Polymath15 to 2 sig figs — numerics
+leg met (#7,#9,#18); PR leg still the risk.
