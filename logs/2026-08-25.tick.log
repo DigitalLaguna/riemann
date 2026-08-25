@@ -1,0 +1,28 @@
+# tick log 2026-08-25
+
+## TICK 211 (2026-08-25 00:26-00:40Z, model qwen3.8-27b)
+attempt: GARDEN (handoff item f): dedupe a0max_audit.py between
+  evidence/2026-08-24-zfree-a0-audit/ and evidence/2026-08-24-zfree-a0max/
+  (canonical for claim #42). Not a new math attempt, so no prior-art
+  pre-flight; bounded housekeeping step while both D jobs run.
+machine (verbatim):
+  diff a0max_audit.py (both dirs): IDENTICAL (3041 bytes each)
+  diff check_a0max.sh (zfree-a0-audit) vs check.sh (zfree-a0max): IDENTICAL
+  ledger: #42 evidence_path = evidence/2026-08-24-zfree-a0max; #44 =
+    evidence/2026-08-24-zfree-a0max-internal (runs canonical zfree-a0max
+    script); #41 (NOTE) evidence_path = None, its own checker runs
+    a0_check.py which stays in zfree-a0-audit.
+  action: git rm zfree-a0-audit/{a0max_audit.py,check_a0max.sh}; appended
+    GARDEN note to zfree-a0-audit/README.md (append-only).
+  post-deletion re-runs: zfree-a0max/check.sh -> "CHECK PASS" RC=0;
+    zfree-a0-audit/check.sh -> "CHECK PASS" RC=0.
+status: D in-flight (no ledger delta this tick):
+  mertens-1e12-promote.service active 6h09m (checker re-run of the 1e12
+    sieve, pid 844915, CPU 6h09m, alive); ETA ~08-25 07:00Z per ticks
+    199/200. zero-scan-1e5.service: 305000/999990 (30.5%), elapsed 106208s,
+    ETA ~08-27 14:30-18:00Z.
+next: (a) D: mertens-1e12 promote ~07:00Z: read
+  evidence/2026-08-24-mertens-1e12/promote-run.txt (expect "PROMOTE-1e12
+  DONE rc=0" + "promoted #39: NOTE -> NUMERIC"). (b) C: attack Lemma 5's
+  138 requirement (path to full 2.3782) — new attempt, prior-art pre-flight
+  first. (c) D: zero scan ~08-27. (d) OWNER: PNT+ PR. (e) B: PARKED 08-29.

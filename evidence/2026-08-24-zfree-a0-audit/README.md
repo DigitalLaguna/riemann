@@ -46,3 +46,11 @@ F-A0: if the table's Lemma-1 eta0/sigma0 matched A0=(4.8596)^-1 to 5+ digits,
   (4.896)^-1 instead: typo CONFIRMED.
 F-FL: if A0=(4.8596)^-1 satisfied A0<A_final, the final line would be
   consistent with the printed A0. -> it does not (margin -0.0015): confirmed.
+
+## GARDEN (tick 211, 2026-08-25)
+a0max_audit.py + check_a0max.sh (added here 2026-08-24 21:58-22:00) were
+byte-identical duplicates of the canonical copies in
+evidence/2026-08-24-zfree-a0max/ (claim #42's evidence_path). Deleted from
+here; canonical location kept. a0_check.py / check.sh / machine-run.txt
+remain (claim #41 evidence). Verified: diff -q identical before deletion;
+both checkers re-run PASS after deletion.

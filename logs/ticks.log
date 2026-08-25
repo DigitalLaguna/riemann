@@ -207,3 +207,4 @@
 2026-08-24T22:21:49.984714+00:00 tick 207 model=qwen3.8-27b steps=25 wall=768s next=(a) TRACK C: A0_max audit REMAINING caveats per #42 — Lemma 6 (A-range) +
 2026-08-24T22:52:49.985105+00:00 tick 208 model=qwen3.8-27b steps=25 wall=650s next=(a) TRACK C: A0_max audit REMAINING caveats per #42 — Lemma 6 (A-range) +
 2026-08-24T23:23:49.984812+00:00 tick 209 model=qwen3.8-27b steps=25 wall=465s next=(a) TRACK C: A0_max audit REMAINING caveats per #42 — Lemma 6 (A-range) +
+2026-08-24T23:54:49.988645+00:00 tick 210 model=qwen3.8-27b steps=17 wall=283s next=(a) TRACK C: path to full 2.3782 = raise A0 past 0.20547, i.e. relax Lemma 5's
