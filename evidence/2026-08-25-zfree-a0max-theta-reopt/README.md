@@ -33,3 +33,31 @@ All hold at (A0_max*, theta*).
 Scope: the 7-constraint A0_max sub-problem. The full Theorem-1 argument with
 theta=0.0572 is NOT yet re-verified (theta is a global parameter in the paper,
 Definitions 1-2); that is the follow-up.
+
+Tick 217 (2026-08-25 ~03:40 UTC) — checker fix, append-only note:
+check.sh's last grep pattern "theta\* = 0.057151961" (spaces around '=')
+matched neither output line: the first line prints 10 digits
+("theta* = 0.05715196073"), the VERDICT line prints no spaces
+("at theta*=0.057151961"). The computation itself was ALL PASS; the
+checker exited 1 on the grep alone (tick 215 never ran check.sh).
+Pattern fixed to "theta\*=0.057151961" (matches the VERDICT line);
+re-run tick 217: RC=0, "CHECK PASS". Claim #46 promoted NOTE -> NUMERIC.
+
+Tick 217 (2026-08-25 ~03:55 UTC) — full-scope closure + mechanism correction:
+The claim states the max "over (0,pi/2)", but the tick-215 scan covered only
+[0.05, 1.5077]. Two new scans close the gaps (both machine-verified):
+- relax138_theta_lowest.py  (machine-run-theta-lowest.txt): A0_max rises
+  monotonically 0.069 (theta->0) -> 0.396683807836 (theta=0.05); max on
+  (0,0.05] = 0.396683807836 < A0_max* = 0.396708119308. Maximizer confirmed
+  at 0.0572, not below 0.05.
+- relax138_theta_highest.py (machine-run-theta-highest.txt): max on
+  (1.5077,pi/2) = 0.145996341781 (theta=1.51) < A0_max*.
+check.sh extended to re-run both (F4/F5) so the NUMERIC checker verifies the
+full (0,pi/2) range. Re-run: RC=0, CHECK PASS.
+Mechanism correction (append): the "Why smaller theta helps" line above says
+"C -> 0 faster, so C/w0 decreases" as theta -> 0. The fixed-L probe
+(machine-run-theta-lowest.txt) shows C(L,L;th)/w0(th) at L=70.6 is 2.557
+(th=0.05), 3.886 (0.01), 49.99 (0.001), 541 (0.0001) -> C/w0 -> INFINITY as
+theta -> 0, i.e. w0 -> 0 FASTER than C (w0 ~ th^4, C ~ th^3). The conclusion
+(A0_max increases as theta rises from 0) is correct; the stated mechanism was
+reversed.
