@@ -214,3 +214,4 @@
 2026-08-25T01:58:49.985410+00:00 tick 214 model=qwen3.8-27b steps=18 wall=653s next=(a) TRACK D: mertens-1e12-promote.service ETA ~08-25 07:00Z (7h49m elapsed
 2026-08-25T02:29:49.989649+00:00 tick 215 model=qwen3.8-27b steps=25 wall=919s next=(a) TRACK D: mertens-1e12-promote.service ETA ~08-25 07:00Z (7h49m elapsed
 2026-08-25T03:00:49.986500+00:00 tick 216 ERROR 'utf-8' codec can't decode byte 0x89 in position 99: invalid start byte steps=8
+2026-08-25T03:31:49.985866+00:00 tick 217 model=qwen3.8-27b steps=25 wall=804s next=(a) TRACK D: mertens-1e12-promote.service ETA ~08-25 07:00Z (7h49m elapsed
