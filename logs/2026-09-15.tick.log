@@ -103,3 +103,30 @@ next:
   (e) B: PARKED (X-sweep to 7e12; Arb-port of 0.20 pipeline; row-3 t=0.18
       blocked on RH-to-1e13 source).
   (f) OWNER: week-4 kill decision (09-17) pending owner call.
+
+TICK 230 (2026-09-15 ~22:45-23:10 UTC, local)
+track: C (theta-cross A0_max with exact m=0 term; follow-up to #49) | gate: C OPEN (4/4)
+plan (1 line): bisect theta in [theta*=0.057151961, theta_min=0.980175494979204]
+  for the zero of H(theta) = fulltotal(theta, A0_g(theta)) (exact m=0 term,
+  7x9 grid) to get A0_max_new = A0_g(theta_cross); not in DEAD_ENDS (tick 229
+  left it as the open follow-up; #49's NEGATIVE result at theta* is the input).
+prior-art pre-flight (evidence/2026-09-15-zfree-theta-cross/preflight.txt):
+  4 arXiv API queries (https, metadata only): ti:"zero-free" (42 hits, none
+  re-optimizing BTY-2026), abs:"zero-free region"+abs:"Riemann" (38, none),
+  au:Trudgian+ti:"zero-free" (3: Heath-Brown-inspired 2026, MTY 2022, MT 2014 —
+  different methods), abs:"1.5649" (0). No prior art found for exact-m=0
+  re-optimization of the BTY-2026 constant.
+falsification tests (pre-registered, before any run):
+  F1: fulltotal(theta*, A0_g(theta*)) < 0 on the 7x9 grid (50 dps) — must
+      reproduce #49 (-1.3355e-7 at mu=1, eta=eta0/9). If >= 0: pipeline bug,
+      stop.
+  F2: fulltotal(theta_min, A0_g(theta_min)) >= 0 (50 dps). If < 0: exact m=0
+      term is WORSE than the Taylor bound even at theta_min -> A0_max_new <
+      0.3506, approach is a dead end, record in DEAD_ENDS.
+  F3: crossing theta_cross in (theta*, theta_min) and A0_max_new =
+      A0_g(theta_cross) > 0.350566297741 (#47). If <= 0.3506: no improvement,
+      dead end.
+  F4: at (A0_max_new, theta_cross) all 7 constraints of the #44/#45/#46 set
+      hold AND the fine 7x9 fulltotal >= 0 (50 dps, 100-dps spot check). If a
+      constraint fails: the crossing point is infeasible; true A0_max is set
+      by that constraint (follow-up), claim scoped accordingly.

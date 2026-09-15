@@ -1,0 +1,69 @@
+=== PRIOR-ART PRE-FLIGHT: theta-cross A0_max with exact m=0 term (track C, BTY-2026) ===
+run: 2026-09-15T22:48:00Z
+Question: has anyone re-optimized the BTY-2026 (arXiv:2603.21490) zero-free
+constant by using the EXACT m=0 term (instead of the Taylor bound e^x-(1+x+x^2/2+x^3/6)<x^4/18),
+i.e. pushing A0_max past 0.3506 (const 2.8525) via a theta in (0.0572, 0.9802)?
+
+--- QUERY: cat:math.NT+AND+ti:%22zero-free%22
+
+--- QUERY: cat:math.NT+AND+abs:%22zero-free+region%22+AND+abs:%22Riemann%22
+
+--- QUERY: au:Trudgian+AND+ti:%22zero-free%22
+
+
+CORREND: first run used http:// without -L (301, empty body). Re-running over https:
+run: 2026-09-15T22:48:19Z
+--- QUERY: cat:math.NT+AND+ti:%22zero-free%22
+<title>arXiv Query: search_query=cat:math.NT AND ti:"zero-free"&amp;id_list=&amp;start=0&amp;max_results=8</title>
+<opensearch:totalResults>42</opensearch:totalResults>
+<title>Zero-free columns in character tables of symmetric groups</title>
+<published>2026-08-27T21:12:02Z</published>
+<title>Power sums and Siegel-type zero-free regions for L-functions</title>
+<published>2026-08-12T17:00:49Z</published>
+<title>Zero-free regions inspired by work of Heath-Brown</title>
+<published>2026-03-23T02:26:39Z</published>
+<title>Minimal zero-free regions for results on primes between consecutive perfect $k$th powers</title>
+<published>2026-02-15T23:15:04Z</published>
+<title>Explicit zero-free regions for automorphic $L$-functions</title>
+<published>2025-09-25T08:05:03Z</published>
+<title>On the connection between zero-free regions and the error term in the Prime Number Theorem</title>
+<published>2025-07-18T09:46:12Z</published>
+<title>New zero-free regions for Dedekind zeta-functions at small and large ordinates</title>
+<published>2025-06-24T05:17:42Z</published>
+<title>The Error in a Smooth Weighted Prime Number Formula and Zero-free Regions for the Riemann Zeta Function</title>
+<published>2025-05-26T12:53:07Z</published>
+
+--- QUERY: cat:math.NT+AND+abs:%22zero-free+region%22+AND+abs:%22Riemann%22
+<title>arXiv Query: search_query=cat:math.NT AND abs:"zero-free region" AND abs:"Riemann"&amp;id_list=&amp;start=0&amp;max_results=8</title>
+<opensearch:totalResults>38</opensearch:totalResults>
+<title>Pointwise ergodic theorems along sequences of intermediate growth</title>
+<published>2026-09-12T00:33:37Z</published>
+<title>Zero-free regions inspired by work of Heath-Brown</title>
+<published>2026-03-23T02:26:39Z</published>
+<title>Minimal zero-free regions for results on primes between consecutive perfect $k$th powers</title>
+<published>2026-02-15T23:15:04Z</published>
+<title>Explicit bounds for the graphicality of the prime gap sequence</title>
+<published>2025-12-30T13:42:40Z</published>
+<title>A round of Pintz to celebrate oscillations in sums</title>
+<published>2025-11-13T05:18:48Z</published>
+<title>On the connection between zero-free regions and the error term in the Prime Number Theorem</title>
+<published>2025-07-18T09:46:12Z</published>
+<title>The Error in a Smooth Weighted Prime Number Formula and Zero-free Regions for the Riemann Zeta Function</title>
+<published>2025-05-26T12:53:07Z</published>
+<title>Maximal order for divisor functions and zeros of the Riemann zeta-function</title>
+<published>2024-11-28T16:48:01Z</published>
+
+--- QUERY: au:Trudgian+AND+ti:%22zero-free%22
+<title>arXiv Query: search_query=au:Trudgian AND ti:"zero-free"&amp;id_list=&amp;start=0&amp;max_results=8</title>
+<opensearch:totalResults>3</opensearch:totalResults>
+<title>Zero-free regions inspired by work of Heath-Brown</title>
+<published>2026-03-23T02:26:39Z</published>
+<title>Explicit zero-free regions for the Riemann zeta-function</title>
+<published>2022-12-13T19:16:54Z</published>
+<title>Nonnegative trigonometric polynomials and a zero-free region for the Riemann zeta-function</title>
+<published>2014-10-15T04:34:02Z</published>
+
+--- QUERY: cat:math.NT+AND+abs:%22zero-free%22+AND+abs:%221.5649%22
+<title>arXiv Query: search_query=cat:math.NT AND abs:"zero-free" AND abs:"1.5649"&amp;id_list=&amp;start=0&amp;max_results=8</title>
+<opensearch:totalResults>0</opensearch:totalResults>
+

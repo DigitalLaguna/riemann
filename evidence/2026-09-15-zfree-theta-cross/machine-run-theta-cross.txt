@@ -1,0 +1,49 @@
+start 2026-09-15T22:55:49Z
+F1: A0_g(theta*)=0.396708119308  fulltotal(theta*,A0_g)=-1.33552711748e-7 at mu=1.0 eta=0.00153426  -> PASS (negative, reproduces #49)
+F2: A0_g(theta_min)=0.350566297741  fulltotal(theta_min,A0_g)=0.22850611638 at mu=0.911981 eta=0.00135581  -> PASS (nonnegative, crossing exists)
+
+=== coarse scan H(theta)=fulltotal(theta,A0_g(theta)), 3x3 probe, 30 dps ===
+  theta=0.057152   A0_g=0.3967081193   H=-1.335527117e-7 at mu=1 eta=0.00153426
+  theta=0.101437   A0_g=0.3965090487   H=-1.267153439e-6 at mu=1 eta=0.00153349
+  theta=0.145722   A0_g=0.3961608761   H=-5.00337989e-6 at mu=1 eta=0.00153214
+  theta=0.190006   A0_g=0.39568268     H=-1.287324353e-5 at mu=1 eta=0.00153029
+  theta=0.234291   A0_g=0.3950696301   H=-2.494383598e-5 at mu=1 eta=0.00152792
+  theta=0.278576   A0_g=0.394315465    H=-3.768110493e-5 at mu=1 eta=0.001525
+  theta=0.322861   A0_g=0.3934124237   H=-4.080524471e-5 at mu=1 eta=0.00152151
+  theta=0.367146   A0_g=0.3923511267   H=-1.274771569e-5 at mu=1 eta=0.00151741
+  theta=0.41143    A0_g=0.3911204303   H=8.586368469e-5 at mu=1 eta=0.00151265
+  theta=0.455715   A0_g=0.3897072461   H=0.0003215311754 at mu=1 eta=0.00150718
+  theta=0.5        A0_g=0.3880963224   H=0.0008012579354 at mu=1 eta=0.00150095
+brackets (H<0 -> H>=0): [('0.367146', '0.41143')]
+
+bisected (3x3 probe): theta_cross=0.376216051  A0_max_new=0.392113247328  (1/A0_max_new=2.550283641)
+F3: interior crossing and A0_max_new > 0.350566297741 (#47): True -> PASS
+
+=== FINE verify (50 dps, 7x9) at (A0_g(theta_cross), theta_cross) ===
+A0=0.392113247328  fulltotal=3.99900473028e-12 at mu=1.0 eta=0.00151649
+  100dps mu=0.911981 eta=0.00151649: LHS=0.000104513067009
+  100dps mu=0.911981 eta=0.00454946: LHS=0.000118820317921
+  100dps mu=0.911981 eta=0.0136484: LHS=0.000163463351794
+  100dps mu=0.955991 eta=0.00151649: LHS=5.37762346503e-5
+  100dps mu=0.955991 eta=0.00454946: LHS=6.80801278608e-5
+  100dps mu=0.955991 eta=0.0136484: LHS=0.00011269473584
+  100dps mu=1 eta=0.00151649: LHS=3.99900473028e-12
+  100dps mu=1 eta=0.00454946: LHS=1.43005291368e-5
+  100dps mu=1 eta=0.0136484: LHS=5.88864328897e-5
+
+=== 7 constraints at (A0_max_new, theta_cross) ===
+[1] g = 1.0 <= 1? True
+[2] C(138,138) LHS=3.192236093e-6 RHS=3.226785994e-6 ratio=0.989293 < 1? True
+[3] B(y)>0: A0-independent (verified #44)  True
+[4] eq22 W0-term LHS=6.312602251e-6 RHS=5.7e+10 ratio=1.10747e-16 < 1? True
+[5] Lemma6 A0=0.3921132473 > 1/6? True
+[6] Lemma14 x1(m=1) = 0.9626587623 > 0? True
+[7] Lemma13 51*eta0^2/H^2 = 1.056e-27 < 5e-13? True
+
+F4: all 7 constraints + fine fulltotal>=0 + 100dps spot>=0: True -> PASS
+
+VERDICT: theta_cross=0.376216051  A0_max_new=0.392113247328  constant 1/A0_max_new=2.550283641
+  #47: 0.350566297741 (2.852527486)   #46 infeasible: 0.396708119308 (2.520744979)
+  full reopt target #40: 0.420483467794 (2.378214785)
+OVERALL: ALL PASS
+elapsed 436.4s
