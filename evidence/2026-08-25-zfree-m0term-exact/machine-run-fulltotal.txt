@@ -1,0 +1,9 @@
+=== VALIDATION at paper theta=1.1338, A0=(4.8596)^-1 ===
+paper: mu0=0.91198149 eta0=0.0071625785
+min LHS (paper) = 0.9973814169 at mu=0.911981 eta=0.000795842 -> POSITIVE
+paper LB C1(mu)+3.909eta+26eta^2-3897eta^3 at that pt = 0.9968562529
+
+=== MAIN at theta*=0.057151961, A0=0.396708119308 ===
+theta*: mu0=0.91198149 eta0=0.013808325 w(0)=2.8588312e-6
+min LHS (theta*) = -1.33552711748e-7 at mu=1.0 eta=0.00153426 -> NEGATIVE
+decompose @min: m0=-1.366329118e-7 m>=1=-2.243814021e-9 a1F(s-eta)=5.324014026e-9 sum=-1.335527117e-7

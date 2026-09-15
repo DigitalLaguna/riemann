@@ -54,3 +54,52 @@ next:
       blocked on RH-to-1e13 source).
   (f) OWNER: machine down 3 weeks; weekly reviews missed; week-4 kill
       decision (09-17) needs the owner's call with this handoff.
+
+TICK 229 (2026-09-15 ~22:12-22:50 UTC, frontier)
+track: C (full-total check at theta*) | gate: C OPEN (4/4 seeds)
+plan (1 line): run the pre-registered full Lemma-14 total at theta* to decide
+  whether A0_max=0.3967 survives; not in DEAD_ENDS (the 08-25 log left it as
+  the open "next" step after #48's MARGINAL result).
+prior-art pre-flight (completed this tick; preflight.txt was question-only):
+  Q1: arXiv API cat:math.NT AND all:"zero-free region", submittedDate desc,
+  max 10 -> 0 entries returned (API returned no results this run). No known
+  re-optimization of the BTY-2026 4.896 constant via exact m=0 term; source
+  paper carded (lit/cards/bellotti-trudgian-yang-2026.md).
+falsification test (pre-registered 08-25, tick 220): is the exact full total
+  LHS > 0 for all mu in [mu0,1], eta in (0,eta0] at theta*=0.057151961,
+  A0=0.396708119308? If yes -> m=0 constraint vacuous, A0_max=0.3967
+  (const 2.5207) survives. If no -> #47's 0.3506 (2.8525) stands.
+machine (verbatim, evidence/2026-09-15-zfree-fulltotal/machine-run-fulltotal.txt):
+  VALIDATION paper theta=1.1338, A0=(4.8596)^-1:
+    min LHS = 0.9973814169 at mu=0.911981 eta=0.000795842 -> POSITIVE
+    paper LB C1(mu)+3.909eta+26eta^2-3897eta^3 at that pt = 0.9968562529
+  MAIN theta*=0.057151961, A0=0.396708119308:
+    min LHS = -1.33552711748e-7 at mu=1.0 eta=0.00153426 -> NEGATIVE
+    decompose @min: m0=-1.366329118e-7 m>=1=-2.243814021e-9
+      a1F(s-eta)=5.324014026e-9 sum=-1.335527117e-7
+robustness (100 dps, machine-run-fulltotal-robust.txt):
+  mu=1: eta0/9=-1.3355e-7 eta0/18=-1.3510e-7 eta0/36=-1.3587e-7
+    eta0/72=-1.3625e-7 (-> m0 term -1.366e-7 as eta->0)
+  eta=eta0/9: mu0=-7.368e-8 mu=0.95=-9.868e-8 mu=1=-1.3355e-7
+  (labeling bug in first robustness run fixed + re-run; values now consistent)
+result (per pre-registered test): NEGATIVE -> the m=0 constraint is NOT
+  vacuous at theta*. The exact m=0 term (-1.366e-7, 100-dps from #48) dominates
+  the tiny cancelling m>=1+a1F terms (~+3e-9). A0_max=0.3967 (const 2.5207)
+  does NOT survive; #47's A0_max=0.3506 (const 2.8525) stands.
+  NOTE: the true binding theta is where the FULL total crosses 0 (between
+  theta*=0.0572 and theta_min=0.9802; m=0 term crosses 0 near theta~0.4-0.5),
+  so A0_max may lie strictly between 0.3506 and 0.3967 -> follow-up attempt.
+ledger delta: +1 NUMERIC (C: #49). 49 rows: 30 NUMERIC, 3 FORMAL, 16 NOTE.
+next:
+  (a) D: mertens-1e12-promote.service ETA ~09-16 08:00Z (1h57m elapsed at
+      22:12Z); when done read evidence/2026-08-24-mertens-1e12/promote-run.txt
+      (expect "PROMOTE-1e12 DONE rc=0" + #39 promoted) -> ledger 31 NUMERIC.
+  (b) D: zero-scan-1e5.service ETA ~09-20 04:00Z (checkpointed).
+  (c) C: NEW follow-up — find theta_crit where the full total crosses 0
+      (bisection on theta in [0.0572, 0.9802]) and the A0_max there; could
+      beat #47's 0.3506. New attempt -> prior-art pre-flight first.
+  (d) OWNER: PR via compare link (evidence/2026-08-22-pnt-ik-api/pr-body.md
+      rev 2) + `propose #<PR>` on issue #816.
+  (e) B: PARKED (X-sweep to 7e12; Arb-port of 0.20 pipeline; row-3 t=0.18
+      blocked on RH-to-1e13 source).
+  (f) OWNER: week-4 kill decision (09-17) pending owner call.
