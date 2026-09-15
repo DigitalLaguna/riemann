@@ -130,3 +130,63 @@ falsification tests (pre-registered, before any run):
       hold AND the fine 7x9 fulltotal >= 0 (50 dps, 100-dps spot check). If a
       constraint fails: the crossing point is infeasible; true A0_max is set
       by that constraint (follow-up), claim scoped accordingly.
+machine (verbatim, evidence/2026-09-15-zfree-theta-cross/machine-run-theta-cross.txt):
+  F1: A0_g(theta*)=0.396708119308 fulltotal(theta*,A0_g)=-1.33552711748e-7 at
+      mu=1.0 eta=0.00153426 -> PASS (negative, reproduces #49)
+  F2: A0_g(theta_min)=0.350566297741 fulltotal(theta_min,A0_g)=0.22850611638 at
+      mu=0.911981 eta=0.00135581 -> PASS (nonnegative, crossing exists)
+  coarse scan brackets (H<0 -> H>=0): [('0.367146','0.41143')]
+  bisected (3x3 probe): theta_cross=0.376216051 A0_max_new=0.392113247328
+      (1/A0_max_new=2.550283641)
+  F3: interior crossing and A0_max_new > 0.350566297741 (#47): True -> PASS
+  FINE verify (50 dps, 7x9): A0=0.392113247328 fulltotal=3.99900473028e-12 at
+      mu=1.0 eta=0.00151649; 100dps spot (9 pts) all positive, min 3.999e-12
+  7 constraints: all True (g=1.0<=1; C138 ratio 0.989<1; B(y) A0-indep;
+      eq22 ratio 1.1e-16<1; A0>1/6; x1=0.9627>0; lem13 1.056e-27<5e-13)
+  F4: all 7 constraints + fine fulltotal>=0 + 100dps spot>=0: True -> PASS
+  VERDICT: theta_cross=0.376216051 A0_max_new=0.392113247328 constant
+      1/A0_max_new=2.550283641; OVERALL: ALL PASS; elapsed 436.4s
+result: the exact m=0 term lifts A0_max from #47's 0.350566297741 (2.852527486)
+  to 0.392113247328 (2.550283641) — a LOWER BOUND (the point is the grid
+  crossing; fulltotal = +4e-12 knife-edge). Does NOT reach #46's infeasible
+  0.396708119308 (2.520744979) nor #40's full-reopt target 0.420483467794
+  (2.378214785).
+note: tick 230 ran the experiment but left this log entry incomplete (ended at
+  F4) and recorded no claim; completed and claimed in tick 231.
+
+TICK 231 (2026-09-15 ~23:13-23:45 UTC, local)
+track: C (record + promote tick 230 theta-cross result) | gate: C OPEN (4/4)
+plan (1 line): tick 230 produced an ALL-PASS theta-cross result (A0_max >=
+  0.392113247328) but left the log incomplete and recorded no claim; this tick
+  builds a self-contained checker, verifies it, and promotes the result to
+  NUMERIC. Not a new attempt (records tick 230's already-preflighted
+  experiment; no new prior-art pre-flight).
+machine (verbatim, evidence/2026-09-15-zfree-theta-cross/check-run.txt):
+  checker check_theta_cross.py (self-contained: re-runs the 3x3-probe bisection
+  to recover the full-precision crossing, then 7x9 fine verify + 100dps corner
+  + 7 constraints):
+    theta_cross=0.37621605098082137139  A0=A0_g=0.392113247327986
+    1/A0=2.5502836408
+    fine 7x9 (50dps) min fulltotal = 3.99900473028e-12 at mu=1.0
+      eta=0.00151649 -> PASS
+    100dps corner (mu=1, eta=eta0/9) LHS = 3.99900473028e-12 -> PASS
+    constraints: g<=1 True C138 True eq22 True A0>1/6 True x1>0 True lem13 True
+    CHECK A0_max>=0.392113247328 (A0=0.392113247328): PASS
+    elapsed 198.5s  RC=0
+  promotion (verbatim): "promoted #50: NOTE -> NUMERIC"
+ledger delta: +1 NUMERIC (C: #50). 50 rows: 31 NUMERIC, 3 FORMAL, 16 NOTE.
+next:
+  (a) D: mertens-1e12-promote.service ETA ~09-16 08:00Z (3h00m elapsed at
+      23:14Z); when done read evidence/2026-08-24-mertens-1e12/promote-run.txt
+      (expect "PROMOTE-1e12 DONE rc=0" + #39 promoted) -> ledger 32 NUMERIC.
+  (b) D: zero-scan-1e5.service ETA ~09-20 04:00Z (checkpointed).
+  (c) C: #50 is a lower bound at the grid crossing (fulltotal = +4e-12
+      knife-edge). Follow-up options: (i) finer (mu,eta) grid / higher-dps
+      re-verification to confirm the crossing is robust and pin A0_max more
+      tightly; (ii) a slightly-larger-theta point for a comfortable margin at
+      the cost of a smaller A0. New attempt -> prior-art pre-flight first.
+  (d) OWNER: PR via compare link (evidence/2026-08-22-pnt-ik-api/pr-body.md
+      rev 2) + `propose #<PR>` on issue #816.
+  (e) B: PARKED (X-sweep to 7e12; Arb-port of 0.20 pipeline; row-3 t=0.18
+      blocked on RH-to-1e13 source).
+  (f) OWNER: week-4 kill decision (09-17) pending owner call.

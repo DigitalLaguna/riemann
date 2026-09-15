@@ -1,0 +1,14 @@
+theta_cross=0.37621605098082137139  A0=A0_g=0.392113247327986  1/A0=2.5502836408
+fine 7x9 (50dps) min fulltotal = 3.99900473028e-12 at mu=1.0 eta=0.00151649 -> PASS
+100dps corner (mu=1, eta=eta0/9) LHS = 3.99900473028e-12 -> PASS
+constraints: g<=1 True  C138 True  eq22 True  A0>1/6 True  x1>0 True  lem13 True
+CHECK A0_max>=0.392113247328 (A0=0.392113247328): PASS
+elapsed 198.5s
+theta_cross=0.37621605098082137139  A0=A0_g=0.392113247327986  1/A0=2.5502836408
+fine 7x9 (50dps) min fulltotal = 3.99900473028e-12 at mu=1.0 eta=0.00151649 -> PASS
+100dps corner (mu=1, eta=eta0/9) LHS = 3.99900473028e-12 -> PASS
+constraints: g<=1 True  C138 True  eq22 True  A0>1/6 True  x1>0 True  lem13 True
+CHECK A0_max>=0.392113247328 (A0=0.392113247328): PASS
+elapsed 197.6s
+running checker: evidence/2026-09-15-zfree-theta-cross/check.sh
+promoted #50: NOTE -> NUMERIC
