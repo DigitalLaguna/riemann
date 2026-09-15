@@ -1,0 +1,5 @@
+=== PRIOR-ART PRE-FLIGHT: full-total check at theta* (track C, BTY-2026 m=0 relaxation) ===
+run: 2026-09-15T20:45Z
+Question: has anyone re-optimized the BTY-2026 (arXiv:2603.21490) zero-free
+constant by relaxing the m=0 Taylor bound (e^x-(1+x+x^2/2+x^3/6) < x^4/18)
+to use the exact m=0 term, or otherwise pushed A0_max past 0.3506?
