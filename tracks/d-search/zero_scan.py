@@ -2,8 +2,12 @@
 # Z(t) = re(e^{iθ(t)} ζ(1/2+it)) + bisection. θ_asym = Riemann-Siegel asymptotic
 # (verified vs exact to 3.8e-19, tick 142). mpmath = development tool, NOT rigorous
 # -> NOTE, not NUMERIC. Design + pre-registered falsification: zero-spacing-design.md.
+# Checkpointing (tick 225, after the 08-25 reboot killed the first run at 34%):
+# optional 4th arg = checkpoint JSON file. State {zeros, i_last} is saved every
+# 5000 steps and after each zero; on restart the scan resumes from i_last with
+# prev_z recomputed as Z(t_start + i_last*step). Math unchanged.
 import mpmath as mp
-import sys, time
+import sys, time, os, json
 
 DPS = 30
 mp.mp.dps = DPS
@@ -14,17 +18,30 @@ def theta_asym(t):
 def Z(t):
     return mp.re(mp.e**(mp.j*theta_asym(t)) * mp.zeta(mp.mpf(0.5) + mp.j*t))
 
-def find_zeros(t_start, t_end, step):
+def save_ckpt(ckpt, zeros, i):
+    if ckpt:
+        with open(ckpt, "w") as f:
+            json.dump({"zeros": zeros, "i_last": i}, f)
+
+def find_zeros(t_start, t_end, step, ckpt=None):
     zeros = []
+    i0 = 0
+    if ckpt and os.path.exists(ckpt):
+        with open(ckpt) as f:
+            d = json.load(f)
+        zeros = [float(z) for z in d["zeros"]]
+        i0 = int(d["i_last"])
+        print(f"  resuming from i={i0} ({len(zeros)} zeros loaded)", file=sys.stderr)
     n = int(round((t_end - t_start)/step))
-    prev_t = t_start
+    prev_t = t_start + i0*step
     prev_z = Z(prev_t)
     t0 = time.time()
-    for i in range(1, n+1):
+    for i in range(i0+1, n+1):
         t = t_start + i*step
         z = Z(t)
         if i % 5000 == 0:
             print(f"  coarse {i}/{n} elapsed {time.time()-t0:.0f}s", file=sys.stderr)
+            save_ckpt(ckpt, zeros, i)
         if prev_z*z < 0:
             a, b, fa = prev_t, t, prev_z
             for _ in range(40):
@@ -37,6 +54,7 @@ def find_zeros(t_start, t_end, step):
                 if b - a < 1e-10:
                     break
             zeros.append((a+b)/2)
+            save_ckpt(ckpt, zeros, i)
         prev_t, prev_z = t, z
     return zeros
 
@@ -47,8 +65,9 @@ if __name__ == "__main__":
     t_start = float(sys.argv[1]) if len(sys.argv) > 1 else 1.0
     t_end   = float(sys.argv[2]) if len(sys.argv) > 2 else 1000.0
     step    = float(sys.argv[3]) if len(sys.argv) > 3 else 0.05
+    ckpt    = sys.argv[4] if len(sys.argv) > 4 else None
     t0 = time.time()
-    zeros = find_zeros(t_start, t_end, step)
+    zeros = find_zeros(t_start, t_end, step, ckpt)
     gaps = [float((zeros[i+1]-zeros[i]) * mp.log(zeros[i]) / (2*mp.pi)) for i in range(len(zeros)-1)]
     imax = max(range(len(gaps)), key=lambda k: gaps[k])
     imin = min(range(len(gaps)), key=lambda k: gaps[k])

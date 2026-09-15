@@ -1,0 +1,56 @@
+TICK 225 — 2026-09-15 20:08-20:20 UTC (frontier)
+state found (machine-verified):
+  - Machine down 2026-08-25 08:14Z -> 2026-09-15 18:30Z (~3 weeks). Weekly
+    reviews 08-29/09-05/09-12 missed; week-4 kill decision (09-17) pending.
+  - mertens-1e12-promote.service: journal verbatim "Aug 25 08:14:16 ...
+    Stopping mertens-1e12-promote.service" + "Consumed 11h 55min 26.275s CPU
+    time"; promote-run.txt 0 bytes (checker killed mid 1e12-sieve re-run).
+  - zero-scan-1e5.service: "Unit zero-scan-1e5.service could not be found";
+    full.stderr stops at "coarse 340000/999990 elapsed 127996s" (08-25 08:06Z);
+    full-run.txt 0 bytes; zeros were in memory only -> [1,102001] zeros lost,
+    full restart required.
+  - Ledger mismatch: logs/2026-08-25.tick.log (tick 221) claimed "+1 NOTE
+    (C: exact m=0 term at theta*), 48 rows: 29 NUMERIC, 3 FORMAL, 16 NOTE"
+    but DB had 47 rows / 15 NOTE — the NOTE was never added. Resolved below.
+  - Stray file "udo systemctl stop llama-server" (267 lines of systemctl
+    list-unit-files output, swept into git by tick 224 auto-commit): garbage,
+    deleted.
+  - Ticks 222-224 (09-15) have no detailed tick log: 222 API error
+    ("Remote end closed connection without response"), 223 utf-8 decode error
+    (byte 0x94 pos 50 — binary-as-text class A-002/A-003), 224 ran 27 steps,
+    committed residual state only.
+actions:
+  1. Ledger repair: tools/promote.sh add -> NOTE #48 (Track C exact m=0 term
+     at theta*; MARGINAL; I(theta*,mu0) = -7.67586050155803e-8,
+     I(theta*,1) = -1.36632911752135e-7; evidence/2026-08-25-zfree-m0term-exact/).
+     Machine output verbatim: "NOTE #48: Track C exact m=0 term at theta* ..."
+     DB now 48 rows: 29 NUMERIC, 3 FORMAL, 16 NOTE (matches tick 221 log).
+  2. zero_scan.py: added optional 4th arg = checkpoint JSON {zeros, i_last},
+     saved every 5000 steps and after each zero; resume recomputes
+     prev_z = Z(t_start + i_last*step). Math unchanged.
+     Machine test (verbatim): run1 [1,30] step 0.1 -> 3 zeros
+     14.134725 21.022040 25.010858; run2 [1,40] same ckpt -> "resuming from
+     i=241 (3 zeros loaded)", 6 zeros, first 3 identical, +30.424876
+     32.935062 37.586178 (known zeros). RESUME TEST: PASS.
+  3. Relaunched both jobs as transient units (own cgroups, survive tick end):
+     - mertens-1e12-promote.service: re-runs check.sh (full 1e12 sieve,
+       ~10-12h); on PASS promotes #39 NOTE -> NUMERIC.
+     - zero-scan-1e5.service: t 1..1e5 step 0.1, ckpt-1e5.json; ~104h total.
+     Machine output verbatim: both "Active: active (running) since
+     Tue 2026-09-15 22:14:46 CEST".
+next:
+  (a) D: mertens-1e12-promote.service ETA ~09-16 08:00Z; when done read
+      evidence/2026-08-24-mertens-1e12/promote-run.txt (expect "PROMOTE-1e12
+      DONE rc=0" + #39 promoted) -> ledger 30 NUMERIC.
+  (b) D: zero-scan-1e5.service ETA ~09-20 04:00Z; checkpoint caps reboot loss
+      at <=5000 steps (~31 min).
+  (c) C: full-total check at theta* (a1F + m>=1 lower bounds + exact m=0 at
+      (A0=0.3967, theta*=0.0572); if >0 -> A0_max 0.3967 / constant 2.5207
+      survives, up from #47's 0.3506/2.8525). New attempt -> prior-art
+      pre-flight first.
+  (d) OWNER: PR via compare link (evidence/2026-08-22-pnt-ik-api/pr-body.md
+      rev 2) + `propose #<PR>` on issue #816.
+  (e) B: PARKED (X-sweep to 7e12; Arb-port of 0.20 pipeline; row-3 t=0.18
+      blocked on RH-to-1e13 source).
+  (f) OWNER: machine down 3 weeks; weekly reviews missed; week-4 kill
+      decision (09-17) needs the owner's call with this handoff.
