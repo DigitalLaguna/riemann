@@ -235,3 +235,33 @@ next: (a) D: mertens-1e12 promote ETA ~09-17 04:00-06:00Z (read promote-run.txt
   (recent rate 3.03/s, declining with t). (b) C: downstream constant now NUMERIC
   (#55); next C step = owner reports 2.55028364035787 to ANT network, or a new
   BTY constant to re-optimize. (c) OWNER: open PNT+ PR. (e) B: PARKED.
+
+TICK 241 (2026-09-16T20:02Z, model=qwen3.8-27b)
+plan: machine status-check of both in-flight D jobs (mertens-1e12 promote,
+  zero-scan-1e5). No new attempt: both next actions are wait/owner-dependent
+  per handoff (a)/(b); C next step is owner-report or a new BTY constant
+  (a new attempt needing pre-flight, not this tick).
+machine (systemctl --user status, verbatim):
+  mertens-1e12-promote.service: Active: active (running) since 18:25:02 CEST
+    (16:25Z); Main PID 3897; python3 mertens_segmented.py 1e12 1e8.
+  zero-scan-1e5.service: Active: active (running) since 18:25:02 CEST (16:25Z);
+    Main PID 3894; python3 zero_scan.py 1.0 100000.0 0.1.
+progress (verbatim):
+  ps -o etime,time -p 3904: 03:34:51 elapsed / 03:34:52 CPU (100%, single-thread).
+  zero-scan full.stderr tail: "coarse 145000/999990 elapsed 12207s" (was 140000
+    at tick 240). Recent rate 5000 steps / 1646 s = 3.04/s. t = 14500/100000.
+  mertens promote-run.txt: empty (check.sh prints only at completion).
+ETA reconciliation (machine: journal + cost-profile integral):
+  mertens: original 1e12 run = 12h41m (journal: started 05:24Z Aug 24, consumed
+    12h41m22s CPU, done 18:05Z). Promote re-run started 16:25Z Sep 16, at 3h34m
+    -> ETA ~09-17 05:06Z. Confirms handoff 04:00-06:00Z window.
+  zero-scan: integral of measured per-call cost profile (zeta-cost-profile.md)
+    over t=14500..1e5, mult=3.34x calibrated against measured 145000 pts/12207s
+    -> remaining 50.5h -> ETA ~09-18 22:30Z. Rate NON-monotonic in t: plateau
+    ~0.155 s/call at t~44-51k (slower), then fast RS regime ~0.042 s/call for
+    t>52k (faster). Handoff's "declining with t" holds only up to the plateau.
+next: (a) D: mertens promote ETA ~09-17 05:00Z -> read promote-run.txt, expect
+  #39 -> NUMERIC (ledger 35 NUMERIC). (b) D: zero-scan ETA ~09-18/09-20 -> on
+  completion compute S(t) records per zero-spacing-design.md (NOTE-level).
+  (c) C: next = owner reports 2.55028364035787 to ANT, or new BTY constant.
+  (d) OWNER: open PNT+ PR. (e) B: PARKED.
