@@ -190,3 +190,54 @@ next:
   (e) B: PARKED (X-sweep to 7e12; Arb-port of 0.20 pipeline; row-3 t=0.18
       blocked on RH-to-1e13 source).
   (f) OWNER: week-4 kill decision (09-17) pending owner call.
+
+=== TICK 232 (2026-09-15T23:54Z) ===
+step1: read HANDOFF/DEAD_ENDS/ledger. Doing: TRACK C #50 follow-up — re-bisect the
+  theta-cross tighter and report the RIGOROUS lower bound A0_max >= A0_g(hi),
+  resolving a rigor gap in #50 (its verified feasible A0 = 0.392113247327986 is
+  1.4e-11 BELOW the recorded 0.392113247328; the 12-digit claim rested on
+  monotonicity, not direct verification). Not in DEAD_ENDS (this is a refinement
+  of the live #50 line, not a dead approach).
+step2: gate — track C OPEN (4/4 seeds carded). OK.
+step3: prior-art pre-flight (continuation of the #50 attempt series; original
+  preflight.txt 2026-09-15T22:48Z already logged 4 arXiv queries, no competing
+  re-optimization of BTY-2603.21490 found). No new approach this tick, so no new
+  literature gate; re-confirm below that no BTY v2 / competing constant appeared.
+FALSIFICATION TEST (pre-registered, before run):
+  Idea: the crossing is robust; A0_max >= 0.392113247328 holds RIGOROUSLY and the
+  refined computation pins A0_max to ~12+ digits via the H>=0 bisection endpoint.
+  The idea is WRONG (falsified) if ANY of:
+   (a) fine 7x9 grid at (hi, A0_g(hi)) has min fulltotal < 0  [interior dip missed];
+   (b) 100-dps corner at (hi, A0_g(hi)) < 0;
+   (c) any of the 7 constraints fails at (A0_g(hi), hi);
+   (d) A0_g(hi) < 0.392113247328  [refined compute does NOT confirm #50's 12-digit
+       claim -> #50 was overclaimed].
+  Machine = mpmath ball-free exact rational/trig at 50/100 dps; PASS iff all of
+  (a)-(c) hold AND A0_g(hi) >= 0.392113247328.
+step4 (bounded step, TRACK C): ran evidence/2026-09-15-zfree-theta-cross/check_theta_cross_fine.py
+  (re-bisect 30dps/30iters + verify H>=0 endpoint at 50/100dps + 7 constraints).
+  Machine output (verbatim, check-fine-run.txt, RC=0, 263.1s):
+    bisection (30dps, 30 iters): lo=0.376216048423728 hi=0.376216048464972 width=4.12e-11
+    A0_g(hi)=0.3921132473949603  A0_g(mid)=0.3921132473955092
+    fine 7x9 (50dps) at hi: min fulltotal = 2.40975046881e-14 at mu=1.0 eta=0.00151649 -> PASS
+    100dps corner (mu=1, eta=eta0/9) at hi: LHS = 2.40975046881e-14 -> PASS
+    constraints: g<=1 True  C138 True  eq22 True  A0>1/6 True  x1>0 True  lem13 True
+    RIGOROUS: A0_max >= A0_g(hi) = 0.39211324739496   (>= 0.392113247328? True)
+    ESTIMATE: A0_max ~ A0_g(mid) = 0.392113247395509   (1/A0 = 2.55028364036)
+    CHECK refined A0_max lower bound: PASS
+  Falsification test outcome: NONE of (a)-(d) triggered -> idea CONFIRMED.
+  Notes: (i) old 20-iter midpoint 0.376216050980821 was off by 2.5e-9 from the true
+    crossing 0.376216048444350 (within its 4.2e-8 bar); (ii) the rigorous feasible
+    point is (hi, A0_g(hi)) with margin 2.41e-14 (50dps==100dps, real not noise);
+    (iii) A0_max >= 0.39211324739496 > #50's 0.392113247328, so #50 is confirmed
+    and the 1.4e-11 rigor gap is closed.
+step5: recorded NOTE #51 (stronger rigorous bound). check.sh repointed to
+  check_theta_cross_fine.py so next tick's `promote.sh promote 51 NUMERIC
+  evidence/2026-09-15-zfree-theta-cross` is a one-liner (checker already PASS).
+  Promotion deferred to next tick (263s checker re-run + HANDOFF + commit would
+  exceed this tick's budget).
+next: (a) promote #51 -> NUMERIC (one-liner); (b) D: mertens-1e12 promote ETA
+  ~09-16 08:00Z, zero-scan 90000/999990 @ ~7.45/s (ETA ~09-17 09:00Z, faster than
+  the old 09-20 estimate); (c) C: #51 is a lower bound at the H>=0 endpoint —
+  optional further tightening = 50dps bisection (width -> 1e-15) to pin A0_max to
+  ~15 digits, or a slightly-larger-theta point for a comfortable margin.
