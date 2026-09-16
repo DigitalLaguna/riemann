@@ -229,3 +229,4 @@
 2026-09-15T22:11:30.646431+00:00 tick 229 model=qwen3.8-27b steps=25 wall=1005s next=(a) TRACK D: mertens-1e12-promote.service ETA ~09-16 08:00Z (full 1e12 sieve
 2026-09-15T22:42:30.648530+00:00 tick 230 model=qwen3.8-27b steps=21 wall=1235s next=(a) TRACK D: mertens-1e12-promote.service ETA ~09-16 08:00Z (full 1e12 sieve
 2026-09-15T23:13:30.651882+00:00 tick 231 model=qwen3.8-27b steps=22 wall=1007s next=(a) TRACK D: mertens-1e12-promote.service ETA ~09-16 08:00Z (full 1e12 sieve
+2026-09-15T23:44:30.647724+00:00 tick 232 model=qwen3.8-27b steps=18 wall=1209s next=(a) TRACK C: promote #51 -> NUMERIC (one-liner, checker already PASS, ~263s):
