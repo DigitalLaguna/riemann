@@ -89,3 +89,5 @@
   coarse 90000/999990 elapsed 12076s
   coarse 95000/999990 elapsed 13076s
   coarse 100000/999990 elapsed 14092s
+  coarse 105000/999990 elapsed 15106s
+  resuming from i=107955 (11083 zeros loaded)

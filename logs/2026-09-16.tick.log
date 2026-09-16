@@ -32,3 +32,54 @@ next: (a) D: read evidence/2026-08-24-mertens-1e12/promote-run.txt when done
   (c) B parked (X-sweep 7e12, Arb port of 0.20 pipeline, row-3 t=0.18 blocked on
   RH-to-1e13); (d) OWNER: PNT+ PR via compare link + `propose #<PR>` on #816;
   week-4 kill decision 09-17 pending.
+
+TICK 234 (2026-09-16 ~18:23-18:40 UTC, model=qwen3.8-27b)
+step1: read HANDOFF/DEAD_ENDS/ledger. Action: both in-flight TRACK D jobs
+  (mertens-1e12-promote, zero-scan-1e5) found DEAD — units absent from the
+  user manager. Root cause machine-verified: `last reboot` shows boot
+  09-15 20:29 -> 09-16 02:37 (reboot killed the transient units) and a second
+  reboot 09-16 18:16 (current boot, up 7 min at tick start). Zero scan ckpt
+  saved i_last=107955 (11083 zeros); mertens promotion lost ~4.5h of its
+  10-12h sieve (no checkpoint). Not in DEAD_ENDS: relaunch after reboot,
+  covered by A-005 fix/avoid.
+step2: gates all OPEN (21/21 seeds carded).
+step3: no new attempt (relaunch + routine intake); no prior-art pre-flight.
+step4 (bounded step, TRACK D): relaunched both jobs as systemd-run --user
+  transient units (A-005 lesson; own cgroups, survive tick service end),
+  same commands as the 09-15 22:14 launches (recovered verbatim from journal):
+    zero-scan-1e5.service: python3 tracks/d-search/zero_scan.py 1.0 100000.0 0.1
+      evidence/2026-08-23-zero-scan/ckpt-1e5.json > full-run.txt 2>> full.stderr
+    mertens-1e12-promote.service: tools/promote.sh promote 39 NUMERIC
+      evidence/2026-08-24-mertens-1e12 > promote-run.txt 2>&1; echo DONE rc=$?
+  Machine output (verbatim, ~60s after launch):
+    zero-scan-1e5.service: Active: active (running) since Wed 2026-09-16 18:25:02 CEST
+    mertens-1e12-promote.service: Active: active (running) since Wed 2026-09-16 18:25:02 CEST
+    full.stderr: "  resuming from i=107955 (11083 zeros loaded)"
+    ps: python3 zero_scan.py (100% CPU); python3 mertens_segmented.py
+      1000000000000 100000000 (104% CPU)
+  New ETAs: zero scan 892035 steps @ ~6.95/s -> ~35.7h -> ~09-17 06:00Z;
+  mertens full re-run 10-12h -> ~09-17 04:00-06:00Z.
+step5: no promotion eligible this tick.
+step6 (intake, routine): arXiv math.NT catch-up sweep 08-24 -> 09-16
+  (export.arxiv.org API over https, cat:math.NT, submittedDate desc, 60
+  entries, newest 2026-09-15; sweep.xml saved to
+  evidence/2026-09-16-arxiv-sweep/). Title scan all 60; abstracts for 5
+  borderline: 0 escalations; 5 drops with reasons (2609.15329 Selberg-method
+  7% on-line proportion, superseded by Conrey 41% [conrey-2003 carded];
+  2609.15862 Cauchy laws for zeta log-derivatives, conditional on
+  sum-of-distances o(T), no usable explicit constants; 2609.15597 K(n)/d(n!)
+  prime-gap problem, not mu/Mertens/Robin; 2609.17045 digit-block harmonic
+  sums, not sigma(n)/Lagarias family; 2609.16699 Barnes multiple zeta, not
+  RH); remaining 55 dropped at title level. NOTE #52 added.
+  Anomaly resolved: handoff said "machine down 3 weeks (08-25 -> 09-15)" but
+  `last reboot` shows continuous uptime Sep 2 23:35 -> Sep 15 20:28; ticks
+  simply did not run 08-25 -> 09-15 (last tick log 2026-08-25). The 02:37
+  reboot is what killed the in-flight jobs, not a 3-week outage.
+next: (a) D: read evidence/2026-08-24-mertens-1e12/promote-run.txt when done
+  (expect "PROMOTE-1e12 DONE rc=0" + #39 promoted; ledger +1 NUMERIC -> 33);
+  (b) D: zero scan ETA ~09-17 06:00Z; on completion the zero list lands in
+  full-run.txt — compute S(t) records per zero-spacing-design.md (NOTE-level,
+  mpmath); (c) C optional: 50dps bisection tightening (width 4.12e-11 ->
+  1e-15) to pin A0_max to ~15 digits; (d) B parked (X-sweep 7e12, Arb port of
+  0.20 pipeline, row-3 t=0.18 blocked on RH-to-1e13); (e) OWNER: PNT+ PR via
+  compare link + `propose #<PR>` on #816; week-4 kill decision 09-17 pending.
