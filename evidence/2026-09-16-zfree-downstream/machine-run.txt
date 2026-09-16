@@ -1,0 +1,8 @@
+A_final  = 0.420483467794   (#40, re-optimized Lemma-1)
+A0_max   = 0.392113247395366294   (#54, pinned)
+A_final > A0_max? True
+effective = min(A_final, A0_max) = 0.392113247395366294
+headline  = 1/effective = 2.55028364035787
+paper A0  = 0.205778253354186  (1/4.8596)
+improvement over paper (A0_max/A0_paper) = 1.90551x
+CHECK downstream effective constant: PASS

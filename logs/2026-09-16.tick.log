@@ -151,3 +151,42 @@ note: new rigorous bound 0.392113247395366286 is HIGHER than #51's 0.39211324739
 next: (a) D jobs (mertens ETA ~09-17 04:00-06:00Z; zero-scan ~09-20); (b) C: A0_max is now
   pinned — further tightening has diminishing returns (width 6.3e-16 in theta = 1.7e-16 in A0);
   next C step = report pinned constant to ANT network (owner) or 138-relax re-audit at new A0.
+
+TICK 239 (2026-09-16 ~19:00 UTC) — track C downstream propagation + D job status
+step 1: read HANDOFF/DEAD_ENDS/ledger. Doing: downstream propagation of pinned A0_max
+  (handoff next (c), option 2 "re-audit the 138-relax/theta-reopt chain at the new A0 for
+  downstream propagation"). Not in DEAD_ENDS: this is the forward step the handoff names,
+  combining #40 (A_final) and #54 (A0_max) into the effective zero-free-region constant.
+step 2: gate — all tracks OPEN (21/21 seeds).
+step 3: prior-art — not a new attempt; reuses verified #40 + #54. No new search.
+D job status (machine, systemctl --user status, verbatim):
+  mertens-1e12-promote.service: Active: active (running) since Wed 2026-09-16 18:25:02 CEST;
+    2h 32min ago; CPU 2h 32min 30.608s; promote-run.txt still EMPTY (checker re-sieve in flight).
+  zero-scan-1e5.service: Active: active (running); full.stderr tail:
+    "coarse 135000/999990 elapsed 8913s" (rate ~3.0/s, declining with t).
+  Both still running; no promotion to record yet.
+FALSIFICATION TEST (pre-registered, before run):
+  - A_final <= A0_max  -> A0 does NOT bind; effective constant = A_final, headline 1/A_final;
+    the "A0_max binds" narrative is wrong. DEAD (recompute).
+  - effective != A0_max or headline != 1/A0_max -> arithmetic error. DEAD.
+  - PASS iff A_final > A0_max AND effective == A0_max AND headline == 1/A0_max.
+run: evidence/2026-09-16-zfree-downstream/downstream.py (mpmath 50 dps)
+machine (verbatim, evidence/2026-09-16-zfree-downstream/machine-run.txt, RC=0):
+  A_final  = 0.420483467794   (#40, re-optimized Lemma-1)
+  A0_max   = 0.392113247395366294   (#54, pinned)
+  A_final > A0_max? True
+  effective = min(A_final, A0_max) = 0.392113247395366294
+  headline  = 1/effective = 2.55028364035787
+  paper A0  = 0.205778253354186  (1/4.8596)
+  improvement over paper (A0_max/A0_paper) = 1.90551x
+  CHECK downstream effective constant: PASS
+check.sh re-run: PASS (machine-run-check.txt).
+ledger: NOTE #55 added (downstream propagation; the constant to report to ANT network).
+note: A_final (#40) > A0_max (#54), so the lemma A0 constraint binds and the effective
+  zero-free-region constant is 1/A0_max = 2.55028364035787 (1.90551x the paper's 4.8596).
+  This is a NOTE (combines two NUMERICs via a trivial min + reciprocal); the NUMERIC content
+  already lives in #40 and #54. Reporting to the ANT network is the owner action (handoff (d)).
+next: (a) D: mertens-1e12 promote ETA ~09-17 04:00-06:00Z (read promote-run.txt when done,
+  expect #39 -> NUMERIC); zero-scan ETA ~09-20. (b) C: A0_max pinned + downstream constant
+  recorded (#55); next C step = owner reports 2.55028364035787 to ANT network, or a new
+  BTY constant to re-optimize. (c) OWNER: open PNT+ PR (handoff (d)). (e) B: PARKED.
