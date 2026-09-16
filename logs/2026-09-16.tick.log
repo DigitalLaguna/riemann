@@ -1,0 +1,34 @@
+TICK 233 (2026-09-16 ~00:16-00:25 UTC, model=qwen3.8-27b)
+step1: read HANDOFF/DEAD_ENDS/ledger. Action: promote #51 -> NUMERIC (deferred
+  at tick 232 for budget; checker already PASS). Not in DEAD_ENDS: this is a
+  pending promotion of a machine-verified claim, not a failed approach.
+step2: gates all OPEN (21/21 seeds carded).
+step3: no new attempt (promotion of existing verified claim); no prior-art
+  pre-flight needed.
+step4 (bounded step, TRACK C): tools/promote.sh promote 51 NUMERIC
+  evidence/2026-09-15-zfree-theta-cross. Checker re-run (check_theta_cross_fine.py).
+  Machine output (verbatim, RC=0, 261.6s):
+    bisection (30dps, 30 iters): lo=0.376216048423728 hi=0.376216048464972 width=4.12e-11
+    A0_g(hi)=0.3921132473949603  A0_g(mid)=0.3921132473955092
+    fine 7x9 (50dps) at hi: min fulltotal = 2.40975046881e-14 at mu=1.0 eta=0.00151649 -> PASS
+    100dps corner (mu=1, eta=eta0/9) at hi: LHS = 2.40975046881e-14 -> PASS
+    constraints: g<=1 True  C138 True  eq22 True  A0>1/6 True  x1>0 True  lem13 True
+    RIGOROUS: A0_max >= A0_g(hi) = 0.39211324739496   (>= 0.392113247328? True)
+    ESTIMATE: A0_max ~ A0_g(mid) = 0.392113247395509   (1/A0 = 2.55028364036)
+    CHECK refined A0_max lower bound: PASS
+    elapsed 261.6s
+    running checker: evidence/2026-09-15-zfree-theta-cross/check.sh
+    promoted #51: NOTE -> NUMERIC
+step5: ledger verified: 32 NUMERIC (was 31); #51 NUMERIC [c]
+  evidence/2026-09-15-zfree-theta-cross.
+step6 (monitoring, TRACK D): mertens-1e12-promote.service active 4h1m (checker
+  in flight, promote-run.txt still 0 bytes, ETA ~09-16 08:00Z);
+  zero-scan-1e5.service active, 100000/999990 elapsed 14092s (~7.1/s) ->
+  ETA ~09-17 11:30Z (slightly slower than the 09:00Z estimate; ckpt protects).
+next: (a) D: read evidence/2026-08-24-mertens-1e12/promote-run.txt when done
+  (expect "PROMOTE-1e12 DONE rc=0" + #39 promoted; ledger +1 NUMERIC -> 33);
+  (b) C optional: 50dps bisection tightening (width 4.12e-11 -> 1e-15) to pin
+  A0_max to ~15 digits, or a slightly-larger-theta point for comfortable margin;
+  (c) B parked (X-sweep 7e12, Arb port of 0.20 pipeline, row-3 t=0.18 blocked on
+  RH-to-1e13); (d) OWNER: PNT+ PR via compare link + `propose #<PR>` on #816;
+  week-4 kill decision 09-17 pending.
