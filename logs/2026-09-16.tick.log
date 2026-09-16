@@ -265,3 +265,19 @@ next: (a) D: mertens promote ETA ~09-17 05:00Z -> read promote-run.txt, expect
   completion compute S(t) records per zero-spacing-design.md (NOTE-level).
   (c) C: next = owner reports 2.55028364035787 to ANT, or new BTY constant.
   (d) OWNER: open PNT+ PR. (e) B: PARKED.
+
+--- tick 242 (2026-09-16 ~20:35Z) ---
+TRACK C: resolve anomaly in #55 downstream README — is the "effective constant"
+2.5503 a GLOBAL zero-free-region constant (all t>=3) or RANGE-LIMITED to the
+Lemma 1 range (3 <= t <= exp(76.47))?
+PRIOR-ART PRE-FLIGHT: ledger #40 says A0 constraint "caps the UNCONDITIONAL
+constant at 4.8596"; #55 says "effective = min(A_final,A0_max) = 2.5503, report
+to ANT network". Neither addresses the crossover with the published Littlewood
+region (3) sigma>1-loglog t/(21.233 log t) for t>exp(76.47). Paper p.2 (PDF
+layout lines 90-112) confirms (3) form and that Theorem 1 (4.896) is global via
+Lemma 1 (t<=exp(76.47)) + Littlewood (t>exp(76.463)).
+FALSIFICATION TEST (pre-registered): my analysis claims global C = 4.896
+(unchanged by reopt; 2.5503 is range-limited). This is WRONG if the machine
+shows (a) min_t A(t) > 0.204248 (i.e. global C < 4.896), or (b) A(t) >= 0.392113
+for ALL t>=3 (i.e. 2.5503 is global). A(t) = A_HB on [3,exp(76.47)],
+= loglog t/21.233 above.
