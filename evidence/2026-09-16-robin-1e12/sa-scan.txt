@@ -1,0 +1,13 @@
+F1 sigma(SA in (1e11,1e12]) == sympy divisor_sigma: checked=5 mismatches=0: PASS
+F2 regression (1e10,1e11] SA max: n=13967553600 display=0.97201588698 (expect 0.97201588698 at 13967553600; nstr strips trailing zero): PASS
+F3 witness R(n)>=1 among SA in (1e11,1e12]: hits=0: PASS (no RH witness in (1e11,1e12])
+SA near-miss (1e11,1e12]: max R = 0.9755059227362326 at n = 160626866400 (sigma=907141939200); 1-R = 0.02449407726
+F3b reference for full scan: 12-sig-digit display = 0.975505922736
+all SA in (1e11,1e12]:
+  n=160626866400 sigma=  907141939200 R=0.975505922736
+  n=321253732800 sigma= 1828682956800 R=0.975294006187
+  n=642507465600 sigma= 3671764992000 R=0.97147789659
+  n=963761198400 sigma= 5531765944320 R=0.971378427826
+  n=481880599200 sigma= 2744104366080 R=0.971177025224
+next SA after 1e12: 1124388064800
+VERDICT: ALL CHECKS PASS

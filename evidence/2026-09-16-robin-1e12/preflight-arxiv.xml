@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/7qhs9uvlr9vhPHqlWKB10Aqjn3g</id>
+  <title>arXiv Query: search_query=all:"Robin criterion"&amp;id_list=&amp;start=0&amp;max_results=10</title>
+  <updated>2026-09-16T21:06:23Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22Robin+criterion%22&amp;start=0&amp;max_results=10&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>5</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2511.02106v1</id>
+    <title>A family of analogues to the Robin criterion</title>
+    <updated>2025-11-03T22:40:25Z</updated>
+    <link href="https://arxiv.org/abs/2511.02106v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.02106v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Robin criterion states that the Riemann hypothesis is equivalent to the inequality $σ(n) &lt; e^γn \log \log n$ for all $n&gt;5040$, where $σ(n)$ is the sum of divisors of $n$, and $γ$ is the Euler--Mascheroni constant. Define the family of functions \[ σ^{[k]} (n):=\sum_{[d_1,\dots,d_k]=n}d_1\dots d_k \] where $[d_1, \dots, d_k]$ is the least common multiple of $d_1, \dots, d_k$. These functions behave asymptotically like $σ(n)^k$ as $k\to\infty$. We prove the following analogue of the Robin criterion: for any $k \geq 2$, the Riemann hypothesis holds if and only if $σ^{[k]} (n) &lt; \frac{(e^γn \log \log n)^k}{ζ(k)}$ for all $n &gt; 2162160$, where $ζ$ is the Riemann zeta function.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-03T22:40:25Z</published>
+    <arxiv:comment>47 pages; 1 figure</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Steve Fan</name>
+    </author>
+    <author>
+      <name>Mits Kobayashi</name>
+    </author>
+    <author>
+      <name>Grant Molnar</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0604314v2</id>
+    <title>On Robin's criterion for the Riemann Hypothesis</title>
+    <updated>2006-09-07T15:09:49Z</updated>
+    <link href="https://arxiv.org/abs/math/0604314v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0604314v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  Robin's criterion states that the Riemann Hypothesis (RH) is true if and only if Robin's inequality sum_{d|n}d&lt;e^{gamma}n loglog n is satisfied for n&gt;=5041, where gamma denotes the Euler(-Mascheroni) constant. We show by elementary methods that if n&gt;=37 does not satisfy Robin's criterion it must be even and is neither squarefree nor squarefull. Using a bound of Rosser and Schoenfeld we show, moreover, that n must be divisible by a fifth power &gt;1. As a consequence we infer that RH holds true if and only if every natural number divisible by a fifth power &gt;1 satisfies Robin's inequality.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2006-04-13T14:54:05Z</published>
+    <arxiv:comment>15 pages. Corrected version. In the first version in Theorem 5 (main result) it was falsely asserted that n must be superabundant, invalidating the proof. An alternative proof is provided in this version, some typos have been corrected, and the presentation has been improved</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>J. Theor. Nombres Bordeaux 19 (2007), 351-366.</arxiv:journal_ref>
+    <author>
+      <name>Y. -J. Choie</name>
+    </author>
+    <author>
+      <name>N. Lichiardopol</name>
+    </author>
+    <author>
+      <name>P. Moree</name>
+    </author>
+    <author>
+      <name>P. Sole</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1612.05186v2</id>
+    <title>Robin's inequality for new families of integers</title>
+    <updated>2018-08-18T07:50:46Z</updated>
+    <link href="https://arxiv.org/abs/1612.05186v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1612.05186v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Robin's criterion states that the Riemann Hypothesis (RH) is true if and only if Robin's inequality $σ(n):=\sum_{p|n}p&lt;e^γ n \log \log n$ is satisfied for $n &gt; 5040$, where $γ$ denotes the Euler-Mascheroni constant. We show that if the 2-adic order of n is big enough in comparison to the odd part of n then Robin's inequality is satisfied. We also show that if an positive integer $n$ satisfies either $ν_2(n) \leq 19$, $ν_3(n) \leq 12$,$ν_5(n) \leq 7$, $ν_7(n) \leq 6$, $ν_{11}(n) \leq 5$ then Robin's inequality is satisfied, where $ν_p(n)$ is the p-adic order of $n$. In the end we show that $σ(n)/n &lt; 1.0000005645 e^γ\log \log n$ holds unconditionally for $n &gt; 5040$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-12-15T18:42:53Z</published>
+    <arxiv:comment>6 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>INTEGERS 18 (2018)</arxiv:journal_ref>
+    <author>
+      <name>Alexander Hertlein</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2008.04787v1</id>
+    <title>Analogues of the Robin-Lagarias Criteria for the Riemann Hypothesis</title>
+    <updated>2020-08-11T15:29:34Z</updated>
+    <link href="https://arxiv.org/abs/2008.04787v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2008.04787v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Robin's criterion states that the Riemann hypothesis is equivalent to $σ(n) &lt; e^γn \log\log n$ for all integers $n \geq 5041$, where $σ(n)$ is the sum of divisors of $n$ and $γ$ is the Euler-Mascheroni constant. We prove that the Riemann hypothesis is equivalent to the statement that $σ(n) &lt; \frac{e^γ}{2} n \log\log n$ for all odd numbers $n \geq 3^4 \cdot 5^3 \cdot 7^2 \cdot 11 \cdots 67$. Lagarias's criterion for the Riemann hypothesis states that the Riemann hypothesis is equivalent to $σ(n) &lt; H_n + \exp{H_n}\log{H_n}$ for all integers $n \geq 1$, where $H_n$ is the $n$th harmonic number. We establish an analogue to Lagarias's criterion for the Riemann hypothesis by creating a new harmonic series $H^\prime_n = 2H_n - H_{2n}$ and demonstrating that the Riemann hypothesis is equivalent to $σ(n) \leq \frac{3n}{\log{n}} + \exp{H^\prime_n}\log{H^\prime_n}$ for all odd $n \geq 3$. We prove stronger analogues to Robin's inequality for odd squarefree numbers. Furthermore, we find a general formula that studies the effect of the prime factorization of $n$ and its behavior in Robin's inequality.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-08-11T15:29:34Z</published>
+    <arxiv:comment>24 pages, 1 figure; To appear in IJNT</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Lawrence C. Washington</name>
+    </author>
+    <author>
+      <name>Ambrose Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1605.08273v15</id>
+    <title>Robin's inequality,Lagarias' criterion, and Riemann hypothesis</title>
+    <updated>2026-07-12T22:45:48Z</updated>
+    <link href="https://arxiv.org/abs/1605.08273v15" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1605.08273v15" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we make use of Robin and Lagarias' criteria to prove Riemann hypothesis. The goal is, using Lagarias criterion for $n\geq 1$ since Lagarias criterion states that Riemann hypothesis holds if and only if the inequality $\sum_{d|n}d\leq H_{n}+\exp(H_{n})\log(H_{n})$ holds for all $n\geq 1$. Although, Robin's criterion is used as well. Our approach breaks up the set of the natural numbers into the two main subsets. The first subset is $\{n\in \mathbb{N}| ~ 1\leq n\leq 2(3\times5\dots\times331)^{2}\}$. The second one is $\{n\in \mathbb{N}| ~ n\geq 2(3\times5\dots\times331)^{2}\}$. In our proof, the second subset is decomposed again into the three sub-subsets including odd numbers and the two groups of the even numbers. Then,each group of the even numbers is expressed by an odd integer class number set. Finally, mathematical arguments are stated for each odd integer class number set. Odd integer class number set is introduced in this paper. Since the Lagarias criterion holds for the first subset regarding computer aided computations and Thomas Morrill's paper, we do prove it for the second subset using both Lagarias and Robin's criteria and mathematical arguments. It then follows that Riemann hypothesis holds as well. Essential keys of the proof for large numbers are theorem 1 proving $σ(m)&lt;\frac{1}{2}e^γm \log\log(2m)$ for odd numbers $m\geq (3\times5\dots\times331)^{2}$, lemma9 and lemma 10 proving $e^γ(1-\frac{1}{p_{1}})\dots (1-\frac{1}{p_{n}})\log\log(2p_{1}\dots p_{n})&lt;2$ for $n\geq 1$ and $e^γ(1-\frac{1}{p_{1}})\dots (1-\frac{1}{p_{n}})\log\log(2p^{2}_{1}\dots p^{2}_{n})&gt;2$ for $n\geq 66$.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-05-25T19:48:57Z</published>
+    <arxiv:comment>40 pages.I must thank Prof.Roger Heath-Brown (University of Oxford), Prof.Pieter Moree (University of Bonn), Prof. Michel L. Lapidus (University of california, Riverside) and special thanks for Prof. Carl Pomerance (Dartmouth University) for his many nice comments and much useful discussions on the paper.Furthermore, his comments on the proof of Lemma 9 were so critical and constructive</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Ahmad Sabihi</name>
+    </author>
+  </entry>
+</feed>
