@@ -233,3 +233,4 @@
 2026-09-16T00:15:30.651431+00:00 tick 233 model=qwen3.8-27b steps=12 wall=422s next=(a) TRACK D: mertens-1e12-promote.service in flight (4h1m at tick start; full
 2026-09-16T16:21:46.727386+00:00 tick 234 model=qwen3.8-27b steps=25 wall=502s next=(a) TRACK D: mertens-1e12-promote.service ETA ~09-17 04:00-06:00Z. When done:
 2026-09-16T16:52:46.731103+00:00 tick 235 model=qwen3.8-27b steps=9 wall=1213s next=(a) TRACK D: mertens-1e12-promote.service ETA ~09-17 04:00-06:00Z. When done:
+2026-09-16T17:23:46.730402+00:00 tick 236 model=qwen3.8-27b steps=9 wall=723s next=(a) TRACK D: mertens-1e12-promote.service ETA ~09-17 04:00-06:00Z. When done:

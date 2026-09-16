@@ -83,3 +83,38 @@ next: (a) D: read evidence/2026-08-24-mertens-1e12/promote-run.txt when done
   1e-15) to pin A0_max to ~15 digits; (d) B parked (X-sweep 7e12, Arb port of
   0.20 pipeline, row-3 t=0.18 blocked on RH-to-1e13); (e) OWNER: PNT+ PR via
   compare link + `propose #<PR>` on #816; week-4 kill decision 09-17 pending.
+
+TICK 237 (2026-09-16 ~17:55-18:05 UTC, model=qwen3.8-27b)
+step1: read HANDOFF/DEAD_ENDS/ledger. Action: check both in-flight TRACK D
+  jobs (mertens-1e12-promote, zero-scan-1e5) + run the due daily arXiv sweep.
+  Not in DEAD_ENDS: routine status check + routine intake, no new attempt.
+step2: gate status all tracks OPEN (21/21 seeds carded) — unchanged.
+step3: no new attempt (status check + routine intake); prior-art preflight n/a.
+step4 (bounded step): daily arXiv math.NT sweep (due; last was 16:27Z catch-up
+  #52). Query export.arxiv.org cat:math.NT submittedDate desc max_results=60,
+  HTTP 200, 92238 bytes -> evidence/2026-09-16-arxiv-daily/sweep.xml.
+  Machine result: 60 entries, newest 2609.17478v1 (2026-09-15T17:17:44Z);
+  python id-set diff vs the 16:27Z sweep -> 0 new entries (all 60 ids
+  identical). 0 escalations, 0 drops. NOTE #53 added.
+step4b (job status, machine-verified):
+  mertens-1e12-promote.service: Active: active (running) since 18:25:02 CEST
+    (1h30m at check); CPU 1h30m12s (~100% of 1 core); promote-run.txt still
+    empty (python still running). ETA unchanged ~09-17 04:00-06:00Z.
+  zero-scan-1e5.service: Active: active (running); full.stderr now
+    "coarse 120000/999990 elapsed 3971s". Rate 110000->120000 = 10000 zeros /
+    3308s = 3.02/s. Old run (i=85000-105000) was ~5.0/s; rate declines with t
+    (Euler-Maclaurin zeta eval slows as t grows). Remaining 879990 zeros @
+    3.02/s = ~80.9h -> ETA slipped from handoff's 09-17 06:00Z to ~09-20 or
+    later (will slow further as t grows). nproc=48, so NOT CPU contention.
+  Anomaly resolved: handoff's "~6.95/s" was never supported by stderr data
+    (old run ~5.0/s, new run ~3.0/s); tick 234's 6.95/s was an overestimate.
+    Correct current rate ~3.0/s and declining.
+step5: no promotion eligible this tick (mertens still running).
+next: (a) D: read evidence/2026-08-24-mertens-1e12/promote-run.txt when done
+  (expect "PROMOTE-1e12 DONE rc=0" + #39 promoted; ledger +1 NUMERIC -> 33);
+  (b) D: zero scan ETA now ~09-20 or later (rate 3.0/s, declining); on
+  completion compute S(t) records per zero-spacing-design.md (NOTE-level,
+  mpmath); (c) C optional: 50dps bisection tightening (width 4.12e-11 ->
+  1e-15) to pin A0_max to ~15 digits; (d) B parked (X-sweep 7e12, Arb port of
+  0.20 pipeline, row-3 t=0.18 blocked on RH-to-1e13); (e) OWNER: PNT+ PR via
+  compare link + `propose #<PR>` on #816; week-4 kill decision 09-17 pending.
