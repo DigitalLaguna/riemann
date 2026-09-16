@@ -118,3 +118,36 @@ next: (a) D: read evidence/2026-08-24-mertens-1e12/promote-run.txt when done
   1e-15) to pin A0_max to ~15 digits; (d) B parked (X-sweep 7e12, Arb port of
   0.20 pipeline, row-3 t=0.18 blocked on RH-to-1e13); (e) OWNER: PNT+ PR via
   compare link + `propose #<PR>` on #816; week-4 kill decision 09-17 pending.
+
+TICK 238 (2026-09-16 ~18:35 UTC) — track C: A0_max pinning, bisection width 4.12e-11 -> 6.3e-16 (supersedes #51)
+prior-art: approach preflighted 2026-09-15T22:48Z (evidence/2026-09-15-zfree-theta-cross/preflight.txt,
+  3 arXiv queries); this tick is a precision tightening of that same verified approach, not a new idea.
+FALSIFICATION TEST (pre-registered, before run):
+  - 50dps fine 7x9 grid min at new hi < 0  -> tightened bisection overshot the true fulltotal
+    crossing; new rigorous bound invalid; keep #51. DEAD.
+  - 100dps corner spot < 0 -> same. DEAD.
+  - any of the 7 constraints fails -> point infeasible. DEAD.
+  - new hi > old #51 hi 0.376216048464972 -> bisection inconsistent. DEAD.
+  - PASS iff all hold AND A0_g(hi_new) >= 0.392113247328 (#50 target).
+run: evidence/2026-09-16-zfree-a0max-pin/check_theta_cross_pin.py (30dps bisection 46 iters,
+  then 50dps grid + 100dps corner + 7 constraints)
+machine (verbatim, evidence/2026-09-16-zfree-a0max-pin/machine-run.txt, RC=0):
+  bisection (30dps, 46 iters): lo=0.37621604844971936 hi=0.376216048449719989 width=6.29e-16
+  consistency: new hi <= old #51 hi 0.376216048464972? True
+  A0_g(hi)=0.3921132473953663  A0_g(mid)=0.3921132473953663
+  fine 7x9 (50dps) at hi: min fulltotal = 6.56529375565e-19 at mu=1.0 eta=0.00151649 -> PASS
+  100dps corner (mu=1, eta=eta0/9) at hi: LHS = 6.56529375565e-19 -> PASS
+  constraints: g<=1 True  C138 True  eq22 True  A0>1/6 True  x1>0 True  lem13 True
+  RIGOROUS: A0_max >= A0_g(hi) = 0.392113247395366286   (>= 0.392113247328? True; old #51: 0.3921132473949603)
+  ESTIMATE: A0_max ~ A0_g(mid) = 0.392113247395366294   (1/A0 = 2.55028364035787)
+  CHECK refined A0_max lower bound: PASS
+  elapsed 363.3s
+promotion: tools/promote.sh promote 54 NUMERIC evidence/2026-09-16-zfree-a0max-pin
+  -> checker re-run PASS (367.8s), "promoted #54: NOTE -> NUMERIC"
+note: new rigorous bound 0.392113247395366286 is HIGHER than #51's 0.39211324739496 because
+  A0_g decreases in theta (slope ~ -0.27 near the crossing); hi_new is 1.5e-11 closer to the
+  crossing than hi_old. Estimate moved 1.43e-12 from #51's 0.3921132473955092 (mid_old was
+  ~5e-12 off the crossing in theta). A0_max stable to 15 digits: 0.392113247395366.
+next: (a) D jobs (mertens ETA ~09-17 04:00-06:00Z; zero-scan ~09-20); (b) C: A0_max is now
+  pinned — further tightening has diminishing returns (width 6.3e-16 in theta = 1.7e-16 in A0);
+  next C step = report pinned constant to ANT network (owner) or 138-relax re-audit at new A0.

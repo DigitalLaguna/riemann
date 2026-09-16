@@ -1,0 +1,10 @@
+bisection (30dps, 46 iters): lo=0.37621604844971936 hi=0.376216048449719989 width=6.29e-16
+consistency: new hi <= old #51 hi 0.376216048464972? True
+A0_g(hi)=0.3921132473953663  A0_g(mid)=0.3921132473953663
+fine 7x9 (50dps) at hi: min fulltotal = 6.56529375565e-19 at mu=1.0 eta=0.00151649 -> PASS
+100dps corner (mu=1, eta=eta0/9) at hi: LHS = 6.56529375565e-19 -> PASS
+constraints: g<=1 True  C138 True  eq22 True  A0>1/6 True  x1>0 True  lem13 True
+RIGOROUS: A0_max >= A0_g(hi) = 0.392113247395366286   (>= 0.392113247328? True; old #51: 0.3921132473949603)
+ESTIMATE: A0_max ~ A0_g(mid) = 0.392113247395366294   (1/A0 = 2.55028364035787)
+CHECK refined A0_max lower bound: PASS
+elapsed 363.3s
