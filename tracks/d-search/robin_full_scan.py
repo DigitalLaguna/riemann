@@ -30,10 +30,16 @@ tick 128; [1e9,1e10): logs/2026-08-24.tick.log tick 167):
      display-rounding artifact, resolved at 80 digits (evidence f3-resolution.txt).
 Exit 0 iff F1 and F3 pass and no F2 witness hit.
 
-Usage: robin_full_scan.py [A] [B] [L] [SA_REF]
-  defaults: A=1e8, B=1e9+1, L=1e8, SA_REF=0.968152104902
+Usage: robin_full_scan.py [A] [B] [L] [SA_REF] [CKPT]
+  defaults: A=1e8, B=1e9+1, L=1e8, SA_REF=0.968152104902, CKPT=None
+  CKPT (optional): subseg-boundary checkpoint (atomic tmp+fsync+os.replace,
+  tick 246). If the file exists with matching (A,B,L,SA_REF), the run resumes
+  from the next subseg with restored best_R/best_n/best_sigma/check_sigma.
+  A reboot mid-write leaves the previous good ckpt intact.
 """
+import json
 import math
+import os
 import sys
 import time
 import random
@@ -81,11 +87,25 @@ def nstr(x):
     return mp.nstr(x, 16)
 
 
+def save_ckpt(path, state):
+    # Atomic write (tick 246): mirrors zero_scan.save_ckpt (tick 244). A reboot
+    # mid json.dump would otherwise truncate the ckpt and lose all progress of
+    # the ~12h [1e11,1e12) full scan. tmp + fsync + os.replace leaves the
+    # previous good ckpt intact on a hard kill.
+    tmp = path + ".tmp"
+    with open(tmp, "w") as f:
+        json.dump(state, f)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+
+
 def main():
     A = int(sys.argv[1]) if len(sys.argv) > 1 else 10**8
     B = int(sys.argv[2]) if len(sys.argv) > 2 else 10**9 + 1
     L = int(sys.argv[3]) if len(sys.argv) > 3 else 10**8
     SA_REF = sys.argv[4] if len(sys.argv) > 4 else SA_REF_DEFAULT
+    CKPT = sys.argv[5] if len(sys.argv) > 5 else None
     t0 = time.time()
     pmax = math.isqrt(B - 1)
     primes = primes_upto(pmax)
@@ -104,7 +124,23 @@ def main():
     best_n = None
     best_sigma = None
     n_sub = 0
-    for a in range(A, B, L):
+    start_a = A
+    if CKPT and os.path.exists(CKPT):
+        with open(CKPT) as f:
+            ck = json.load(f)
+        if (ck["A"], ck["B"], ck["L"], ck["SA_REF"]) != (A, B, L, SA_REF):
+            print(f"CKPT MISMATCH: ckpt ({ck['A']},{ck['B']},{ck['L']},{ck['SA_REF']}) "
+                  f"!= run params ({A},{B},{L},{SA_REF}): refusing to resume", flush=True)
+            sys.exit(2)
+        best_R = ck["best_R"]
+        best_n = ck["best_n"]
+        best_sigma = ck["best_sigma"]
+        n_sub = ck["n_sub"]
+        check_sigma = {int(k): int(v) for k, v in ck["check_sigma"].items()}
+        start_a = A + n_sub * L
+        print(f"resumed from ckpt {CKPT}: n_sub={n_sub} best_R={best_R:.12f} at n={best_n} "
+              f"(next subseg starts at {start_a})", flush=True)
+    for a in range(start_a, B, L):
         b = min(a + L, B)
         n = b - a
         rem = np.arange(a, b, dtype=np.int64)
@@ -146,6 +182,10 @@ def main():
         print(f"subseg {n_sub}: [{a},{b}) running best_R={best_R:.12f} at n={best_n} "
               f"({time.time()-t0:.1f}s)", flush=True)
         del rem, sigma, R, nn, ll
+        if CKPT:
+            save_ckpt(CKPT, {"A": A, "B": B, "L": L, "SA_REF": SA_REF,
+                             "n_sub": n_sub, "best_R": best_R, "best_n": best_n,
+                             "best_sigma": best_sigma, "check_sigma": check_sigma})
 
     R_best_mp = r_mp(best_n, best_sigma)
     print(f"\nFULL SCAN [{A},{B}): max R = {nstr(R_best_mp)} at n = {best_n} (sigma={best_sigma})",

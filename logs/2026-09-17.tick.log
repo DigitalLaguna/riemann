@@ -142,3 +142,24 @@ NEXT:
       BTY constant to re-optimize.
   (e) OWNER: open PR (evidence/2026-08-22-pnt-ik-api/pr-body.md rev 2) +
       comment `propose #<PR>` on issue #816.
+
+TICK 246 (2026-09-17 ~23:40 UTC)
+ATTEMPT: add subseg-boundary checkpoint to robin_full_scan.py (atomic
+  tmp+fsync+os.replace, mirroring zero_scan.save_ckpt from tick 244), test
+  it, then relaunch the [1e11,1e12) FULL scan as robin-full-1e12.service.
+PRIOR-ART PRE-FLIGHT: n/a — this is a reliability patch to our own script
+  (no new math attempt); pattern copied from zero_scan.py save_ckpt which
+  was machine-verified tick 244 (D-001 closed).
+FALSIFICATION TEST (pre-registered, before any run):
+  Test range [1e8, 1.3e8), L=1e8 (3 subsegs, ~2.5 min), SA_REF computed
+  fresh for the test range (SA max R, 12-sig-digit display).
+  F-CKPT-1: fresh run with ckpt -> VERDICT ALL CHECKS PASS and ckpt file
+    is valid JSON with n_sub=3.
+  F-CKPT-2: re-run with the SAME completed ckpt -> prints "resumed from
+    ckpt", processes 0 subsegs, final max R identical to F-CKPT-1,
+    VERDICT PASS.
+  F-CKPT-3: fresh run with 2nd ckpt, SIGTERM after ~1 subseg -> ckpt is
+    valid JSON with n_sub=1 (atomic write survived the kill); resume run
+    completes with final max R identical to F-CKPT-1 and VERDICT PASS.
+  IDEA DEAD if: ckpt corrupt/0-byte after kill, resumed final max R differs
+  from fresh run, any VERDICT FAIL, or resume reprocesses completed subsegs.
