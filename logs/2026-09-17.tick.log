@@ -89,3 +89,56 @@ ACTION: recorded only (bounded step = recovery of the 2 known jobs). NOT
       promote.sh add NOTE then promote NUMERIC (track D, 11th NUMERIC).
     - FULL scan: investigate death cause before relaunch; add checkpoint
       (like mertens) given 105h + frequent reboots.
+
+TICK 245 (2026-09-17 ~23:07 UTC, model qwen3.8-27b)
+STATE: 55 rows before this tick (34 NUMERIC / 3 FORMAL / 18 NOTE).
+PLAN (1 line): promote the already-verified robin SA-scan (1e11,1e12] to the
+  ledger (handoff next (d)) — mechanical promotion of an existing
+  machine-verified result, not a new attempt; nothing in DEAD_ENDS blocks it.
+  No prior-art pre-flight needed (no new attempt).
+GATE: all tracks OPEN (21/21 seeds carded).
+STEP 1 (bounded, machine-verified): robin SA-scan promotion.
+  - Wrote evidence/2026-09-16-robin-1e12/check.sh: re-runs
+    robin_sa_1e12.py fresh into sa-scan-recheck.txt, asserts F1 (5/5
+    sigma-vs-sympy), F2 (regression 0.97201588698 @ 13967553600, claim #43),
+    F3 (hits=0), near-miss 0.9755059227362326 @ 160626866400, F3b
+    0.975505922736, VERDICT ALL CHECKS PASS, and diff vs stored sa-scan.txt.
+  - First run: CHECK FAIL (my bug: cd ../../.. instead of ../.. — path
+    error, not a math issue). Fixed.
+  - Machine output (verbatim): "CHECK PASS: Robin SA-scan (1e11,1e12]
+    re-verified" (re-run wall 0.285s).
+  - promote.sh add -> NOTE #56; promote.sh promote 56 NUMERIC ->
+    "promoted #56: NOTE -> NUMERIC". Ledger now 35 NUMERIC.
+STEP 2 (diagnosis, machine-verified): robin FULL scan death cause RESOLVED.
+  - journalctl --list-boots: boot -1 = b2a37e4c "Wed 2026-09-16 18:16:01
+    CEST -> Wed 2026-09-16 23:15:47 CEST". Machine REBOOTED 2026-09-16
+    23:15:47 CEST — 25s after the last full-scan progress line (subseg 12,
+    516.7s after the 23:06:45 CEST start). This is the 2nd Sep-16 reboot
+    (handoff listed "Sep 16 x2" but never linked it to the robin-full death).
+    Machine was down 23:15:47 CEST Sep 16 -> 00:29:35 CEST Sep 18 (~25.2h).
+    The 96 trailing null bytes = partial-write artifact of the hard kill.
+    CAUSE: reboot, not a crash. No journal stop line because the machine
+    died, not the unit.
+  - Implication: relaunch is safe (no bug to fix), but the 105h no-checkpoint
+    job is still reboot-vulnerable -> add a checkpoint before relaunch
+    (next tick, with the mertens checkpoint if that also needs one).
+STATUS OF RUNNING JOBS (23:07 UTC):
+  - zero-scan-1e5.service: active, ckpt i_last=27311/999990 (valid JSON,
+    atomic ckpt working). Rate ~16.5 steps/s (25000 in 1512s). ETA ~17h
+    -> ~2026-09-18 15:30Z. (Older 4.8h/160k estimate was ~9.3 steps/s;
+    re-estimate as more data lands.)
+  - mertens-1e12-promote.service: active, pid 2990 at 100% CPU, 29min
+    elapsed (expect 12h41m -> ~2026-09-18 12:20Z). promote-run.txt still
+    0 bytes (checker writes at end).
+NEXT:
+  (a) zero-scan: on completion read full-run.txt, compute S(t) records per
+      zero-spacing-design.md (NOTE-level, mpmath).
+  (b) mertens: on completion read promote-run.txt (expect "PROMOTE-1e12
+      DONE rc=0" + "CHECK PASS"); #39 NOTE -> NUMERIC (36 total).
+  (c) robin FULL scan: add a checkpoint to robin_full_scan.py (subseg
+      boundary, atomic like zero_scan save_ckpt), then relaunch as a
+      transient unit. Death cause resolved (reboot), so relaunch is safe.
+  (d) TRACK C: owner reports 2.55028364035787 to ANT network, or pick a new
+      BTY constant to re-optimize.
+  (e) OWNER: open PR (evidence/2026-08-22-pnt-ik-api/pr-body.md rev 2) +
+      comment `propose #<PR>` on issue #816.
