@@ -1,0 +1,91 @@
+
+======================================================================
+TICK 244 — 2026-09-17T22:41Z (model qwen3.8-27b)
+track: D (recovery) | gate: all tracks OPEN (21/21 seeds)
+======================================================================
+STATE ON ARRIVAL: machine rebooted 2026-09-17 22:29Z (local "Fri Sep 18
+00:29"), ~6 min before this tick. Both in-flight D units were transient
+(systemd-run --user) and died with the reboot. Neither had completed.
+
+DIAGNOSIS (machine output, verbatim):
+  systemctl --user status mertens-1e12-promote.service
+    -> "Unit mertens-1e12-promote.service could not be found."
+  systemctl --user status zero-scan-1e5.service
+    -> "Unit zero-scan-1e5.service could not be found."
+  journalctl -u mertens-1e12-promote.service (tail):
+    Started Aug 24 20:18 -> Stopped Aug 25 08:14 (11h55m CPU)
+    Started Sep 15 22:14 -> Stopped Sep 16 02:37 (4h22m CPU)
+    Started Sep 16 18:25 -> [killed by 22:29Z reboot, no Stopped line]
+    => 3rd attempt, killed at ~30h wall (expected 12h41m); promote-run.txt
+       still 0 bytes (check.sh writes only at completion).
+  journalctl -u zero-scan-1e5.service (tail): same 3-launch pattern.
+  evidence/2026-08-23-zero-scan/full.stderr (tail): last line
+    "coarse 160000/999990 elapsed 17199s"  => reached i=160000 (t=16000).
+  evidence/2026-08-23-zero-scan/ckpt-1e5.json: 0 bytes (CORRUPT).
+    Root cause: save_ckpt used open(ckpt,"w") (truncates to 0) then
+    json.dump; the reboot landed mid-write, leaving a 0-byte file. A
+    naive relaunch would crash at json.load. 160000 steps of progress LOST
+    (single-file ckpt, no rotation).
+
+FIX (bounded, machine-verified):
+  tracks/d-search/zero_scan.py save_ckpt -> atomic: write to ckpt+".tmp",
+  f.flush()+os.fsync, then os.replace(tmp, ckpt) (atomic on POSIX). A reboot
+  mid-write now leaves the previous good ckpt intact.
+  Verification (tiny scan t 1..60 step 0.5, ckpt .ckpt_test.json):
+    run1 -> ckpt "valid JSON, i_last= 117 zeros= 13"
+    run2 -> "resuming from i=117 (13 zeros loaded)"  (clean resume)
+  Production check after relaunch:
+    ckpt-1e5.json -> "valid JSON: i_last= 2886 zeros= 132"
+
+RELANCE (own cgroup, per A-005):
+  rm corrupted ckpt-1e5.json (progress unrecoverable; atomic write prevents
+  recurrence), then:
+  systemd-run --user --unit=zero-scan-1e5.service  (from scratch, atomic ckpt)
+  systemd-run --user --unit=mertens-1e12-promote.service  (12h41m re-run)
+  Confirmed:
+    zero-scan-1e5.service  "Active: active (running) since ... 00:40:31 CEST"
+    mertens-1e12-promote.service "Active: active (running) since ... 00:40:31 CEST"
+    pgrep: python3 zero_scan.py (pid 2982); python3 mertens_segmented.py
+    1000000000000 100000000 (pid 2990). nproc=48 (concurrent OK).
+
+NOTES / RISKS:
+  - mertens promote has NO checkpoint; a 12h41m job killed by reboots 3x.
+    If it is killed again, add a segment-boundary checkpoint to
+    mertens_segmented.py before the next relaunch (candidate next step).
+  - zero-scan restarts from t=1.0 (lost 160000 steps ~4.8h). Full scan
+    999990 steps; ETA re-estimate needed once a fresh rate is measured.
+
+NEXT:
+  (a) TRACK D: zero-scan-1e5.service running from scratch; on completion read
+      full-run.txt (zero list + gap stats), then compute S(t) records per
+      zero-spacing-design.md (NOTE-level, mpmath).
+  (b) TRACK D: mertens-1e12-promote.service running; on completion read
+      promote-run.txt (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"), then
+      ledger #39 NOTE -> NUMERIC (35 total).
+  (c) If mertens promote is killed by a reboot again: add checkpoint to
+      mertens_segmented.py, then relaunch.
+  (d) TRACK C: owner reports 2.55028364035787 to ANT network, or pick a new
+      BTY constant to re-optimize.
+  (e) OWNER: open PR (evidence/2026-08-22-pnt-ik-api/pr-body.md rev 2) +
+      comment `propose #<PR>` on issue #816.
+
+DISCOVERY (not in handoff): evidence/2026-09-16-robin-1e12/ has TWO jobs.
+  (1) SA-scan robin_sa_1e12.py: COMPLETED + VERIFIED. sa-scan.txt:
+      "F3 witness R(n)>=1 among SA in (1e11,1e12]: hits=0: PASS"
+      "SA near-miss (1e11,1e12]: max R = 0.9755059227362326 at n =
+       160626866400 (sigma=907141939200); 1-R = 0.02449407726"
+      "VERDICT: ALL CHECKS PASS"
+      => track D result, NOT yet in ledger (needs check.sh + promote).
+  (2) FULL scan robin_full_scan.py [1e11,1e12) (4th arg = SA ref 0.975505922736):
+      launched robin-full-1e12.service Sep 16 23:06:45 CEST; ran 12 subsegs
+      (516.7s, best_R=0.938023950593 at n=100100800800); DIED Sep 16 23:16
+      CEST (~25h BEFORE the 22:29Z reboot). full-run.stderr 0 bytes (no crash
+      trace); full-run.txt has 96 trailing null bytes (hard-kill mid-write);
+      no journal "Stopped"/"Consumed" line. CAUSE UNKNOWN. No process/unit now.
+      It is a ~105h no-checkpoint job (9000 subsegs x ~42s).
+ACTION: recorded only (bounded step = recovery of the 2 known jobs). NOT
+  relaunched this tick; NOT promoted to ledger this tick. Next tick:
+    - SA-scan: write check.sh (re-run robin_sa_1e12.py, assert F1-F3b PASS),
+      promote.sh add NOTE then promote NUMERIC (track D, 11th NUMERIC).
+    - FULL scan: investigate death cause before relaunch; add checkpoint
+      (like mertens) given 105h + frequent reboots.

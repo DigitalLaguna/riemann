@@ -96,3 +96,20 @@ evidence: logs/2026-08-23.tick.log (TICK 153, journalctl verbatim);
   lines, append-only)
 closed by: machine output — systemctl --user status zero-scan-1e5.service
   "Active: active (running)" + new progress line in full.stderr
+
+## D-001 non-atomic zero-scan checkpoint lost 160000 steps on reboot
+tried: 2026-08-23..2026-09-17, ticks 153..244
+failed: zero_scan.py save_ckpt used open(ckpt,"w") (truncates to 0 bytes) then
+  json.dump. The 2026-09-17 22:29Z reboot landed mid-write, leaving
+  ckpt-1e5.json at 0 bytes. The single-file ckpt (no rotation) held all
+  progress, so 160000/999990 steps (~4.8h, 11083+ zeros) were unrecoverable;
+  a naive relaunch would crash at json.load on the 0-byte file.
+fix: save_ckpt now writes to ckpt+".tmp", f.flush()+os.fsync, then
+  os.replace(tmp, ckpt) (atomic on POSIX) — a reboot mid-write leaves the
+  previous good ckpt intact. Verified tick 244 (tiny scan: valid JSON +
+  clean resume; production ckpt valid i_last=2886).
+evidence: logs/2026-09-17.tick.log (TICK 244); tracks/d-search/zero_scan.py
+  save_ckpt; evidence/2026-08-23-zero-scan/full.stderr (last good line
+  "coarse 160000/999990")
+closed by: machine output — atomic-ckpt test (valid JSON, resume) + production
+  ckpt valid after relaunch

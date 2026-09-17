@@ -19,9 +19,17 @@ def Z(t):
     return mp.re(mp.e**(mp.j*theta_asym(t)) * mp.zeta(mp.mpf(0.5) + mp.j*t))
 
 def save_ckpt(ckpt, zeros, i):
+    # Atomic write (tick 244): the 00:29Z reboot truncated ckpt to 0 bytes
+    # mid json.dump, losing 160000 steps of progress. Write to a temp file,
+    # fsync, then os.replace (atomic on POSIX) so a reboot mid-write leaves the
+    # previous good ckpt intact instead of a corrupt 0-byte file.
     if ckpt:
-        with open(ckpt, "w") as f:
+        tmp = ckpt + ".tmp"
+        with open(tmp, "w") as f:
             json.dump({"zeros": zeros, "i_last": i}, f)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp, ckpt)
 
 def find_zeros(t_start, t_end, step, ckpt=None):
     zeros = []
