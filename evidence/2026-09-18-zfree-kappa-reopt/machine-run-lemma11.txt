@@ -1,0 +1,5 @@
+=== Lemma 11: f(u) >= kappa*f(0), 0<=u<=59 ===
+PAPER kappa_m: min margin = 1.418102722 at u= 0.0  kappa= 0.504074505239
+K=0.0170000000  kappa_6=-0.01676019  kappa=0.521074505239  min margin11=1.333161437 at u=59.0  SATISFIED=True
+K=0.0337600000  kappa_6=-0.00000019  kappa=0.537834505239  min margin11=1.232484688 at u=59.0  SATISFIED=True
+K=0.0383013242  kappa_6=0.00454114  kappa=0.542375829449  min margin11=1.204656345 at u=59.0  SATISFIED=True

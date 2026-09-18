@@ -1,0 +1,17 @@
+=== A_final re-optimization ===
+kappa_paper  = 0.50407450523865
+kappa_required (A_final=A0_max) = 0.521015891482995
+kappa_max (C3a binding)         = 0.54237582944865
+A_final(kappa_req) = 0.392113247395366  (should == A0_max)
+A_final(kappa_max) = 0.360276469795491
+A0_max             = 0.392113247395366
+OLD effective A  = 0.392113247395366  headline 1/A = 2.55028364035787
+NEW effective A  = 0.360276469795491  headline 1/A = 2.77564616020481
+improvement in 1/A = 0.225362519847
+A_final(kappa_max) < A0_max ? True
+=== (C3b) Lemma 13 check (modified kappa, K=0.0383013242) ===
+max |Re W| bound (asymptotic, t=H) = 2.65087e-26
+added term bound K*a*max|ReW|       = 3.5784e-27
+RHS margin 1e-10*eta0               = 7.1093e-13
+added < margin ? True
+ratio margin/added = 1.987e+14

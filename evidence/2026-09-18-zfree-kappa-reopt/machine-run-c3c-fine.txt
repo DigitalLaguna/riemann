@@ -1,0 +1,5 @@
+grid points evaluated = 5184
+min D14 = 1.612221502e-615753 at (s,mu,eta)= ('1.0', '1.0', '1.0e-9')
+num points with D14<0 = 0
+D14>=0 everywhere on grid ? True
+elapsed s = 101.0
