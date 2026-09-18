@@ -390,3 +390,27 @@ NEXT: (a) mertens promote completes ~09-18 ~14:35Z -> read promote-run.txt
   full-run.txt, compute S(t) records (NOTE-level, mpmath); (c) robin completes
   ~09-22 ~12:00Z -> read full-run-resume.txt (expect "VERDICT: ALL CHECKS
   PASS"), new D NUMERIC (full scan [1e11,1e12), SA_REF 0.975505922736).
+
+TICK 257 (2026-09-18 05:18-05:25 UTC)
+attempt: monitoring tick — verify all 3 in-flight D jobs healthy + progressing
+  vs tick 256; re-read check.sh to confirm the #39 promote path.
+machine output (verbatim):
+- systemctl --user list-units: mertens-1e12-promote.service, robin-full-1e12.service,
+  zero-scan-1e5.service all "active running".
+- zero-scan ckpt: "i_last": 133308 (was 127717 at 04:47Z) -> +5591 steps in 31 min
+  = 0.3326 s/step (documented plateau 0.331). t = 1 + 133308*0.1 = 13331.8.
+  ETA ~09-21..09-24 unchanged.
+- mertens ckpt: a_start = 328100000000 (was 289.4e9) -> +38.7e9 in 31 min
+  = 1.248e9/min (stable). maxabs = 222274 (was 190936), first_x = 326453593186,
+  M_at_first = -222274: new in-scan record, below final record 331302 @
+  x=661066575037 which lies AHEAD of a_start=328.1e9 -> consistent, no anomaly.
+  ETA ~14:35Z -> ~14:15Z (still completes today).
+- robin ckpt: n_sub = 459 (was 416), best_R = 0.9633611519799963 (unchanged),
+  best_n = 107084577600. ETA ~09-22 ~12:00Z unchanged.
+- uptime 6:49 (no reboot since 09-17 22:29Z); df 47% used (466G free).
+- check.sh re-read: promote = deterministic full re-run of mertens_segmented.py
+  from ckpt-1e12.json; asserts C1-C7 PASS + exact match of record/witness lines
+  vs run.txt + F3 (witness<1.0) + F4 (maxabs>=94909) + F5 (witness<0.585768).
+  run.txt: "VERDICT: ALL CHECKS PASS", "MERTENS-1e12 DONE rc=0 2026-08-24T18:05:48Z".
+next: (a) mertens promote completes ~14:15Z -> read promote-run.txt (expect
+  "PROMOTE-1e12 DONE rc=0" + checker PASS); ledger #39 NOTE -> NUMERIC.
