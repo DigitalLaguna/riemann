@@ -265,3 +265,4 @@
 2026-09-18T19:05:01.707166+00:00 tick 265 model=qwen3.8-27b steps=24 wall=573s next=(a) TRACK C (tick 266): extract BTY constraints on kappa_m and solve
 2026-09-18T19:36:01.708481+00:00 tick 266 model=qwen3.8-27b steps=17 wall=1308s next=(a) TRACK C (tick 266): extract BTY constraints on kappa_m and solve
 2026-09-18T20:07:01.700703+00:00 tick 267 model=qwen3.8-27b steps=25 wall=897s next=(a) TRACK C (tick 266): extract BTY constraints on kappa_m and solve
+2026-09-18T20:38:01.706667+00:00 tick 268 model=qwen3.8-27b steps=25 wall=766s next=(a) TRACK C (tick 269): check (C3b) Lemma 13 + (C3c) Lemma 14 for modified
