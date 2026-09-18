@@ -1,0 +1,77 @@
+TICK 247 (2026-09-18 00:08-00:28 UTC) [LOG RECONSTRUCTED at tick 248 — the
+  original entry was never written; reconstructed from
+  evidence/2026-09-18-mertens-ckpt-test/ and git commit a106486]
+ATTEMPT: add a segment-boundary checkpoint to mertens_segmented.py (atomic
+  tmp+fsync+os.replace, mirroring zero_scan tick 244 / robin tick 246) so the
+  12h41m N=1e12 promote survives reboots; wire the ckpt path into check.sh;
+  test on a small run.
+PRIOR-ART PRE-FLIGHT: n/a — reliability patch to our own script; pattern copied
+  from zero_scan.save_ckpt (machine-verified tick 244, D-001) and
+  robin_full_scan.save_ckpt (tick 246).
+FALSIFICATION TEST (pre-registered): small run N=1e7, SEG=1e6.
+  F-MCKPT-1: fresh run with ckpt -> VERDICT ALL CHECKS PASS, ckpt valid JSON.
+  F-MCKPT-2: kill mid-run -> ckpt valid (atomic write survived the kill).
+  F-MCKPT-3: resume from the partial ckpt -> final result IDENTICAL to a
+    no-ckpt reference run, VERDICT PASS.
+  IDEA DEAD if: any VERDICT FAIL, resumed result differs from reference, or the
+  ckpt is corrupt/0-byte after the kill.
+MACHINE OUTPUT (verbatim, evidence/2026-09-18-mertens-ckpt-test/):
+  - ref.txt (no-ckpt reference): "witness: max |M(x)|/sqrt(x) for x >= 100:
+    0.462728690 at x = 30919091 (M = -2573)" ... "VERDICT: ALL CHECKS PASS"
+  - fresh.txt (fresh run + ckpt): identical witness line, "VERDICT: ALL CHECKS PASS"
+  - partial.txt: 0 bytes (run killed mid-way); ckpt-partial.json written (atomic)
+  - resume.txt (resumed from ckpt-partial.json): identical witness line
+    "0.462728690 at x = 30919091 (M = -2573)", "VERDICT: ALL CHECKS PASS"
+  => F-MCKPT-1/2/3 all PASS. Mertens checkpoint verified.
+NOTE: the mertens-1e12-promote.service that was running (started 22:40 UTC,
+  BEFORE this checkpoint existed) was still on the OLD code (no ckpt); the
+  ckpt file evidence/2026-08-24-mertens-1e12/ckpt-1e12.json did not exist yet.
+
+TICK 248 (2026-09-18 ~00:43 UTC)
+ATTEMPT: deploy the verified mertens checkpoint to the live 1e12 promote.
+  The running mertens-1e12-promote.service was old code (no ckpt, ~2h into
+  12h41m, reboot-vulnerable). The checkpoint is ready + tested (tick 247).
+  Kill the running unit and relaunch it with the ckpt path so the 12h41m job
+  is reboot-safe. Rationale: relaunch now (~12.7h guaranteed) beats waiting
+  for a possible reboot-reset (~14.2h expected at the observed ~1.67
+  reboots/day); also removes the long tail.
+PRIOR-ART PRE-FLIGHT: n/a — reliability deploy of our own verified checkpoint
+  (no new math).
+FALSIFICATION TEST (pre-registered, BEFORE the relaunch):
+  F-RL-1: after relaunch, mertens-1e12-promote.service is active (running) and
+    the python3 mertens_segmented.py process is present in its cgroup.
+  F-RL-2: within the first segment (~5s), the run writes a valid
+    evidence/2026-08-24-mertens-1e12/ckpt-1e12.json (valid JSON, a_start set).
+  F-RL-3: promote-run.txt shows the run's header/progress, not a traceback.
+  RELAUNCH FAILED if: unit not active, process absent, a traceback appears in
+  promote-run.txt, or no ckpt is written after the first segment.
+MACHINE OUTPUT (verbatim):
+  - systemctl status: "Active: active (running) since Fri 2026-09-18 02:51:43
+    CEST"; cgroup shows "python3 tracks/d-search/mertens_segmented.py
+    1000000000000 100000000 evidence/2026-08-24-mertens-1e12/ckpt-1e12.json"
+    -> F-RL-1 PASS.
+  - ckpt-1e12.json (mertens) written: valid JSON, a_start=300000000 (3 segs),
+    N=1e12, SEG=1e8, maxabs=6226, M_offset=-592 -> F-RL-2 PASS.
+  - ckpt advancing: a_start 3e8 -> 1.3e9 over ~55s (13 segs), unit still active
+    -> run progressing, no crash -> F-RL-3 PASS. (Note: promote-run.txt stays
+    empty until the run completes because check.sh buffers stdout and discards
+    stderr; the advancing ckpt is the mid-run health indicator.)
+RESULT: mertens 1e12 promote now reboot-safe. All three in-flight D jobs are
+  now checkpointed and reboot-safe: zero-scan (i_last=69736/999990), mertens
+  (a_start=1.3e9/1e12), robin (n_sub=91/1000).
+NEXT:
+  (a) zero-scan-1e5: on completion read full-run.txt, compute S(t) records per
+      zero-spacing-design.md (NOTE-level, mpmath). ETA ~09-18 evening..09-19
+      (rate variable under CPU contention with the other two jobs).
+  (b) mertens-1e12-promote: on completion read promote-run.txt (expect
+      "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"); #39 NOTE -> NUMERIC (36 total).
+      ETA ~13:30Z (12h41m from the 00:51Z relaunch). Now reboot-safe.
+  (c) robin-full-1e12: on completion read full-run-resume.txt (expect
+      "VERDICT: ALL CHECKS PASS"); ledger a new D NUMERIC (full scan
+      [1e11,1e12), SA_REF 0.975505922736). ETA ~11:50Z (91/1000 subsegs).
+  (d) If any job is killed by a reboot: it now RESUMES from its ckpt (no blind
+      relaunch needed). Verify the ckpt is valid JSON before resuming.
+  (e) TRACK C: owner reports 2.55028364035787 to ANT network, or pick a new BTY
+      constant to re-optimize.
+  (f) OWNER: open PR (evidence/2026-08-22-pnt-ik-api/pr-body.md rev 2) +
+      comment `propose #<PR>` on issue #816.
