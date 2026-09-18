@@ -75,3 +75,54 @@ NEXT:
       constant to re-optimize.
   (f) OWNER: open PR (evidence/2026-08-22-pnt-ik-api/pr-body.md rev 2) +
       comment `propose #<PR>` on issue #816.
+
+TICK 249 (2026-09-18 ~01:11 UTC)
+ATTEMPT: (1) verify the three in-flight D jobs are progressing and reboot-safe
+  (zero-scan, mertens-1e12-promote, robin-full-1e12); (2) run the OVERDUE daily
+  arXiv math.NT sweep (last sweep 2026-09-16, NOTE #53).
+WHY NOT IN DEAD_ENDS: both are ongoing monitoring + routine literature intake,
+  not a failed approach.
+PRIOR-ART PRE-FLIGHT: n/a for the sweep (routine intake, not a new math attempt).
+FALSIFICATION TEST (pre-registered, before the fetch):
+  F-SWEEP-1: HTTP 200 and >=1 entry returned (else the fetch is broken).
+  F-SWEEP-2: id-set diff vs evidence/2026-09-16-arxiv-daily/sweep.xml is
+    non-empty IFF the newest entry's submittedDate is after the 09-16 17:57Z
+    run; an empty diff with a newer top entry means the diff is broken.
+  F-SWEEP-3: any new entry touching an open track (A/B/C/D/E) is escalated for a
+    real read (<=1/day); otherwise it is dropped with a one-line reason.
+  SWEEP USELESS if: HTTP!=200, 0 entries, or a new relevant paper is missed.
+MACHINE OUTPUT (verbatim):
+  - D-job health (01:11 UTC): all three active + progressing, all checkpointed:
+      zero-scan-1e5:    i_last=75640/999990 (7.6%), 7338 zeros, started 22:40Z
+      mertens-1e12:     a_start=24.3e9/1e12 (2.4%), maxabs=62880, started 00:51Z
+      robin-full-1e12:  n_sub=116/1000 (11.6%), best_R=0.9633611519799963 @
+                        n=107084577600, started 23:47Z
+    (rates slower than no-contention estimates due to 3-way CPU contention;
+     all reboot-safe via atomic ckpts from ticks 244/246/247/248)
+  - arXiv sweep: HTTP 200, 93779 bytes, 60 entries, newest 2609.20367v1
+    (2026-09-17T13:25:52Z). id-set diff vs 09-16 sweep: 41 added / 41 removed.
+    F-SWEEP-1 PASS, F-SWEEP-2 PASS.
+  - promote.sh add -> "NOTE #57: Daily arXiv math.NT sweep 2026-09-18 ..."
+RESULT:
+  - D: nothing to do until the three jobs complete (~10-30h out); all healthy.
+  - Sweep: 0 escalations. 2609.20367 (claimed-RH preprint) flagged for owner,
+    NOT carded/read/built-on. 5 tangential papers noted+dropped. 35 irrelevant
+    dropped. Ledger NOTE #57.
+NEXT:
+  (a) zero-scan-1e5: on completion read full-run.txt, compute S(t) records per
+      zero-spacing-design.md (NOTE-level, mpmath). ETA ~09-19 morning (contention).
+  (b) mertens-1e12-promote: on completion read promote-run.txt (expect
+      "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"); #39 NOTE -> NUMERIC (36 total).
+      ETA ~09-19 ~10:30Z (contention).
+  (c) robin-full-1e12: on completion read full-run-resume.txt (expect
+      "VERDICT: ALL CHECKS PASS"); new D NUMERIC (full scan [1e11,1e12),
+      SA_REF 0.975505922736). ETA ~09-19 ~10:15Z (contention).
+  (d) If any job is killed by a reboot: it RESUMES from its ckpt (no blind
+      relaunch). Verify ckpt is valid JSON before resuming.
+  (e) OWNER: (1) open PNT+ PR (evidence/2026-08-22-pnt-ik-api/pr-body.md rev 2)
+      + comment `propose #<PR>` on issue #816; (2) week-4 kill decision (09-17)
+      still pending; (3) NEW: 2609.20367v1 is a claimed-RH preprint on arXiv —
+      owner decides whether a frontier-escalated adversarial read is warranted
+      (I will not build on it).
+  (f) TRACK C: owner reports 2.55028364035787 to ANT network, or pick a new BTY
+      constant to re-optimize.
