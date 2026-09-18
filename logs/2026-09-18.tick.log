@@ -535,3 +535,38 @@ next: (a) mertens-1e12-promote completes ~09-19 early -> read promote-run.txt
   (d) SUSPEND RISK: if next tick finds stale ckpts + journal gap, the machine
     was suspended again — relaunch the dead units from ckpt (tick 259 commands).
   (e) owner: PNT+ PR + week-4 kill decision (due 09-17) still pending.
+
+TICK 261 (2026-09-18 ~17:01-17:05Z, local)
+attempt: verify all 3 D jobs healthy + progressing (3rd consecutive monitor tick
+  after tick-259 relaunch). Not a new attempt; no prior-art pre-flight. Not in
+  DEAD_ENDS: D-001/A-005 cover ckpt-loss and cgroup-kill; suspend handled 259.
+machine output (verbatim, 17:01:55Z):
+  date/uptime: "Fri Sep 18 05:01:55 PM UTC 2026", "up 1 hour, 7 minutes" —
+    boot 15:54Z; uptime == wall time -> no reboot and no suspend since relaunch.
+  systemctl --user status: all 3 "Active: active (running) since Fri
+    2026-09-18 18:06:47 CEST; 55min ago" (= started 16:06:47Z).
+  ckpt mtimes fresh: zero-scan 19:02, mertens 19:02, robin 19:01 (local CEST)
+    = 17:01-17:02Z (now) -> all actively checkpointing.
+  Counters (ckpt JSON, ~17:02Z) vs tick-260 (16:32Z):
+    zero-scan i_last=150791 (was 145401; +5390/31min = 0.345 s/step, on the
+      documented 0.331 plateau).
+    mertens a_start=446200000000 (was 409.3e9; +36.9e9/31min = 1.19e9/min,
+      consistent); maxabs=294816 unchanged (final 331302 @ x=661e9 ahead).
+    robin n_sub=592 (was 551; +41/31min = 45.3 s/subseg, consistent);
+      best_R=0.9633611519799963, best_n=107084577600 unchanged.
+  VERDICT: all 3 progressing at documented rates. Machine says yes.
+new ETAs (from 17:02Z): mertens 553.8e9 remaining @ ~1.19e9/min -> ~465min
+  -> ~09-19 00:50Z. zero-scan 849199 steps @ 0.33-0.35 s/step -> ~74-79h
+  -> ~09-21..09-22. robin 8408 subsegs @ 45 s/subseg -> ~106h -> ~09-22..09-23.
+next: (a) mertens-1e12-promote completes ~09-19 ~00:50Z -> read promote-run.txt
+  (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"), ledger #39 NOTE->NUMERIC.
+  (b) zero-scan completes ~09-21..09-22 -> full-run.txt summary, S(t) records.
+  (c) robin-full completes ~09-22..09-23 -> full-run-resume.txt VERDICT.
+  (d) SUSPEND RISK: if next tick finds stale ckpts + journal gap, relaunch dead
+    units from ckpt (tick 259 commands).
+  (e) TRACK C (NEW ATTEMPT, next tick): pick a new BTY constant to re-optimize.
+    4.896 + all internals DONE (A0 #54, theta #46, m=0 #47-51, 138 #45, kappa
+    corrigendum, downstream 2.55028364035787 #55). Next tick: read BTY paper
+    constant list, prior-art pre-flight (log queries), pick ONE constant, write
+    falsification test, then re-optimize.
+  (f) owner: PNT+ PR + week-4 kill decision (due 09-17) still pending.
