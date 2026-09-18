@@ -1,0 +1,17 @@
+REPRODUCTION GATE (paper kappa_m, kappa = 433/859):
+  A_final(paper) = 0.420483467793734
+  target (#40)   = 0.420483467794
+  |diff|         = 2.66e-13
+  REPRODUCED     = True  (iters 35 )
+
+THRESHOLD (A_final = A0_max):
+  A0_max          = 0.392113247395366
+  kappa_paper     = 0.50407450523865
+  kappa_required  = 0.521015891482995
+  required increase = 3.361 %
+  (need A_final < A0_max, i.e. kappa > kappa_required)
+
+CURRENT STATE:
+  A_final(paper) = 0.420483467794  A0_max = 0.392113247395
+  A_final > A0_max (A0_max binds) = True
+  effective A = min = 0.392113247395  headline 1/A = 2.55028364036
