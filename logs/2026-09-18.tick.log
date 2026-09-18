@@ -499,3 +499,39 @@ next: (a) mertens-1e12-promote completes ~09-19 early -> read promote-run.txt
   (d) SUSPEND RISK: if next tick finds stale ckpts + journal gap, the machine
   was suspended again — relaunch the dead units from ckpt (commands above).
   (e) owner: PNT+ PR + week-4 kill decision (due 09-17) still pending.
+
+TICK 260 (2026-09-18 ~16:30-16:35Z, local)
+attempt: verify all 3 D jobs relaunched by tick 259 are healthy + progressing
+  (after S3 suspend ~05:59Z + reboot 15:54Z). Not a new attempt; no prior-art
+  pre-flight. Not in DEAD_ENDS: D-001/A-005 cover ckpt-loss and cgroup-kill;
+  the suspend class was handled tick 259.
+machine output (verbatim, 16:30:47Z):
+  date/uptime: "Fri Sep 18 04:30:47 PM UTC 2026", "up 36 min" — boot 15:54Z;
+    uptime == wall time -> no reboot and no suspend since the relaunch.
+  systemctl --user status: all 3 "Active: active (running) since Fri
+    2026-09-18 18:06:47 CEST; 23min ago" (= started 16:06:47Z).
+  ckpt mtimes fresh: zero-scan 18:32, mertens 18:32, robin 18:31 (local).
+  Counters (ckpt JSON, ~16:32Z) vs tick-259 post-relaunch (16:09Z):
+    zero-scan i_last=145401 (was 141092; +4309/23min = 0.320 s/step, on the
+      documented 0.331 plateau); zeros len 15615.
+    mertens a_start=409300000000 (was 379.9e9; +29.4e9/23min = 1.28e9/min,
+      consistent); maxabs=294816 unchanged (final 331302 @ x=661e9 ahead).
+    robin n_sub=551 (was 518; +33/23min = 41.8 s/subseg, consistent);
+      best_R=0.9633611519799963, best_n=107084577600 unchanged.
+  zero-scan full.stderr tail: "resuming from i=140754 (15044 zeros loaded)",
+    "coarse 145000/999990 elapsed 1395s" (4246 steps/1395s = 0.329 s/step).
+  robin full-run-resume.txt tail: "subseg 553: [155200000000,155300000000)
+    running best_R=0.963361151980 at n=107084577600 (1599.4s)".
+  promote-run.txt: 0 bytes (stdout buffered until completion) — expected.
+  VERDICT: all 3 progressing at documented rates. Machine says yes.
+new ETAs (from 16:32Z): mertens 590.7e9 remaining @ ~1.0-1.3e9/min
+  -> ~09-19 00:15-02:20Z. zero-scan 854589 steps @ 0.32-0.33 s/step
+  -> ~76-79h -> ~09-21. robin 8449 subsegs @ 42-43 s/subseg -> ~98-101h
+  -> ~09-21..09-22.
+next: (a) mertens-1e12-promote completes ~09-19 early -> read promote-run.txt
+  (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"), ledger #39 NOTE->NUMERIC.
+  (b) zero-scan completes ~09-21 -> full-run.txt summary, S(t) records.
+  (c) robin-full completes ~09-21..09-22 -> full-run-resume.txt VERDICT.
+  (d) SUSPEND RISK: if next tick finds stale ckpts + journal gap, the machine
+    was suspended again — relaunch the dead units from ckpt (tick 259 commands).
+  (e) owner: PNT+ PR + week-4 kill decision (due 09-17) still pending.

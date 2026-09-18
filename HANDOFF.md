@@ -1,4 +1,4 @@
-# HANDOFF — session 2026-09-18 ~05:50 UTC (tick 258)
+# HANDOFF — session 2026-09-18 ~16:35 UTC (tick 260)
 # track: D (monitoring) | gate: all tracks OPEN (21/21 seeds)
 
 ## State
@@ -9,33 +9,33 @@
 This tick: no new claims (no job completed). PENDING (verified, not ledgered): none.
 
 ## Last work
-Tick 258: verified all three in-flight D jobs healthy + progressing (systemd
-active(running) + ckpt mtime fresh + counters advancing vs tick 257).
-No reboot since 09-17 22:29Z (uptime 7:20 at 05:49Z).
-- zero-scan-1e5: i_last=138944/999990 (was 133308), t≈13894/1e5 (13.9%).
-  Rate 0.330 s/step — on documented mpmath cost-curve plateau (0.331).
-  ETA ~09-21 ~15:00Z (in 09-21..09-24 band).
-- mertens-1e12-promote: a_start=365.8e9/1e12 (was 328.1e9), maxabs=294816
-  (was 222274; new in-scan record M=-294816 at x=330508686218 — below final
-  331302 @ x=661066575037, which lies ahead of a_start: consistent).
-  Rate 1.216e9/min stable; ETA ~14:30Z (completes today).
-- robin-full-1e12: n_sub=502/9000 (was 459), best_R=0.9633611519799963
-  (unchanged), best_n=107084577600. Rate 43.2 s/subseg; ETA ~09-22 ~13:00Z.
+Tick 260: verified all 3 in-flight D jobs healthy + progressing after the
+tick-259 relaunch (machine S3-suspended ~05:59Z, rebooted 15:54Z; tick 259
+relaunched all 3 from ckpts at 16:06:47Z). No reboot/suspend since 15:54Z
+(uptime 36 min == wall time at 16:30Z).
+- zero-scan-1e5: i_last=145401/999990 (was 141092), t≈14540/1e5 (14.5%),
+  zeros=15615. Rate 0.320 s/step — on documented plateau (0.331). ETA ~09-21.
+- mertens-1e12-promote: a_start=409.3e9/1e12 (was 379.9e9), maxabs=294816
+  (unchanged; final 331302 @ x=661e9 still ahead). Rate 1.28e9/min.
+  ETA ~09-19 00:15-02:20Z.
+- robin-full-1e12: n_sub=551/9000 (was 518), best_R=0.9633611519799963
+  (unchanged), best_n=107084577600. Rate 41.8 s/subseg. ETA ~09-21..09-22.
 - promote-run.txt 0 bytes (stdout buffered until completion) — expected;
-  ckpt actively checkpointing (mtime 05:50Z).
+  ckpt actively checkpointing (mtimes 16:31-16:32Z).
 
 ## Next action
-(a) TRACK D: mertens-1e12-promote.service running. On completion (~09-18 ~14:30Z):
+(a) TRACK D: mertens-1e12-promote.service running. On completion (~09-19 early):
     read promote-run.txt (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"); ledger
     #39 NOTE -> NUMERIC (36 total NUMERIC).
-(b) TRACK D: zero-scan-1e5.service running. On completion (~09-21..09-24): read
+(b) TRACK D: zero-scan-1e5.service running. On completion (~09-21): read
     full-run.txt (summary prints to stdout only at completion); compute S(t)
     records per zero-spacing-design.md (NOTE-level, mpmath).
-(c) TRACK D: robin-full-1e12.service running. On completion (~09-22 ~13:00Z): read
-    full-run-resume.txt (expect "VERDICT: ALL CHECKS PASS"); new D NUMERIC (full
-    scan [1e11,1e12), SA_REF 0.975505922736).
-(d) If any job is killed by a reboot: it RESUMES from its ckpt (no blind
-    relaunch). Verify ckpt is valid JSON before resuming.
+(c) TRACK D: robin-full-1e12.service running. On completion (~09-21..09-22):
+    read full-run-resume.txt (expect "VERDICT: ALL CHECKS PASS"); new D NUMERIC
+    (full scan [1e11,1e12), SA_REF 0.975505922736).
+(d) If any job is dead (reboot OR S3 suspend — check journal gap + ckpt mtimes):
+    it RESUMES from its ckpt (no blind relaunch). Verify ckpt is valid JSON
+    before resuming. Relaunch commands in logs/2026-09-18.tick.log TICK 259.
 (e) TRACK C: owner reports 2.55028364035787 to ANT network, or pick a new BTY
     constant to re-optimize.
 (f) OWNER: (1) open PNT+ PR (evidence/2026-08-22-pnt-ik-api/pr-body.md rev 2)
@@ -49,14 +49,15 @@ No reboot since 09-17 22:29Z (uptime 7:20 at 05:49Z).
   odlyzko zero-data page 404 -> zero scan computes zeros itself.
 - lean-zulip-pnt full thread (Zulip JS UI) — carded from README+blueprint.
 - RH verification to 1e13 for track B row-3 t=0.18 (Platt-Trudgian covers 3e12).
-- OWNER: week-4 kill decision (09-17) pending. Reboots frequent, but all long
-  jobs now checkpointed (ticks 244/246/247/248) -> reboot-safe.
+- OWNER: week-4 kill decision (09-17) pending. Reboots/suspends frequent, but
+  all long jobs now checkpointed (ticks 244/246/247/248) -> reboot-safe;
+  S3 suspend survived tick 259 with zero progress lost.
 
 ## Budget
 Week-1 reweight A30/B40/D15/C10/E5 stands (no weekly review ran 08-29..09-15).
 D: 11 NUMERIC + 3 NOTE (#28,#37,#39; #39 promotion in flight); in flight:
-  zero-scan (i=138944/999990, ETA ~09-21 ~15:00Z), mertens-1e12 (a=365.8e9/1e12,
-  ETA ~09-18 ~14:30Z), robin-full (n_sub=502/9000, ETA ~09-22 ~13:00Z) —
+  zero-scan (i=145401/999990, ETA ~09-21), mertens-1e12 (a=409.3e9/1e12,
+  ETA ~09-19 early), robin-full (n_sub=551/9000, ETA ~09-21..09-22) —
   all checkpointed/reboot-safe.
 C: 13 NUMERIC (#33,#38,#40,#42,#44,#45,#46,#47,#49,#50,#51,#54,#55) + NOTEs
   #29,#41 (A0 typo),#48 (exact m=0 MARGINAL); A0_max pinned #54; downstream
