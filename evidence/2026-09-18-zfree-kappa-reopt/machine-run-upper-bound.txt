@@ -1,0 +1,13 @@
+E_paper (max |p-f| on [0,1]) = 0.00408988417337953682  at x = 0.978192
+  (tick-266 repro-run.txt had 0.00408988417329 at x=0.97819)
+kappa_paper = p(1)          = 0.504074505238649593  (= 433/859 = 0.504074505238649593 )
+f(1) = 1/2                  = 0.5
+|kappa_paper - f(1)|        = 0.00407450523864959255  (<= E_paper: True )
+
+TRIVIAL UPPER BOUND on kappa under ||p-f||_inf <= E_paper:
+  kappa <= f(1) + E_paper   = 0.504089884173379537
+  kappa_required            = 0.521015891482995
+  kappa_ub < kappa_required  = True
+
+VERDICT: to reach kappa > 0.521015891482995 need |p(1)-f(1)| >= 0.021015891482995
+  which is 5.139 x the paper's E_paper = 0.00408988417338
