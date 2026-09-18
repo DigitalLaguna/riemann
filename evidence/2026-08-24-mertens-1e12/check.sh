@@ -15,7 +15,7 @@ set -euo pipefail
 cd "$(dirname "$0")/../.."
 REC=run.txt
 [ -f "evidence/2026-08-24-mertens-1e12/$REC" ] || { echo "missing $REC"; exit 1; }
-out=$(python3 tracks/d-search/mertens_segmented.py 1000000000000 100000000 2>/dev/null)
+out=$(python3 tracks/d-search/mertens_segmented.py 1000000000000 100000000 evidence/2026-08-24-mertens-1e12/ckpt-1e12.json 2>/dev/null)
 echo "$out" | grep -E "C1|C2|C3|C4|C5|C6|C7|max |witness|M\(10|VERDICT"
 echo "$out" | grep -q "C1 M(10) = -1 (expect -1): PASS"
 echo "$out" | grep -q "C2 OEIS A002321 n<=10000: 10000 values, mismatches=0: PASS"

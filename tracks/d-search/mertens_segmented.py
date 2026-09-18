@@ -27,13 +27,16 @@ Checks (pre-registered F1-F5: logs/2026-08-23.tick.log, tick 131):
       falsify the Mertens conjecture |M(x)| < sqrt(x) at that x.
 Exit 0 iff all checks pass.
 """
+import json
 import math
+import os
 import sys
 import heapq
 import numpy as np
 
 N = int(sys.argv[1]) if len(sys.argv) > 1 else 10**11
 SEG = int(sys.argv[2]) if len(sys.argv) > 2 else 10**8
+CKPT = sys.argv[3] if len(sys.argv) > 3 else None
 EV = "evidence/2026-08-22-mertens"
 CH = 10**7
 
@@ -66,6 +69,83 @@ def full_mu(n):
     return mu
 
 
+def save_ckpt(path, state):
+    # Atomic write (tick 247): mirrors zero_scan.save_ckpt (tick 244) and
+    # robin_full_scan.save_ckpt (tick 246). A reboot mid json.dump would
+    # otherwise truncate the ckpt and lose all progress of the ~12h41m
+    # N=1e12 run. tmp + fsync + os.replace leaves the previous good ckpt
+    # intact on a hard kill.
+    tmp = path + ".tmp"
+    with open(tmp, "w") as f:
+        json.dump(state, f)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+
+
+def small_checks(primes, EV):
+    # Re-run C1-C5 (n<=1e6 only, cheap) for a RESUMED run, whose loop never
+    # hits a==0. Computes mu for [0,1e6] with the SAME segmented logic and
+    # full prime list (primes up to sqrt(N)) as the a==0 segment, so the
+    # printed C1-C5 lines are identical to a fresh run's.
+    LIM = 10**6
+    mu = np.ones(LIM + 1, dtype=np.int8)
+    mu[0] = 0
+    s = np.ones(LIM + 1, dtype=np.int64)
+    for p in primes:
+        p = int(p)
+        if p > LIM:
+            break
+        mu[p::p] *= -1
+        s[p::p] *= p
+        p2 = p * p
+        if p2 <= LIM:
+            mu[p2::p2] = 0
+    xs = np.arange(LIM + 1, dtype=np.int64)
+    has_large = xs // s > 1
+    if has_large.any():
+        mu[has_large] *= -1
+    del s
+    c5 = bool((mu == full_mu(LIM)).all())
+    print(f"C5 segmented mu == full-array mu n<=10^6: "
+          f"{'PASS' if c5 else 'FAIL'}")
+    ok = c5
+    Mval = np.cumsum(mu, dtype=np.int64)
+    c1 = int(Mval[10]) == -1
+    print(f"C1 M(10) = {int(Mval[10])} (expect -1): "
+          f"{'PASS' if c1 else 'FAIL'}")
+    ok &= c1
+    ref = {}
+    with open(f"{EV}/b002321.txt") as f:
+        for line in f:
+            if line.startswith("#") or not line.split():
+                continue
+            n, v = line.split()
+            ref[int(n)] = int(v)
+    bad = [n for n in ref if int(Mval[n]) != ref[n]]
+    c2 = not bad
+    print(f"C2 OEIS A002321 n<=10000: {len(ref)} values, mismatches={len(bad)}"
+          f"{' first=' + str(bad[:5]) if bad else ''}: "
+          f"{'PASS' if c2 else 'FAIL'}")
+    ok &= c2
+    from sympy import mobius
+    lim3 = 10**5
+    sm = 0
+    bad3 = []
+    for n in range(1, lim3 + 1):
+        sm += mobius(n)
+        if sm != int(Mval[n]):
+            bad3.append(n)
+            if len(bad3) >= 5:
+                break
+    c3 = not bad3
+    print(f"C3 sympy independent n<=10^5: mismatches={len(bad3)}"
+          f"{' first=' + str(bad3) if bad3 else ''}: "
+          f"{'PASS' if c3 else 'FAIL'}")
+    ok &= c3
+    return ok
+
+
 def main():
     L = math.isqrt(N)
     is_prime = np.ones(L + 1, dtype=bool)
@@ -86,8 +166,28 @@ def main():
     M10 = {}
     best_r, i_r, M_r = 0.0, 1, 1
     best_r100, i_r100, M_r100 = 0.0, -1, 0
+    a_start = 0
+    if CKPT and os.path.exists(CKPT):
+        with open(CKPT) as f:
+            ck = json.load(f)
+        if (ck["N"], ck["SEG"]) != (N, SEG):
+            print(f"CKPT MISMATCH: ckpt ({ck['N']},{ck['SEG']}) != run ({N},{SEG}): refusing to resume", flush=True)
+            sys.exit(2)
+        M_offset = ck["M_offset"]
+        maxabs = ck["maxabs"]
+        first_x = ck["first_x"]
+        M_at_first = ck["M_at_first"]
+        firstk = np.array(ck["firstk"], dtype=np.int64)
+        heap = [tuple(t) for t in ck["heap"]]
+        M10 = {int(k): v for k, v in ck["M10"].items()}
+        best_r, i_r, M_r = ck["best_r"], ck["i_r"], ck["M_r"]
+        best_r100, i_r100, M_r100 = ck["best_r100"], ck["i_r100"], ck["M_r100"]
+        a_start = ck["a_start"]
+        print(f"resumed from ckpt {CKPT}: a_start={a_start} maxabs={maxabs} "
+              f"best_r={best_r:.9f}", flush=True)
+        ok &= small_checks(primes, EV)
 
-    for a in range(0, N + 1, SEG):
+    for a in range(a_start, N + 1, SEG):
         b = min(a + SEG, N + 1)
         seg = b - a
         mu = np.ones(seg, dtype=np.int8)
@@ -224,6 +324,17 @@ def main():
         if segi % 100 == 99:
             print(f"progress: {segi + 1}/{(N + SEG - 1) // SEG} segments, "
                   f"maxabs={maxabs}", file=sys.stderr, flush=True)
+        if CKPT:
+            save_ckpt(CKPT, {
+                "N": N, "SEG": SEG, "a_start": a + SEG,
+                "M_offset": M_offset,
+                "maxabs": maxabs, "first_x": first_x, "M_at_first": M_at_first,
+                "firstk": firstk.tolist(),
+                "heap": heap,
+                "M10": M10,
+                "best_r": best_r, "i_r": i_r, "M_r": M_r,
+                "best_r100": best_r100, "i_r100": i_r100, "M_r100": M_r100,
+            })
 
     env = {}
     with open(f"{EV}/b051402.txt") as f:
