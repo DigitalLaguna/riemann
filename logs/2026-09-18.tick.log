@@ -414,3 +414,35 @@ machine output (verbatim):
   run.txt: "VERDICT: ALL CHECKS PASS", "MERTENS-1e12 DONE rc=0 2026-08-24T18:05:48Z".
 next: (a) mertens promote completes ~14:15Z -> read promote-run.txt (expect
   "PROMOTE-1e12 DONE rc=0" + checker PASS); ledger #39 NOTE -> NUMERIC.
+
+TICK 258 (2026-09-18T05:49Z, qwen3.8-27b) — TRACK D monitoring
+attempt: verify all 3 in-flight D jobs alive + progressing vs tick 257 counters.
+  (Not a new attempt; no prior-art pre-flight. Not in DEAD_ENDS: D-001 closed
+  the ckpt-loss class; these are the checkpointed successors.)
+machine output (verbatim):
+  systemctl --user status: zero-scan-1e5.service "Active: active (running) since
+    Fri 2026-09-18 00:40:31 CEST; 7h ago" (Main PID 2980, python3 zero_scan.py).
+  mertens-1e12-promote.service "Active: active (running) since Fri 2026-09-18
+    02:51:43 CEST; 4h 57min ago" (Main PID 4848, promote.sh promote 39 NUMERIC).
+  robin-full-1e12.service "Active: active (running) since Fri 2026-09-18
+    01:47:39 CEST; 6h ago" (Main PID 4072, robin_full_scan.py).
+  uptime: "07:49:39 up 7:20" — no reboot since 09-17 22:29Z.
+  ckpt-1e5.json: i_last=138944/999990 (was 133308 at tick 257, 31 min ago)
+    -> 5636 steps/31 min = 0.330 s/step (on documented 0.331 plateau).
+    ETA: 861046 steps remaining -> ~78.9h -> ~09-21 ~15:00Z (in 09-21..09-24 band).
+  ckpt-1e12.json (mertens): a_start=365800000000/1e12 (was 328.1e9)
+    -> 37.7e9/31 min = 1.216e9/min (stable vs 1.248). maxabs=294816 (was 222274),
+    first_x=330508686218, M_at_first=-294816. Consistency: final record 331302
+    @ x=661066575037 lies AHEAD of a_start (661.07e9 > 365.8e9) -> in-scan
+    record below final: consistent, no anomaly.
+    ETA: 634.2e9 remaining -> ~521 min -> ~09-18 ~14:30Z (completes today).
+  ckpt-1e12.json (robin): n_sub=502/9000 (was 459) -> 43 subsegs/31 min
+    = 43.2 s/subseg. best_R=0.9633611519799963 (unchanged), best_n=107084577600.
+    ETA: 8498 subsegs remaining -> ~102h -> ~09-22 ~13:00Z (in ~09-22 band).
+  promote-run.txt: 0 bytes (stdout buffered until completion) — expected;
+    ckpt mtime 05:50Z (fresh, actively checkpointing).
+next: (a) mertens-1e12-promote completes ~09-18 ~14:30Z -> read promote-run.txt
+  (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"), ledger #39 NOTE->NUMERIC.
+  (b) zero-scan completes ~09-21..09-24 -> full-run.txt summary, S(t) records.
+  (c) robin-full completes ~09-22 ~13:00Z -> full-run-resume.txt VERDICT.
+  (d) owner: PNT+ PR + week-4 kill decision (09-17) still pending.
