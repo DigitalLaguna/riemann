@@ -1,4 +1,4 @@
-# HANDOFF — session 2026-09-18 ~02:12 UTC (tick 251)
+# HANDOFF — session 2026-09-18 ~02:44 UTC (tick 252)
 # track: D (monitoring) | gate: all tracks OPEN (21/21 seeds)
 
 ## State
@@ -9,28 +9,30 @@
 This tick: no new claims (no job completed). PENDING (verified, not ledgered): none.
 
 ## Last work
-Tick 251: verified all three in-flight D jobs healthy + progressing + reboot-safe.
-- zero-scan-1e5: i_last=94605/999990 (was 75640). full-run.txt empty BY DESIGN
-  (summary prints to stdout only at completion; progress->stderr).
-- mertens-1e12-promote: a_start=97.5e9/1e12 (was 24.3e9). ckpt actively written.
-- robin-full-1e12: n_sub=204/1000 (was 116), best_R=0.9633611519799963.
-- Reboot 22:29Z (09-17) explains initial service restarts (all post-boot).
-- Mertens extra clean stop/start 00:51Z: Restart=no, NRestarts=0, no OOM/error
-  -> external stop+start, NOT a crash. Resumed from ckpt, no progress lost,
-  stable 1h20m.
-- Rates faster than tick-249 estimates (contention eased): zero-scan ETA
-  ~09-19 ~08:00Z; mertens ~09-18 ~15:00Z; robin ~09-18 ~11:30Z (contention-dep).
+Tick 252: verified all three in-flight D jobs healthy + progressing + reboot-safe
+(systemd active(running) + ckpt mtime <10s + counter advancing vs tick 251).
+- zero-scan-1e5: i_last=103123/999990 (was 94605). rate 5.0/s (stderr 5000/1001s).
+- mertens-1e12-promote: a_start=139.7e9/1e12 (was 97.5e9), maxabs-so-far=170358.
+- robin-full-1e12: n_sub=243/9000 (was 204), best_R=0.9633611519799963 (unchanged).
+Two handoff errors corrected this tick:
+- ROBIN denominator was "/1000" -> actually 9000 subsegs (A=1e11,B=1e12+1,L=1e8).
+  True ETA ~09-22 12:14Z (~4.4 days), NOT 09-18 11:30Z.
+- ZERO-SCAN ETA slipped 09-19 08:00Z -> ~09-20 (~2 days) at the current 5.0/s rate.
+Mertens "promote" confirmed a faithful VERIFICATION RE-RUN (promote.sh re-runs the
+sieve from x=1); its maxabs=170358 at seg~1397 exactly matches the original 08-24
+run's trajectory (run.stderr seg 1100 = 170358). The 331302 in run.txt is the
+COMPLETED original run (VERDICT ALL CHECKS PASS, rc=0 08-24T18:05:48Z). No anomaly.
 
 ## Next action
-(a) TRACK D: zero-scan-1e5.service running. On completion: read full-run.txt
-    (summary now appears); compute S(t) records per zero-spacing-design.md
-    (NOTE-level, mpmath). ETA ~09-19 ~08:00Z.
-(b) TRACK D: mertens-1e12-promote.service running. On completion: read
-    promote-run.txt (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"); ledger
-    #39 NOTE -> NUMERIC (36 total). ETA ~09-18 ~15:00Z.
-(c) TRACK D: robin-full-1e12.service running. On completion: read
-    full-run-resume.txt (expect "VERDICT: ALL CHECKS PASS"); new D NUMERIC
-    (full scan [1e11,1e12), SA_REF 0.975505922736). ETA ~09-18 ~11:30Z.
+(a) TRACK D: zero-scan-1e5.service running. On completion (~09-20): read
+    full-run.txt (summary prints to stdout only at completion); compute S(t)
+    records per zero-spacing-design.md (NOTE-level, mpmath).
+(b) TRACK D: mertens-1e12-promote.service running. On completion (~09-18 13:37Z):
+    read promote-run.txt (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"); ledger
+    #39 NOTE -> NUMERIC (36 total).
+(c) TRACK D: robin-full-1e12.service running. On completion (~09-22 12:14Z): read
+    full-run-resume.txt (expect "VERDICT: ALL CHECKS PASS"); new D NUMERIC (full
+    scan [1e11,1e12), SA_REF 0.975505922736).
 (d) If any job is killed by a reboot: it RESUMES from its ckpt (no blind
     relaunch). Verify ckpt is valid JSON before resuming.
 (e) TRACK C: owner reports 2.55028364035787 to ANT network, or pick a new BTY
@@ -52,8 +54,9 @@ Tick 251: verified all three in-flight D jobs healthy + progressing + reboot-saf
 ## Budget
 Week-1 reweight A30/B40/D15/C10/E5 stands (no weekly review ran 08-29..09-15).
 D: 11 NUMERIC + 3 NOTE (#28,#37,#39; #39 promotion in flight); in flight:
-  zero-scan (i=94605/999990), mertens-1e12 (a_start=97.5e9/1e12),
-  robin-full (n_sub=204/1000) — all checkpointed/reboot-safe.
+  zero-scan (i=103123/999990, ETA ~09-20), mertens-1e12 (a=139.7e9/1e12,
+  ETA ~09-18 13:37Z), robin-full (n_sub=243/9000, ETA ~09-22 12:14Z) —
+  all checkpointed/reboot-safe.
 C: 13 NUMERIC (#33,#38,#40,#42,#44,#45,#46,#47,#49,#50,#51,#54,#55) + NOTEs
   #29,#41 (A0 typo),#48 (exact m=0 MARGINAL); A0_max pinned #54; downstream
   constant 2.55028364035787 NUMERIC (#55).

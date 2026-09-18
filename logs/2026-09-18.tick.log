@@ -177,3 +177,52 @@ NEXT:
       frontier-escalated adversarial read (I will not build on it).
   (f) TRACK C: owner reports 2.55028364035787 to ANT network, or pick a new BTY
       constant to re-optimize.
+
+TICK 252 (2026-09-18 ~02:44 UTC)
+ATTEMPT: verify all three in-flight D jobs healthy + progressing + reboot-safe;
+  reconcile the robin denominator and the mertens maxabs against the ledger.
+PRIOR-ART PRE-FLIGHT: n/a — monitoring/verification of live jobs, no new attempt.
+FALSIFICATION TEST (pre-registered): a job is UNHEALTHY if its systemd unit is
+  not active(running), OR its ckpt mtime is stale (>5 min), OR its progress
+  counter is not advancing vs tick 251. An ANOMALY is any ledger value the
+  machine state cannot reproduce.
+MACHINE OUTPUT (verbatim):
+  - systemctl --user status: zero-scan-1e5 active(running) since 00:40:31 CEST;
+    mertens-1e12-promote active(running) since 02:51:43 CEST;
+    robin-full-1e12 active(running) since 01:47:39 CEST.  [all 3 running]
+  - ckpt mtimes (all written within 10s of the check): zero-scan 04:44:13 CEST,
+    mertens 04:44:14 CEST, robin 04:44:04 CEST.  [all actively writing]
+  - zero-scan ckpt: i_last=103123/999990 (was 94605 at tick 251). stderr:
+    "coarse 100000/999990 elapsed 13960s". recent rate 5000 steps/1001s=5.0/s.
+    ETA ~09-20 (~2 days out; LATER than tick-251's 09-19 08:00Z estimate).
+  - mertens ckpt: a_start=139.7e9/1e12 (was 97.5e9), maxabs=170358 so far,
+    first_x=108924543546. rate 42.2e9/32min=2.20e7/s. ETA ~09-18 13:37Z.
+  - robin ckpt: n_sub=243/9000 (was 204), best_R=0.9633611519799963 (unchanged).
+    full-run-resume.txt: "subseg 245: [124400000000,124500000000) running
+    best_R=0.963361151980 at n=107084577600 (10627.2s)". rate 43.4 s/subseg.
+    ETA ~09-22 12:14Z (~4.4 days out).
+ANOMALY 1 (RESOLVED): handoff said robin "n_sub=204/1000" with ETA 09-18 11:30Z.
+  The service ExecStart is `robin_full_scan.py 100000000000 1000000000001
+  100000000 ...` => A=1e11, B=1e12+1, L=1e8 => (B-A)/L = 9000 subsegs, NOT 1000.
+  The "/1000" was a handoff typo; the true denominator is 9000, so the true ETA
+  is ~09-22 12:14Z, not today. Handoff corrected this tick.
+ANOMALY 2 (RESOLVED): mertens ckpt maxabs=170358 while run.stderr shows
+  "maxabs=331302" and claim #39 records 331302 (first at x=661066575037).
+  Not a conflict: the promote service runs `tools/promote.sh promote 39 NUMERIC
+  evidence/2026-08-24-mertens-1e12`, i.e. a VERIFICATION RE-RUN of the sieve from
+  x=1. It is at a_start=139.7e9 (segment ~1397) and its maxabs-so-far=170358
+  EXACTLY matches the original run's trajectory (run.stderr line
+  "progress: 1100/10000 segments, maxabs=170358"; next rise to 190936 at seg 2200).
+  The 331302 in run.stderr/run.txt is the COMPLETED original 08-24 run
+  ("VERDICT: ALL CHECKS PASS", "MERTENS-1e12 DONE rc=0 2026-08-24T18:05:48Z").
+  The re-run will reach 331302 at x=6.61e11 and then check.sh promotes #39.
+RESULT: all 3 D jobs healthy + progressing + reboot-safe. No new claims.
+  Two handoff errors corrected (robin denominator 1000->9000 + ETA; zero-scan
+  ETA 09-19 -> ~09-20). Mertens promote confirmed as a faithful verification
+  re-run (no anomaly).
+NEXT: (a) zero-scan completes ~09-20 -> read full-run.txt, compute S(t) records
+  (NOTE-level, mpmath); (b) mertens promote completes ~09-18 13:37Z -> read
+  promote-run.txt (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"), ledger #39
+  NOTE->NUMERIC; (c) robin completes ~09-22 12:14Z -> read full-run-resume.txt
+  (expect "VERDICT: ALL CHECKS PASS"), new D NUMERIC (full scan [1e11,1e12),
+  SA_REF 0.975505922736).
