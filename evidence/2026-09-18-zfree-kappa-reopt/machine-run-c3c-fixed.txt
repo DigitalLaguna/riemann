@@ -1,0 +1,11 @@
+w(0) computed = 5.67278759886  paper 5.672787598  match: True
+kappa_paper = 0.504074505239
+grid points evaluated = 2304
+min margin14 (paper kappa) = 0.00048744958 at (s,mu,eta)= ('1.0', '0.91198852', '1.096505028e-9')
+worst Lemma14 K_allowed = +inf at (s,mu,eta,margin,D14)= None
+Kmax_c3a = 0.03830132421
+K_max (min of C3a, C3c) = 0.03830132421
+kappa_max = 0.542375829449
+kappa_required = 0.521015891483
+kappa_max > kappa_required ? True
+elapsed s = 357.0
