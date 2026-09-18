@@ -446,3 +446,56 @@ next: (a) mertens-1e12-promote completes ~09-18 ~14:30Z -> read promote-run.txt
   (b) zero-scan completes ~09-21..09-24 -> full-run.txt summary, S(t) records.
   (c) robin-full completes ~09-22 ~13:00Z -> full-run-resume.txt VERDICT.
   (d) owner: PNT+ PR + week-4 kill decision (09-17) still pending.
+
+TICK 259 (2026-09-18 ~16:00-16:10Z, frontier)
+attempt: discover machine state after 10h tick gap; diagnose why all 3 D jobs
+  stopped; relaunch all 3 from ckpts; verify progress.
+  (Not a new attempt; no prior-art pre-flight. Not in DEAD_ENDS: D-001/A-005
+  cover ckpt-loss and cgroup-kill; this is a new failure class — S3 suspend.)
+diagnosis (machine output, verbatim):
+  date/uptime: first call 16:00:08Z on 00:29Z boot; second call 18:00:19Z
+    "up 5 min" — reboot at 17:54Z (last reboot: "system boot Fri Sep 18 17:54").
+  All 3 ckpts last written 05:59:40-47Z (stat mtimes), i.e. 8.5 min after
+    tick 258 ended (05:51:11Z); nothing written until the 17:54Z reboot.
+  Counters at freeze: zero-scan i_last=140754, mertens a_start=377.8e9
+    (365.8e9 at 05:49Z + 10 min x 1.216e9/min = 377.96e9: full rate to freeze),
+    robin n_sub=516 (502 at 05:49Z + 10 min / 43.2s = 516.3: full rate to freeze).
+  journalctl --since 06:00 --until 17:50 (local): 1277 lines, ALL in 06:00-07:59
+    local (awk hour histogram: 753 in "06", 524 in "07", zero elsewhere) —
+    10h of total journal silence = S3 suspend signature. Machine frozen
+    ~05:59:40Z, resumed 17:54Z, rebooted 17:54:30Z. No OOM/kill lines.
+  Consequence: transient units lost; ~12h wall time lost; NO progress lost
+    (atomic ckpts intact, all valid JSON).
+step (bounded): relaunched all 3 as transient user units from ckpts:
+  systemd-run --user --unit=zero-scan-1e5.service  (python3 zero_scan.py 1.0
+    100000.0 0.1 ckpt-1e5.json > full-run.txt [0 bytes, safe] 2>> full.stderr)
+  systemd-run --user --unit=mertens-1e12-promote.service  (tools/promote.sh
+    promote 39 NUMERIC evidence/2026-08-24-mertens-1e12 > promote-run.txt
+    [0 bytes, safe] 2>&1; echo DONE rc=... >> promote-run.txt)
+  systemd-run --user --unit=robin-full-1e12.service  (python3 robin_full_scan.py
+    1e11 1e12+1 1e8 0.975505922736 ckpt-1e12.json >> full-run-resume.txt
+    [CHANGED > to >> : file holds 50820 bytes of prior progress lines —
+    evidence must not be truncated] 2>> full-run.stderr)
+  Invocation IDs: a589914e..., af9d4328..., 850148ff...
+machine output (verbatim, 16:08:25Z):
+  systemctl --user status: all 3 "Active: active (running) since Fri
+    2026-09-18 18:06:47 CEST; 1min 37s ago".
+  ps: python3 zero_scan.py (pid 3904) TIME 00:01:37; robin_full_scan.py
+    (pid 3911) TIME 00:01:40; mertens_segmented.py (pid 3915) TIME 00:01:39
+    — all ~full CPU in 1:38 elapsed.
+  ckpt mtimes fresh: mertens 18:08:21+0200, robin 18:08:13+0200.
+  Counters after ~2 min: mertens a_start=379900000000 (was 377.8e9:
+    +2.1e9/2min = 1.05e9/min, consistent), robin n_sub=518 (was 516),
+    zero-scan i_last=141092 (was 140754: +338/2min = 0.355 s/step, consistent).
+  VERDICT: all 3 resumed from ckpt and progressing. Machine says yes.
+new ETAs (from 16:09Z): mertens 620.1e9 remaining @ ~1.0-1.2e9/min (rate
+  falls as x grows; original 0->1e12 took 12h41m) -> ~09-19 early.
+  zero-scan 858898 steps @ 0.33-0.355 s/step -> ~79-86h -> ~09-21..09-22.
+  robin 8482 subsegs @ 43-60 s/subseg -> ~100-140h -> ~09-22..09-24.
+next: (a) mertens-1e12-promote completes ~09-19 early -> read promote-run.txt
+  (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"), ledger #39 NOTE->NUMERIC.
+  (b) zero-scan completes ~09-21..09-22 -> full-run.txt summary, S(t) records.
+  (c) robin-full completes ~09-22..09-24 -> full-run-resume.txt VERDICT.
+  (d) SUSPEND RISK: if next tick finds stale ckpts + journal gap, the machine
+  was suspended again — relaunch the dead units from ckpt (commands above).
+  (e) owner: PNT+ PR + week-4 kill decision (due 09-17) still pending.
