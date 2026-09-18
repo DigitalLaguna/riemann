@@ -274,3 +274,40 @@ NEXT: (a) zero-scan completes ~09-20 -> read full-run.txt, compute S(t) records
   NOTE->NUMERIC; (c) robin completes ~09-22 12:14Z -> read full-run-resume.txt
   (expect "VERDICT: ALL CHECKS PASS"), new D NUMERIC (full scan [1e11,1e12),
   SA_REF 0.975505922736).
+
+TICK 254 — 2026-09-18 ~03:46 UTC (model qwen3.8-27b)
+================================================================================
+ATTEMPT: verify all three in-flight D jobs healthy + progressing
+  (zero-scan-1e5, mertens-1e12-promote, robin-full-1e12); recompute mertens
+  ETA from the observed rate.
+PRIOR-ART PRE-FLIGHT: n/a — monitoring/verification of live jobs, no new attempt.
+FALSIFICATION TEST (pre-registered): a job is UNHEALTHY if its systemd unit is
+  not active(running), or its ckpt mtime is >5min old, or its counter did not
+  advance vs tick 253 (zero-scan i_last=110822, mertens a_start=175.6e9,
+  robin n_sub=287).
+MACHINE OUTPUT (verbatim):
+  systemctl --user status (grep): all three "Active: active (running)"
+    (zero-scan since 00:40:31 CEST, mertens since 02:51:43 CEST,
+    robin since 01:47:39 CEST).
+  ckpt mtimes: zero-scan 05:46:04 CEST, mertens 05:46:02 CEST,
+    robin 05:45:48 CEST (all <1min old at read time 05:46 CEST).
+  zero-scan ckpt: i_last=116336/999990 (was 110822), n_zeros=12081,
+    t≈11634/1e5 (11.6%). stderr: "coarse 115000/999990 elapsed 17900s"
+  mertens ckpt: a_start=211700000000 = 211.7e9/1e12 (was 175.6e9),
+    maxabs=170358 (unchanged; record at x=108924543546 = 108.9e9),
+    M_offset=-23051, N=1e12 SEG=1e8
+  robin ckpt: n_sub=329/9000 (was 287), best_R=0.9633611519799963
+    (unchanged), best_n=107084577600, best_sigma=594321960960
+    stderr: "subseg 329: [132800000000,132900000000) running
+    best_R=0.963361151980 at n=107084577600 (14247.1s)"
+RESULT: all 3 D jobs healthy + progressing. No new claims.
+  Mertens rate 175.6->211.7e9 in 31min = 1.16e9/min (stable vs tick 252->253);
+  remaining 788.3e9 -> ~680min -> ETA ~15:00Z (earlier than the 16:00Z
+  estimate; still completes today). Zero-scan ETA ~09-20 (unchanged).
+  Robin ETA ~09-22 ~12:00Z (unchanged).
+NEXT: (a) zero-scan completes ~09-20 -> read full-run.txt, compute S(t) records
+  (NOTE-level, mpmath); (b) mertens promote completes ~09-18 ~15:00Z -> read
+  promote-run.txt (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"), ledger #39
+  NOTE->NUMERIC; (c) robin completes ~09-22 ~12:00Z -> read
+  full-run-resume.txt (expect "VERDICT: ALL CHECKS PASS"), new D NUMERIC (full
+  scan [1e11,1e12), SA_REF 0.975505922736).
