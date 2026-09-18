@@ -264,3 +264,4 @@
 2026-09-18T18:34:01.700942+00:00 tick 264 model=qwen3.8-27b steps=25 wall=880s next=(a) TRACK C (tick 263): set up kappa_m L-infinity minimization (Remez/LP) for M=6;
 2026-09-18T19:05:01.707166+00:00 tick 265 model=qwen3.8-27b steps=24 wall=573s next=(a) TRACK C (tick 266): extract BTY constraints on kappa_m and solve
 2026-09-18T19:36:01.708481+00:00 tick 266 model=qwen3.8-27b steps=17 wall=1308s next=(a) TRACK C (tick 266): extract BTY constraints on kappa_m and solve
+2026-09-18T20:07:01.700703+00:00 tick 267 model=qwen3.8-27b steps=25 wall=897s next=(a) TRACK C (tick 266): extract BTY constraints on kappa_m and solve

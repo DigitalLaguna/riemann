@@ -1,0 +1,8 @@
+paper: kappa=0.504075  min p(x)=5.041e-01  min B(y)=1.098e-07  (C1 ok:True) (C2 ok:True)
+k6+=2: kappa=2.504075  min p(x)=6.990e-01  min B(y)=2.589e-03  (C1 ok:True) (C2 ok:True)
+k6+=5: kappa=5.504075  min p(x)=7.318e-01  min B(y)=6.473e-03  (C1 ok:True) (C2 ok:True)
+k6+=10: kappa=10.504075  min p(x)=7.554e-01  min B(y)=1.295e-02  (C1 ok:True) (C2 ok:True)
+k6+=50: kappa=50.504075  min p(x)=8.053e-01  min B(y)=6.473e-02  (C1 ok:True) (C2 ok:True)
+p+Kx6 K=2: kappa=2.504075  min p(x)=6.990e-01  min B(y)=2.589e-03  (C1 ok:True) (C2 ok:True)
+p+Kx6 K=5: kappa=5.504075  min p(x)=7.318e-01  min B(y)=6.473e-03  (C1 ok:True) (C2 ok:True)
+p+Kx6 K=10: kappa=10.504075  min p(x)=7.554e-01  min B(y)=1.295e-02  (C1 ok:True) (C2 ok:True)

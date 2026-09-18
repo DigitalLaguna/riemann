@@ -1,0 +1,5 @@
+paper kappa: k0max = -0.0941935881831  (paper bound -0.041)
+Kmax (Lemma12 k=0 only) = 0.03830132421
+kappa at Kmax = 0.542375829445
+kappa_required = 0.521015891482995
+kappa at Kmax > kappa_required ? True

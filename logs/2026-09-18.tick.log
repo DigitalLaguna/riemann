@@ -677,3 +677,63 @@ NEXT (tick 266): extract the paper's constraints on kappa_m and solve
   (Lemma 3); (C2) B(y) >= 0 for all y in R (line 696); (C3) lemma 5-14 bounds
   (L-infinity approximation quality). If max kappa < 0.521015891482995 ->
   DEAD (record C-002 in DEAD_ENDS). Else re-optimize and re-verify lemmas.
+
+TICK 268 (2026-09-18 ~20:38Z, local)
+track: C (kappa_m re-opt: constraint extraction) + D (monitoring)
+
+STEP 1: HANDOFF + DEAD_ENDS + ledger read. Plan: extract the paper's
+constraints on kappa_m (C1 Lemma 3, C2 line 696, C3 lemma 5-14 bounds) and
+determine whether they bound kappa below the required 0.521015891482995.
+Not in DEAD_ENDS (C-001 is the 4.8594/thesis block; kappa_m re-opt is the
+open attempt from tick 262, gate PASS tick 265).
+
+NOTE: ticks 266/267 ran scripts (kappa_lp.py, kappa_unbounded_test.py,
+kappa-upper-bound.py) but did NOT append to this log or update HANDOFF.
+Their machine outputs are in evidence/2026-09-18-zfree-kappa-reopt/
+(machine-run-upper-bound.txt, machine-run-unbounded.txt). I am recording
+them here now.
+
+D MONITOR: all 3 jobs active since 18:06:47Z (no reboot; uptime==wall).
+ckpt mtimes fresh (~20:38Z). No job completed yet.
+- zero-scan-1e5: progressing (ckpt valid). ETA ~09-21..09-22.
+- mertens-1e12-promote: a~330.5e9/1e12, maxabs=294816. ETA ~09-19 00:45Z.
+- robin-full-1e12: n_sub~763/9000, best_R=0.9755059227362325 @160626866400.
+  ETA ~09-22..09-23.
+No new D claims (no job completed).
+
+C KAPPA_M CONSTRAINT EXTRACTION (bounded step):
+- Read the paper verbatim (lit/text/bellotti-trudgian-yang-2026.txt):
+  * eq (17)/(18): p(x)=sum kappa_m x^m approximates h(x)=1/(1+x); the paper
+    "choose kappa_m to minimise the L-infinity norm" then "perturb the
+    coefficients so as to make the arguments that follow simpler (we opt for
+    slightly less favourable coefficients that can be more easily analysed)".
+  * Lemma 3 (line 493): f(u)>=0 for u>=0  <=>  p(x)>0 for 0<x<=1.  [C1]
+  * line 696: "It suffices to verify that B(y) >= 0 for all y in R."  [C2]
+  * Lemma 12 (line 1875): k=0 term  sum_m kappa_m (Gamma'/Gamma)((sigma+dm)/2+1)
+    <= -0.041  (eq 38), uniform sigma in [sigma0,1).  [C3a]
+  * Lemma 13 (line 2010): sum_k a_k Re F(s_k-1) <= a_0 F(sigma-1) + 1e-10 eta. [C3b]
+  * Lemma 14 (line 2058): a_1 F(sigma-1+eta)+a_1 F(sigma-eta)-a_0 F(sigma-1)
+    >= C1(mu)+3.909 eta+26 eta^2-3897 eta^3.  [C3c]
+  * exact params (line 530-540): w(0)=5.672787598, T0=1e10, K=16,
+    eta0=A0/log H=0.0071093, sigma0=1-A0/log(KH+T0)=0.9935164, A0=(4.8596)^-1.
+- Machine (kappa_unbounded_test.py, re-run this tick -> machine-run-unbounded.txt):
+  (C1)+(C2) ALONE DO NOT BOUND kappa. Adding K*x^6 (K up to 50) keeps
+  min p(x)>0 and min B(y)>=0, with kappa -> 50.5. So the binding constraint
+  is (C3), the lemma numerical bounds.
+- Machine (kappa_c3_test2.py -> machine-run-c3b.txt): the Lemma-12 k=0 bound
+  (C3a) DOES bound kappa. Using the correct sigma0=0.9935164, the max over
+  sigma in [sigma0,1) of the k=0 term is -0.0942 for the paper's kappa_m
+  (<= -0.041, valid). Bisecting K in kappa_6: Kmax=0.03830132421 at which the
+  max hits -0.041. So (C3a) alone allows kappa up to 0.542375829445, which is
+  > 0.521015891482995 (required). => (C3a) alone does NOT kill the idea.
+- The trivial upper bound (tick 267, machine-run-upper-bound.txt) is valid only
+  under ||p-f||_inf <= E_paper=0.00408988417338, which the lemmas do NOT
+  directly require. So it is a hint, not a proof of death.
+
+VERDICT: machine says (C1)+(C2) unbounded, (C3a) allows kappa>required. The
+idea is NOT yet dead. The binding constraints are (C3b) Lemma 13 and (C3c)
+Lemma 14, which require computing F values (Laplace transform of w).
+
+NEXT (tick 269): check (C3b) Lemma 13 and (C3c) Lemma 14 for a modified
+kappa_m (paper + K*x^6, K~0.017..0.038). If either kills kappa at
+< 0.521015891482995 -> DEAD (record C-002). Else re-optimize + re-verify.

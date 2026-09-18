@@ -1,0 +1,4 @@
+K=0  kappa=0.5040745052  Lemma12_k0=-0.1007217545  (paper bound -0.041, ok: True)
+K=0.02  kappa=0.5240745052  Lemma12_k0=-0.07646940003  (paper bound -0.041, ok: True)
+K=0.05  kappa=0.5540745052  Lemma12_k0=-0.04009086834  (paper bound -0.041, ok: False)
+K=0.1  kappa=0.6040745052  Lemma12_k0=0.02054001782  (paper bound -0.041, ok: False)
