@@ -570,3 +570,64 @@ next: (a) mertens-1e12-promote completes ~09-19 ~00:50Z -> read promote-run.txt
     constant list, prior-art pre-flight (log queries), pick ONE constant, write
     falsification test, then re-optimize.
   (f) owner: PNT+ PR + week-4 kill decision (due 09-17) still pending.
+
+TICK 262 (2026-09-18 ~17:32Z)
+track: C (new-attempt setup) + D (monitoring)
+
+STEP 1: HANDOFF + DEAD_ENDS + ledger read. Plan: track C new attempt — read BTY
+constant list, prior-art pre-flight, pick ONE constant, write falsification test.
+Not in DEAD_ENDS (4.896/A0/theta/m=0/138/kappa/c_mu/1.02928/downstream all done;
+rest of BTY constant list unexplored).
+
+D MONITOR: all 3 jobs active since 16:06:47Z (tick-259 relaunch), no new reboot.
+ckpt mtimes 17:32Z (now).
+- zero-scan-1e5: i_last=156370/999990 (was 150791 @17:01Z). ~0.333 s/step (plateau).
+  ETA ~09-21..09-22.
+- mertens-1e12-promote: a_start=484.5e9/1e12 (was 446.2e9). maxabs=294816 (unchanged;
+  final 331302 @ x=661e9 still ahead). ~1.24e9/min. ETA ~09-19 00:45Z.
+- robin-full-1e12: n_sub=634/9000 (was 592). NEW best_R=0.9755059227362325 at
+  n=160626866400 (was 0.9633611519799963 @107084577600) — equals SA_REF
+  0.975505922736 (a superabundant n). ~44.5 s/subseg. ETA ~09-22..09-23.
+No new claims (no job completed).
+
+C NEW ATTEMPT:
+- Read BTY (arXiv:2603.21490 v1) constant list: 4.896 (Thm1), 4.8594 (Thm2/Lem2),
+  1.02928 (g(L)), 2.78 (c_mu), 5.672787598 (w(0)), 433/859 (kappa), 138, 52
+  (C(x0/eta0,x0/eta0)<52), 19.62/51.34 (thesis[16]), 21.233/53.989 (Littlewood/VK),
+  76.47/56.693 (Lemma ranges), 10^10 (T0), 16 (K), 1.1338 (theta), M=6 + kappa_m
+  (trig poly (18)).
+- DONE: 4.896 + A0(#54) + theta(#46) + m=0(#47-51) + 138(#45) + kappa(#38) + c_mu(#40)
+  + 1.02928(#33) + downstream 2.55028364035787(#55).
+- 4.8594 (Thm2/Lem2): DEAD END. Thm2 = Lem2 (4.8594 for 3<=t<=exp(56.693)) + improved
+  Littlewood region (19.62, thesis[16]) for t>exp(56.691). Paper proves only Lem1
+  (4.896); Lem2 unproven. Existing Littlewood region (3) (21.233) is sharp only for
+  t>exp(76.463) (Thm1 crossover), NOT for the larger range t>exp(56.691) (Thm2
+  crossover) — hence thesis improves it to 19.62. Thesis[16] unobtainable (not on
+  arXiv). Best ZFR without thesis = MTY 5.559 > 4.8594. => 4.8594 blocked.
+- Prior-art pre-flight (arXiv API https, 2026-09-18 17:40Z):
+  Q1 id_list=2603.21490 -> v1 only (pub+upd 2026-03-23, no new version).
+  Q2 abs:"zero-free region" AND cat:math.NT newest-first -> nothing newer than BTY
+    (2026-03-23); closest: "Power sums and Siegel-type zero-free regions"
+    (2026-08-12, L-functions not zeta 1/log t), "Minimal zero-free regions ... perfect
+    kth powers" (2026-02-15). No BTY re-optimization.
+  Q3 abs:"zero-free" AND abs:"trigonometric polynomial" -> nothing newer than MTY 2014
+    (seed). No re-optimization of trig poly / kappa_m.
+  => prior-art clear: no one re-optimized BTY constants; no new ZFR supersedes BTY.
+- PICK: re-optimize the kappa_m coefficients (and M) in the BTY trigonometric
+  polynomial approximation (17)/(18). Paper uses M=6 with rational kappa_m
+  (deliberately suboptimal: "we opt for slightly less favourable coefficients that
+  can be more easily analysed"). Most tractable remaining free parameter. Affects
+  A_final (via a=sum a_k, kappa=sum kappa_m), NOT A0_max (depends on theta + m=0
+  term, kappa_0=1 fixed).
+- FALSIFICATION TEST (pre-registered): current effective constant =
+  min(A_final, A0_max) = A0_max = 0.392113247395366294 (1/A = 2.55028364035787), with
+  A_final = 0.420483467794 (NOT binding: A_final > A0_max). Re-optimizing kappa_m
+  (kappa_0=1 fixed) changes A_final, not A0_max. IDEA IS DEAD (for the headline
+  constant) if re-optimized A_final is still > A0_max = 0.392113247395366294, i.e.
+  min(A_final_reopt, A0_max) == A0_max (no change). A positive result requires
+  A_final_reopt < 0.392113247395366294 (~7% reduction in A_final) — a stretch, since
+  the paper's kappa_m are already near L-infinity optimal.
+
+NEXT (tick 263): set up kappa_m L-infinity minimization (Remez/LP) for M=6; verify
+we reproduce the paper's A_final = 0.420483467794 with the paper's kappa_m first;
+then re-optimize. Machine: solver + Arb.

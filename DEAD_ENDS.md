@@ -113,3 +113,18 @@ evidence: logs/2026-09-17.tick.log (TICK 244); tracks/d-search/zero_scan.py
   "coarse 160000/999990")
 closed by: machine output — atomic-ckpt test (valid JSON, resume) + production
   ckpt valid after relaunch
+
+## C-001 BTY Theorem 2 / Lemma 2 constant 4.8594 (re-optimization)
+tried: 2026-09-18, tick 262
+failed: Theorem 2 (4.8594 for all t>=3) = Lemma 2 (4.8594 for 3<=t<=exp(56.693)) +
+  the improved Littlewood zero-free region (19.62, third author's thesis [16]) for
+  t>exp(56.691). The paper proves only Lemma 1 (4.896); Lemma 2 is unproven. The
+  existing Littlewood region (3) (21.233) is sharp only for t>exp(76.463) (the Thm 1
+  crossover), not for the larger range t>exp(56.691) (the Thm 2 crossover) — which is
+  why the thesis improves it to 19.62. Thesis [16] is unobtainable (not on arXiv).
+  Best available zero-free region without the thesis is MTY 2024 (5.559) > 4.8594,
+  so the large-t range cannot be covered. => 4.8594 re-optimization blocked by
+  unobtainable prior work.
+evidence: lit/text/bellotti-trudgian-yang-2026.txt lines 102-152 (regions (3),(4),
+  Thm 2, Lemma 2, crossover exp(56.691)); prior-art Q2 (no new ZFR since BTY)
+closed by: unobtainable thesis [16] (19.62/51.34) + MTY 5.559 > 4.8594
