@@ -311,3 +311,50 @@ NEXT: (a) zero-scan completes ~09-20 -> read full-run.txt, compute S(t) records
   NOTE->NUMERIC; (c) robin completes ~09-22 ~12:00Z -> read
   full-run-resume.txt (expect "VERDICT: ALL CHECKS PASS"), new D NUMERIC (full
   scan [1e11,1e12), SA_REF 0.975505922736).
+
+TICK 255 — 2026-09-18 ~04:16 UTC (model qwen3.8-27b)
+================================================================================
+ATTEMPT: verify all three in-flight D jobs healthy + progressing; update
+  zero-scan ETA (apparent rate slowdown) and mertens ETA; note mertens new
+  intermediate record.
+PRIOR-ART PRE-FLIGHT: n/a — monitoring/verification of live jobs, no new attempt.
+FALSIFICATION TEST (pre-registered): a job is UNHEALTHY if its systemd unit is
+  not active(running), or its ckpt mtime is >5min old, or its counter did not
+  advance vs tick 254 (zero-scan i_last=116336, mertens a_start=211.7e9,
+  robin n_sub=329).
+MACHINE OUTPUT (verbatim):
+  systemctl --user status (grep): all three "Active: active (running)"
+    (zero-scan since 00:40:31 CEST, mertens since 02:51:43 CEST,
+    robin since 01:47:39 CEST).
+  ckpt mtimes (read 06:16:37 CEST): zero-scan 06:16:35, mertens 06:16:37,
+    robin 06:16:37 (all <2s old).
+  zero-scan ckpt: i_last=121943/999990 (was 116336), t≈12195/1e5 (12.2%).
+    stderr: "coarse 120000/999990 elapsed 19529s"
+  mertens ckpt: a_start=250800000000 = 250.8e9/1e12 (was 211.7e9),
+    maxabs=190936 (NEW intermediate record; first_x=217309283735 = 217.3e9,
+    M_at_first=-190936), M_offset=48994, N=1e12 SEG=1e8
+  robin ckpt: n_sub=373/9000 (was 329), best_R=0.9633611519799963
+    (unchanged), best_n=107084577600, best_sigma=594321960960
+    stderr: "subseg 373: [137200000000,137300000000) running
+    best_R=0.963361151980 at n=107084577600 (16137.8s)"
+RESULT: all 3 D jobs healthy + progressing. No new claims.
+  Mertens rate 211.7->250.8e9 in 31min = 1.26e9/min (stable vs 1.16e9/min);
+  remaining 749.2e9 -> ~594min -> ETA ~14:10Z (completes today).
+  Mertens NEW intermediate record: maxabs 170358 -> 190936 at x=217.3e9
+  (trajectory consistent with the final 331302 target; matches 08-24 run).
+  Zero-scan: block 115000-120000 = 1629s/5000 = 0.326 s/step. The apparent
+  slowdown (5 -> 3.1 steps/s) is NOT a new anomaly: it reproduces the
+  documented mpmath cost curve block-for-block
+  (evidence/2026-08-23-zero-scan/cost-curve-2026-08-24.txt, tick 193):
+  jump 0.259 (block 105000-110000; measured 0.260) then plateau 0.326-0.351
+  at t~1.1e4-2.2e4 (measured 0.326-0.327), then jumps to 0.540 (t~2.25e4) /
+  0.600-0.607 (t~2.5e4), then per-call cost drops in the RS regime
+  (t>52000, 42ms/call). ETA slipped from ~09-20 to ~09-21..09-24 (uncertain;
+  rate follows the documented curve, RS regime should accelerate the tail).
+  Robin ETA ~09-22 ~12:00Z (unchanged).
+NEXT: (a) mertens promote completes ~09-18 ~14:10Z -> read promote-run.txt
+  (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"), ledger #39 NOTE->NUMERIC
+  (36 total NUMERIC); (b) zero-scan completes ~09-21..09-24 -> read
+  full-run.txt, compute S(t) records (NOTE-level, mpmath); (c) robin completes
+  ~09-22 ~12:00Z -> read full-run-resume.txt (expect "VERDICT: ALL CHECKS
+  PASS"), new D NUMERIC (full scan [1e11,1e12), SA_REF 0.975505922736).
