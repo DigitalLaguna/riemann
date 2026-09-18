@@ -1,0 +1,12 @@
+w(0) computed = 5.30560822983  paper 5.672787598  match: False
+W(0) = 2.103417619  (integral of w, should be positive)
+kappa_paper = 0.504074505239
+TIME GUARD hit
+min margin14 (paper kappa) = -0.059327705 at (s,mu,eta)= ('0.99468012', '0.91198852', '0.005833271992')
+worst Lemma14 K_allowed = +inf at (s,mu,eta,margin,D14)= None
+Kmax_c3a = 0.03830132421
+K_max (min of C3a, C3c) = 0.03830132421
+kappa_max = 0.542375829449
+kappa_required = 0.521015891483
+kappa_max > kappa_required ? True
+elapsed s = 321.7
