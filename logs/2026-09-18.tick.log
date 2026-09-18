@@ -226,3 +226,51 @@ NEXT: (a) zero-scan completes ~09-20 -> read full-run.txt, compute S(t) records
   NOTE->NUMERIC; (c) robin completes ~09-22 12:14Z -> read full-run-resume.txt
   (expect "VERDICT: ALL CHECKS PASS"), new D NUMERIC (full scan [1e11,1e12),
   SA_REF 0.975505922736).
+
+================================================================================
+TICK 253 — 2026-09-18 ~03:15 UTC (model qwen3.8-27b)
+================================================================================
+ATTEMPT: verify all three in-flight D jobs healthy + progressing + reboot-safe
+  (zero-scan-1e5, mertens-1e12-promote, robin-full-1e12); reconcile mertens
+  a_start against the 09-18 00:51Z external restart.
+PRIOR-ART PRE-FLIGHT: n/a — monitoring/verification of live jobs, no new attempt.
+FALSIFICATION TEST (pre-registered): a job is UNHEALTHY if its systemd unit is
+  not active(running), OR its ckpt mtime is stale (>5 min), OR its progress
+  counter is not advancing vs tick 252. An ANOMALY is any handoff/ledger value
+  the machine contradicts.
+MACHINE OUTPUT (verbatim):
+  systemctl --user status (all 3): Active: active (running)
+    zero-scan-1e5: since 00:40:31 CEST (22:40Z), Main PID 2980
+    mertens-1e12-promote: since 02:51:43 CEST (00:51Z), Main PID 4848
+    robin-full-1e12: since 01:47:39 CEST (23:47Z), Main PID 4072
+  ckpt mtimes (all fresh, ~03:15Z):
+    zero-scan ckpt-1e5.json: 2026-09-18 05:15:05 CEST
+    mertens ckpt-1e12.json: 2026-09-18 05:16 CEST
+    robin ckpt-1e12.json: 2026-09-18 05:14:56 CEST
+  Progress counters (vs tick 252):
+    zero-scan: i_last=110822/999990 (was 103123), t≈11083/1e5 (11%),
+      11424 zeros found, last_t=11083.140843077515
+      stderr: "coarse 110000/999990 elapsed 16263s"
+    mertens: a_start=175600000000 = 175.6e9/1e12 (was 139.7e9),
+      maxabs=170358 (unchanged; record at x=108924543546 = 108.9e9,
+      matches original 08-24 trajectory), N=1e12 SEG=1e8
+    robin: n_sub=287/9000 (was 243), best_R=0.9633611519799963 (unchanged),
+      best_n=107084577600, best_sigma=594321960960
+      stderr: "subseg 287: [128600000000,128700000000) running best_R=0.963361151980
+      at n=107084577600 (12437.5s)"
+  Reboot/restart audit (journalctl --user -u mertens-1e12-promote.service):
+    every stop/start is a reboot (boot -2 end 09-16 00:37Z, boot -1 end
+    09-16 21:15Z) + one external restart 09-18 00:51Z. Current boot started
+    22:29Z (09-17), uptime 4h48m. Each stop resumed cleanly from the atomic
+    ckpt (a_start only advances: 139.7e9 -> 175.6e9). No progress lost.
+  Disk: / 47% used (466G avail).
+RESULT: all 3 D jobs healthy + progressing + reboot-safe. No new claims.
+  Mertens ETA slipped 13:37Z -> ~16:00Z (00:51Z restart gap + reboot pattern);
+  still completes today. Zero-scan ETA ~09-20 (unchanged). Robin ETA ~09-22
+  (unchanged).
+NEXT: (a) zero-scan completes ~09-20 -> read full-run.txt, compute S(t) records
+  (NOTE-level, mpmath); (b) mertens promote completes ~09-18 ~16:00Z -> read
+  promote-run.txt (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"), ledger #39
+  NOTE->NUMERIC; (c) robin completes ~09-22 12:14Z -> read full-run-resume.txt
+  (expect "VERDICT: ALL CHECKS PASS"), new D NUMERIC (full scan [1e11,1e12),
+  SA_REF 0.975505922736).

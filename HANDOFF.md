@@ -1,4 +1,4 @@
-# HANDOFF — session 2026-09-18 ~02:44 UTC (tick 252)
+# HANDOFF — session 2026-09-18 ~03:15 UTC (tick 253)
 # track: D (monitoring) | gate: all tracks OPEN (21/21 seeds)
 
 ## State
@@ -9,25 +9,24 @@
 This tick: no new claims (no job completed). PENDING (verified, not ledgered): none.
 
 ## Last work
-Tick 252: verified all three in-flight D jobs healthy + progressing + reboot-safe
-(systemd active(running) + ckpt mtime <10s + counter advancing vs tick 251).
-- zero-scan-1e5: i_last=103123/999990 (was 94605). rate 5.0/s (stderr 5000/1001s).
-- mertens-1e12-promote: a_start=139.7e9/1e12 (was 97.5e9), maxabs-so-far=170358.
-- robin-full-1e12: n_sub=243/9000 (was 204), best_R=0.9633611519799963 (unchanged).
-Two handoff errors corrected this tick:
-- ROBIN denominator was "/1000" -> actually 9000 subsegs (A=1e11,B=1e12+1,L=1e8).
-  True ETA ~09-22 12:14Z (~4.4 days), NOT 09-18 11:30Z.
-- ZERO-SCAN ETA slipped 09-19 08:00Z -> ~09-20 (~2 days) at the current 5.0/s rate.
-Mertens "promote" confirmed a faithful VERIFICATION RE-RUN (promote.sh re-runs the
-sieve from x=1); its maxabs=170358 at seg~1397 exactly matches the original 08-24
-run's trajectory (run.stderr seg 1100 = 170358). The 331302 in run.txt is the
-COMPLETED original run (VERDICT ALL CHECKS PASS, rc=0 08-24T18:05:48Z). No anomaly.
+Tick 253: verified all three in-flight D jobs healthy + progressing + reboot-safe
+(systemd active(running) + ckpt mtime <1min + counter advancing vs tick 252).
+- zero-scan-1e5: i_last=110822/999990 (was 103123), t≈11083/1e5 (11%), 11424 zeros.
+- mertens-1e12-promote: a_start=175.6e9/1e12 (was 139.7e9), maxabs-so-far=170358
+  (record at x=108.9e9, matches original 08-24 trajectory).
+- robin-full-1e12: n_sub=287/9000 (was 243), best_R=0.9633611519799963 (unchanged).
+Reboot/restart audit (journalctl): every mertens stop/start is a reboot
+(boot -2 end 09-16 00:37Z, boot -1 end 09-16 21:15Z) + one external restart
+09-18 00:51Z; current boot since 22:29Z (09-17), uptime 4h48m. Each resumed
+cleanly from the atomic ckpt (a_start only advances) -> no progress lost.
+Mertens ETA slipped 13:37Z -> ~16:00Z (00:51Z restart gap + reboot pattern);
+still completes today. Zero-scan ETA ~09-20, robin ETA ~09-22 (unchanged).
 
 ## Next action
 (a) TRACK D: zero-scan-1e5.service running. On completion (~09-20): read
     full-run.txt (summary prints to stdout only at completion); compute S(t)
     records per zero-spacing-design.md (NOTE-level, mpmath).
-(b) TRACK D: mertens-1e12-promote.service running. On completion (~09-18 13:37Z):
+(b) TRACK D: mertens-1e12-promote.service running. On completion (~09-18 ~16:00Z):
     read promote-run.txt (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"); ledger
     #39 NOTE -> NUMERIC (36 total).
 (c) TRACK D: robin-full-1e12.service running. On completion (~09-22 12:14Z): read
@@ -54,8 +53,8 @@ COMPLETED original run (VERDICT ALL CHECKS PASS, rc=0 08-24T18:05:48Z). No anoma
 ## Budget
 Week-1 reweight A30/B40/D15/C10/E5 stands (no weekly review ran 08-29..09-15).
 D: 11 NUMERIC + 3 NOTE (#28,#37,#39; #39 promotion in flight); in flight:
-  zero-scan (i=103123/999990, ETA ~09-20), mertens-1e12 (a=139.7e9/1e12,
-  ETA ~09-18 13:37Z), robin-full (n_sub=243/9000, ETA ~09-22 12:14Z) —
+  zero-scan (i=110822/999990, ETA ~09-20), mertens-1e12 (a=175.6e9/1e12,
+  ETA ~09-18 ~16:00Z), robin-full (n_sub=287/9000, ETA ~09-22 12:14Z) —
   all checkpointed/reboot-safe.
 C: 13 NUMERIC (#33,#38,#40,#42,#44,#45,#46,#47,#49,#50,#51,#54,#55) + NOTEs
   #29,#41 (A0 typo),#48 (exact m=0 MARGINAL); A0_max pinned #54; downstream

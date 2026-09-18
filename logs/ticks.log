@@ -249,3 +249,4 @@
 2026-09-18T01:10:12.987933+00:00 tick 249 model=qwen3.8-27b steps=23 wall=560s next=(a) TRACK D: zero-scan-1e5.service running. On completion: read full-run.txt;
 2026-09-18T01:41:12.993696+00:00 tick 250 model=qwen3.8-27b steps=14 wall=665s next=(a) TRACK D: zero-scan-1e5.service running. On completion: read full-run.txt;
 2026-09-18T02:12:12.987925+00:00 tick 251 model=qwen3.8-27b steps=22 wall=385s next=(a) TRACK D: zero-scan-1e5.service running. On completion: read full-run.txt
+2026-09-18T02:43:12.989346+00:00 tick 252 model=qwen3.8-27b steps=25 wall=476s next=(a) TRACK D: zero-scan-1e5.service running. On completion (~09-20): read
