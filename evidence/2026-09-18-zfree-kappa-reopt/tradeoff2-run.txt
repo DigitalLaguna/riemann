@@ -1,0 +1,14 @@
+T1 max x+y s.t. x+y<=1,x<=1,y<=1: st=optimal x=[1. 0.] v=1.0000 (expect 1)
+T2 infeasible: st=optimal (expect infeasible)
+T3 max x s.t. x<=1: st=optimal x=[1.] v=1.0000 (expect 1)
+E          max_q1      kappa=1+q1   trueE      A_final    <A0_max?
+E=0.004089900  unbounded
+E=0.005000000  unbounded
+E=0.008000000  unbounded
+E=0.010000000  unbounded
+E=0.015000000  unbounded
+E=0.020000000  unbounded
+E=0.021015891  unbounded
+E=0.025000000  unbounded
+E=0.030000000  unbounded
+E=0.050000000  unbounded

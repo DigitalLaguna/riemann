@@ -1,0 +1,15 @@
+TEST n=1 g=x^2: c=0.828427 E=0.171573 iters=4 extremal=[0.414225 1.      ]
+  brute-force best c=0.828430 E=0.171574
+L-infinity minimizer (n=6, zero const term):
+  coeffs c[1..6] = [-0.999499893816  0.989011054548 -0.91712281788   0.693432666818
+ -0.34463633682   0.078822504477]
+  E_minimax = 0.000007177327  iters= 15
+  extremal pts = [0.033575 0.162715 0.35743  0.583515 0.795155 0.94558  1.      ]
+  kappa_minimax = 1+sum(c) = 0.500007177327
+
+paper kappa = 0.504074505239
+  delta (minimax - paper) = -4.067328e-03
+  minimax better kappa? False
+
+A_final(kappa_minimax) = 0.427754951958064   (< A0_max? False )
+A_final(kappa_paper)   = 0.420483467793734

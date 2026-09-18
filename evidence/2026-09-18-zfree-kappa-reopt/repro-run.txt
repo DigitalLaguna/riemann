@@ -1,0 +1,13 @@
+kappa_paper = sum(kappa_m) = 0.50407450523865  (paper: 433/859 = 0.50407450523865 )
+  match 433/859: True
+
+E_paper = max_{x in [0,1]} |p(x) - 1/(1+x)| = 0.00408988417329  at x = 0.97819
+
+REPRODUCTION GATE:
+  A_final(kappa_paper) = 0.420483467793734
+  target 0.420483467794  match: True
+  headline 1/A_final = 2.37821478511
+
+  A0_max = 0.392113247395366
+  kappa needed for A_final < A0_max: 0.521015891483  (paper kappa = 0.504074505239 )
+  required relative increase in kappa: 0.0336089
