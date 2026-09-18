@@ -358,3 +358,35 @@ NEXT: (a) mertens promote completes ~09-18 ~14:10Z -> read promote-run.txt
   full-run.txt, compute S(t) records (NOTE-level, mpmath); (c) robin completes
   ~09-22 ~12:00Z -> read full-run-resume.txt (expect "VERDICT: ALL CHECKS
   PASS"), new D NUMERIC (full scan [1e11,1e12), SA_REF 0.975505922736).
+
+TICK 256 — 2026-09-18 ~04:48 UTC (model qwen3.8-27b)
+================================================================================
+ATTEMPT: verify all three in-flight D jobs healthy + progressing (bounded
+  monitoring step; mertens promotion completes today).
+PRIOR-ART PRE-FLIGHT: n/a — monitoring/verification of live jobs, no new attempt.
+FALSIFICATION TEST (pre-registered): a job is UNHEALTHY if its systemd unit is
+  not active(running), its ckpt mtime is stale (>5 min), its counter has not
+  advanced vs tick 255, or its rate deviates >2x from the documented curve.
+MACHINE OUTPUT (verbatim):
+  uptime: "06:48:04 up 6:18" -> no reboot since 09-17 22:30Z (last 22:29Z).
+  zero-scan-1e5.service: "Active: active (running) since Fri 2026-09-18 00:40:31 CEST"
+  mertens-1e12-promote.service: "Active: active (running) since Fri 2026-09-18 02:51:43 CEST"
+  robin-full-1e12.service: "Active: active (running) since Fri 2026-09-18 01:47:39 CEST"
+  zero-scan ckpt-1e5.json (mtime 06:48, valid JSON): i_last = 127717 (was 121943)
+  mertens ckpt-1e12.json (mtime 06:48, valid JSON): a_start = 289400000000
+    (was 250.8e9), maxabs = 190936 (unchanged since x=217.3e9)
+  robin ckpt-1e12.json (mtime 06:47, valid JSON): n_sub = 416 (was 373),
+    best_R = 0.9633611519799963 (unchanged)
+VERDICT: all three healthy + progressing.
+  zero-scan rate 5774 steps / 1914 s = 0.331 s/step (documented plateau 0.326 —
+  on curve, no anomaly). ETA ~09-21..09-24 (unchanged).
+  mertens rate 38.6e9 / 1914 s = 1.21e9/min (stable vs 1.26e9/min); remaining
+  710.6e9 -> ~587 min -> ETA slipped ~14:10Z -> ~14:35Z (still completes today).
+  robin 43 subs / 32 min; ETA ~09-22 ~12:00Z (unchanged).
+NO NEW CLAIMS. PENDING (verified, not ledgered): none.
+NEXT: (a) mertens promote completes ~09-18 ~14:35Z -> read promote-run.txt
+  (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"), ledger #39 NOTE->NUMERIC
+  (36 total NUMERIC); (b) zero-scan completes ~09-21..09-24 -> read
+  full-run.txt, compute S(t) records (NOTE-level, mpmath); (c) robin completes
+  ~09-22 ~12:00Z -> read full-run-resume.txt (expect "VERDICT: ALL CHECKS
+  PASS"), new D NUMERIC (full scan [1e11,1e12), SA_REF 0.975505922736).

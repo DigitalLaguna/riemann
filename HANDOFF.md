@@ -1,4 +1,4 @@
-# HANDOFF — session 2026-09-18 ~04:16 UTC (tick 255)
+# HANDOFF — session 2026-09-18 ~04:48 UTC (tick 256)
 # track: D (monitoring) | gate: all tracks OPEN (21/21 seeds)
 
 ## State
@@ -9,20 +9,20 @@
 This tick: no new claims (no job completed). PENDING (verified, not ledgered): none.
 
 ## Last work
-Tick 255: verified all three in-flight D jobs healthy + progressing
-(systemd active(running) + ckpt mtime <2s + counter advancing vs tick 254).
-- zero-scan-1e5: i_last=121943/999990 (was 116336), t≈12195/1e5 (12.2%).
-  Rate 0.326 s/step — matches the documented mpmath cost curve (NOT a new
-  anomaly; tick-193 cost-curve file). ETA slipped ~09-20 -> ~09-21..09-24.
-- mertens-1e12-promote: a_start=250.8e9/1e12 (was 211.7e9), NEW intermediate
-  record maxabs=190936 at x=217.3e9 (was 170358 at 108.9e9). Rate 1.26e9/min
-  stable; ETA ~14:10Z (completes today).
-- robin-full-1e12: n_sub=373/9000 (was 329), best_R=0.9633611519799963
+Tick 256: verified all three in-flight D jobs healthy + progressing
+(systemd active(running) + ckpt mtime <1min + counter advancing vs tick 255).
+No reboot since 09-17 22:29Z (uptime 6:18 at 04:48Z).
+- zero-scan-1e5: i_last=127717/999990 (was 121943), t≈12772/1e5 (12.8%).
+  Rate 0.331 s/step — on the documented mpmath cost-curve plateau (0.326).
+  ETA ~09-21..09-24 (unchanged).
+- mertens-1e12-promote: a_start=289.4e9/1e12 (was 250.8e9), maxabs=190936
+  (unchanged since x=217.3e9). Rate 1.21e9/min stable; ETA slipped
+  ~14:10Z -> ~14:35Z (still completes today).
+- robin-full-1e12: n_sub=416/9000 (was 373), best_R=0.9633611519799963
   (unchanged). ETA ~09-22 ~12:00Z (unchanged).
-No reboot since 09-17 22:29Z; all jobs checkpointed/reboot-safe.
 
 ## Next action
-(a) TRACK D: mertens-1e12-promote.service running. On completion (~09-18 ~14:10Z):
+(a) TRACK D: mertens-1e12-promote.service running. On completion (~09-18 ~14:35Z):
     read promote-run.txt (expect "PROMOTE-1e12 DONE rc=0" + "CHECK PASS"); ledger
     #39 NOTE -> NUMERIC (36 total NUMERIC).
 (b) TRACK D: zero-scan-1e5.service running. On completion (~09-21..09-24): read
@@ -52,8 +52,8 @@ No reboot since 09-17 22:29Z; all jobs checkpointed/reboot-safe.
 ## Budget
 Week-1 reweight A30/B40/D15/C10/E5 stands (no weekly review ran 08-29..09-15).
 D: 11 NUMERIC + 3 NOTE (#28,#37,#39; #39 promotion in flight); in flight:
-  zero-scan (i=121943/999990, ETA ~09-21..09-24), mertens-1e12 (a=250.8e9/1e12,
-  ETA ~09-18 ~14:10Z), robin-full (n_sub=373/9000, ETA ~09-22 ~12:00Z) —
+  zero-scan (i=127717/999990, ETA ~09-21..09-24), mertens-1e12 (a=289.4e9/1e12,
+  ETA ~09-18 ~14:35Z), robin-full (n_sub=416/9000, ETA ~09-22 ~12:00Z) —
   all checkpointed/reboot-safe.
 C: 13 NUMERIC (#33,#38,#40,#42,#44,#45,#46,#47,#49,#50,#51,#54,#55) + NOTEs
   #29,#41 (A0 typo),#48 (exact m=0 MARGINAL); A0_max pinned #54; downstream
