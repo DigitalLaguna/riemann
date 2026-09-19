@@ -1,0 +1,10 @@
+row 0/20  elapsed 22.4s
+row 5/20  elapsed 133.6s
+row 10/20  elapsed 243.7s
+row 15/20  elapsed 354.4s
+row 20/20  elapsed 465.0s
+min true D          = 0.0005344181205 at ('0.9119885', '0.000355465')
+max (LB - D)        = 0.01157974494 at ('0.9119885', '0.0071093')   (<=0 => LB valid lower bound on D)
+max (LB - bracket6) = -3.475811623e-6   (<=0 => LB valid lower bound on m=6 bracket)
+kappa_6 (modified)  = 0.004534238393
+total elapsed 465.0s
