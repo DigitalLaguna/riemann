@@ -1,0 +1,61 @@
+# Tick log 2026-09-19 (UTC)
+
+## CATCH-UP: ticks 285-289 (ran scripts, did NOT append to a tick log)
+The 2026-09-19 tick log was never created; ticks 285-289 ran scripts and
+committed residual state (git "tick/auto: commit residual state after tick N")
+but left no log entry. Their machine outputs are in
+evidence/2026-09-18-zfree-kappa-reopt/ and are recorded here for the record:
+- 03:25 a0max_new_check.py -> machine-run-a0max.txt: at the pinned point
+  (hi=0.376216048449719989, A0_g(hi)=0.392113247395366278), the actual
+  Lemma-14 LHS min over a 7x9 grid is 3.54e-19 (paper kap) and 1.435e-7
+  (MODIFIED kap, kappa_6+=0.03830132421), both >0 at (mu=1.0, eta=0.00151649).
+  => A0_max survives the modification (numerically).
+- 05:28 kappa_c1c2_check.py: (C1) p(x)>0 and (C2) B(y)>=0 hold for the
+  modified kappa.
+- 08:05 kappa_c3b_check.py -> machine-run-c3b.txt: (C3b) Lemma-13 budget
+  a*sum(positive kappa_m) <= 10 holds at K=Kmax_c3a with margin 2.4428.
+  => (C3b) does NOT kill the idea.
+- 08:08 kappa_reopt_verify.py -> machine-run-reopt-verify.txt: A_final(new)
+  = 0.360276469795491 < A0_max = 0.392113247395366; headline 1/A_final
+  = 2.7756461602 (was 2.55028364036). (RE-OPTIMIZATION SUCCEEDS, numerically.)
+- 09:46-09:49 kappa_c3c_actual.py / kappa_c3c_actual20.py ->
+  machine-run-c3c-actual{,20}.txt: (C3c) Lemma-14 lower bound holds on a
+  12x12 / 20x20 (mu,eta) grid for the modified kappa, min margin
+  0.000564 / 0.000534 > 0. (NUMERICAL grid only, NOT rigorous.)
+- NOTE #58 recorded the re-optimization result (02:35).
+All of the above are mpmath (not Arb) => NOTE-level, not NUMERIC.
+
+## TICK 290 (2026-09-19 ~10:05 UTC) — TRACK C: C3a margin audit + corrected re-opt
+One line: audit the C3a (Lemma-12 k=0) margin at the exact K used in the
+re-optimization, because the tick-267 Kmax bisection used a coarse 200-point
+sigma grid; not in DEAD_ENDS (the re-opt is not dead, this is a correction).
+
+Machine (kappa_c3a_margin.py -> machine-run-c3a-margin.txt, 400-point grid):
+  At K=0.03830132421 (the value used in NOTE #58 / reopt_verify):
+    k0max = -0.0409978682665675  (bound -0.041)
+    C3a margin = +2.1317e-6  => C3a VIOLATED (k0max > -0.041).
+  So the original re-optimization slightly violates C3a.
+
+Machine (kappa_c3a_fine.py -> machine-run-c3a-fine.txt, 2000-point grid):
+  True Kmax (max K s.t. max_sigma k0term <= -0.041) = 0.0382982544817207,
+  with the max at sigma=1.0 (boundary, captured exactly by the grid).
+  Using K = Kmax_fine*0.9999 = 0.0382944246562725:
+    k0max = -0.041005319133218, C3a margin = -5.319e-6 (HOLDS).
+    kappa = 0.542368929894922 (> required 0.521015891482995).
+
+Machine (kappa_reopt_corrected.py -> machine-run-reopt-corrected.txt):
+  At the corrected K=0.0382944246562725:
+    A_final = 0.36028611481004 < A0_max = 0.392113247395366.
+    headline 1/A_final = 2.77557185496 (was 2.55028364036).
+  => CORRECTED RE-OPTIMIZATION SUCCEEDS with a positive C3a margin.
+
+VERDICT: the original K (0.03830132421) was ~3.1e-6 too large (coarse-grid
+bisection artifact) and violated C3a; the corrected K=0.0382944246562725
+fixes it and the re-optimization still succeeds (2.55028 -> 2.77557).
+Recorded as NOTE #59. C3c (Lemma 14) remains a numerical grid check (not
+rigorous) => the result is NOTE-level, not NUMERIC, until C3c is done in Arb.
+
+NEXT (tick 291): rigorous (Arb C) verification of C3c (Lemma 14) for the
+corrected kappa — the binding gap for a NUMERIC claim. Arb C lib is at
+tracks/b-dbn/flint-pfx/ (libarb.so, include-v2 headers; use forced
+-include arb_mat.h per B-002). Also re-verify C3c grid for the corrected K.

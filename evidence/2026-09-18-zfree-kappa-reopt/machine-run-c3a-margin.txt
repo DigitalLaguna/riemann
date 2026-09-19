@@ -1,0 +1,13 @@
+--- K_used=0.03830132421 ---
+  kappa = 0.54237582944865
+  k0max = -0.0409978682665675  (bound -0.041)
+  C3a margin (k0max - (-0.041)) = 2.13173343253049e-6  C3a holds? False
+  A_final = 0.360276469795491  A_final < A0_max? True  (A0_max=0.392113247395366)
+  1/A_final = 2.7756461602
+--- K_red =0.0383013242  ---
+  kappa = 0.54237582943865
+  k0max = -0.0409978682804559  (bound -0.041)
+  C3a margin (k0max - (-0.041)) = 2.13171954408328e-6  C3a holds? False
+  A_final = 0.36027646980947  A_final < A0_max? True  (A0_max=0.392113247395366)
+  1/A_final = 2.7756461601
+=== VERDICT ===

@@ -1,0 +1,13 @@
+=== Corrected re-optimization ===
+K = 0.0382944246562725  (Kmax_fine=0.0382982544817207, frac 0.9999)
+kappa_6 = 0.0045342383931759
+kappa = 0.542368929894922  (required > 0.521015891482995: True)
+A_final = 0.36028611481004
+A0_max  = 0.392113247395366
+A_final < A0_max ? True
+effective constant = min(A_final,A0_max) = 0.36028611481004
+headline 1/A_final = 2.77557185496  (paper 2.55028364036)
+=== VERDICT ===
+CORRECTED RE-OPTIMIZATION SUCCEEDS (positive C3a margin)
+  new effective constant = 0.36028611481004 (was 0.392113247395366)
+  headline 1/A_final = 2.77557185496 (was 2.55028364036)
