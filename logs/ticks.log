@@ -278,3 +278,7 @@
 2026-09-19T01:48:01.708677+00:00 tick 278 ERROR 'utf-8' codec can't decode byte 0x89 in position 343: invalid start byte steps=15
 2026-09-19T02:19:01.697974+00:00 tick 279 model=qwen3.8-27b steps=25 wall=986s next=(a) TRACK C (tick 269): check (C3b) Lemma 13 + (C3c) Lemma 14 for modified
 2026-09-19T02:50:01.707317+00:00 tick 280 model=qwen3.8-27b steps=24 wall=1873s next=(a) TRACK C (tick 269): check (C3b) Lemma 13 + (C3c) Lemma 14 for modified
+2026-09-19T03:21:17.471287+00:00 tick 281 model=qwen3.8-27b steps=25 wall=451s next=(a) TRACK C (tick 269): check (C3b) Lemma 13 + (C3c) Lemma 14 for modified
+2026-09-19T03:52:01.701170+00:00 tick 282 ERROR 'utf-8' codec can't decode byte 0x89 in position 99: invalid start byte steps=21
+2026-09-19T04:23:01.699401+00:00 tick 283 ERROR 'utf-8' codec can't decode byte 0xf2 in position 0: invalid continuation byte steps=4
+2026-09-19T04:54:01.701058+00:00 tick 284 ERROR 'utf-8' codec can't decode byte 0x89 in position 99: invalid start byte steps=7
