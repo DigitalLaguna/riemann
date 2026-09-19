@@ -1,0 +1,5 @@
+kappa (modified) = 0.54237582944865
+grid 12x12 over mu in [0.911989,1], eta in (0,0.0071093]
+min (LHS - [C1+3.909eta+26eta^2-3897eta^3]) = 0.0005644338615
+at (mu,eta,LHS,RHS) = ('0.91198852', '0.0005924416667', '0.9966203687', '0.9960559348')
+Lemma14 lower bound holds on grid ?  True
