@@ -273,3 +273,6 @@
 2026-09-18T23:13:01.708866+00:00 tick 273 model=qwen3.8-27b steps=15 wall=1235s next=(a) TRACK C (tick 269): check (C3b) Lemma 13 + (C3c) Lemma 14 for modified
 2026-09-18T23:44:01.702249+00:00 tick 274 model=qwen3.8-27b steps=25 wall=396s next=(a) TRACK C (tick 269): check (C3b) Lemma 13 + (C3c) Lemma 14 for modified
 2026-09-19T00:15:01.708356+00:00 tick 275 model=qwen3.8-27b steps=25 wall=1138s next=(a) TRACK C (tick 269): check (C3b) Lemma 13 + (C3c) Lemma 14 for modified
+2026-09-19T00:46:01.705217+00:00 tick 276 model=qwen3.8-27b steps=25 wall=730s next=(a) TRACK C (tick 269): check (C3b) Lemma 13 + (C3c) Lemma 14 for modified
+2026-09-19T01:17:01.702251+00:00 tick 277 ERROR 'utf-8' codec can't decode byte 0xa1 in position 1442: invalid start byte steps=18
+2026-09-19T01:48:01.708677+00:00 tick 278 ERROR 'utf-8' codec can't decode byte 0x89 in position 343: invalid start byte steps=15

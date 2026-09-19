@@ -1,0 +1,6 @@
+pinned: hi = 0.376216048449719989  A0_g(hi) = 0.392113247395366278
+fulltotal min (PAPER kap)  = 3.53901500776e-19 at mu= 1.0  eta= 0.00151649
+fulltotal min (MODIFIED kap) = 1.43532668063e-7 at mu= 1.0  eta= 0.00151649
+A0_g(hi) > A_final(kappa_max)? True  (A0_g(hi)= 0.392113247395 )
+MODIFIED feasible at pinned point (fulltotal>=0)? True
+=> if feasible: A0_max_new >= A0_g(hi) = 0.392113247395 > A_final_max = 0.360276469795  => improvement VALID
