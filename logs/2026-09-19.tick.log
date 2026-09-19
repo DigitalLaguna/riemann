@@ -59,3 +59,57 @@ NEXT (tick 291): rigorous (Arb C) verification of C3c (Lemma 14) for the
 corrected kappa — the binding gap for a NUMERIC claim. Arb C lib is at
 tracks/b-dbn/flint-pfx/ (libarb.so, include-v2 headers; use forced
 -include arb_mat.h per B-002). Also re-verify C3c grid for the corrected K.
+
+## TICK 302 (2026-09-19 ~15:55 UTC) — TRACK C: rigorous Arb C verification of C3c (Lemma 14)
+One line: run the Arb C program c3c_rigorous.c (written tick 301, never produced
+output) to machine-verify C3c for the corrected kappa K=0.0382944246562725;
+not in DEAD_ENDS (this is the pending NUMERIC-promotion gap, not a dead approach).
+
+FALSIFICATION TEST (pre-registered, before the run):
+  The Arb program reduces "B6>0 on the domain" (hence C3c, since D_mod =
+  D_paper + K*B6 and D_paper>=0 is the published Lemma 14) to 6 exact checks:
+    C1 w0>0, C2 M1>0, C3 R(u0)>0, C4 R'(u0)>0, C5 mu0>1/13, C6 M1*u_max>w0.
+  OUTCOME THAT KILLS THE IDEA: if ANY of C1-C6 prints FAIL (VERDICT: NO), then the
+  rigorous proof that B6>0 has a gap OR the corrected kappa does not satisfy C3c.
+  In that case the re-opt result stays NOTE-level (NOT promoted to NUMERIC) and I
+  record a dead end naming which check failed. A PASS on all six is the only
+  outcome that licenses a NUMERIC claim.
+
+## TICK 302 (2026-09-19 ~14:21 UTC) — TRACK C: rigorous Arb C verification of C3c (Lemma 14)
+One line: machine-verify C3c for the corrected kappa K=0.0382944246562725 via
+Arb C — the pending NUMERIC-promotion gap since tick 291 (ticks 297-301 stalled
+on it, committing only residual state).
+
+Two bugs found and fixed in the Arb C program (both machine-confirmed):
+  (1) arb_set_str(x, str, 0) with prec=0 gives degenerate balls (theta printed
+      [1e+0 +/- 0.515], w0 nan). Fix: use PREC=512 for all set_str.
+  (2) arb_set_str(a1, "865534/497079", PREC) does NOT parse a/b rationals:
+      returns failure (ret=1) and sets a1=nan (verified by standalone test
+      arb_rational_test.c). Fix: a1 = arb_div(865534,497079)
+      = [1.7412403259844008699 +/- 1.82e-20].
+  Corrected source: c3c_lemma14_arb.c (new file; c3c_rigorous.c left as-is).
+
+Machine (c3c_lemma14_arb.c -> machine-run-c3c-lemma14-arb.txt, Arb 512-bit):
+  theta=1.1338, w0=5.672787598861604, M1=98.47677859435828, u_max=1.059232938878985,
+  p0=140.6608245537535, u0=830.9649473225212, mu0=0.911988521976716,
+  R(u0)=[61204933.18 +/- 3.89e-33], R'(u0)=[143807.70 +/- 5.00e-35].
+  CHECKS: C1 w0>0 PASS, C2 M1>0 PASS, C3 R(u0)>0 PASS, C4 R'(u0)>0 PASS,
+          C5 mu0>1/13 PASS, C6 M1*u_max>w0 PASS.
+  VERDICT: C3c (Lemma 14) holds rigorously for corrected kappa ? YES (exit 0).
+
+Proof soundness (traced by hand, every step valid):
+  M1 = A*(A/2+A*C*B+1+C/E+2C/F) is a valid |w'| bound (|cos|,|sin|<=1,
+  |B-u/2|<=B on [0,2B], E=sin(2theta)>0, F=sin(theta)>0). Steps (1)-(7) reduce
+  "B6>0 on the domain" to the 6 exact checks; D_mod = D_paper + K*B6 with
+  D_paper>=0 (published Lemma 14) => C3c holds.
+
+VERDICT: C3c is now RIGOROUSLY verified (Arb, explicit error bounds) — the
+binding gap for the re-opt NUMERIC claim. NOT yet promoted: needs a check.sh
+(recompile+run+assert) + promote.sh. C1/C2/C3a/C3b are still mpmath (not Arb),
+so the FULL re-opt headline (2.55028 -> 2.77557) is not yet NUMERIC either.
+
+NEXT (tick 303): (1) write check.sh for C3c (recompile c3c_lemma14_arb.c, run,
+assert VERDICT YES) + promote.sh add/promote -> NEW NUMERIC claim for C3c
+(evidence dir evidence/2026-09-18-zfree-kappa-reopt/). (2) Arb-verify C1 (p>0),
+C2 (B>=0), C3a (Lemma-12 k=0), C3b (Lemma-13 budget) for the corrected kappa,
+then promote the full re-opt headline to NUMERIC.

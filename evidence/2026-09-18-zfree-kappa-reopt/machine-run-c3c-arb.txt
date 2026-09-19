@@ -1,0 +1,22 @@
+=== c3c_rigorous.c Arb run, tick 302, 2026-09-19T14:16:23Z ===
+theta                      [1e+0 +/- 0.515]
+w0                         nan
+M1                         nan
+u_max                      [+/- 5.75]
+p0=1/eta0                  [2e+2 +/- 74.5]
+u0=6p0-13                  [1e+3 +/- 5.86e+2]
+mu0                        [+/- 1.39e+2]
+R(u0)                      nan
+R'(u0)                     nan
+vertex                     nan
+
+CHECKS:
+C1 w0>0            : FAIL
+C2 M1>0            : FAIL
+C3 R(u0)>0         : FAIL
+C4 R'(u0)>0        : FAIL
+C5 mu0>1/13        : FAIL
+C6 M1*u_max>w0     : FAIL
+
+VERDICT: C3c (Lemma 14) holds rigorously for corrected kappa ? NO
+program exit code: 1
