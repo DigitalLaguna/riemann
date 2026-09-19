@@ -113,3 +113,43 @@ assert VERDICT YES) + promote.sh add/promote -> NEW NUMERIC claim for C3c
 (evidence dir evidence/2026-09-18-zfree-kappa-reopt/). (2) Arb-verify C1 (p>0),
 C2 (B>=0), C3a (Lemma-12 k=0), C3b (Lemma-13 budget) for the corrected kappa,
 then promote the full re-opt headline to NUMERIC.
+
+## TICK 303 (2026-09-19 ~14:51 UTC) — TRACK C: C3c promotion (check.sh + NUMERIC)
+One line: close the C3c NUMERIC gap left by tick 302 — write check.sh
+(recompile c3c_lemma14_arb.c from source, run, assert VERDICT YES) and promote
+via promote.sh; not in DEAD_ENDS (pending promotion step, not a dead approach).
+
+FALSIFICATION TEST (pre-registered, before the run):
+  check.sh must recompile c3c_lemma14_arb.c from source (flint-pfx toolchain,
+  Arb 512-bit) and re-run it; if the recompiled binary does NOT print all 6
+  checks PASS + "VERDICT: ... ? YES" (check.sh exits nonzero), the C3c claim is
+  NOT machine-verified and must NOT be promoted (stays NOTE). Only a clean
+  check.sh exit 0 licenses the NUMERIC promotion.
+
+Machine (check.sh, recompile + run):
+  "PASS: C3c (Lemma 14) holds rigorously for corrected kappa (Arb 512-bit; all 6 checks PASS)"
+  exit 0. (Recompiled binary reproduces tick-302 output: R(u0)=[61204933.18 +/-
+  3.89e-33], all of C1-C6 PASS, VERDICT YES.)
+
+Machine (promote.sh):
+  add -> "NOTE #60: Track C: C3c (Lemma 14) holds rigorously for the corrected
+  kappa_m re-optimization ..."
+  promote 60 NUMERIC evidence/2026-09-18-zfree-kappa-reopt ->
+  "running checker: evidence/2026-09-18-zfree-kappa-reopt/check.sh"
+  "promoted #60: NOTE -> NUMERIC"
+
+VERDICT: C3c is now a NUMERIC claim (#60). Ledger: 60 rows, 37 NUMERIC.
+  The full re-opt headline (2.55028 -> 2.77557) is still NOT NUMERIC: C1 (p>0),
+  C2 (B>=0), C3a (Lemma-12 k=0), C3b (Lemma-13 budget) remain mpmath-only.
+
+D jobs (checked this tick, both alive, checkpointed, reboot-safe):
+  zero-scan-1e5.service: active (running) since 09-18 18:06 CEST,
+    "coarse 305000/999990 elapsed 80199s" (~30.5% done).
+  robin-full-1e12.service: active (running) since 09-18 18:06 CEST,
+    "subseg 2429: [342800000000,342900000000) running best_R=0.975505922736
+    at n=160626866400 (81397.8s)" (~27% done).
+
+NEXT (tick 304): TRACK C — Arb-verify C1 (p(x)>0 on (0,1]) for the corrected
+kappa (degree-6 polynomial p = sum kappa_m x^m, kappa_6 = -29/859 + K,
+K=0.0382944246562725; interval-Horner partition of (0,1], all enclosures > 0),
+then C2 (B(y)>=0), C3a, C3b, then promote the full re-opt headline to NUMERIC.
