@@ -72,8 +72,7 @@ int main(void) {
     /* mu0 = (1-sigma0)/eta0 - 1e-10 */
     arb_sub(tmp, one, sigma0, PREC);        /* 1-sigma0 */
     arb_div(tmp, tmp, eta0, PREC);          /* (1-sigma0)/eta0 */
-    arb_sub(mu0, tmp, tmp2, PREC);          /* placeholder */
-    /* do the -1e-10 properly */
+    /* mu0 = (1-sigma0)/eta0 - 1e-10 */
     arb_set_str(tmp2, "1e-10", 0);
     arb_sub(mu0, tmp, tmp2, PREC);
 
@@ -169,8 +168,12 @@ int main(void) {
     arb_div(tmp, one, thirteen, PREC);      /* 1/13 */
     int c5ok = arb_gt(mu0, tmp);
     printf("C5 mu0>1/13        : %s\n", c5ok ? "PASS" : "FAIL");
+    /* C6: M1*u_max > w0  (validates step (3) W(s)>=w0/s-M1/s^2 for all s>0) */
+    arb_mul(tmp, M1, umax, PREC);
+    int c6ok = arb_gt(tmp, w0);
+    printf("C6 M1*u_max>w0     : %s\n", c6ok ? "PASS" : "FAIL");
 
-    ok = c1ok && c2ok && c3ok && c4ok && c5ok;
+    ok = c1ok && c2ok && c3ok && c4ok && c5ok && c6ok;
     printf("\nVERDICT: C3c (Lemma 14) holds rigorously for corrected kappa ? %s\n",
            ok ? "YES" : "NO");
 
