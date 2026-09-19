@@ -302,3 +302,6 @@
 2026-09-19T14:12:01.702123+00:00 tick 302 model=qwen3.8-27b steps=25 wall=971s next=(a) TRACK C (tick 303): write check.sh for C3c (recompile c3c_lemma14_arb.c,
 2026-09-19T14:43:01.699748+00:00 tick 303 model=qwen3.8-27b steps=25 wall=592s next=(a) TRACK C (tick 304): Arb-verify C1 (p(x)>0 on (0,1]) for the corrected
 2026-09-19T15:14:01.699495+00:00 tick 304 model=qwen3.8-27b steps=25 wall=527s next=(a) TRACK C (tick 304): Arb-verify C1 (p(x)>0 on (0,1]) for the corrected
+2026-09-19T15:45:01.699495+00:00 tick 305 model=qwen3.8-27b steps=25 wall=982s next=(a) TRACK C (tick 304): Arb-verify C1 (p(x)>0 on (0,1]) for the corrected
+2026-09-19T16:16:01.705055+00:00 tick 306 ERROR 'utf-8' codec can't decode byte 0x89 in position 269: invalid start byte steps=5
+2026-09-19T16:47:01.699471+00:00 tick 307 ERROR 'utf-8' codec can't decode byte 0x89 in position 154: invalid start byte steps=6
