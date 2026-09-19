@@ -1,0 +1,16 @@
+w0            = 5.67278759886
+w1=w'(0)     = 4.4766143266e-50
+W2 (rig ub)  = 245.9863617
+num int|w''| = 19.06820938  (<= W2 ? True )
+eta_lo = 0.002980625931
+grid min LB (eta in [eta_lo,eta0]) = 0.006081094875 at (mu,eta)= ('0.91198852', '0.002980625931')
+LB_small(x3=2000.0) = 0.001824324
+LB_small(x3=3000.0) = 0.001278021476
+LB_small(x3=5000.0) = 0.0007964795931
+LB_small(x3=10000.0) = 0.0004093648348
+LB_small(x3=100000.0) = 4.193773862e-5
+LB_small(x3=1.0e+6) = 4.203786422e-6
+=== VERDICT ===
+grid part min LB > 0 ? True
+small-eta part LB > 0 ? True
+D14 >= 0 for all (mu,eta) in domain ? True
