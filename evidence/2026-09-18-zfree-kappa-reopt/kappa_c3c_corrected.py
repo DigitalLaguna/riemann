@@ -44,7 +44,7 @@ print("K (corrected)  =", mp.nstr(K,17))
 print("kappa (modified) =", mp.nstr(kap,17))
 print("mu0 =", mp.nstr(mu0,10), " eta0 =", eta0)
 # ---- fine grid over mu in [mu0,1], eta in (0,eta0] ----
-Nmu=Neta=40
+Nmu=Neta=20
 minD=mp.mpf('inf'); minpt=None
 for i in range(Nmu+1):
     mu = mu0 + (1-mu0)*mp.mpf(i)/Nmu
