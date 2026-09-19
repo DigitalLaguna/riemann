@@ -1,0 +1,18 @@
+=== Re-optimization verification ===
+kap_paper = 0.50407450523865
+kap_new   = 0.54237582944865  (kappa_6 = 0.00454113794690338)
+A_final(paper) = 0.420483467793734  (target 0.420483467794)
+A_final(new)   = 0.360276469795491
+A0_max         = 0.392113247395366
+
+A_final(new) < A0_max ? True
+improvement: A0_max - A_final(new) = 0.031836777599875
+relative improvement: 0.0811928
+
+effective region constant (new) = min(A_final(new), A0_max) = 0.360276469795491
+effective region constant (paper) = min(A_final(paper), A0_max) = 0.392113247395366
+
+=== VERDICT ===
+RE-OPTIMIZATION SUCCEEDS: A_final(new) < A0_max
+  new effective constant = 0.360276469795491 (was 0.392113247395366)
+  headline 1/A_final(new) = 2.7756461602 (was 2.55028364036)

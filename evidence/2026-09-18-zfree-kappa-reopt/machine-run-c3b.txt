@@ -1,5 +1,41 @@
-paper kappa: k0max = -0.0941935881831  (paper bound -0.041)
-Kmax (Lemma12 k=0 only) = 0.03830132421
-kappa at Kmax = 0.542375829445
-kappa_required = 0.521015891482995
-kappa at Kmax > kappa_required ? True
+=== Lemma 13 (C3b) budget check: a*sum(positive kappa_m) <= 10 ===
+
+--- paper kappa (K=0) ---
+[paper] K=0.0  kappa_6=-0.0337601862631
+  sum_pos = 2.13969732246799
+  a = 3.52441805024956
+  budget = a*sum_pos = 7.54118786537682  (need <= 10)
+  budget <= 10 ? True   margin = 2.45881213462318
+  kappa = 0.50407450523865  (need > 0.521015891482995)
+  kappa > kappa_req ? False
+
+--- K = Kmax_c3a (C3a binding limit) ---
+[Kmax_c3a] K=0.03830132421  kappa_6=0.0045411379469
+  sum_pos = 2.14423846041489
+  a = 3.52441805024956
+  budget = a*sum_pos = 7.55719273392556  (need <= 10)
+  budget <= 10 ? True   margin = 2.44280726607444
+  kappa = 0.54237582944865  (need > 0.521015891482995)
+  kappa > kappa_req ? True
+
+--- K = 0.017 (mid-range) ---
+[K=0.017] K=0.017  kappa_6=-0.0167601862631
+  sum_pos = 2.13969732246799
+  a = 3.52441805024956
+  budget = a*sum_pos = 7.54118786537682  (need <= 10)
+  budget <= 10 ? True   margin = 2.45881213462318
+  kappa = 0.52107450523865  (need > 0.521015891482995)
+  kappa > kappa_req ? True
+
+--- K = 0.038 (just below C3a limit) ---
+[K=0.038] K=0.038  kappa_6=0.0042398137369
+  sum_pos = 2.14393713620489
+  a = 3.52441805024956
+  budget = a*sum_pos = 7.55613074144086  (need <= 10)
+  budget <= 10 ? True   margin = 2.44386925855914
+  kappa = 0.54207450523865  (need > 0.521015891482995)
+  kappa > kappa_req ? True
+
+=== VERDICT ===
+(C3b) Lemma 13 satisfied at K=Kmax_c3a ? True
+=> (C3b) does NOT kill the idea (budget has margin 2.44280726607)
