@@ -1,0 +1,5 @@
+N = 256 subintervals, PREC = 512 bits
+kappa_6 = [0.00453423839317587601862630966240 +/- 1.87e-33]
+rigorous min enclosure = [0.54 +/- 5.63e-3]
+min enclosure > 0 ? YES
+VERDICT: C1 (Lemma 3) p(x)>0 on (0,1] for corrected kappa ? YES

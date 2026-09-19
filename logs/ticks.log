@@ -300,3 +300,4 @@
 2026-09-19T13:10:01.702814+00:00 tick 300 model=qwen3.8-27b steps=25 wall=554s next=(a) TRACK C (tick 291): rigorous (Arb C) verification of C3c (Lemma 14) for the
 2026-09-19T13:41:01.699552+00:00 tick 301 model=qwen3.8-27b steps=26 wall=511s next=(a) TRACK C (tick 291): rigorous (Arb C) verification of C3c (Lemma 14) for the
 2026-09-19T14:12:01.702123+00:00 tick 302 model=qwen3.8-27b steps=25 wall=971s next=(a) TRACK C (tick 303): write check.sh for C3c (recompile c3c_lemma14_arb.c,
+2026-09-19T14:43:01.699748+00:00 tick 303 model=qwen3.8-27b steps=25 wall=592s next=(a) TRACK C (tick 304): Arb-verify C1 (p(x)>0 on (0,1]) for the corrected
